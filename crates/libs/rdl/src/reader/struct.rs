@@ -35,6 +35,7 @@ pub struct Enclosing<'a> {
     outer: metadata::writer::TypeDef,
     arch: Option<i32>,
     name: &'a str,
+    anonymous: Option<i32>,
 }
 
 impl Encoder<'_> {
@@ -98,15 +99,73 @@ impl Encoder<'_> {
         // Nested records inherit the parent's architecture omitted from RDL.
         let effective_arch = self.read_arch(attrs)?.or(enclosing.and_then(|e| e.arch));
         self.apply_record_attrs(type_def, attrs, effective_arch)?;
+        let mut anonymous = None;
+        for attr in attrs
+            .iter()
+            .filter(|attr| attr.path().is_ident("anonymous"))
+        {
+            if anonymous.is_some() || enclosing.is_none() || winrt {
+                return self.err(
+                    attr,
+                    "anonymous provenance requires one attribute on a nested Win32 record",
+                );
+            }
+            let index = attr
+                .parse_args::<syn::LitInt>()
+                .and_then(|value| value.base10_parse::<i32>())
+                .map_err(|_| {
+                    self.error(
+                        attr,
+                        "anonymous provenance requires a nonnegative field position",
+                    )
+                })?;
+            if index < 0 {
+                return self.err(
+                    attr,
+                    "anonymous provenance requires a nonnegative field position",
+                );
+            }
+            if enclosing
+                .and_then(|owner| owner.anonymous)
+                .is_some_and(|implicit| implicit != index)
+            {
+                return self.err(
+                    attr,
+                    "anonymous position differs from the inline field position",
+                );
+            }
+            anonymous = Some(index);
+        }
+        if !winrt && let Some(index) = enclosing.and_then(|owner| owner.anonymous) {
+            anonymous = Some(index);
+        }
+        if let Some(index) = anonymous {
+            self.encode_named_attribute(
+                metadata::writer::HasAttribute::TypeDef(type_def),
+                &attribute_ref::AttributeRef {
+                    type_name: metadata::TypeName::named(
+                        METADATA_NAMESPACE,
+                        "NativeAnonymousAttribute",
+                    ),
+                    args: vec![(String::new(), metadata::Value::I32(index))],
+                },
+            );
+        }
 
         // Defer nested TypeDefs until this record's FieldList is complete.
-        let mut deferred: Vec<(String, &NestedRecord)> = body
+        let mut deferred: Vec<(String, &NestedRecord, Option<i32>)> = body
             .records
             .iter()
-            .map(|record| (record.name.as_ref().unwrap().unraw_to_string(), record))
+            .map(|record| {
+                (
+                    record.name.as_ref().unwrap().unraw_to_string(),
+                    record,
+                    None,
+                )
+            })
             .collect();
         let mut nested_names = HashSet::new();
-        for (name, record) in &deferred {
+        for (name, record, _) in &deferred {
             if !nested_names.insert(name.clone()) {
                 return self.err(record.name.as_ref().unwrap(), "duplicate nested type name");
             }
@@ -128,6 +187,28 @@ impl Encoder<'_> {
                 return self.err(attr, "record constants inherit the record's architecture");
             }
         }
+        let extent_names: Vec<_> = fields
+            .iter()
+            .map(|field| field.name.unraw_to_string())
+            .collect();
+        let extent_names: Vec<_> = extent_names.iter().map(String::as_str).collect();
+        let extent_types = if fields.iter().any(|field| {
+            field.attrs.iter().any(|attr| {
+                attr.path().is_ident("readable")
+                    || attr.path().is_ident("writable")
+                    || attr.path().is_ident("range")
+            })
+        }) {
+            fields
+                .iter()
+                .map(|field| match &field.ty {
+                    FieldType::Type(ty) => self.encode_type(ty),
+                    FieldType::Nested(_) => Ok(metadata::Type::Void),
+                })
+                .collect::<Result<Vec<_>, _>>()?
+        } else {
+            vec![]
+        };
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();
             let mt = match &field.ty {
@@ -150,7 +231,13 @@ impl Encoder<'_> {
                         self.namespace,
                         &format!("{full_name}/{child_name}"),
                     );
-                    deferred.push((child_name, rec));
+                    let index = index.try_into().map_err(|_| {
+                        self.error(
+                            &field.name,
+                            "anonymous field position exceeds metadata limits",
+                        )
+                    })?;
+                    deferred.push((child_name, rec, Some(index)));
                     mt
                 }
             };
@@ -160,24 +247,48 @@ impl Encoder<'_> {
             if is_union {
                 self.output.FieldLayout(field_id, 0);
             }
+            self.encode_buffer_extents(
+                metadata::writer::HasAttribute::Field(field_id),
+                &field.attrs,
+                &extent_names,
+                true,
+                attribute_ref::ExtentTypes {
+                    counts: &extent_types,
+                    subject: &mt,
+                    result: None,
+                },
+            )?;
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
                 &field.attrs,
-                &[],
+                &["readable", "writable", "nullable", "range"],
             )?;
 
             // Anonymous padding advances the bit offset but emits no attribute.
             let mut bit_offset = 0u32;
             for member in &field.bitfields {
+                let next_offset = bit_offset
+                    .checked_add(member.width)
+                    .ok_or_else(|| self.error(&field.name, "bitfield offset exceeds u32"))?;
                 if let Some(name) = &member.name {
+                    let member_type = member
+                        .ty
+                        .as_ref()
+                        .map(|ty| {
+                            self.encode_type(ty)?.type_name().ok_or_else(|| {
+                                self.error(ty, "expected a primitive or nongeneric bitfield type")
+                            })
+                        })
+                        .transpose()?;
                     self.emit_bitfield_attribute(
                         metadata::writer::HasAttribute::Field(field_id),
-                        &name.unraw_to_string(),
+                        name,
                         bit_offset,
                         member.width,
+                        member_type,
                     );
                 }
-                bit_offset += member.width;
+                bit_offset = next_offset;
             }
         }
 
@@ -195,15 +306,19 @@ impl Encoder<'_> {
             outer: type_def,
             arch: effective_arch,
             name: &full_name,
+            anonymous: None,
         };
-        for (child_name, rec) in deferred {
+        for (child_name, rec, anonymous) in deferred {
             self.encode_record(
                 &child_name,
                 winrt,
                 rec.is_union,
                 &rec.body,
                 &rec.attrs,
-                Some(enclosing),
+                Some(Enclosing {
+                    anonymous,
+                    ..enclosing
+                }),
             )?;
         }
 
@@ -231,7 +346,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(type_def),
             attrs,
-            &["packed", "align"],
+            &["packed", "align", "anonymous"],
         )
     }
 }

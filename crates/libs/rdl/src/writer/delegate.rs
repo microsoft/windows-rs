@@ -15,14 +15,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     let return_type = write_return_type(namespace, &method, &signature)?;
     let params = write_params(namespace, &method, signature.types)?;
 
-    let guid_token = match delegate_guid_output(item, &generics)? {
-        GuidOutput::None => quote! { #[no_guid] },
-        GuidOutput::Omit => quote! {},
-        GuidOutput::Explicit(d1, d2, d3, d4) => {
-            let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
-            quote! { #[guid(#lit)] }
-        }
-    };
+    let guid_token = write_guid_attribute(item)?;
     let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),

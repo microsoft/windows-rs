@@ -8,10 +8,29 @@ pub struct Param {
 }
 
 impl Encoder<'_> {
+    pub fn validate_winrt_param(
+        &self,
+        syntax: &syn::PatType,
+        param: &Param,
+        method: &str,
+    ) -> Result<(), Error> {
+        if param.attributes.contains(metadata::ParamAttributes::In)
+            == param.attributes.contains(metadata::ParamAttributes::Out)
+        {
+            return self.err(
+                &syntax.pat,
+                &format!(
+                    "WinRT parameter `{}.{}.{method}.{}` requires exactly one of #[in] or #[out]",
+                    self.namespace, self.name, param.name
+                ),
+            );
+        }
+        self.validate_type_is_winrt(&syntax.ty, &param.ty)
+    }
+
     fn parse_param_attributes(
         &mut self,
         attrs: &[syn::Attribute],
-        ty: &metadata::Type,
     ) -> Result<metadata::ParamAttributes, Error> {
         let mut attributes = metadata::ParamAttributes::default();
 
@@ -34,16 +53,6 @@ impl Encoder<'_> {
             }
         }
 
-        if !attributes.contains(metadata::ParamAttributes::Out)
-            && !attributes.contains(metadata::ParamAttributes::In)
-        {
-            if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)) {
-                attributes |= metadata::ParamAttributes::Out;
-            } else {
-                attributes |= metadata::ParamAttributes::In;
-            }
-        }
-
         Ok(attributes)
     }
 
@@ -54,7 +63,7 @@ impl Encoder<'_> {
 
         let name = name.ident.unraw_to_string();
         let ty = self.encode_type(&param.ty)?;
-        let attributes = self.parse_param_attributes(&param.attrs, &ty)?;
+        let attributes = self.parse_param_attributes(&param.attrs)?;
 
         Ok(Param {
             name,
@@ -70,7 +79,7 @@ impl Encoder<'_> {
         };
 
         let ty = self.encode_type(&param.ty)?;
-        let attributes = self.parse_param_attributes(&param.attrs, &ty)?;
+        let attributes = self.parse_param_attributes(&param.attrs)?;
 
         Ok(Param {
             name: name.unraw_to_string(),
@@ -80,21 +89,65 @@ impl Encoder<'_> {
         })
     }
 
-    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
+    pub fn encode_return_attrs(
+        &mut self,
+        return_attrs: &[syn::Attribute],
+        result: &metadata::Type,
+        params: &[Param],
+    ) -> Result<(), Error> {
         if !return_attrs.is_empty() {
+            let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
+            let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
             let param_id = self
                 .output
                 .Param("", 0, metadata::ParamAttributes::default());
+            for attr in return_attrs {
+                if attr.path().is_ident("range") {
+                    let range = integer_range::parse_integer_range(attr, &names, false)
+                        .map_err(|error| self.error(error.span(), &error.to_string()))?;
+                    if range.phase != metadata::BufferPhase::Success || range.indirect {
+                        return self.err(
+                            attr,
+                            "return range requires success phase without indirection",
+                        );
+                    }
+                    self.encode_integer_range(
+                        metadata::writer::HasAttribute::Param(param_id),
+                        attr,
+                        &names,
+                        &attribute_ref::ExtentTypes {
+                            counts: &types,
+                            subject: result,
+                            result: Some(result),
+                        },
+                        &range,
+                    )?;
+                } else if attr.path().is_ident("nullable") {
+                    self.emit_value_nullable(
+                        metadata::writer::HasAttribute::Param(param_id),
+                        attr,
+                        result,
+                    )?;
+                } else if attr.path().is_ident("null_terminated") {
+                    return self.err(attr, "termination phases require a parameter owner");
+                }
+            }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 return_attrs,
-                &[],
+                &["nullable", "range"],
             )?;
         }
         Ok(())
     }
 
-    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
+    pub fn encode_params(
+        &mut self,
+        params: &[Param],
+        result: &metadata::Type,
+    ) -> Result<(), Error> {
+        let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
+        let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
         for (sequence, param) in params.iter().enumerate() {
             let param_id = self.output.Param(
                 &param.name,
@@ -116,7 +169,18 @@ impl Encoder<'_> {
                 }
             }
 
-            let mut skip: Vec<&str> = vec!["r#in", "out", "opt"];
+            self.encode_buffer_extents(
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &names,
+                false,
+                attribute_ref::ExtentTypes {
+                    counts: &types,
+                    subject: &param.ty,
+                    result: Some(result),
+                },
+            )?;
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "readable", "writable", "range"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
@@ -127,21 +191,14 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub fn encode_simple_params(
-        &mut self,
-        params: &[(&str, &metadata::Type)],
-    ) -> Result<(), Error> {
-        for (sequence, (name, ty)) in params.iter().enumerate() {
-            let attributes = if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-            {
-                metadata::ParamAttributes::Out
-            } else {
-                metadata::ParamAttributes::In
-            };
-            self.output
-                .Param(name, (sequence + 1).try_into().unwrap(), attributes);
+    pub fn encode_input_params(&mut self, params: &[&str]) {
+        for (sequence, name) in params.iter().enumerate() {
+            self.output.Param(
+                name,
+                (sequence + 1).try_into().unwrap(),
+                metadata::ParamAttributes::In,
+            );
         }
-        Ok(())
     }
 
     pub fn collect_params(&mut self, sig: &syn::Signature) -> Result<Vec<Param>, Error> {

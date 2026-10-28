@@ -21,6 +21,7 @@ mod union;
 
 use super::*;
 use attribute::*;
+use attribute_ref::GuidMode;
 use callback::*;
 use class::*;
 use r#const::*;
@@ -293,6 +294,44 @@ impl Reader {
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        ns.types
+            .keys()
+            .chain(ns.functions.keys())
+            .chain(ns.constants.keys())
+            .cloned()
+            .collect()
+    })
+}
+
+pub(crate) fn enum_member_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        let mut names = Vec::new();
+        for variants in ns.types.values() {
+            for (_, item) in variants {
+                if let Item::Enum(item) = item {
+                    names.extend(
+                        item.variants
+                            .iter()
+                            .map(|member| member.ident.unraw_to_string()),
+                    );
+                }
+            }
+        }
+        names.sort();
+        names.dedup();
+        names
+    })
+}
+
+fn read_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+    names: impl FnOnce(&Namespace<'_>) -> Vec<String>,
+) -> Result<Vec<String>, Error> {
     let path = path.as_ref().to_path_buf();
     let input = expand_rdl_files(std::slice::from_ref(&path), &[])?;
     let mut index = Index::new();
@@ -301,13 +340,11 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
             index.insert(file, "", item);
         }
     }
-    let mut names = vec![];
-    if let Some(ns) = index.namespaces.get(namespace) {
-        names.extend(ns.types.keys().cloned());
-        names.extend(ns.functions.keys().cloned());
-        names.extend(ns.constants.keys().cloned());
-    }
-    Ok(names)
+    Ok(index
+        .namespaces
+        .get(namespace)
+        .map(names)
+        .unwrap_or_default())
 }
 
 /// Rewrites RDL tokens that would otherwise confuse `syn`.
@@ -1073,6 +1110,19 @@ impl Encoder<'_> {
     }
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
+        if ty.segments.len() == 1 && ty.segments[0].ident == "ptr64" {
+            if let syn::PathArguments::AngleBracketed(arguments) = &ty.segments[0].arguments
+                && arguments.args.len() == 1
+                && let Some(syn::GenericArgument::Type(syn::Type::Ptr(pointer))) =
+                    arguments.args.first()
+            {
+                return Ok(metadata::Type::Ptr64(
+                    Box::new(self.encode_type(&pointer.elem)?),
+                    pointer.const_token.is_some(),
+                ));
+            }
+            return self.err(ty, "ptr64 requires one explicit pointer type argument");
+        }
         let mut path = vec![];
         // Nested type names are indexed without raw identifier prefixes.
         let mut unraw = vec![];
@@ -1296,6 +1346,9 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<(), Error> {
         match ty {
+            metadata::Type::Ptr64(..) => {
+                return self.err(span, "fixed-width pointers require Win32 metadata");
+            }
             metadata::Type::FnPtr(_) => {
                 return self.err(span, "function pointers require Win32 metadata");
             }

@@ -143,6 +143,11 @@ impl Encoder<'_> {
 
             self.output
                 .Constant(metadata::writer::HasConstant::Field(field), &value);
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Field(field),
+                &variant.attrs,
+                &[],
+            )?;
         }
 
         Ok(())

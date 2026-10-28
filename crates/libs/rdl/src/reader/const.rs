@@ -138,6 +138,13 @@ impl Encoder<'_> {
         item: &Const,
         name: &str,
     ) -> Result<(), Error> {
+        if let Some(attr) = item
+            .attrs
+            .iter()
+            .find(|attr| attr.path().is_ident("guid") || self.is_guid_attribute(attr))
+        {
+            return self.err(attr, "GUID constants specify their GUID in the initializer");
+        }
         let expr = item
             .expr
             .as_ref()
@@ -158,6 +165,15 @@ impl Encoder<'_> {
             d3,
             d4,
         );
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::Field(field),
+            &item.attrs,
+            &[],
+        )?;
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::Field(field), arch_bits);
+        }
 
         Ok(())
     }

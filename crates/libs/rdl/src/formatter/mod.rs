@@ -1,6 +1,7 @@
 use proc_macro2::{Delimiter, Group, Spacing, TokenStream, TokenTree};
 
-/// Formats RDL source into canonical indented form.
+/// Formats RDL source with indentation and alphabetically ordered attribute names.
+/// Repeated attributes retain their relative order.
 pub fn format(input: &str) -> String {
     let stream: TokenStream = input.parse().unwrap_or_default();
     let tokens: Vec<TokenTree> = stream.into_iter().collect();
@@ -15,11 +16,7 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
 
     while i < tokens.len() {
         // Detect outer attribute: `#` followed by a `[...]` group.
-        if let TokenTree::Punct(p) = &tokens[i]
-            && p.as_char() == '#'
-            && let Some(TokenTree::Group(g)) = tokens.get(i + 1)
-            && g.delimiter() == Delimiter::Bracket
-        {
+        if attribute(&tokens[i..]).is_some() {
             // An attribute that immediately follows `->` is a return-type
             // attribute and must stay inline (e.g. `-> #[Const] *const u8`).
             // An attribute that immediately follows `: ` is in type position
@@ -28,17 +25,43 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
             let after_arrow = output.ends_with("-> ");
             let after_colon = output.ends_with(": ");
             let treat_inline = inline || after_arrow || after_colon;
-            if !treat_inline && at_line_start(output) {
-                push_indent(output, indent);
+            let mut attributes = Vec::new();
+            while let Some(group) = attribute(&tokens[i..]) {
+                let name: String = group
+                    .stream()
+                    .into_iter()
+                    .take_while(|token| match token {
+                        TokenTree::Ident(_) => true,
+                        TokenTree::Punct(p) => p.as_char() == ':',
+                        _ => false,
+                    })
+                    .map(|token| token.to_string().trim_start_matches("r#").to_string())
+                    .collect();
+                let mut text = String::new();
+                format_attribute(group, &mut text);
+                attributes.push((name, text));
+                i += 2;
             }
-            format_attribute(g, output);
-            if treat_inline {
-                output.push(' ');
-            } else {
-                output.push('\n');
+            attributes.sort_by(|left, right| left.0.cmp(&right.0));
+            for (_, text) in attributes {
+                if !treat_inline && at_line_start(output) {
+                    push_indent(output, indent);
+                }
+                output.push_str(&text);
+                output.push(if treat_inline { ' ' } else { '\n' });
             }
-            i += 2;
             continue;
+        }
+
+        fn attribute(tokens: &[TokenTree]) -> Option<&Group> {
+            match tokens.get(..2)? {
+                [TokenTree::Punct(p), TokenTree::Group(g)]
+                    if p.as_char() == '#' && g.delimiter() == Delimiter::Bracket =>
+                {
+                    Some(g)
+                }
+                _ => None,
+            }
         }
 
         if !inline && at_line_start(output) {
@@ -174,9 +197,63 @@ fn format_attribute(g: &Group, output: &mut String) {
         output.push_str("in]");
         return;
     }
+    // Predicate arguments are expressions, not type arguments or named attribute properties.
+    if let [TokenTree::Ident(name), TokenTree::Group(args)] = inner.as_slice()
+        && name == "success"
+        && args.delimiter() == Delimiter::Parenthesis
+    {
+        output.push_str("success(");
+        output.push_str(&args.stream().to_string());
+        output.push_str(")]");
+        return;
+    }
+    if let [TokenTree::Ident(name), TokenTree::Group(args)] = inner.as_slice()
+        && matches!(name.to_string().as_str(), "range" | "readable" | "writable")
+        && args.delimiter() == Delimiter::Parenthesis
+    {
+        output.push_str(&name.to_string());
+        output.push('(');
+        format_expression(args.stream(), output);
+        output.push_str(")]");
+        return;
+    }
     format_seq(&inner, output, 0, true);
     trim_space(output);
     output.push(']');
+}
+
+fn format_expression(stream: TokenStream, output: &mut String) {
+    let mut operand = false;
+    for token in stream {
+        match &token {
+            TokenTree::Ident(_) | TokenTree::Literal(_) => {
+                if operand {
+                    output.push(' ');
+                }
+                output.push_str(&token.to_string());
+                operand = true;
+            }
+            TokenTree::Group(group) if group.delimiter() == Delimiter::Parenthesis => {
+                output.push('(');
+                format_expression(group.stream(), output);
+                output.push(')');
+                operand = true;
+            }
+            TokenTree::Punct(punct) => {
+                match punct.as_char() {
+                    ',' => output.push_str(", "),
+                    '+' | '-' | '*' if operand => {
+                        output.push(' ');
+                        output.push(punct.as_char());
+                        output.push(' ');
+                    }
+                    _ => output.push(punct.as_char()),
+                }
+                operand = false;
+            }
+            _ => output.push_str(&token.to_string()),
+        }
+    }
 }
 
 fn at_line_start(output: &str) -> bool {

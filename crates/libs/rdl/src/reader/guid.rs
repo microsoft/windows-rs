@@ -163,6 +163,7 @@ pub fn type_to_string(ty: &Type) -> String {
         }
         Type::PtrMut(inner, depth) => format!("PtrMut({},{})", type_to_string(inner), depth),
         Type::PtrConst(inner, depth) => format!("PtrConst({},{})", type_to_string(inner), depth),
+        Type::Ptr64(inner, constant) => format!("Ptr64({},{constant})", type_to_string(inner)),
         Type::RefMut(inner) => format!("RefMut({})", type_to_string(inner)),
         Type::RefConst(inner) => format!("RefConst({})", type_to_string(inner)),
         Type::Array(inner) => format!("Array({})", type_to_string(inner)),

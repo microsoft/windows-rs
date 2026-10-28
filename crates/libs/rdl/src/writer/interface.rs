@@ -22,14 +22,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
         quote! { : #(#ifaces)+* }
     };
 
-    let guid_token = match interface_guid_output(item, &generics)? {
-        GuidOutput::None => quote! { #[no_guid] },
-        GuidOutput::Omit => quote! {},
-        GuidOutput::Explicit(d1, d2, d3, d4) => {
-            let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
-            quote! { #[guid(#lit)] }
-        }
-    };
+    let guid_token = write_guid_attribute(item)?;
     let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
