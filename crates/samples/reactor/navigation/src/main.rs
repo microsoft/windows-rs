@@ -410,6 +410,7 @@ fn main() {
 mod tests {
     use super::*;
     use std::time::Instant;
+    use windows_reactor::test::*;
 
     fn host(shared: &Rc<SharedApp>, role: WindowRole) -> ComponentHost<RecordingAdapter> {
         ComponentHost::mount(

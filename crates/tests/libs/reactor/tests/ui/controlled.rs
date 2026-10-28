@@ -312,11 +312,17 @@ fn churned_values_settle_without_reports() -> Result<()> {
     process::run("controlled-churn", |ui| {
         ui.invoke("churn")?;
         ui.name("mode", "churning")?;
-        std::thread::sleep(Duration::from_millis(500));
-        let calls = settle(ui)?;
-        assert_eq!(calls, "");
-        let ticks = element_name(ui, "ticks")?.parse::<u32>().unwrap();
-        assert!(ticks >= 10, "churn ran only {ticks} ticks");
+        let ticks = ui.element("ticks")?;
+        ui.wait(
+            "churn runs at least 10 ticks",
+            || unsafe { ticks.CurrentName() },
+            |name| {
+                String::from_utf16_lossy(name)
+                    .parse::<u32>()
+                    .is_ok_and(|ticks| ticks >= 10)
+            },
+        )?;
+        assert_eq!(settle(ui)?, "");
         Ok(())
     })
 }

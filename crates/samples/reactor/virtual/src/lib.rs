@@ -1,6 +1,8 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Duration;
+#[cfg(any(test, feature = "perf"))]
+use windows_reactor::test::*;
 use windows_reactor::*;
 
 const INITIAL_TASKS: usize = 100;

@@ -369,8 +369,8 @@ mod tests {
 
     #[test]
     fn reorder_preserves_row_identity_and_selection_updates_details() {
-        let mut host = reactor::ComponentHost::mount(
-            reactor::RecordingAdapter::default(),
+        let mut host = reactor::test::ComponentHost::mount(
+            reactor::test::RecordingAdapter::default(),
             [reactor::component::<Explorer>("explorer", ())],
         );
         let projects_path = path("explorer", "row:projects");
@@ -404,9 +404,9 @@ mod tests {
                 .properties(details)
                 .unwrap()
                 .iter()
-                .find(|property| property.id == reactor::PropertyId::Text)
+                .find(|property| property.id == reactor::test::PropertyId::Text)
                 .map(|property| &property.value),
-            Some(&reactor::PropertyValue::String(Rc::from(
+            Some(&reactor::test::PropertyValue::String(Rc::from(
                 "Selected node: projects"
             )))
         );
@@ -414,8 +414,8 @@ mod tests {
 
     #[test]
     fn filtering_retires_rows_and_rejects_stale_messages() {
-        let mut host = reactor::ComponentHost::mount(
-            reactor::RecordingAdapter::default(),
+        let mut host = reactor::test::ComponentHost::mount(
+            reactor::test::RecordingAdapter::default(),
             [reactor::component::<Explorer>("explorer", ())],
         );
         let projects_path = path("explorer", "row:projects");

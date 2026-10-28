@@ -571,9 +571,9 @@ mod tests {
     use std::sync::Arc;
     use std::sync::atomic::{AtomicUsize, Ordering};
 
-    fn mount() -> reactor::ComponentHost<reactor::RecordingAdapter> {
-        reactor::ComponentHost::mount(
-            reactor::RecordingAdapter::default(),
+    fn mount() -> reactor::test::ComponentHost<reactor::test::RecordingAdapter> {
+        reactor::test::ComponentHost::mount(
+            reactor::test::RecordingAdapter::default(),
             [reactor::component::<Workbench>("workbench", ())],
         )
     }
@@ -583,7 +583,7 @@ mod tests {
     }
 
     fn text(
-        host: &reactor::ComponentHost<reactor::RecordingAdapter>,
+        host: &reactor::test::ComponentHost<reactor::test::RecordingAdapter>,
         path: &[reactor::Key],
     ) -> Rc<str> {
         let root = host.reference_at(path).unwrap().get().unwrap();
@@ -594,13 +594,13 @@ mod tests {
             .and_then(|properties| {
                 properties
                     .iter()
-                    .any(|property| property.id == reactor::PropertyId::Text)
+                    .any(|property| property.id == reactor::test::PropertyId::Text)
                     .then_some(root)
             })
             .or_else(|| {
                 host.runtime()
                     .adapter()
-                    .children(root, reactor::RelationId::Children)
+                    .children(root, reactor::test::RelationId::Children)
                     .and_then(|children| children.first().copied())
             })
             .unwrap();
@@ -610,8 +610,8 @@ mod tests {
             .unwrap()
             .iter()
             .find_map(|property| match &property.value {
-                reactor::PropertyValue::String(value)
-                    if property.id == reactor::PropertyId::Text =>
+                reactor::test::PropertyValue::String(value)
+                    if property.id == reactor::test::PropertyId::Text =>
                 {
                     Some(Rc::clone(value))
                 }
@@ -698,8 +698,8 @@ mod tests {
     fn retiring_a_row_cancels_its_background_completion() {
         let completed = Arc::new(AtomicUsize::new(0));
         let callback = Arc::clone(&completed);
-        let mut host = reactor::ComponentHost::mount(
-            reactor::RecordingAdapter::default(),
+        let mut host = reactor::test::ComponentHost::mount(
+            reactor::test::RecordingAdapter::default(),
             [reactor::component::<ProjectRow>(
                 "project",
                 ProjectRowInput {

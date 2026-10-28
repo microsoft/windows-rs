@@ -152,7 +152,7 @@ pub fn relation_accepts(contract: &RelationContract, kind: ObjectType) -> bool {
         && (contract.allowed_objects.is_empty() || contract.allowed_objects.contains(&kind))
 }
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
         std::sync::OnceLock::new();

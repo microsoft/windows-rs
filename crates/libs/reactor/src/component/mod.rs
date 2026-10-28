@@ -534,5 +534,5 @@ mod tests;
 #[cfg(any(test, feature = "test"))]
 #[path = "../test_support/component.rs"]
 mod test_support;
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub use test_support::*;
