@@ -1,7 +1,7 @@
 use crate::{Result, imp};
 use alloc::rc::Rc;
 use core::marker::PhantomData;
-use core::ptr::{null, null_mut};
+use core::ptr::null_mut;
 
 /// Keeps the calling thread's COM single-threaded apartment initialized.
 ///
@@ -24,7 +24,7 @@ impl Drop for StaApartment {
 /// Initializes the calling thread as a COM single-threaded apartment (STA).
 pub fn init_sta() -> Result<StaApartment> {
     unsafe {
-        imp::CoInitializeEx(null(), imp::COINIT_APARTMENTTHREADED as u32).ok()?;
+        imp::CoInitializeEx(null_mut(), imp::COINIT_APARTMENTTHREADED as u32).ok()?;
     }
     Ok(StaApartment(PhantomData))
 }

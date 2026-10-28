@@ -166,11 +166,8 @@ impl TearOff {
 
     unsafe fn query_interface(&self, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
         unsafe {
-            ((*(*(self.object as *mut *mut IUnknown_Vtbl))).QueryInterface)(
-                self.object,
-                iid,
-                interface,
-            )
+            let object = IUnknown::from_raw_borrowed(&self.object).unwrap();
+            (object.vtable().QueryInterface)(self.object, iid, interface)
         }
     }
 
@@ -263,7 +260,8 @@ impl TearOff {
 
             // Forward strong `Release` to the object so that it can destroy itself. It will then
             // decrement its weak reference and allow the tear-off to be released as needed.
-            ((*(*(this.object as *mut *mut IUnknown_Vtbl))).Release)(this.object)
+            let object = IUnknown::from_raw_borrowed(&this.object).unwrap();
+            (object.vtable().Release)(this.object)
         }
     }
 
