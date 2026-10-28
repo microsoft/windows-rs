@@ -1,3 +1,5 @@
+use super::*;
+
 impl Runtime<WinUiAdapter> {
     pub fn set_native_event_wakers(
         &mut self,
@@ -535,14 +537,16 @@ impl WinUiAdapter {
                             .as_ref()
                             .map(|source| source.cast::<native::ImageSource>())
                             .transpose()?;
-                        self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
+                        self.event_queue
+                            .discard_events(object, &IMAGE_SOURCE_EVENTS);
                         let managed = control.source.replace(false);
                         if let Err(error) = control.value.SetSource(source.as_ref()) {
                             control.source.set(managed);
                             return Err(error);
                         }
                         Ok(())
-                    })(),
+                    })(
+                    ),
                     _ => Err(windows_core::Error::new(
                         HRESULT(0x8000000E_u32 as i32),
                         "image unavailable",

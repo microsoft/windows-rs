@@ -1,4 +1,6 @@
-trait IntoEventPayload {
+use super::*;
+
+pub(super) trait IntoEventPayload {
     fn into_payload(self) -> EventPayload;
 }
 
@@ -38,7 +40,7 @@ into_event_payload! {
     Vec<ObjectId> => Items,
 }
 
-trait IntoEventValue {
+pub(super) trait IntoEventValue {
     fn into_event_value(self) -> EventValue;
 }
 
@@ -75,7 +77,7 @@ into_event_value! {
 }
 
 impl WinUiAdapter {
-    fn dispatch<T, P: IntoEventPayload>(
+    pub(super) fn dispatch<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
@@ -90,7 +92,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn queue_event<T, P: IntoEventPayload>(
+    pub(super) fn queue_event<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
@@ -114,7 +116,7 @@ impl WinUiAdapter {
         queue
     }
 
-    fn drag_kind(
+    pub(super) fn drag_kind(
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     ) -> Result<DragKind, WinUiError> {
@@ -142,7 +144,7 @@ impl WinUiAdapter {
         Ok(action.map_or(DragKind::Unsupported, |_| kind))
     }
 
-    fn dispatch_dropped_data(
+    pub(super) fn dispatch_dropped_data(
         event: &Rc<RefCell<NativeDroppedDataEvent>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
@@ -263,7 +265,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn handle_selection_changed(
+    pub(super) fn handle_selection_changed(
         event: &Rc<RefCell<NativeSelectionEvent>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
@@ -309,7 +311,7 @@ impl WinUiAdapter {
         Self::schedule_event_wake(event_queue);
     }
 
-    fn pointer_event_info(
+    pub(super) fn pointer_event_info(
         object: ObjectId,
         element: &native::UIElement,
         args: Ref<native::PointerRoutedEventArgs>,
@@ -415,7 +417,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn input_modifiers_from_virtual_keys(
+    pub(super) fn input_modifiers_from_virtual_keys(
         value: native::VirtualKeyModifiers,
     ) -> InputModifiers {
         let mut modifiers = InputModifiers::NONE;
@@ -434,7 +436,7 @@ impl WinUiAdapter {
         modifiers
     }
 
-    fn key_event_info(
+    pub(super) fn key_event_info(
         args: &native::KeyRoutedEventArgs,
     ) -> Result<KeyEventInfo, WinUiError> {
         Ok(KeyEventInfo {
@@ -445,7 +447,7 @@ impl WinUiAdapter {
         })
     }
 
-    fn character_event_info(
+    pub(super) fn character_event_info(
         args: &native::CharacterReceivedRoutedEventArgs,
     ) -> Result<CharacterEventInfo, WinUiError> {
         Ok(CharacterEventInfo {
@@ -455,7 +457,7 @@ impl WinUiAdapter {
         })
     }
 
-    fn focus_event_info(
+    pub(super) fn focus_event_info(
         object: ObjectId,
         element: &native::UIElement,
         args: Ref<native::RoutedEventArgs>,
@@ -483,18 +485,21 @@ impl WinUiAdapter {
     }
 
     /// Records a native change Reactor caused through its own write, without a callback.
-    fn record(event_queue: &Rc<NativeEventQueue>, observation: Observation) {
-        event_queue.events.borrow_mut().push_back(QueuedNativeEvent {
-            observation: Some(observation),
-            event: None,
-            record: true,
-            retirement: None,
-            realization: None,
-        });
+    pub(super) fn record(event_queue: &Rc<NativeEventQueue>, observation: Observation) {
+        event_queue
+            .events
+            .borrow_mut()
+            .push_back(QueuedNativeEvent {
+                observation: Some(observation),
+                event: None,
+                record: true,
+                retirement: None,
+                realization: None,
+            });
         Self::schedule_event_wake(event_queue);
     }
 
-    fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
+    pub(super) fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
         if event_queue.waker.borrow().is_none() {
             return;
         }
@@ -520,7 +525,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn set_events(
+    pub(super) fn set_events(
         &mut self,
         object: ObjectId,
         set: &[Event],
@@ -558,5 +563,4 @@ impl WinUiAdapter {
         }
         Ok(())
     }
-
 }
