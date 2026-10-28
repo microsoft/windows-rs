@@ -2747,7 +2747,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         _ => usize::MAX,
     }
 }
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::TextBlock,
     ObjectType::TextBox,
@@ -2831,7 +2831,7 @@ pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::WebView2,
     ObjectType::SwapChainPanel,
 ];
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::AcceptsReturn,
     PropertyId::ActionButtonContent,
@@ -3014,7 +3014,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::Y2,
     PropertyId::YearVisible,
 ];
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub(crate) fn object_index(kind: ObjectType) -> usize {
     match kind {
         ObjectType::TextBlock => 0,

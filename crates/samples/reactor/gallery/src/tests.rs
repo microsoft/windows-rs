@@ -1,6 +1,7 @@
 use crate::pages::navigation::{NavigationViewMessage, NavigationViewPage};
 use crate::registry::ALL_CONTROLS;
 use crate::shell::{Gallery, Message as GalleryMessage};
+use windows_reactor::test::*;
 use windows_reactor::*;
 
 fn mount<C: Component<Input = ()>>() -> ComponentHost<RecordingAdapter> {

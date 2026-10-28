@@ -33,7 +33,7 @@ struct GraphMemoryRow {
     fixture: &'static str,
     bytes: u64,
     allocations: u64,
-    memory: reactor::RetainedMemory,
+    memory: reactor::test::RetainedMemory,
 }
 
 struct RecursiveRow {
@@ -192,8 +192,8 @@ impl reactor::Component for RootSwitch {
 #[derive(Default)]
 struct NullAdapter;
 
-impl reactor::Adapter for NullAdapter {
-    fn apply(&mut self, _mutations: &[reactor::Mutation]) {}
+impl reactor::test::Adapter for NullAdapter {
+    fn apply(&mut self, _mutations: &[reactor::test::Mutation]) {}
 }
 
 fn measure(samples: usize, batch: usize, mut operation: impl FnMut()) -> Perf {
@@ -264,10 +264,10 @@ fn measure_prepared<S>(
     }
 }
 
-fn reactor_runtime() -> reactor::Runtime<reactor::RecordingAdapter> {
-    let mut adapter = reactor::RecordingAdapter::default();
+fn reactor_runtime() -> reactor::test::Runtime<reactor::test::RecordingAdapter> {
+    let mut adapter = reactor::test::RecordingAdapter::default();
     adapter.record_batches(false);
-    reactor::Runtime::new(adapter)
+    reactor::test::Runtime::new(adapter)
 }
 
 fn reactor_grid(order: &[usize], changed: Option<usize>) -> reactor::View {
@@ -364,15 +364,15 @@ fn retirement_view(visible: bool) -> reactor::View {
 }
 
 fn retirement_runtime() -> (
-    reactor::Runtime<reactor::RecordingAdapter>,
-    reactor::ObjectId,
+    reactor::test::Runtime<reactor::test::RecordingAdapter>,
+    reactor::test::ObjectId,
 ) {
     let mut runtime = reactor_runtime();
     runtime.update(retirement_view(true));
     let root = runtime.graph().root().unwrap();
     let retiring = runtime
         .graph()
-        .children(root, reactor::RelationId::Children)
+        .children(root, reactor::test::RelationId::Children)
         .unwrap()[0];
     (runtime, retiring)
 }
@@ -450,8 +450,8 @@ fn virtual_items_view(revision: u64) -> reactor::View {
 }
 
 fn virtual_items_runtime() -> (
-    reactor::Runtime<reactor::RecordingAdapter>,
-    reactor::ObjectId,
+    reactor::test::Runtime<reactor::test::RecordingAdapter>,
+    reactor::test::ObjectId,
 ) {
     let mut runtime = reactor_runtime();
     runtime.update(virtual_items_view(0));
@@ -462,14 +462,14 @@ fn virtual_items_runtime() -> (
 fn virtual_items_realized_runtime(
     realized: usize,
 ) -> (
-    reactor::Runtime<reactor::RecordingAdapter>,
-    reactor::ObjectId,
+    reactor::test::Runtime<reactor::test::RecordingAdapter>,
+    reactor::test::ObjectId,
 ) {
     let (mut runtime, collection) = virtual_items_runtime();
     for index in 0..realized {
-        runtime.queue_realization(reactor::RealizationRequest::Realize {
+        runtime.queue_realization(reactor::test::RealizationRequest::Realize {
             collection,
-            container: reactor::RealizedContainer(index as u64),
+            container: reactor::test::RealizedContainer(index as u64),
             index,
             source_revision: 0,
         });
@@ -517,9 +517,9 @@ fn bench_reactor_virtual_realize(samples: usize, batch: usize) -> Row {
         batch,
         || {
             let (mut runtime, collection) = virtual_items_runtime();
-            runtime.queue_realization(reactor::RealizationRequest::Realize {
+            runtime.queue_realization(reactor::test::RealizationRequest::Realize {
                 collection,
-                container: reactor::RealizedContainer(1),
+                container: reactor::test::RealizedContainer(1),
                 index: 9_999,
                 source_revision: 0,
             });
@@ -561,9 +561,9 @@ fn bench_reactor_virtual_recycle(samples: usize, batch: usize) -> Row {
         batch,
         || {
             let (mut runtime, collection) = virtual_items_realized_runtime(8);
-            runtime.queue_realization(reactor::RealizationRequest::Recycle {
+            runtime.queue_realization(reactor::test::RealizationRequest::Recycle {
                 collection,
-                container: reactor::RealizedContainer(7),
+                container: reactor::test::RealizedContainer(7),
                 source_revision: 0,
             });
             runtime
@@ -604,9 +604,9 @@ fn reactor_virtual_mutation_counts() -> [(&'static str, usize, usize); 4] {
 
     let (mut realize, collection) = virtual_items_runtime();
     realize.record_batches(true);
-    realize.queue_realization(reactor::RealizationRequest::Realize {
+    realize.queue_realization(reactor::test::RealizationRequest::Realize {
         collection,
-        container: reactor::RealizedContainer(0),
+        container: reactor::test::RealizedContainer(0),
         index: 0,
         source_revision: 0,
     });
@@ -619,9 +619,9 @@ fn reactor_virtual_mutation_counts() -> [(&'static str, usize, usize); 4] {
 
     let (mut recycle, collection) = virtual_items_realized_runtime(8);
     recycle.record_batches(true);
-    recycle.queue_realization(reactor::RealizationRequest::Recycle {
+    recycle.queue_realization(reactor::test::RealizationRequest::Recycle {
         collection,
-        container: reactor::RealizedContainer(7),
+        container: reactor::test::RealizedContainer(7),
         source_revision: 0,
     });
     recycle.dispatch_native_events();
@@ -668,7 +668,7 @@ fn reactor_memory(count: usize) -> MemoryRow {
 
 fn reactor_graph_memory(count: usize) -> MemoryRow {
     let order = (0..count).collect::<Vec<_>>();
-    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let mut runtime = reactor::test::Runtime::new(NullAdapter);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     runtime.update(reactor_grid(&order, None));
@@ -709,7 +709,7 @@ fn reactor_tree_memory(count: usize, custom_content: bool) -> MemoryRow {
 }
 
 fn reactor_tree_graph_memory(count: usize, custom_content: bool) -> MemoryRow {
-    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let mut runtime = reactor::test::Runtime::new(NullAdapter);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     runtime.update(reactor::TreeView::new().nodes((0..count).map(|index| {
@@ -798,7 +798,7 @@ fn reactor_graph_shape(
     fixture: &'static str,
     visual: impl FnOnce() -> reactor::View,
 ) -> GraphMemoryRow {
-    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let mut runtime = reactor::test::Runtime::new(NullAdapter);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     runtime.update(visual());
@@ -816,7 +816,7 @@ fn reactor_graph_shape(
 }
 
 fn reactor_retirement_graph_shape() -> GraphMemoryRow {
-    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let mut runtime = reactor::test::Runtime::new(NullAdapter);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     runtime.update(retirement_view(true));
@@ -988,11 +988,11 @@ fn reactor_fixture_memory<A>(
     frontend: &'static str,
     workload: &'static str,
     objects: usize,
-    mut runtime: reactor::Runtime<A>,
+    mut runtime: reactor::test::Runtime<A>,
     visual: impl FnOnce() -> reactor::View,
 ) -> MemoryRow
 where
-    A: reactor::Adapter,
+    A: reactor::test::Adapter,
 {
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
@@ -1031,28 +1031,28 @@ fn reactor_memory_attribution(count: usize) -> [MemoryRow; 6] {
             "graph",
             "flat_border_base",
             count + 1,
-            reactor::Runtime::new(NullAdapter),
+            reactor::test::Runtime::new(NullAdapter),
             || reactor_border_fixture(count, false, false),
         ),
         reactor_fixture_memory(
             "graph",
             "flat_border_string",
             count + 1,
-            reactor::Runtime::new(NullAdapter),
+            reactor::test::Runtime::new(NullAdapter),
             || reactor_border_fixture(count, true, false),
         ),
         reactor_fixture_memory(
             "graph",
             "flat_border_event",
             count + 1,
-            reactor::Runtime::new(NullAdapter),
+            reactor::test::Runtime::new(NullAdapter),
             || reactor_border_fixture(count, false, true),
         ),
         reactor_fixture_memory(
             "graph",
             "tree_graph",
             count + 1,
-            reactor::Runtime::new(NullAdapter),
+            reactor::test::Runtime::new(NullAdapter),
             || reactor_tree(&(0..count).collect::<Vec<_>>(), None),
         ),
         reactor_fixture_memory(
@@ -1066,9 +1066,9 @@ fn reactor_memory_attribution(count: usize) -> [MemoryRow; 6] {
 }
 
 fn reactor_component(count: usize, effect: bool, samples: usize, batch: usize) -> Row {
-    let mut adapter = reactor::RecordingAdapter::default();
+    let mut adapter = reactor::test::RecordingAdapter::default();
     adapter.record_batches(false);
-    let mut components = reactor::ComponentHost::mount(
+    let mut components = reactor::test::ComponentHost::mount(
         adapter,
         (0..count).map(|index| reactor::component::<BenchComponent>(index, effect)),
     );
@@ -1092,9 +1092,9 @@ fn reactor_component(count: usize, effect: bool, samples: usize, batch: usize) -
 }
 
 fn reactor_component_root_replace(count: usize, samples: usize, batch: usize) -> Row {
-    let mut adapter = reactor::RecordingAdapter::default();
+    let mut adapter = reactor::test::RecordingAdapter::default();
     adapter.record_batches(false);
-    let mut components = reactor::ComponentHost::mount(
+    let mut components = reactor::test::ComponentHost::mount(
         adapter,
         (0..count).map(|index| reactor::component::<RootSwitch>(index, ())),
     );
@@ -1118,9 +1118,9 @@ fn reactor_component_remove(count: usize, samples: usize) -> Row {
         samples,
         1,
         || {
-            let mut adapter = reactor::RecordingAdapter::default();
+            let mut adapter = reactor::test::RecordingAdapter::default();
             adapter.record_batches(false);
-            reactor::ComponentHost::mount(
+            reactor::test::ComponentHost::mount(
                 adapter,
                 (0..count).map(|index| reactor::component::<BenchComponent>(index, false)),
             )
@@ -1138,11 +1138,11 @@ fn reactor_component_remove(count: usize, samples: usize) -> Row {
 }
 
 fn reactor_component_memory(count: usize, effect: bool) -> MemoryRow {
-    let mut adapter = reactor::RecordingAdapter::default();
+    let mut adapter = reactor::test::RecordingAdapter::default();
     adapter.record_batches(false);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let components = reactor::ComponentHost::mount(
+    let components = reactor::test::ComponentHost::mount(
         adapter,
         (0..count).map(|index| reactor::component::<BenchComponent>(index, effect)),
     );
@@ -1161,10 +1161,10 @@ fn reactor_component_memory(count: usize, effect: bool) -> MemoryRow {
 }
 
 fn reactor_context(count: usize, broad: bool, samples: usize) -> Row {
-    let mut adapter = reactor::RecordingAdapter::default();
+    let mut adapter = reactor::test::RecordingAdapter::default();
     adapter.record_batches(false);
     let context = Rc::new(reactor::Context::new(false));
-    let mut components = reactor::ComponentHost::mount(
+    let mut components = reactor::test::ComponentHost::mount(
         adapter,
         (0..count).map(|index| {
             reactor::component::<ContextComponent>(
@@ -1195,8 +1195,8 @@ fn reactor_context(count: usize, broad: bool, samples: usize) -> Row {
 
 fn reactor_recursive(depth: usize, fanout: usize, samples: usize) -> RecursiveRow {
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let mut components = reactor::ComponentHost::mount(
-        reactor::RecordingAdapter::default(),
+    let mut components = reactor::test::ComponentHost::mount(
+        reactor::test::RecordingAdapter::default(),
         [reactor::component::<Branch>(
             "root",
             BranchInput { depth, fanout },

@@ -1441,7 +1441,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
     }
     output.push_str("_ => usize::MAX,\n} }\n");
     output.push_str(
-        "#[cfg(any(test, feature = \"test\"))]\n\
+        "#[cfg(test)]\n\
          pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[",
     );
     for object in &schema.objects {
@@ -1449,7 +1449,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
     }
     output.push_str("];\n");
     output.push_str(
-        "#[cfg(any(test, feature = \"test\"))]\n\
+        "#[cfg(test)]\n\
          pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[",
     );
     for property in properties.keys() {
@@ -1457,7 +1457,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
     }
     output.push_str("];\n");
     output.push_str(
-        "#[cfg(any(test, feature = \"test\"))]\n\
+        "#[cfg(test)]\n\
          pub(crate) fn object_index(kind: ObjectType) -> usize { match kind {\n",
     );
     for (index, object) in schema.objects.iter().enumerate() {
