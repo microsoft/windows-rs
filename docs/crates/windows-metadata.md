@@ -124,6 +124,20 @@ Mixed chains instead place a required `IsConst` after each `PTR` whose pointee i
 permitted by ECMA-335 II.23.2.12 (`PTR CustomMod* Type`). A pointer without such a modifier has a
 mutable pointee. Older readers do not accept these per-level modifiers.
 
+### Fixed-width pointers
+
+`Type::Ptr64(Box<Type>, bool)` retains a fixed 64-bit data pointer; the boolean is pointee
+constness. RDL writes `ptr64<*mut T>` or `ptr64<*const T>`. The signature places the required
+`Windows.Win32.Metadata.NativePointer64Attribute` modifier after its `PTR`, before any `IsConst`
+modifier. The reader rejects optional, duplicate and non-pointer placement of the width modifier.
+Fixed-width levels can be nested with native pointers, references and arrays. WinRT metadata
+rejects this type.
+
+Chains containing a fixed-width level use per-level modifiers throughout. Namespace remapping and
+nested-record rewriting preserve the pointee. Older readers can ignore the width modifier and
+silently produce a 4-byte pointer on x86; use the
+[paired reader/generator requirement](windows-bindgen.md#metadata-compatibility).
+
 ### Function pointers
 
 `Type::FnPtr` encodes an unnamed function pointer as ECMA-335 `FNPTR` followed by a method
@@ -191,6 +205,11 @@ and namespace remapping routes its outermost type without changing the nested pa
 `NestedClass` row alone does not resolve an unqualified, module-scoped reference to a nested type
 (ECMA-335 II.7.3 and II.22.38).
 
+`TypeDef::anonymous_index` reads namespace-qualified `NativeAnonymousAttribute` provenance.
+It requires one attribute on a nested Win32 record with a nonnegative `i32` constructor argument.
+The value identifies the first owning native field position; it is not an offset or a metadata
+field row after storage lowering. Merge and remapping preserve it independently of nested names.
+
 Nested generic instantiations are outside the writer's supported input. Both signature and
 TypeSpec emission assert against them rather than derive a nested name's arity from the total
 generic argument count. Top-level generics and non-generic nested records remain supported.
@@ -219,6 +238,11 @@ their independent metadata facts. These helpers do not inspect pointer mutabilit
 for an unspecified direction, combine `ReservedAttribute` with `Optional`, or decide whether a
 parameter should become a language return value. Array and byte-count attributes remain available
 through `attributes()` because each projection validates different public-surface shapes.
+
+`BufferCount::Unknown` encodes `BufferExtentAttribute.CountUnknown = true`. It preserves an
+inexpressible extent without supplying a numeric count or changing the subject, phase or
+nullability. Count modifiers that need a value or count reference are invalid for this variant.
+`buffer_relationship()` does not turn it into a slice relationship.
 
 ### Determinism and the winmd writer
 

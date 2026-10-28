@@ -19,14 +19,16 @@ pub enum Type {
     USize,
     String,
     Object,
-    ClassName(TypeName),          // ELEMENT_TYPE_CLASS
-    ValueName(TypeName),          // ELEMENT_TYPE_VALUETYPE
-    Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
-    Generic(String, u16),         // ELEMENT_TYPE_VAR
-    RefMut(Box<Self>),            // ELEMENT_TYPE_BYREF
-    RefConst(Box<Self>),          // ELEMENT_TYPE_CMOD_REQD (IsConst)
-    PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
-    PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
+    ClassName(TypeName),        // ELEMENT_TYPE_CLASS
+    ValueName(TypeName),        // ELEMENT_TYPE_VALUETYPE
+    Array(Box<Self>),           // ELEMENT_TYPE_SZARRAY
+    Generic(String, u16),       // ELEMENT_TYPE_VAR
+    RefMut(Box<Self>),          // ELEMENT_TYPE_BYREF
+    RefConst(Box<Self>),        // ELEMENT_TYPE_CMOD_REQD (IsConst)
+    PtrMut(Box<Self>, usize),   // ELEMENT_TYPE_PTR
+    PtrConst(Box<Self>, usize), // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
+    /// A fixed 64-bit data pointer and its pointee constness.
+    Ptr64(Box<Self>, bool),
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
     FnPtr(Box<Signature>),        // ELEMENT_TYPE_FNPTR
 }

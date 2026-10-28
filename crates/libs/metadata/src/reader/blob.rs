@@ -62,22 +62,21 @@ impl<'a> Blob<'a> {
     }
 
     pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
-        std::iter::from_fn(|| self.read_modifier()).collect()
+        std::iter::from_fn(|| self.read_modifier())
+            .map(|(_, ty)| ty)
+            .collect()
     }
 
-    fn read_modifier(&mut self) -> Option<TypeDefOrRef<'a>> {
+    fn read_modifier(&mut self) -> Option<(bool, TypeDefOrRef<'a>)> {
         let (value, offset) = self.peek();
         if value != ELEMENT_TYPE_CMOD_OPT as usize && value != ELEMENT_TYPE_CMOD_REQD as usize {
             return None;
         }
         self.offset(offset);
-        Some(self.decode::<TypeDefOrRef>())
-    }
-
-    fn read_is_const(&mut self) -> bool {
-        self.read_modifiers().iter().any(|def| {
-            def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
-        })
+        Some((
+            value == ELEMENT_TYPE_CMOD_REQD as usize,
+            self.decode::<TypeDefOrRef>(),
+        ))
     }
 
     pub fn read_method_signature(&mut self, generics: &[Type]) -> Signature {
@@ -98,9 +97,27 @@ impl<'a> Blob<'a> {
         }
     }
 
+    fn read_type_modifiers(&mut self, pointer: bool) -> (bool, bool) {
+        let mut constant = false;
+        let mut fixed = false;
+        while let Some((required, def)) = self.read_modifier() {
+            if def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst" {
+                constant = true;
+            } else if def.namespace() == "Windows.Win32.Metadata"
+                && def.name() == "NativePointer64Attribute"
+            {
+                assert!(pointer, "NativePointer64Attribute must follow PTR");
+                assert!(required, "NativePointer64Attribute must be required");
+                assert!(!fixed, "duplicate NativePointer64Attribute");
+                fixed = true;
+            }
+        }
+        (constant, fixed)
+    }
+
     /// Reads a field or method type signature.
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
-        let is_const = self.read_is_const();
+        let (is_const, _) = self.read_type_modifiers(false);
 
         if self.try_read(ELEMENT_TYPE_BYREF as usize) {
             let ty = Box::new(self.read_type_signature(generics));
@@ -120,16 +137,20 @@ impl<'a> Blob<'a> {
         let mut pointers = Vec::new();
 
         while self.try_read(ELEMENT_TYPE_PTR as usize) {
+            let (constant, fixed) = self.read_type_modifiers(true);
             // A leading IsConst applies to the entire pointer run; ECMA-335 II.23.2.12 also
             // permits a modifier after each PTR for chains with mixed constness.
-            let constant = self.read_is_const();
-            pointers.push(is_const || constant);
+            pointers.push((is_const || constant, fixed));
         }
 
         let mut ty = self.read_type_code(generics);
 
         if !pointers.is_empty() {
-            for constant in pointers.into_iter().rev() {
+            for (constant, fixed) in pointers.into_iter().rev() {
+                if fixed {
+                    ty = Type::Ptr64(Box::new(ty), constant);
+                    continue;
+                }
                 ty = match (constant, ty) {
                     (true, Type::PtrConst(inner, count)) => Type::PtrConst(inner, count + 1),
                     (false, Type::PtrMut(inner, count)) => Type::PtrMut(inner, count + 1),

@@ -140,6 +140,9 @@ impl Remapper {
             Type::RefConst(inner) => Type::RefConst(Box::new(self.remap_type(inner))),
             Type::PtrMut(inner, n) => Type::PtrMut(Box::new(self.remap_type(inner)), *n),
             Type::PtrConst(inner, n) => Type::PtrConst(Box::new(self.remap_type(inner)), *n),
+            Type::Ptr64(inner, constant) => {
+                Type::Ptr64(Box::new(self.remap_type(inner)), *constant)
+            }
             Type::ArrayFixed(inner, n) => Type::ArrayFixed(Box::new(self.remap_type(inner)), *n),
             Type::FnPtr(signature) => Type::FnPtr(Box::new(self.remap_signature(signature))),
             other => other.clone(),
