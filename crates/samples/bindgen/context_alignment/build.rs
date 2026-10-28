@@ -5,6 +5,7 @@ fn main() {
     windows_bindgen::builder()
         .output(&bindings)
         .filter("CONTEXT")
+        .filter("M128A")
         .sys()
         .flat()
         .write();
