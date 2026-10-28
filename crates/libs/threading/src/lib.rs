@@ -74,7 +74,7 @@ unsafe fn submit_with_environment<F: FnOnce() + Send>(
     f: F,
 ) -> bool {
     unsafe extern "system" fn callback<F: FnOnce() + Send>(
-        _: *mut TP_CALLBACK_INSTANCE,
+        _: PTP_CALLBACK_INSTANCE,
         callback: *mut c_void,
     ) {
         unsafe {
