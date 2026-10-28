@@ -1,6 +1,7 @@
 use super::*;
 use windows_metadata::reader::{HasAttributes, Item, TypeCategory};
 
+// WDK headers and import libraries. SDK support headers use the parent's SDK_VERSION.
 const VERSION: &str = "10.0.28000.1839";
 const KERNEL_SOURCE: &str = "
 #if defined(_M_AMD64)

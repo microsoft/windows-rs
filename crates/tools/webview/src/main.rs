@@ -1,21 +1,21 @@
+//! Regenerate WebView2 COM bindings from the SDK headers selected by WEBVIEW2_VERSION.
+//!
+//! Update this pin and WEBVIEW2_VER in windows-reactor-setup together. Run
+//! `cargo run -p tool-webview` for `crates/libs/webview/src/bindings.rs`, and tool-reactor-metadata
+//! for the matching Core.winmd. Then run tool-reactor for the XAML projection.
+//! Intermediate RDL, winmd, and omission reports are written under `target/webview`.
+//! These SDK/projection pins do not select the user's WebView2 browser runtime.
+
 use helpers::*;
 use windows_clang::{Input, Target, capture_partial, projection};
 use windows_rdl::*;
 
-// WebView2 owns its SDK pin here: the headers are downloaded from this exact NuGet package
-// (via `nuget_package`, like the other header scrapers) instead of being vendored, so a version
-// bump is a one-line edit that re-fetches byte-stable headers. `tool-reactor-metadata` reads the
-// pin to refresh its committed Core.winmd and rejects drift in `windows-reactor-setup`.
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
 const WEBVIEW2_VERSION: &str = "1.0.4078.44";
 
 fn main() {
     let time = std::time::Instant::now();
 
-    // Like `tool-win32`, provision and pin libclang before the first parse: download
-    // the exact `LIBCLANG_VERSION` wheel on demand (unless `LIBCLANG_PATH` is set) and assert the
-    // loaded version, so the WebView2 metadata is generated against the same clang everywhere - in
-    // CI and on a fresh checkout - instead of whatever LLVM happens to be installed.
     ensure_libclang();
     assert_libclang_version();
 

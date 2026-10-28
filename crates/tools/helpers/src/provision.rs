@@ -1,4 +1,9 @@
 //! On-demand provisioning for pinned generator dependencies.
+//!
+//! Native libraries are built under `target/tool-clang/native`; resource headers are fetched
+//! from the matching LLVM tag into `target/tool-clang/clang-resource`. Both use LIBCLANG_VERSION.
+//! LIBCLANG_PATH and CLANG_RESOURCE_DIR are caller-owned overrides.
+//! NuGet packages use NUGET_PACKAGES or the user's `.nuget/packages` cache.
 
 use std::path::{Path, PathBuf};
 use windows_clang_sys::{clang_getCString, clang_getClangVersion, load};

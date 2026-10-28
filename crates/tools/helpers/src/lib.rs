@@ -105,15 +105,9 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     crates
 }
 
-/// Reads the string value of a `const NAME: &str = "...";` (or `pub const`) declaration from a
-/// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
-///
-/// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
-/// declared as an ordinary constant in exactly one crate (its owner), and any other tool that
-/// must stay in lock-step reads it back from source and asserts agreement - e.g.
-/// `tool-reactor-metadata`
-/// reads `windows-reactor-setup`'s `RUNTIME_VER` / `WEBVIEW2_VER`, and reads the pinned WebView2
-/// version back from `tool-webview`. Keeping one reader keeps every such check consistent.
+/// Reads a `const NAME: &str` or `pub const` string value from Rust source.
+/// Lets generators check runtime-staging pins without depending on that crate.
+/// Panics if the file cannot be read or the constant is missing.
 pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
     let path = path.as_ref();
     let text = std::fs::read_to_string(path)
@@ -148,13 +142,9 @@ fn str_const(text: &str, name: &str) -> Option<String> {
     None
 }
 
-/// Derives the "marketing" SDK/WDK include-and-lib folder name from a four-part package
-/// version. The NuGet packages nest their headers under a folder that is the version's first
-/// three components with a `.0` fourth component (for example, `10.0.28000.2270` ->
-/// `10.0.28000.0`),
-/// regardless of the package's servicing build. Deriving it means the package version is the
-/// single edit needed to bump the SDK/WDK - the folder is never a second constant to keep in
-/// sync. Panics if `version` does not have at least three dot-separated components.
+/// Derives the SDK/WDK include-and-lib folder: the first three version components plus `.0`.
+/// The folder does not use the NuGet package's servicing revision.
+/// Panics if `version` has fewer than three components.
 pub fn marketing_dir(version: &str) -> String {
     let mut parts = version.split('.');
     let major = parts.next();

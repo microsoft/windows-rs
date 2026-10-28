@@ -1,3 +1,13 @@
+//! Refresh SDK and WDK metadata from pinned headers and target-specific import libraries.
+//!
+//! Full refresh from the repo root:
+//! `cargo run -p tool-win32 -- --partial --sdk-imports --sdk-macros`.
+//! This writes `metadata/win32`, `metadata/wdk`, and `crates/libs/default/Windows.Win32.winmd`.
+//! Change SDK_VERSION here or VERSION in wdk.rs; review the RDL diff and omission reports under
+//! `target/win32` before running the downstream generators listed in `.github/workflows/gen.yml`.
+//! Header-limited runs replace the SDK snapshot but do not refresh WDK or the combined winmd.
+//! `--wdk --partial` refreshes only WDK and the combined winmd; `--compile` compiles existing RDL.
+
 mod header_contexts;
 mod headers;
 #[cfg(test)]
@@ -10,6 +20,7 @@ use std::path::Path;
 use std::time::Instant;
 use windows_clang::{Input, Target, projection};
 
+// Also supplies support headers for the WDK capture; independent of WinRT CONTRACTS_VERSION.
 const SDK_VERSION: &str = "10.0.28000.2270";
 const SUPPORT_PRELUDE: &str = "#include <intsafe.h>\n";
 const PRELUDE: &str = "#define SECURITY_WIN32
