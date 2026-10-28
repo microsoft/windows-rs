@@ -1,28 +1,38 @@
-## windows-version
+# windows-version
 
-The [windows-version](https://crates.io/crates/windows-version) crate reads the Windows version
-without relying on the application manifest.
+Windows version information without application-manifest version virtualization.
+Prefer capability detection when an API offers it; use version checks for documented build
+requirements.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-version.md)
+- 📦 [crates.io](https://crates.io/crates/windows-version)
+- 📖 [docs.rs](https://docs.rs/windows-version)
+- 🧩 [Sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/version/version)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/version)
 
-Start by adding the following to your Cargo.toml file:
+## Get started
 
 ```toml
-[dependencies.windows-version]
-version = "0.100"
+[dependencies]
+windows-version = "0.100"
 ```
 
 ```rust,no_run
-use windows_version::*;
+use windows_version::OsVersion;
+
+const REQUIRED: OsVersion = OsVersion::new(10, 0, 0, 22_000);
 
 println!("Current version: {:?}", OsVersion::current());
-
-if is_server() {
-    println!("Running on a Windows Server release.");
-}
-
-if OsVersion::current() >= OsVersion::new(10, 0, 0, 12345) {
-    println!("Can use a feature available on this version or later.")
+if OsVersion::current() >= REQUIRED {
+    println!("The required OS build is available.");
 }
 ```
+
+## Make a version decision
+
+Keep the threshold beside the feature it guards. `OsVersion` compares major version, minor version,
+service pack, and build in that order. A sufficient version does not guarantee optional components,
+drivers, hardware, or policies; check those capabilities separately.
+
+`is_server()` distinguishes server from workstation releases, not installed server roles.
+`revision()` returns the update build revision (UBR), separate from `OsVersion` comparisons.
+A revision of zero can also mean its registry query failed.

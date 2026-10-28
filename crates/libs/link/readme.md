@@ -1,50 +1,40 @@
-## windows-link
+# windows-link
 
-The [windows-link](https://crates.io/crates/windows-link) crate provides the `link` macro that
-simplifies linking. The `link` macro uses `raw-dylib` and thus does not require import lib files.
+Declare Windows DLL imports without import libraries. Use `link!` for a small, reviewed raw
+binding; prefer [windows-bindgen](https://docs.rs/windows-bindgen) when metadata describes the API.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-link.md)
+- 📦 [crates.io](https://crates.io/crates/windows-link)
+- 📖 [docs.rs](https://docs.rs/windows-link)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/link)
 
-Start by adding the following to your Cargo.toml file:
+## Get started
 
 ```toml
-[dependencies.windows-link]
-version = "0.100"
+[dependencies]
+windows-link = "0.100"
 ```
-
-Use the `link` macro to import functions and their matching function-pointer types. Here the loader
-functions are linked normally while `MessageBoxA` is resolved at runtime:
 
 ```rust,no_run
-use std::ffi::c_void;
-use windows_link::link;
+windows_link::link!("kernel32.dll" "system" fn GetTickCount64() -> u64);
 
-link!("kernel32.dll" "system" fn LoadLibraryA(name: *const u8) -> *mut c_void);
-link!("kernel32.dll" "system" fn GetProcAddress(
-    library: *mut c_void,
-    name: *const u8,
-) -> *mut c_void);
-link!("user32.dll" "system" fn MessageBoxA(
-    hwnd: *mut c_void,
-    text: *const u8,
-    caption: *const u8,
-    kind: u32,
-) -> i32);
-
-unsafe {
-    let module = LoadLibraryA(b"user32.dll\0".as_ptr());
-    let address = GetProcAddress(module, b"MessageBoxA\0".as_ptr());
-
-    if !address.is_null() {
-        let message_box: MessageBoxA = std::mem::transmute(address);
-
-        message_box(
-            std::ptr::null_mut(),
-            b"text\0".as_ptr(),
-            b"caption\0".as_ptr(),
-            0,
-        );
-    }
+fn main() {
+    let function: GetTickCount64 = GetTickCount64;
+    println!("{} ms since startup", unsafe { function() });
 }
 ```
+
+The macro declares the imported function and a matching function-pointer type with the same name.
+An optional link-name literal selects an export whose name differs from the Rust identifier.
+
+## Match the native contract
+
+Confirm the exporting DLL, symbol name, calling convention, and exact parameter and result types.
+A successful link does not prove that the signature is correct. Keep declarations in a private
+FFI module and expose a safe wrapper only when it can uphold the native contract.
+
+`link!` creates a static import, not an optional or delayed load. For exports that may be absent on
+older Windows versions, resolve them dynamically and retain the module while using its function
+pointers. The type alias does not validate an address obtained through dynamic lookup.
+
+Add platform and feature gates in the calling crate. Declaring a Windows function on another
+platform does not make the export available there.

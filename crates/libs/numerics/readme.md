@@ -1,22 +1,18 @@
-## windows-numerics
+# windows-numerics
 
-The [windows-numerics](https://crates.io/crates/windows-numerics) crate provides Windows vector,
-matrix, plane, and quaternion types.
+The `Vector2`, `Vector3`, `Vector4`, `Matrix3x2`, and `Matrix4x4` types used by Windows graphics
+APIs, with arithmetic and transform helpers.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-numerics.md)
+- 📦 [crates.io](https://crates.io/crates/windows-numerics)
+- 📖 [docs.rs](https://docs.rs/windows-numerics)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/numerics)
 
-These are the same graphics math types used by composition, Direct2D, and Direct3D
-APIs, so values flow into those APIs without conversion.
-
-Start by adding the following to your Cargo.toml file:
+## Get started
 
 ```toml
-[dependencies.windows-numerics]
-version = "0.100"
+[dependencies]
+windows-numerics = "0.100"
 ```
-
-Use the vector and matrix types as needed:
 
 ```rust
 use windows_numerics::*;
@@ -29,6 +25,22 @@ let c = Vector3::new(0.0, 1.0, 0.0);
 assert_eq!(b.cross(&c), Vector3::new(0.0, 0.0, 1.0));
 
 let transform = Matrix3x2::translation(10.0, 20.0);
-assert_eq!(transform.m31, 10.0);
-assert_eq!(transform.m32, 20.0);
+assert_eq!((transform.m31, transform.m32), (10.0, 20.0));
 ```
+
+## Use vectors and transforms
+
+Vector multiplication is component-wise; scalar arithmetic uses `f32`. Use squared length or
+distance when only a comparison is needed, and check for zero length before normalizing.
+
+`Matrix3x2` provides translation, scale, rotation, and skew, including transforms around a center.
+Rotation and skew angles are in degrees. Matrix multiplication order matters: check representative
+points instead of assuming another math library's convention.
+
+Equality is exact floating-point equality. Use a tolerance for computed values. The default `std`
+feature supplies square-root and trigonometric operations.
+
+See the [Canvas transform sample][transform] and [Composition animation sample][animation].
+
+[transform]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/transform
+[animation]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition/animation

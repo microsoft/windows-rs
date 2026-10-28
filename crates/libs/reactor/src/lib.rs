@@ -1,9 +1,5 @@
 #![doc = include_str!("../readme.md")]
 
-#[cfg(doctest)]
-#[doc = include_str!("../../../../docs/crates/windows-reactor.md")]
-mod guide {}
-
 #[cfg(any(test, feature = "test"))]
 #[path = "test_support/adapter.rs"]
 mod adapter;

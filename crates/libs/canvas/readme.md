@@ -1,37 +1,65 @@
-## windows-canvas
+# windows-canvas
 
-Windows Canvas wraps Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC for 2D drawing.
+Safe 2D drawing for shapes, paths, text, images, and effects, built on Direct2D.
+Canvas draws a frame from commands; use [windows-composition](https://docs.rs/windows-composition)
+when a retained visual tree is a better fit.
 
-The core crate is host-neutral. Enable `system` for the typed `windows-window` swap-chain helper,
-`reactor` for Canvas controls in Reactor, and `composition` to draw into Composition surfaces. The
-`system` and `reactor` host adapters can coexist unless `composition` selects their incompatible
-Composition backends.
+- 📦 [crates.io](https://crates.io/crates/windows-canvas)
+- 📖 [docs.rs](https://docs.rs/windows-canvas)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/canvas)
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)
-
-Start by adding the following to your Cargo.toml file:
+## Draw a frame
 
 ```toml
-[dependencies.windows-canvas]
-version = "0.100"
+[dependencies]
+windows-canvas = "0.100"
 ```
 
 ```rust,no_run
 use windows_canvas::*;
 
-fn main() -> Result<()> {
-    let device = GpuDevice::new_warp()?;
-    let mut swap_chain = device.create_swap_chain(640, 480)?;
-
-    let session = swap_chain.begin_draw()?;
-    session.clear(ColorF::CORNFLOWER_BLUE);
-
-    let brush = session.create_solid_brush(ColorF::rgb(1.0, 0.5, 0.0))?;
-    session.fill_rect(&Rect::new(20.0, 20.0, 200.0, 120.0), &brush);
+fn draw_frame(chain: &mut SwapChain) -> Result<bool> {
+    let session = chain.begin_draw()?;
+    session.clear(ColorF::BLACK);
+    let brush = session.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
+    session.fill_rect(&Rect::from_xywh(20.0, 20.0, 200.0, 120.0), &brush);
     drop(session);
-
-    swap_chain.present()?;
-    Ok(())
+    chain.present()
 }
 ```
+
+Finish and drop the drawing session before presenting. Clear or fully cover each frame unless
+retaining old pixels is intentional.
+
+## Choose a host
+
+| Feature | Use |
+| --- | --- |
+| `system` | Host a swap chain in a `windows-window` window. |
+| `reactor` | Return a Canvas view from a Reactor component. |
+| `composition` | Draw into Composition surfaces with a matching host feature. |
+
+The crate has no default host. You can combine `system` and `reactor` without `composition`.
+With `composition`, select exactly one of those host features.
+
+Start with the [standalone sample][standalone] for window creation and a frame loop. A standalone
+host owns resizing and recovery when `present` returns `Ok(false)`.
+
+The Reactor host manages sizing, display scale, and recovery. Use `canvas` for creation/resize
+redraws, `animated_canvas` for every frame, or `canvas_invalidated` with an `Invalidator` for
+input-driven drawings. Rebuild cached device-dependent resources when `ctx.device_changed()` is
+true.
+
+## Add drawing operations
+
+Use `PathBuilder` for geometry, `TextLayout` for reusable or measured text, and `load_bitmap` for
+images. `with_transform` scopes a transform without leaving it active for later commands.
+Drawing dimensions are in device-independent pixels.
+
+See the [transform][transform], [text layout][text], and [circles][circles] samples.
+
+[standalone]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone
+[transform]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/transform
+[text]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/text_layout
+[circles]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/circles

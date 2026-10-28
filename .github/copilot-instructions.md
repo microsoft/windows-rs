@@ -14,7 +14,7 @@ Cargo workspace (`resolver = "3"`). Members are globbed from:
 
 - `crates/libs/*` - the published/library crates (`windows`, `windows-sys`, `windows-core`, plus
   `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
-  See `docs/readme.md` for the full categorized crate index, and `docs/crates/<crate>.md` per crate.
+  See `docs/readme.md` for the categorized index and each crate's `readme.md` for getting started.
 - `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool-*`.
 - `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate (e.g.
   `test_reactor`, `test-webview`). Crate names are `test_<dir>`.
@@ -177,27 +177,26 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
   features.
   Canvas tests use WARP rendering.
 - **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
-  not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the automated suite
+  not the library README. `cargo test -p test-reactor` must run the automated suite
   without ignored-test flags. Generate its native bindings with `windows-bindgen` in `build.rs`
   rather than depending on the `windows` crate.
 
 ## Documentation
 
-The `docs/` folder has one page per crate:
+Each crate has one maintained getting-started page:
 
-- **`docs/crates/<crate>.md`** - a single page per crate covering both usage and internals (how the
-  crate is built and maintained: codegen pipeline, generated files, conventions). It links to the
-  crate's own `readme.md` for the user-facing intro and quick example.
-- **`crates/libs/<crate>/readme.md`** - the user-facing introduction with a quick example (also the
-  crates.io / docs.rs landing).
+- **`crates/libs/<crate>/readme.md`** - purpose, setup, a working example, essential usage
+  constraints, and links to API docs and samples. This is also the crates.io landing and, for most
+  crates, the rustdoc introduction.
 - **`docs/readme.md`** - the documentation hub and crate index.
 
 `docs/` also holds `contributing.md`, `code_of_conduct.md`, and `security.md`.
 
-When making changes to a crate, update its `docs/crates/<crate>.md` page and its `readme.md` as
-needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (codegen,
-TOML, threading, COM pitfalls, plus the conceptual overview) and `crates/libs/reactor/readme.md`
-(getting started and the quick example).
+Keep READMEs concise and user-facing. Preserve the standard emoji link headers. Use links that
+work on GitHub, crates.io, and rustdoc. Update a README when setup or essential usage changes,
+not for every fix or addition. Avoid implementation walkthroughs and change journals.
+Put detailed API behavior in rustdoc and testing instructions beside the tests. Keep substantial
+references, such as `crates/libs/rdl/rdl.md`, separate without duplicating getting-started material.
 
 ## Writing Style for Docs and Comments
 

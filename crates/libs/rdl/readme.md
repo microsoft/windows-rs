@@ -1,50 +1,64 @@
-## windows-rdl
+# windows-rdl
 
-The [windows-rdl](https://crates.io/crates/windows-rdl) crate compiles **RDL** (Rust Definition
-Language) - a Rust-like text format for describing Windows APIs - into ECMA-335 `.winmd` metadata,
-and back again.
+Compile Rust Definition Language (RDL) into Windows metadata, or turn `.winmd` files back into
+reviewable RDL. Use it for custom API contracts or output from
+[windows-clang](https://docs.rs/windows-clang).
 
-Shared and named nested records retain owner-scoped declarations and references such as
-`Outer::Inner`; anonymous value fields can use inline structs and unions.
+- 📦 [crates.io](https://crates.io/crates/windows-rdl)
+- 📖 [docs.rs](https://docs.rs/windows-rdl)
+- 📚 [Language reference](https://github.com/microsoft/windows-rs/blob/master/crates/libs/rdl/rdl.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 
-Win32 type expressions include qualified pointer chains and inline C/system function pointers,
-such as `extern "C" fn(*const u8, u32) -> i32`, without requiring named callback declarations.
+## Define a contract
 
-WinRT interface and delegate arguments require explicit `#[in]` or `#[out]` directions. Win32
-arguments can also be input/output or unspecified; provide directions when the contract is known.
-Missing directions never default to input.
+Create `example.rdl`:
 
-GUID generation is opt-in: `#[guid(auto)]` derives an interface or delegate identity, and
-`#[guid(0x...)]` specifies one. Native interfaces without either attribute have no GUID in WinMD.
-WinRT interfaces and delegates require a GUID. The writer emits stored GUID values explicitly.
-
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
-
-Start by adding the following to your Cargo.toml file:
-
-```toml
-[dependencies.windows-rdl]
-version = "0.100"
+```text
+#[winrt]
+mod Example {
+    #[guid(auto)]
+    interface ICounter {
+        fn Value(&self) -> i32;
+        fn Add(&self, #[in] amount: i32);
+    }
+}
 ```
 
-Use the `reader` to compile `.rdl` source into a `.winmd`, and the `writer` to regenerate canonical
-`.rdl` from a `.winmd`:
+Use `#[winrt]` for WinRT contracts or `#[win32]` for native API declarations. WinRT interfaces
+need a GUID, explicit or automatic, and every explicit argument needs `#[in]` or `#[out]`.
+RDL looks like Rust but is a separate language.
+
+## Compile and inspect metadata
+
+```toml
+[dependencies]
+windows-rdl = "0.100"
+```
 
 ```rust,no_run
 windows_rdl::reader()
     .input("example.rdl")
+    .reference_default()
     .output("example.winmd")
     .write()
     .unwrap();
 
 windows_rdl::writer()
     .input("example.winmd")
-    .output("example.rdl")
+    .output("roundtrip.rdl")
     .write()
     .unwrap();
 ```
 
-When writing RDL that names external attribute types or records, add their WinMD files with
-`writer().reference("dependency.winmd")`. References resolve names without emitting their
-definitions.
+References resolve names without copying their definitions into the output. Use
+`reference_default()` for standard Windows types or `reference("dependency.winmd")` for another
+component. Writer references likewise resolve external types and attributes without emitting them.
+
+Pass the `.winmd` to [windows-bindgen](https://docs.rs/windows-bindgen) for Rust bindings or
+[cppwinrt](https://docs.rs/cppwinrt) for C++ headers. Keep the RDL as the reviewed source and
+regenerate the binary metadata when it changes.
+
+Use a dedicated output directory with writer `split` or `partition`: these modes remove existing
+`.rdl` files there. The [robot component][robot] combines RDL and binding generation in one build.
+
+[robot]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot/component

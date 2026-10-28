@@ -1,15 +1,22 @@
-## windows-reactor
+# windows-reactor
 
-Windows Reactor is a typed declarative UI library for building native WinUI 3 applications in
-Rust. Components own Rust state, describe the current view, and receive typed messages from
-controls.
+Build native WinUI 3 applications with Rust components, state, and typed messages.
+Reactor is a preview; public APIs may change.
 
-Add Reactor to `Cargo.toml`:
+- 📦 [crates.io](https://crates.io/crates/windows-reactor)
+- 📖 [docs.rs](https://docs.rs/windows-reactor)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
+
+## Get started
 
 ```toml
-[dependencies.windows-reactor]
-version = "0.100"
+[dependencies]
+windows-reactor = "0.100"
 ```
+
+Use the default features and an installed Windows App SDK runtime, or configure a
+[self-contained build](https://docs.rs/windows-reactor-setup).
 
 ```rust,no_run
 use windows_reactor::*;
@@ -49,7 +56,6 @@ impl Component for Counter {
                 .on_click(context.message(Message::Reset))
                 .content("Reset"),
         ));
-
         context.window_frame("Counter", content)
     }
 }
@@ -59,12 +65,49 @@ fn main() {
 }
 ```
 
-Run with `cargo run`. Applications use the default features and an installed Windows App SDK
-runtime. See the [setup guide][setup] for runtime prerequisites and self-contained deployment.
+Run with `cargo run`. Events enqueue messages, `update` changes state, and `view` describes the
+controls for that state. Use `App::run(view)` for a static view.
 
-The [getting-started guide][guide] covers editable state, child components, background work, images,
-and application windows. Browse the [samples] for complete applications and focused examples.
+## Grow the component
 
-[setup]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor-setup.md
-[guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md
-[samples]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor
+Declare editable values from state and send changes back as messages. Handle those messages in
+`update`, not in `view`. Reactor applies declared values without echoing its own writes as user
+edits; only properties you declare are controlled.
+
+Use `View::component` for stateful children whose input implements `Clone + PartialEq`.
+Give movable items stable application keys, not list indices, so state and focus follow the item.
+
+Updates and rendering run on the UI thread. Use `spawn_background` for blocking work,
+`set_timeout` for delayed messages, and effects for subscriptions tied to a component's lifetime.
+Workers return messages rather than touching controls.
+
+## Application lifetime and deployment
+
+Use `App::run_application` when state must outlive individual windows. Its `ApplicationView`
+declares keyed windows and notification icons. Load saved placement before opening a window and
+save observations as they arrive.
+
+For self-contained deployment, use `windows-reactor-setup` from `build.rs` and package the staged
+runtime alongside the executable. Otherwise the matching Windows App SDK runtime must be installed.
+Add `#![windows_subsystem = "windows"]` to hide the console; leave it visible while diagnosing
+startup.
+
+## Samples
+
+| Sample | Shows |
+| --- | --- |
+| [Controlled input][controlled] | Editable state and callbacks |
+| [Effects][effects] | Subscription lifetime |
+| [Async state][async] | Background work |
+| [Notification icon][notifyicon] | Application and window lifetimes |
+| [Window placement][placement] | Persisted window bounds |
+| [Gallery][gallery] | Controls and navigation |
+| [Stacker][stacker] | Reactor, Canvas, and Composition together |
+
+[controlled]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/controlled
+[effects]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/use-effect
+[async]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/async-state
+[notifyicon]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/notifyicon
+[placement]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-placement-registry
+[gallery]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/gallery
+[stacker]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/stacker
