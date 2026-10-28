@@ -2,16 +2,16 @@
 mod Windows {
     mod Win32 {
         struct CPTABLEINFO {
-            CodePage: u16,
-            MaximumCharacterSize: u16,
-            DefaultChar: u16,
-            UniDefaultChar: u16,
-            TransDefaultChar: u16,
-            TransUniDefaultChar: u16,
-            DBCSCodePage: u16,
-            LeadByte: [u8; 12],
+            CodePage: USHORT,
+            MaximumCharacterSize: USHORT,
+            DefaultChar: USHORT,
+            UniDefaultChar: USHORT,
+            TransDefaultChar: USHORT,
+            TransUniDefaultChar: USHORT,
+            DBCSCodePage: USHORT,
+            LeadByte: [UCHAR; 12],
             MultiByteTable: PUSHORT,
-            WideCharTable: *mut void,
+            WideCharTable: PVOID,
             DBCSRanges: PUSHORT,
             DBCSOffsets: PUSHORT,
         }
