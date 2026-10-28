@@ -18,3 +18,10 @@ fn canvas_draws_resizes_and_releases_callbacks_on_removal() -> Result<()> {
         ui.name("dropped", "Dropped [0, 1]")
     })
 }
+
+#[test]
+fn canvas_image_source_draws_and_attaches() -> Result<()> {
+    process::run("canvas-image", |ui| {
+        ui.name("status", "Drawn Some(true); attached Some(true)")
+    })
+}

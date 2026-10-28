@@ -1955,14 +1955,12 @@ impl NativeWindowState {
         let Some(callback) = self.placement_callback.borrow().clone() else {
             return Ok(());
         };
-        let mut hwnd = std::ptr::null_mut();
-        unsafe {
+        let hwnd = unsafe {
             self.window
                 .cast::<native::IWindowNative>()?
-                .WindowHandle(&mut hwnd)
-                .ok()?;
-        }
-        if let Some(placement) = window_placement::read_placement(hwnd.cast())?
+                .WindowHandle()?
+        };
+        if let Some(placement) = window_placement::read_placement(hwnd)?
             && self.last_placement.replace(Some(placement)) != Some(placement)
         {
             callback(placement);
@@ -2004,15 +2002,13 @@ impl Clone for NativeWindow {
 
 impl NativeWindow {
     pub fn raw_handle(&self) -> Result<*mut core::ffi::c_void, WinUiError> {
-        let mut handle = std::ptr::null_mut();
-        unsafe {
+        let handle = unsafe {
             self.state
                 .window
                 .cast::<native::IWindowNative>()?
-                .WindowHandle(&mut handle)
-                .ok()?;
-        }
-        Ok(handle)
+                .WindowHandle()?
+        };
+        Ok(handle.cast())
     }
 
     pub(crate) fn apply_publication(

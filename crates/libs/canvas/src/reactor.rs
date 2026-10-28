@@ -627,13 +627,7 @@ impl CanvasRuntime {
             let Some(state) = state_slot.as_mut() else {
                 return;
             };
-            let raw = match state.chain.raw_swap_chain().cast::<IUnknown>() {
-                Ok(raw) => raw,
-                Err(error) => {
-                    report_error_ref(&self.input, &self.error, native_error(&error));
-                    return;
-                }
-            };
+            let raw: IUnknown = state.chain.raw_swap_chain().clone().into();
             let chain = state.chain_generation;
             let Some(request) = state.lifecycle.begin_attachment(panel, chain) else {
                 return;
@@ -811,7 +805,7 @@ impl CanvasImageSource {
         )?;
         let native: reactor_bindings::ISurfaceImageSourceNativeWithD2D = source.cast()?;
         unsafe {
-            native.SetDevice(device.d2d_device().as_raw()).ok()?;
+            native.SetDevice(device.d2d_device()).ok()?;
         }
         Ok(Self {
             source,
@@ -836,16 +830,14 @@ impl CanvasImageSource {
             bottom: self.pixel_height,
         };
         let mut offset = reactor_bindings::POINT::default();
-        let mut object = std::ptr::null_mut();
         let begin = unsafe {
             self.native
-                .BeginDraw(&update, &ID2D1DeviceContext::IID, &mut object, &mut offset)
+                .BeginDraw::<ID2D1DeviceContext>(&update, &mut offset)
         };
-        if is_device_lost(begin) {
+        if check_device_lost(&begin) {
             return Ok(false);
         }
-        begin.ok()?;
-        let context = unsafe { ID2D1DeviceContext::from_raw(object) };
+        let context = begin?;
         let guard = EndImageDraw(&self.native);
         let session = DrawingSession::from_borrowed_context_with_dpi(
             &context,

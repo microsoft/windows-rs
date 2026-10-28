@@ -1,9 +1,9 @@
 //! Refresh WinUI and WebView2 metadata and compile the local extras.rdl contracts.
 //!
-//! Update WINDOWS_APP_SDK_VERSION and windows-reactor-setup's RUNTIME_VER together, then run
-//! `cargo run -p tool-reactor-metadata`. Component versions come from the umbrella package's
-//! nuspec; WebView2's pin comes from tool-webview. Both runtime pin pairs are checked before
-//! downloading or writing `crates/tools/reactor-metadata/winmd`.
+//! Update WINDOWS_APP_SDK_VERSION, windows-reactor-setup's RUNTIME_VER, and windows-reactor's
+//! bootstrap RUNTIME_VERSION together, then run `cargo run -p tool-reactor-metadata`. Component
+//! versions come from the umbrella package's nuspec; WebView2's pin comes from tool-webview. The
+//! runtime pins are checked before downloading or writing `crates/tools/reactor-metadata/winmd`.
 //! Follow with tool-reactor and tool-composition to regenerate the consuming bindings.
 
 use helpers::nuget_package;
@@ -29,6 +29,7 @@ fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
 
 fn assert_runtime_pins() {
     const REACTOR_SETUP: &str = "crates/libs/reactor-setup/src/lib.rs";
+    const REACTOR_BOOTSTRAP: &str = "crates/libs/reactor/src/native/bootstrap.rs";
     const WEBVIEW_TOOL: &str = "crates/tools/webview/src/main.rs";
 
     let setup_webview2 = helpers::read_str_const(workspace_path(REACTOR_SETUP), "WEBVIEW2_VER");
@@ -40,14 +41,17 @@ fn assert_runtime_pins() {
          {REACTOR_SETUP} and `WEBVIEW2_VERSION` in {WEBVIEW_TOOL} together."
     );
 
-    let runtime_ver = helpers::read_str_const(workspace_path(REACTOR_SETUP), "RUNTIME_VER");
-    assert_eq!(
-        runtime_ver, WINDOWS_APP_SDK_VERSION,
-        "Windows App SDK pin drift: `tool-reactor-metadata` refreshes \
-         `{WINDOWS_APP_SDK_VERSION}` metadata but `windows-reactor-setup` stages `{runtime_ver}`. \
-         Update `WINDOWS_APP_SDK_VERSION` in this tool and `RUNTIME_VER` in {REACTOR_SETUP} \
-         together."
-    );
+    for (path, name) in [
+        (REACTOR_SETUP, "RUNTIME_VER"),
+        (REACTOR_BOOTSTRAP, "RUNTIME_VERSION"),
+    ] {
+        let version = helpers::read_str_const(workspace_path(path), name);
+        assert_eq!(
+            version, WINDOWS_APP_SDK_VERSION,
+            "Windows App SDK pin drift: `{name}` in {path} is `{version}` but this tool \
+             refreshes `{WINDOWS_APP_SDK_VERSION}` metadata. Update them together."
+        );
+    }
 }
 
 fn generate_extras() {
