@@ -16,8 +16,8 @@ Cargo workspace (`resolver = "3"`). Members are globbed from:
   `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
   See `docs/readme.md` for the categorized index and each crate's `readme.md` for getting started.
 - `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool-*`.
-- `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate (e.g.
-  `test_reactor`, `test-webview`). Crate names are `test_<dir>`.
+- `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate. Check
+  its `Cargo.toml` for the package name, such as `test_clang` or `test-reactor`.
 - `crates/samples/*/*` - runnable examples.
 
 The crates fall into rough groups (see `docs/readme.md` for the authoritative list): core & errors
@@ -102,7 +102,10 @@ cargo run -p tool-clippy-all    # runs clippy across all crates
 **Never hand-edit generated files.** Generated outputs are committed, and CI fails if regenerating
 produces a diff (the `gen` workflow runs each `cargo run -p tool-*` and rejects any change; the
 `test` workflow likewise fails if tests modify tracked files). After editing generators or filters,
-re-run the tool and commit the result.
+re-run the tool and leave the generated changes with the source changes for review.
+
+For behavior-preserving generator refactors, regenerated output should remain unchanged. Review
+intentional output changes against focused fixtures rather than treating every diff as a failure.
 
 The core `windows` / `windows-sys` crates are generated from Windows metadata (`.winmd`) via
 `windows-bindgen` (driven by `tool-package`). `windows-metadata` and `windows-rdl` support
@@ -123,7 +126,7 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 4. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
-4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
+After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
 
 ## Key Architecture Facts
 
@@ -141,9 +144,8 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 - WinUI backend ownership is split across `crates/libs/reactor/src/native/winui/mod.rs` and
   `crates/libs/reactor/src/native/winui/`.
-- The TOML config (`crates/tools/reactor/src/schema.toml`) declares 79 WinUI controls. Keys are
-  WinUI metadata names; the tool infers types, setter patterns, and event handlers from `.winmd`
-  files.
+- The TOML config (`crates/tools/reactor/src/schema.toml`) declares WinUI controls. Keys are WinUI
+  metadata names; the tool infers types, setter patterns, and event handlers from `.winmd` files.
 - COM casts: classes Deref to their default interface (zero-cost). Only cast to non-default parent
   interfaces. The `Param` trait handles parent-class conversions automatically.
 
@@ -159,27 +161,27 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **Module layout**: When a module has a directory, put its entry point in `name/mod.rs`, not
   `name.rs` beside the `name/` directory. The workspace enables Clippy's `self_named_module_files`
   lint to enforce this for modules with external submodules.
-- **Fail fast**: Contract violations, internal bugs, and unexpected native failures panic (`.unwrap()`
-  or `panic!`); Reactor does not roll back or poison state. Return `Result` only where the caller
-  can act: startup and public `App` APIs, errors returned from app closures (surfaced through
-  `App::run`), and imperative completions such as `FocusError`. A dispatcher that rejects work is
-  shutting down; drop the work rather than failing.
+- **Fail fast**: Contract violations, internal bugs, and unexpected native failures panic
+  (`.unwrap()` or `panic!`); Reactor does not roll back or poison state. Return `Result` only where
+  the caller can act: startup and public `App` APIs, errors returned from app closures (surfaced
+  through `App::run`), and imperative completions such as `FocusError`. A dispatcher that rejects
+  work is shutting down; drop the work rather than failing.
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
   in `test-reactor`. Prefer a small set of high-value contracts over exhaustive UIA matrices or
   preserving every legacy assertion. Do not add separate runners or test scripts. Keep library tests
-  headless rather than adding ignored native fixtures. The functional crate participates in workspace
-  tests and uses `windows-reactor-setup` in its build script. Live UI cases run on x64; setup's
-  filesystem and multiprocess tests run on all Windows architectures.
+  headless rather than adding ignored native fixtures. The functional crate participates in
+  workspace tests and uses `windows-reactor-setup` in its build script. Live UI cases run on x64;
+  setup's filesystem and multiprocess tests run on all Windows architectures.
   Run the crate alone when checking default features rather than the workspace's unified
   features.
   Canvas tests use WARP rendering.
-- **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
-  not the library README. `cargo test -p test-reactor` must run the automated suite
-  without ignored-test flags. Generate its native bindings with `windows-bindgen` in `build.rs`
-  rather than depending on the `windows` crate.
+- **Reactor test documentation**: Keep testing instructions in
+  `crates/tests/libs/reactor/readme.md`, not the library README. `cargo test -p test-reactor`
+  must run the automated suite without ignored-test flags. Generate its native bindings with
+  `windows-bindgen` in `build.rs` rather than depending on the `windows` crate.
 
 ## Documentation
 
@@ -223,584 +225,125 @@ These rules were established while cleaning up the docs and code comments and ap
   `an earlier version`, `no longer`) unless it describes real runtime behavior, not codebase edits.
 - **Do not edit generated files** to satisfy these rules; only hand-written sources.
 
-## Open Investigations / TODO
-
-Enduring record of known issues so they are not lost between sessions. Add findings here; remove or
-mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
-stale fast.
-
-### Native menu theme propagation
-
-Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::refresh` and
-`show_pending`. A CI run observed a flyout item remaining Light while its anchor reported Dark.
-The cause is unconfirmed. The headless preference and callback tests do not establish native theme
-propagation; investigate the behavior before adding a focused public-API regression case.
-
-### Reactor live coverage (test-reactor fixtures)
-
-Every schema object has live coverage (`SwapChainPanel` through the `canvas` fixture, `WebView2`
-through `test-webview`). The `controlled` fixtures cover toggles, grouped `RadioButton`s,
-`Expander`, ranged values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform`
-fixtures cover `TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView`
-and `TreeNode`; the `selection-items` fixture covers the item-flag selectors `ListBox`,
-`SelectorBar`, and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open
-state; the `pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`; the
-`controlled-churn` fixture interleaves fast re-renders with user input and checks that native state
-settles on the declared values without echoes; the `smoke` fixture invokes the remaining action
-controls and updates, removes, and remounts the display-only objects.
-
-Remaining gaps:
-
-| Area | Gap |
-| --- | --- |
-| `DatePicker`, `TimePicker` | Mounted only; `on_date_changed` and `on_time_changed` need a flyout-driven case |
-| `InfoBadge`, `PersonPicture`, shapes, icons | No UIA peer; lifecycle runs but property values are not observed |
-
-### WinUI bugs (for later reporting)
-
-WinUI defects found while testing Reactor. Each is reproduced without Reactor unless noted. Reactor
-documents the resulting limitation instead of adding per-control workarounds.
-
-| Area | Behavior | Repro | Reactor impact |
-| --- | --- | --- | --- |
-| `ToggleSwitch.IsOn` | Each `IsOn` change makes later ones slower: setting 200 switches takes about 105 ms, then about 400 ms after 120 rounds, at 60 ms or 500 ms cadence | Plain C# WinUI app | Live updates of many toggles slow down over time |
-| `NavigationView.IsPaneOpen` | A reopen before the next layout pass leaves the pane at compact width while `IsPaneOpen` reads true | Plain C# WinUI app | A rejected close keeps the pane narrow (see below) |
-| `TeachingTip.IsOpen` | An open or close during the open or close animation is ignored without an event | Reactor only | Reactor records the restored state and rewrites it on the next render |
-| `ListView` `ScrollIntoView` (#5146) | Access violation in `ModernCollectionBasePanel::DoScrollItemIntoView` after `Items.RemoveAt` x7, `InsertAt`, `Append`, `ScrollIntoView` on the next tick | Bare Rust WinUI, no Reactor; a C# port does not crash | App crash |
-
-### NavigationView pane reopen
-
-WinUI leaves a `NavigationView` pane at compact width when `IsPaneOpen` goes false then true
-before WinUI's next layout pass, while `IsPaneOpen` reads true (reproduced in a plain C# WinUI
-app). A Reactor reject restore runs at normal dispatcher priority and lands in that window, so the
-`pane` test does not check the pane width after a rejected toggle. In the C# repro, a reopen from
-a high- or normal-priority dispatcher callback, from `PaneClosing`, `LayoutUpdated`, or
-`CompositionTarget::Rendering` fails. A reopen from a low-priority callback, after a delay, or from
-`PaneClosed` succeeds. `PaneClosing` is always paired with `PaneClosed` (about 1 s in `Left` mode,
-about 170 ms in compact and minimal modes). The only deterministic fix found holds the write
-until `PaneClosed`, which makes a rejected toggle visibly close before it reopens. It is not
-implemented.
-
-### Repo-wide dead-code / quality audit (2026-07)
-
-Open items across the hand-written crates (reactor, bindgen, rdl, clang, canvas, metadata, webview,
-core) that need a design decision or a larger change. Any bindgen source change must be proven
-output-neutral by running the `tool-*` generators and confirming `git diff` shows no generated-file
-changes (the `gen` workflow enforces this).
-
-#### Duplication / refactor candidates
-
-| Location | Issue |
-| --- | --- |
-| `metadata` `merge/mod.rs` `write_type` vs `merge/remap.rs` `write_type` | Two ~60-line structurally identical functions; the remap copy's comment says it mirrors `merge::write_type`. Any new ECMA table must be added to both, with no compiler guard. |
-| `canvas` `session.rs` gradient-stop + bitmap-properties builders | Duplicated ABI-stop and bitmap-properties construction across the brush paths. |
-| `bindgen` `types/interface.rs` + `cpp_interface.rs` local `fn combine` | Duplicate local helper. |
-| `canvas` `color.rs` `DARK_SLATE_BLUE` | `rgb(0.05, 0.05, 0.1)` does not match the CSS color of that name (public API used by samples). |
-
-#### Coverage gaps
-
-| Area | Gap |
-| --- | --- |
-| `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
-| webview | `process-failed`, download, and deferral paths untested. |
-
-### clang rapid iteration
-
-SDK-specific definition include configurations are provisional. Revisit these workarounds together
-before replacement acceptance, including Olectl's dependency preloading and split
-`DEFINE_GUID`/`INITGUID` state. Keep them in the SDK driver, not parser or per-symbol policy.
-
-The `test_clang` breadth fixtures cover free functions, COM-style interfaces, const integers,
-booleans, finite floats, and selected object-like macros through capture, target association, RDL,
-and WinMD. Keep DLL ownership in publication policy and macro
-evaluation distinct from ordinary declaration capture.
-`tool-win32 --partial --sdk-imports` reads each target's pinned SDK libraries with the shared
-`tool-win32/src/import_policy.rs` policy. Preserve library order and checked overrides. Explicit public
-imports win over exact compiler linker symbols in target-specific maps. Filter short-import members
-by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
-kinds remain distinct. Keep ordinal archive evidence. Named records retain their export names;
-ordinal-backed records use the C declaration's unqualified name after exact target-native compiler
-symbol matching. This is named-publication policy, not DLL export-table proof. Canonical metadata
-and native fixtures are the comparison points, not frozen export snapshots. Do not add ordinal
-consumer support or infer names by undecorating symbols.
-Header capture defines target availability. A library the pinned packages omit for one target is
-evidence, not absence: its functions take the same library's DLL and export from the other targets,
-which must agree. A library that exists but lacks the symbol remains a gap. Bindgen keeps metadata
-architectures and allows `dead_code` under `--dead-code` instead of narrowing to reached targets.
-The first target-native import run exposes 182 missing x86 mappings: 94 declarations use default
-cdecl while their libraries contain stdcall symbols, and 88 have no matching entry in the selected
-x86 libraries. A compiler-default stdcall probe matches
-the 94 alternate symbols. The approved `--x86-stdcall` experiment uses Clang's
-`-Xarch_i686 -mrtd`, not an IR convention rewrite. It remains opt-in; review unannotated callbacks
-as well as functions. Do not repair gaps with symbol spelling guesses or treat missing import
-evidence as native target absence.
-The stdcall trial recovers 94 functions but also changes 84 callbacks, the six ICU
-`UReplaceableCallbacks` fields, and `InitializeXamlDiagnosticsEx` on x86. Seventy-five named
-declarations matched baseline cdecl before the trial. Native import agreement does not validate
-these extra ABI changes; the blanket default is not accepted for canonical publication.
-Native ABI conflicts are fatal. Import redeclarations compare parameter labels positionally and
-expand only unannotated value typedefs for agreement. Keep the selected observed signature's aliases;
-nominal types, qualifiers, callback names and typedef-owned contracts must not be erased.
-Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
-fails even with satellite definition mode disabled.
-`Input.macro_headers` and `--macro-header=header.h` discover object-like macros through compiler
-preprocessing records and per-macro expression probes in one incremental native parse. Failed
-probes never supply capture evidence. The certbcli slice recovers its 22 baseline constants,
-retaining `CSBFT` typedefs, plus two
-string macros whose encoding follows UNICODE. Unselected headers' macros remain absent from both
-output and omissions; track baseline parity separately from captured-declaration counts.
-Winerror and urlmon discovery recover all 7,456 baseline winerror names with unchanged values.
-Retain written typedefs; 363 use `DWORD` where the baseline used `u32`. The active definitions of
-18 `INET_E_*` macros belong to urlmon. Do not recover names by capturing superseded definitions.
-Ntstatus discovery recovers all 3,072 baseline declarations with unchanged types and values.
-Its standalone input needs `winternl.h` for `NTSTATUS`; use `WIN32_NO_STATUS` around Windows headers.
-Active definitions owned by mferror or wincred remain explicit discovery diagnostics in the full TU.
-Winnt macro discovery recovers 3,231 baseline names with unchanged values and 32 written-typedef
-differences. A separate lean Windows INITGUID input recovers 259 winnt and 11 winsvc GUIDs through
-the existing aggregate evaluator. It does not repeat macro discovery.
-Constant observations retain native type, qualifiers, attributes, location, and linkage; only a
-declaration has no value. Resolution compares against a definition when available so declarations
-cannot hide conflicting values. Missing definitions fail publication; invalid initializers remain
-capture failures. All SDK inputs include intsafe before Windows headers, supplying `DWORD_MAX` for
-`POWER_LIMIT_VALUE_NO_CONTROL` without displacing winerror's `S_OK`. Mixed support contexts change
-native SAL arguments and must fail reconciliation. Winnt has 3,490 baseline names present; its only
-missing name, `_ARM64_MULT_INTRINS_SUPPORTED`, is an approved compiler-internal scope exclusion
-whose active definition belongs to the unselected support header, not a parser special case.
-Hidusage macro discovery recovers all 2,833 baseline constants with exact types and values on all
-targets. Only `hidusage.rdl` changes; the header guard is the sole new omission.
-Winuser/imm discovery recovers 3,123 baseline names with unchanged values and target availability;
-75 retain written typedefs. The active owners of `MOD_ALT`, `MOD_CONTROL`, and `MOD_SHIFT` are imm.
-Keep macro-constant exclusions separate from native value exclusions through capture, dependency
-pruning, and publication. Failed probes must not erase observed native functions with the same
-name; known native conflicts still fail before pruning. The `macro_function_aliases` fixture covers
-these boundaries, including SDK-style x86 aliases for functions declared on 64-bit targets.
-Wincrypt discovery closes 2,678 baseline names with unchanged values, encodings, and target
-availability; 173 retain `LPCSTR` aliases. Its fixture covers string concatenation and embedded NULs.
-Four `CERT_STRONG_{SIGN,KEY}_PARA_OS_*` brace initializer macros still require a destination type
-and remain unsupported; never infer that type from macro names or tokens.
-Commctrl/richedit discovery closes 2,157 and 567 baseline names and five moved commdlg constants.
-All prior declarations remain unchanged. Generic opaque pointee markers recover their dependents;
-checked compiler static initializers recover the 38 structure-size macros without SDK exceptions.
-Mmreg and its ksmedia/wmsdkidl companions add 2,475 baseline constants without changing prior
-declarations. Active ownership puts 20 speaker flags in ksmedia and `WAVE_FORMAT_DRM` in wmsdkidl.
-Retained values and target availability match; 55 constants preserve written typedefs. The full
-selection retains 1,974 of 1,976 mmreg names and all 78 wmsdkidl names. Discovered `__uuidof`
-GUID macros, including mmreg's PCM/WAVEFORMATEX GUIDs, publish their native values.
-Three ksmedia property keys need definitions; `KSEVENTSETID_VIDCAPTOSTI` is a UUID tag without a
-same-named value macro, so publishing its tag name as a constant needs a separate policy decision.
-Macro discovery does not use a PCH; a PCH reload lost the builtin `_GUID` definition and rejected
-every `__uuidof` macro. `uuid_macros` checks explicit and discovered GUID parity. Do not reintroduce
-per-macro reparses or PCH replay; probes share one incremental parse per target.
-Macro probe initializers must not add parentheses around the macro. That turns comma-separated
-initializer fragments into scalar comma expressions. Preserve source-authored grouped expressions;
-let Clang reject field lists without filtering macro names or interpreting their tokens.
-Publication recognizes unscoped numbered `__MIDL_` helper-enum tags, preserves authored typedefs,
-and otherwise emits loose constants without changing native enum identity. Numeric data-pointer
-constants use native static-initialization evidence and require numeric addresses without relocations.
-Their values are sign-extended from the target pointer width. Reject relocations, side effects,
-undefined behavior, function pointers, and COM interface references.
-External C++ inline overload observations are retained in Snapshot::inline_functions when the
-same selected name has an external C declaration in that TU. Every overload observation must be
-inline and a definition must be present. Do not suppress non-inline overloads or C definitions.
-Enum constants retain their nominal type. Exception contracts retain explicit metadata.
-Constant breadth includes compiler-evaluated GUIDs, property keys, ASCII/UTF-16 arrays, and selected
-string/GUID macros. `aggregate_constants` checks exact RDL and both metadata
-round trips, including architecture variants and annotations. Definitions come from compiler cursor
-links; aggregate leaves come from `APValue`, not numeric-token parsing. Discovery of
-definition inputs for further GUID headers and coverage of further macro headers remain separate work.
-Do not count unselected macros as covered or enable `INITGUID` globally across repeated SDK GUID blocks.
-Review whether each qualification has useful projected semantics before requiring new metadata.
-COM object constness remains in native evidence and reconciliation, but publication maps `I*`
-and `const I*` to the same interface reference. DXGI's `SetPrivateDataInterface` retains/releases
-its `const IUnknown*` argument; this is not an immutability contract. Preserve const on pointer
-storage (`I* const*`), and reject volatile/restrict. Do not apply this normalization to ordinary
-records. Interface typedefs publish as transparent aliases; call signatures remain canonical COM
-references. Qualification review must not hold up unrelated breadth work.
-Keep annotation interpretation bounded: preserve owner and evidence, and expand semantic lowering
-only when a concrete API or consumer requires it.
-
-RDL direction is explicit: known In/Out flags are always written, and missing direction has no
-attribute. Do not infer direction from types or emit `direction(unspecified)`.
-Complementary pointer-null `_When_` branches publish
-only common direction/optionality facts and retain both conditions. RegQueryValueExA/W's count
-remains conditionally input; shared out/opt flags do not authorize an output-only conversion.
-
-Direct, unscoped, argument-free SAL2 result checking on imports, methods and named callbacks emits
-`#[must_use]`. Callback aliases inherit the contract; duplicate annotations emit one marker.
-Parameter/global inspection, scoped annotations and success predicates remain separate evidence.
-Native SAL identities still participate in reconciliation; canonical result use does not promise
-Rust diagnostics or reproduce SAL dataflow analysis.
-
-Bounded success predicates emit `#[success(return == 0)]`, `!= 0`, `== 1`, `>= 0` or `> 0`
-through enum-valued SuccessConditionAttribute. Native type checks guard lowering; do not turn
-ordered pointer comparisons, complex expressions or competing defaults into interpreted contracts.
-Value aliases preserve links to return-default owners, including annotations from other inputs.
-Callable conditions override typedef defaults; neither means automatic Rust Result conversion.
-
-Use these slices to assess whether the shared architecture remains simpler and preserves more
-native information across equivalent responsibilities. Record/alias counts alone cannot establish
-replacement readiness. Do not let bitfield, opaque-record, or annotation completeness become a
-prerequisite for a basic slice in another category. Expand difficult cases only when the slice
-needs them; keep unsupported contracts explicit.
-
-Drive the rewrite toward complete, correct canonical metadata with a short feedback loop.
-Use header-to-RDL fixtures during breadth iteration; defer Rust generation and consumer validation
-to final acceptance rather than running them for each batch.
-
-1. Pick a concrete metadata difference or root omission and add a focused header/RDL fixture
-   establishing the intended result.
-2. Fix the responsible capture, reconciliation, or projection layer. If a feature requires
-   scattered exceptions or conflicting interpretations, correct that boundary before continuing.
-3. Regenerate tracked `metadata/win32` even for partial runs, leaving all changes visible in
-   VS Code's Git diff for review. Do not hide or restore partial changes, including deletions.
-   Review the canonical metadata diff after successful generation.
-   Check intended gains and unexpected losses against the header/RDL fixtures on all targets.
-4. Compare root omissions, dependent losses, time, and memory with the preceding iteration.
-   Diagnostic counts include dependency cascades; uncaptured macros are not counted.
-
-Partial runs and passing fixtures are progress evidence, not replacement readiness. Large deletion
-diffs remain outstanding work. Review architectural pressure points as coverage grows; do not
-substitute repeated redesigns, arbitrary naming/routing rules, or weaker rejection for coverage.
-`capture_partial` reconciles successfully captured observations before dependency pruning. Failed
-observations remain unvalidated omissions, not evidence of compatibility. The validation-pruning
-fixture covers conflicts behind unsupported dependencies and empty enum/alias observations.
-
-`clang` projects genuine incomplete global structs/classes as nominal pointee markers without layout.
-Completeness comes from the reconciled native group; failed definitions cannot fall back.
-Fully captured non-COM C++ records with non-public storage, nontrivial destruction, compiler
-emptiness or opaque bases also become pointer-only markers. Their public nested types and enum
-constants retain their owner. Opaque types cannot occupy fields/arrays or pass/return by value.
-Incomplete unions, nested records, and layout/UUID-attributed forwards remain unsupported.
-`opaque_records`, `record_abi` and `member_enums` check these boundaries.
-
-`RecordSemantics` retains native register eligibility and special-member properties. Keep parameter
-and result guards separate: user-provided constructors, constructor templates and nontrivial/deleted
-copy assignment can change the return ABI without changing layout or trivial copyability.
-Constructors, nonvirtual destructors, conversions and friends are evidence, not exported methods.
-Out-of-line C++ members cannot become global C ABI roots.
-
-RDL record constants use static/literal fields, not instance storage. Public anonymous member enums
-become associated constants; named member enums are unsupported and omit their owner and users.
-Private enum evidence still participates in reconciliation. Bindgen gates every generated
-declaration and impl across architecture variants.
-The GDI+ selection uses GDIPVER=0x0110, flat/init/memory headers and Color's owner, with ordered
-gdiplus.lib import evidence. ColorMap still requires value storage for opaque Color; do not invent
-its private layout. Companion macro/GUID discovery and imports absent from the selected libraries
-remain separate work.
-
-### clang remaining attribute coverage
-
-`tool-win32` force-includes its SAL transport. Source hooks and structural wrappers preserve
-contract names, source-hook arguments, and further macro expansion in `NativeSalAttribute`.
-These strings are evidence, not evaluated expressions or guaranteed original header tokens.
-Common direction/argument-optionality flags are projected; result nullability is distinct.
-Buffer contracts use named `readable`/`writable` RDL backed by `BufferExtentAttribute`. Keep entry,
-success and valid-record phases separate. Native counts support integer parameters, one dereference
-and direct sibling fields; `bytes(...)` selects byte units. Full SAL buffers use `on_entry(*count)` for
-successful lengths tied to entry values. Null fallbacks remain `or(*written, capacity)`.
-Struct fields use `readable(length)` and `writable(capacity)` without a phase argument; their owner
-establishes valid-record state. Parameter contracts keep explicit `entry` or `success`.
-Returned-buffer SAL2 forms use indirect success extents. Capacity-only forms emit writable extents,
-`_to_` adds readable length, and `_all_` emits only readable length using the successful count.
-RPC `ecount_full` promises both writable and readable extents. Returned strings use
-`null_terminated(success, indirect)`. RPC optional returned strings also require an incoming valid
-nullable string: retain its indirect entry-readable extent and entry termination. Optional RPC
-counted buffers instead have only `nullable(entry, indirect)` on entry; this permission must not
-invent initialized/readable storage. Indirect extents select initialized storage at their phase.
-`NullableAttribute` also uses return-row `-> #[nullable] T` and field-owned `#[nullable]`, without
-phase properties. Return nullability is independent of success. Keep unsupported scalar/callback
-pointer contracts and mixed field contracts as evidence.
-Buffer-only annotations must not acquire `out_ptr`'s one-readable-element guarantee.
-`if_present(*count)` leaves the extent unknown
-when optional count storage is null, without weakening returned-pointer initialization/nullability.
-Explicit matching returned-pointer and buffer contracts retain both guarantees, including
-null-on-failure. Other distinct combinations remain evidence; do not form permissive unions.
-Derive count optionality from the same unconditional facts as parameter flags; retain explicit
-fallbacks instead of adding `if_present`. Native counts and ranges share bounded integer expressions:
-unsuffixed decimal/hex literals fitting `i32`, grouping, addition, subtraction and multiplication.
-Arithmetic uses C promotions; signed constant overflow is rejected. New count arithmetic never emits
-`Offset`; legacy offsets retain full metadata spelling. Phases, optional counts and null fallbacks
-remain separate. Casts, `sizeof` and unsupported operators remain evidence. Return-based counts still
-need their complete success condition before lowering. Public comparison
-binds count references positionally while publication retains observed names. Legacy attributes stay
-readable.
-Typedef reconciliation selects an observed annotation set containing every other observed set;
-incomparable sets fail, and original observations remain unchanged. Native definitions and
-callable observations still require matching annotations. Annotation owners that cannot be
-published are rejected with their dependents, not stripped. Keep this provisional vocabulary
-explicit until canonical contract attributes replace it.
-
-Array-bound expressions are accepted through the native `windows_clang_getLayoutExpression`
-query, not an expression-kind allowlist. Captured constant array extents and bitfield widths carry
-the evaluated values. An incomplete array extent is `None`, distinct from `Some(0)`. Unsized
-parameters use native pointer adjustment; incomplete array storage is not projected.
-`windows_clang_getFieldInitializer` rejects in-class initializers, including
-bitfield initializers hidden by libclang's child visitor.
-Callback array parameters follow Clang's canonical pointer adjustment and preserve written element
-aliases. Variable bounds and C static/qualified array-parameter contracts remain unsupported.
-
-`clang` `capture/mod.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
-evaluated `AlignedAttr` requests with their semantic form.
-`test_clang` `fidelity.rs` `opaque_packing` distinguishes `pack(1)` and `pack(2)` despite identical
-char-only layouts. Reconciliation checks requested packing, and projection preserves it.
-Complete-record alignment projects through `#[align(N)]`; request sets are checked even when
-layouts match. Member alignment uses field-owned `AlignmentAttribute`; updated bindgen preserves
-field types with target-evaluated `MaybeUninit<u8>` padding and containing alignment. By-value
-callables containing these members remain rejected pending ABI qualification. Typedef/enum
-alignment, aligned bitfields and packed aligned value bases remain unsupported.
-Mixed packing/alignment retains both requests. Required alignment propagates through contained
-records and arrays independently of the natural-alignment packing cap. Bindgen uses field-local
-byte storage with unsafe reads and explicit writes for underaligned fields; normally representable
-fields remain typed. Do not create aligned references to byte-backed storage. Mixed-layout values
-remain rejected in callable signatures pending ABI qualification. `mixed_layout` covers these
-contracts on all targets.
-The native `TypeVisibilityAttr` query decodes default/hidden/protected requests, including the
-implicit tokenless attribute on `_GUID`. `clang` retains and compares default requests; hidden
-and protected requests remain unsupported. Supported plain records/enums do not project C++ RTTI
-or vtables, so default type visibility needs no emitted attribute. Ordinary `Visibility` and
-other undecoded attributes remain rejected. Do not identify unknown attributes from empty tokens
-or infer requests from layout.
-
-The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. The stock C API lacks the packing
-payload accessor.
-Track runtime/resource-header upgrades and binding refreshes separately from declaration work.
-The `windows_clang.dll` companion builds against the matching LLVM SDK. Its packing query reads
-`MaxFieldAlignmentAttr`, not explicit `AlignedAttr` alignment.
-
-Independent declaration coverage can proceed while opaque attributes and their dependents remain
-explicitly omitted. Resolve this boundary before claiming full coverage, or before a feature needs
-those semantics. Do not relax rejection to increase output counts.
-
-`windows-clang-sys` replaces `clang-sys` for both parser crates and helpers. Rebuild native changes
-with `cargo run -p tool-clang-sys -- --native`, then regenerate with `cargo run -p tool-clang-sys`.
-Helper provisioning checks native build-input and DLL fingerprints, rebuilding stale managed pairs.
-Explicit `LIBCLANG_PATH` builds remain caller-owned and are never silently replaced.
-
-Callback capture accepts plain C/stdcall prototypes after checking native function properties.
-`test_clang` `opaque_callbacks.h`
-distinguishes ordinary C and x86 `regparm(2)` function-pointer types with a compiler `static_assert`.
-Both expose `FunctionProto`, C calling convention, identical result/parameter types, and no
-attribute cursor children. `noreturn` also survives in a function type without an attribute cursor.
-Type spelling and `clang_equalTypes` distinguish extra semantics but do not decode their payloads.
-Explicit `__cdecl`/`__stdcall` instead expose `CXType_Attributed`. Do not assume that rejecting
-attributed types makes every remaining function prototype plain C.
-The sys crate's `windows_clang_getFunctionInfo` recovers these hidden properties, including
-explicit `regparm(0)` versus absence, and flags additional prototype information for rejection
-or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
-Explicit regparm (including zero) and unknown properties remain rejected. Variadic imports retain
-the compiler's C ABI, including ignored written stdcall requests; variadic callbacks and methods
-remain rejected during publication. Native reconciliation compares the variadic flag.
-`Function::noreturn` retains the native function-type bit; `Cxx11NoReturn` retains declaration-owned
-standard attributes separately. Native/public comparison checks both. The shared callable writer
-emits one DoesNotReturn attribute for imports, methods, and named callbacks. Non-returning anonymous
-pointers require a compatible named callback, not an ordinary signature with the contract discarded.
-The noreturn fixtures cover native ownership, duplicate forms, conflicts, partial dependencies,
-metadata round trips, and four SDK exit/exception APIs on all targets.
-Unconditional noexcept, nothrow, and empty throw() retain written and canonical exception
-specifications as native-only compatibility evidence. Methods, imports and delegates do not emit
-NativeExceptionSpecification. Native agreement and callback matching still compare exception
-specifications. Supported unnamed non-throwing pointers can use C/stdcall FNPTR; noreturn still
-requires an attribute-owning named callback. No unwind ABI or exception translation is implied.
-Computed/dependent and nonempty dynamic exception specifications remain unsupported.
-Callback dependency pruning follows result and all parameter edges.
-Failed value-alias or callback publication must remove the declaration, not just its root marker:
-reachable named values are published as dependencies, so root-only removal would retry the failure.
-
-`windows_clang_getTypeQualifiers` checks qualifiers before `clang` type interning. CVR and
-supported unaligned requests are represented, including typedef inheritance. An unaligned request
-requires canonical unqualified native storage alignment one; native comparison retains the request,
-but metadata needs no additional modifier. Wider or incomplete unaligned storage and unknown
-qualifiers stay rejected. `byte_aligned_qualifiers` and the SDK fixture check this boundary on all
-targets.
-Ordinary type publication omits volatile/restrict qualification, including typedefs and raw-pointer
-chains, record fields and their arrays, while native capture and reconciliation retain it.
-No RDL modifiers are emitted for these qualifiers; generated field accesses are not automatically
-volatile. Do not infer atomics, barriers or Rust exclusivity. Storage-qualified constants and
-C++ reference parameters, and qualified COM objects/methods, remain rejected.
-`pointer_qualifiers` and `pointer_qualifier_storage` cover this publication boundary.
-Supplied SDK metadata may own opaque data-pointer aliases over typed native pointees. Reference
-compatibility checks target width, indirection and constness; it does not erase function pointers
-or COM references, or weaken native reconciliation. SDK-owned `PMDL`/`PIRP` stay opaque while WDK
-`MDL`/`IRP` records remain available. Named and structural callback references compare by target ABI
-without changing their published identities. `reference_pointer_ownership` covers these
-boundaries.
-Callback naming uses target-wide candidates after public-family and alias validation. Candidate
-searches use the shared native/public type checker and discard assumed pairs after each failure.
-When no compatible callback name exists, projection emits structural C/stdcall function-pointer
-types. RDL encodes these as ECMA-335 `FNPTR` signatures; do not invent public callback names.
-Named callbacks retain their delegate representation. Signature traversal must include results and
-every parameter for dependency collection, namespace remapping, and nested-reference rewriting.
-
-### clang native declaration queries
-
-The native companion supplies UUID payloads, language linkage, and static-initializer
-validity. `clang_Cursor_Evaluate` can fold `(call(), 3)` to `3`; successful evaluation alone does
-not establish a constant initializer. `capture/values.rs` gates scalar evaluation with the native
-static-initializer query, including explicit side-effect and undefined-behavior checks. Compiler
-field-offset expressions need not be C++ core constant expressions; no macro-name or AST-shape
-exceptions are used. Float values retain their IEEE bits, including signed zero;
-non-finite values and extended floating-point types remain unsupported.
-The integer-element query walks evaluated struct/array values with checked index paths and
-zero-filled tails. String arrays remove one trailing terminator; embedded zeros remain intact.
-SelectAny is storage evidence, not part of published constant-value equality.
-C++ member templates, nonvirtual methods, and method using declarations are retained in
-RecordDefinition::non_vtable_members; they are not exported methods or part of ABI comparison.
-Parameter defaults retain the exact compiler-owned expression cursor, printed expression, and
-location for native reconciliation. C++ default expressions are not portable publication contracts:
-do not emit NativeDefaultArgument, mark parameters optional, or alter callable arity.
-Method CVR is decoded separately from type qualifiers; NativeConstMethod preserves const methods.
-Volatile/restrict and ref-qualified methods remain rejected. DirectWrite factory7/font-set3 and
-Direct2D factory7/device-context6 closures publish. NativeDeprecated preserves message/replacement
-payloads, including enum members and original typedef ownership.
-Virtual methods retain absolute slots from MicrosoftVTableContext, not source declaration order.
-Overloads retain native metadata names; existing bindgen suffixes must not collide with literal
-method names. Verify contiguous slots after the inherited vtable prefix.
-
-COM interfaces publish as opaque references, not packed value records. Check pointer-sized,
-fieldless layouts against inherited alignment capped by the local packing request. Keep packing
-in native reconciliation. Core vtable-pointer loads and weak-reference forwarding use the shared
-alignment-safe `Interface::assume_vtable`; the vtable itself remains aligned.
-
-Value records permit one public nonvirtual base at compiler-reported offset zero, represented by
-a NativeBase field. Complete base storage and derived offsets/size/alignment must match Clang.
-Inherited values and containing records/arrays remain blocked in by-value callable signatures.
-Base types resolve through canonical native
-declarations, including typedef-spelled bases, rather than registering typedef cursors as records.
-
-Attributes retain decoded payloads and locations, not raw cursor-range token dumps. Macro-expanded
-attribute extents can span unrelated header declarations. Unknown attributes remain explicit errors
-with compact diagnostics. Macro evaluation binds the initializer expansion and synthetic declaration
-by exact input-file offsets; an earlier expansion of the same name is not probe evidence.
-
-### clang nested records
-
-Stock `clang_Type_visitFields` exposes implicit anonymous aggregate fields and their native offsets.
-Use `clang_Cursor_isAnonymousRecordDecl` on the field's type declaration to distinguish a promoted
-anonymous aggregate from a named field whose record type is unnamed. The predicates on the field
-cursor itself do not make that distinction. These queries work on all three parsing targets.
-
-`clang` `Record::owner` retains semantic ownership. Named children correspond by scoped name;
-unnamed children use their first owning native field. `Snapshot::record_identity` supplies the
-same owner-relative key to native resolution and cross-target association. Public families check
-corresponding children independently, and partial pruning removes children with their owner.
-Do not use display spellings or source offsets as nested identity.
-
-RDL preserves shared and named nested records through owner-scoped declarations and references
-such as `Outer::Inner`. A native declaration such as `struct { int value; } first, second;` has
-one shared type, not two independent inline types. `rdl` `writer/struct.rs` `write_record` keeps
-unshared direct fields inline when both their anonymous provenance and generated names match the
-field position. `NativeAnonymousAttribute` carries the first owning native field position, supplied
-implicitly by inline RDL or explicitly by `#[anonymous(N)]`. It can differ from the emitted field
-row after bitfield grouping. Bindgen numbers only marked anonymous children in native position order;
-named children and enums retain owner-qualified names without consuming anonymous indices.
-Do not infer anonymity from a generated-looking spelling. Selected flattened type-name collisions
-on overlapping architectures fail instead of dropping declarations.
-Other nested records remain explicit declarations under their owner, not top-level helper types.
-
-### clang replacement boundary
-
-`clang` `projection/mod.rs` `Projector::written_ty` preserves written value-typedef and callback names
-at use sites. Native agreement precedes public-name agreement across observations; conflicts are
-errors, not representative-selection choices. Callback parameter evidence belongs to
-`AliasObservation`; publication preserves native names, with positional names for unnamed
-parameters. ABI-based callback naming excludes annotated and indirect prototypes. Relocated
-typedef contracts retain `NativeSalAttribute.TypedefName`. Native agreement alone does not
-establish annotation correctness. Before a production
-cutover, define intended names and annotations and check the header -> RDL -> WinMD -> generated Rust
-path for representative consumers and issue
-reproductions. Do not count explicit partial omissions or uncaptured macros as solved coverage.
-
-Scalar constants may use their common native primitive type when conflicting written aliases have
-no attributes. Ordinary public agreement preserves unique aliases. The check follows every alias
-chain through all resolved observations, including annotation-only inputs without the constant.
-Native type/value/annotation conflicts still fail before pruning; enum, pointer, and callable
-alias conflicts remain rejected. `scalar_constant_aliases` covers values, macros, definitions,
-input order, alias-owned contracts, and constant-owned attributes through RDL and WinMD.
-
-### clang public ownership
-
-Explicit WinMD references own matched native names. Global names are looked up across all supplied
-metadata namespaces; retain the matched metadata identity without local redefinition. Check target
-availability before ambiguity, and reject multiple matches for a used name rather than choosing by
-file order. Unmatched names use ordinary local publication. No HRESULT/BOOL/string canonicalization
-belongs in clang. Actual C++ scopes remain distinct; SDK namespace wrappers are explicit.
-Referenced definitions own published contracts; native observations still participate in native
-reconciliation. `test_clang` `reference_types.rs` covers producer-to-consumer value references.
-
-After native and public compatibility checks, declarations with several candidate header owners
-go to `shared.rdl`. Candidate owners are combined across targets before partitioning, so a
-declaration cannot land in different files on different architectures. A unique alias header
-containing its native definition remains preferred; otherwise all declaration headers participate.
-Uniquely owned declarations keep their header partitions. `Partition::headers` retains the real
-source-header set, including for shared declarations, rather than inventing a source filename.
-
-The shared stem is reserved for shared declarations. Missing owners and unrelated headers
-colliding in one ordinary partition remain errors. No per-name/header preferences or routing
-seeded from canonical metadata are used. `test_clang` `shared.rs` covers shared aliases,
-records, enums, callbacks, cross-target ownership, dependent consumers, ordering, and conflicts.
-
-### clang primary naming
-
-`AliasObservation::defines_tag` retains the native `TagTypeLoc::isDefinition` relationship.
-`projection/plan.rs` `Plan::primary_names` runs after compatibility validation. A single native
-record or enum uses its unique defining value typedef; zero or multiple defining typedefs leave
-the native tag as the definition and preserve other names as aliases. This makes `GUID` the
-definition behind `BATTERY_CHARGER_ID`, without a GUID-specific rule, and retains `_ACTRL_ALISTA`
-when both `ACTRL_ACCESSA` and `ACTRL_AUDITA` define it.
-
-A checked multi-record family requires a unique defining typedef binding to every member, or a
-unique common alias if none defines a tag. An ambiguous family fails even in partial mode.
-Do not choose a primary name alphabetically, by source/header order, or by stripping underscores.
-Primary naming and output ownership are separate checks.
-Public naming changes are acceptable when they follow native definitions and canonical RDL
-automatically. `VARIANT`/`PROPVARIANT` alias their defining tags; callers use the generated
-`tagVARIANT_*`/`tagPROPVARIANT_*` nested helpers without special naming or compatibility overrides.
-
-Named enum constants retain their native enum type. A separate scalar typedef is not an enum
-alias merely because its name matches the tag without an underscore. The 239 reviewed baseline
-constant-to-enum-member differences, including five signed interpretations of unchanged 32-bit
-patterns, are approved. The `native_enum_types` fixture checks this distinction on all targets.
-
-### clang metadata and consumer boundaries
-
-`clang` `Field::bit_width` retains evaluated widths, including unnamed zero-width barriers.
-Native and public-family comparisons check widths independently of layout. `projection/bitfields.rs`
-groups compatible integer storage; record projection checks offsets, size, and alignment against
-Clang. `test_clang` `bitfields.rs` checks RDL/WinMD member attributes on all three MSVC targets.
-
-Validate metadata semantics and ABI independently of downstream code generation. Consumer-only
-defects do not justify omitting correct metadata; keep separate reproductions and downstream TODOs.
-Raw `windows-sys` bindings can check layout while high-level accessor defects remain open.
-
-- `bindgen` `cpp_struct.rs` `BitfieldBacking::write_accessor` emits union field reads without
-  `unsafe`; generated union bitfield methods fail to compile. This is a downstream TODO, not a
-  clang metadata gate. Union bitfields emit as separate offset-zero storage fields.
-- `NativeBitfieldAttribute.MemberType` is an optional `System.Type` property. It preserves mixed
-  signedness, bool/enum types, typedef identity, and single-bit integer semantics independently of
-  storage. RDL retains typed attributes, and metadata remapping updates their nominal references.
-  Typed union accessors use unsafe reads; legacy untyped output retains its existing behavior.
-  Updated readers are required. Unnamed padding has no member value, but its native type remains
-  in reconciliation.
-- MSVC unions containing only bitfields can have alignment 1 despite wider integer storage.
-  Keep layout mismatches explicit until the storage alignment has a metadata encoding; do not
-  invent a native packing request from the final layout.
-
-Mixed pointer chains use ECMA-335 per-level modifiers: `File::Type` writes `IsConst` after each
-`PTR` whose pointee is const. Homogeneous chains keep the existing leading-modifier encoding.
-`Blob::read_type_signature` supports both without flattening mixed qualifiers. Older readers
-need updating before consuming mixed chains. Metadata's `pointer_constness` and the RDL/clang
-`mixed_pointers` fixtures check this boundary. Downstream Rust checks remain focused, not a coverage
-gate.
-
-### clang anonymous enum constants
-
-`EnumObservation::anonymous` retains `clang_Cursor_isAnonymous`, not a spelling heuristic.
-Projection publishes members as typed constants only when the enum has no public type name.
-Compiler-provided typedef names and primary aliases retain named-enum behavior. Uses of an enum
-without a public type name, such as an anonymous field type, project as its backing integer type.
-
-Constant agreement checks native backing type and value before combining ownership; equal-width
-native types such as `int` and `long` are not interchangeable. Type and value names use separate
-publication keys. Partial rejection removes the originating enum's constants on every target.
-The `anonymous_enum*` fixtures cover constants, typedefs, conflicts, ownership, architecture
-variants, rejection, and header -> RDL -> WinMD -> generated Rust behavior.
+## Clang and Metadata
+
+Use the [attribute reference](../docs/clang-attributes.md) for publication contracts and the
+[RDL reference](../crates/libs/rdl/rdl.md) for syntax and encoding. Dependency pins, native builds,
+and update commands are documented beside the tools that own them.
+
+### Capture and reconciliation
+
+- Compiler queries establish types, layouts, calling conventions, vtable slots, UUIDs, and constant
+  values. Successful expression folding alone does not establish a valid static initializer.
+  Do not replace native evidence with token parsing, spelling guesses, or SDK-specific exceptions.
+- Reconcile native observations before public naming or dependency pruning, including observations
+  later omitted by partial publication. Conflicts fail; failed observations are omissions, not
+  evidence of agreement. A failed definition cannot fall back to an incomplete declaration.
+- Preserve written typedefs, callback identities, annotation owners, qualifiers, and native
+  semantics even when publication does not expose them. Unsupported contracts remain explicit.
+  Do not erase nominal distinctions or contracts to make declarations agree.
+- Macro discovery uses active definitions and compiler-evaluated probes in one incremental parse
+  per target. Keep failed macro probes separate from native value failures; a probe must not erase
+  a valid function with the same name. Do not reintroduce PCH replay, per-macro reparsing, or
+  parentheses around initializer fragments.
+- SDK include ordering, definition inputs, SAL transport, and `INITGUID` contexts belong in
+  `tool-win32`, not parser or per-symbol policy. Do not enable `INITGUID` globally across repeated
+  SDK GUID blocks.
+- Preserve capture synchronization: index creation touches LLVM's process-global target registry
+  and must not overlap live native sessions. Native companion and runtime versions must match;
+  explicit `LIBCLANG_PATH` builds remain caller-owned.
+
+### Public ownership and ABI
+
+- Supplied WinMD references own matched public names after compatibility and target checks.
+  Ambiguous matches fail. Do not add HRESULT, BOOL, or string canonicalization to clang.
+- Primary names follow unique native defining typedefs, not alphabetical order or stripped
+  underscores. Keep native records distinct unless checked by-value aliases establish a public
+  family. Anonymous nested identity uses the owner and first native field, not generated-looking
+  names or source offsets.
+- Resolve header ownership across targets before partitioning. Shared declarations go to
+  `shared.rdl`; do not seed routing from canonical metadata or add per-name/header preferences.
+- Import ownership follows exact target-native compiler symbols and ordered, machine-filtered
+  import-library evidence with checked overrides. Preserve named/ordinal evidence and code/data
+  distinctions. A missing library is not the same as a present library missing a symbol; neither
+  establishes native API absence. Do not guess decorated names or force a blanket x86 stdcall
+  default. Callback ABI needs its own evidence.
+- Layout and callable ABI are separate checks. Verify parameter and return eligibility
+  independently; matching size or trivial copyability is not enough. Opaque records are
+  pointer-only, not substitutes for by-value storage.
+- Preserve field offsets, packing/alignment requests, bitfield member types, pointer-level
+  constness, and architecture variants. Never form aligned references to byte-backed underaligned
+  fields. Use `Interface::assume_vtable` for alignment-safe COM vtable-pointer loads.
+- COM references are not ordinary value records. Const COM objects do not promise immutability;
+  ordinary volatile/restrict evidence does not make generated field access volatile or exclusive.
+- Use structural C/stdcall function-pointer signatures only when they preserve the callable
+  contract. Contracts needing an attribute owner must retain a compatible named callback.
+  Dependency traversal includes results, every parameter, and nested function-pointer signatures.
+- Direction, optionality, nullability, success conditions, buffer phases, and residual SAL are
+  separate facts. Missing direction is unspecified. Do not combine conditional facts into a
+  stronger unconditional contract or infer safe Rust signature transformations from metadata
+  markers alone. C++ defaults and exception specifications are native compatibility evidence,
+  not portable invocation or unwind contracts.
+
+### Validation
+
+Prefer focused `.h`/`.rdl` fixtures in `test_clang`, covering all three parsing targets. Verify
+native companion queries in `test_clang_sys`. Keep procedural cases until their behavior is
+individually verified and covered by dedicated fixtures.
+
+Review regenerated `metadata/win32` and WDK output, including intended gains and unexpected losses.
+Leave partial-generation changes visible, including deletions. Committed metadata is a review
+baseline, not a correctness oracle; partial output and declaration counts do not prove coverage.
+Validate metadata semantics independently of downstream generators, and add generated-code or ABI
+coverage when a change affects consumers. Do not omit correct metadata to hide a consumer defect.
+
+## Focused Investigations
+
+Keep only unresolved questions here, with the affected file and symbol. Use focused GitHub issues
+for reproducible bugs. Remove resolved entries rather than appending a history of fixes.
+
+### Metadata and tooling
+
+- Metadata reader bounds: `File::new` in `crates/libs/metadata/src/reader/file.rs` and decoding in
+  `blob.rs` need focused malformed-input coverage for container/table/heap bounds, compressed
+  integers, signature depth, and relationship ordering.
+- WDK x86 callbacks: check `DRIVER_DISPATCH` in `metadata/wdk/wdm.rdl` against the compiler
+  arguments in `crates/tools/win32/src/wdk.rs`. User-mode import agreement does not establish
+  kernel callback calling conventions.
+- SDK-driver test execution: review the ignored tests in `crates/tools/win32/src/main.rs` and
+  `import_availability.rs`. Running generation is not equivalent to running their assertions.
+- Shared type traversal: compare `write_type_with_signature` in
+  `crates/libs/metadata/src/merge/mod.rs` with `write_type` in `merge/remap.rs`; keep signature and
+  nominal-reference handling consistent.
+- SAL transport ownership: review the split between the producer in `crates/tools/win32/src/sal.h`
+  and decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them synchronized.
+- Small duplication candidates: local `combine` helpers in
+  `crates/libs/bindgen/src/types/interface.rs` and `cpp_interface.rs`, plus gradient-stop
+  construction in `crates/libs/canvas/src/session.rs`.
+- Public color value: `DARK_SLATE_BLUE` in `crates/libs/canvas/src/color.rs` does not match the CSS
+  color of that name. Changing it needs a public-value decision, not a silent refactor.
+
+### Native UI behavior and coverage
+
+Investigate `MenuThemeState::refresh` and `show_pending` in
+`crates/libs/reactor/src/native/transient_menu.rs`: a CI run observed a flyout item remaining Light
+while its anchor reported Dark. The cause is unconfirmed; headless preference and callback tests
+do not establish native theme propagation.
+
+Live coverage still needs flyout-driven `DatePicker::on_date_changed` and
+`TimePicker::on_time_changed` cases. Objects without UIA peers (`InfoBadge`, `PersonPicture`,
+shapes, icons) have lifecycle coverage without observed property values. WebView process failure,
+actual downloads, and deferral paths also need behavioral coverage.
+
+Keep native reproductions separate from Reactor-only observations; do not add timing workarounds:
+
+| Area | Observation | Reproduction |
+| --- | --- | --- |
+| `ToggleSwitch.IsOn` | Repeated updates become progressively slower | Plain C# WinUI |
+| `NavigationView.IsPaneOpen` | Reopening before layout leaves compact width while the property reads true | Plain C# WinUI |
+| `TeachingTip.IsOpen` | Changes during open/close animation can be ignored without an event | Reactor only |
+| `ListView.ScrollIntoView` (#5146) | Access violation after seven removals, insert, append, and scroll on the next tick | Bare Rust WinUI; C# port does not crash |
+
+For `NavigationView`, reopening from `PaneClosed` avoided the width defect in the native repro,
+but visibly closes and reopens the pane. That behavior is not implemented in Reactor; the `pane`
+fixture does not assert width after a rejected toggle.
