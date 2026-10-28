@@ -819,6 +819,7 @@ pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
 pub type DISPATCHERQUEUE_THREAD_TYPE = i32;
 pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 1;
 pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = 2;
+pub type DWORD = u32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DesktopWindowTarget(windows_core::IUnknown);
@@ -1029,7 +1030,7 @@ unsafe impl Sync for DispatcherQueueController {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DispatcherQueueOptions {
-    pub dwSize: u32,
+    pub dwSize: DWORD,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
@@ -1302,7 +1303,7 @@ pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub BeginDraw: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *const RECT,
-        *const windows_core::GUID,
+        *const IID,
         *mut *mut core::ffi::c_void,
         *mut POINT,
     ) -> windows_core::HRESULT,
@@ -2405,6 +2406,7 @@ impl windows_core::RuntimeType for IDispatcherQueueController {
 pub struct IDispatcherQueueController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub type IID = windows_core::GUID;
 windows_core::imp::define_interface!(
     IImplicitAnimationCollection,
     IImplicitAnimationCollection_Vtbl,
@@ -3136,6 +3138,7 @@ impl windows_core::RuntimeName for KeyFrameAnimation {
 }
 unsafe impl Send for KeyFrameAnimation {}
 unsafe impl Sync for KeyFrameAnimation {}
+pub type LONG = i32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
@@ -3171,22 +3174,22 @@ unsafe impl Sync for LinearEasingFunction {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: LONG,
+    pub y: LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: LONG,
+    pub top: LONG,
+    pub right: LONG,
+    pub bottom: LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
+    pub cx: LONG,
+    pub cy: LONG,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
