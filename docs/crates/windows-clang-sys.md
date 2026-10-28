@@ -1,6 +1,6 @@
 # windows-clang-sys
 
-Unpublished raw bindings used by `windows-clang`, `windows-clang`, and generator helpers. See the
+Raw bindings used by `windows-clang` and generator helpers. See the
 [readme](../../crates/libs/clang-sys/readme.md) for setup and loading.
 
 ## Native boundary

@@ -1,6 +1,6 @@
 # windows-clang-sys
 
-Unpublished raw Clang C bindings and version-matched native semantic queries.
+Raw Clang C bindings and version-matched native semantic queries.
 
 The native companion, `windows_clang.dll`, builds against a pinned LLVM development package.
 Rust callers use C functions, not Clang C++ object layouts or private cursor fields.

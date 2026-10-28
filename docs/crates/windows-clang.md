@@ -1,6 +1,6 @@
 # windows-clang
 
-Unpublished native capture and metadata projection. See the
+Native capture and metadata projection. See the
 [readme](../../crates/libs/clang/readme.md) for API usage.
 
 ## Rebuilding the default WinMD
