@@ -1,3 +1,13 @@
+//! Rebuild the native Clang libraries and regenerate their Rust bindings.
+//!
+//! The LLVM pin is `windows_clang_sys::LIBCLANG_VERSION`. After changing it, run
+//! `cargo run -p tool-clang-sys -- --native`, then `cargo run -p tool-clang-sys`.
+//! Run both from the repo root. The first builds the DLL pair from the matching LLVM SDK;
+//! the second writes `crates/libs/clang-sys/src/bindings.rs`.
+//! Unset LIBCLANG_PATH to use that managed build; explicit overrides must match the new pin.
+//! Validate loading with tool-clang, then regenerate header-derived metadata with tool-win32
+//! and tool-webview and refresh their consumers.
+
 use proc_macro2::TokenStream;
 use quote::quote;
 use std::collections::BTreeMap;

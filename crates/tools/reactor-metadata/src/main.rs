@@ -1,3 +1,11 @@
+//! Refresh WinUI and WebView2 metadata and compile the local extras.rdl contracts.
+//!
+//! Update WINDOWS_APP_SDK_VERSION and windows-reactor-setup's RUNTIME_VER together, then run
+//! `cargo run -p tool-reactor-metadata`. Component versions come from the umbrella package's
+//! nuspec; WebView2's pin comes from tool-webview. Both runtime pin pairs are checked before
+//! downloading or writing `crates/tools/reactor-metadata/winmd`.
+//! Follow with tool-reactor and tool-composition to regenerate the consuming bindings.
+
 use helpers::nuget_package;
 use std::fs;
 use std::path::{Path, PathBuf};
