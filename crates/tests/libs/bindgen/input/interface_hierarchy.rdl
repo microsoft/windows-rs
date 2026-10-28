@@ -1,9 +1,11 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IBase {
         fn First(&self) -> i32;
     }
+    #[guid(auto)]
     interface IDerived: IBase {
         fn Second(&self) -> i32;
     }

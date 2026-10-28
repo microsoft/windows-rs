@@ -1,0 +1,6 @@
+typedef struct IDataObject* LPDATAOBJECT;
+
+#define DOBJ_NULL      (LPDATAOBJECT)0
+#define DOBJ_CUSTOMOCX (LPDATAOBJECT)-1
+#define DOBJ_CUSTOMWEB (LPDATAOBJECT)-2
+#define TEXT_CALLBACK  ((char*)-1)

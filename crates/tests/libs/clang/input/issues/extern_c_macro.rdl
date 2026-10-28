@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn A();
+    #[library("fixture.dll")]
+    extern fn B();
+}

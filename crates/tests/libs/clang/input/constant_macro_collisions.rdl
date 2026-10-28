@@ -1,0 +1,12 @@
+#[win32]
+mod Fixture {
+    const Changed: i32 = 7;
+    const DeclarationOnly: i32 = 23;
+    const Failed: i32 = 11;
+    const MacroOnly: i32 = 13;
+    const Matching: i32 = 9;
+}
+#[win32]
+mod Fixture {
+    const Linked: i32 = 17;
+}

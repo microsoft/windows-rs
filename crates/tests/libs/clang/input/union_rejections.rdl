@@ -1,0 +1,28 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    union Bad {
+        bits: u32,
+    }
+    #[arch(X86)]
+    union Bad {
+        _bitfield: u8 {
+            bits: bool: 1,
+        },
+    }
+    struct BadConsumer {
+        value: *mut Bad,
+    }
+    struct Nested {
+        value: union {
+            integer: i32,
+            real: f32,
+        },
+    }
+    struct NestedConsumer {
+        value: *mut Nested,
+    }
+    struct Safe {
+        value: i32,
+    }
+}

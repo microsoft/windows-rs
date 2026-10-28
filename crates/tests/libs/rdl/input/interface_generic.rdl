@@ -1,7 +1,8 @@
 #[winrt]
 mod Test {
+    #[guid(0x85d1b6f2_043b_585c_b11d_7af01b1f0183)]
     interface IVector<T> {
-        fn GetAt(&self, index: u32) -> T;
-        fn Append(&self, value: T);
+        fn GetAt(&self, #[in] index: u32) -> T;
+        fn Append(&self, #[in] value: T);
     }
 }

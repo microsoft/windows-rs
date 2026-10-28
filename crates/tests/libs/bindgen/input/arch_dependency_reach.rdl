@@ -1,0 +1,20 @@
+//! --filter Test.GetReached --sys --flat
+#[win32]
+mod Test {
+    type Shared = i32;
+    type Wide = isize;
+    #[arch(X64 | Arm64)]
+    struct Record {
+        value: i64,
+    }
+    #[arch(X86)]
+    struct Record {
+        value: i32,
+    }
+    #[arch(X64 | Arm64)]
+    #[library("test.dll")]
+    extern fn GetReached(#[in] index: Shared) -> Wide;
+    #[arch(X86)]
+    #[library("test.dll")]
+    extern fn GetReached(#[in] index: Shared, #[in] record: *const Record) -> Shared;
+}

@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    #[library("native.dll")]
+    extern fn Native(count: u32, values: *const u32) -> i32;
+    #[library("native.dll", import = "Native")]
+    extern fn Nested(count: u32, values: *const u32) -> i32;
+    #[library("native.dll", import = "Native")]
+    extern fn Parenthesized(count: u32, values: *const u32) -> i32;
+    #[library("native.dll", import = "Native")]
+    extern fn Public(count: u32, values: *const u32) -> i32;
+}

@@ -1,0 +1,20 @@
+#[win32]
+mod Fixture {
+    #[library("native.dll", import = "NativeW")]
+    extern "C" fn Invariant(value: i32) -> i32;
+    #[library("native.dll")]
+    extern "C" fn NativeA(value: i32) -> i32;
+    #[library("native.dll")]
+    extern "C" fn NativeW(value: i32) -> i32;
+    #[library("native.dll")]
+    extern "C" fn Shadow(value: u32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("native.dll")]
+    extern "C" fn Variant(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("native.dll", import = "NativeA")]
+    extern "C" fn Variant(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("native.dll")]
+    extern "C" fn Wide(value: i32) -> i32;
+}

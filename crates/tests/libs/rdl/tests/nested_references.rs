@@ -82,32 +82,6 @@ fn inline_records_have_scoped_references() {
 }
 
 #[test]
-fn unscoped_nested_fields_still_render_inline() {
-    let mut file = writer::File::new("legacy_nested");
-    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
-    let flags = TypeAttributes::SequentialLayout | TypeAttributes::Sealed;
-    let outer = file.TypeDef("Test", "Outer", base, flags | TypeAttributes::Public);
-    file.Field(
-        "Anonymous",
-        &Type::value_named("", "Outer_0"),
-        FieldAttributes::Public,
-    );
-    let child = file.TypeDef("", "Outer_0", base, flags | TypeAttributes::NestedPublic);
-    file.NestedClass(child, outer);
-    file.Field("value", &Type::I32, FieldAttributes::Public);
-    let rdl = std::path::Path::new(env!("OUT_DIR")).join("legacy_nested.rdl");
-    windows_rdl::writer()
-        .input_bytes(&file.into_stream())
-        .output(&rdl)
-        .write()
-        .unwrap();
-    assert_eq!(
-        std::fs::read_to_string(rdl).unwrap(),
-        "#[win32]\nmod Test {\n    struct Outer {\n        Anonymous: struct {\n            value: i32,\n        },\n    }\n}\n"
-    );
-}
-
-#[test]
 fn shared_nested_type_identity() {
     for name in ["Inner", "Outer_0"] {
         let mut file = writer::File::new("shared_nested");
@@ -417,4 +391,52 @@ fn glob_imports_apply_to_single_segment_names() {
         .write()
         .unwrap_err();
     assert!(error.message.contains("type not found"), "{error}");
+}
+
+#[test]
+fn anonymous_provenance_validation() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("anonymous_invalid.winmd");
+    for body in [
+        "#[anonymous(0)] struct Root { value: i32, }",
+        "struct Root { #[anonymous(-1)] struct Child { value: i32, } }",
+        "struct Root { #[anonymous(0)] #[anonymous(0)] struct Child { value: i32, } }",
+        "struct Root { value: #[anonymous(1)] struct { value: i32, }, }",
+        "struct Root { #[anonymous(0)] value: i32, }",
+        "#[anonymous(0)] extern \"C\" fn Callback();",
+        "extern \"C\" fn Callback(#[anonymous(0)] value: i32);",
+    ] {
+        let result = windows_rdl::reader()
+            .input_text(&format!("#[win32] mod Test {{ {body} }}"))
+            .output(&output)
+            .write();
+        assert!(result.is_err(), "accepted {body}");
+        let error = result.unwrap_err();
+        assert!(error.to_string().contains("anonymous"), "{error}");
+    }
+}
+
+#[test]
+fn unscoped_nested_names_do_not_imply_anonymity() {
+    let mut file = writer::File::new("legacy_nested");
+    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+    let flags = TypeAttributes::SequentialLayout | TypeAttributes::Sealed;
+    let outer = file.TypeDef("Test", "Outer", base, flags | TypeAttributes::Public);
+    file.Field(
+        "Anonymous",
+        &Type::value_named("", "Outer_0"),
+        FieldAttributes::Public,
+    );
+    let child = file.TypeDef("", "Outer_0", base, flags | TypeAttributes::NestedPublic);
+    file.NestedClass(child, outer);
+    file.Field("value", &Type::I32, FieldAttributes::Public);
+    let rdl = std::path::Path::new(env!("OUT_DIR")).join("legacy_nested.rdl");
+    windows_rdl::writer()
+        .input_bytes(&file.into_stream())
+        .output(&rdl)
+        .write()
+        .unwrap();
+    assert_eq!(
+        std::fs::read_to_string(rdl).unwrap(),
+        "#[win32]\nmod Test {\n    struct Outer {\n        struct Outer_0 {\n            value: i32,\n        }\n        Anonymous: Outer::Outer_0,\n    }\n}\n"
+    );
 }

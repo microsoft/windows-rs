@@ -1,0 +1,31 @@
+#[win32]
+mod Fixture {
+    const MatchingMember: i32 = 7;
+    #[repr(i32)]
+    enum Named {
+        NamespacedMember = 13,
+    }
+    const NamespacedMember: i32 = 14;
+    #[repr(i32)]
+    enum Pool {
+        PoolDefault = 0,
+        PoolAligned = 4,
+        PoolNx = 512,
+        PoolNxAligned = 516,
+        MatchingMember = 7,
+        FailedMember = 9,
+    }
+    #[arch(Arm64)]
+    const PoolAligned: Pool = 516;
+    struct PoolConsumer {
+        value: Pool,
+    }
+    #[arch(Arm64)]
+    const PoolDefault: Pool = 512;
+    #[repr(i32)]
+    #[scoped]
+    enum Scoped {
+        ScopedMember = 11,
+    }
+    const ScopedMember: i32 = 12;
+}

@@ -2,8 +2,9 @@ use Windows::Foundation::Metadata::*;
 
 #[winrt]
 mod ErrorRelay {
+    #[guid(auto)]
     interface ICallback {
-        fn Fail(&self, code: i32, message: String);
+        fn Fail(&self, #[in] code: i32, #[in] message: String);
         fn Checkpoint(&self);
     }
 
@@ -14,13 +15,14 @@ mod ErrorRelay {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Returns the error from callback.Fail without replacing its code or message.
-        fn Relay(&self, callback: ICallback, code: i32, message: String);
+        fn Relay(&self, #[in] callback: ICallback, #[in] code: i32, #[in] message: String);
 
         // Captures the requested failure, calls Fail again with E_INVALIDARG and "intervening",
         // then calls Checkpoint before returning the original error. Concurrent clients block
         // in Checkpoint until both calls hold their original error.
-        fn RelayPreserved(&self, callback: ICallback, code: i32, message: String);
+        fn RelayPreserved(&self, #[in] callback: ICallback, #[in] code: i32, #[in] message: String);
     }
 }

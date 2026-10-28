@@ -54,11 +54,11 @@ fn set_error_info() -> Result<()> {
 // https://github.com/microsoft/cppwinrt/pull/1386
 #[test]
 fn suppressed_error_info() -> Result<()> {
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO).ok()? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO as u32).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");
 
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO).ok()? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO as u32).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "message");
 

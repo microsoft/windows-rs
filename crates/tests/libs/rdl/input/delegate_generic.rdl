@@ -1,4 +1,5 @@
 #[winrt]
 mod Test {
-    delegate fn TypedHandler<T>(sender: Object, args: T);
+    #[guid(0x9da88cbe_f2e7_5cd4_ba2f_3a931a52632e)]
+    delegate fn TypedHandler<T>(#[in] sender: Object, #[in] args: T);
 }

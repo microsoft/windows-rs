@@ -1,0 +1,29 @@
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(value: ConstPackedPointer, bytes: *mut Byte);
+    type Byte = u8;
+    struct Bytes {
+        value: [u8; 3],
+    }
+    extern "C" fn Callback(value: PackedPointer);
+    type ConstPackedPointer = *const Packed;
+    type InheritedPointer = *mut Packed;
+    #[packed(1)]
+    struct Packed {
+        size: u16,
+        value: u8,
+    }
+    type PackedArray = [Packed; 2];
+    type PackedPointer = *mut Packed;
+    type QualifiedBytes = Bytes;
+    struct Uses {
+        bytes: *mut QualifiedBytes,
+        scalar: *mut Byte,
+        writable: PackedPointer,
+        readonly: ConstPackedPointer,
+        inherited: InheritedPointer,
+        array: PackedArray,
+        callback: Callback,
+    }
+}

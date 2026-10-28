@@ -6,8 +6,9 @@ mod Test {
         y: i32,
     }
 
+    #[guid(auto)]
     interface Interface {
-        fn Method(&self, value: u32) -> HRESULT;
-        fn GetValue(&self, result: *mut Struct) -> HRESULT;
+        fn Method(&self, #[in] value: u32) -> HRESULT;
+        fn GetValue(&self, #[out] result: *mut Struct) -> HRESULT;
     }
 }

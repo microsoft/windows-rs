@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    type AConsumer = Zed;
+    struct Consumer {
+        direct: Zed,
+        indirect: Aardvark,
+        next: PZed,
+        state: State,
+        ordinary: Alias,
+    }
+}

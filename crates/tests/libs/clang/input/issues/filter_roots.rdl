@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn A() -> HRESULT;
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn B() -> HRESULT;
+}
+#[win32]
+mod Fixture {
+    type HRESULT = i32;
+}

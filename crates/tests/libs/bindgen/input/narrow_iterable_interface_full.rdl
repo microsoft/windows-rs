@@ -21,5 +21,6 @@ mod Windows {
 }
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IItems<T>: Windows::Foundation::Collections::IIterable<T> {}
 }

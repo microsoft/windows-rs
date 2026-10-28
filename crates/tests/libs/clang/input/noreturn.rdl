@@ -1,0 +1,48 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IBase {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    #[noreturn]
+    extern "C" fn BufferFunction(code: i32);
+    #[guid(0x98765432_1234_5678_90ab_cdef01234567)]
+    interface IStopping: IBase {
+        #[noreturn]
+        fn Stop(&self, code: i32);
+        #[noreturn]
+        fn StandardStop(&self, code: i32);
+        fn Ordinary(&self, code: i32);
+    }
+    #[library("example.dll")]
+    #[noreturn]
+    extern "C" fn NativeSum(code: i32) -> i32;
+    #[library("example.dll")]
+    #[noreturn]
+    extern "C" fn NormalizeFunction(code: i32);
+    extern "C" fn OrdinaryCallback(code: i32);
+    #[library("example.dll", import = "ReadPayloadEntry")]
+    #[noreturn]
+    extern "C" fn ReadPayload(code: i32);
+    #[noreturn]
+    extern "C" fn StoppingCallback(code: i32);
+    struct StoppingCallbacks {
+        named: StoppingCallback,
+        inferred: StoppingCallback,
+        ordinary: OrdinaryCallback,
+    }
+}

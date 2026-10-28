@@ -304,13 +304,13 @@ fn arch_merge_normalizes_native_sized_callback_signature() {
     let dir = std::env::temp_dir().join("win_merge_native_callback");
     std::fs::create_dir_all(&dir).unwrap();
 
-    let wide = "#[win32] mod Test { extern fn CB(value: usize) -> isize; }";
+    let wide = "#[win32] mod Test { extern fn CB(#[in] value: usize) -> isize; }";
     let x64 = winmd(&dir, "x64", wide);
     let arm = winmd(&dir, "arm", wide);
     let x86 = winmd(
         &dir,
         "x86",
-        "#[win32] mod Test { extern fn CB(value: u32) -> i32; }",
+        "#[win32] mod Test { extern fn CB(#[in] value: u32) -> i32; }",
     );
 
     let merged = dir.join("merged.winmd");

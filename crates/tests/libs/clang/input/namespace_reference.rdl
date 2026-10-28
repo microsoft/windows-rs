@@ -1,0 +1,24 @@
+#[win32]
+mod Fixture {
+    type BufferType = External::IBuffer;
+    #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
+    interface IInspectable: IUnknown {
+        fn GetIids(&self, count: *mut u32, values: *mut *mut void) -> i32;
+        fn GetRuntimeClassName(&self, value: *mut *mut void) -> i32;
+        fn GetTrustLevel(&self, value: *mut i32) -> i32;
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, iid: *const void, value: *mut *mut void) -> i32;
+        fn AddRef(&self) -> u32;
+        fn Release(&self) -> u32;
+    }
+    interface LocalHelper: IUnknown {
+        fn Access(&self, value: *mut *mut u8) -> i32;
+    }
+    struct ReferenceConsumer {
+        buffer: External::IBuffer,
+        helper: LocalHelper,
+        handler: External::Handler,
+    }
+}

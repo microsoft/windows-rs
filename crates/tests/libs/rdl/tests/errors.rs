@@ -3,6 +3,36 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn fixed_pointer_arguments() {
+    for ty in [
+        "ptr64",
+        "ptr64<i32>",
+        "ptr64<*mut i32, *const u8>",
+        "ptr64<'a>",
+    ] {
+        let error = windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Test {{ struct Value {{ address: {ty}, }} }}"
+            ))
+            .output(out_path("fixed_pointer_arguments"))
+            .write()
+            .unwrap_err();
+        assert!(
+            error
+                .message
+                .contains("ptr64 requires one explicit pointer type argument"),
+            "{error}"
+        );
+    }
+    let error = windows_rdl::reader()
+        .input_text("#[winrt] mod Test { struct Value { address: ptr64<*mut i32>, } }")
+        .output(out_path("fixed_pointer_winrt"))
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "fixed-width pointers require Win32 metadata");
+}
+
+#[test]
 fn missing_output_is_rejected() {
     let error = windows_rdl::reader()
         .input_text("#[winrt] mod Test {}")
@@ -109,7 +139,7 @@ fn reference_base_class_must_be_unsealed() {
     let compile = |base: &str| {
         windows_rdl::reader()
             .input_text(&format!(
-                "#[winrt]\nmod Test {{\n    interface IWidget {{}}\n    class Widget: {base} {{\n        IWidget,\n    }}\n}}\n"
+                "#[winrt]\nmod Test {{\n    #[guid(auto)] interface IWidget {{}}\n    class Widget: {base} {{\n        IWidget,\n    }}\n}}\n"
             ))
             .output(out_path("reference_base"))
             .reference_default()

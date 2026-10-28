@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    const SeqAlias: i32 = 4;
+    const SeqError: i32 = 4;
+    const SeqNext: i32 = 5;
+    const SeqStart: i32 = 0;
+}

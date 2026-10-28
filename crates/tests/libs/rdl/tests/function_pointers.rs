@@ -61,6 +61,33 @@ fn unsupported_imported_interface_generics() {
             GenericParamAttributes::None,
         );
         let derived = file.TypeDef("Test", "IB", writer::TypeDefOrRef::default(), interface);
+        if winrt {
+            // WinRT interfaces require GUIDs before their signatures are validated.
+            let attribute = writer::MemberRefParent::TypeRef(
+                file.TypeRef("Windows.Foundation.Metadata", "GuidAttribute"),
+            );
+            let mut types = vec![Type::U32, Type::U16, Type::U16];
+            types.extend(std::iter::repeat_n(Type::U8, 8));
+            let signature = Signature {
+                flags: MethodCallAttributes::HASTHIS,
+                return_type: Type::Void,
+                types,
+            };
+            let ctor = file.MemberRef(".ctor", &signature, attribute);
+            let mut values = vec![
+                (String::new(), Value::U32(1)),
+                (String::new(), Value::U16(2)),
+                (String::new(), Value::U16(3)),
+            ];
+            values.extend((0..8).map(|byte| (String::new(), Value::U8(byte))));
+            for def in [generic, derived] {
+                file.Attribute(
+                    writer::HasAttribute::TypeDef(def),
+                    writer::AttributeType::MemberRef(ctor),
+                    &values,
+                );
+            }
+        }
         let callback = Type::FnPtr(Box::new(Signature {
             flags,
             return_type: Type::Void,
@@ -112,6 +139,21 @@ fn nested_function_pointer_references() {
         }
         let child = file.TypeDef("", name, base, flags | TypeAttributes::NestedPublic);
         file.NestedClass(child, outer);
+        if name == "Outer_0" {
+            let attribute = writer::MemberRefParent::TypeRef(
+                file.TypeRef("Windows.Win32.Metadata", "NativeAnonymousAttribute"),
+            );
+            let signature = Signature {
+                types: vec![Type::I32],
+                ..Default::default()
+            };
+            let ctor = file.MemberRef(".ctor", &signature, attribute);
+            file.Attribute(
+                writer::HasAttribute::TypeDef(child),
+                writer::AttributeType::MemberRef(ctor),
+                &[(String::new(), Value::I32(0))],
+            );
+        }
         file.Field("value", &Type::I32, FieldAttributes::Public);
         let rdl = std::path::Path::new(env!("OUT_DIR")).join(format!("nested-fnptr-{name}.rdl"));
         windows_rdl::writer()

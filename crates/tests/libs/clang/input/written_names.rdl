@@ -1,0 +1,17 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn DrawTextW(Chained: i32) -> i32;
+    #[guid(0x0d5d1b83_3e4f_4b44_8a54_2c0f7f5c6e21)]
+    interface IWrittenNames {
+        fn DrawText(&self, Chained: i32) -> i32;
+        fn GetMessage(&self, Inner: i32) -> i32;
+        fn DrawPasted(&self) -> i32;
+        fn ProducedName(&self) -> i32;
+    }
+    struct WrittenFields {
+        GetMessage: i32,
+        Chained: i32,
+        FieldPasted: i32,
+    }
+}

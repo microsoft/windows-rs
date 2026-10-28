@@ -1,0 +1,25 @@
+#[win32]
+mod Fixture {
+    type Status = i32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c4)]
+    interface IBase {
+        fn Ping(&self) -> Status;
+    }
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c5)]
+    interface IContract: IBase {
+        fn Reset(&self, value: Status, next: *mut IContract) -> Status;
+    }
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn UseFirst(value: IContract);
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn UseSecond(value: IContract);
+}

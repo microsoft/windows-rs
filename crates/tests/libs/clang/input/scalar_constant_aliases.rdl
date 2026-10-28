@@ -1,0 +1,25 @@
+#[win32]
+mod Fixture {
+    type BoolB = bool;
+    type ByteB = u8;
+    type NestedB = u32;
+    type RealB = f64;
+    type ULongB = u32;
+}
+#[win32]
+mod Fixture {
+    type BoolA = bool;
+    type ByteA = u8;
+    type NestedA = u32;
+    type RealA = f64;
+}
+#[win32]
+mod Fixture {
+    const BOOLEAN: bool = true;
+    const BYTE_MACRO: u8 = 255;
+    const FLOATING: f64 = 1.25;
+    const SHARED: u32 = 7;
+    const SHARED_MACRO: u32 = 7;
+    type ULongA = u32;
+    const UNIQUE: ULongA = 9;
+}

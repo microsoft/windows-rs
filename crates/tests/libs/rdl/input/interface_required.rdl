@@ -1,8 +1,10 @@
 #[winrt]
 mod Test {
+    #[guid(0x4c195fa3_ba8e_5836_826e_7fde3bb2dad9)]
     interface IBase {
         fn First(&self) -> i32;
     }
+    #[guid(0xe55b3cfe_28ca_5296_a10d_b0d7cb570517)]
     interface IDerived: IBase {
         fn Second(&self) -> i32;
     }

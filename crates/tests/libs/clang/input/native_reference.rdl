@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[guid(0xc95a92fe_21e9_41bf_8c43_4ac63a6afc44)]
+    interface Local: External::Native::IForeign {
+        fn Invoke(&self, value: External::Native::IForeign) -> i32;
+    }
+}

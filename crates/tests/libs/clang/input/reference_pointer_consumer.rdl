@@ -1,0 +1,15 @@
+#[win32]
+mod Local {
+    struct Data {
+        value: i32,
+    }
+    struct LocalPacket {
+        data: External::Address,
+        constant: External::ConstAddress,
+        storage: External::AddressStorage,
+        wide: External::Address64,
+        typed: External::TypedAddress,
+        shared: External::SharedPacket,
+        callbacks: External::SharedCallbacks,
+    }
+}

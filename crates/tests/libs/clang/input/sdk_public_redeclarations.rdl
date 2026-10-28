@@ -1,0 +1,48 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type LPGUID = *mut GUID;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+    type HSTRING = *mut HSTRING__;
+    struct HSTRING__ {
+        unused: i32,
+    }
+}
+#[win32]
+mod Fixture {
+    extern fn PERFLIBREQUEST(RequestCode: ULONG, Buffer: PVOID, BufferSize: ULONG) -> ULONG;
+    #[library("ADVAPI32.dll")]
+    extern fn PerfStartProvider(#[in] ProviderGuid: LPGUID, #[in] #[opt] ControlCallback: PERFLIBREQUEST, #[out] Provider: PHANDLE) -> ULONG;
+}
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+    #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+    extern fn HSTRING_UserFree(#[in] pFlags: *mut ULONG, #[in] ppidl: *mut HSTRING);
+    #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+    extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
+    #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+    extern fn HSTRING_UserSize(#[in] pFlags: *mut ULONG, StartingSize: ULONG, #[in] ppidl: *mut HSTRING) -> ULONG;
+    #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+    extern fn HSTRING_UserUnmarshal(#[in] pFlags: *mut ULONG, #[in] #[readable(entry, 0)] pBuffer: *mut UCHAR, #[out] ppidl: *mut HSTRING) -> *mut UCHAR;
+    type UCHAR = u8;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+    #[library("KERNEL32.dll")]
+    extern fn VerSetConditionMask(#[in] ConditionMask: ULONGLONG, #[in] TypeMask: DWORD, #[in] Condition: BYTE) -> ULONGLONG;
+}
+#[win32]
+mod Fixture {
+    type HANDLE = *mut void;
+    type PHANDLE = *mut *mut void;
+    type PVOID = *mut void;
+}

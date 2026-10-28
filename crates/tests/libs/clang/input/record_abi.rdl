@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    struct Assigned {
+        value: i32,
+    }
+    type AssignedAlias = Assigned;
+    struct ContainsAssigned {
+        values: [Assigned; 2],
+    }
+    struct Deleted {
+        value: i32,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn EchoPlain(value: Plain) -> Plain;
+    struct Plain {
+        value: i32,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn PointToAssigned(value: *mut Assigned);
+    #[library("fixture.dll")]
+    extern "C" fn UseAssigned(value: Assigned);
+}

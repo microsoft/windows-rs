@@ -1,4 +1,4 @@
-//! namespace NonFiniteFloats
+// Regression for windows-rs#4935.
 const float FLOAT_INFINITY = __builtin_huge_valf();
 const double DOUBLE_INFINITY = __builtin_huge_val();
 const double NOT_A_NUMBER = __builtin_nan("");

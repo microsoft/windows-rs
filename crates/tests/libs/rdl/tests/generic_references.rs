@@ -7,7 +7,7 @@ fn generic_type_refs_use_assembly_scope() {
     let winmd = std::path::Path::new(env!("OUT_DIR")).join("generic_references.winmd");
     windows_rdl::reader()
         .input_text(
-            "#[winrt]\nmod Test {\n    interface IWidget {\n        event Changed: Windows::Foundation::TypedEventHandler<Object, Object>;\n    }\n}\n",
+            "#[winrt]\nmod Test {\n    #[guid(auto)]\n    interface IWidget {\n        event Changed: Windows::Foundation::TypedEventHandler<Object, Object>;\n    }\n}\n",
         )
         .output(&winmd)
         .reference_default()

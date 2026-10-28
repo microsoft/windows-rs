@@ -7,13 +7,13 @@ struct Object(std::sync::RwLock<PROPVARIANT>);
 
 fn propvariant(value: i32) -> PROPVARIANT {
     PROPVARIANT {
-        Anonymous: PROPVARIANT_0 {
-            Anonymous: ManuallyDrop::new(PROPVARIANT_0_0 {
+        Anonymous: tagPROPVARIANT_0 {
+            Anonymous: ManuallyDrop::new(tagPROPVARIANT_0_0 {
                 vt: VT_I4 as VARTYPE,
                 wReserved1: 0,
                 wReserved2: 0,
                 wReserved3: 0,
-                Anonymous: PROPVARIANT_0_0_0 { lVal: value },
+                Anonymous: tagPROPVARIANT_0_0_0 { lVal: value },
             }),
         },
     }

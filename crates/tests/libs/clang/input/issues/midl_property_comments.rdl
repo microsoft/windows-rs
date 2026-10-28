@@ -1,0 +1,12 @@
+#[win32]
+mod Fixture {
+    type HRESULT = i32;
+    #[guid(0x4b1f7c3e_0a6d_4c55_9e0b_2c8f6a1d7e02)]
+    interface IProperties {
+        #[special]
+        fn get_Name(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+        #[special]
+        fn put_Name(&self, #[in] value: i32) -> HRESULT;
+        fn Refresh(&self) -> HRESULT;
+    }
+}

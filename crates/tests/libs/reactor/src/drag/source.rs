@@ -37,7 +37,7 @@ pub fn run(
     stopping: Arc<AtomicBool>,
     thread: Arc<AtomicU32>,
 ) -> Result<()> {
-    unsafe { OleInitialize(std::ptr::null()).ok()? };
+    unsafe { OleInitialize(std::ptr::null_mut()).ok()? };
     let _ole = Ole;
     let window = SourceWindow::new()?;
     thread.store(unsafe { GetCurrentThreadId() }, Ordering::Relaxed);
@@ -192,7 +192,7 @@ impl SourceWindow {
                 owner,
                 std::ptr::null_mut(),
                 std::ptr::null_mut(),
-                std::ptr::null(),
+                std::ptr::null_mut(),
             ));
             if window.0.is_null() {
                 return Err(Error::from_thread());
@@ -339,7 +339,7 @@ fn text_data_transfers_owned_unicode_memory() -> Result<()> {
     }
     .into();
     unsafe {
-        assert_eq!(data.QueryGetData(std::ptr::null()), E_POINTER);
+        assert_eq!(data.QueryGetData(None), E_POINTER);
         for invalid in [
             FORMATETC {
                 cfFormat: 0,
@@ -358,11 +358,11 @@ fn text_data_transfers_owned_unicode_memory() -> Result<()> {
                 ..format()
             },
         ] {
-            assert_eq!(data.QueryGetData(&invalid), DV_E_FORMATETC);
+            assert_eq!(data.QueryGetData(Some(&invalid)), DV_E_FORMATETC);
             assert_eq!(data.GetData(&invalid).err().unwrap().code(), DV_E_FORMATETC);
         }
         assert_eq!(reads.load(Ordering::Relaxed), 0);
-        data.QueryGetData(&format()).ok()?;
+        data.QueryGetData(Some(&format())).ok()?;
         let first = Medium(data.GetData(&format())?);
         let second = Medium(data.GetData(&format())?);
         assert_ne!(first.0.Anonymous.hGlobal, second.0.Anonymous.hGlobal);

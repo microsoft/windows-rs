@@ -10,10 +10,12 @@ fn on_message_receives_dispatched_messages() {
     let count = Rc::new(Cell::new(0));
     let seen = count.clone();
     let window = Window::new("test")
-        .on_message(move |_hwnd, message, _wparam, _lparam| {
+        .on_message(move |_hwnd, message, wparam, lparam| {
             if message == WM_USER {
+                assert_eq!(wparam, usize::MAX);
+                assert_eq!(lparam, isize::MIN);
                 seen.set(seen.get() + 1);
-                Some(0)
+                Some(isize::MIN)
             } else {
                 None
             }
@@ -22,7 +24,10 @@ fn on_message_receives_dispatched_messages() {
         .unwrap();
 
     unsafe {
-        SendMessageW(window.hwnd(), WM_USER, 0, 0);
+        assert_eq!(
+            SendMessageW(window.hwnd(), WM_USER, usize::MAX, isize::MIN),
+            isize::MIN
+        );
     }
     assert_eq!(count.get(), 1);
 }

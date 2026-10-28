@@ -2,15 +2,19 @@
 //! --filter !Test::{IRemoved,IMember,IShell} --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IKept {
         fn Read(&self) -> u32;
     }
+    #[guid(auto)]
     interface IRemoved {
         fn Read(&self) -> u32;
     }
+    #[guid(auto)]
     interface IMember {
         fn Read(&self) -> u32;
     }
+    #[guid(auto)]
     interface IShell {
         fn Read(&self) -> u32;
     }

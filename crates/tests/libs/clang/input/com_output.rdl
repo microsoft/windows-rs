@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[iid_is] #[out] #[out_ptr(null_on_failure)] raw: *mut *mut void, #[iid_is] #[out] #[out_ptr(null_on_failure)] alias: *mut Untyped, #[out] #[out_ptr(null_on_failure)] typed: *mut IObject, #[out] #[out_ptr(null_on_failure)] constant: *mut *const void, #[out] #[out_ptr(null_on_failure)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[iid_is] #[out] #[out_ptr(null_on_failure)] raw: *mut *mut void, #[iid_is] #[out] #[out_ptr(null_on_failure)] alias: *mut Untyped, #[out] #[out_ptr(null_on_failure)] typed: *mut IObject, #[out] #[out_ptr(null_on_failure)] constant: *mut *const void, #[out] #[out_ptr(null_on_failure)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    #[guid(0x22222222_2222_2222_2222_222222222222)]
+    interface IBuffer {
+        fn Read(&self, #[iid_is] #[out] #[out_ptr(null_on_failure)] raw: *mut *mut void, #[iid_is] #[out] #[out_ptr(null_on_failure)] alias: *mut Untyped, #[out] #[out_ptr(null_on_failure)] typed: *mut IObject, #[out] #[out_ptr(null_on_failure)] constant: *mut *const void, #[out] #[out_ptr(null_on_failure)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    }
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IObject {
+        fn Run(&self);
+    }
+    type Untyped = *mut void;
+}

@@ -28,7 +28,7 @@ pub struct Com;
 
 impl Com {
     pub fn new() -> Result<Self> {
-        unsafe { CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED as u32).ok()? };
+        unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED as u32).ok()? };
         Ok(Self)
     }
 }
@@ -61,7 +61,7 @@ impl Automation {
             CoCreateInstance(
                 &CUIAutomation,
                 std::ptr::null_mut(),
-                CLSCTX_INPROC_SERVER,
+                CLSCTX_INPROC_SERVER as u32,
                 &IUIAutomation::IID,
                 &mut raw,
             )
@@ -72,10 +72,10 @@ impl Automation {
             );
             let client = IUIAutomation::from_raw(raw);
             let value = VARIANT {
-                Anonymous: VARIANT_0 {
-                    Anonymous: std::mem::ManuallyDrop::new(VARIANT_0_0 {
+                Anonymous: tagVARIANT_0 {
+                    Anonymous: std::mem::ManuallyDrop::new(tagVARIANT_0_0 {
                         vt: VT_I4 as u16,
-                        Anonymous: VARIANT_0_0_0 {
+                        Anonymous: tagVARIANT_0_0_0 {
                             lVal: process as i32,
                         },
                         ..Default::default()

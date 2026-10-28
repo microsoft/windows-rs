@@ -1,6 +1,7 @@
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IA {
-        fn Method(&self, callback: extern fn());
+        fn Method(&self, #[in] callback: extern fn());
     }
 }

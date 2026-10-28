@@ -27,19 +27,20 @@ mod Enums {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Red -> Green -> Blue -> Red, and Unknown for any other value.
-        fn Next(&self, color: Color) -> Color;
+        fn Next(&self, #[in] color: Color) -> Color;
 
         // Initially Bold | Underline.
         Styles: Styles;
 
         // Enums as generic arguments.
         fn Colors(&self) -> IVectorView<Color>;
-        fn Combine(&self, styles: IIterable<Styles>) -> Styles;
+        fn Combine(&self, #[in] styles: IIterable<Styles>) -> Styles;
 
         // Boxes `color`, and unboxes a value boxed by the client.
-        fn BoxColor(&self, color: Color) -> Object;
-        fn UnboxStyles(&self, value: Object) -> Styles;
+        fn BoxColor(&self, #[in] color: Color) -> Object;
+        fn UnboxStyles(&self, #[in] value: Object) -> Styles;
     }
 }

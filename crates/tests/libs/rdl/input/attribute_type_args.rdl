@@ -1,10 +1,12 @@
 #[win32]
 mod Test {
     #[TemplatePart(Name = "Value", Type = u32)]
+    #[guid(0xdfa1e215_fb9f_549c_ad97_2fb06ccf113c)]
     interface IPart {
         fn Method(&self) -> i32;
     }
     #[TemplatePart(Name = "Part", Type = IPart)]
+    #[guid(0x99ebb70b_a87e_53cb_8a9f_8c1999eff0ef)]
     interface IThing {
         fn Method(&self) -> i32;
     }

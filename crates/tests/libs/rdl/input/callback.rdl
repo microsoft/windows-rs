@@ -1,4 +1,4 @@
 #[win32]
 mod Test {
-    extern fn Callback(x: i32, y: i32) -> i32;
+    extern fn Callback(#[in] x: i32, #[in] y: i32) -> i32;
 }

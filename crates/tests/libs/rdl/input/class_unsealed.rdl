@@ -4,12 +4,15 @@ mod Test {
     class ContainerVisual: Visual {
         IContainerVisual,
     }
+    #[guid(0xfe8066e3_5687_5219_bebf_4632c93bb3b3)]
     interface IContainerVisual {
         fn Count(&self) -> i32;
     }
+    #[guid(0xd6a852f9_b479_513c_be59_33bf6c122252)]
     interface ISpriteVisual {
         fn Brush(&self) -> i32;
     }
+    #[guid(0x680280d1_f641_5a4b_8cd2_12c57ec3b0ef)]
     interface IVisual {
         fn Opacity(&self) -> f32;
     }

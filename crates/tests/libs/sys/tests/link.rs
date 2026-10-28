@@ -23,7 +23,7 @@ fn gdi() {
 #[test]
 fn wait_on_address() {
     unsafe {
-        WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, 0);
+        WaitOnAddress(std::ptr::null(), std::ptr::null_mut(), 0, 0);
     }
 }
 

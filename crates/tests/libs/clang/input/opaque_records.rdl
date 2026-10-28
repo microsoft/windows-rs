@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    struct Alpha {}
+    struct Beta {}
+    #[library("fixture.dll")]
+    extern "C" fn Echo(value: Handle) -> Handle;
+    type Handle = *mut Alpha;
+    struct Holder {
+        first: Handle,
+        second: *const Alpha,
+        third: *mut Beta,
+    }
+    const INVALID: Handle = -1;
+}

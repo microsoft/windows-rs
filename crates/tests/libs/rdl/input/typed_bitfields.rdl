@@ -1,0 +1,35 @@
+#[win32]
+mod Test {
+    struct Mixed {
+        storage: u32 {
+            signed: i32: 3,
+            mode: Mode: 2,
+            enabled: bool: 1,
+            alias: NativeInt: 3,
+        },
+    }
+    #[repr(i32)]
+    #[scoped]
+    enum Mode {
+        Negative = -1,
+        Positive = 1,
+    }
+    type NativeInt = i32;
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeBitfieldAttribute {
+                fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
+                MemberType: Type,
+            }
+            attribute NativeTypedefAttribute {
+                fn();
+            }
+            attribute ScopedEnumAttribute {
+                fn();
+            }
+        }
+    }
+}

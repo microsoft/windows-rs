@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    const BUILTIN_OFFSET: u64 = 8;
+    #[arch(X86)]
+    const BUILTIN_OFFSET: u32 = 4;
+    #[arch(X64 | Arm64)]
+    const MEMBER_END: u64 = 16;
+    #[arch(X86)]
+    const MEMBER_END: u32 = 8;
+    #[arch(X64 | Arm64)]
+    const MEMBER_OFFSET: u64 = 8;
+    #[arch(X86)]
+    const MEMBER_OFFSET: u64 = 4;
+    struct Record {
+        tag: i8,
+        value: *mut void,
+    }
+}

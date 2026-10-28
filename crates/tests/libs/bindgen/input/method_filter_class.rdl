@@ -7,10 +7,10 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute ActivatableAttribute {
-                fn(version: u32);
+                fn(#[in] version: u32);
             }
             attribute ExclusiveToAttribute {
-                fn(r#type: Type);
+                fn(#[in] r#type: Type);
             }
         }
     }
@@ -22,6 +22,7 @@ mod Test {
         IWidget,
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn Act(&self) -> i32;
         fn Unused(&self) -> i32;

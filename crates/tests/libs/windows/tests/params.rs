@@ -86,8 +86,10 @@ fn reserved() -> Result<()> {
         ) as u32)
         .ok()?;
         let mut len = 0;
-        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len) as u32)
-            .ok()?;
+        WIN32_ERROR(
+            RegQueryValueExA(key, s!("Content Type"), None, None, None, Some(&mut len)) as u32,
+        )
+        .ok()?;
         let mut buffer = vec![0u8; (len) as usize];
         WIN32_ERROR(RegQueryValueExA(
             key,
@@ -95,7 +97,7 @@ fn reserved() -> Result<()> {
             None,
             None,
             Some(buffer.as_mut_ptr() as _),
-            &mut len,
+            Some(&mut len),
         ) as u32)
         .ok()?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");

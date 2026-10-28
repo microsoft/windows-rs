@@ -1,6 +1,7 @@
 //! --flat --filter Test --filter !Windows.UI.Composition
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Interface {
         fn Visuals(
             &self,
@@ -12,12 +13,14 @@ mod Test {
 mod Windows {
     mod Foundation {
         mod Collections {
+            #[guid(auto)]
             interface IVector<T> {}
         }
     }
 
     mod UI {
         mod Composition {
+            #[guid(auto)]
             interface IVisualElement {}
         }
     }
