@@ -43,14 +43,14 @@ impl Config<'_> {
             || is_enum
     }
 
-    pub fn write_cpp_handle(&self, def: TypeDef, cfg: &TokenStream) -> TokenStream {
+    pub fn write_cpp_handle(&self, owner: &Type, def: TypeDef, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(def.name());
         let ty = def.underlying_type_ext(self.reader);
         let ty_name = ty.write_name(self);
 
         if self.typedef_emits_bare(def) {
             // Per-arch typedef rows must keep their gates so same-name variants do not collide.
-            let arches = write_arches(def);
+            let arches = self.write_reached_arches(owner, def);
             quote! {
                 #arches
                 #cfg
@@ -58,7 +58,7 @@ impl Config<'_> {
             }
         } else {
             // Arch-divergent handles are separate rows; each emitted item needs its own gate.
-            let arches = write_arches(def);
+            let arches = self.write_reached_arches(owner, def);
             let arches = quote! { #arches #cfg };
             let derives = if ty.is_eq(self.reader) {
                 quote! { #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)] }

@@ -611,7 +611,13 @@ impl Bindgen {
             // Precise filters use bottom-up closure; broad filters and packages scan top-down.
             let types = if !filter.has_broad_filter && !self.layout.is_package() {
                 filter.uses_closure = true;
-                TypeClosure::build(reader, &mut filter, &references, implements.as_ref())
+                TypeClosure::build(
+                    reader,
+                    &mut filter,
+                    &references,
+                    implements.as_ref(),
+                    self.style,
+                )
             } else {
                 TypeMap::filter(reader, &filter, &references, self.style.is_sys())
             };
@@ -669,7 +675,7 @@ impl Bindgen {
             );
         }
 
-        let tree = TypeTree::new(&types);
+        let tree = TypeTree::new(&types, self.layout.is_flat());
         report_timing(&self.output, "planning", phase.elapsed());
         config.write(tree);
         report_timing(&self.output, "total", total.elapsed());
