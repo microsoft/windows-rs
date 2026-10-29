@@ -128,6 +128,8 @@ struct VirtualCleanupInput {
     events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
     published: Rc<Cell<bool>>,
     reference: ElementRef,
+    revision: Rc<Cell<u32>>,
+    rendered: u32,
     task: Arc<Mutex<Option<ComponentTask>>>,
 }
 
@@ -136,6 +138,7 @@ impl PartialEq for VirtualCleanupInput {
         Rc::ptr_eq(&self.events, &other.events)
             && Rc::ptr_eq(&self.published, &other.published)
             && self.reference == other.reference
+            && self.rendered == other.rendered
             && Arc::ptr_eq(&self.task, &other.task)
     }
 }
@@ -183,7 +186,11 @@ impl Component for VirtualCleanupParent {
         let input = input.clone();
         ItemsRepeater::new()
             .virtual_source(VirtualSource::new(1, 1, Key::from, move |_| {
-                component::<VirtualCleanup>("row", input.clone())
+                let input = VirtualCleanupInput {
+                    rendered: input.revision.get(),
+                    ..input.clone()
+                };
+                component::<VirtualCleanup>("row", input)
             }))
             .into()
     }
@@ -222,6 +229,8 @@ fn virtual_cleanup_host() -> (
         events: Rc::new(RefCell::new(Vec::new())),
         published: Rc::new(Cell::new(false)),
         reference: ElementRef::default(),
+        revision: Rc::default(),
+        rendered: 0,
         task: Arc::new(Mutex::new(None)),
     };
     let adapter = VirtualLifecycleAdapter {
@@ -590,4 +599,261 @@ fn virtual_cleanup_precedes_native_recycle_publication() {
     );
     assert!(input.published.get());
     assert_eq!(input.reference.get(), None);
+}
+
+/// Runs `layout` once inside the next batch it applies, as a WinUI layout forced by a native call
+/// realizes rows while Reactor applies a batch.
+#[derive(Clone, Default)]
+struct LayoutAdapter {
+    inner: Rc<RefCell<RecordingAdapter>>,
+    layout: Rc<RefCell<Option<Box<dyn FnOnce()>>>>,
+}
+
+impl LayoutAdapter {
+    fn on_next_apply(&self, layout: impl FnOnce() + 'static) {
+        *self.layout.borrow_mut() = Some(Box::new(layout));
+    }
+}
+
+impl Adapter for LayoutAdapter {
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        self.inner.borrow().peek_native_event()
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        self.inner.borrow_mut().pop_native_event()
+    }
+
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.inner.borrow().peek_native_dispatch()
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) {
+        self.inner.borrow_mut().apply(mutations);
+        let layout = self.layout.borrow_mut().take();
+        if let Some(layout) = layout {
+            layout();
+        }
+    }
+}
+
+type SharedHost = Rc<RefCell<ComponentHost<LayoutAdapter>>>;
+
+fn shared_host<A: Adapter>(host: &mut ComponentHost<A>) -> Option<&mut ComponentHost<A>> {
+    Some(host)
+}
+
+fn realize_shared(host: &RefCell<ComponentHost<LayoutAdapter>>) {
+    drive_host(host, shared_host, ComponentHost::next_realization_batch);
+}
+
+fn drain_shared(host: &RefCell<ComponentHost<LayoutAdapter>>) {
+    let mut drain = host.borrow_mut().begin_drain(10);
+    drive_host(host, shared_host, |host| host.drain_step(&mut drain));
+    host.borrow_mut().end_drain(drain);
+}
+
+fn layout_host() -> (
+    SharedHost,
+    LayoutAdapter,
+    Rc<RefCell<Vec<&'static str>>>,
+    ObjectId,
+) {
+    let events = Rc::new(RefCell::new(Vec::new()));
+    let adapter = LayoutAdapter::default();
+    let host = ComponentHost::mount(
+        adapter.clone(),
+        [component::<VirtualParent>(
+            "virtual",
+            VirtualEffectLog(Rc::clone(&events)),
+        )],
+    );
+    let root = host.runtime().graph().root().unwrap();
+    let collection = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    (Rc::new(RefCell::new(host)), adapter, events, collection)
+}
+
+fn realize_row(collection: ObjectId, container: u64) -> RealizationRequest {
+    RealizationRequest::Realize {
+        collection,
+        container: RealizedContainer(container),
+        index: container as usize,
+        source_revision: 0,
+    }
+}
+
+fn recycle_row(collection: ObjectId, container: u64) -> RealizationRequest {
+    RealizationRequest::Recycle {
+        collection,
+        container: RealizedContainer(container),
+        source_revision: 0,
+    }
+}
+
+#[test]
+fn layout_during_a_batch_realizes_rows_before_effects_commit() {
+    let (host, adapter, events, collection) = layout_host();
+    let observed = Rc::new(RefCell::new(None));
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        let events = Rc::clone(&events);
+        let observed = Rc::clone(&observed);
+        move || {
+            let host = host.upgrade().unwrap();
+            adapter
+                .inner
+                .borrow_mut()
+                .queue_realization(realize_row(collection, 1));
+            realize_shared(&host);
+            *observed.borrow_mut() = Some((
+                host.borrow().test_state().virtual_rows,
+                events.borrow().clone(),
+            ));
+        }
+    };
+    adapter.on_next_apply(layout);
+    let sender = host
+        .borrow()
+        .sender::<VirtualParent>(&Key::from("virtual"))
+        .unwrap();
+
+    assert!(sender.send(()));
+    drain_shared(&host);
+
+    // The row is realized inside the batch, and its effect runs once that batch completes.
+    assert_eq!(*observed.borrow(), Some((1, Vec::new())));
+    assert_eq!(events.borrow().as_slice(), ["setup"]);
+}
+
+#[test]
+fn row_recycled_before_its_batch_completes_skips_its_effects() {
+    let (host, adapter, events, collection) = layout_host();
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        move || {
+            let host = host.upgrade().unwrap();
+            let mut inner = adapter.inner.borrow_mut();
+            inner.queue_realization(realize_row(collection, 1));
+            inner.queue_realization(recycle_row(collection, 1));
+            drop(inner);
+            realize_shared(&host);
+        }
+    };
+    adapter.on_next_apply(layout);
+    let sender = host
+        .borrow()
+        .sender::<VirtualParent>(&Key::from("virtual"))
+        .unwrap();
+
+    assert!(sender.send(()));
+    drain_shared(&host);
+
+    assert_eq!(host.borrow().test_state().virtual_rows, 0);
+    assert!(events.borrow().is_empty());
+}
+
+#[test]
+fn layout_during_a_row_batch_defers_that_row() {
+    let (host, adapter, events, collection) = layout_host();
+    let observed = Rc::new(Cell::new(None));
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        let observed = Rc::clone(&observed);
+        move || {
+            let host = host.upgrade().unwrap();
+            adapter
+                .inner
+                .borrow_mut()
+                .queue_realization(recycle_row(collection, 1));
+            realize_shared(&host);
+            observed.set(Some(host.borrow().test_state().virtual_rows));
+        }
+    };
+    adapter
+        .inner
+        .borrow_mut()
+        .queue_realization(realize_row(collection, 1));
+    adapter.on_next_apply(layout);
+
+    realize_shared(&host);
+
+    // The recycle waits for the row's own batch to complete and commit its effect.
+    assert_eq!(observed.get(), Some(1));
+    assert_eq!(host.borrow().test_state().virtual_rows, 0);
+    assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
+}
+
+#[test]
+fn row_recycled_after_a_nested_rerender_cleans_up_before_recycle() {
+    let input = VirtualCleanupInput {
+        events: Rc::default(),
+        published: Rc::default(),
+        reference: ElementRef::default(),
+        revision: Rc::default(),
+        rendered: 0,
+        task: Arc::new(Mutex::new(None)),
+    };
+    let adapter = LayoutAdapter::default();
+    let host = ComponentHost::mount_with_services(
+        adapter.clone(),
+        Arc::new(TestServices::default()),
+        [component::<VirtualCleanupParent>("virtual", input.clone())],
+    );
+    let root = host.runtime().graph().root().unwrap();
+    let collection = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    let host = Rc::new(RefCell::new(host));
+    adapter
+        .inner
+        .borrow_mut()
+        .queue_realization(realize_row(collection, 0));
+    realize_shared(&host);
+    let object = input.reference.get();
+    assert!(object.is_some());
+
+    let observed = Rc::new(RefCell::new(None));
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        let input = input.clone();
+        let observed = Rc::clone(&observed);
+        move || {
+            let host = host.upgrade().unwrap();
+            input.revision.set(1);
+            let queue = |request| adapter.inner.borrow_mut().queue_realization(request);
+            queue(realize_row(collection, 0));
+            realize_shared(&host);
+            queue(recycle_row(collection, 0));
+            realize_shared(&host);
+            *observed.borrow_mut() = Some(input.events.borrow().clone());
+        }
+    };
+    adapter.on_next_apply(layout);
+    let sender = host
+        .borrow()
+        .sender::<VirtualCleanupParent>(&Key::from("virtual"))
+        .unwrap();
+
+    // The nested realization re-renders the row and retains its effect until the outer batch
+    // completes. Recycling the row runs that retained cleanup while its reference is still live.
+    assert!(sender.send(()));
+    drain_shared(&host);
+
+    assert_eq!(
+        *observed.borrow(),
+        Some(vec![(object, false, ComponentTaskStatus::Cancelled)])
+    );
+    assert_eq!(input.events.borrow().len(), 1);
+    assert_eq!(input.reference.get(), None);
+    assert_eq!(host.borrow().test_state().virtual_rows, 0);
 }

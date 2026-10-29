@@ -15,25 +15,42 @@ pub(super) enum Conversion {
     Uri,
 }
 
-pub(super) fn set_dependency_property(
+/// A boxed dependency property write, applied after the adapter is released. Writes such as
+/// `SelectedIndex` can lay out the control and realize virtualized rows within the call.
+pub(super) struct DependencyWrite {
+    element: native::IDependencyObject,
+    property: native::DependencyProperty,
+    // `None` clears the property; `Some(None)` sets it to null.
+    value: Option<Option<IInspectable>>,
+}
+
+impl DependencyWrite {
+    pub(super) fn apply(self) -> Result<(), WinUiError> {
+        match self.value {
+            Some(value) => self.element.SetValue(&self.property, value.as_ref())?,
+            None => self.element.ClearValue(&self.property)?,
+        }
+        Ok(())
+    }
+}
+
+pub(super) fn dependency_write(
     element: &native::UIElement,
     kind: ObjectType,
     property: PropertyId,
     value: Option<&PropertyValue>,
-) -> Option<Result<(), WinUiError>> {
+) -> Option<Result<DependencyWrite, WinUiError>> {
     let (dependency_property, conversion) = GeneratedHandle::dependency_property(kind, property)?;
     let value = match value {
         Some(value) => Some(box_property_value(value, conversion)?),
         None => None,
     };
     Some((|| {
-        let element = element.cast::<native::IDependencyObject>()?;
-        let property = dependency_property()?;
-        match value {
-            Some(value) => element.SetValue(&property, value?.as_ref())?,
-            None => element.ClearValue(&property)?,
-        }
-        Ok(())
+        Ok(DependencyWrite {
+            element: element.cast()?,
+            property: dependency_property()?,
+            value: value.transpose()?,
+        })
     })())
 }
 

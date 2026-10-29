@@ -177,9 +177,25 @@ impl UpdateStats {
             details: mutations.to_vec(),
         }
     }
+}
 
-    pub const fn len(&self) -> usize {
-        self.mutations
+/// Mutations planned by one update and applied to the adapter as a unit.
+#[derive(Default)]
+#[must_use]
+pub(crate) struct NativeBatch {
+    mutations: Vec<Mutation>,
+    references: Vec<ReferenceChange>,
+}
+
+impl NativeBatch {
+    pub(crate) fn mutations(&self) -> &[Mutation] {
+        &self.mutations
+    }
+
+    /// Publishes the batch's reference changes once its mutations are applied.
+    pub(crate) fn publish(self, references: &ReferenceEndpoint) -> UpdateStats {
+        apply_reference_changes(references, self.references);
+        UpdateStats::capture(&self.mutations)
     }
 }
 

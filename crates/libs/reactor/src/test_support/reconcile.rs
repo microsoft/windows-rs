@@ -346,12 +346,34 @@ impl<A: Adapter> Runtime<A> {
         dispatched
     }
 
+    pub(crate) fn realize_virtual(
+        &mut self,
+        lease: &RealizationLease,
+        index: usize,
+        root: impl Into<View>,
+    ) -> UpdateStats {
+        let batch = self.plan_realize_virtual(lease, index, root);
+        self.apply_batch(batch)
+    }
+
     pub(crate) fn recycle_virtual(&mut self, lease: &RealizationLease) -> UpdateStats {
-        self.recycle_virtual_before_apply(lease, || {})
+        let batch = self.plan_recycle_virtual(lease);
+        self.apply_batch(batch)
+    }
+
+    pub(crate) fn cancel_virtual(
+        &mut self,
+        collection: ObjectId,
+        relation: RelationId,
+        container: RealizedContainer,
+    ) -> UpdateStats {
+        let batch = self.plan_cancel_virtual(collection, relation, container);
+        self.apply_batch(batch)
     }
 
     pub fn update_subtree(&mut self, object: ObjectId, root: impl Into<View>) -> UpdateStats {
-        self.update_subtree_before_apply(object, root, || {})
+        let batch = self.plan_subtree_update(object, root);
+        self.apply_batch(batch)
     }
 
     pub fn remove_child(
@@ -393,7 +415,19 @@ impl<A: Adapter> Runtime<A> {
             unreachable!()
         };
         children.remove(index);
-        self.apply_plan(references, || {});
-        self.finish_update()
+        let batch = self.take_batch(references);
+        self.apply_batch(batch)
+    }
+}
+
+impl<A: Adapter> Runtime<A> {
+    pub(crate) fn adapter_mut(&mut self) -> &mut A {
+        &mut self.adapter
+    }
+}
+
+impl UpdateStats {
+    pub const fn len(&self) -> usize {
+        self.mutations
     }
 }

@@ -75,9 +75,20 @@ impl Component for RepeaterFixture {
     }
 }
 
-/// Loads the rows and selects a radio button in one update. Applying the `RadioButtons` selection
-/// realizes its items while Reactor is applying the update, which must not lay out the rows while
-/// the host is busy. `Count` shows how many rows have been created.
+/// The selector whose index changes in the same update that loads the rows.
+#[derive(Clone, Copy, PartialEq)]
+pub(super) enum Selector {
+    /// Reactor measures the control to realize its items.
+    RadioButtons,
+    /// WinUI's `SelectedIndex` setter lays out the whole window synchronously.
+    FlipView,
+    /// WinUI's `SelectedIndex` setter lays out the whole window synchronously.
+    Pivot,
+}
+
+/// Loads the rows and changes a selector's index in one update. Applying the selection lays out
+/// the window while Reactor is applying the update, so the repeater requests rows from within the
+/// update. `Count` shows how many rows have been created.
 pub(super) struct RepeaterLayoutFixture {
     loaded: bool,
     created: usize,
@@ -90,10 +101,10 @@ pub(super) enum LayoutMessage {
 }
 
 impl Component for RepeaterLayoutFixture {
-    type Input = ();
+    type Input = Selector;
     type Message = LayoutMessage;
 
-    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+    fn create(_: &Selector, _: &ComponentContext<Self>) -> Self {
         Self {
             loaded: false,
             created: 0,
@@ -107,11 +118,39 @@ impl Component for RepeaterLayoutFixture {
         }
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Reactor UI fixture: repeater_layout");
+    fn view(&self, selector: &Selector, context: &mut ViewContext<Self>) -> View {
+        context.window_title(match selector {
+            Selector::RadioButtons => "Reactor UI fixture: repeater_layout",
+            Selector::FlipView => "Reactor UI fixture: repeater_layout_flip_view",
+            Selector::Pivot => "Reactor UI fixture: repeater_layout_pivot",
+        });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let count = if self.loaded { 256 } else { 0 };
-        // The repeater precedes the radio buttons so its new rows are pending when layout runs.
+        let selected = Some(usize::from(self.loaded));
+        let items = || ["One", "Two"].map(|name| keyed(name, TextBlock::new().text(name)));
+        let selector: View = match selector {
+            Selector::RadioButtons => RadioButtons::new()
+                .automation_id("choice")
+                .items_source(["One", "Two"])
+                .selected_index(selected)
+                .on_selection_changed(context.callback(|_| LayoutMessage::Count))
+                .into(),
+            Selector::FlipView => FlipView::new()
+                .automation_id("choice")
+                .width(120.0)
+                .height(40.0)
+                .selected_index(selected)
+                .keyed_items(items())
+                .into(),
+            Selector::Pivot => Pivot::new()
+                .automation_id("choice")
+                .width(120.0)
+                .height(80.0)
+                .selected_index(selected)
+                .items(["One", "Two"].map(|name| PivotItem::new().header(name)))
+                .into(),
+        };
+        // The repeater precedes the selector so its new rows are pending when layout runs.
         Grid::new()
             .rows([GridLength::Auto, GridLength::Star(1.0)])
             .children((
@@ -135,11 +174,7 @@ impl Component for RepeaterLayoutFixture {
                             .automation_id("count")
                             .content(format!("Created {}", self.created))
                             .on_click(context.message(LayoutMessage::Count)),
-                        RadioButtons::new()
-                            .automation_id("choice")
-                            .items_source(["One", "Two"])
-                            .selected_index(Some(usize::from(self.loaded)))
-                            .on_selection_changed(context.callback(|_| LayoutMessage::Count)),
+                        selector,
                     )),
             ))
             .into()

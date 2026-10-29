@@ -48,7 +48,21 @@ fn repeater_scrolling_realizes_only_nearby_rows() -> Result<()> {
 
 #[test]
 fn repeater_realizes_rows_requested_during_an_update() -> Result<()> {
-    process::run("repeater_layout", |ui| {
+    rows_requested_during_an_update("repeater_layout")
+}
+
+#[test]
+fn repeater_realizes_rows_requested_by_a_flip_view_selection() -> Result<()> {
+    rows_requested_during_an_update("repeater_layout_flip_view")
+}
+
+#[test]
+fn repeater_realizes_rows_requested_by_a_pivot_selection() -> Result<()> {
+    rows_requested_during_an_update("repeater_layout_pivot")
+}
+
+fn rows_requested_during_an_update(fixture: &'static str) -> Result<()> {
+    process::run(fixture, |ui| {
         ui.invoke("load")?;
         ui.name("row-0", "Row 0; value 0; clicks 0")?;
         ui.invoke("count")?;

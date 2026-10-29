@@ -208,6 +208,49 @@ pub struct ComponentHost<A: Adapter> {
     free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
     virtual_rows: HashMap<(ObjectId, Key), ComponentId>,
+    // Effects of the in-flight batches, committed in planning order once the last one completes.
+    prepared_effects: Vec<(ComponentId, PreparedEffects)>,
+    // Rows touched by the in-flight batches, which a nested realization must leave alone.
+    busy_rows: Vec<(ObjectId, Key)>,
+    // The length of `busy_rows` when each in-flight batch was planned. A realization requested
+    // while a batch is applied plans and applies its own batch inside that application, so batches
+    // complete in the reverse of their planning order.
+    in_flight: Vec<usize>,
+}
+
+/// Plans batches with `step` and applies each one without holding `state`, so a native callback
+/// raised during the application, such as a forced layout realizing virtualized rows, can borrow
+/// the host to plan and apply its own batches. Stops when `step` plans nothing or the host is gone.
+pub(crate) fn drive_host<S, A: Adapter + Clone>(
+    state: &RefCell<S>,
+    host: impl Fn(&mut S) -> Option<&mut ComponentHost<A>>,
+    mut step: impl FnMut(&mut ComponentHost<A>) -> Option<NativeBatch>,
+) {
+    loop {
+        let (batch, mut adapter) = {
+            let mut state = state.borrow_mut();
+            let Some(host) = host(&mut state) else {
+                return;
+            };
+            let Some(batch) = step(host) else {
+                return;
+            };
+            (batch, host.runtime.adapter().clone())
+        };
+        adapter.apply(batch.mutations());
+        let mut state = state.borrow_mut();
+        let host = host(&mut state).unwrap();
+        host.runtime.publish_batch(batch);
+        host.complete_batch();
+    }
+}
+
+/// Progress of a drain across the batches it plans.
+pub(crate) struct DrainState {
+    report: ComponentDrain,
+    processed: usize,
+    active_event: Option<NativeEventDispatch>,
+    limit: usize,
 }
 
 impl<A: Adapter> Drop for ComponentHost<A> {
@@ -279,6 +322,9 @@ impl<A: Adapter> ComponentHost<A> {
             free_scopes: Vec::new(),
             scopes: Vec::new(),
             virtual_rows: HashMap::new(),
+            prepared_effects: Vec::new(),
+            busy_rows: Vec::new(),
+            in_flight: Vec::new(),
         };
         let mut declarations = Vec::new();
         let mut keys = HashSet::new();
@@ -360,19 +406,26 @@ impl<A: Adapter> ComponentHost<A> {
         self.continuation_waker = Some(Rc::new(waker));
     }
 
-    pub fn drain(&mut self, limit: usize) -> ComponentDrain {
-        let mut report = ComponentDrain::default();
+    pub(crate) fn begin_drain(&mut self, limit: usize) -> DrainState {
         self.queue.lock().unwrap().wake_pending = false;
-        let mut processed = 0;
-        let mut active_event = None;
+        DrainState {
+            report: ComponentDrain::default(),
+            processed: 0,
+            active_event: None,
+            limit,
+        }
+    }
+
+    /// Runs drain work until it plans a batch for the caller to apply, or until the drain ends.
+    pub(crate) fn drain_step(&mut self, state: &mut DrainState) -> Option<NativeBatch> {
         loop {
-            if active_event.is_none() && processed >= limit {
+            if state.active_event.is_none() && state.processed >= state.limit {
                 if let Some(waker) = self.continuation_waker.clone() {
                     waker();
                 }
-                break;
+                return None;
             }
-            let native_pending = active_event.is_none() && !self.runtime.prepare_update();
+            let native_pending = state.active_event.is_none() && !self.runtime.prepare_update();
             let message = (!native_pending)
                 .then(|| {
                     let mut queue = self.queue.lock().unwrap();
@@ -402,20 +455,20 @@ impl<A: Adapter> ComponentHost<A> {
                 })
                 .flatten();
             if let Some((component, control, value)) = message {
-                if active_event.is_none() {
-                    processed += 1;
+                if state.active_event.is_none() {
+                    state.processed += 1;
                 }
                 if self.scope(component).is_none() {
                     if let Some(control) = control {
                         control.cancel();
                     }
-                    report.dropped += 1;
+                    state.report.dropped += 1;
                     continue;
                 }
                 if let Some(control) = &control
                     && !control.deliver()
                 {
-                    report.dropped += 1;
+                    state.report.dropped += 1;
                     continue;
                 }
                 let contexts = self.scope(component).unwrap().contexts.clone();
@@ -431,34 +484,89 @@ impl<A: Adapter> ComponentHost<A> {
                             .apply_input(node.factory.input(), reference, &contexts)
                     }
                 };
-                let mutations = render
-                    .map(|render| self.apply_render(component, render))
-                    .unwrap_or_default();
-                report.dispatched += 1;
-                report.mutations += mutations.len();
-                continue;
+                state.report.dispatched += 1;
+                let Some(render) = render else {
+                    continue;
+                };
+                let batch = self.plan_render(component, render);
+                state.report.mutations += batch.mutations().len();
+                return Some(batch);
             }
-            if active_event.take().is_some() {
+            if state.active_event.take().is_some() {
                 continue;
             }
             match self.runtime.next_native_work() {
                 Some(NativeWork::Event(mut event)) => {
-                    processed += 1;
+                    state.processed += 1;
                     event.invoke();
-                    active_event = Some(event);
+                    state.active_event = Some(event);
                 }
                 Some(NativeWork::Virtual(work)) => {
-                    processed += 1;
-                    report.mutations += self.apply_virtual_work(work).len();
+                    state.processed += 1;
+                    let batch = self.plan_virtual_work(work);
+                    state.report.mutations += batch.mutations().len();
+                    return Some(batch);
                 }
                 Some(NativeWork::Maintenance) => {
-                    processed += 1;
+                    state.processed += 1;
                 }
-                None => break,
+                None => return None,
             }
         }
+    }
+
+    pub(crate) fn end_drain(&mut self, state: DrainState) -> ComponentDrain {
+        drop(state.active_event);
         self.rearm_wake();
-        report
+        state.report
+    }
+
+    /// Counts a batch as planned. The rows it marks busy are held until `complete_batch`.
+    pub(super) fn begin_batch(&mut self) {
+        self.in_flight.push(self.busy_rows.len());
+    }
+
+    /// Records that the most recently planned batch was applied and releases its busy rows. Once
+    /// no batch is in flight, commits the prepared effects in planning order. Retiring a scope
+    /// discards its prepared effects, so each remaining entry belongs to a live scope.
+    pub(crate) fn complete_batch(&mut self) {
+        let busy = self.in_flight.pop().unwrap();
+        self.busy_rows.truncate(busy);
+        if !self.in_flight.is_empty() {
+            return;
+        }
+        for (id, effects) in std::mem::take(&mut self.prepared_effects) {
+            effects.commit(&mut self.scope_mut(id).unwrap().effects);
+        }
+    }
+
+    pub(crate) fn in_flight(&self) -> bool {
+        !self.in_flight.is_empty()
+    }
+
+    /// Returns the rows containing a scope whose prepared effects are not yet committed. Rendering
+    /// such a scope again would prepare its effects against cleanups the first render replaces.
+    pub(super) fn pending_rows(&self) -> Vec<(ObjectId, Key)> {
+        self.virtual_rows
+            .iter()
+            .filter(|(_, row)| {
+                self.prepared_effects
+                    .iter()
+                    .any(|(id, _)| self.owns_scope(**row, *id))
+            })
+            .map(|(row, _)| row.clone())
+            .collect()
+    }
+
+    /// Marks the virtual rows that contain a scope as busy while its render is in flight.
+    pub(super) fn mark_busy_ancestors(&mut self, id: ComponentId) {
+        let busy = self
+            .virtual_rows
+            .iter()
+            .filter(|(_, scope)| self.owns_scope(**scope, id))
+            .map(|(row, _)| row.clone())
+            .collect::<Vec<_>>();
+        self.busy_rows.extend(busy);
     }
 
     fn shutdown(&mut self) {
@@ -470,6 +578,11 @@ impl<A: Adapter> ComponentHost<A> {
         self.keys.clear();
         self.order.clear();
         self.virtual_rows.clear();
+        self.busy_rows.clear();
+        self.in_flight.clear();
+        for (_, effects) in std::mem::take(&mut self.prepared_effects).into_iter().rev() {
+            effects.discard();
+        }
         self.free_scopes.clear();
         self.local_queue.borrow_mut().clear();
 
@@ -512,7 +625,7 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 
-    fn rearm_wake(&self) {
+    pub(crate) fn rearm_wake(&self) {
         let mut queue = self.queue.lock().unwrap();
         let wake = (!queue.closed
             && (!queue.messages.is_empty() || !self.local_queue.borrow().is_empty())

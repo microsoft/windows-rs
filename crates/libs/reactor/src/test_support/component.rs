@@ -30,6 +30,35 @@ pub struct ComponentHostState {
 }
 
 impl<A: Adapter> ComponentHost<A> {
+    /// Drains with each batch applied while the host is held, which suits an adapter that never
+    /// realizes rows during its application.
+    pub fn drain(&mut self, limit: usize) -> ComponentDrain {
+        let mut state = self.begin_drain(limit);
+        while let Some(batch) = self.drain_step(&mut state) {
+            self.apply_inline(batch);
+        }
+        self.end_drain(state)
+    }
+
+    /// Applies virtual realizations at the front of the native queue. Native events, messages,
+    /// and the work queued behind them are left in order for the next drain.
+    #[cfg(test)]
+    pub(crate) fn realize_pending(&mut self) -> ComponentDrain {
+        let mut report = ComponentDrain::default();
+        while let Some(batch) = self.next_realization_batch() {
+            report.mutations += batch.mutations().len();
+            self.apply_inline(batch);
+        }
+        self.rearm_wake();
+        report
+    }
+
+    pub(crate) fn apply_inline(&mut self, batch: NativeBatch) -> UpdateStats {
+        let stats = self.runtime.apply_batch(batch);
+        self.complete_batch();
+        stats
+    }
+
     pub fn test_adapter_mut(&mut self) -> &mut A {
         self.runtime.adapter_mut()
     }
@@ -211,7 +240,8 @@ impl<A: Adapter> ComponentHost<A> {
         let Some(render) = scope.component.apply_input(&input, reference, &contexts) else {
             return UpdateStats::default();
         };
-        self.apply_render(id, render)
+        let batch = self.plan_render(id, render);
+        self.apply_inline(batch)
     }
 
     pub fn set_context<T: Clone + PartialEq + 'static>(
@@ -272,8 +302,8 @@ impl<A: Adapter> ComponentHost<A> {
                 let provided_contexts = scope.provided_contexts.clone();
                 let scope = host.scope_mut(id).unwrap();
                 let render = scope.component.render_view(reference, &contexts);
-                let mutations =
-                    host.apply_render_with_contexts(id, render, contexts, provided_contexts);
+                let batch = host.plan_render_with_contexts(id, render, contexts, provided_contexts);
+                let mutations = host.apply_inline(batch);
                 report.dispatched += 1;
                 report.mutations += mutations.len();
             }
