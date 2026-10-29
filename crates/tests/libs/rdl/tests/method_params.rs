@@ -5,6 +5,69 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
+fn winrt_delegates_have_instance_signatures() {
+    let dir = scratch("delegate_instance");
+    let first = dir.join("first.winmd");
+    let rdl = dir.join("roundtrip.rdl");
+    let second = dir.join("second.winmd");
+    windows_rdl::reader()
+        .input_text(
+            r#"
+#[winrt]
+mod Test {
+    #[guid(auto)]
+    delegate fn Handler(#[in] value: i32) -> i32;
+    #[guid(auto)]
+    delegate fn GenericHandler<T>(#[in] value: T) -> T;
+}
+#[win32]
+mod Native {
+    type Callback = extern "C" fn(i32) -> i32;
+}
+"#,
+        )
+        .output(&first)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&first)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(&second)
+        .write()
+        .unwrap();
+
+    for path in [first, second] {
+        let index = metadata::reader::Index::read(path).unwrap();
+        for name in ["Handler", "GenericHandler"] {
+            let def = index.expect("Test", name);
+            let invoke = def
+                .methods()
+                .find(|method| method.name() == "Invoke")
+                .unwrap();
+            let signature = invoke.signature(&[metadata::Type::I32]);
+            assert_eq!(
+                signature.flags,
+                metadata::MethodCallAttributes::HASTHIS,
+                "{name}"
+            );
+            assert_eq!(signature.types, [metadata::Type::I32]);
+            assert_eq!(signature.return_type, metadata::Type::I32);
+            let params: Vec<_> = invoke.params().map(|param| param.sequence()).collect();
+            assert_eq!(params, [1]);
+        }
+        let callback = index.expect("Native", "Callback");
+        let metadata::Type::FnPtr(signature) = callback.fields().next().unwrap().ty() else {
+            panic!("expected function pointer");
+        };
+        assert_eq!(signature.flags, metadata::MethodCallAttributes::C);
+    }
+}
+
+#[test]
 fn winrt_parameter_directions_are_required() {
     for attrs in ["", "#[opt]", "#[in] #[out]"] {
         for (declaration, name) in [
