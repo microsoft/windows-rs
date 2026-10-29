@@ -1,5 +1,15 @@
 use super::*;
 
+pub(super) fn write_enum_member(name: &str) -> TokenStream {
+    match name {
+        "Self" | "self" | "_" | "crate" | "super" => {
+            let name = proc_macro2::Ident::new(name, Span::call_site());
+            quote! { #name }
+        }
+        _ => write_ident(name),
+    }
+}
+
 pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
@@ -20,7 +30,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
         .fields()
         .filter_map(|field| {
             field.constant().map(|constant| -> Result<_, Error> {
-                let name = write_ident(field.name());
+                let name = write_enum_member(field.name());
                 let value = write_value(namespace, &constant.value());
                 let attributes =
                     write_custom_attributes(field.attributes(), namespace, field.index())?;
