@@ -132,7 +132,8 @@ impl Encoder<'_> {
                 &type_name,
                 metadata::FieldAttributes::Public
                     | metadata::FieldAttributes::Static
-                    | metadata::FieldAttributes::Literal,
+                    | metadata::FieldAttributes::Literal
+                    | metadata::FieldAttributes::HasDefault,
             );
 
             let Some((_, value)) = &variant.discriminant else {

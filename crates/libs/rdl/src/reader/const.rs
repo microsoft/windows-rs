@@ -77,7 +77,9 @@ impl Encoder<'_> {
         let field = self.output.Field(
             name,
             ty,
-            metadata::FieldAttributes::Public | metadata::FieldAttributes::Static,
+            metadata::FieldAttributes::Public
+                | metadata::FieldAttributes::Static
+                | metadata::FieldAttributes::HasDefault,
         );
 
         self.encode_guid_pseudo_attrs(metadata::writer::HasAttribute::Field(field), &item.attrs)?;
@@ -105,13 +107,13 @@ impl Encoder<'_> {
         item: &Const,
         name: &str,
     ) -> Result<(), Error> {
-        let field = self.output.Field(
-            name,
-            ty,
-            metadata::FieldAttributes::Public
-                | metadata::FieldAttributes::Static
-                | metadata::FieldAttributes::Literal,
-        );
+        let mut flags = metadata::FieldAttributes::Public
+            | metadata::FieldAttributes::Static
+            | metadata::FieldAttributes::Literal;
+        if item.expr.is_some() {
+            flags |= metadata::FieldAttributes::HasDefault;
+        }
+        let field = self.output.Field(name, ty, flags);
 
         if let Some(expr) = &item.expr {
             let value = self.encode_value(ty, expr)?;
