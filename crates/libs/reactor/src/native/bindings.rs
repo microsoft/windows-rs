@@ -18708,6 +18708,16 @@ impl ITitleBar {
             .ok()
         }
     }
+    pub(crate) fn TemplateSettings(&self) -> windows_core::Result<TitleBarTemplateSettings> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TemplateSettings)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn BackRequested<F>(
         &self,
         handler: F,
@@ -18806,7 +18816,10 @@ pub struct ITitleBar_Vtbl {
     SetIsBackButtonEnabled: usize,
     IsPaneToggleButtonVisible: usize,
     SetIsPaneToggleButtonVisible: usize,
-    TemplateSettings: usize,
+    pub TemplateSettings: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub BackRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -18874,6 +18887,35 @@ pub struct ITitleBarStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub IsPaneToggleButtonVisibleProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ITitleBarTemplateSettings,
+    ITitleBarTemplateSettings_Vtbl,
+    0xbe19011a_4957_5332_98b8_1704401b6a0e
+);
+impl windows_core::RuntimeType for ITitleBarTemplateSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ITitleBarTemplateSettings {
+    pub(crate) fn IconElement(&self) -> windows_core::Result<IconElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IconElement)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct ITitleBarTemplateSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IconElement: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -29394,6 +29436,34 @@ impl windows_core::RuntimeType for TitleBarHeightOption {
         b"enum(Microsoft.UI.Windowing.TitleBarHeightOption;i4)",
     );
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TitleBarTemplateSettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    TitleBarTemplateSettings,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(TitleBarTemplateSettings, DependencyObject);
+impl windows_core::RuntimeType for TitleBarTemplateSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ITitleBarTemplateSettings>();
+}
+unsafe impl windows_core::Interface for TitleBarTemplateSettings {
+    type Vtable = <ITitleBarTemplateSettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITitleBarTemplateSettings as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for TitleBarTemplateSettings {
+    type Target = ITitleBarTemplateSettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for TitleBarTemplateSettings {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings";
+}
+unsafe impl Send for TitleBarTemplateSettings {}
+unsafe impl Sync for TitleBarTemplateSettings {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TitleBarTheme(pub i32);

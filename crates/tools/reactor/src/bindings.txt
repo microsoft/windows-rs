@@ -148,7 +148,8 @@ Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_SelectionLength, get_SelectionStart, get_Text, put_Header, put_SelectionLength, put_SelectionStart, put_Text, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_Header, remove_SelectedTimeChanged}
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
-Microsoft::UI::Xaml::Controls::ITitleBar::{add_BackRequested, add_PaneToggleRequested, put_Content, put_IconSource, put_LeftHeader, put_RightHeader, remove_BackRequested, remove_PaneToggleRequested}
+Microsoft::UI::Xaml::Controls::ITitleBar::{add_BackRequested, add_PaneToggleRequested, get_TemplateSettings, put_Content, put_IconSource, put_LeftHeader, put_RightHeader, remove_BackRequested, remove_PaneToggleRequested}
+Microsoft::UI::Xaml::Controls::ITitleBarTemplateSettings::get_IconElement
 Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, get_IsOn, put_Header, put_OffContent, put_OnContent, remove_Toggled}
 Microsoft::UI::Xaml::Controls::ITreeView::{add_ItemInvoked, get_RootNodes, remove_ItemInvoked}
 Microsoft::UI::Xaml::Controls::ITreeView2::put_ItemTemplate

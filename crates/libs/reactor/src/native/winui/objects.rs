@@ -275,27 +275,32 @@ impl WinUiAdapter {
             return self.set_image_source(object, source);
         }
         let image = if let Some(PropertyValue::Icon(icon)) = value {
+            // Release first so a control keeps its SVG source when the icon is set again.
+            self.release_image(object);
             self.shared_icon_image(icon)?
         } else {
             None
         };
         if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-            && let Some(result) =
-                handle.set_property(property, value, image.as_ref().map(|image| &image.value))
+            && let Some(result) = handle.set_property(property, value, image.as_deref())
         {
             result?;
-            if let Some(PropertyValue::Icon(_)) = value {
-                self.release_image(object);
-                if let Some(image) = image {
-                    self.image_subscriptions.insert(
-                        object,
-                        ImageSubscription {
-                            property,
-                            image,
-                            _callback: None,
-                        },
-                    );
+            if let Some(image) = image {
+                if let Handle::Generated(GeneratedHandle::TitleBar(title_bar)) =
+                    &self.handles[&object]
+                {
+                    // TitleBar creates its icon element from the icon source.
+                    let icon = title_bar.value.TemplateSettings()?.IconElement()?;
+                    image.attach(&icon.cast()?)?;
                 }
+                self.image_subscriptions.insert(
+                    object,
+                    ImageSubscription {
+                        property,
+                        image,
+                        _callback: None,
+                    },
+                );
             }
             return Ok(());
         }
