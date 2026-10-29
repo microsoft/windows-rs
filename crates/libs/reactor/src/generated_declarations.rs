@@ -2135,12 +2135,6 @@ impl Button {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn horizontal_content_alignment(
         mut self,
         horizontal_content_alignment: HorizontalAlignment,
@@ -2181,6 +2175,7 @@ impl Button {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(Button);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -2230,12 +2225,7 @@ impl CheckBox {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     reference_methods!(CheckBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -2986,12 +2976,6 @@ impl Slider {
             .property(PropertyId::Value, PropertyValue::F64(value));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn orientation(mut self, orientation: Orientation) -> Self {
         self.0 = self
             .0
@@ -3009,6 +2993,7 @@ impl Slider {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(Slider);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3267,12 +3252,7 @@ impl HyperlinkButton {
         Self(declaration)
     }
     uri_methods!(navigate_uri, navigate_uri_optional, NavigateUri);
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     reference_methods!(HyperlinkButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3313,12 +3293,6 @@ impl RepeatButton {
         let declaration = Declaration::new(ObjectType::RepeatButton);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn delay(mut self, delay: i32) -> Self {
         self.0 = self
             .0
@@ -3331,6 +3305,7 @@ impl RepeatButton {
             .property(PropertyId::Interval, PropertyValue::I32(interval));
         self
     }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3489,12 +3464,6 @@ impl AutoSuggestBox {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn items_source(
         mut self,
         items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
@@ -3519,6 +3488,7 @@ impl AutoSuggestBox {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(AutoSuggestBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3582,12 +3552,6 @@ impl PasswordBox {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn password(mut self, password: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
             PropertyId::Password,
@@ -3595,6 +3559,7 @@ impl PasswordBox {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(PasswordBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3637,12 +3602,6 @@ impl NumberBox {
         let declaration = Declaration::new(ObjectType::NumberBox);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn minimum(mut self, minimum: f64) -> Self {
         self.0 = self
             .0
@@ -3681,6 +3640,7 @@ impl NumberBox {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(NumberBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3720,12 +3680,6 @@ impl NavigationView {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::NavigationView);
         Self(declaration)
-    }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
     }
     pub fn pane_display_mode(mut self, pane_display_mode: NavigationViewPaneDisplayMode) -> Self {
         self.0 = self.0.property(
@@ -3803,6 +3757,7 @@ impl NavigationView {
             .property(PropertyId::IsPaneOpen, PropertyValue::Bool(is_pane_open));
         self
     }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -4183,12 +4138,7 @@ impl ProgressBar {
             .property(PropertyId::ShowPaused, PropertyValue::Bool(show_paused));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
 }
 impl Default for ProgressBar {
@@ -4210,18 +4160,13 @@ impl ToggleSwitch {
         let declaration = Declaration::new(ObjectType::ToggleSwitch);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn is_on(mut self, is_on: bool) -> Self {
         self.0 = self
             .0
             .property(PropertyId::IsOn, PropertyValue::Bool(is_on));
         self
     }
+    enabled_methods!();
     reference_methods!(ToggleSwitch);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -4290,12 +4235,6 @@ impl ToggleButton {
         let declaration = Declaration::new(ObjectType::ToggleButton);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn is_checked(mut self, is_checked: impl Into<Option<bool>>) -> Self {
         self.0 = self.0.property(
             PropertyId::IsChecked,
@@ -4303,6 +4242,7 @@ impl ToggleButton {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(ToggleButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -4355,12 +4295,6 @@ impl RadioButton {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn is_checked(mut self, is_checked: impl Into<Option<bool>>) -> Self {
         self.0 = self.0.property(
             PropertyId::IsChecked,
@@ -4368,6 +4302,7 @@ impl RadioButton {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(RadioButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -4757,12 +4692,7 @@ impl ProgressRing {
             .property(PropertyId::IsActive, PropertyValue::Bool(is_active));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
 }
 impl Default for ProgressRing {
@@ -4782,12 +4712,7 @@ impl ListBox {
         let declaration = Declaration::new(ObjectType::ListBox);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -5341,12 +5266,6 @@ impl ComboBox {
             .property(PropertyId::IsEditable, PropertyValue::Bool(is_editable));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn items_source(
         mut self,
         items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
@@ -5364,6 +5283,7 @@ impl ComboBox {
         );
         self
     }
+    enabled_methods!();
     reference_methods!(ComboBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -5901,12 +5821,7 @@ impl DropDownButton {
         let declaration = Declaration::new(ObjectType::DropDownButton);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -6033,18 +5948,13 @@ impl AppBarButton {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
         self.0 = self
             .0
             .property(PropertyId::Icon, PropertyValue::Icon(icon.into()));
         self
     }
+    enabled_methods!();
     visual_methods!();
     pub fn on_click(mut self, callback: impl IntoUnitCallback) -> Self {
         self.0 = self.0.event(
@@ -6154,12 +6064,7 @@ impl SplitButton {
         let declaration = Declaration::new(ObjectType::SplitButton);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -6236,12 +6141,7 @@ impl ColorPicker {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     pub fn on_color_changed(mut self, callback: impl IntoPayloadCallback<Color>) -> Self {
         self.0 = self.0.event(
@@ -6286,12 +6186,7 @@ impl DatePicker {
             .property(PropertyId::YearVisible, PropertyValue::Bool(year_visible));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -6331,12 +6226,6 @@ impl TimePicker {
         let declaration = Declaration::new(ObjectType::TimePicker);
         Self(declaration)
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
     pub fn minute_increment(mut self, minute_increment: i32) -> Self {
         assert!(
             (0..=59).contains(&minute_increment),
@@ -6355,6 +6244,7 @@ impl TimePicker {
         );
         self
     }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -6434,12 +6324,7 @@ impl CalendarDatePicker {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -6578,12 +6463,7 @@ impl CalendarView {
         );
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     visual_methods!();
     pub fn on_selected_dates_changed(mut self, callback: impl IntoUnitCallback) -> Self {
         self.0 = self.0.event(
@@ -6843,12 +6723,7 @@ impl RichEditBox {
             .property(PropertyId::IsReadOnly, PropertyValue::Bool(is_read_only));
         self
     }
-    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-        self
-    }
+    enabled_methods!();
     reference_methods!(RichEditBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
