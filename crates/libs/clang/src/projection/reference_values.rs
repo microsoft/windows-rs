@@ -761,6 +761,20 @@ pub(super) fn expand_type(
             Box::new(expand_type(*inner, metadata, target, seen, normalize_abi)?),
             count,
         ),
+        MetadataType::RefMut(inner) => MetadataType::RefMut(Box::new(expand_type(
+            *inner,
+            metadata,
+            target,
+            seen,
+            normalize_abi,
+        )?)),
+        MetadataType::RefConst(inner) => MetadataType::RefConst(Box::new(expand_type(
+            *inner,
+            metadata,
+            target,
+            seen,
+            normalize_abi,
+        )?)),
         _ => ty,
     })
 }

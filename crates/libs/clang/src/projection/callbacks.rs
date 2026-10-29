@@ -107,6 +107,8 @@ impl Projector<'_, '_> {
             MetadataType::PtrMut(inner, _)
             | MetadataType::PtrConst(inner, _)
             | MetadataType::Ptr64(inner, _)
+            | MetadataType::RefMut(inner)
+            | MetadataType::RefConst(inner)
             | MetadataType::ArrayFixed(inner, _) => {
                 abis.extend(self.type_callback_abis(inner)?);
             }

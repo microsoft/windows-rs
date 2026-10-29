@@ -17,6 +17,8 @@ fn callback_abi_reuse() {
             "ExplicitOuter",
             "NormalizedInner",
             "NamedOuter",
+            "ReferenceOuter",
+            "ConstReferenceOuter",
             "VariantStop",
             "InterfaceCallback",
         ],
@@ -69,13 +71,24 @@ fn callback_abi_reuse() {
     };
     input.source = input
         .source
-        .replace("typedef void (*InferredInner)(unsigned);", "");
+        .replace("typedef void (*InferredInner)(unsigned);", "")
+        .replace("InferredInner const&", "void (*const&)(unsigned)")
+        .replace("InferredInner&", "void (*&)(unsigned)");
     input.source.push_str(
         "\nstruct ReferenceUses {
             void (__attribute__((noreturn)) *outer)(void (__cdecl *)(unsigned));
+            void (__attribute__((noreturn)) *mutable_reference)(void (*&)(unsigned));
+            void (__attribute__((noreturn)) *const_reference)(void (*const&)(unsigned));
         };",
     );
-    input.roots = ["ReferenceUses", "ExplicitOuter"].map(String::from).into();
+    input.roots = [
+        "ReferenceUses",
+        "ExplicitOuter",
+        "ReferenceOuter",
+        "ConstReferenceOuter",
+    ]
+    .map(String::from)
+    .into();
     let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
     let reused =
         projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options).unwrap();
@@ -84,6 +97,16 @@ fn callback_abi_reuse() {
         reused.partitions["callback_abi_reuse"]
             .rdl
             .contains("outer: ExplicitOuter")
+    );
+    assert!(
+        reused.partitions["callback_abi_reuse"]
+            .rdl
+            .contains("mutable_reference: ReferenceOuter")
+    );
+    assert!(
+        reused.partitions["callback_abi_reuse"]
+            .rdl
+            .contains("const_reference: ConstReferenceOuter")
     );
     let partial = projection::project_partial_with_options(
         capture_partial(&[input], &TARGETS).unwrap(),

@@ -5,9 +5,13 @@ mod Fixture {
         inferred_alias: InferredStop,
         nested: ExplicitOuter,
         named_nested: NamedOuter,
+        mutable_reference: ReferenceOuter,
+        const_reference: ConstReferenceOuter,
         interface_callback: InterfaceCallback,
         variant: VariantStop,
     }
+    #[noreturn]
+    extern "C" fn ConstReferenceOuter(param0: &InferredInner);
     #[noreturn]
     extern "C" fn ExplicitOuter(param0: InferredInner);
     #[noreturn]
@@ -19,6 +23,8 @@ mod Fixture {
     #[noreturn]
     extern "C" fn NamedOuter(param0: NormalizedInner);
     extern fn NormalizedInner(param0: i64);
+    #[noreturn]
+    extern "C" fn ReferenceOuter(param0: &mut InferredInner);
     #[arch(X64 | Arm64)]
     #[noreturn]
     extern "C" fn VariantStop(param0: *mut i32);

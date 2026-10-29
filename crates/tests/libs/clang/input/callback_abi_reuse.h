@@ -13,6 +13,8 @@ typedef void (__attribute__((noreturn)) __cdecl *ExplicitOuter)(
     void (*)(unsigned));
 typedef void (TARGET_ABI *NormalizedInner)(long long);
 typedef void (__attribute__((noreturn)) *NamedOuter)(NormalizedInner);
+typedef void (__attribute__((noreturn)) *ReferenceOuter)(InferredInner&);
+typedef void (__attribute__((noreturn)) *ConstReferenceOuter)(InferredInner const&);
 typedef void (__cdecl *InterfaceCallback)(BaseAlias*);
 
 #if defined(_M_IX86)
@@ -27,6 +29,8 @@ struct CallbackUses {
     void (__attribute__((noreturn)) *nested)(
         void (__cdecl *)(unsigned));
     void (__attribute__((noreturn)) *named_nested)(NormalizedInner);
+    void (__attribute__((noreturn)) *mutable_reference)(InferredInner&);
+    void (__attribute__((noreturn)) *const_reference)(InferredInner const&);
     void (*interface_callback)(BaseAlias*);
 #if defined(_M_IX86)
     void (__attribute__((noreturn)) __stdcall *variant)(const int*);

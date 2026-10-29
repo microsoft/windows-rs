@@ -1061,11 +1061,8 @@ impl Projector<'_, '_> {
             .iter()
             .enumerate()
             .map(|(index, id)| {
-                if let Some(written) = written {
-                    self.parameter_ty(snapshot, written.prototype.parameters[index], *id)
-                } else {
-                    self.ty(snapshot, *id)
-                }
+                let written = written.map_or(*id, |written| written.prototype.parameters[index]);
+                self.parameter_ty(snapshot, written, *id)
             })
             .collect::<Result<_, _>>()?;
         let return_type = if let Some(written) = written {
