@@ -1,0 +1,85 @@
+name: interop
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  test:
+    name: ${{ matrix.name }}
+    strategy:
+      matrix:
+        include:
+          - name: interop x64
+            host: x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-msvc
+            runner: windows-2025-vs2026
+          - name: interop i686
+            host: x86_64-pc-windows-msvc
+            target: i686-pc-windows-msvc
+            runner: windows-2025-vs2026
+          - name: interop arm64
+            host: aarch64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+            runner: windows-11-arm
+
+    runs-on: ${{ matrix.runner }}
+
+    env:
+      RUSTFLAGS: -D warnings
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable-${{ matrix.host }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+      - name: Install fmt
+        run: rustup component add rustfmt
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
+        with:
+          target: ${{ matrix.target }}
+      - name: Install .NET x86 runtimes
+        # The windows-2025-vs2026 image ships .NET only for x64/arm64. The
+        # i686 C# tests launch win-x86 processes targeting .NET 9 and .NET 10.
+        if: matrix.target == 'i686-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
+          Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
+          # An explicit version downloads from the CDN feed rather than the aka.ms channel link.
+          foreach ($channel in '9.0', '10.0') {
+            $version = (-split (Invoke-RestMethod "https://builds.dotnet.microsoft.com/dotnet/Runtime/$channel/latest.version"))[-1]
+            & $script -Version $version -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+          }
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          key: interop-${{ matrix.target }}
+      - name: Test
+        run: >-
+          cargo test --target ${{ matrix.target }}
+          -p test_interop -p 'csharp-*' -p 'robot-*'
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
