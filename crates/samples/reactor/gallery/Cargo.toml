@@ -7,8 +7,5 @@ publish = false
 [dependencies]
 windows-reactor = { workspace = true }
 
-[dev-dependencies]
-windows-reactor = { workspace = true, features = ["test"] }
-
 [lints]
 workspace = true
