@@ -13,9 +13,21 @@
 #endif
 
 typedef int (__cdecl *CdeclCallback)(int);
-typedef int (TARGET_ABI *PortableCallback)(int);
+#ifndef PORTABLE_CALLBACK_ABI
+#define PORTABLE_CALLBACK_ABI TARGET_ABI
+#endif
+typedef int (PORTABLE_CALLBACK_ABI *PortableCallback)(int);
 typedef int (EXPLICIT_ABI *ExplicitCallback)(int);
 typedef int (OBSERVED_ABI *ObservedCallback)(int);
+typedef int (TARGET_ABI *AInferredCallback)(unsigned int);
+typedef int (__cdecl *ZExplicitCallback)(unsigned int);
+typedef int (TARGET_ABI *AInferredNested)(int (TARGET_ABI *)(unsigned int));
+typedef int (TARGET_ABI *ZExplicitNested)(int (__cdecl *)(unsigned int));
+struct CallbackUses {
+    int (__cdecl *explicit_callback)(unsigned int);
+    int (TARGET_ABI *inferred_callback)(unsigned int);
+    int (TARGET_ABI *explicit_nested)(int (__cdecl *)(unsigned int));
+};
 
 #ifndef PORTABLE_ABI
 #define PORTABLE_ABI TARGET_ABI
@@ -33,9 +45,11 @@ extern "C" int TARGET_ABI LibraryVariant(int value);
 extern "C" int TARGET_ABI ExportVariant(int value);
 
 #if defined(_M_IX86)
+typedef int (TARGET_ABI *ParameterCallback)(const int*);
 extern "C" int TARGET_ABI ParameterVariant(const int* value);
 extern "C" int TARGET_ABI NarrowOnly(int value);
 #else
+typedef int (TARGET_ABI *ParameterCallback)(int*);
 extern "C" int TARGET_ABI ParameterVariant(int* value);
 extern "C" int WideOnly(int value);
 #endif

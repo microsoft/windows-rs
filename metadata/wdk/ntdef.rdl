@@ -14,7 +14,6 @@ mod Windows {
         type PNT_PRODUCT_TYPE = *mut _NT_PRODUCT_TYPE;
         type PPHYSICAL_ADDRESS = *mut LARGE_INTEGER;
         type PUTF8_STRING = PSTRING;
-        #[arch(X64 | Arm64)]
         #[repr(i32)]
         enum TIMER_TYPE {
             NotificationTimer = 0,

@@ -307,11 +307,9 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
 - Metadata reader bounds: `File::new` in `crates/libs/metadata/src/reader/file.rs` and decoding in
   `blob.rs` need focused malformed-input coverage for container/table/heap bounds, compressed
   integers, signature depth, and relationship ordering.
-- WDK x86 callbacks: check `DRIVER_DISPATCH` in `metadata/wdk/wdm.rdl` against the compiler
-  arguments in `crates/tools/win32/src/wdk.rs`. User-mode import agreement does not establish
-  kernel callback calling conventions.
-- SDK-driver test execution: review the ignored tests in `crates/tools/win32/src/main.rs` and
-  `import_availability.rs`. Running generation is not equivalent to running their assertions.
+- WDK/SDK x86 callback ownership: kernel observations for `CLFS_BLOCK_ALLOCATION`,
+  `CLFS_BLOCK_DEALLOCATION`, and `IO_IRP_EXT_TRACK_OFFSET_HEADER` conflict with SDK references
+  in `crates/tools/win32/src/wdk.rs`. Resolve ownership without weakening ABI compatibility checks.
 - Shared type traversal: compare `write_type_with_signature` in
   `crates/libs/metadata/src/merge/mod.rs` with `write_type` in `merge/remap.rs`; keep signature and
   nominal-reference handling consistent.

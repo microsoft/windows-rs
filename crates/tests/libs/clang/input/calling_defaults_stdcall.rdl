@@ -5,9 +5,6 @@ mod Fixture {
     extern "C" fn CdeclCallback(value: i32) -> i32;
     #[library("example.dll")]
     extern fn Plain(value: i32) -> i32;
-    #[arch(X64 | Arm64)]
-    extern "C" fn PlainCallback(value: i32) -> i32;
-    #[arch(X86)]
     extern fn PlainCallback(value: i32) -> i32;
     #[library("example.dll")]
     extern fn Stdcall(value: i32) -> i32;

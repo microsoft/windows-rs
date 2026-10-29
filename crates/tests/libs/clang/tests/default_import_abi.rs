@@ -324,15 +324,32 @@ fn canonical_publication_preserves_other_contracts() {
                 .unwrap();
                 assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
                 assert!(partial.output.partitions.is_empty());
-                for case in ["explicit-wide", "cdecl-x86", "library"] {
-                    let mut input = selected_fixture("canonical_abi", &["Portable"]);
+                for case in [
+                    "explicit-wide",
+                    "cdecl-x86",
+                    "library",
+                    "callback-explicit-wide",
+                    "callback-cdecl-x86",
+                ] {
+                    let callback = case.starts_with("callback-");
+                    let root = if callback {
+                        "PortableCallback"
+                    } else {
+                        "Portable"
+                    };
+                    let mut input = selected_fixture("canonical_abi", &[root]);
                     let condition = match case {
-                        "explicit-wide" => "!defined(_M_IX86)",
-                        "cdecl-x86" => "defined(_M_IX86)",
+                        "explicit-wide" | "callback-explicit-wide" => "!defined(_M_IX86)",
+                        "cdecl-x86" | "callback-cdecl-x86" => "defined(_M_IX86)",
                         _ => "0",
                     };
+                    let abi = if callback {
+                        "PORTABLE_CALLBACK_ABI"
+                    } else {
+                        "PORTABLE_ABI"
+                    };
                     input.source = format!(
-                        "#if {condition}\n#define PORTABLE_ABI __cdecl\n#endif\n\
+                        "#if {condition}\n#define {abi} __cdecl\n#endif\n\
                          #include \"canonical_abi.h\""
                     );
                     let mut changed_imports = imports.clone();
@@ -365,7 +382,11 @@ fn canonical_publication_preserves_other_contracts() {
                         &options,
                     )
                     .unwrap_err();
-                    let expected = "external value `Portable` declaration differs from metadata";
+                    let expected = if callback {
+                        "external callback `PortableCallback` calling convention differs from metadata"
+                    } else {
+                        "external value `Portable` declaration differs from metadata"
+                    };
                     assert!(error.to_string().contains(expected), "{case}: {error}");
                     let partial =
                         projection::project_partial_with_options(captured, "Fixture", &options)

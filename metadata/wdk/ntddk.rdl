@@ -222,7 +222,7 @@ mod Windows {
             BdCbStatusPrepareForUnload = 2,
         }
         const BMC_NOTIFY_TYPE_GUID: GUID = 0x487565ba_6494_4367_95ca_4eff893522f6;
-        extern "C" fn BOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
+        extern fn BOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         const BOOT_NOTIFY_TYPE_GUID: GUID = 0x3d61a466_ab40_409a_a698_f362d464b38f;
         #[repr(i32)]
         enum BUS_DATA_TYPE {
@@ -644,7 +644,7 @@ mod Windows {
             AsULONGLONG: ULONGLONG,
         }
         const DOE_READ_DELAY: i32 = 10000;
-        extern "C" fn DRIVER_REINITIALIZE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] #[opt] Context: PVOID, #[in] Count: ULONG);
+        extern fn DRIVER_REINITIALIZE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] #[opt] Context: PVOID, #[in] Count: ULONG);
         const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: i32 = 2;
         const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: i32 = 4;
         const DRIVER_VERIFIER_IO_CHECKING: i32 = 16;
@@ -1074,7 +1074,7 @@ mod Windows {
             Reserved: ULONG,
             Index: ULONG64,
         }
-        extern "C" fn HVL_WHEA_ERROR_NOTIFICATION(#[in] RecoveryContext: PWHEA_RECOVERY_CONTEXT, #[in] Poisoned: BOOLEAN) -> NTSTATUS;
+        extern fn HVL_WHEA_ERROR_NOTIFICATION(#[in] RecoveryContext: PWHEA_RECOVERY_CONTEXT, #[in] Poisoned: BOOLEAN) -> NTSTATUS;
         const IMAGE_ADDRESSING_MODE_32BIT: i32 = 3;
         const INIT_NOTIFY_TYPE_GUID: GUID = 0xcc5263e8_9308_454a_89d0_340bd39bc98e;
         const INJECT_ERRTYPE_MEMORY_CORRECTABLE: i32 = 8;
@@ -1784,7 +1784,7 @@ mod Windows {
         type PARBITER_ADD_RESERVED_PARAMETERS = *mut ARBITER_ADD_RESERVED_PARAMETERS;
         type PARBITER_BOOT_ALLOCATION_PARAMETERS = *mut ARBITER_BOOT_ALLOCATION_PARAMETERS;
         type PARBITER_CONFLICT_INFO = *mut ARBITER_CONFLICT_INFO;
-        extern "C" fn PARBITER_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Action: ARBITER_ACTION, #[in] #[out] Parameters: PARBITER_PARAMETERS) -> NTSTATUS;
+        extern fn PARBITER_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Action: ARBITER_ACTION, #[in] #[out] Parameters: PARBITER_PARAMETERS) -> NTSTATUS;
         type PARBITER_INTERFACE = *mut ARBITER_INTERFACE;
         type PARBITER_LIST_ENTRY = *mut ARBITER_LIST_ENTRY;
         type PARBITER_PARAMETERS = *mut ARBITER_PARAMETERS;
@@ -1798,7 +1798,7 @@ mod Windows {
         type PBDCB_IMAGE_INFORMATION = *mut BDCB_IMAGE_INFORMATION;
         type PBDCB_STATUS_UPDATE_CONTEXT = *mut BDCB_STATUS_UPDATE_CONTEXT;
         type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
-        extern "C" fn PBOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
+        extern fn PBOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
         const PCCARD_DEVICE_PCI: i32 = 16;
         const PCCARD_DUP_LEGACY_BASE: i32 = 6;
@@ -2083,7 +2083,7 @@ mod Windows {
         const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM: i32 = 2;
         const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM_WITH_CONNECTION_ID: i32 = 4;
         const PCI_DOE_VENDOR_ID_RESERVED: i32 = 1;
-        extern "C" fn PCI_ERROR_HANDLER_CALLBACK();
+        extern fn PCI_ERROR_HANDLER_CALLBACK();
         #[repr(i32)]
         enum PCI_EXPRESS_ASPM_CONTROL {
             L0sAndL1EntryDisabled = 0,
@@ -3297,7 +3297,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_EXPRESS_WAKE_CONTROL", "PCI_EXPRESS_WAKE_CONTROL")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
-        extern "C" fn PCI_EXPRESS_WAKE_CONTROL(#[in] Context: PVOID, #[in] EnableWake: BOOLEAN);
+        extern fn PCI_EXPRESS_WAKE_CONTROL(#[in] Context: PVOID, #[in] EnableWake: BOOLEAN);
         struct PCI_FIRMWARE_BUS_CAPS {
             Type: USHORT,
             Length: USHORT,
@@ -3418,7 +3418,7 @@ mod Windows {
             VectorAccessData: ULONG,
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_GET_LINK_INFORMATION", "PCI_GET_LINK_INFORMATION")]
-        extern "C" fn PCI_GET_LINK_INFORMATION(#[in] #[out] Context: PVOID, #[out] LinkInformation: PPCI_LINK_INFORMATION) -> NTSTATUS;
+        extern fn PCI_GET_LINK_INFORMATION(#[in] #[out] Context: PVOID, #[out] LinkInformation: PPCI_LINK_INFORMATION) -> NTSTATUS;
         #[repr(i32)]
         enum PCI_HARDWARE_INTERFACE {
             PciConventional = 0,
@@ -3429,7 +3429,7 @@ mod Windows {
         const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: i32 = 255;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_LINE_TO_PIN", "PCI_LINE_TO_PIN")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
-        extern "C" fn PCI_LINE_TO_PIN(#[in] Context: PVOID, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
+        extern fn PCI_LINE_TO_PIN(#[in] Context: PVOID, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
         struct PCI_LINK_CONFIG_INTERFACE_V1 {
             Size: USHORT,
             Version: USHORT,
@@ -3492,7 +3492,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PIN_TO_LINE", "PCI_PIN_TO_LINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
-        extern "C" fn PCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
+        extern fn PCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PREPARE_MULTISTAGE_RESUME", "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "15", "15")]
         #[arch(X64 | Arm64)]
@@ -3500,7 +3500,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PREPARE_MULTISTAGE_RESUME", "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "31", "31")]
         #[arch(X86)]
-        extern "C" fn PCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
+        extern fn PCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_READ_WRITE_CONFIG", "PCI_READ_WRITE_CONFIG")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "15", "15")]
         #[arch(X64 | Arm64)]
@@ -3508,12 +3508,12 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_READ_WRITE_CONFIG", "PCI_READ_WRITE_CONFIG")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "31", "31")]
         #[arch(X86)]
-        extern "C" fn PCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         const PCI_RECOVERY_SECTION_GUID: GUID = 0xdd060800_f6e1_4204_ac27_c4bca9568402;
         const PCI_RESERVED_VENDOR_ID: i32 = 1;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_ROOT_BUS_CAPABILITY", "PCI_ROOT_BUS_CAPABILITY")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0")]
-        extern "C" fn PCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
+        extern fn PCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
         struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
             SecondaryInterface: PCI_HARDWARE_INTERFACE,
             Anonymous: struct {
@@ -3574,7 +3574,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_SET_MAX_LINK_BANDWIDTH", "PCI_SET_MAX_LINK_BANDWIDTH")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        extern "C" fn PCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: PVOID, #[in] TargetBandwidth: ULONG, #[in] WaitForRetrain: BOOLEAN, #[out] LinkThrottled: PBOOLEAN, #[out] NewLinkSpeed: PPCI_LINK_SPEED) -> NTSTATUS;
+        extern fn PCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: PVOID, #[in] TargetBandwidth: ULONG, #[in] WaitForRetrain: BOOLEAN, #[out] LinkThrottled: PBOOLEAN, #[out] NewLinkSpeed: PPCI_LINK_SPEED) -> NTSTATUS;
         struct PCI_SUBSYSTEM_IDS_CAPABILITY {
             Header: PCI_CAPABILITIES_HEADER,
             Reserved: USHORT,
@@ -3593,8 +3593,8 @@ mod Windows {
         type PCONFIGURATION_TYPE = *mut CONFIGURATION_TYPE;
         type PCONTROLLER_OBJECT = *mut CONTROLLER_OBJECT;
         type PCPE_DRIVER_INFO = *mut CPE_DRIVER_INFO;
-        extern "C" fn PCREATE_PROCESS_NOTIFY_ROUTINE(#[in] ParentId: HANDLE, #[in] ProcessId: HANDLE, #[in] Create: BOOLEAN);
-        extern "C" fn PCREATE_THREAD_NOTIFY_ROUTINE(#[in] ProcessId: HANDLE, #[in] ThreadId: HANDLE, #[in] Create: BOOLEAN);
+        extern fn PCREATE_PROCESS_NOTIFY_ROUTINE(#[in] ParentId: HANDLE, #[in] ProcessId: HANDLE, #[in] Create: BOOLEAN);
+        extern fn PCREATE_THREAD_NOTIFY_ROUTINE(#[in] ProcessId: HANDLE, #[in] ThreadId: HANDLE, #[in] Create: BOOLEAN);
         type PCREATE_USER_PROCESS_ECP_CONTEXT = *mut CREATE_USER_PROCESS_ECP_CONTEXT;
         #[arch(Arm64)]
         const PCR_BTI_MITIGATION_CSWAP_HVC: i32 = 16;
@@ -3629,7 +3629,7 @@ mod Windows {
         type PDEBUGGING_DEVICE_IN_USE_INFORMATION = *mut DEBUGGING_DEVICE_IN_USE_INFORMATION;
         type PDEBUG_DEVICE_ADDRESS = *mut DEBUG_DEVICE_ADDRESS;
         type PDEBUG_DEVICE_DESCRIPTOR = *mut DEBUG_DEVICE_DESCRIPTOR;
-        extern "C" fn PDEBUG_DEVICE_FOUND_FUNCTION(Device: PDEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION;
+        extern fn PDEBUG_DEVICE_FOUND_FUNCTION(Device: PDEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION;
         type PDEBUG_EFI_IOMMU_DATA = *mut DEBUG_EFI_IOMMU_DATA;
         type PDEBUG_MEMORY_REQUIREMENTS = *mut DEBUG_MEMORY_REQUIREMENTS;
         type PDEBUG_TRANSPORT_DATA = *mut DEBUG_TRANSPORT_DATA;
@@ -3648,23 +3648,23 @@ mod Windows {
         type PDOE_HEADER_1 = *mut DOE_HEADER_1;
         type PDOE_HEADER_2 = *mut DOE_HEADER_2;
         type PDOE_OBJECT_HEADER = *mut DOE_OBJECT_HEADER;
-        extern "C" fn PDRIVER_CMC_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] CmcLog: PCMC_EXCEPTION);
-        extern "C" fn PDRIVER_CPE_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] CmcLog: PCPE_EXCEPTION);
+        extern fn PDRIVER_CMC_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] CmcLog: PCMC_EXCEPTION);
+        extern fn PDRIVER_CPE_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] CmcLog: PCPE_EXCEPTION);
         #[arch(Arm64)]
         extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: PVOID, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, #[in] Exception: PVOID);
         #[arch(X64)]
         extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: PVOID, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, #[in] Exception: PMCA_EXCEPTION) -> ERROR_SEVERITY;
         #[arch(X86)]
-        extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: PVOID, #[in] BankLog: PMCA_EXCEPTION);
+        extern fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: PVOID, #[in] BankLog: PMCA_EXCEPTION);
         #[arch(Arm64)]
         extern "C" fn PDRIVER_MCA_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, #[in] Exception: PVOID);
         #[arch(X64)]
         extern "C" fn PDRIVER_MCA_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, #[in] Exception: PMCA_EXCEPTION) -> ERROR_SEVERITY;
         #[arch(X86)]
-        extern "C" fn PDRIVER_MCA_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] BankLog: PMCA_EXCEPTION);
-        extern "C" fn PDRIVER_REINITIALIZE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] #[opt] Context: PVOID, #[in] Count: ULONG);
+        extern fn PDRIVER_MCA_EXCEPTION_CALLBACK(#[in] Context: PVOID, #[in] BankLog: PMCA_EXCEPTION);
+        extern fn PDRIVER_REINITIALIZE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] #[opt] Context: PVOID, #[in] Count: ULONG);
         type PDRIVER_VERIFIER_THUNK_PAIRS = *mut DRIVER_VERIFIER_THUNK_PAIRS;
-        extern "C" fn PDRIVER_VERIFIER_THUNK_ROUTINE(#[in] Context: PVOID) -> ULONG_PTR;
+        extern fn PDRIVER_VERIFIER_THUNK_ROUTINE(#[in] Context: PVOID) -> ULONG_PTR;
         type PEFI_ACPI_RAS_SIGNAL_TABLE = *mut EFI_ACPI_RAS_SIGNAL_TABLE;
         const PEI_NOTIFY_TYPE_GUID: GUID = 0x09a9d5ac_5204_4214_96e5_94992e752bcd;
         type PEJOB = *mut _EJOB;
@@ -3690,15 +3690,15 @@ mod Windows {
         type PFILE_NAME_INFORMATION = *mut FILE_NAME_INFORMATION;
         type PFILE_VALID_DATA_LENGTH_INFORMATION = *mut FILE_VALID_DATA_LENGTH_INFORMATION;
         extern "C" fn PFNFTH(#[in] #[out] SystemFirmwareTableInfo: PSYSTEM_FIRMWARE_TABLE_INFORMATION) -> NTSTATUS;
-        extern "C" fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(#[in] Page: PFN_NUMBER, #[in] Poisoned: BOOLEAN, #[in] #[out] Context: PVOID, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
-        extern "C" fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
+        extern fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(#[in] Page: PFN_NUMBER, #[in] Poisoned: BOOLEAN, #[in] #[out] Context: PVOID, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
+        extern fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[must_use]
-        extern "C" fn PGET_LOCATION_STRING(#[in] #[opt] #[out] Context: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*LocationStrings,_When_(return == 0, __drv_allocatesMem(Mem))", "*LocationStrings, _When_(return == 0, __drv_allocatesMem(Mem))")] #[out] #[out_ptr] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
-        extern "C" fn PHALIOREADWRITEHANDLER(#[in] fRead: BOOLEAN, #[in] dwAddr: ULONG, #[in] dwSize: ULONG, #[in] #[out] pdwData: PULONG) -> NTSTATUS;
-        extern "C" fn PHALMCAINTERFACELOCK();
-        extern "C" fn PHALMCAINTERFACEREADREGISTER(#[in] BankNumber: UCHAR, #[in] #[out] Exception: PVOID) -> NTSTATUS;
-        extern "C" fn PHALMCAINTERFACEUNLOCK();
+        extern fn PGET_LOCATION_STRING(#[in] #[opt] #[out] Context: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*LocationStrings,_When_(return == 0, __drv_allocatesMem(Mem))", "*LocationStrings, _When_(return == 0, __drv_allocatesMem(Mem))")] #[out] #[out_ptr] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
+        extern fn PHALIOREADWRITEHANDLER(#[in] fRead: BOOLEAN, #[in] dwAddr: ULONG, #[in] dwSize: ULONG, #[in] #[out] pdwData: PULONG) -> NTSTATUS;
+        extern fn PHALMCAINTERFACELOCK();
+        extern fn PHALMCAINTERFACEREADREGISTER(#[in] BankNumber: UCHAR, #[in] #[out] Exception: PVOID) -> NTSTATUS;
+        extern fn PHALMCAINTERFACEUNLOCK();
         type PHAL_AMLI_BAD_IO_ADDRESS_LIST = *mut HAL_AMLI_BAD_IO_ADDRESS_LIST;
         type PHAL_APIC_DESTINATION_MODE = *mut HAL_APIC_DESTINATION_MODE;
         type PHAL_BUS_INFORMATION = *mut HAL_BUS_INFORMATION;
@@ -3714,11 +3714,11 @@ mod Windows {
         type PHAL_PROCESSOR_SPEED_INFORMATION = *mut HAL_PROCESSOR_SPEED_INFORMATION;
         type PHAL_QUERY_INFORMATION_CLASS = *mut HAL_QUERY_INFORMATION_CLASS;
         type PHAL_REGISTER_PMU_NOTIFICATION_INPUT = *mut HAL_REGISTER_PMU_NOTIFICATION_INPUT;
-        extern "C" fn PHAL_RESET_DISPLAY_PARAMETERS(#[in] Columns: ULONG, #[in] Rows: ULONG) -> BOOLEAN;
+        extern fn PHAL_RESET_DISPLAY_PARAMETERS(#[in] Columns: ULONG, #[in] Rows: ULONG) -> BOOLEAN;
         type PHAL_SET_INFORMATION_CLASS = *mut HAL_SET_INFORMATION_CLASS;
         type PHAL_UNREGISTER_PMU_NOTIFICATION_INPUT = *mut HAL_UNREGISTER_PMU_NOTIFICATION_INPUT;
         type PHARDWARE_COUNTER = *mut HARDWARE_COUNTER;
-        extern "C" fn PHVL_WHEA_ERROR_NOTIFICATION(#[in] RecoveryContext: PWHEA_RECOVERY_CONTEXT, #[in] Poisoned: BOOLEAN) -> NTSTATUS;
+        extern fn PHVL_WHEA_ERROR_NOTIFICATION(#[in] RecoveryContext: PWHEA_RECOVERY_CONTEXT, #[in] Poisoned: BOOLEAN) -> NTSTATUS;
         struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
             OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER,
             CustomEventBufferEntrySize: ULONG,
@@ -3760,7 +3760,7 @@ mod Windows {
         type PIO_FOEXT_SHADOW_FILE = *mut IO_FOEXT_SHADOW_FILE;
         type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
         type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
-        extern "C" fn PIO_QUERY_DEVICE_ROUTINE(#[in] Context: PVOID, #[in] PathName: PUNICODE_STRING, #[in] BusType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] BusInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] ControllerType: CONFIGURATION_TYPE, #[in] ControllerNumber: ULONG, #[in] ControllerInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] PeripheralType: CONFIGURATION_TYPE, #[in] PeripheralNumber: ULONG, #[in] PeripheralInformation: *mut PKEY_VALUE_FULL_INFORMATION) -> NTSTATUS;
+        extern fn PIO_QUERY_DEVICE_ROUTINE(#[in] Context: PVOID, #[in] PathName: PUNICODE_STRING, #[in] BusType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] BusInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] ControllerType: CONFIGURATION_TYPE, #[in] ControllerNumber: ULONG, #[in] ControllerInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] PeripheralType: CONFIGURATION_TYPE, #[in] PeripheralNumber: ULONG, #[in] PeripheralInformation: *mut PKEY_VALUE_FULL_INFORMATION) -> NTSTATUS;
         type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
         type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
         #[arch(Arm64)]
@@ -3794,7 +3794,7 @@ mod Windows {
         type PMEMORY_DEFECT_FLAGS = *mut MEMORY_DEFECT_FLAGS;
         const PMEM_ERROR_SECTION_GUID: GUID = 0x81687003_dbfd_4728_9ffd_f0904f97597d;
         type PMMCOPY_ADDRESS = *mut MM_COPY_ADDRESS;
-        extern "C" fn PMM_ROTATE_COPY_CALLBACK_FUNCTION(#[in] DestinationMdl: PMDL, #[in] SourceMdl: PMDL, #[in] Context: PVOID) -> NTSTATUS;
+        extern fn PMM_ROTATE_COPY_CALLBACK_FUNCTION(#[in] DestinationMdl: PMDL, #[in] SourceMdl: PMDL, #[in] Context: PVOID) -> NTSTATUS;
         type PMM_ROTATE_DIRECTION = *mut MM_ROTATE_DIRECTION;
         type PMU_TELEMETRY_SECTION = *mut MU_TELEMETRY_SECTION;
         struct PM_DISPATCH_TABLE {
@@ -3947,7 +3947,7 @@ mod Windows {
         type PPCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_PORT_ATTRIBUTES = *mut PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_PORT_ATTRIBUTES;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_EXPRESS_WAKE_CONTROL", "PCI_EXPRESS_WAKE_CONTROL", TypedefName = "PCI_EXPRESS_WAKE_CONTROL")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "PCI_EXPRESS_WAKE_CONTROL")]
-        extern "C" fn PPCI_EXPRESS_WAKE_CONTROL(#[in] Context: PVOID, #[in] EnableWake: BOOLEAN);
+        extern fn PPCI_EXPRESS_WAKE_CONTROL(#[in] Context: PVOID, #[in] EnableWake: BOOLEAN);
         type PPCI_FIRMWARE_BUS_CAPS = *mut PCI_FIRMWARE_BUS_CAPS;
         type PPCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER = *mut PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER;
         type PPCI_FPB_CAPABILITIES_REGISTER = *mut PCI_FPB_CAPABILITIES_REGISTER;
@@ -3961,11 +3961,11 @@ mod Windows {
         type PPCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER = *mut PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER;
         type PPCI_FPB_VECTOR_ACCESS_DATA_REGISTER = *mut PCI_FPB_VECTOR_ACCESS_DATA_REGISTER;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_GET_LINK_INFORMATION", "PCI_GET_LINK_INFORMATION", TypedefName = "PCI_GET_LINK_INFORMATION")]
-        extern "C" fn PPCI_GET_LINK_INFORMATION(#[in] #[out] Context: PVOID, #[out] LinkInformation: PPCI_LINK_INFORMATION) -> NTSTATUS;
+        extern fn PPCI_GET_LINK_INFORMATION(#[in] #[out] Context: PVOID, #[out] LinkInformation: PPCI_LINK_INFORMATION) -> NTSTATUS;
         type PPCI_HARDWARE_INTERFACE = *mut PCI_HARDWARE_INTERFACE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_LINE_TO_PIN", "PCI_LINE_TO_PIN", TypedefName = "PCI_LINE_TO_PIN")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "PCI_LINE_TO_PIN")]
-        extern "C" fn PPCI_LINE_TO_PIN(#[in] Context: PVOID, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
+        extern fn PPCI_LINE_TO_PIN(#[in] Context: PVOID, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
         type PPCI_LINK_CONFIG_INTERFACE_V1 = *mut PCI_LINK_CONFIG_INTERFACE_V1;
         type PPCI_LINK_INFORMATION = *mut PCI_LINK_INFORMATION;
         type PPCI_LINK_SPEED = *mut PCI_LINK_SPEED;
@@ -3973,7 +3973,7 @@ mod Windows {
         type PPCI_OSC_CONTROL_BITS = *mut PCI_OSC_CONTROL_BITS;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PIN_TO_LINE", "PCI_PIN_TO_LINE", TypedefName = "PCI_PIN_TO_LINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "PCI_PIN_TO_LINE")]
-        extern "C" fn PPCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
+        extern fn PPCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PREPARE_MULTISTAGE_RESUME", "PCI_PREPARE_MULTISTAGE_RESUME", TypedefName = "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "15", "15", TypedefName = "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[arch(X64 | Arm64)]
@@ -3981,7 +3981,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_PREPARE_MULTISTAGE_RESUME", "PCI_PREPARE_MULTISTAGE_RESUME", TypedefName = "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "31", "31", TypedefName = "PCI_PREPARE_MULTISTAGE_RESUME")]
         #[arch(X86)]
-        extern "C" fn PPCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
+        extern fn PPCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_READ_WRITE_CONFIG", "PCI_READ_WRITE_CONFIG", TypedefName = "PCI_READ_WRITE_CONFIG")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "15", "15", TypedefName = "PCI_READ_WRITE_CONFIG")]
         #[arch(X64 | Arm64)]
@@ -3989,22 +3989,22 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_READ_WRITE_CONFIG", "PCI_READ_WRITE_CONFIG", TypedefName = "PCI_READ_WRITE_CONFIG")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "31", "31", TypedefName = "PCI_READ_WRITE_CONFIG")]
         #[arch(X86)]
-        extern "C" fn PPCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PPCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_ROOT_BUS_CAPABILITY", "PCI_ROOT_BUS_CAPABILITY", TypedefName = "PCI_ROOT_BUS_CAPABILITY")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0", TypedefName = "PCI_ROOT_BUS_CAPABILITY")]
-        extern "C" fn PPCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
+        extern fn PPCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
         type PPCI_ROOT_BUS_HARDWARE_CAPABILITY = *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY;
         type PPCI_ROOT_BUS_OSC_CONTROL_FIELD = *mut PCI_ROOT_BUS_OSC_CONTROL_FIELD;
         type PPCI_ROOT_BUS_OSC_SUPPORT_FIELD = *mut PCI_ROOT_BUS_OSC_SUPPORT_FIELD;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PCI_SET_MAX_LINK_BANDWIDTH", "PCI_SET_MAX_LINK_BANDWIDTH", TypedefName = "PCI_SET_MAX_LINK_BANDWIDTH")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "PCI_SET_MAX_LINK_BANDWIDTH")]
-        extern "C" fn PPCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: PVOID, #[in] TargetBandwidth: ULONG, #[in] WaitForRetrain: BOOLEAN, #[out] LinkThrottled: PBOOLEAN, #[out] NewLinkSpeed: PPCI_LINK_SPEED) -> NTSTATUS;
+        extern fn PPCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: PVOID, #[in] TargetBandwidth: ULONG, #[in] WaitForRetrain: BOOLEAN, #[out] LinkThrottled: PBOOLEAN, #[out] NewLinkSpeed: PPCI_LINK_SPEED) -> NTSTATUS;
         type PPCI_SUBSYSTEM_IDS_CAPABILITY = *mut PCI_SUBSYSTEM_IDS_CAPABILITY;
         type PPCI_USB4_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY;
         type PPCI_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_VENDOR_SPECIFIC_CAPABILITY;
         type PPHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION = *mut PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION;
-        extern "C" fn PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER(#[in] EventBuffer: PVOID, #[in] EntrySize: SIZE_T, #[in] NumberOfEntries: SIZE_T, #[in] OwningHandle: HANDLE);
-        extern "C" fn PPHYSICAL_COUNTER_OVERFLOW_HANDLER(#[in] OverflowBits: ULONGLONG, #[in] OwningHandle: HANDLE);
+        extern fn PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER(#[in] EventBuffer: PVOID, #[in] EntrySize: SIZE_T, #[in] NumberOfEntries: SIZE_T, #[in] OwningHandle: HANDLE);
+        extern fn PPHYSICAL_COUNTER_OVERFLOW_HANDLER(#[in] OverflowBits: ULONGLONG, #[in] OwningHandle: HANDLE);
         type PPHYSICAL_COUNTER_RESOURCE_DESCRIPTOR = *mut PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR;
         type PPHYSICAL_COUNTER_RESOURCE_LIST = *mut PHYSICAL_COUNTER_RESOURCE_LIST;
         type PPHYSICAL_MEMORY_RANGE = *mut PHYSICAL_MEMORY_RANGE;
@@ -4266,11 +4266,11 @@ mod Windows {
             },
         }
         #[must_use]
-        extern "C" fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[opt] #[out] PluginContext: PVOID, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG) -> NTSTATUS;
-        extern "C" fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[opt] #[out] PluginContext: PVOID, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG) -> NTSTATUS;
+        extern fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_ERR_READING_PCIE_OVERRIDES {
             PshedPiErrReadingPcieOverridesNoErr = 0,
@@ -4281,28 +4281,28 @@ mod Windows {
             PshedPiErrReadingPcieOverridesNoCapOffset = 5,
             PshedPiErrReadingPcieOverridesNotBinary = 6,
         }
-        extern "C" fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[in] #[out] #[writable(entry, bytes(*Length))] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
+        extern fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[in] #[out] #[writable(entry, bytes(*Length))] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[opt] #[out] PluginContext: PVOID, #[out] Capabilities: PWHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
+        extern fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[opt] #[out] PluginContext: PVOID, #[out] Capabilities: PWHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_INJECT_ERROR(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorType: ULONGLONG, #[in] Parameter1: ULONGLONG, #[in] Parameter2: ULONGLONG, #[in] Parameter3: ULONGLONG, #[in] Parameter4: ULONGLONG) -> NTSTATUS;
+        extern fn PSHED_PI_INJECT_ERROR(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorType: ULONGLONG, #[in] Parameter1: ULONGLONG, #[in] Parameter2: ULONGLONG, #[in] Parameter3: ULONGLONG, #[in] Parameter4: ULONGLONG) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_READ_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[out] #[writable(entry, bytes(*RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
+        extern fn PSHED_PI_READ_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[out] #[writable(entry, bytes(*RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_VENDOR_DEFINED(#[in] VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, #[in] Offset: UINT32, #[in] InputLength: UINT32, #[in] #[readable(entry, bytes(InputLength))] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[out] #[writable(entry, bytes(*OutputLength))] OutputBuffer: PUINT8) -> NTSTATUS;
+        extern fn PSHED_PI_VENDOR_DEFINED(#[in] VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, #[in] Offset: UINT32, #[in] InputLength: UINT32, #[in] #[readable(entry, bytes(InputLength))] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[out] #[writable(entry, bytes(*OutputLength))] OutputBuffer: PUINT8) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_VENDOR_DEFINED_ACTION {
             VendorDefinedRead = 0,
             VendorDefinedWrite = 1,
         }
-        extern "C" fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[in] #[readable(entry, bytes(RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[in] #[readable(entry, bytes(RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[packed(1)]
         struct PSHED_PLATFORM_DETAILS {
             Version: UINT32,
@@ -4328,12 +4328,12 @@ mod Windows {
         const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
         #[arch(X86)]
         const PTE_PER_PAGE: i32 = 512;
-        extern "C" fn PTIMER_APC_ROUTINE(#[in] TimerContext: PVOID, #[in] TimerLowValue: ULONG, #[in] TimerHighValue: LONG);
+        extern fn PTIMER_APC_ROUTINE(#[in] TimerContext: PVOID, #[in] TimerLowValue: ULONG, #[in] TimerHighValue: LONG);
         type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
         #[arch(X86)]
         const PTI_SHIFT: i32 = 12;
-        extern "C" fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[in] Direction: RESOURCE_TRANSLATION_DIRECTION, #[in] #[opt] AlternativesCount: ULONG, #[in] #[opt] #[readable(entry, AlternativesCount)] Alternatives: *mut IO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] Target: PCM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PIO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] TargetCount: PULONG, #[out] #[writable(entry, *TargetCount)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[in] Direction: RESOURCE_TRANSLATION_DIRECTION, #[in] #[opt] AlternativesCount: ULONG, #[in] #[opt] #[readable(entry, AlternativesCount)] Alternatives: *mut IO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] Target: PCM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PIO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] TargetCount: PULONG, #[out] #[writable(entry, *TargetCount)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
         type PTRANSLATOR_INTERFACE = *mut TRANSLATOR_INTERFACE;
         type PTXN_PARAMETER_BLOCK = *mut TXN_PARAMETER_BLOCK;
         type PVM_COUNTERS = *mut VM_COUNTERS;
@@ -4633,9 +4633,9 @@ mod Windows {
         type PXPF_RECOVERY_INFO = *mut XPF_RECOVERY_INFO;
         type PZONE_HEADER = *mut ZONE_HEADER;
         type PZONE_SEGMENT_HEADER = *mut ZONE_SEGMENT_HEADER;
-        extern "C" fn PciLine2Pin(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
-        extern "C" fn PciPin2Line(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciData: PPCI_COMMON_CONFIG);
-        extern "C" fn PciReadWriteConfig(#[in] BusHandler: *mut _BUS_HANDLER, #[in] Slot: PCI_SLOT_NUMBER, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG);
+        extern fn PciLine2Pin(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
+        extern fn PciPin2Line(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciData: PPCI_COMMON_CONFIG);
+        extern fn PciReadWriteConfig(#[in] BusHandler: *mut _BUS_HANDLER, #[in] Slot: PCI_SLOT_NUMBER, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG);
         const PshedFADiscovery: i32 = 1;
         const PshedFAErrorInfoRetrieval: i32 = 8;
         const PshedFAErrorInjection: i32 = 32;
@@ -6542,9 +6542,9 @@ mod Windows {
             Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
             Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
         }
-        extern "C" fn WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[packed(1)]
         struct WHEA_ERROR_SOURCE_DESCRIPTOR {
             Length: ULONG,
@@ -6617,8 +6617,8 @@ mod Windows {
         const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: i32 = 4;
         const WHEA_ERROR_SOURCE_FLAG_GLOBAL: i32 = 2;
         const WHEA_ERROR_SOURCE_FLAG_V2_DESCRIPTOR: i32 = 8;
-        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
-        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
         const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: i32 = 65535;
         struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
             Type: WHEA_ERROR_SOURCE_TYPE,
@@ -6626,7 +6626,7 @@ mod Windows {
             NumRecordsToPreallocate: ULONG,
             MaxSectionsPerRecord: ULONG,
         }
-        extern "C" fn WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
         #[repr(i32)]
         enum WHEA_ERROR_SOURCE_STATE {
             WheaErrSrcStateStopped = 1,
@@ -6657,8 +6657,8 @@ mod Windows {
             WheaErrSrcTypeSei = 18,
             WheaErrSrcTypeMax = 19,
         }
-        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
-        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
+        extern fn WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
+        extern fn WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
         #[packed(1)]
         union WHEA_ERROR_STATUS {
             ErrorStatus: ULONGLONG,
@@ -8299,7 +8299,7 @@ mod Windows {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Payload: [UCHAR; 256],
         }
-        extern "C" fn WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
+        extern fn WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
         #[packed(1)]
         struct WHEA_SRAR_DETAIL_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -8840,14 +8840,12 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwAllocateLocallyUniqueId(#[out] Luid: PLUID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwCancelTimer(#[in] TimerHandle: HANDLE, #[opt] #[out] CurrentState: PBOOLEAN) -> NTSTATUS;
+        extern fn ZwCancelTimer(#[in] TimerHandle: HANDLE, #[opt] #[out] CurrentState: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return=0,__drv_allocatesMem(TimerObject)", "return=0, __drv_allocatesMem(TimerObject)")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwCreateTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] TimerType: TIMER_TYPE) -> NTSTATUS;
+        extern fn ZwCreateTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] TimerType: TIMER_TYPE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwDisplayString(#[in] String: PUNICODE_STRING) -> NTSTATUS;
@@ -8855,9 +8853,8 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwOpenProcess(#[out] ProcessHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] ClientId: PCLIENT_ID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwOpenTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
@@ -8865,13 +8862,11 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwSetTimer(#[in] TimerHandle: HANDLE, #[in] DueTime: PLARGE_INTEGER, #[in] #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: PVOID, #[in] ResumeTimer: BOOLEAN, #[in] #[opt] Period: LONG, #[opt] #[out] PreviousState: PBOOLEAN) -> NTSTATUS;
+        extern fn ZwSetTimer(#[in] TimerHandle: HANDLE, #[in] DueTime: PLARGE_INTEGER, #[in] #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: PVOID, #[in] ResumeTimer: BOOLEAN, #[in] #[opt] Period: LONG, #[opt] #[out] PreviousState: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[in] #[opt] #[out] #[writable(entry, bytes(TimerSetInformationLength))] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
+        extern fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[in] #[opt] #[out] #[writable(entry, bytes(TimerSetInformationLength))] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwTerminateProcess(#[in] #[opt] ProcessHandle: HANDLE, #[in] ExitStatus: NTSTATUS) -> NTSTATUS;
@@ -8896,50 +8891,50 @@ mod Windows {
         struct _KTSS64 {}
         struct _LOADER_PARAMETER_BLOCK {}
         struct _SILO_MONITOR {}
-        extern "C" fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
-        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
-        extern "C" fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
-        extern "C" fn pHalAssignSlotResources(#[in] RegistryPath: PUNICODE_STRING, #[in] DriverClassName: PUNICODE_STRING, #[in] DriverObject: PDRIVER_OBJECT, #[in] DeviceObject: PDEVICE_OBJECT, #[in] BusType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[in] #[out] AllocatedResources: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
-        extern "C" fn pHalEndMirroring(#[in] PassNumber: ULONG) -> NTSTATUS;
-        extern "C" fn pHalEndOfBoot();
-        extern "C" fn pHalFfaMsgSendDirectReq2(#[in] #[out] Parameters: *mut _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS) -> NTSTATUS;
-        extern "C" fn pHalFfaRegisterNotification(#[in] RegistrationParameters: *mut _FFA_NOTIFICATION_REGISTRATION_PARAMETERS, #[out] Token: *mut PVOID) -> NTSTATUS;
-        extern "C" fn pHalFfaRunTarget(#[in] InputParameters: *mut _FFA_RUN_TARGET_INPUT_PARAMETERS, #[out] OutputParameters: *mut _FFA_RUN_TARGET_OUTPUT_PARAMETERS) -> NTSTATUS;
-        extern "C" fn pHalFfaUnregisterNotification(#[in] Token: PVOID) -> NTSTATUS;
-        extern "C" fn pHalFindBusAddressTranslation(#[in] BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS, #[in] #[out] Context: PULONG_PTR, #[in] NextBus: BOOLEAN) -> BOOLEAN;
-        extern "C" fn pHalGetAcpiTable(#[in] Signature: ULONG, #[in] #[opt] OemId: PCSTR, #[in] #[opt] OemTableId: PCSTR) -> PVOID;
-        extern "C" fn pHalGetInterruptTranslator(#[in] ParentInterfaceType: INTERFACE_TYPE, #[in] ParentBusNumber: ULONG, #[in] BridgeInterfaceType: INTERFACE_TYPE, #[in] Size: USHORT, #[in] Version: USHORT, #[out] Translator: PTRANSLATOR_INTERFACE, #[out] BridgeBusNumber: PULONG) -> NTSTATUS;
-        extern "C" fn pHalGetPrmCache(#[out] FirmwareList: *mut PLIST_ENTRY, #[out] UpdateList: *mut PLIST_ENTRY);
-        extern "C" fn pHalHaltSystem();
-        extern "C" fn pHalInitPnpDriver() -> NTSTATUS;
-        extern "C" fn pHalInitPowerManagement(#[in] PmDriverDispatchTable: PPM_DISPATCH_TABLE, #[out] PmHalDispatchTable: *mut PPM_DISPATCH_TABLE) -> NTSTATUS;
-        extern "C" fn pHalInvokePrmFwHandler(#[in] HandlerGuid: LPGUID, #[in] ParameterBuffer: PVOID, #[in] ContextBuffer: PVOID) -> NTSTATUS;
-        extern "C" fn pHalMirrorPhysicalMemory(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
-        extern "C" fn pHalMirrorVerify(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
-        extern "C" fn pHalQueryBusSlots(#[in] BusHandler: PBUS_HANDLER, #[in] BufferSize: ULONG, #[out] SlotNumbers: PULONG, #[out] ReturnedLength: PULONG) -> NTSTATUS;
-        extern "C" fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
-        extern "C" fn pHalResetDisplay() -> BOOLEAN;
-        extern "C" fn pHalSetPciErrorHandlerCallback(#[in] Callback: PCI_ERROR_HANDLER_CALLBACK);
-        extern "C" fn pHalSetSystemInformation(#[in] InformationClass: HAL_SET_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[in] Buffer: PVOID) -> NTSTATUS;
-        extern "C" fn pHalStartMirroring() -> NTSTATUS;
-        extern "C" fn pHalTranslateBusAddress(#[in] InterfaceType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
-        extern "C" fn pHalVectorToIDTEntry(Vector: ULONG) -> UCHAR;
-        extern "C" fn pKdCheckPowerButton();
-        extern "C" fn pKdEnumerateDebuggingDevices(#[in] LoaderBlock: PVOID, #[in] #[out] Device: PDEBUG_DEVICE_DESCRIPTOR, #[in] Callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> NTSTATUS;
-        extern "C" fn pKdGetAcpiTablePhase0(#[in] LoaderBlock: *mut _LOADER_PARAMETER_BLOCK, #[in] Signature: ULONG) -> PVOID;
-        extern "C" fn pKdGetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
-        extern "C" fn pKdMapPhysicalMemory64(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN) -> PVOID;
-        extern "C" fn pKdReleaseIntegratedDeviceForDebugging(#[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn pKdReleasePciDeviceForDebugging(#[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn pKdSetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
-        extern "C" fn pKdSetupIntegratedDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn pKdSetupPciDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn pKdUnmapVirtualAddress(#[in] VirtualAddress: PVOID, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN);
+        extern fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
+        extern fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
+        extern fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
+        extern fn pHalAssignSlotResources(#[in] RegistryPath: PUNICODE_STRING, #[in] DriverClassName: PUNICODE_STRING, #[in] DriverObject: PDRIVER_OBJECT, #[in] DeviceObject: PDEVICE_OBJECT, #[in] BusType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[in] #[out] AllocatedResources: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
+        extern fn pHalEndMirroring(#[in] PassNumber: ULONG) -> NTSTATUS;
+        extern fn pHalEndOfBoot();
+        extern fn pHalFfaMsgSendDirectReq2(#[in] #[out] Parameters: *mut _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS) -> NTSTATUS;
+        extern fn pHalFfaRegisterNotification(#[in] RegistrationParameters: *mut _FFA_NOTIFICATION_REGISTRATION_PARAMETERS, #[out] Token: *mut PVOID) -> NTSTATUS;
+        extern fn pHalFfaRunTarget(#[in] InputParameters: *mut _FFA_RUN_TARGET_INPUT_PARAMETERS, #[out] OutputParameters: *mut _FFA_RUN_TARGET_OUTPUT_PARAMETERS) -> NTSTATUS;
+        extern fn pHalFfaUnregisterNotification(#[in] Token: PVOID) -> NTSTATUS;
+        extern fn pHalFindBusAddressTranslation(#[in] BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS, #[in] #[out] Context: PULONG_PTR, #[in] NextBus: BOOLEAN) -> BOOLEAN;
+        extern fn pHalGetAcpiTable(#[in] Signature: ULONG, #[in] #[opt] OemId: PCSTR, #[in] #[opt] OemTableId: PCSTR) -> PVOID;
+        extern fn pHalGetInterruptTranslator(#[in] ParentInterfaceType: INTERFACE_TYPE, #[in] ParentBusNumber: ULONG, #[in] BridgeInterfaceType: INTERFACE_TYPE, #[in] Size: USHORT, #[in] Version: USHORT, #[out] Translator: PTRANSLATOR_INTERFACE, #[out] BridgeBusNumber: PULONG) -> NTSTATUS;
+        extern fn pHalGetPrmCache(#[out] FirmwareList: *mut PLIST_ENTRY, #[out] UpdateList: *mut PLIST_ENTRY);
+        extern fn pHalHaltSystem();
+        extern fn pHalInitPnpDriver() -> NTSTATUS;
+        extern fn pHalInitPowerManagement(#[in] PmDriverDispatchTable: PPM_DISPATCH_TABLE, #[out] PmHalDispatchTable: *mut PPM_DISPATCH_TABLE) -> NTSTATUS;
+        extern fn pHalInvokePrmFwHandler(#[in] HandlerGuid: LPGUID, #[in] ParameterBuffer: PVOID, #[in] ContextBuffer: PVOID) -> NTSTATUS;
+        extern fn pHalMirrorPhysicalMemory(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
+        extern fn pHalMirrorVerify(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
+        extern fn pHalQueryBusSlots(#[in] BusHandler: PBUS_HANDLER, #[in] BufferSize: ULONG, #[out] SlotNumbers: PULONG, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern fn pHalResetDisplay() -> BOOLEAN;
+        extern fn pHalSetPciErrorHandlerCallback(#[in] Callback: PCI_ERROR_HANDLER_CALLBACK);
+        extern fn pHalSetSystemInformation(#[in] InformationClass: HAL_SET_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[in] Buffer: PVOID) -> NTSTATUS;
+        extern fn pHalStartMirroring() -> NTSTATUS;
+        extern fn pHalTranslateBusAddress(#[in] InterfaceType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
+        extern fn pHalVectorToIDTEntry(Vector: ULONG) -> UCHAR;
+        extern fn pKdCheckPowerButton();
+        extern fn pKdEnumerateDebuggingDevices(#[in] LoaderBlock: PVOID, #[in] #[out] Device: PDEBUG_DEVICE_DESCRIPTOR, #[in] Callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> NTSTATUS;
+        extern fn pKdGetAcpiTablePhase0(#[in] LoaderBlock: *mut _LOADER_PARAMETER_BLOCK, #[in] Signature: ULONG) -> PVOID;
+        extern fn pKdGetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn pKdMapPhysicalMemory64(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN) -> PVOID;
+        extern fn pKdReleaseIntegratedDeviceForDebugging(#[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern fn pKdReleasePciDeviceForDebugging(#[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern fn pKdSetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn pKdSetupIntegratedDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern fn pKdSetupPciDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern fn pKdUnmapVirtualAddress(#[in] VirtualAddress: PVOID, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN);
     }
 }

@@ -894,18 +894,16 @@ pub unsafe fn ZwDuplicateToken(existingtokenhandle: super::HANDLE, desiredaccess
     windows_core::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, effectiveonly : super::BOOLEAN, tokentype : super::TOKEN_TYPE, newtokenhandle : super::PHANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwDuplicateToken(existingtokenhandle, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, effectiveonly, tokentype, newtokenhandle as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn ZwFlushBuffersFile(filehandle: super::HANDLE, iostatusblock: super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwFlushBuffersFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn ZwFlushBuffersFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS);
     unsafe { ZwFlushBuffersFile(filehandle, iostatusblock as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn ZwFlushBuffersFileEx(filehandle: super::HANDLE, flags: super::ULONG, parameters: super::PVOID, parameterssize: super::ULONG, iostatusblock: super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwFlushBuffersFileEx(filehandle : super::HANDLE, flags : super::ULONG, parameters : super::PVOID, parameterssize : super::ULONG, iostatusblock : super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn ZwFlushBuffersFileEx(filehandle : super::HANDLE, flags : super::ULONG, parameters : super::PVOID, parameterssize : super::ULONG, iostatusblock : super::PIO_STATUS_BLOCK) -> windows_core::NTSTATUS);
     unsafe { ZwFlushBuffersFileEx(filehandle, flags, parameters, parameterssize, iostatusblock as _) }
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -968,11 +966,10 @@ pub unsafe fn ZwQueryDirectoryFileEx(filehandle: super::HANDLE, event: Option<su
     windows_core::link!("ntdll.dll" "system" fn ZwQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : super::ULONG, filename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwQueryDirectoryFileEx(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, queryflags, filename.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn ZwQueryEaFile(filehandle: super::HANDLE, iostatusblock: super::PIO_STATUS_BLOCK, buffer: super::PVOID, length: super::ULONG, returnsingleentry: super::BOOLEAN, ealist: Option<super::PVOID>, ealistlength: super::ULONG, eaindex: Option<super::PULONG>, restartscan: super::BOOLEAN) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwQueryEaFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG, returnsingleentry : super::BOOLEAN, ealist : super::PVOID, ealistlength : super::ULONG, eaindex : super::PULONG, restartscan : super::BOOLEAN) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryEaFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG, returnsingleentry : super::BOOLEAN, ealist : super::PVOID, ealistlength : super::ULONG, eaindex : super::PULONG, restartscan : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { ZwQueryEaFile(filehandle, iostatusblock as _, buffer as _, length, returnsingleentry, ealist.unwrap_or(core::mem::zeroed()) as _, ealistlength, eaindex.unwrap_or(core::mem::zeroed()) as _, restartscan) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -999,11 +996,10 @@ pub unsafe fn ZwQueryVirtualMemory(processhandle: super::HANDLE, baseaddress: Op
     windows_core::link!("ntdll.dll" "system" fn ZwQueryVirtualMemory(processhandle : super::HANDLE, baseaddress : super::PVOID, memoryinformationclass : MEMORY_INFORMATION_CLASS, memoryinformation : super::PVOID, memoryinformationlength : super::SIZE_T, returnlength : super::PSIZE_T) -> windows_core::NTSTATUS);
     unsafe { ZwQueryVirtualMemory(processhandle, baseaddress.unwrap_or(core::mem::zeroed()) as _, memoryinformationclass, memoryinformation as _, memoryinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn ZwSetEaFile(filehandle: super::HANDLE, iostatusblock: super::PIO_STATUS_BLOCK, buffer: super::PVOID, length: super::ULONG) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwSetEaFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn ZwSetEaFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwSetEaFile(filehandle, iostatusblock as _, buffer, length) }
 }
 #[cfg(feature = "winnt")]
@@ -1336,7 +1332,7 @@ pub const DO_SYSTEM_SYSTEM_PARTITION: i32 = 2097152;
 pub const DO_VERIFY_VOLUME: i32 = 2;
 pub const DO_VOLUME_DEVICE_OBJECT: i32 = 1048576;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "C" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: super::BOOLEAN)>;
+pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: super::BOOLEAN)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2586,7 +2582,7 @@ pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: i32 = 1;
 pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: i32 = 2;
 pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: i32 = 4;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "C" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut super::PVOID, regionsize: super::PSIZE_T, freetype: super::ULONG) -> windows_core::NTSTATUS>;
+pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut super::PVOID, regionsize: super::PSIZE_T, freetype: super::ULONG) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -3970,13 +3966,13 @@ pub type OPLOCK_NOTIFY_REASON = i32;
 pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
 pub const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: i32 = 131072;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PACQUIRE_FOR_LAZY_WRITE = Option<unsafe extern "C" fn(context: super::PVOID, wait: super::BOOLEAN) -> super::BOOLEAN>;
+pub type PACQUIRE_FOR_LAZY_WRITE = Option<unsafe extern "system" fn(context: super::PVOID, wait: super::BOOLEAN) -> super::BOOLEAN>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PACQUIRE_FOR_LAZY_WRITE_EX = Option<unsafe extern "C" fn(context: super::PVOID, inflags: super::ULONG, outflags: super::PULONG) -> super::BOOLEAN>;
+pub type PACQUIRE_FOR_LAZY_WRITE_EX = Option<unsafe extern "system" fn(context: super::PVOID, inflags: super::ULONG, outflags: super::PULONG) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PACQUIRE_FOR_READ_AHEAD = Option<unsafe extern "C" fn(context: super::PVOID, wait: super::BOOLEAN) -> super::BOOLEAN>;
+pub type PACQUIRE_FOR_READ_AHEAD = Option<unsafe extern "system" fn(context: super::PVOID, wait: super::BOOLEAN) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PASYNC_READ_COMPLETION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID) -> super::BOOLEAN>;
+pub type PASYNC_READ_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBASE_MCB = *mut BASE_MCB;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3996,11 +3992,11 @@ pub type PCC_ERROR_CALLBACK_CONTEXT = *mut CC_ERROR_CALLBACK_CONTEXT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCC_FILE_SIZES = *mut CC_FILE_SIZES;
 #[cfg(feature = "winnt")]
-pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "C" fn(context1: super::PVOID, context2: super::PVOID)>;
+pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "system" fn(context1: super::PVOID, context2: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
-pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "C" fn(notifycontext: super::PVOID, targetcontext: super::PVOID, subjectcontext: super::PSECURITY_SUBJECT_CONTEXT) -> super::BOOLEAN>;
+pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "system" fn(notifycontext: super::PVOID, targetcontext: super::PVOID, subjectcontext: super::PSECURITY_SUBJECT_CONTEXT) -> super::BOOLEAN>;
 #[cfg(all(feature = "usb", feature = "winnt"))]
-pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID, irp: super::PIRP) -> windows_core::NTSTATUS>;
+pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, irp: super::PIRP) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PCOMPRESSED_DATA_INFO = *mut COMPRESSED_DATA_INFO;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -4016,9 +4012,9 @@ pub type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 = *mut CSV_QUERY_FILE_
 #[cfg(feature = "shared")]
 pub type PCSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT = *mut CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PDIRTY_PAGE_ROUTINE = Option<unsafe extern "C" fn(fileobject: super::PFILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, oldestlsn: super::PLARGE_INTEGER, newestlsn: super::PLARGE_INTEGER, context1: super::PVOID, context2: super::PVOID)>;
+pub type PDIRTY_PAGE_ROUTINE = Option<unsafe extern "system" fn(fileobject: super::PFILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, oldestlsn: super::PLARGE_INTEGER, newestlsn: super::PLARGE_INTEGER, context1: super::PVOID, context2: super::PVOID)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_FS_NOTIFICATION = Option<unsafe extern "C" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: super::BOOLEAN)>;
+pub type PDRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: super::BOOLEAN)>;
 #[cfg(feature = "shared")]
 pub type PDUAL_OPLOCK_KEY_ECP_CONTEXT = *mut DUAL_OPLOCK_KEY_ECP_CONTEXT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4033,7 +4029,7 @@ pub type PEOF_WAIT_BLOCK = *mut EOF_WAIT_BLOCK;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PEXTENT_READ_CACHE_INFO_BUFFER = *mut EXTENT_READ_CACHE_INFO_BUFFER;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PEXTERNAL_CACHE_CALLBACK_EX = Option<unsafe extern "C" fn(externalcachecontext: super::PVOID, dirtypagesinfo: PCC_DIRTY_PAGES_INFO)>;
+pub type PEXTERNAL_CACHE_CALLBACK_EX = Option<unsafe extern "system" fn(externalcachecontext: super::PVOID, dirtypagesinfo: PCC_DIRTY_PAGES_INFO)>;
 #[cfg(feature = "shared")]
 pub type PFILE_ACCESS_INFORMATION = *mut FILE_ACCESS_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4171,13 +4167,13 @@ pub type PFILE_TRACKING_INFORMATION = *mut FILE_TRACKING_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_VOLUME_NAME_INFORMATION = *mut FILE_VOLUME_NAME_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PFILTER_REPORT_CHANGE = Option<unsafe extern "C" fn(notifycontext: super::PVOID, filtercontext: super::PVOID) -> super::BOOLEAN>;
+pub type PFILTER_REPORT_CHANGE = Option<unsafe extern "system" fn(notifycontext: super::PVOID, filtercontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PFLUSH_TO_LSN = Option<unsafe extern "C" fn(loghandle: super::PVOID, lsn: super::LARGE_INTEGER)>;
+pub type PFLUSH_TO_LSN = Option<unsafe extern "system" fn(loghandle: super::PVOID, lsn: super::LARGE_INTEGER)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "wdm", feature = "winnt"))]
-pub type PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = Option<unsafe extern "C" fn(advancedheader: PFSRTL_ADVANCED_FCB_HEADER)>;
+pub type PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = Option<unsafe extern "system" fn(advancedheader: PFSRTL_ADVANCED_FCB_HEADER)>;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PFREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "C" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut super::PVOID, regionsize: super::PSIZE_T, freetype: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PFREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut super::PVOID, regionsize: super::PSIZE_T, freetype: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER = *mut FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4198,7 +4194,7 @@ pub type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "wdm", feature = "winnt"))]
 pub type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "C" fn(ecpcontext: super::PVOID, ecptype: super::LPCGUID)>;
+pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: super::PVOID, ecptype: super::LPCGUID)>;
 #[cfg(feature = "basetsd")]
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winternl"))]
@@ -4210,17 +4206,17 @@ pub type PFSRTL_PER_FILE_CONTEXT = *mut FSRTL_PER_FILE_CONTEXT;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PFSRTL_PER_STREAM_CONTEXT = *mut FSRTL_PER_STREAM_CONTEXT;
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
-pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID, event: super::PKEVENT)>;
+pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, event: super::PKEVENT)>;
 #[cfg(feature = "shared")]
 pub type PFSRTL_UNC_PROVIDER_REGISTRATION = *mut FSRTL_UNC_PROVIDER_REGISTRATION;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PFS_FILTER_CALLBACK = Option<unsafe extern "C" fn(data: PFS_FILTER_CALLBACK_DATA, completioncontext: *mut super::PVOID) -> windows_core::NTSTATUS>;
+pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: PFS_FILTER_CALLBACK_DATA, completioncontext: *mut super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACKS = *mut FS_FILTER_CALLBACKS;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACK_DATA = *mut FS_FILTER_CALLBACK_DATA;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "C" fn(data: PFS_FILTER_CALLBACK_DATA, operationstatus: windows_core::NTSTATUS, completioncontext: super::PVOID)>;
+pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: PFS_FILTER_CALLBACK_DATA, operationstatus: windows_core::NTSTATUS, completioncontext: super::PVOID)>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
 pub type PFS_FILTER_PARAMETERS = *mut FS_FILTER_PARAMETERS;
 #[cfg(feature = "shared")]
@@ -4368,15 +4364,15 @@ pub type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
 #[cfg(feature = "winnt")]
 pub type POPLOCK = *mut super::PVOID;
 #[cfg(all(feature = "usb", feature = "winnt"))]
-pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "C" fn(context: super::PVOID, irp: super::PIRP)>;
+pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: super::PVOID, irp: super::PIRP)>;
 #[cfg(feature = "shared")]
 pub type POPLOCK_KEY_ECP_CONTEXT = *mut OPLOCK_KEY_ECP_CONTEXT;
 #[cfg(all(feature = "usb", feature = "winnt"))]
 pub type POPLOCK_NOTIFY_PARAMS = *mut OPLOCK_NOTIFY_PARAMS;
 #[cfg(all(feature = "usb", feature = "winnt"))]
-pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "C" fn(notifyparams: POPLOCK_NOTIFY_PARAMS) -> windows_core::NTSTATUS>;
+pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: POPLOCK_NOTIFY_PARAMS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "usb", feature = "winnt"))]
-pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID, irp: super::PIRP)>;
+pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, irp: super::PIRP)>;
 pub const PO_CB_AC_STATUS: i32 = 1;
 pub const PO_CB_BUTTON_COLLISION: i32 = 2;
 pub const PO_CB_LID_SWITCH_STATE: i32 = 4;
@@ -4402,7 +4398,7 @@ pub type PPUBLIC_BCB = *mut PUBLIC_BCB;
 #[cfg(feature = "shared")]
 pub type PQUERY_DIRECT_ACCESS_EXTENTS = *mut QUERY_DIRECT_ACCESS_EXTENTS;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PQUERY_LOG_USAGE = Option<unsafe extern "C" fn(loghandle: super::PVOID, percentagefull: super::PUSHORT)>;
+pub type PQUERY_LOG_USAGE = Option<unsafe extern "system" fn(loghandle: super::PVOID, percentagefull: super::PUSHORT)>;
 #[cfg(all(feature = "shared", feature = "wdm"))]
 pub type PQUERY_ON_CREATE_EA_INFORMATION = *mut QUERY_ON_CREATE_EA_INFORMATION;
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
@@ -4422,7 +4418,7 @@ pub type PQUERY_PATH_REQUEST_EX = *mut QUERY_PATH_REQUEST_EX;
 #[cfg(feature = "shared")]
 pub type PQUERY_PATH_RESPONSE = *mut QUERY_PATH_RESPONSE;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PQUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "C" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: super::PVOID, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: super::PVOID, memoryinformationlength: super::SIZE_T, returnlength: super::PSIZE_T) -> windows_core::NTSTATUS>;
+pub type PQUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: super::PVOID, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: super::PVOID, memoryinformationlength: super::SIZE_T, returnlength: super::PSIZE_T) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntdef", feature = "shared"))]
 pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -4504,9 +4500,9 @@ pub type PREFS_VOLUME_DEDUP_INFO_INPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_INPU
 #[cfg(feature = "shared")]
 pub type PREFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER;
 #[cfg(feature = "winnt")]
-pub type PRELEASE_FROM_LAZY_WRITE = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PRELEASE_FROM_LAZY_WRITE = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PRELEASE_FROM_READ_AHEAD = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PRELEASE_FROM_READ_AHEAD = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREMOTE_LINK_TRACKING_INFORMATION = *mut REMOTE_LINK_TRACKING_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4542,9 +4538,9 @@ pub type PSE_AUDIT_OPERATION = *mut SE_AUDIT_OPERATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_EXPORTS = *mut SE_EXPORTS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "C" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
+pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt"))]
-pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "C" fn(logonid: super::PLUID, pserversilo: super::PESILO, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: super::PLUID, pserversilo: super::PESILO, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: i32 = 4;
 pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: i32 = 2;
 pub type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
@@ -4575,7 +4571,7 @@ pub type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
 pub type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PUNLOCK_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID, filelockinfo: PFILE_LOCK_INFO)>;
+pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, filelockinfo: PFILE_LOCK_INFO)>;
 pub const PURGE_WITH_ACTIVE_VIEWS: i32 = 8;
 #[cfg(feature = "shared")]
 pub type PVBN = *mut VBN;
@@ -4737,7 +4733,7 @@ pub struct QUERY_PATH_RESPONSE {
     pub LengthAccepted: super::ULONG,
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "C" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: super::PVOID, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: super::PVOID, memoryinformationlength: super::SIZE_T, returnlength: super::PSIZE_T) -> windows_core::NTSTATUS>;
+pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: super::PVOID, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: super::PVOID, memoryinformationlength: super::SIZE_T, returnlength: super::PSIZE_T) -> windows_core::NTSTATUS>;
 pub const QoCFileEaInformation: i32 = 4;
 pub const QoCFileLxInformation: i32 = 2;
 pub const QoCFileSecurityInformation: i32 = 16;
@@ -5451,9 +5447,9 @@ pub struct SE_EXPORTS {
     pub SeAppSiloAccessToPublisherDirectoryCapabilitySid: super::PSID,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "C" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt"))]
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "C" fn(logonid: super::PLUID, pserversilo: super::PESILO, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: super::PLUID, pserversilo: super::PESILO, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub const SE_SERVER_SECURITY: i32 = 128;
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5507,7 +5503,7 @@ pub const SrvInstanceTypeVMLM: SRV_INSTANCE_TYPE = 7;
 pub const SrvInstanceTypeVSMB: SRV_INSTANCE_TYPE = 5;
 pub type SspiAsyncContext = _SspiAsyncContext;
 #[cfg(feature = "winnt")]
-pub type SspiAsyncNotifyCallback = Option<unsafe extern "C" fn(handle: *const SspiAsyncContext, callbackdata: super::PVOID)>;
+pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const SspiAsyncContext, callbackdata: super::PVOID)>;
 pub const SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1;
 pub const SyncTypeOther: FS_FILTER_SECTION_SYNC_TYPE = 0;
 pub const TOKEN_AUDIT_NO_CHILD_PROCESS: i32 = 2097152;

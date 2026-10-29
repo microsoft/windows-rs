@@ -10,7 +10,7 @@ fn midl_enum_name(name: &str) -> bool {
 }
 use crate::resolve::{TypePair, abi_attributes_equal, attributes_equal, types_equal};
 
-type CallbackNames = HashMap<(TypeId, Vec<CallingConvention>), String>;
+type CallbackNames = HashMap<TypeId, Vec<(String, Vec<CallableAbi>)>>;
 
 pub(super) struct Plan {
     pub families: Vec<Vec<usize>>,
@@ -288,7 +288,7 @@ impl Plan {
 
     fn callback_names(&self, resolution: &Resolution<'_>) -> Result<Vec<CallbackNames>, Error> {
         let mut candidates = HashMap::<_, Vec<_>>::new();
-        for alias in &resolution.aliases {
+        'aliases: for alias in &resolution.aliases {
             if alias.observations.iter().any(|reference| {
                 let snapshot = resolution.snapshots[reference.snapshot];
                 let observation =
@@ -304,12 +304,30 @@ impl Plan {
             let id =
                 snapshot.aliases[reference.alias.0].observations[reference.observation].canonical;
             if let Some(function) = callback(snapshot, id) {
-                let conventions = written_function(
+                let mut conventions = written_function(
                     snapshot,
                     snapshot.aliases[reference.alias.0].observations[reference.observation]
                         .underlying,
                 )?
-                .conventions(snapshot)?;
+                .conventions(snapshot, &|_| Ok(None))?;
+                for reference in alias.observations.iter().skip(1) {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    let observation =
+                        &snapshot.aliases[reference.alias.0].observations[reference.observation];
+                    let other = written_function(snapshot, observation.underlying)?
+                        .conventions(snapshot, &|_| Ok(None))?;
+                    if conventions.len() != other.len()
+                        || conventions
+                            .iter()
+                            .zip(&other)
+                            .any(|(a, b)| a.convention != b.convention)
+                    {
+                        continue 'aliases;
+                    }
+                    for (abi, other) in conventions.iter_mut().zip(other) {
+                        abi.inferred &= other.inferred;
+                    }
+                }
                 candidates
                     .entry((function.convention, function.parameters.len()))
                     .or_default()
@@ -322,7 +340,7 @@ impl Plan {
             .iter()
             .enumerate()
             .map(|(snapshot_id, snapshot)| {
-                let mut names = HashMap::new();
+                let mut names = CallbackNames::new();
                 for id in (0..snapshot.types.len()).map(TypeId) {
                     let Some(function) = callback(snapshot, id) else {
                         continue;
@@ -335,11 +353,11 @@ impl Plan {
                     for (candidate, name, conventions) in candidates {
                         // A failed comparison must not leave assumed pairs in the next attempt.
                         seen.clear();
-                        if names.contains_key(&(id, conventions.clone())) {
-                            continue;
-                        }
                         if self.same_type(resolution, (snapshot_id, id), *candidate, &mut seen) {
-                            names.insert((id, conventions.clone()), (*name).clone());
+                            names
+                                .entry(id)
+                                .or_default()
+                                .push(((*name).clone(), conventions.clone()));
                         }
                     }
                 }

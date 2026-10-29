@@ -1,0 +1,28 @@
+#[win32]
+mod Fixture {
+    struct CallbackUses {
+        explicit_alias: ExplicitStop,
+        inferred_alias: InferredStop,
+        nested: ExplicitOuter,
+        named_nested: NamedOuter,
+        interface_callback: InterfaceCallback,
+        variant: VariantStop,
+    }
+    #[noreturn]
+    extern "C" fn ExplicitOuter(param0: InferredInner);
+    #[noreturn]
+    extern "C" fn ExplicitStop(param0: i32);
+    extern "C" fn InferredInner(param0: u32);
+    #[noreturn]
+    extern "C" fn InferredStop(param0: i16);
+    extern "C" fn InterfaceCallback(param0: IBase);
+    #[noreturn]
+    extern "C" fn NamedOuter(param0: NormalizedInner);
+    extern fn NormalizedInner(param0: i64);
+    #[arch(X64 | Arm64)]
+    #[noreturn]
+    extern "C" fn VariantStop(param0: *mut i32);
+    #[arch(X86)]
+    #[noreturn]
+    extern fn VariantStop(param0: *const i32);
+}

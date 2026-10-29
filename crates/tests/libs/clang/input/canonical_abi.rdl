@@ -1,5 +1,12 @@
 #[win32]
 mod Fixture {
+    extern fn AInferredCallback(param0: u32) -> i32;
+    extern fn AInferredNested(param0: AInferredCallback) -> i32;
+    struct CallbackUses {
+        explicit_callback: ZExplicitCallback,
+        inferred_callback: AInferredCallback,
+        explicit_nested: ZExplicitNested,
+    }
     extern "C" fn CdeclCallback(param0: i32) -> i32;
     #[arch(X64 | Arm64)]
     #[library("fixture.dll")]
@@ -34,10 +41,14 @@ mod Fixture {
     #[arch(X86 | Arm64)]
     #[library("fixture.dll")]
     extern fn Observed(value: i32) -> i32;
-    #[arch(X64 | Arm64)]
+    #[arch(X64)]
     extern "C" fn ObservedCallback(param0: i32) -> i32;
-    #[arch(X86)]
+    #[arch(X86 | Arm64)]
     extern fn ObservedCallback(param0: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn ParameterCallback(param0: *mut i32) -> i32;
+    #[arch(X86)]
+    extern fn ParameterCallback(param0: *const i32) -> i32;
     #[arch(X64 | Arm64)]
     #[library("fixture.dll")]
     extern "C" fn ParameterVariant(value: *mut i32) -> i32;
@@ -46,11 +57,10 @@ mod Fixture {
     extern fn ParameterVariant(value: *const i32) -> i32;
     #[library("fixture.dll")]
     extern fn Portable(callback: CdeclCallback) -> i32;
-    #[arch(X64 | Arm64)]
-    extern "C" fn PortableCallback(param0: i32) -> i32;
-    #[arch(X86)]
     extern fn PortableCallback(param0: i32) -> i32;
     #[arch(X64 | Arm64)]
     #[library("fixture.dll")]
     extern "C" fn WideOnly(value: i32) -> i32;
+    extern "C" fn ZExplicitCallback(param0: u32) -> i32;
+    extern fn ZExplicitNested(param0: ZExplicitCallback) -> i32;
 }

@@ -139,7 +139,9 @@ impl Projector<'_, '_> {
             MethodCallAttributes::C => CallingConvention::C,
             _ => unreachable!(),
         };
-        if written.convention != convention {
+        let mut abi = callable_abi(written);
+        abi.canonicalize(snapshot.target, convention);
+        if abi.convention != convention {
             return Err(fail("calling convention differs from metadata"));
         }
         let actual = self.signature(snapshot_id, function, None)?;
@@ -585,7 +587,9 @@ fn reference_pointee_matches(actual: &MetadataType, expected: &MetadataType) -> 
     }
 }
 
-fn callback_signature(metadata: TypeDef<'_>) -> Result<windows_metadata::Signature, Error> {
+pub(super) fn callback_signature(
+    metadata: TypeDef<'_>,
+) -> Result<windows_metadata::Signature, Error> {
     let fail = |reason| Error(format!("external callback `{}` {reason}", metadata.name()));
     let convention = match metadata.find_attribute("UnmanagedFunctionPointerAttribute") {
         None => MethodCallAttributes::STDCALL,
@@ -645,6 +649,16 @@ pub(super) fn normalize_type(
     target: Target,
     seen: &mut HashSet<(String, String)>,
 ) -> Result<MetadataType, Error> {
+    expand_type(ty, metadata, target, seen, true)
+}
+
+pub(super) fn expand_type(
+    ty: MetadataType,
+    metadata: &Index,
+    target: Target,
+    seen: &mut HashSet<(String, String)>,
+    normalize_abi: bool,
+) -> Result<MetadataType, Error> {
     Ok(match ty {
         MetadataType::ValueName(ref name) | MetadataType::ClassName(ref name) => {
             let bit = match target {
@@ -675,7 +689,7 @@ pub(super) fn normalize_type(
                 } else {
                     MetadataType::FnPtr(Box::new(callback_signature(definition)?))
                 };
-                let result = normalize_type(underlying, metadata, target, seen)?;
+                let result = expand_type(underlying, metadata, target, seen, normalize_abi)?;
                 seen.remove(&key);
                 result
             } else {
@@ -685,14 +699,18 @@ pub(super) fn normalize_type(
         MetadataType::FnPtr(signature) => {
             let mut signature = *signature;
             // Windows x64 and ARM64 have one ABI for C and stdcall prototypes.
-            if target != Target::X86 && signature.flags == MethodCallAttributes::STDCALL {
+            if normalize_abi
+                && target != Target::X86
+                && signature.flags == MethodCallAttributes::STDCALL
+            {
                 signature.flags = MethodCallAttributes::C;
             }
-            signature.return_type = normalize_type(signature.return_type, metadata, target, seen)?;
+            signature.return_type =
+                expand_type(signature.return_type, metadata, target, seen, normalize_abi)?;
             signature.types = signature
                 .types
                 .into_iter()
-                .map(|ty| normalize_type(ty, metadata, target, seen))
+                .map(|ty| expand_type(ty, metadata, target, seen, normalize_abi))
                 .collect::<Result<_, _>>()?;
             MetadataType::FnPtr(Box::new(signature))
         }
@@ -711,20 +729,20 @@ pub(super) fn normalize_type(
             }
         }
         MetadataType::PtrMut(inner, count) => {
-            match normalize_type(*inner, metadata, target, seen)? {
+            match expand_type(*inner, metadata, target, seen, normalize_abi)? {
                 MetadataType::PtrMut(inner, nested) => MetadataType::PtrMut(inner, count + nested),
                 inner => MetadataType::PtrMut(Box::new(inner), count),
             }
         }
         MetadataType::PtrConst(inner, count) => {
-            match normalize_type(*inner, metadata, target, seen)? {
+            match expand_type(*inner, metadata, target, seen, normalize_abi)? {
                 MetadataType::PtrConst(inner, nested) => {
                     MetadataType::PtrConst(inner, count + nested)
                 }
                 inner => MetadataType::PtrConst(Box::new(inner), count),
             }
         }
-        MetadataType::Ptr64(inner, constant) if target != Target::X86 => normalize_type(
+        MetadataType::Ptr64(inner, constant) if target != Target::X86 => expand_type(
             if constant {
                 MetadataType::PtrConst(inner, 1)
             } else {
@@ -733,13 +751,14 @@ pub(super) fn normalize_type(
             metadata,
             target,
             seen,
+            normalize_abi,
         )?,
         MetadataType::Ptr64(inner, constant) => MetadataType::Ptr64(
-            Box::new(normalize_type(*inner, metadata, target, seen)?),
+            Box::new(expand_type(*inner, metadata, target, seen, normalize_abi)?),
             constant,
         ),
         MetadataType::ArrayFixed(inner, count) => MetadataType::ArrayFixed(
-            Box::new(normalize_type(*inner, metadata, target, seen)?),
+            Box::new(expand_type(*inner, metadata, target, seen, normalize_abi)?),
             count,
         ),
         _ => ty,

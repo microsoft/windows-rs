@@ -23,14 +23,14 @@ mod Windows {
         type POBJECT_TYPE = *mut _OBJECT_TYPE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn POWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn POWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK", TypedefName = "POWER_SETTING_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "POWER_SETTING_CALLBACK")]
-        extern "C" fn PPOWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn PPOWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         type PRKPROCESS = *mut _KPROCESS;
         type PRKTHREAD = *mut _KTHREAD;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK")]
-        extern "C" fn PS_AVAILABLE_CPUS_CHANGE_CALLBACK(#[in] Parameter: PVOID);
+        extern fn PS_AVAILABLE_CPUS_CHANGE_CALLBACK(#[in] Parameter: PVOID);
         type PS_AVAILABLE_CPUS_CHANGE_REGISTRATION = PVOID;
         #[arch(X64 | Arm64)]
         const RESULT_NEGATIVE: i32 = 1;
