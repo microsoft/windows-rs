@@ -171,8 +171,18 @@ pub(super) fn values<'a>(
                 }
             }
             Ok((bodies, false)) => {
-                let body = bodies.into_iter().next().unwrap();
+                let mut body = bodies.into_iter().next().unwrap();
                 if let Some(item) = projector.external.values.get(&value.name) {
+                    if let windows_metadata::reader::Item::Fn(method) = item {
+                        let convention = match method.calling_convention() {
+                            "C" => Some(CallingConvention::C),
+                            "system" => Some(CallingConvention::Stdcall),
+                            _ => None,
+                        };
+                        if let Some(convention) = convention {
+                            body.canonicalize_import_abi(target, convention);
+                        }
+                    }
                     let rendered = windows_rdl::emit::write_item(projector.namespace, *item)
                         .map_err(|error| Error(error.to_string()))?;
                     let [(_, expected)] = rendered.as_slice() else {

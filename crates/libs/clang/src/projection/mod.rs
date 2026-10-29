@@ -1773,6 +1773,15 @@ impl Body {
         }
     }
 
+    fn canonicalize_import_abi(&mut self, target: Target, convention: CallingConvention) {
+        if target != Target::X86
+            && let Some(abi) = &mut self.abi
+            && abi.inferred_import
+        {
+            abi.convention = convention;
+        }
+    }
+
     fn tokens(&self) -> TokenStream {
         let Self {
             attributes,
@@ -1793,14 +1802,11 @@ fn variants(bodies: BTreeMap<Target, Body>) -> TokenStream {
         .and_then(|body| Some((body.contract_key(), body.abi?.convention)));
     let mut grouped: BTreeMap<String, (Body, Vec<Target>)> = BTreeMap::new();
     for (target, mut body) in bodies {
-        if target != Target::X86
-            && let Some((key, convention)) = &x86
+        if let Some((key, convention)) = &x86
             && body.contract_key() == *key
-            && let Some(abi) = &mut body.abi
-            && abi.inferred_import
         {
             // Same-target conflicts and import ownership have already been checked.
-            abi.convention = *convention;
+            body.canonicalize_import_abi(target, *convention);
         }
         grouped
             .entry(body.key())

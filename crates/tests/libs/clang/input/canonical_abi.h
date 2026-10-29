@@ -17,7 +17,11 @@ typedef int (TARGET_ABI *PortableCallback)(int);
 typedef int (EXPLICIT_ABI *ExplicitCallback)(int);
 typedef int (OBSERVED_ABI *ObservedCallback)(int);
 
-extern "C" int TARGET_ABI Portable(CdeclCallback callback);
+#ifndef PORTABLE_ABI
+#define PORTABLE_ABI TARGET_ABI
+#endif
+
+extern "C" int PORTABLE_ABI Portable(CdeclCallback callback);
 extern "C" int TARGET_ABI Inline(int (__cdecl *callback)(short));
 extern "C" int EXPLICIT_ABI Explicit(int value);
 #if defined(EXPLICIT_WIDE)
