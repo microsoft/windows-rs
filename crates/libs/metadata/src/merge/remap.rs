@@ -233,6 +233,9 @@ impl Remapper {
 
         for field in def.fields() {
             let field_def = file.Field(field.name(), &self.remap_type(&field.ty()), field.flags());
+            if let Some(offset) = field.offset() {
+                file.FieldLayout(field_def, offset);
+            }
             if let Some(constant) = field.constant() {
                 file.Constant(writer::HasConstant::Field(field_def), &constant.value());
             }
@@ -348,6 +351,9 @@ impl Remapper {
             for field in fields.get(namespace).into_iter().flatten() {
                 let field_def =
                     file.Field(field.name(), &self.remap_type(&field.ty()), field.flags());
+                if let Some(offset) = field.offset() {
+                    file.FieldLayout(field_def, offset);
+                }
                 if let Some(constant) = field.constant() {
                     file.Constant(writer::HasConstant::Field(field_def), &constant.value());
                 }

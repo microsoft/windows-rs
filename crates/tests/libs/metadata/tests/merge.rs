@@ -1,5 +1,124 @@
 use windows_metadata::*;
 
+fn field_layout_bytes(second_offset: u32) -> Vec<u8> {
+    let mut file = writer::File::new("field_layout");
+    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+    file.TypeDef(
+        "Test",
+        "ZSequential",
+        base,
+        TypeAttributes::Public | TypeAttributes::SequentialLayout,
+    );
+    file.Field("value", &Type::U32, FieldAttributes::Public);
+
+    let explicit = TypeAttributes::ExplicitLayout | TypeAttributes::Sealed;
+    let outer = file.TypeDef("Test", "Record", base, TypeAttributes::Public | explicit);
+    let first = file.Field("first", &Type::U32, FieldAttributes::Public);
+    let second = file.Field("second", &Type::U32, FieldAttributes::Public);
+    file.FieldLayout(first, 0);
+    file.FieldLayout(second, second_offset);
+    file.ClassLayout(outer, 4, 16);
+
+    let inner = file.TypeDef("", "Inner", base, TypeAttributes::NestedPublic | explicit);
+    file.NestedClass(inner, outer);
+    let field = file.Field("value", &Type::U32, FieldAttributes::Public);
+    file.FieldLayout(field, 4);
+    file.ClassLayout(inner, 4, 8);
+    file.into_stream()
+}
+
+fn assert_field_layouts(index: &reader::Index, namespace: &str, second_offset: u32) {
+    let record = index.expect(namespace, "Record");
+    assert!(record.flags().contains(TypeAttributes::ExplicitLayout));
+    assert_eq!(
+        record
+            .fields()
+            .map(|field| field.offset())
+            .collect::<Vec<_>>(),
+        [Some(0), Some(second_offset)]
+    );
+    let layout = record.class_layout().unwrap();
+    assert_eq!((layout.packing_size(), layout.class_size()), (4, 16));
+    let inner = index.nested(record).next().unwrap();
+    assert_eq!(inner.fields().next().unwrap().offset(), Some(4));
+    assert_eq!(
+        index
+            .expect(namespace, "ZSequential")
+            .fields()
+            .next()
+            .unwrap()
+            .offset(),
+        None
+    );
+}
+
+#[test]
+fn field_layouts_survive_merge_and_remap() {
+    let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
+    let input = root.join("field-layout-source.winmd");
+    let bytes = field_layout_bytes(8);
+    assert_field_layouts(
+        &reader::Index::new(vec![reader::File::new(bytes.clone()).unwrap()]),
+        "Test",
+        8,
+    );
+    std::fs::write(&input, bytes).unwrap();
+    for union in [false, true] {
+        let merged = root.join(format!("field-layout-merged-{union}.winmd"));
+        let mut merger = merge();
+        merger.input(&input).output(&merged);
+        if union {
+            merger.union_enums();
+        }
+        merger.merge().unwrap();
+        assert_field_layouts(&reader::Index::read(&merged).unwrap(), "Test", 8);
+
+        let remapped = root.join(format!("field-layout-remapped-{union}.winmd"));
+        remap()
+            .input(&merged)
+            .source("Test")
+            .fallback("Moved")
+            .output(&remapped)
+            .remap()
+            .unwrap();
+        assert_field_layouts(&reader::Index::read(&remapped).unwrap(), "Moved", 8);
+        std::fs::remove_file(merged).unwrap();
+        std::fs::remove_file(remapped).unwrap();
+    }
+    std::fs::remove_file(input).unwrap();
+}
+
+#[test]
+fn field_layouts_distinguish_architecture_variants() {
+    let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
+    let x86 = root.join("field-layout-x86.winmd");
+    let x64 = root.join("field-layout-x64.winmd");
+    let arm64 = root.join("field-layout-arm64.winmd");
+    let merged = root.join("field-layout-arch-merged.winmd");
+    std::fs::write(&x86, field_layout_bytes(8)).unwrap();
+    std::fs::write(&x64, field_layout_bytes(12)).unwrap();
+    std::fs::write(&arm64, field_layout_bytes(12)).unwrap();
+    merge()
+        .arch_input(&x86, 1)
+        .arch_input(&x64, 2)
+        .arch_input(&arm64, 4)
+        .output(&merged)
+        .merge()
+        .unwrap();
+    let index = reader::Index::read(&merged).unwrap();
+    let mut arches: Vec<_> = index.get("Test", "Record").map(|ty| ty.arches()).collect();
+    arches.sort();
+    assert_eq!(arches, [1, 6]);
+    for (arch, offset) in [(1, 8), (2, 12), (4, 12)] {
+        let index =
+            reader::Index::new_for_architecture(vec![reader::File::read(&merged).unwrap()], arch);
+        assert_field_layouts(&index, "Test", offset);
+    }
+    for path in [x86, x64, arm64, merged] {
+        std::fs::remove_file(path).unwrap();
+    }
+}
+
 /// Builds a winmd from inline RDL into `dir/name.winmd` and returns its path.
 fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
     let rdl_path = dir.join(format!("{name}.rdl"));
