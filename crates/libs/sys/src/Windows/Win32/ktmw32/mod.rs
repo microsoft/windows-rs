@@ -14,9 +14,8 @@ windows_link::link!("ktmw32.dll" "system" fn CreateResourceManager(lpresourceman
 windows_link::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : super::LPSECURITY_ATTRIBUTES, uow : super::LPGUID, createoptions : super::DWORD, isolationlevel : super::DWORD, isolationflags : super::DWORD, timeout : super::DWORD, description : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("ktmw32.dll" "system" fn CreateTransactionManager(lptransactionattributes : super::LPSECURITY_ATTRIBUTES, logfilename : windows_sys::core::PCWSTR, createoptions : super::ULONG, commitstrength : super::ULONG) -> super::HANDLE);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("ktmw32.dll" "C" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_sys::core::BOOL);
+windows_link::link!("ktmw32.dll" "system" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
 windows_link::link!("ktmw32.dll" "system" fn GetEnlistmentId(enlistmenthandle : super::HANDLE, enlistmentid : super::LPGUID) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -29,9 +28,8 @@ windows_link::link!("ktmw32.dll" "system" fn GetNotificationResourceManagerAsync
 windows_link::link!("ktmw32.dll" "system" fn GetTransactionId(transactionhandle : super::HANDLE, transactionid : super::LPGUID) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::HANDLE, outcome : super::PDWORD, isolationlevel : super::PDWORD, isolationflags : super::PDWORD, timeout : super::PDWORD, bufferlength : super::DWORD, description : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-windows_link::link!("ktmw32.dll" "C" fn GetTransactionManagerId(transactionmanagerhandle : super::HANDLE, transactionmanagerid : super::LPGUID) -> windows_sys::core::BOOL);
+windows_link::link!("ktmw32.dll" "system" fn GetTransactionManagerId(transactionmanagerhandle : super::HANDLE, transactionmanagerid : super::LPGUID) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 windows_link::link!("ktmw32.dll" "system" fn OpenEnlistment(dwdesiredaccess : super::DWORD, resourcemanagerhandle : super::HANDLE, enlistmentid : super::LPGUID) -> super::HANDLE);
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]

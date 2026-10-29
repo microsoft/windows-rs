@@ -158,6 +158,14 @@ fn every_observation_must_allow_resolution() {
                 .iter()
                 .any(|line| line.contains("no configured DLL/export ownership"))
         );
+        let text: String = output
+            .output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(text.contains("extern \"C\" fn FetchImport("));
+        assert!(!text.contains("extern fn FetchImport("));
     };
     let mut inputs = [
         selected_fixture("default_import_abi", &["FetchImport"]),
@@ -221,5 +229,86 @@ fn native_and_explicit_imports_take_precedence() {
             .collect();
         assert!(text.contains(&format!("#[library(\"{expected}\")]")));
         assert!(text.contains("extern \"C\" fn FetchImport("));
+    }
+}
+
+#[test]
+fn canonical_publication_preserves_other_contracts() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        selected_fixture("canonical_abi", &[]),
+        selected_fixture("canonical_abi", &["Observed", "ObservedCallback"]),
+    ];
+    inputs[0].name = "first.h".into();
+    inputs[0].source = "#include \"canonical_abi.h\"".into();
+    inputs[1].name = "second.h".into();
+    inputs[1].source = "#define EXPLICIT_WIDE\n#include \"canonical_abi.h\"".into();
+    let mut previous = None;
+    for _ in 0..2 {
+        let mut snapshots = capture(&inputs, &TARGETS).unwrap();
+        let mut imports = projection::Imports::default();
+        for snapshot in &snapshots {
+            for value in &snapshot.values {
+                for observation in &value.observations {
+                    let ValueKind::Function { mangling, .. } = &observation.kind else {
+                        panic!()
+                    };
+                    imports.symbols.entry(snapshot.target).or_default().insert(
+                        mangling.clone(),
+                        projection::Import {
+                            library: if value.name == "LibraryVariant"
+                                && snapshot.target == Target::X86
+                            {
+                                "narrow.dll"
+                            } else {
+                                "fixture.dll"
+                            }
+                            .into(),
+                            name: (value.name == "ExportVariant" && snapshot.target == Target::X86)
+                                .then(|| "#17".into()),
+                        },
+                    );
+                }
+            }
+        }
+        for _ in 0..2 {
+            let output =
+                projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports)
+                    .unwrap();
+            if let Some(previous) = &previous {
+                assert_eq!(&output, previous);
+            } else {
+                let text = &output.partitions["canonical_abi"].rdl;
+                let path = input_dir().join("canonical_abi.rdl");
+                if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+                    std::fs::write(&path, text).unwrap();
+                }
+                assert_eq!(
+                    text,
+                    &std::fs::read_to_string(path).unwrap().replace("\r\n", "\n")
+                );
+                let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+                let winmd = root.join("target\\test-clang-canonical-abi.winmd");
+                let rdl = winmd.with_extension("rdl");
+                windows_rdl::reader()
+                    .input(root.join("metadata\\metadata.rdl"))
+                    .input_text(text)
+                    .output(&winmd)
+                    .write()
+                    .unwrap();
+                windows_rdl::writer()
+                    .input(&winmd)
+                    .filter("Fixture")
+                    .output(&rdl)
+                    .write()
+                    .unwrap();
+                assert_eq!(text, &std::fs::read_to_string(&rdl).unwrap());
+                std::fs::remove_file(winmd).unwrap();
+                std::fs::remove_file(rdl).unwrap();
+            }
+            previous = Some(output);
+            snapshots.reverse();
+        }
+        inputs.reverse();
     }
 }

@@ -13,11 +13,10 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpAddSecurityGroup(pserver : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpAddSecurityGroup(pserver.param().abi()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DhcpAddServer(flags: super::DWORD, idinfo: super::LPVOID, newserver: LPDHCP_SERVER_INFO, callbackfn: super::LPVOID, callbackdata: super::LPVOID) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpAddServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpAddServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
     unsafe { DhcpAddServer(flags, idinfo as _, newserver as _, callbackfn as _, callbackdata as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -47,17 +46,15 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, addelementinfo : LPDHCP_SUBNET_ELEMENT_DATA_V6) -> super::DWORD);
     unsafe { DhcpAddSubnetElementV6(serveripaddress.param().abi(), subnetaddress, addelementinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpAuditLogGetParams<P0>(serveripaddress: P0, flags: super::DWORD, auditlogdir: *mut windows_core::PWSTR, diskcheckinterval: *mut super::DWORD, maxlogfilessize: *mut super::DWORD, minspaceondisk: *mut super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpAuditLogGetParams(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, auditlogdir : *mut windows_core::PWSTR, diskcheckinterval : *mut super::DWORD, maxlogfilessize : *mut super::DWORD, minspaceondisk : *mut super::DWORD) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpAuditLogGetParams(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, auditlogdir : *mut windows_core::PWSTR, diskcheckinterval : *mut super::DWORD, maxlogfilessize : *mut super::DWORD, minspaceondisk : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpAuditLogGetParams(serveripaddress.param().abi(), flags, auditlogdir as _, diskcheckinterval as _, maxlogfilessize as _, minspaceondisk as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpAuditLogSetParams<P0, P2>(serveripaddress: P0, flags: super::DWORD, auditlogdir: P2, diskcheckinterval: super::DWORD, maxlogfilessize: super::DWORD, minspaceondisk: super::DWORD) -> super::DWORD
@@ -65,17 +62,16 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpAuditLogSetParams(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, auditlogdir : windows_core::PCWSTR, diskcheckinterval : super::DWORD, maxlogfilessize : super::DWORD, minspaceondisk : super::DWORD) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpAuditLogSetParams(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, auditlogdir : windows_core::PCWSTR, diskcheckinterval : super::DWORD, maxlogfilessize : super::DWORD, minspaceondisk : super::DWORD) -> super::DWORD);
     unsafe { DhcpAuditLogSetParams(serveripaddress.param().abi(), flags, auditlogdir.param().abi(), diskcheckinterval, maxlogfilessize, minspaceondisk) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpCreateClass<P0>(serveripaddress: P0, reservedmustbezero: super::DWORD, classinfo: LPDHCP_CLASS_INFO) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpCreateClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpCreateClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
     unsafe { DhcpCreateClass(serveripaddress.param().abi(), reservedmustbezero, classinfo as _) }
 }
 #[cfg(feature = "shared")]
@@ -111,7 +107,6 @@ pub unsafe fn DhcpCreateOption(serveripaddress: Option<*const super::WCHAR>, opt
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpCreateOption(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *const DHCP_OPTION) -> super::DWORD);
     unsafe { DhcpCreateOption(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, optioninfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpCreateOptionV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, optioninfo: LPDHCP_OPTION) -> super::DWORD
@@ -120,7 +115,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpCreateOptionV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpCreateOptionV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
     unsafe { DhcpCreateOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), optioninfo as _) }
 }
 #[cfg(feature = "shared")]
@@ -155,7 +150,6 @@ pub unsafe fn DhcpCreateSubnetVQ(serveripaddress: Option<*const super::WCHAR>, s
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> super::DWORD);
     unsafe { DhcpCreateSubnetVQ(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, subnetinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpDeleteClass<P0, P2>(serveripaddress: P0, reservedmustbezero: super::DWORD, classname: P2) -> super::DWORD
@@ -163,7 +157,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpDeleteClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classname : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpDeleteClass(serveripaddress.param().abi(), reservedmustbezero, classname.param().abi()) }
 }
 #[cfg(feature = "shared")]
@@ -194,11 +188,10 @@ pub unsafe fn DhcpDeleteFilterV4(serveripaddress: Option<*const super::WCHAR>, d
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteFilterV4(serveripaddress : *const super::WCHAR, deletefilterinfo : *const DHCP_ADDR_PATTERN) -> super::DWORD);
     unsafe { DhcpDeleteFilterV4(serveripaddress.unwrap_or(core::mem::zeroed()) as _, deletefilterinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DhcpDeleteServer(flags: super::DWORD, idinfo: super::LPVOID, newserver: LPDHCP_SERVER_INFO, callbackfn: super::LPVOID, callbackdata: super::LPVOID) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpDeleteServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
     unsafe { DhcpDeleteServer(flags, idinfo as _, newserver as _, callbackfn as _, callbackdata as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -216,37 +209,33 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnetV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> super::DWORD);
     unsafe { DhcpDeleteSubnetV6(serveripaddress.param().abi(), subnetaddress, forceflag) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpDeleteSuperScopeV4<P1>(serveripaddress: Option<*const super::WCHAR>, superscopename: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpDeleteSuperScopeV4(serveripaddress : *const super::WCHAR, superscopename : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteSuperScopeV4(serveripaddress : *const super::WCHAR, superscopename : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpDeleteSuperScopeV4(serveripaddress.unwrap_or(core::mem::zeroed()) as _, superscopename.param().abi()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn DhcpDsCleanup() {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpDsCleanup());
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup());
     unsafe { DhcpDsCleanup() }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpDsInit() -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpDsInit() -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpDsInit() -> super::DWORD);
     unsafe { DhcpDsInit() }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpEnumClasses<P0>(serveripaddress: P0, reservedmustbezero: super::DWORD, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: super::DWORD, classinfoarray: *mut LPDHCP_CLASS_INFO_ARRAY, nread: *mut super::DWORD, ntotal: *mut super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpEnumClasses(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY, nread : *mut super::DWORD, ntotal : *mut super::DWORD) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumClasses(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY, nread : *mut super::DWORD, ntotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumClasses(serveripaddress.param().abi(), reservedmustbezero, resumehandle as _, preferredmaximum, classinfoarray as _, nread as _, ntotal as _) }
 }
 #[cfg(feature = "shared")]
@@ -270,7 +259,6 @@ pub unsafe fn DhcpEnumOptionValues(serveripaddress: Option<*const super::WCHAR>,
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValues(serveripaddress : *const super::WCHAR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumOptionValues(serveripaddress.unwrap_or(core::mem::zeroed()) as _, scopeinfo, resumehandle as _, preferredmaximum, optionvalues as _, optionsread as _, optionstotal as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpEnumOptionValuesV5<P0, P2, P3>(serveripaddress: P0, flags: super::DWORD, classname: P2, vendorname: P3, scopeinfo: LPDHCP_OPTION_SCOPE_INFO, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: super::DWORD, optionvalues: *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread: *mut super::DWORD, optionstotal: *mut super::DWORD) -> super::DWORD
@@ -279,7 +267,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpEnumOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, resumehandle as _, preferredmaximum, optionvalues as _, optionsread as _, optionstotal as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -298,7 +286,6 @@ pub unsafe fn DhcpEnumOptions(serveripaddress: Option<*const super::WCHAR>, resu
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumOptions(serveripaddress : *const super::WCHAR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumOptions(serveripaddress.unwrap_or(core::mem::zeroed()) as _, resumehandle as _, preferredmaximum, options as _, optionsread as _, optionstotal as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpEnumOptionsV5<P0, P2, P3>(serveripaddress: P0, flags: super::DWORD, classname: P2, vendorname: P3, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: super::DWORD, options: *mut LPDHCP_OPTION_ARRAY, optionsread: *mut super::DWORD, optionstotal: *mut super::DWORD) -> super::DWORD
@@ -307,7 +294,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpEnumOptionsV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumOptionsV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), resumehandle as _, preferredmaximum, options as _, optionsread as _, optionstotal as _) }
 }
 #[cfg(feature = "shared")]
@@ -321,11 +308,10 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV6(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumOptionsV6(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), resumehandle as _, preferredmaximum, options as _, optionsread as _, optionstotal as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DhcpEnumServers(flags: super::DWORD, idinfo: super::LPVOID, servers: *mut LPDHCP_SERVER_INFO_ARRAY, callbackfn: super::LPVOID, callbackdata: super::LPVOID) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpEnumServers(flags : super::DWORD, idinfo : super::LPVOID, servers : *mut LPDHCP_SERVER_INFO_ARRAY, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumServers(flags : super::DWORD, idinfo : super::LPVOID, servers : *mut LPDHCP_SERVER_INFO_ARRAY, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
     unsafe { DhcpEnumServers(flags, idinfo as _, servers as _, callbackfn as _, callbackdata as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -403,14 +389,13 @@ pub unsafe fn DhcpEnumSubnetsV6(serveripaddress: Option<*const super::WCHAR>, re
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetsV6(serveripaddress : *const super::WCHAR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, enuminfo : *mut LPDHCPV6_IP_ARRAY, elementsread : *mut super::DWORD, elementstotal : *mut super::DWORD) -> super::DWORD);
     unsafe { DhcpEnumSubnetsV6(serveripaddress.unwrap_or(core::mem::zeroed()) as _, resumehandle as _, preferredmaximum, enuminfo as _, elementsread as _, elementstotal as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpGetAllOptionValues<P0>(serveripaddress: P0, flags: super::DWORD, scopeinfo: LPDHCP_OPTION_SCOPE_INFO, values: *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetAllOptionValues(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValues(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
     unsafe { DhcpGetAllOptionValues(serveripaddress.param().abi(), flags, scopeinfo as _, values as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -422,14 +407,13 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValuesV6(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
     unsafe { DhcpGetAllOptionValuesV6(serveripaddress.param().abi(), flags, scopeinfo as _, values as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpGetAllOptions<P0>(serveripaddress: P0, flags: super::DWORD, optionstruct: *mut LPDHCP_ALL_OPTIONS) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetAllOptions(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptions(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
     unsafe { DhcpGetAllOptions(serveripaddress.param().abi(), flags, optionstruct as _) }
 }
 #[cfg(feature = "shared")]
@@ -441,14 +425,13 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionsV6(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
     unsafe { DhcpGetAllOptionsV6(serveripaddress.param().abi(), flags, optionstruct as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpGetClassInfo<P0>(serveripaddress: P0, reservedmustbezero: super::DWORD, partialclassinfo: LPDHCP_CLASS_INFO, filledclassinfo: *mut LPDHCP_CLASS_INFO) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetClassInfo(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, partialclassinfo : LPDHCP_CLASS_INFO, filledclassinfo : *mut LPDHCP_CLASS_INFO) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetClassInfo(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, partialclassinfo : LPDHCP_CLASS_INFO, filledclassinfo : *mut LPDHCP_CLASS_INFO) -> super::DWORD);
     unsafe { DhcpGetClassInfo(serveripaddress.param().abi(), reservedmustbezero, partialclassinfo as _, filledclassinfo as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -499,11 +482,10 @@ pub unsafe fn DhcpGetMibInfoV5(serveripaddress: Option<*const super::WCHAR>, mib
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV5(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V5) -> super::DWORD);
     unsafe { DhcpGetMibInfoV5(serveripaddress.unwrap_or(core::mem::zeroed()) as _, mibinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpGetMibInfoV6(serveripaddress: Option<*const super::WCHAR>, mibinfo: *mut LPDHCP_MIB_INFO_V6) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetMibInfoV6(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V6) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV6(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V6) -> super::DWORD);
     unsafe { DhcpGetMibInfoV6(serveripaddress.unwrap_or(core::mem::zeroed()) as _, mibinfo as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -512,7 +494,6 @@ pub unsafe fn DhcpGetOptionInfo(serveripaddress: Option<*const super::WCHAR>, op
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfo(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
     unsafe { DhcpGetOptionInfo(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, optioninfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpGetOptionInfoV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, optioninfo: *mut LPDHCP_OPTION) -> super::DWORD
@@ -521,7 +502,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
     unsafe { DhcpGetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), optioninfo as _) }
 }
 #[cfg(feature = "shared")]
@@ -541,7 +522,6 @@ pub unsafe fn DhcpGetOptionValue(serveripaddress: Option<*const super::WCHAR>, o
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
     unsafe { DhcpGetOptionValue(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, scopeinfo, optionvalue as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpGetOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, scopeinfo: LPDHCP_OPTION_SCOPE_INFO, optionvalue: *mut LPDHCP_OPTION_VALUE) -> super::DWORD
@@ -550,10 +530,9 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
     unsafe { DhcpGetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalue as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpGetOptionValueV6<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, scopeinfo: LPDHCP_OPTION_SCOPE_INFO6, optionvalue: *mut LPDHCP_OPTION_VALUE) -> super::DWORD
@@ -562,7 +541,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
     unsafe { DhcpGetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalue as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -613,18 +592,16 @@ pub unsafe fn DhcpGetSubnetInfoVQ(serveripaddress: Option<*const super::WCHAR>, 
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *mut LPDHCP_SUBNET_INFO_VQ) -> super::DWORD);
     unsafe { DhcpGetSubnetInfoVQ(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, subnetinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpGetSuperScopeInfoV4(serveripaddress: Option<*const super::WCHAR>, superscopetable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetSuperScopeInfoV4(serveripaddress : *const super::WCHAR, superscopetable : *mut LPDHCP_SUPER_SCOPE_TABLE) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetSuperScopeInfoV4(serveripaddress : *const super::WCHAR, superscopetable : *mut LPDHCP_SUPER_SCOPE_TABLE) -> super::DWORD);
     unsafe { DhcpGetSuperScopeInfoV4(serveripaddress.unwrap_or(core::mem::zeroed()) as _, superscopetable as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DhcpGetThreadOptions(pflags: super::LPDWORD, reserved: super::LPVOID) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetThreadOptions(pflags : super::LPDWORD, reserved : super::LPVOID) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetThreadOptions(pflags : super::LPDWORD, reserved : super::LPVOID) -> super::DWORD);
     unsafe { DhcpGetThreadOptions(pflags as _, reserved as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -677,11 +654,10 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnet : DHCP_IP_ADDRESS, processingorder : super::DWORD, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : windows_core::BOOL, policy : *mut LPDHCP_POLICY_EX) -> super::DWORD);
     unsafe { DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), policy as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: LPDHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpHlprFindV4DhcpProperty(propertyarray : LPDHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFindV4DhcpProperty(propertyarray : LPDHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY);
     unsafe { DhcpHlprFindV4DhcpProperty(propertyarray, id, r#type) }
 }
 #[cfg(feature = "shared")]
@@ -750,14 +726,13 @@ pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: LPDHCP_POLICY) -> super::DWORD {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprResetV4PolicyExpr(policy : LPDHCP_POLICY) -> super::DWORD);
     unsafe { DhcpHlprResetV4PolicyExpr(policy as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpModifyClass<P0>(serveripaddress: P0, reservedmustbezero: super::DWORD, classinfo: LPDHCP_CLASS_INFO) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpModifyClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpModifyClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
     unsafe { DhcpModifyClass(serveripaddress.param().abi(), reservedmustbezero, classinfo as _) }
 }
 #[cfg(feature = "shared")]
@@ -775,7 +750,6 @@ pub unsafe fn DhcpRemoveOption(serveripaddress: Option<*const super::WCHAR>, opt
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpRemoveOption(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID) -> super::DWORD);
     unsafe { DhcpRemoveOption(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpRemoveOptionV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4) -> super::DWORD
@@ -784,7 +758,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpRemoveOptionV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpRemoveOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi()) }
 }
 #[cfg(feature = "shared")]
@@ -804,7 +778,6 @@ pub unsafe fn DhcpRemoveOptionValue(serveripaddress: Option<*const super::WCHAR>
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO) -> super::DWORD);
     unsafe { DhcpRemoveOptionValue(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, scopeinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpRemoveOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, scopeinfo: LPDHCP_OPTION_SCOPE_INFO) -> super::DWORD
@@ -813,7 +786,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpRemoveOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO) -> super::DWORD);
     unsafe { DhcpRemoveOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), scopeinfo as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -872,7 +845,6 @@ pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_I
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ));
     unsafe { DhcpServerAuditlogParamsFree(configinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerBackupDatabase<P0, P1>(serveripaddress: P0, path: P1) -> super::DWORD
@@ -880,7 +852,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerBackupDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerBackupDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpServerBackupDatabase(serveripaddress.param().abi(), path.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -907,47 +879,42 @@ pub unsafe fn DhcpServerGetConfigVQ(serveripaddress: Option<*const super::WCHAR>
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigVQ(serveripaddress : *const super::WCHAR, configinfo : *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> super::DWORD);
     unsafe { DhcpServerGetConfigVQ(serveripaddress.unwrap_or(core::mem::zeroed()) as _, configinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerQueryAttribute<P0>(serveripaddr: P0, dwreserved: super::ULONG, dhcpattribid: DHCP_ATTRIB_ID, pdhcpattrib: *mut LPDHCP_ATTRIB) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerQueryAttribute(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG, dhcpattribid : DHCP_ATTRIB_ID, pdhcpattrib : *mut LPDHCP_ATTRIB) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttribute(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG, dhcpattribid : DHCP_ATTRIB_ID, pdhcpattrib : *mut LPDHCP_ATTRIB) -> super::DWORD);
     unsafe { DhcpServerQueryAttribute(serveripaddr.param().abi(), dwreserved, dhcpattribid, pdhcpattrib as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerQueryAttributes<P0>(serveripaddr: P0, dwreserved: super::ULONG, dwattribcount: super::ULONG, pdhcpattribs: *mut DHCP_ATTRIB_ID, pdhcpattribarr: *mut LPDHCP_ATTRIB_ARRAY) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerQueryAttributes(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG, dwattribcount : super::ULONG, pdhcpattribs : *mut DHCP_ATTRIB_ID, pdhcpattribarr : *mut LPDHCP_ATTRIB_ARRAY) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttributes(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG, dwattribcount : super::ULONG, pdhcpattribs : *mut DHCP_ATTRIB_ID, pdhcpattribarr : *mut LPDHCP_ATTRIB_ARRAY) -> super::DWORD);
     unsafe { DhcpServerQueryAttributes(serveripaddr.param().abi(), dwreserved, dwattribcount, pdhcpattribs as _, pdhcpattribarr as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerQueryDnsRegCredentials<P0>(serveripaddress: P0, unamesize: super::ULONG, uname: windows_core::PWSTR, domainsize: super::ULONG, domain: windows_core::PWSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_core::PCWSTR, unamesize : super::ULONG, uname : windows_core::PWSTR, domainsize : super::ULONG, domain : windows_core::PWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_core::PCWSTR, unamesize : super::ULONG, uname : windows_core::PWSTR, domainsize : super::ULONG, domain : windows_core::PWSTR) -> super::DWORD);
     unsafe { DhcpServerQueryDnsRegCredentials(serveripaddress.param().abi(), unamesize, uname, domainsize, domain) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerRedoAuthorization<P0>(serveripaddr: P0, dwreserved: super::ULONG) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerRedoAuthorization(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerRedoAuthorization(serveripaddr : windows_core::PCWSTR, dwreserved : super::ULONG) -> super::DWORD);
     unsafe { DhcpServerRedoAuthorization(serveripaddr.param().abi(), dwreserved) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerRestoreDatabase<P0, P1>(serveripaddress: P0, path: P1) -> super::DWORD
@@ -955,7 +922,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerRestoreDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerRestoreDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpServerRestoreDatabase(serveripaddress.param().abi(), path.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -982,7 +949,6 @@ pub unsafe fn DhcpServerSetConfigVQ(serveripaddress: Option<*const super::WCHAR>
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigVQ(serveripaddress : *const super::WCHAR, fieldstoset : super::DWORD, configinfo : LPDHCP_SERVER_CONFIG_INFO_VQ) -> super::DWORD);
     unsafe { DhcpServerSetConfigVQ(serveripaddress.unwrap_or(core::mem::zeroed()) as _, fieldstoset, configinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentials<P0, P1, P2, P3>(serveripaddress: P0, uname: P1, domain: P2, passwd: P3) -> super::DWORD
@@ -992,10 +958,9 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerSetDnsRegCredentials(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentials(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpServerSetDnsRegCredentials(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentialsV5<P0, P1, P2, P3>(serveripaddress: P0, uname: P1, domain: P2, passwd: P3) -> super::DWORD
@@ -1005,7 +970,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerSetDnsRegCredentialsV5(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentialsV5(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DhcpServerSetDnsRegCredentialsV5(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1044,7 +1009,6 @@ pub unsafe fn DhcpSetOptionInfo(serveripaddress: Option<*const super::WCHAR>, op
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfo(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *const DHCP_OPTION) -> super::DWORD);
     unsafe { DhcpSetOptionInfo(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, optioninfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DhcpSetOptionInfoV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, optioninfo: LPDHCP_OPTION) -> super::DWORD
@@ -1053,7 +1017,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
     unsafe { DhcpSetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), optioninfo as _) }
 }
 #[cfg(feature = "shared")]
@@ -1073,7 +1037,6 @@ pub unsafe fn DhcpSetOptionValue(serveripaddress: Option<*const super::WCHAR>, o
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *const DHCP_OPTION_DATA) -> super::DWORD);
     unsafe { DhcpSetOptionValue(serveripaddress.unwrap_or(core::mem::zeroed()) as _, optionid, scopeinfo, optionvalue) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpSetOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: super::DWORD, optionid: DHCP_OPTION_ID, classname: P3, vendorname: P4, scopeinfo: LPDHCP_OPTION_SCOPE_INFO, optionvalue: LPDHCP_OPTION_DATA) -> super::DWORD
@@ -1082,7 +1045,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : LPDHCP_OPTION_DATA) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : LPDHCP_OPTION_DATA) -> super::DWORD);
     unsafe { DhcpSetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalue as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1102,7 +1065,6 @@ pub unsafe fn DhcpSetOptionValues(serveripaddress: Option<*const super::WCHAR>, 
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValues(serveripaddress : *const super::WCHAR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalues : *const DHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
     unsafe { DhcpSetOptionValues(serveripaddress.unwrap_or(core::mem::zeroed()) as _, scopeinfo, optionvalues) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpSetOptionValuesV5<P0, P2, P3>(serveripaddress: P0, flags: super::DWORD, classname: P2, vendorname: P3, scopeinfo: LPDHCP_OPTION_SCOPE_INFO, optionvalues: LPDHCP_OPTION_VALUE_ARRAY) -> super::DWORD
@@ -1111,7 +1073,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalues : LPDHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : super::DWORD, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalues : LPDHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
     unsafe { DhcpSetOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalues as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1141,11 +1103,10 @@ pub unsafe fn DhcpSetSubnetInfo(serveripaddress: Option<*const super::WCHAR>, su
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfo(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO) -> super::DWORD);
     unsafe { DhcpSetSubnetInfo(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, subnetinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpSetSubnetInfoV6(serveripaddress: Option<*const super::WCHAR>, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: LPDHCP_SUBNET_INFO_V6) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetSubnetInfoV6(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoV6(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
     unsafe { DhcpSetSubnetInfoV6(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, subnetinfo as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1154,21 +1115,19 @@ pub unsafe fn DhcpSetSubnetInfoVQ(serveripaddress: Option<*const super::WCHAR>, 
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> super::DWORD);
     unsafe { DhcpSetSubnetInfoVQ(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, subnetinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DhcpSetSuperScopeV4<P2>(serveripaddress: Option<*const super::WCHAR>, subnetaddress: DHCP_IP_ADDRESS, superscopename: P2, changeexisting: bool) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetSuperScopeV4(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, superscopename : windows_core::PCWSTR, changeexisting : windows_core::BOOL) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, superscopename : windows_core::PCWSTR, changeexisting : windows_core::BOOL) -> super::DWORD);
     unsafe { DhcpSetSuperScopeV4(serveripaddress.unwrap_or(core::mem::zeroed()) as _, subnetaddress, superscopename.param().abi(), changeexisting.into()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DhcpSetThreadOptions(flags: super::DWORD, reserved: super::LPVOID) -> super::DWORD {
-    windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetThreadOptions(flags : super::DWORD, reserved : super::LPVOID) -> super::DWORD);
+    windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetThreadOptions(flags : super::DWORD, reserved : super::LPVOID) -> super::DWORD);
     unsafe { DhcpSetThreadOptions(flags, reserved as _) }
 }
 #[cfg(feature = "shared")]

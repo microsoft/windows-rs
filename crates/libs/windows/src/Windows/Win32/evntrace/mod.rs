@@ -267,11 +267,10 @@ where
     windows_core::link!("advapi32.dll" "system" fn StopTraceW(traceid : CONTROLTRACE_ID, instancename : windows_core::PCWSTR, properties : PEVENT_TRACE_PROPERTIES) -> super::ULONG);
     unsafe { StopTraceW(traceid, instancename.param().abi(), properties as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn TraceConfigureLastBranchRecord(traceid: CONTROLTRACE_ID, lbrconfiguration: TRACE_LBR_CONFIGURATION, events: &[CLASSIC_EVENT_ID]) -> super::ULONG {
-    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : super::ULONG) -> super::ULONG);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : super::ULONG) -> super::ULONG);
     unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, events.as_ptr(), events.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -286,11 +285,10 @@ pub unsafe fn TraceEventInstance(tracehandle: TRACELOGGER_HANDLE, eventtrace: PE
     windows_core::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : TRACELOGGER_HANDLE, eventtrace : PEVENT_INSTANCE_HEADER, instinfo : PEVENT_INSTANCE_INFO, parentinstinfo : PEVENT_INSTANCE_INFO) -> super::ULONG);
     unsafe { TraceEventInstance(tracehandle, eventtrace, instinfo, parentinstinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
 pub unsafe fn TraceMessageVa(loggerhandle: TRACELOGGER_HANDLE, messageflags: super::ULONG, messageguid: super::LPCGUID, messagenumber: super::USHORT, messagearglist: super::va_list) -> super::ULONG {
-    windows_core::link!("advapi32.dll" "C" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : super::ULONG, messageguid : super::LPCGUID, messagenumber : super::USHORT, messagearglist : super::va_list) -> super::ULONG);
+    windows_core::link!("advapi32.dll" "system" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : super::ULONG, messageguid : super::LPCGUID, messagenumber : super::USHORT, messagearglist : super::va_list) -> super::ULONG);
     unsafe { TraceMessageVa(loggerhandle, messageflags, messageguid, messagenumber, messagearglist) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]

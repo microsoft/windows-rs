@@ -751,7 +751,6 @@ where
     windows_core::link!("winspool.drv" "system" fn EnumPrintersW(flags : super::DWORD, name : windows_core::PCWSTR, level : super::DWORD, pprinterenum : super::LPBYTE, cbbuf : super::DWORD, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumPrintersW(flags, name.param().abi(), level, pprinterenum.unwrap_or(core::mem::zeroed()) as _, cbbuf, pcbneeded as _, pcreturned as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
 pub unsafe fn ExtDeviceMode<P3, P4, P6>(hwnd: Option<super::HWND>, hinst: Option<super::HANDLE>, pdevmodeoutput: Option<super::LPDEVMODEA>, pdevicename: P3, pport: P4, pdevmodeinput: Option<super::LPDEVMODEA>, pprofile: P6, fmode: super::DWORD) -> super::LONG
@@ -760,7 +759,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winspool.drv" "C" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : super::LPDEVMODEA, pdevicename : windows_core::PCSTR, pport : windows_core::PCSTR, pdevmodeinput : super::LPDEVMODEA, pprofile : windows_core::PCSTR, fmode : super::DWORD) -> super::LONG);
+    windows_core::link!("winspool.drv" "system" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : super::LPDEVMODEA, pdevicename : windows_core::PCSTR, pport : windows_core::PCSTR, pdevmodeinput : super::LPDEVMODEA, pprofile : windows_core::PCSTR, fmode : super::DWORD) -> super::LONG);
     unsafe { ExtDeviceMode(hwnd.unwrap_or(core::mem::zeroed()) as _, hinst.unwrap_or(core::mem::zeroed()) as _, pdevmodeoutput.unwrap_or(core::mem::zeroed()) as _, pdevicename.param().abi(), pport.param().abi(), pdevmodeinput.unwrap_or(core::mem::zeroed()) as _, pprofile.param().abi(), fmode) }
 }
 #[cfg(feature = "winnt")]

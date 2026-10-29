@@ -1,11 +1,10 @@
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "d3d12", feature = "guiddef"))]
 #[inline]
 pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const super::IID, ppvsyncobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::ID3D12Device>,
 {
-    windows_core::link!("mfplat.dll" "C" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const super::IID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const super::IID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateD3D12SynchronizationObject(pdevice.param().abi(), riid, ppvsyncobject as _) }
 }
 windows_core::imp::define_interface!(IMFD3D12SynchronizationObject, IMFD3D12SynchronizationObject_Vtbl, 0x802302b0_82de_45e1_b421_f19ee5bdaf23);

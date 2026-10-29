@@ -6,13 +6,12 @@ where
     windows_core::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerAddExcludedApplication(pwzexename.param().abi(), ballusers.into()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerFreeString<P0>(pwszstr: P0)
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerFreeString(pwszstr : windows_core::PCWSTR));
+    windows_core::link!("wer.dll" "system" fn WerFreeString(pwszstr : windows_core::PCWSTR));
     unsafe { WerFreeString(pwszstr.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -144,100 +143,89 @@ pub unsafe fn WerSetFlags(dwflags: super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn WerSetFlags(dwflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerSetFlags(dwflags) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreClose(hreportstore: Option<HREPORTSTORE>) {
-    windows_core::link!("wer.dll" "C" fn WerStoreClose(hreportstore : HREPORTSTORE));
+    windows_core::link!("wer.dll" "system" fn WerStoreClose(hreportstore : HREPORTSTORE));
     unsafe { WerStoreClose(hreportstore.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetFirstReportKey(hreportstore, &mut result__).map(|| result__)
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetNextReportKey(hreportstore, &mut result__).map(|| result__)
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core::Result<super::DWORD> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetReportCount(hreportstore, &mut result__).map(|| result__)
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE) -> windows_core::Result<super::ULONGLONG> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetSizeOnDisk(hreportstore, &mut result__).map(|| result__)
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: PHREPORTSTORE) -> windows_core::HRESULT {
-    windows_core::link!("wer.dll" "C" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : PHREPORTSTORE) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : PHREPORTSTORE) -> windows_core::HRESULT);
     unsafe { WerStoreOpen(repstoretype, phreportstore as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStorePurge() -> windows_core::HRESULT {
-    windows_core::link!("wer.dll" "C" fn WerStorePurge() -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStorePurge() -> windows_core::HRESULT);
     unsafe { WerStorePurge() }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV1<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V1) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V1) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV1(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV2<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V2) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V2) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V2) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV2(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV3<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V3) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V3) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V3) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV3(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: super::DWORD, psubmitresult: Option<PWER_SUBMIT_RESULT>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
     unsafe { WerStoreUploadReport(hreportstore, pszreportkey.param().abi(), dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]

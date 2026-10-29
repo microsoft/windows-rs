@@ -454,11 +454,7 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
     let mut seen_fields: HashSet<String> = HashSet::new();
     for copy in copies {
         for field in copy.fields() {
-            let value = field
-                .constant()
-                .map(|c| format!("{:?}", c.value()))
-                .unwrap_or_default();
-            let key = format!("{}|{:?}|{value}", field.name(), field.ty());
+            let key = field_sig(field, false);
             if seen_fields.insert(key) {
                 write_field(file, field, None);
             }
@@ -468,7 +464,7 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
     let mut seen_methods: HashSet<String> = HashSet::new();
     for copy in copies {
         for method in copy.methods() {
-            let key = format!("{}|{:?}", method.name(), method.signature(&generics));
+            let key = method_sig(method, &generics, false);
             if seen_methods.insert(key) {
                 write_method(file, method, &generics, None);
             }
@@ -670,7 +666,7 @@ fn merge_native_sized_callback(
     let first_def = copies[0].1;
     if copies.iter().any(|(_, def, _)| {
         def.flags() != first_def.flags()
-            || callback_attributes(*def) != callback_attributes(first_def)
+            || attributes_sig(*def, true) != attributes_sig(first_def, true)
     }) {
         return None;
     }
@@ -685,12 +681,10 @@ fn merge_native_sized_callback(
         .collect::<Option<_>>()?;
 
     let first = methods[0].0;
-    if methods.iter().any(|(method, _)| {
-        method.flags() != first.flags()
-            || method.impl_flags() != first.impl_flags()
-            || callback_attributes(*method) != callback_attributes(first)
-            || callback_params(*method) != callback_params(first)
-    }) {
+    if methods
+        .iter()
+        .any(|(method, _)| method_contract(*method, false) != method_contract(first, false))
+    {
         return None;
     }
 
@@ -740,44 +734,72 @@ fn is_unmanaged_callback(def: reader::TypeDef) -> bool {
         })
 }
 
-fn callback_params(
-    method: reader::MethodDef,
-) -> Vec<(
-    String,
-    u16,
-    ParamAttributes,
-    Vec<(String, String, Vec<(String, Value)>)>,
-)> {
-    method
+fn field_sig(field: reader::Field, arch_override: bool) -> String {
+    format!(
+        "{}|{:?}|{:?}|{:?}|{:?}|{}",
+        field.name(),
+        field.ty(),
+        field.constant().map(|constant| constant.value()),
+        field.offset(),
+        field.flags(),
+        attributes_sig(field, arch_override),
+    )
+}
+
+fn method_sig(method: reader::MethodDef, generics: &[Type], arch_override: bool) -> String {
+    format!(
+        "{}|{:?}|{}",
+        method.name(),
+        method.signature(generics),
+        method_contract(method, arch_override),
+    )
+}
+
+// Keep the contract separate from the signature so native-sized callback reconciliation can
+// compare the remaining published contract before normalizing integer widths.
+fn method_contract(method: reader::MethodDef, arch_override: bool) -> String {
+    let params: Vec<_> = method
         .params()
         .map(|param| {
             (
                 param.name().to_string(),
                 param.sequence(),
                 param.flags(),
-                callback_attributes(param),
+                attributes_sig(param, false),
             )
         })
-        .collect()
+        .collect();
+    let import = method
+        .impl_map()
+        .map(|map| (map.flags(), map.import_name(), map.import_scope().name()));
+    format!(
+        "{:?}|{:?}|{params:?}|{import:?}|{}",
+        method.flags(),
+        method.impl_flags(),
+        attributes_sig(method, arch_override),
+    )
 }
 
-fn callback_attributes<'a, R: HasAttributes<'a>>(
-    row: R,
-) -> Vec<(String, String, Vec<(String, Value)>)> {
-    row.attributes()
+fn attributes_sig<'a, R: HasAttributes<'a>>(row: R, arch_override: bool) -> String {
+    let attributes: Vec<_> = row
+        .attributes()
         .filter_map(|attribute| {
-            let ty = attribute.ctor().parent();
-            (!(ty.namespace() == "Windows.Win32.Metadata"
+            let ctor = attribute.ctor();
+            let ty = ctor.parent();
+            (!(arch_override
+                && ty.namespace() == "Windows.Win32.Metadata"
                 && ty.name() == "SupportedArchitectureAttribute"))
                 .then(|| {
                     (
-                        ty.namespace().to_string(),
-                        ty.name().to_string(),
+                        ty.namespace(),
+                        ty.name(),
+                        ctor.signature(&[]),
                         attribute.value(),
                     )
                 })
         })
-        .collect()
+        .collect();
+    format!("{attributes:?}")
 }
 
 fn merge_native_sized_type(copies: &[(&Type, i32)]) -> Option<(Type, bool)> {
@@ -864,15 +886,10 @@ fn write_type_arch_merged(
         );
     }
 
-    // Include constant values in the key so divergent constants survive.
     let mut fields: BTreeMap<String, (reader::Field, i32)> = BTreeMap::new();
     for (_, ty, bits) in copies {
         for field in ty.fields() {
-            let val = field
-                .constant()
-                .map(|c| format!("{:?}", c.value()))
-                .unwrap_or_default();
-            let key = format!("{}|{:?}|{val}", field.name(), field.ty());
+            let key = field_sig(field, true);
             fields.entry(key).or_insert((field, 0)).1 |= bits;
         }
     }
@@ -886,7 +903,7 @@ fn write_type_arch_merged(
         let mut methods: BTreeMap<String, (reader::MethodDef, i32)> = BTreeMap::new();
         for (_, ty, bits) in copies {
             for method in ty.methods() {
-                let key = format!("{}|{:?}", method.name(), method.signature(&generics));
+                let key = method_sig(method, &generics, true);
                 methods.entry(key).or_insert((method, 0)).1 |= bits;
             }
         }
@@ -913,36 +930,25 @@ fn write_type_arch_merged(
     }
 }
 
-/// Signatures include layout, methods, constants, alignment, and nested shapes so arch-specific
-/// value types do not collapse into one neutral definition.
+/// Include member contracts, type attributes, layout, and nested shapes so architecture-specific
+/// definitions do not collapse into one neutral definition.
 fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
-    let fields: Vec<String> = def
-        .fields()
-        .map(|f| {
-            let val = f
-                .constant()
-                .map(|c| format!("{:?}", c.value()))
-                .unwrap_or_default();
-            format!("{}:{:?}:{:?}={val}", f.name(), f.ty(), f.offset())
-        })
-        .collect();
+    let fields: Vec<String> = def.fields().map(|field| field_sig(field, false)).collect();
     let methods: Vec<String> = def
         .methods()
-        .map(|m| format!("{}:{:?}", m.name(), m.signature(&[])))
+        .map(|method| method_sig(method, &[], false))
         .collect();
     let layout = def
         .class_layout()
         .map(|l| (l.packing_size(), l.class_size()));
-    let align = def
-        .find_attribute("AlignmentAttribute")
-        .map(|a| format!("{:?}", a.value()));
+    let attributes = attributes_sig(def, true);
     // Recurse into nested shapes; outer fields reference only invariant nested leaf names.
     let nested: Vec<String> = index
         .nested(def)
         .map(|inner| format!("{}={}", inner.name(), type_sig(index, inner)))
         .collect();
     format!(
-        "{fields:?}|{methods:?}|{layout:?}|{align:?}|{:?}|{nested:?}",
+        "{fields:?}|{methods:?}|{layout:?}|{attributes}|{:?}|{nested:?}",
         def.flags()
     )
 }

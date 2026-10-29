@@ -1,0 +1,56 @@
+#[win32]
+mod Fixture {
+    extern "C" fn CdeclCallback(param0: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn Explicit(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("fixture.dll")]
+    extern fn Explicit(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn ExplicitCallback(param0: i32) -> i32;
+    #[arch(X86)]
+    extern fn ExplicitCallback(param0: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn ExportVariant(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("fixture.dll", import = "#17")]
+    extern fn ExportVariant(value: i32) -> i32;
+    #[library("fixture.dll")]
+    extern fn Inline(callback: extern "C" fn(i16) -> i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn LibraryVariant(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("narrow.dll")]
+    extern fn LibraryVariant(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("fixture.dll")]
+    extern fn NarrowOnly(value: i32) -> i32;
+    #[arch(X64)]
+    #[library("fixture.dll")]
+    extern "C" fn Observed(value: i32) -> i32;
+    #[arch(X86 | Arm64)]
+    #[library("fixture.dll")]
+    extern fn Observed(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn ObservedCallback(param0: i32) -> i32;
+    #[arch(X86)]
+    extern fn ObservedCallback(param0: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn ParameterVariant(value: *mut i32) -> i32;
+    #[arch(X86)]
+    #[library("fixture.dll")]
+    extern fn ParameterVariant(value: *const i32) -> i32;
+    #[library("fixture.dll")]
+    extern fn Portable(callback: CdeclCallback) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn PortableCallback(param0: i32) -> i32;
+    #[arch(X86)]
+    extern fn PortableCallback(param0: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn WideOnly(value: i32) -> i32;
+}

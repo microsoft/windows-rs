@@ -350,11 +350,6 @@ mod Windows {
             PrefixLength: UINT8,
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
-        #[library("IPHLPAPI.DLL")]
-        extern "C" fn InitializeFlVirtualInterfaceEntry(#[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X86)]
         #[library("IPHLPAPI.DLL")]
         extern fn InitializeFlVirtualInterfaceEntry(#[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW);
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]

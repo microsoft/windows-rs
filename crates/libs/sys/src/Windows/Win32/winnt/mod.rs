@@ -14,9 +14,15 @@ windows_link::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord :
 windows_link::link!("ntdll.dll" "system" fn RtlCaptureContext2(contextrecord : PCONTEXT));
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : super::DWORD, framestocapture : super::DWORD, backtrace : *mut PVOID, backtracehash : super::PDWORD) -> super::WORD);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+windows_link::link!("ntdll.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+windows_link::link!("ntdll.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
@@ -49,9 +55,8 @@ windows_link::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvto
 windows_link::link!("ntdll.dll" "system" fn RtlFreeNonVolatileToken(nvtoken : PVOID) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut super::ULONGLONG, puldevicefamily : *mut super::DWORD, puldeviceform : *mut super::DWORD));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("ntdll.dll" "C" fn RtlGetImageFileMachines(dosfilename : windows_sys::core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> super::DWORD);
+windows_link::link!("ntdll.dll" "system" fn RtlGetImageFileMachines(dosfilename : windows_sys::core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> super::DWORD);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 windows_link::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer : PVOID, size : super::SIZE_T, nvtoken : *mut PVOID) -> super::DWORD);
@@ -104,6 +109,12 @@ windows_link::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(tri
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
+windows_link::link!("ntdll.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+windows_link::link!("ntdll.dll" "C" fn RtlRestoreContext(contextrecord : PCONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : PCONTEXT, exceptionrecord : *const EXCEPTION_RECORD));

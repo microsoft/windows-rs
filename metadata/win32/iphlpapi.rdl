@@ -89,10 +89,6 @@ mod Windows {
         extern fn GetNetworkParams(#[opt] #[out] #[writable(entry, bytes(*pOutBufLen))] pFixedInfo: PFIXED_INFO, #[in] #[out] pOutBufLen: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
         extern fn GetNumberOfInterfaces(#[out] pdwNumIf: PDWORD) -> DWORD;
-        #[arch(X64 | Arm64)]
-        #[library("IPHLPAPI.DLL")]
-        extern "C" fn GetOwnerModuleFromPidAndInfo(#[in] ulPid: ULONG, #[in] pInfo: *mut ULONGLONG, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
-        #[arch(X86)]
         #[library("IPHLPAPI.DLL")]
         extern fn GetOwnerModuleFromPidAndInfo(#[in] ulPid: ULONG, #[in] pInfo: *mut ULONGLONG, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]

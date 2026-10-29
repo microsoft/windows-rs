@@ -55,11 +55,10 @@ where
     windows_core::link!("ktmw32.dll" "system" fn CreateTransactionManager(lptransactionattributes : super::LPSECURITY_ATTRIBUTES, logfilename : windows_core::PCWSTR, createoptions : super::ULONG, commitstrength : super::ULONG) -> super::HANDLE);
     unsafe { CreateTransactionManager(lptransactionattributes as _, logfilename.param().abi(), createoptions, commitstrength) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::HANDLE, tmvirtualclock: super::PLARGE_INTEGER) -> windows_core::BOOL {
-    windows_core::link!("ktmw32.dll" "C" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::BOOL);
+    windows_core::link!("ktmw32.dll" "system" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::BOOL);
     unsafe { GetCurrentClockTransactionManager(transactionmanagerhandle as _, tmvirtualclock as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
@@ -98,11 +97,10 @@ pub unsafe fn GetTransactionInformation(transactionhandle: super::HANDLE, outcom
     windows_core::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::HANDLE, outcome : super::PDWORD, isolationlevel : super::PDWORD, isolationflags : super::PDWORD, timeout : super::PDWORD, bufferlength : super::DWORD, description : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { GetTransactionInformation(transactionhandle as _, outcome as _, isolationlevel as _, isolationflags as _, timeout as _, bufferlength, description.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetTransactionManagerId(transactionmanagerhandle: super::HANDLE, transactionmanagerid: super::LPGUID) -> windows_core::BOOL {
-    windows_core::link!("ktmw32.dll" "C" fn GetTransactionManagerId(transactionmanagerhandle : super::HANDLE, transactionmanagerid : super::LPGUID) -> windows_core::BOOL);
+    windows_core::link!("ktmw32.dll" "system" fn GetTransactionManagerId(transactionmanagerhandle : super::HANDLE, transactionmanagerid : super::LPGUID) -> windows_core::BOOL);
     unsafe { GetTransactionManagerId(transactionmanagerhandle as _, transactionmanagerid as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]

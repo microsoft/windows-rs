@@ -181,11 +181,7 @@ pub(super) fn values<'a>(
                             value.name
                         )));
                     };
-                    let Body {
-                        attributes,
-                        declaration,
-                    } = &body;
-                    if reference_values::declaration_key(quote! { #attributes #declaration })
+                    if reference_values::declaration_key(body.tokens())
                         != reference_values::declaration_key(expected.clone())
                     {
                         reject(
@@ -265,12 +261,13 @@ pub(super) fn uuid_tags(
                     let name = ident(public_name(name))?;
                     let guid = values::write_guid(uuid);
                     bodies.push(Body {
+                        abi: None,
                         attributes: annotations::write(&observation.attributes)?,
                         declaration: quote! { const #name: GUID = #guid; },
                     });
                 }
             }
-            agree(name, target, &bodies)?;
+            agree(name, target, &mut bodies)?;
             Ok(bodies.into_iter().next().unwrap())
         })();
         match result {
@@ -340,8 +337,8 @@ pub(super) fn records<'a>(
                 }
             }
         }
-        let bodies = bodies.into_iter().collect::<Result<Vec<_>, _>>();
-        if let Ok(bodies) = &bodies {
+        let mut bodies = bodies.into_iter().collect::<Result<Vec<_>, _>>();
+        if let Ok(bodies) = &mut bodies {
             agree(name, target, bodies)?;
         }
         let result = bodies.and_then(|bodies| {
@@ -472,6 +469,7 @@ pub(super) fn enums<'a>(
                     target,
                     &member_identity,
                     Body {
+                        abi: None,
                         attributes,
                         declaration: quote! { const #member_name: #repr = #value; },
                     },
@@ -632,7 +630,7 @@ pub(super) fn aliases<'a>(
                     .as_slice()
             }),
         )?;
-        let bodies = alias
+        let mut bodies = alias
             .observations
             .iter()
             .filter(|reference| {
@@ -647,7 +645,7 @@ pub(super) fn aliases<'a>(
                 projector.alias(reference.snapshot, observation, &alias.name, attributes)
             })
             .collect::<Result<Vec<_>, _>>();
-        if let Ok(bodies) = &bodies {
+        if let Ok(bodies) = &mut bodies {
             agree(&alias.name, target, bodies)?;
         }
         let result = bodies.and_then(|bodies| {

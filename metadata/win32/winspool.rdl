@@ -571,10 +571,6 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         #[success(return != 0)]
         extern fn EnumPrintersW(#[in] Flags: DWORD, #[in] #[opt] Name: LPWSTR, Level: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbNeeded))] #[writable(entry, bytes(cbBuf))] pPrinterEnum: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
-        #[arch(X64 | Arm64)]
-        #[library("WINSPOOL.DRV")]
-        extern "C" fn ExtDeviceMode(#[in] #[opt] hWnd: HWND, #[in] #[opt] hInst: HANDLE, #[in] #[opt] #[out] pDevModeOutput: LPDEVMODEA, #[in] #[opt] pDeviceName: LPSTR, #[in] #[opt] pPort: LPSTR, #[in] #[opt] pDevModeInput: LPDEVMODEA, #[in] #[opt] pProfile: LPSTR, fMode: DWORD) -> LONG;
-        #[arch(X86)]
         #[library("WINSPOOL.DRV")]
         extern fn ExtDeviceMode(#[in] #[opt] hWnd: HWND, #[in] #[opt] hInst: HANDLE, #[in] #[opt] #[out] pDevModeOutput: LPDEVMODEA, #[in] #[opt] pDeviceName: LPSTR, #[in] #[opt] pPort: LPSTR, #[in] #[opt] pDevModeInput: LPDEVMODEA, #[in] #[opt] pProfile: LPSTR, fMode: DWORD) -> LONG;
         const FORM_BUILTIN: i32 = 1;

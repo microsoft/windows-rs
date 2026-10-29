@@ -117,7 +117,10 @@ impl Projector<'_, '_> {
     ) -> Result<Body, Error> {
         match &observation.kind {
             ValueKind::Function {
-                alias, language, ..
+                alias,
+                language,
+                convention_origin,
+                ..
             } => {
                 if *language != LanguageLinkage::C {
                     return Err(Error(format!(
@@ -155,12 +158,16 @@ impl Projector<'_, '_> {
                 let (parameters, result, native) = self.callable(snapshot, observation, true)?;
                 let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
-                let abi = callable_abi(function);
+                let mut abi = callable_abi(function);
+                abi.inferred_import = *convention_origin == CallingConventionOrigin::Default
+                    && !function.explicit_convention
+                    && !function.prototype.variadic;
                 let name = ident(public_name(name))?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
+                    abi: Some(abi),
                     attributes: quote! { #native #contracts #library },
-                    declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
+                    declaration: quote! { fn #name(#(#parameters),*) #result; },
                 })
             }
             ValueKind::Constant { value, .. } => {
@@ -186,6 +193,7 @@ impl Projector<'_, '_> {
                     let name = ident(public_name(name))?;
                     let native = annotations::write(&observation.attributes)?;
                     return Ok(Body {
+                        abi: None,
                         attributes: quote! { #native #[encoding(#encoding)] },
                         declaration: quote! { const #name: String = #value; },
                     });
@@ -212,6 +220,7 @@ impl Projector<'_, '_> {
                     let native = annotations::write(&observation.attributes)?;
                     return Ok(match value {
                         ConstantValue::Guid(_) => Body {
+                            abi: None,
                             attributes: native,
                             declaration: quote! { const #name: #ty = #guid; },
                         },
@@ -219,6 +228,7 @@ impl Projector<'_, '_> {
                             let id =
                                 write_value(self.namespace, &windows_metadata::Value::U32(*id));
                             Body {
+                                abi: None,
                                 attributes: quote! { #native #[guid(#guid)] },
                                 declaration: quote! { const #name: #ty = #id; },
                             }
@@ -269,6 +279,7 @@ impl Projector<'_, '_> {
         let value = write_value(self.namespace, &value);
         let name = ident(public_name(name))?;
         Ok(Body {
+            abi: None,
             attributes: annotations::write(&observation.attributes)?,
             declaration: quote! { const #name: #ty = #value; },
         })
@@ -310,7 +321,7 @@ impl Projector<'_, '_> {
                 ty,
             )?);
         }
-        if agree(&value.name, target, &canonical).is_err() {
+        if agree(&value.name, target, &mut canonical).is_err() {
             return Err(conflict);
         }
         *bodies = canonical;
@@ -557,16 +568,17 @@ impl Projector<'_, '_> {
             }
             // SAL still binds against the original names; only comparison labels are positional.
             let (parameters, result, _) = self.callable(reference.snapshot, observation, false)?;
-            let abi = callable_abi(written_function(snapshot, observation.written)?);
             contracts.push(Body {
+                abi: body.abi,
                 attributes: body.attributes.clone(),
-                declaration: quote! { extern #abi fn(#(#parameters),*) #result; },
+                declaration: quote! { fn(#(#parameters),*) #result; },
             });
         }
-        if agree(&value.name, target, &contracts).is_err() {
+        if agree(&value.name, target, &mut contracts).is_err() {
             return Err(conflict);
         }
         bodies.swap(0, preferred.unwrap().0);
+        bodies[0].retain_abi(&contracts[0]);
         Ok(())
     }
 
@@ -832,6 +844,7 @@ impl Projector<'_, '_> {
         };
         let native = annotations::write(&observation.attributes)?;
         Ok(Body {
+            abi: None,
             attributes: quote! { #native #identity },
             declaration: quote! { interface #name #base { #(#methods)* } },
         })

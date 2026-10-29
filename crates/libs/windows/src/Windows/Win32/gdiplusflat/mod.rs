@@ -1906,11 +1906,10 @@ where
     windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : *mut core::ffi::c_void, header : *mut super::MetafileHeader) -> super::GpStatus);
     unsafe { GdipGetMetafileHeaderFromStream(stream.param().abi(), header as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "gdiplusenums", feature = "gdiplusgpstubs", feature = "gdiplusmetaheader", feature = "gdiplustypes", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
 pub unsafe fn GdipGetMetafileHeaderFromWmf(hwmf: super::HMETAFILE, wmfplaceablefileheader: *const super::WmfPlaceableFileHeader, header: *mut super::MetafileHeader) -> super::GpStatus {
-    windows_core::link!("gdiplus.dll" "C" fn GdipGetMetafileHeaderFromWmf(hwmf : super::HMETAFILE, wmfplaceablefileheader : *const super::WmfPlaceableFileHeader, header : *mut super::MetafileHeader) -> super::GpStatus);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::HMETAFILE, wmfplaceablefileheader : *const super::WmfPlaceableFileHeader, header : *mut super::MetafileHeader) -> super::GpStatus);
     unsafe { GdipGetMetafileHeaderFromWmf(hwmf as _, wmfplaceablefileheader, header as _) }
 }
 #[cfg(all(feature = "gdiplusgpstubs", feature = "gdipluspixelformats", feature = "gdiplustypes"))]

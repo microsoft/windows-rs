@@ -154,9 +154,8 @@ windows_link::link!("winspool.drv" "system" fn EnumPrinterKeyW(hprinter : super:
 windows_link::link!("winspool.drv" "system" fn EnumPrintersA(flags : super::DWORD, name : windows_sys::core::PCSTR, level : super::DWORD, pprinterenum : super::LPBYTE, cbbuf : super::DWORD, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("winspool.drv" "system" fn EnumPrintersW(flags : super::DWORD, name : windows_sys::core::PCWSTR, level : super::DWORD, pprinterenum : super::LPBYTE, cbbuf : super::DWORD, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "C" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : super::LPDEVMODEA, pdevicename : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, pdevmodeinput : super::LPDEVMODEA, pprofile : windows_sys::core::PCSTR, fmode : super::DWORD) -> super::LONG);
+windows_link::link!("winspool.drv" "system" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : super::LPDEVMODEA, pdevicename : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, pdevmodeinput : super::LPDEVMODEA, pprofile : windows_sys::core::PCSTR, fmode : super::DWORD) -> super::LONG);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn FindClosePrinterChangeNotification(hchange : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]

@@ -7635,10 +7635,6 @@ mod Windows {
         extern fn RtlFreeNonVolatileToken(#[in] NvToken: PVOID) -> DWORD;
         #[library("ntdll.dll")]
         extern fn RtlGetDeviceFamilyInfoEnum(#[opt] #[out] pullUAPInfo: *mut ULONGLONG, #[opt] #[out] pulDeviceFamily: *mut DWORD, #[opt] #[out] pulDeviceForm: *mut DWORD);
-        #[arch(X64 | Arm64)]
-        #[library("ntdll.dll")]
-        extern "C" fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
-        #[arch(X86)]
         #[library("ntdll.dll")]
         extern fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
