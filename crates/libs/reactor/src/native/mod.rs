@@ -15,7 +15,6 @@ use windows_core::{
     non_snake_case,
     non_upper_case_globals
 )]
-#[cfg_attr(not(feature = "test"), allow(dead_code))]
 mod bindings;
 
 mod app;

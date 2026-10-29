@@ -1,14 +1,11 @@
 extras::ISwapChainPanelNative::SetSwapChain
 extras::IWindowNative::get_WindowHandle
-Microsoft::UI::WindowId
 Microsoft::UI::Composition::Compositor::{}
 Microsoft::UI::Composition::ICompositionObject::get_Compositor
-Microsoft::UI::Composition::SystemBackdrops::MicaKind
 Microsoft::UI::Composition::Visual::{}
 Microsoft::UI::Content::ContentSizePolicy::ResizeContentToParentWindow
 Microsoft::UI::Content::IDesktopChildSiteBridge::put_ResizePolicy
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
-Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority::{High, Low, Normal}
 Microsoft::UI::Dispatching::IDispatcherQueue::{CreateTimer, TryEnqueueWithPriority}
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{add_Tick, put_Interval, put_IsRepeating, remove_Tick, Start, Stop}
@@ -16,8 +13,6 @@ Microsoft::UI::Input::IPointerPoint::{get_PointerId, get_Position, get_Propertie
 Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed}
 Microsoft::UI::Text::ITextDocument::{get_Selection, GetText, SetText}
 Microsoft::UI::Text::ITextRange::{get_EndPosition, get_StartPosition, SetRange}
-Microsoft::UI::Text::TextGetOptions
-Microsoft::UI::Text::TextSetOptions
 Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, remove_Changed, Resize, SetIcon}
 Microsoft::UI::Windowing::IAppWindow2::get_ClientSize
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
@@ -26,7 +21,6 @@ Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMaximumHeight, pu
 Microsoft::UI::Windowing::TitleBarHeightOption::{Collapsed, Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
-Microsoft::UI::Xaml::ApplicationInitializationCallback
 Microsoft::UI::Xaml::Automation::ExpandCollapseState::Expanded
 Microsoft::UI::Xaml::Automation::Peers::AutomationEvents::LiveRegionChanged
 Microsoft::UI::Xaml::Automation::Peers::AutomationNotificationKind::{ActionAborted, ActionCompleted, ItemAdded, ItemRemoved, Other}
@@ -124,7 +118,6 @@ Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::get_IsSelected
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarCloseReason::Programmatic
-Microsoft::UI::Xaml::Controls::InfoBarSeverity
 Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_Value, put_Header, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::get_Children
@@ -155,8 +148,7 @@ Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_SelectionLength, get_SelectionStart, get_Text, put_Header, put_SelectionLength, put_SelectionStart, put_Text, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_Header, remove_SelectedTimeChanged}
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
-Microsoft::UI::Xaml::Controls::ITitleBar::{add_BackRequested, add_PaneToggleRequested, put_Content, put_RightHeader, remove_BackRequested, remove_PaneToggleRequested}
-Microsoft::UI::Xaml::Controls::ITitleBar::{put_IconSource, put_LeftHeader}
+Microsoft::UI::Xaml::Controls::ITitleBar::{add_BackRequested, add_PaneToggleRequested, put_Content, put_IconSource, put_LeftHeader, put_RightHeader, remove_BackRequested, remove_PaneToggleRequested}
 Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, get_IsOn, put_Header, put_OffContent, put_OnContent, remove_Toggled}
 Microsoft::UI::Xaml::Controls::ITreeView::{add_ItemInvoked, get_RootNodes, remove_ItemInvoked}
 Microsoft::UI::Xaml::Controls::ITreeView2::put_ItemTemplate
@@ -175,19 +167,14 @@ Microsoft::UI::Xaml::Controls::MenuFlyoutItem::CreateInstance
 Microsoft::UI::Xaml::Controls::MenuFlyoutSeparator::CreateInstance
 Microsoft::UI::Xaml::Controls::MenuFlyoutSubItem::CreateInstance
 Microsoft::UI::Xaml::Controls::NavigationView::CreateInstance
-Microsoft::UI::Xaml::Controls::NavigationViewBackButtonVisible
 Microsoft::UI::Xaml::Controls::NavigationViewItem::CreateInstance
-Microsoft::UI::Xaml::Controls::NavigationViewPaneDisplayMode
 Microsoft::UI::Xaml::Controls::NumberBox::CreateInstance
-Microsoft::UI::Xaml::Controls::Orientation
 Microsoft::UI::Xaml::Controls::PasswordBox::CreateInstance
-Microsoft::UI::Xaml::Controls::PasswordRevealMode
 Microsoft::UI::Xaml::Controls::PathIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::PathIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::PersonPicture::CreateInstance
 Microsoft::UI::Xaml::Controls::Pivot::CreateInstance
 Microsoft::UI::Xaml::Controls::PivotItem::CreateInstance
-Microsoft::UI::Xaml::Controls::Primitives::FlyoutPlacementMode
 Microsoft::UI::Xaml::Controls::Primitives::LayoutInformation::GetAvailableSize
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{add_Closed, Hide, put_Placement, put_ShouldConstrainToRootBounds, put_XamlRoot, remove_Closed, ShowAt}
@@ -209,8 +196,6 @@ Microsoft::UI::Xaml::Controls::RichEditBox::CreateInstance
 Microsoft::UI::Xaml::Controls::RichTextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinitionCollection::{}
-Microsoft::UI::Xaml::Controls::ScrollBarVisibility
-Microsoft::UI::Xaml::Controls::ScrollingScrollBarVisibility
 Microsoft::UI::Xaml::Controls::ScrollView::CreateInstance
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::SelectorBar::CreateInstance
@@ -218,17 +203,14 @@ Microsoft::UI::Xaml::Controls::SelectorBarItem::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
 Microsoft::UI::Xaml::Controls::SplitButton::CreateInstance
 Microsoft::UI::Xaml::Controls::SplitView::CreateInstance
-Microsoft::UI::Xaml::Controls::SplitViewDisplayMode
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::SwapChainPanel::CreateInstance
-Microsoft::UI::Xaml::Controls::Symbol
 Microsoft::UI::Xaml::Controls::SymbolIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::SymbolIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::TabView::CreateInstance
 Microsoft::UI::Xaml::Controls::TabViewItem::CreateInstance
 Microsoft::UI::Xaml::Controls::TeachingTip::CreateInstance
 Microsoft::UI::Xaml::Controls::TeachingTipCloseReason::Programmatic
-Microsoft::UI::Xaml::Controls::TeachingTipPlacementMode
 Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TimePicker::CreateInstance
@@ -245,7 +227,6 @@ Microsoft::UI::Xaml::Controls::WebView2::CreateInstance
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
 Microsoft::UI::Xaml::CornerRadius
 Microsoft::UI::Xaml::DataTemplate::{}
-Microsoft::UI::Xaml::DependencyPropertyChangedCallback
 Microsoft::UI::Xaml::DispatcherShutdownMode::OnExplicitShutdown
 Microsoft::UI::Xaml::Documents::Block::{}
 Microsoft::UI::Xaml::Documents::Hyperlink::CreateInstance
@@ -260,9 +241,6 @@ Microsoft::UI::Xaml::Documents::Paragraph::CreateInstance
 Microsoft::UI::Xaml::Documents::Run::CreateInstance
 Microsoft::UI::Xaml::ElementTheme::{Dark, Default, Light}
 Microsoft::UI::Xaml::FocusState::{Keyboard, Pointer, Programmatic, Unfocused}
-Microsoft::UI::Xaml::GridLength
-Microsoft::UI::Xaml::GridUnitType
-Microsoft::UI::Xaml::HorizontalAlignment
 Microsoft::UI::Xaml::Hosting::DesktopWindowXamlSource::CreateInstance
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
 Microsoft::UI::Xaml::Hosting::IDesktopWindowXamlSource::{Initialize, get_SiteBridge, put_Content}
@@ -294,12 +272,10 @@ Microsoft::UI::Xaml::IVector3Transition::put_Duration
 Microsoft::UI::Xaml::IWindow::{Activate, add_Closed, Close, put_Content, put_ExtendsContentIntoTitleBar, put_Title, remove_Closed, SetTitleBar}
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft::UI::Xaml::IXamlRoot::{add_Changed, get_RasterizationScale, remove_Changed}
-Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
 Microsoft::UI::Xaml::Markup::IXamlType::{}
 Microsoft::UI::Xaml::Markup::XamlBindingHelper::ConvertValue
 Microsoft::UI::Xaml::Markup::XamlReader::Load
-Microsoft::UI::Xaml::Markup::XmlnsDefinition
 Microsoft::UI::Xaml::Media::Animation::RepositionThemeTransition::CreateInstance
 Microsoft::UI::Xaml::Media::Animation::Transition::{}
 Microsoft::UI::Xaml::Media::Animation::TransitionCollection::CreateInstance
@@ -318,7 +294,6 @@ Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
 Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
 Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
-Microsoft::UI::Xaml::Media::Stretch
 Microsoft::UI::Xaml::Media::SystemBackdrop::{}
 Microsoft::UI::Xaml::Media::VisualTreeHelper::{GetChild, GetChildrenCount}
 Microsoft::UI::Xaml::ResourceDictionary::{}
@@ -327,30 +302,23 @@ Microsoft::UI::Xaml::Shapes::Ellipse::CreateInstance
 Microsoft::UI::Xaml::Shapes::Line::CreateInstance
 Microsoft::UI::Xaml::Shapes::Rectangle::CreateInstance
 Microsoft::UI::Xaml::Style::{}
-Microsoft::UI::Xaml::TextTrimming
-Microsoft::UI::Xaml::TextWrapping
 Microsoft::UI::Xaml::Thickness
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Vector3Transition::CreateInstance
-Microsoft::UI::Xaml::VerticalAlignment
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
 Windows::ApplicationModel::DataTransfer::DataPackageOperation::{Copy, Link, Move, None}
 Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetStorageItemsAsync, GetTextAsync}
 Windows::Foundation::Numerics::Vector3
 Windows::Foundation::Uri::CreateUri
-Windows::Graphics::SizeInt32
 Windows::Storage::IStorageItem::{get_Name, get_Path}
 Windows::Storage::Streams::DataWriter::CreateDataWriter
 Windows::Storage::Streams::IDataWriter::{DetachStream, StoreAsync, WriteBytes}
 Windows::Storage::Streams::InMemoryRandomAccessStream::CreateInstance
 Windows::Storage::Streams::IRandomAccessStream::{GetOutputStreamAt, Seek}
 Windows::System::{VirtualKey, VirtualKeyModifiers}
-Windows::UI::Core::CorePhysicalKeyStatus
 Windows::UI::Text::FontStyle::Italic
-Windows::UI::Text::FontWeight
 Windows::UI::Xaml::Interop::TypeKind::Metadata
-Windows::UI::Xaml::Interop::TypeName
 Windows::Win32::AddPackageDependency
 Windows::Win32::APPMODEL_ERROR_NO_PACKAGE
 Windows::Win32::COINIT_APARTMENTTHREADED
@@ -384,7 +352,6 @@ Windows::Win32::MessageBoxW
 Windows::Win32::MONITOR_DEFAULTTONEAREST
 Windows::Win32::MonitorFromRect
 Windows::Win32::MonitorFromWindow
-Windows::Win32::PACKAGE_VERSION
 Windows::Win32::PackageDependencyProcessorArchitectures::{PackageDependencyProcessorArchitectures_Arm, PackageDependencyProcessorArchitectures_Arm64, PackageDependencyProcessorArchitectures_Neutral, PackageDependencyProcessorArchitectures_None, PackageDependencyProcessorArchitectures_X64, PackageDependencyProcessorArchitectures_X86}
 Windows::Win32::PostQuitMessage
 Windows::Win32::RegGetValueW
