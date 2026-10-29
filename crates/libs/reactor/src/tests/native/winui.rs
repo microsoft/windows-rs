@@ -18,14 +18,14 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
     let bytes = EncodedImage::new(b"<svg/>".to_vec());
     let held = ImageSourceValue::Svg(bytes.clone());
     drop(get(&mut cache, &held));
-    cache.prune();
+    cache.prune(|_| false);
     assert_eq!(**get(&mut cache, &ImageSourceValue::Svg(bytes.clone())), 1);
 
     // Separate allocations decode separately, and dropping one does not release the other.
     let copy = svg(b"<svg/>");
     assert_eq!(**get(&mut cache, &copy), 2);
     drop(copy);
-    cache.prune();
+    cache.prune(|_| false);
     assert_eq!(**get(&mut cache, &held), 1);
 
     // The same bytes as a bitmap are a different source.
@@ -36,13 +36,13 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
 
     // Once the app drops the bytes, the source is released.
     drop((held, bytes));
-    cache.prune();
+    cache.prune(|_| false);
     assert!(cache.bytes.is_empty());
 
     // Static bytes are always held.
     let fixed = ImageSourceValue::Encoded(EncodedImage::from_static(b"png"));
     drop(get(&mut cache, &fixed));
-    cache.prune();
+    cache.prune(|_| false);
     assert_eq!(**get(&mut cache, &fixed), 4);
 
     // URI sources live only while a control uses them.
@@ -50,7 +50,7 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
     let shown = get(&mut cache, &uri);
     assert!(Rc::ptr_eq(&get(&mut cache, &uri), &shown));
     drop(shown);
-    cache.prune();
+    cache.prune(|_| false);
     assert_eq!(**get(&mut cache, &uri), 6);
 }
 
@@ -83,6 +83,24 @@ fn image_cache_gives_each_control_its_own_svg_source() {
         assert_eq!(**third, value);
         drop((kept, second, third));
     }
+}
+
+#[test]
+fn image_cache_drops_unused_sources_that_have_not_started_loading() {
+    let mut cache = ImageCache::<u32>::default();
+    let svg = ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec()));
+    let get = |cache: &mut ImageCache<u32>, value| {
+        cache.get_or_insert(&svg, || Ok::<_, ()>(value)).unwrap()
+    };
+
+    // A pending source in use stays, while an unused one goes even though the app holds its bytes.
+    let shown = get(&mut cache, 1);
+    drop(get(&mut cache, 2));
+    cache.prune(|_| true);
+    assert_eq!(**get(&mut cache, 3), 3);
+    drop(shown);
+    cache.prune(|_| true);
+    assert!(cache.bytes.is_empty());
 }
 
 #[test]

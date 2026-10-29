@@ -120,15 +120,21 @@ impl<T> ImageCache<T> {
         }
     }
 
-    /// Drops URI sources no control uses and byte sources whose bytes the app has released.
-    pub(super) fn prune(&mut self) {
+    /// Drops URI sources no control uses, byte sources whose bytes the app has released, and
+    /// unused byte sources that are still `pending`.
+    ///
+    /// A pending source has not started loading and holds its bytes, so a control removed before
+    /// it was loaded would otherwise keep the bytes, and the source, alive.
+    pub(super) fn prune(&mut self, pending: impl Fn(&T) -> bool) {
         self.uris.retain(|_, pool| {
             pool.retain(|pooled| pooled.image.strong_count() != 0);
             !pool.is_empty()
         });
         // Holding a weak reference keeps the allocation, and so its key, from being reused.
-        self.bytes
-            .retain(|_, (owner, _)| owner.as_ref().is_none_or(|owner| owner.strong_count() != 0));
+        self.bytes.retain(|_, (owner, pool)| {
+            pool.retain(|pooled| pooled.used.get() || !pending(&pooled.image));
+            !pool.is_empty() && owner.as_ref().is_none_or(|owner| owner.strong_count() != 0)
+        });
     }
 }
 
@@ -255,19 +261,46 @@ impl NativeImageSource {
         })
     }
 
+    /// Whether this source is waiting for a control to load before it starts loading.
+    pub(super) fn is_pending(&self) -> bool {
+        self.deferred.borrow().is_some()
+    }
+
     /// Starts a deferred load once `consumer`, the control displaying this source, is loaded.
     pub(super) fn attach(self: &Rc<Self>, consumer: &native::UIElement) -> Result<(), WinUiError> {
+        self.when_loaded(consumer, |image| image.start_deferred())
+    }
+
+    /// Starts a deferred load once the icon element of `title_bar` is loaded.
+    ///
+    /// TitleBar creates its icon element from the icon source and creates it again when its
+    /// template is applied, so the element that is displayed is known once the TitleBar loads.
+    pub(super) fn attach_title_bar(
+        self: &Rc<Self>,
+        title_bar: &native::TitleBar,
+    ) -> Result<(), WinUiError> {
+        let host = title_bar.clone();
+        self.when_loaded(&title_bar.cast()?, move |image| {
+            image.attach(&host.TemplateSettings()?.IconElement()?.cast()?)
+        })
+    }
+
+    fn when_loaded(
+        self: &Rc<Self>,
+        element: &native::UIElement,
+        start: impl Fn(&Rc<Self>) -> Result<(), WinUiError> + 'static,
+    ) -> Result<(), WinUiError> {
         if self.deferred.borrow().is_none() {
             return Ok(());
         }
-        let consumer = consumer.cast::<native::IFrameworkElement>()?;
-        if consumer.IsLoaded()? {
-            return self.start_deferred();
+        let element = element.cast::<native::IFrameworkElement>()?;
+        if element.IsLoaded()? {
+            return start(self);
         }
         let image = Rc::downgrade(self);
-        let loaded = consumer.Loaded(move |_, _| {
+        let loaded = element.Loaded(move |_, _| {
             if let Some(image) = image.upgrade() {
-                image.start_deferred().unwrap();
+                start(&image).unwrap();
             }
         })?;
         // Replaces the observer of a previous user that left before loading.

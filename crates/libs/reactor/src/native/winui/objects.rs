@@ -289,9 +289,7 @@ impl WinUiAdapter {
                 if let Handle::Generated(GeneratedHandle::TitleBar(title_bar)) =
                     &self.handles[&object]
                 {
-                    // TitleBar creates its icon element from the icon source.
-                    let icon = title_bar.value.TemplateSettings()?.IconElement()?;
-                    image.attach(&icon.cast()?)?;
+                    image.attach_title_bar(&title_bar.value)?;
                 }
                 self.image_subscriptions.insert(
                     object,
