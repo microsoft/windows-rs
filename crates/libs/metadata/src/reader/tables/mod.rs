@@ -6,6 +6,7 @@ mod class_layout;
 mod constant;
 mod event;
 mod field;
+mod field_layout;
 mod generic_param;
 mod impl_map;
 mod interface_impl;
@@ -67,4 +68,5 @@ tables! {
     (Property, 20)
     (PropertyMap, 21)
     (MethodSemantics, 22)
+    (FieldLayout, 23)
 }
