@@ -988,11 +988,6 @@ mod Windows {
             EtwTraceProcessingVersion: UINT,
             Reserved: UINT,
         }
-        #[arch(X64 | Arm64)]
-        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        #[success(return == 0)]
-        extern "C" fn TraceConfigureLastBranchRecord(#[in] TraceId: CONTROLTRACE_ID, #[in] LbrConfiguration: TRACE_LBR_CONFIGURATION, #[in] #[readable(entry, EventCount)] Events: *const CLASSIC_EVENT_ID, #[in] EventCount: ULONG) -> ULONG;
-        #[arch(X86)]
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         #[success(return == 0)]
         extern fn TraceConfigureLastBranchRecord(#[in] TraceId: CONTROLTRACE_ID, #[in] LbrConfiguration: TRACE_LBR_CONFIGURATION, #[in] #[readable(entry, EventCount)] Events: *const CLASSIC_EVENT_ID, #[in] EventCount: ULONG) -> ULONG;
@@ -1002,10 +997,6 @@ mod Windows {
         extern fn TraceEventInstance(#[in] TraceHandle: TRACELOGGER_HANDLE, #[in] EventTrace: PEVENT_INSTANCE_HEADER, #[in] InstInfo: PEVENT_INSTANCE_INFO, #[in] #[opt] ParentInstInfo: PEVENT_INSTANCE_INFO) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern "C" fn TraceMessage(#[in] LoggerHandle: TRACELOGGER_HANDLE, #[in] MessageFlags: ULONG, #[in] MessageGuid: LPCGUID, #[in] MessageNumber: USHORT, ...) -> ULONG;
-        #[arch(X64 | Arm64)]
-        #[library("ADVAPI32.dll")]
-        extern "C" fn TraceMessageVa(#[in] LoggerHandle: TRACELOGGER_HANDLE, #[in] MessageFlags: ULONG, #[in] MessageGuid: LPCGUID, #[in] MessageNumber: USHORT, #[in] MessageArgList: va_list) -> ULONG;
-        #[arch(X86)]
         #[library("ADVAPI32.dll")]
         extern fn TraceMessageVa(#[in] LoggerHandle: TRACELOGGER_HANDLE, #[in] MessageFlags: ULONG, #[in] MessageGuid: LPCGUID, #[in] MessageNumber: USHORT, #[in] MessageArgList: va_list) -> ULONG;
         #[library("ADVAPI32.dll")]

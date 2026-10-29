@@ -4099,7 +4099,7 @@ fn calling_defaults() {
             &output,
             |index, bit| {
                 for name in ["Plain", "Cdecl", "Stdcall"] {
-                    let expected = if name == "Stdcall" || stdcall && name == "Plain" && bit == 1 {
+                    let expected = if name == "Stdcall" || stdcall && name == "Plain" {
                         "system"
                     } else {
                         "C"

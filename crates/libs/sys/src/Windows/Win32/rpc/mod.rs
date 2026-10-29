@@ -63,8 +63,7 @@ windows_link::link!("rpcrt4.dll" "system" fn I_RpcSendReceive(message : *mut RPC
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerCheckClientRestriction(context : RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerDisableExceptionFilter() -> i32);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : RPC_BINDING_HANDLE, associationid : *mut u32) -> windows_sys::core::RPC_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("rpcrt4.dll" "C" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqLocalConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqRemoteConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqTransportType(r#type : *mut u32) -> windows_sys::core::RPC_STATUS);

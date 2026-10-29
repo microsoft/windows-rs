@@ -85,9 +85,8 @@ windows_link::link!("iphlpapi.dll" "system" fn GetIpStatisticsEx(statistics : su
 windows_link::link!("iphlpapi.dll" "system" fn GetNetworkParams(pfixedinfo : super::PFIXED_INFO, poutbuflen : super::PULONG) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetNumberOfInterfaces(pdwnumif : super::PDWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "iprtrmib", feature = "minwindef", feature = "shared", feature = "winnt"))]
-windows_link::link!("iphlpapi.dll" "C" fn GetOwnerModuleFromPidAndInfo(ulpid : super::ULONG, pinfo : *const super::ULONGLONG, class : super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : super::PVOID, pdwsize : super::PDWORD) -> super::DWORD);
+windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromPidAndInfo(ulpid : super::ULONG, pinfo : *const super::ULONGLONG, class : super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : super::PVOID, pdwsize : super::PDWORD) -> super::DWORD);
 #[cfg(all(feature = "iprtrmib", feature = "minwindef", feature = "shared", feature = "tcpmib", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcp6Entry(ptcpentry : super::PMIB_TCP6ROW_OWNER_MODULE, class : super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : super::PVOID, pdwsize : super::PDWORD) -> super::DWORD);
 #[cfg(all(feature = "iprtrmib", feature = "minwindef", feature = "shared", feature = "tcpmib", feature = "winnt"))]

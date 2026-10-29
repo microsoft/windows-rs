@@ -358,11 +358,6 @@ mod Windows {
         #[library("wer.dll")]
         extern fn WerAddExcludedApplication(#[in] pwzExeName: PCWSTR, #[in] bAllUsers: BOOL) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerFreeString(#[in] pwszStr: PCWSTR);
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerFreeString(#[in] pwszStr: PCWSTR);
         #[library("KERNEL32.dll")]
@@ -400,91 +395,36 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WerSetFlags(#[in] dwFlags: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[opt] hReportStore: HREPORTSTORE);
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[opt] hReportStore: HREPORTSTORE);
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreGetReportCount(#[in] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreGetReportCount(#[in] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreGetSizeOnDisk(#[in] hReportStore: HREPORTSTORE, #[out] pqwSizeInBytes: *mut ULONGLONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreGetSizeOnDisk(#[in] hReportStore: HREPORTSTORE, #[out] pqwSizeInBytes: *mut ULONGLONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreOpen(#[in] repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreOpen(#[in] repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStorePurge() -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStorePurge() -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV1(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreQueryReportMetadataV1(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV2(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreQueryReportMetadataV2(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV3(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreQueryReportMetadataV3(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X64 | Arm64)]
-        #[library("wer.dll")]
-        extern "C" fn WerStoreUploadReport(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[arch(X86)]
         #[library("wer.dll")]
         extern fn WerStoreUploadReport(#[in] hReportStore: HREPORTSTORE, #[in] pszReportKey: PCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]

@@ -12,12 +12,10 @@ windows_link::link!("netapi32.dll" "system" fn NetAccessGetInfo(servername : win
 windows_link::link!("netapi32.dll" "system" fn NetAccessGetUserPerms(servername : windows_sys::core::PCWSTR, ugname : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, perms : super::LPDWORD) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("netapi32.dll" "C" fn NetAddServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::NTSTATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("netapi32.dll" "C" fn NetEnumerateServiceAccounts(servername : windows_sys::core::PCWSTR, flags : super::DWORD, accountscount : *mut super::DWORD, accounts : *mut super::PZPWSTR) -> windows_sys::core::NTSTATUS);
+windows_link::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_sys::core::PCWSTR, flags : super::DWORD, accountscount : *mut super::DWORD, accounts : *mut super::PZPWSTR) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "shared")]
 windows_link::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : windows_sys::core::PCWSTR, domainname : windows_sys::core::PCWSTR, buffer : *mut super::LPBYTE) -> super::DWORD);
 #[cfg(feature = "shared")]
@@ -42,10 +40,8 @@ windows_link::link!("netapi32.dll" "system" fn NetGroupGetUsers(servername : win
 windows_link::link!("netapi32.dll" "system" fn NetGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, totalentries : super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("netapi32.dll" "C" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL) -> windows_sys::core::NTSTATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("netapi32.dll" "C" fn NetIsServiceAccount2(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_sys::core::NTSTATUS);
+windows_link::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL) -> windows_sys::core::NTSTATUS);
+windows_link::link!("netapi32.dll" "system" fn NetIsServiceAccount2(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -70,12 +66,10 @@ windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetInfo(servername :
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, totalentries : super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : windows_sys::core::PCWSTR, level : super::DWORD, index : super::DWORD, entriesrequested : super::DWORD, preferredmaximumlength : super::DWORD, returnedentrycount : super::LPDWORD, sortedbuffer : *mut super::PVOID) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("netapi32.dll" "C" fn NetQueryServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, infolevel : super::DWORD, buffer : *mut super::PBYTE) -> windows_sys::core::NTSTATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, infolevel : super::DWORD, buffer : *mut super::PBYTE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "shared")]
-windows_link::link!("netapi32.dll" "C" fn NetRemoveServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::NTSTATUS);
+windows_link::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("netapi32.dll" "system" fn NetUserAdd(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
 #[cfg(feature = "shared")]

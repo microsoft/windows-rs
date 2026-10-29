@@ -2,9 +2,8 @@
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddFilterV4(serveripaddress : *const super::WCHAR, addfilterinfo : *const DHCP_FILTER_ADD_INFO, forceflag : windows_sys::core::BOOL) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddSecurityGroup(pserver : windows_sys::core::PCWSTR) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpAddServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElement(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -13,15 +12,12 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV4(serveripad
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV5(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V5) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV6(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, addelementinfo : LPDHCP_SUBNET_ELEMENT_DATA_V6) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpAuditLogGetParams(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, auditlogdir : *mut windows_sys::core::PWSTR, diskcheckinterval : *mut super::DWORD, maxlogfilessize : *mut super::DWORD, minspaceondisk : *mut super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpAuditLogGetParams(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, auditlogdir : *mut windows_sys::core::PWSTR, diskcheckinterval : *mut super::DWORD, maxlogfilessize : *mut super::DWORD, minspaceondisk : *mut super::DWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpAuditLogSetParams(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, auditlogdir : windows_sys::core::PCWSTR, diskcheckinterval : super::DWORD, maxlogfilessize : super::DWORD, minspaceondisk : super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpAuditLogSetParams(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, auditlogdir : windows_sys::core::PCWSTR, diskcheckinterval : super::DWORD, maxlogfilessize : super::DWORD, minspaceondisk : super::DWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpCreateClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateClassV6(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -32,9 +28,8 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateClientInfoV4(serveripad
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateClientInfoVQ(serveripaddress : *const super::WCHAR, clientinfo : *const DHCP_CLIENT_INFO_VQ) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateOption(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *const DHCP_OPTION) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpCreateOptionV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateOptionV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateOptionV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -43,9 +38,8 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnet(serveripaddress 
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetV6(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpDeleteClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classname : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classname : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteClassV6(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classname : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -54,45 +48,37 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteClientInfo(serveripaddr
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteClientInfoV6(serveripaddress : *const super::WCHAR, clientinfo : *const DHCP_SEARCH_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteFilterV4(serveripaddress : *const super::WCHAR, deletefilterinfo : *const DHCP_ADDR_PATTERN) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpDeleteServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteServer(flags : super::DWORD, idinfo : super::LPVOID, newserver : LPDHCP_SERVER_INFO, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnet(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnetV6(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpDeleteSuperScopeV4(serveripaddress : *const super::WCHAR, superscopename : windows_sys::core::PCWSTR) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpDsCleanup());
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpDeleteSuperScopeV4(serveripaddress : *const super::WCHAR, superscopename : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup());
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpDsInit() -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpDsInit() -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpEnumClasses(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY, nread : *mut super::DWORD, ntotal : *mut super::DWORD) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumClasses(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY, nread : *mut super::DWORD, ntotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumClassesV6(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY_V6, nread : *mut super::DWORD, ntotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumFilterV4(serveripaddress : *const super::WCHAR, resumehandle : LPDHCP_ADDR_PATTERN, preferredmaximum : super::DWORD, listtype : DHCP_FILTER_LIST_TYPE, enumfilterinfo : *mut LPDHCP_FILTER_ENUM_INFO, elementsread : *mut super::DWORD, elementstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValues(serveripaddress : *const super::WCHAR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpEnumOptionValuesV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValuesV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValuesV6(serveripaddress : *const super::WCHAR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, optionvalues : *mut LPDHCP_OPTION_VALUE_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptions(serveripaddress : *const super::WCHAR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpEnumOptionsV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, options : *mut LPDHCP_OPTION_ARRAY, optionsread : *mut super::DWORD, optionstotal : *mut super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpEnumServers(flags : super::DWORD, idinfo : super::LPVOID, servers : *mut LPDHCP_SERVER_INFO_ARRAY, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumServers(flags : super::DWORD, idinfo : super::LPVOID, servers : *mut LPDHCP_SERVER_INFO_ARRAY, callbackfn : super::LPVOID, callbackdata : super::LPVOID) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClients(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, clientinfo : *mut LPDHCP_CLIENT_INFO_ARRAY, clientsread : *mut super::DWORD, clientstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -117,19 +103,16 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElementsV6(serverip
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnets(serveripaddress : *const super::WCHAR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, enuminfo : *mut LPDHCP_IP_ARRAY, elementsread : *mut super::DWORD, elementstotal : *mut super::DWORD) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetsV6(serveripaddress : *const super::WCHAR, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : super::DWORD, enuminfo : *mut LPDHCPV6_IP_ARRAY, elementsread : *mut super::DWORD, elementstotal : *mut super::DWORD) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetAllOptionValues(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValues(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValuesV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, values : *mut LPDHCP_ALL_OPTION_VALUES) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetAllOptions(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptions(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionsV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetClassInfo(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, partialclassinfo : LPDHCP_CLASS_INFO, filledclassinfo : *mut LPDHCP_CLASS_INFO) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetClassInfo(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, partialclassinfo : LPDHCP_CLASS_INFO, filledclassinfo : *mut LPDHCP_CLASS_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetClientInfo(serveripaddress : *const super::WCHAR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut LPDHCP_CLIENT_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -146,24 +129,20 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetFilterV4(serveripaddress :
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfo(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV5(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V5) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetMibInfoV6(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V6) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV6(serveripaddress : *const super::WCHAR, mibinfo : *mut LPDHCP_MIB_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfo(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetOptionInfoV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfoV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfoV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : *mut LPDHCP_OPTION) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetOptionValueV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, optionvalue : *mut LPDHCP_OPTION_VALUE) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetServerBindingInfo(serveripaddress : *const super::WCHAR, flags : super::ULONG, bindelementsinfo : *mut LPDHCP_BIND_ELEMENT_ARRAY) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -178,12 +157,10 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfo(serveripaddress
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoV6(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *mut LPDHCP_SUBNET_INFO_VQ) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetSuperScopeInfoV4(serveripaddress : *const super::WCHAR, superscopetable : *mut LPDHCP_SUPER_SCOPE_TABLE) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetSuperScopeInfoV4(serveripaddress : *const super::WCHAR, superscopetable : *mut LPDHCP_SUPER_SCOPE_TABLE) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpGetThreadOptions(pflags : super::LPDWORD, reserved : super::LPVOID) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetThreadOptions(pflags : super::LPDWORD, reserved : super::LPVOID) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpGetVersion(serveripaddress : windows_sys::core::PCWSTR, majorversion : super::LPDWORD, minorversion : super::LPDWORD) -> super::DWORD);
 #[cfg(feature = "shared")]
@@ -196,9 +173,8 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyRange(policy :
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_sys::core::PCWSTR, fglobalpolicy : windows_sys::core::BOOL, subnet : DHCP_IP_ADDRESS, processingorder : super::DWORD, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_sys::core::PCWSTR, enabled : windows_sys::core::BOOL, policy : *mut LPDHCP_POLICY) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_sys::core::PCWSTR, fglobalpolicy : windows_sys::core::BOOL, subnet : DHCP_IP_ADDRESS, processingorder : super::DWORD, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_sys::core::PCWSTR, enabled : windows_sys::core::BOOL, policy : *mut LPDHCP_POLICY_EX) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpHlprFindV4DhcpProperty(propertyarray : LPDHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprFindV4DhcpProperty(propertyarray : LPDHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : LPDHCP_PROPERTY));
 #[cfg(feature = "shared")]
@@ -221,23 +197,20 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyWellFormed(ppol
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprModifyV4PolicyExpr(policy : LPDHCP_POLICY, operator : DHCP_POL_LOGIC_OPER) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpHlprResetV4PolicyExpr(policy : LPDHCP_POLICY) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpModifyClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpModifyClass(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpModifyClassV6(serveripaddress : windows_sys::core::PCWSTR, reservedmustbezero : super::DWORD, classinfo : LPDHCP_CLASS_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOption(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpRemoveOptionV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpRemoveOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValueV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -254,9 +227,8 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer :
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpScanDatabase(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, fixflag : super::DWORD, scanlist : *mut LPDHCP_SCAN_LIST) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerBackupDatabase(serveripaddress : windows_sys::core::PCWSTR, path : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerBackupDatabase(serveripaddress : windows_sys::core::PCWSTR, path : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfig(serveripaddress : *const super::WCHAR, configinfo : *mut LPDHCP_SERVER_CONFIG_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -265,21 +237,16 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigV4(serveripadd
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigV6(serveripaddress : *const super::WCHAR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, configinfo : *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigVQ(serveripaddress : *const super::WCHAR, configinfo : *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerQueryAttribute(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG, dhcpattribid : DHCP_ATTRIB_ID, pdhcpattrib : *mut LPDHCP_ATTRIB) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttribute(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG, dhcpattribid : DHCP_ATTRIB_ID, pdhcpattrib : *mut LPDHCP_ATTRIB) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerQueryAttributes(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG, dwattribcount : super::ULONG, pdhcpattribs : *mut DHCP_ATTRIB_ID, pdhcpattribarr : *mut LPDHCP_ATTRIB_ARRAY) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttributes(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG, dwattribcount : super::ULONG, pdhcpattribs : *mut DHCP_ATTRIB_ID, pdhcpattribarr : *mut LPDHCP_ATTRIB_ARRAY) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_sys::core::PCWSTR, unamesize : super::ULONG, uname : windows_sys::core::PWSTR, domainsize : super::ULONG, domain : windows_sys::core::PWSTR) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_sys::core::PCWSTR, unamesize : super::ULONG, uname : windows_sys::core::PWSTR, domainsize : super::ULONG, domain : windows_sys::core::PWSTR) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerRedoAuthorization(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerRedoAuthorization(serveripaddr : windows_sys::core::PCWSTR, dwreserved : super::ULONG) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerRestoreDatabase(serveripaddress : windows_sys::core::PCWSTR, path : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerRestoreDatabase(serveripaddress : windows_sys::core::PCWSTR, path : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfig(serveripaddress : *const super::WCHAR, fieldstoset : super::DWORD, configinfo : LPDHCP_SERVER_CONFIG_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -288,12 +255,10 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigV4(serveripadd
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigV6(serveripaddress : *const super::WCHAR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, fieldstoset : super::DWORD, configinfo : LPDHCP_SERVER_CONFIG_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigVQ(serveripaddress : *const super::WCHAR, fieldstoset : super::DWORD, configinfo : LPDHCP_SERVER_CONFIG_INFO_VQ) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerSetDnsRegCredentials(serveripaddress : windows_sys::core::PCWSTR, uname : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentials(serveripaddress : windows_sys::core::PCWSTR, uname : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpServerSetDnsRegCredentialsV5(serveripaddress : windows_sys::core::PCWSTR, uname : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentialsV5(serveripaddress : windows_sys::core::PCWSTR, uname : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfo(serveripaddress : *const super::WCHAR, clientinfo : *const DHCP_CLIENT_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -306,23 +271,20 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfoVQ(serveripaddre
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetFilterV4(serveripaddress : *const super::WCHAR, globalfilterinfo : *const DHCP_FILTER_GLOBAL_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfo(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, optioninfo : *const DHCP_OPTION) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetOptionInfoV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfoV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfoV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, optioninfo : LPDHCP_OPTION) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValue(serveripaddress : *const super::WCHAR, optionid : DHCP_OPTION_ID, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *const DHCP_OPTION_DATA) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : LPDHCP_OPTION_DATA) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValueV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalue : LPDHCP_OPTION_DATA) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValueV6(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, optionid : DHCP_OPTION_ID, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO6, optionvalue : LPDHCP_OPTION_DATA) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValues(serveripaddress : *const super::WCHAR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalues : *const DHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetOptionValuesV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalues : LPDHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValuesV5(serveripaddress : windows_sys::core::PCWSTR, flags : super::DWORD, classname : windows_sys::core::PCWSTR, vendorname : windows_sys::core::PCWSTR, scopeinfo : LPDHCP_OPTION_SCOPE_INFO, optionvalues : LPDHCP_OPTION_VALUE_ARRAY) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetServerBindingInfo(serveripaddress : *const super::WCHAR, flags : super::ULONG, bindelementinfo : LPDHCP_BIND_ELEMENT_ARRAY) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -331,17 +293,14 @@ windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetServerBindingInfoV6(server
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetDelayOffer(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IP_ADDRESS, timedelayinmilliseconds : super::USHORT) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfo(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetSubnetInfoV6(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoV6(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : LPDHCP_SUBNET_INFO_V6) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoVQ(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetSuperScopeV4(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, superscopename : windows_sys::core::PCWSTR, changeexisting : windows_sys::core::BOOL) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : *const super::WCHAR, subnetaddress : DHCP_IP_ADDRESS, superscopename : windows_sys::core::PCWSTR, changeexisting : windows_sys::core::BOOL) -> super::DWORD);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-windows_link::link!("dhcpsapi.dll" "C" fn DhcpSetThreadOptions(flags : super::DWORD, reserved : super::LPVOID) -> super::DWORD);
+windows_link::link!("dhcpsapi.dll" "system" fn DhcpSetThreadOptions(flags : super::DWORD, reserved : super::LPVOID) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dhcpsapi.dll" "system" fn DhcpV4AddPolicyRange(serveripaddress : windows_sys::core::PCWSTR, subnetaddress : DHCP_IP_ADDRESS, policyname : windows_sys::core::PCWSTR, range : LPDHCP_IP_RANGE) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]

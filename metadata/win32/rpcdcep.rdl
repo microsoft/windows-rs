@@ -149,10 +149,6 @@ mod Windows {
         extern fn I_RpcServerDisableExceptionFilter() -> i32;
         #[library("RPCRT4.dll")]
         extern fn I_RpcServerGetAssociationID(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[out] AssociationID: *mut u32) -> RPC_STATUS;
-        #[arch(X64 | Arm64)]
-        #[library("RPCRT4.dll")]
-        extern "C" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN;
-        #[arch(X86)]
         #[library("RPCRT4.dll")]
         extern fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN;
         #[library("RPCRT4.dll")]

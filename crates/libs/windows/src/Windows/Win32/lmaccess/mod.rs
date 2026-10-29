@@ -67,7 +67,6 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : windows_core::PCWSTR, resource : windows_core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
     unsafe { NetAccessSetInfo(servername.param().abi(), resource.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: super::DWORD) -> windows_core::NTSTATUS
@@ -76,17 +75,16 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::NTSTATUS);
     unsafe { NetAddServiceAccount(servername.param().abi(), accountname.param().abi(), password.param().abi(), flags) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: super::DWORD, accountscount: *mut super::DWORD, accounts: *mut super::PZPWSTR) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : super::DWORD, accountscount : *mut super::DWORD, accounts : *mut super::PZPWSTR) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : super::DWORD, accountscount : *mut super::DWORD, accounts : *mut super::PZPWSTR) -> windows_core::NTSTATUS);
     unsafe { NetEnumerateServiceAccounts(servername.param().abi(), flags, accountscount as _, accounts as _) }
 }
 #[cfg(feature = "shared")]
@@ -209,24 +207,22 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, totalentries : super::DWORD) -> super::DWORD);
     unsafe { NetGroupSetUsers(servername.param().abi(), groupname.param().abi(), level, buf, totalentries) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> windows_core::NTSTATUS);
     unsafe { NetIsServiceAccount(servername.param().abi(), accountname.param().abi(), isservice as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn NetIsServiceAccount2<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL, accounttype: *mut MSA_INFO_ACCOUNT_TYPE) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetIsServiceAccount2(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount2(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_core::NTSTATUS);
     unsafe { NetIsServiceAccount2(servername.param().abi(), accountname.param().abi(), isservice as _, accounttype as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -346,7 +342,6 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : windows_core::PCWSTR, level : super::DWORD, index : super::DWORD, entriesrequested : super::DWORD, preferredmaximumlength : super::DWORD, returnedentrycount : super::LPDWORD, sortedbuffer : *mut super::PVOID) -> super::DWORD);
     unsafe { NetQueryDisplayInformation(servername.param().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount as _, sortedbuffer as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: super::DWORD, buffer: *mut super::PBYTE) -> windows_core::NTSTATUS
@@ -354,10 +349,9 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : super::DWORD, buffer : *mut super::PBYTE) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : super::DWORD, buffer : *mut super::PBYTE) -> windows_core::NTSTATUS);
     unsafe { NetQueryServiceAccount(servername.param().abi(), accountname.param().abi(), infolevel, buffer as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: super::DWORD) -> windows_core::NTSTATUS
@@ -365,7 +359,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "C" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::NTSTATUS);
     unsafe { NetRemoveServiceAccount(servername.param().abi(), accountname.param().abi(), flags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]

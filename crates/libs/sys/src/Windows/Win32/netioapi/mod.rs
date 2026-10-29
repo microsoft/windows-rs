@@ -132,9 +132,8 @@ windows_link::link!("iphlpapi.dll" "system" fn GetTeredoPort(port : *mut super::
 windows_link::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressEntry(row : PMIB_UNICASTIPADDRESS_ROW) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> windows_sys::core::NTSTATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ifdef", feature = "shared", feature = "ws2"))]
-windows_link::link!("iphlpapi.dll" "C" fn InitializeFlVirtualInterfaceEntry(row : PMIB_FL_VIRTUAL_INTERFACE_ROW));
+windows_link::link!("iphlpapi.dll" "system" fn InitializeFlVirtualInterfaceEntry(row : PMIB_FL_VIRTUAL_INTERFACE_ROW));
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "shared", feature = "ws2"))]
 windows_link::link!("iphlpapi.dll" "system" fn InitializeIpForwardEntry(row : PMIB_IPFORWARD_ROW2));
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "ws2"))]

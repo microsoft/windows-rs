@@ -158,6 +158,14 @@ fn every_observation_must_allow_resolution() {
                 .iter()
                 .any(|line| line.contains("no configured DLL/export ownership"))
         );
+        let text: String = output
+            .output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(text.contains("extern \"C\" fn FetchImport("));
+        assert!(!text.contains("extern fn FetchImport("));
     };
     let mut inputs = [
         selected_fixture("default_import_abi", &["FetchImport"]),
@@ -221,5 +229,162 @@ fn native_and_explicit_imports_take_precedence() {
             .collect();
         assert!(text.contains(&format!("#[library(\"{expected}\")]")));
         assert!(text.contains("extern \"C\" fn FetchImport("));
+    }
+}
+
+#[test]
+fn canonical_publication_preserves_other_contracts() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        selected_fixture("canonical_abi", &[]),
+        selected_fixture("canonical_abi", &["Observed", "ObservedCallback"]),
+    ];
+    inputs[0].name = "first.h".into();
+    inputs[0].source = "#include \"canonical_abi.h\"".into();
+    inputs[1].name = "second.h".into();
+    inputs[1].source = "#define EXPLICIT_WIDE\n#include \"canonical_abi.h\"".into();
+    let mut previous = None;
+    for _ in 0..2 {
+        let mut snapshots = capture(&inputs, &TARGETS).unwrap();
+        let mut imports = projection::Imports::default();
+        for snapshot in &snapshots {
+            for value in &snapshot.values {
+                for observation in &value.observations {
+                    let ValueKind::Function { mangling, .. } = &observation.kind else {
+                        panic!()
+                    };
+                    imports.symbols.entry(snapshot.target).or_default().insert(
+                        mangling.clone(),
+                        projection::Import {
+                            library: if value.name == "LibraryVariant"
+                                && snapshot.target == Target::X86
+                            {
+                                "narrow.dll"
+                            } else {
+                                "fixture.dll"
+                            }
+                            .into(),
+                            name: (value.name == "ExportVariant" && snapshot.target == Target::X86)
+                                .then(|| "#17".into()),
+                        },
+                    );
+                }
+            }
+        }
+        for _ in 0..2 {
+            let output =
+                projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports)
+                    .unwrap();
+            if let Some(previous) = &previous {
+                assert_eq!(&output, previous);
+            } else {
+                let text = &output.partitions["canonical_abi"].rdl;
+                let path = input_dir().join("canonical_abi.rdl");
+                if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+                    std::fs::write(&path, text).unwrap();
+                }
+                assert_eq!(
+                    text,
+                    &std::fs::read_to_string(path).unwrap().replace("\r\n", "\n")
+                );
+                let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+                let winmd = root.join("target\\test-clang-canonical-abi.winmd");
+                let rdl = winmd.with_extension("rdl");
+                windows_rdl::reader()
+                    .input(root.join("metadata\\metadata.rdl"))
+                    .input_text(text)
+                    .output(&winmd)
+                    .write()
+                    .unwrap();
+                windows_rdl::writer()
+                    .input(&winmd)
+                    .filter("Fixture")
+                    .output(&rdl)
+                    .write()
+                    .unwrap();
+                assert_eq!(text, &std::fs::read_to_string(&rdl).unwrap());
+                let index = windows_metadata::reader::Index::read(&winmd).unwrap();
+                let references = projection::References::new(&index);
+                let options = projection::Options {
+                    imports: Some(&imports),
+                    references: Some(&references),
+                };
+                let reused = projection::project_with_options(
+                    &merge(&snapshots).unwrap(),
+                    "Fixture",
+                    &options,
+                )
+                .unwrap();
+                assert!(reused.partitions.is_empty());
+                let partial = projection::project_partial_with_options(
+                    capture_partial(&inputs, &TARGETS).unwrap(),
+                    "Fixture",
+                    &options,
+                )
+                .unwrap();
+                assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+                assert!(partial.output.partitions.is_empty());
+                for case in ["explicit-wide", "cdecl-x86", "library"] {
+                    let mut input = selected_fixture("canonical_abi", &["Portable"]);
+                    let condition = match case {
+                        "explicit-wide" => "!defined(_M_IX86)",
+                        "cdecl-x86" => "defined(_M_IX86)",
+                        _ => "0",
+                    };
+                    input.source = format!(
+                        "#if {condition}\n#define PORTABLE_ABI __cdecl\n#endif\n\
+                         #include \"canonical_abi.h\""
+                    );
+                    let mut changed_imports = imports.clone();
+                    if case == "cdecl-x86" {
+                        changed_imports.functions.insert(
+                            "Portable".into(),
+                            projection::Import {
+                                library: "fixture.dll".into(),
+                                name: None,
+                            },
+                        );
+                    } else if case == "library" {
+                        changed_imports
+                            .symbols
+                            .get_mut(&Target::X64)
+                            .unwrap()
+                            .get_mut("Portable")
+                            .unwrap()
+                            .library = "other.dll".into();
+                    }
+                    let options = projection::Options {
+                        imports: Some(&changed_imports),
+                        references: Some(&references),
+                    };
+                    let captured = capture_partial(&[input], &TARGETS).unwrap();
+                    assert!(captured.omissions.is_empty());
+                    let error = projection::project_with_options(
+                        &merge(&captured.snapshots).unwrap(),
+                        "Fixture",
+                        &options,
+                    )
+                    .unwrap_err();
+                    let expected = "external value `Portable` declaration differs from metadata";
+                    assert!(error.to_string().contains(expected), "{case}: {error}");
+                    let partial =
+                        projection::project_partial_with_options(captured, "Fixture", &options)
+                            .unwrap();
+                    assert!(
+                        partial
+                            .omissions
+                            .iter()
+                            .any(|error| error.contains(expected)),
+                        "{case}: {:?}",
+                        partial.omissions
+                    );
+                }
+                std::fs::remove_file(winmd).unwrap();
+                std::fs::remove_file(rdl).unwrap();
+            }
+            previous = Some(output);
+            snapshots.reverse();
+        }
+        inputs.reverse();
     }
 }

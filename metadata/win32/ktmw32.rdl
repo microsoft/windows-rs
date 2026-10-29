@@ -17,10 +17,6 @@ mod Windows {
         extern fn CreateTransaction(lpTransactionAttributes: LPSECURITY_ATTRIBUTES, UOW: LPGUID, CreateOptions: DWORD, IsolationLevel: DWORD, IsolationFlags: DWORD, Timeout: DWORD, #[in] #[opt] Description: LPWSTR) -> HANDLE;
         #[library("ktmw32.dll")]
         extern fn CreateTransactionManager(lpTransactionAttributes: LPSECURITY_ATTRIBUTES, #[in] LogFileName: LPWSTR, CreateOptions: ULONG, CommitStrength: ULONG) -> HANDLE;
-        #[arch(X64 | Arm64)]
-        #[library("ktmw32.dll")]
-        extern "C" fn GetCurrentClockTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: PLARGE_INTEGER) -> BOOL;
-        #[arch(X86)]
         #[library("ktmw32.dll")]
         extern fn GetCurrentClockTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: PLARGE_INTEGER) -> BOOL;
         #[library("ktmw32.dll")]
@@ -35,10 +31,6 @@ mod Windows {
         extern fn GetTransactionId(TransactionHandle: HANDLE, TransactionId: LPGUID) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn GetTransactionInformation(TransactionHandle: HANDLE, Outcome: PDWORD, IsolationLevel: PDWORD, IsolationFlags: PDWORD, Timeout: PDWORD, #[in] BufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "BufferLength,return + 1", "BufferLength,return + 1")] #[opt] #[out] #[writable(entry, BufferLength)] Description: LPWSTR) -> BOOL;
-        #[arch(X64 | Arm64)]
-        #[library("ktmw32.dll")]
-        extern "C" fn GetTransactionManagerId(TransactionManagerHandle: HANDLE, TransactionManagerId: LPGUID) -> BOOL;
-        #[arch(X86)]
         #[library("ktmw32.dll")]
         extern fn GetTransactionManagerId(TransactionManagerHandle: HANDLE, TransactionManagerId: LPGUID) -> BOOL;
         #[library("ktmw32.dll")]

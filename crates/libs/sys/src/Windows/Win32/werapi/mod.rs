@@ -1,6 +1,5 @@
 windows_link::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerFreeString(pwszstr : windows_sys::core::PCWSTR));
+windows_link::link!("wer.dll" "system" fn WerFreeString(pwszstr : windows_sys::core::PCWSTR));
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::HANDLE, pdwflags : super::PDWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
@@ -30,34 +29,23 @@ windows_link::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : H
 windows_link::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn WerSetFlags(dwflags : super::DWORD) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerStoreClose(hreportstore : HREPORTSTORE));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreClose(hreportstore : HREPORTSTORE));
+windows_link::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
-windows_link::link!("wer.dll" "C" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
-windows_link::link!("wer.dll" "C" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : PHREPORTSTORE) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wer.dll" "C" fn WerStorePurge() -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_sys::core::HRESULT);
+windows_link::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : PHREPORTSTORE) -> windows_sys::core::HRESULT);
+windows_link::link!("wer.dll" "system" fn WerStorePurge() -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V1) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V1) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V2) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V2) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V3) -> windows_sys::core::HRESULT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V3) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
-windows_link::link!("wer.dll" "C" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);
+windows_link::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn WerUnregisterAdditionalProcess(processid : super::DWORD) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerUnregisterAppLocalDump() -> windows_sys::core::HRESULT);

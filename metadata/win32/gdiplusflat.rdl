@@ -631,10 +631,6 @@ mod Windows {
         extern fn GdipGetMetafileHeaderFromMetafile(metafile: *mut GpMetafile, header: *mut MetafileHeader) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetMetafileHeaderFromStream(stream: IStream, header: *mut MetafileHeader) -> GpStatus;
-        #[arch(X64 | Arm64)]
-        #[library("gdiplus.dll")]
-        extern "C" fn GdipGetMetafileHeaderFromWmf(hWmf: HMETAFILE, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, header: *mut MetafileHeader) -> GpStatus;
-        #[arch(X86)]
         #[library("gdiplus.dll")]
         extern fn GdipGetMetafileHeaderFromWmf(hWmf: HMETAFILE, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, header: *mut MetafileHeader) -> GpStatus;
         #[library("gdiplus.dll")]

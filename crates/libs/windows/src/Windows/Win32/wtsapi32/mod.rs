@@ -88,10 +88,9 @@ pub unsafe fn WTSDisconnectSession(hserver: super::HANDLE, sessionid: super::DWO
     windows_core::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::HANDLE, sessionid : super::DWORD, bwait : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { WTSDisconnectSession(hserver as _, sessionid, bwait.into()) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WTSEnableChildSessions(benable: bool) -> windows_core::BOOL {
-    windows_core::link!("wtsapi32.dll" "C" fn WTSEnableChildSessions(benable : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("wtsapi32.dll" "system" fn WTSEnableChildSessions(benable : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { WTSEnableChildSessions(benable.into()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -190,11 +189,10 @@ pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: super::PVO
     windows_core::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : super::PVOID, numberofentries : super::ULONG) -> windows_core::BOOL);
     unsafe { WTSFreeMemoryExW(wtstypeclass, pmemory, numberofentries) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: super::PULONG) -> windows_core::BOOL {
-    windows_core::link!("wtsapi32.dll" "C" fn WTSGetChildSessionId(psessionid : super::PULONG) -> windows_core::BOOL);
+    windows_core::link!("wtsapi32.dll" "system" fn WTSGetChildSessionId(psessionid : super::PULONG) -> windows_core::BOOL);
     unsafe { WTSGetChildSessionId(psessionid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -215,11 +213,10 @@ where
     windows_core::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::HANDLE, preserved : super::PVOID, reserved : super::DWORD, plistenername : windows_core::PCWSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WTSGetListenerSecurityW(hserver, preserved, reserved, plistenername.param().abi(), securityinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: super::PBOOL) -> windows_core::BOOL {
-    windows_core::link!("wtsapi32.dll" "C" fn WTSIsChildSessionsEnabled(pbenabled : super::PBOOL) -> windows_core::BOOL);
+    windows_core::link!("wtsapi32.dll" "system" fn WTSIsChildSessionsEnabled(pbenabled : super::PBOOL) -> windows_core::BOOL);
     unsafe { WTSIsChildSessionsEnabled(pbenabled as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]

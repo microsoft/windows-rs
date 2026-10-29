@@ -21,8 +21,7 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : supe
 windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::HANDLE, preserved : super::PVOID, reserved : super::DWORD, plistenername : windows_sys::core::PCWSTR, pbuffer : PWTSLISTENERCONFIGW, flag : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::HANDLE, sessionid : super::DWORD, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("wtsapi32.dll" "C" fn WTSEnableChildSessions(benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSEnableChildSessions(benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::HANDLE, preserved : super::PVOID, reserved : super::DWORD, plisteners : PWTSLISTENERNAMEA, pcount : *mut super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -53,16 +52,14 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : super::PV
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : super::PVOID, numberofentries : super::ULONG) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : super::PVOID, numberofentries : super::ULONG) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-windows_link::link!("wtsapi32.dll" "C" fn WTSGetChildSessionId(psessionid : super::PULONG) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSGetChildSessionId(psessionid : super::PULONG) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::HANDLE, preserved : super::PVOID, reserved : super::DWORD, plistenername : windows_sys::core::PCSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::HANDLE, preserved : super::PVOID, reserved : super::DWORD, plistenername : windows_sys::core::PCWSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-windows_link::link!("wtsapi32.dll" "C" fn WTSIsChildSessionsEnabled(pbenabled : super::PBOOL) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSIsChildSessionsEnabled(pbenabled : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wtsapi32.dll" "system" fn WTSLogoffSession(hserver : super::HANDLE, sessionid : super::DWORD, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]

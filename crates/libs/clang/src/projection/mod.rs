@@ -380,7 +380,7 @@ fn project_impl(
 struct Declaration {
     native_name: String,
     headers: BTreeSet<String>,
-    bodies: BTreeMap<String, (Body, Vec<Target>)>,
+    bodies: BTreeMap<Target, Body>,
     keys: BTreeSet<partial::Key>,
     kind: PublishedKind,
 }
@@ -408,7 +408,7 @@ fn publish(
     items: &mut BTreeMap<PublicName, Declaration>,
     target: Target,
     name: &str,
-    body: Body,
+    mut body: Body,
     headers: BTreeSet<String>,
     keys: Vec<partial::Key>,
     kind: PublishedKind,
@@ -429,27 +429,18 @@ fn publish(
         )));
     }
     item.native_name = name.to_string();
-    let key = body.key();
-    if item
-        .bodies
-        .iter()
-        .any(|(old, (_, targets))| old != &key && targets.contains(&target))
-    {
-        return Err(Error(format!(
-            "conflicting public definitions for `{name}` on {target:?}"
-        )));
+    if let Some(previous) = item.bodies.get(&target) {
+        if previous.key() != body.key() {
+            return Err(Error(format!(
+                "conflicting public definitions for `{name}` on {target:?}"
+            )));
+        }
+        body.retain_abi(previous);
     }
     item.headers.extend(headers);
     item.keys.extend(keys);
     item.kind = item.kind.max(kind);
-    let targets = &mut item
-        .bodies
-        .entry(key)
-        .or_insert_with(|| (body, Vec::new()))
-        .1;
-    if !targets.contains(&target) {
-        targets.push(target);
-    }
+    item.bodies.insert(target, body);
     Ok(())
 }
 
@@ -690,30 +681,40 @@ fn function_alias_name(snapshot: &Snapshot, mut id: TypeId) -> Option<&str> {
     }
 }
 
-fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
+fn agree(name: &str, target: Target, bodies: &mut [Body]) -> Result<(), Error> {
     // Native compatibility is already checked; this compares the emitted public declarations.
-    if let Some(first) = bodies.first() {
+    if let Some((first, rest)) = bodies.split_first_mut() {
         let key = first.key();
-        if let Some(other) = bodies[1..].iter().find(|body| body.key() != key) {
+        if let Some(other) = rest.iter().find(|body| body.key() != key) {
             return Err(Error(format!(
                 "conflicting public names or contracts for `{name}` on {target:?}\nfirst: {key:?}\nother: {:?}",
                 other.key(),
             )));
         }
+        for other in rest {
+            first.retain_abi(other);
+        }
     }
     Ok(())
 }
 
-fn callable_abi(function: WrittenFunction<'_>) -> TokenStream {
+#[derive(Clone, Copy)]
+struct CallableAbi {
+    convention: CallingConvention,
+    // Callback reuse must retain the written ABI, even when the target's machine ABIs agree.
+    inferred_import: bool,
+}
+
+fn callable_abi(function: WrittenFunction<'_>) -> CallableAbi {
     // Clang can retain a written stdcall attribute that it ignores on a variadic prototype.
     let convention = if function.prototype.variadic {
         function.prototype.convention
     } else {
         function.convention
     };
-    match convention {
-        CallingConvention::C => quote! { "C" },
-        CallingConvention::Stdcall => TokenStream::new(),
+    CallableAbi {
+        convention,
+        inferred_import: false,
     }
 }
 
@@ -731,6 +732,7 @@ fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
 struct WrittenFunction<'a> {
     prototype: &'a Function,
     convention: CallingConvention,
+    explicit_convention: bool,
 }
 
 impl WrittenFunction<'_> {
@@ -787,6 +789,7 @@ fn written_function(snapshot: &Snapshot, mut id: TypeId) -> Result<WrittenFuncti
                 return Ok(WrittenFunction {
                     prototype: function,
                     convention: convention.unwrap_or(function.convention),
+                    explicit_convention: convention.is_some(),
                 });
             }
             _ => return Err(Error("callback has no written prototype".into())),
@@ -936,6 +939,7 @@ impl Projector<'_, '_> {
         };
         let ty = write_type(self.namespace, &ty);
         Ok(Body {
+            abi: None,
             attributes: annotations::write_value_typedef(
                 snapshot,
                 observation.canonical,
@@ -981,8 +985,9 @@ impl Projector<'_, '_> {
             quote! { -> #result_attributes #result }
         };
         Ok(Body {
+            abi: Some(abi),
             attributes: attributes.declaration,
-            declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
+            declaration: quote! { fn #name(#(#parameters),*) #result; },
         })
     }
 
@@ -1387,6 +1392,7 @@ impl Projector<'_, '_> {
             .unwrap_or(WrittenFunction {
                 prototype: function,
                 convention: function.convention,
+                explicit_convention: false,
             })
             .conventions(self.resolution.snapshots[snapshot])?;
         if let Some(name) = self.plan.callbacks[snapshot].get(&(id, conventions)) {
@@ -1566,6 +1572,7 @@ impl Projector<'_, '_> {
         let flags = flags(observation).then(|| quote! { #[flags] });
         let native = annotations::write(&observation.attributes)?;
         Ok(Body {
+            abi: None,
             attributes: quote! { #native #[repr(#repr)] },
             declaration: quote! { #flags #scoped enum #name { #(#fields)* } },
         })
@@ -1746,18 +1753,68 @@ fn insert(
 }
 
 struct Body {
+    abi: Option<CallableAbi>,
     attributes: TokenStream,
     declaration: TokenStream,
 }
 
 impl Body {
     fn key(&self) -> String {
+        self.tokens().to_string()
+    }
+
+    fn contract_key(&self) -> String {
         format!("{} {}", self.attributes, self.declaration)
+    }
+
+    fn retain_abi(&mut self, other: &Self) {
+        if let Some(abi) = &mut self.abi {
+            abi.inferred_import &= other.abi.unwrap().inferred_import;
+        }
+    }
+
+    fn canonicalize_import_abi(&mut self, target: Target, convention: CallingConvention) {
+        if target != Target::X86
+            && let Some(abi) = &mut self.abi
+            && abi.inferred_import
+        {
+            abi.convention = convention;
+        }
+    }
+
+    fn tokens(&self) -> TokenStream {
+        let Self {
+            attributes,
+            declaration,
+            abi,
+        } = self;
+        let abi = abi.map(|abi| match abi.convention {
+            CallingConvention::C => quote! { extern "C" },
+            CallingConvention::Stdcall => quote! { extern },
+        });
+        quote! { #attributes #abi #declaration }
     }
 }
 
-fn variants(bodies: BTreeMap<String, (Body, Vec<Target>)>) -> TokenStream {
-    let mut rendered: Vec<_> = bodies
+fn variants(bodies: BTreeMap<Target, Body>) -> TokenStream {
+    let x86 = bodies
+        .get(&Target::X86)
+        .and_then(|body| Some((body.contract_key(), body.abi?.convention)));
+    let mut grouped: BTreeMap<String, (Body, Vec<Target>)> = BTreeMap::new();
+    for (target, mut body) in bodies {
+        if let Some((key, convention)) = &x86
+            && body.contract_key() == *key
+        {
+            // Same-target conflicts and import ownership have already been checked.
+            body.canonicalize_import_abi(target, *convention);
+        }
+        grouped
+            .entry(body.key())
+            .or_insert_with(|| (body, Vec::new()))
+            .1
+            .push(target);
+    }
+    let mut rendered: Vec<_> = grouped
         .into_values()
         .map(|(body, targets)| {
             let arch = if targets.len() == 3 {
@@ -1770,11 +1827,8 @@ fn variants(bodies: BTreeMap<String, (Body, Vec<Target>)>) -> TokenStream {
                 });
                 quote! { #[arch(#(#names)|*)] }
             };
-            let Body {
-                attributes,
-                declaration,
-            } = body;
-            quote! { #attributes #arch #declaration }
+            let body = body.tokens();
+            quote! { #arch #body }
         })
         .collect();
     rendered.sort_by_cached_key(|tokens| windows_rdl::formatter::format(&tokens.to_string()));

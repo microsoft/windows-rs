@@ -38,12 +38,26 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: super::DWORD, framestocaptu
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : super::DWORD, framestocapture : super::DWORD, backtrace : *mut PVOID, backtracehash : super::PDWORD) -> super::WORD);
     unsafe { RtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace as _, backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn RtlCompareDeviceMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: super::SIZE_T) -> super::SIZE_T {
+    windows_core::link!("ntdll.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
+    unsafe { RtlCompareDeviceMemory(source1, source2, length) }
+}
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlCompareDeviceMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: super::SIZE_T) -> super::SIZE_T {
     windows_core::link!("kernel32.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
     unsafe { RtlCompareDeviceMemory(source1, source2, length) }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: super::SIZE_T) -> super::SIZE_T {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
+    unsafe { RtlCompareMemory(source1, source2, length) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
@@ -129,14 +143,13 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut super::ULONGLO
     windows_core::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut super::ULONGLONG, puldevicefamily : *mut super::DWORD, puldeviceform : *mut super::DWORD));
     unsafe { RtlGetDeviceFamilyInfoEnum(pulluapinfo.unwrap_or(core::mem::zeroed()) as _, puldevicefamily.unwrap_or(core::mem::zeroed()) as _, puldeviceform.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlGetImageFileMachines<P0>(dosfilename: P0, machinetypeflags: *mut IMAGE_FILE_MACHINES) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "C" fn RtlGetImageFileMachines(dosfilename : windows_core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> super::DWORD);
+    windows_core::link!("ntdll.dll" "system" fn RtlGetImageFileMachines(dosfilename : windows_core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> super::DWORD);
     unsafe { RtlGetImageFileMachines(dosfilename.param().abi(), machinetypeflags as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -292,6 +305,20 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: PCUSTOM_SYSTEM_EVE
 pub unsafe fn RtlRaiseException(exceptionrecord: PEXCEPTION_RECORD) {
     windows_core::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
     unsafe { RtlRaiseException(exceptionrecord) }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn RtlRaiseException(exceptionrecord: PEXCEPTION_RECORD) {
+    windows_core::link!("ntdll.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
+    unsafe { RtlRaiseException(exceptionrecord) }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn RtlRestoreContext(contextrecord: PCONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
+    windows_core::link!("ntdll.dll" "C" fn RtlRestoreContext(contextrecord : PCONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
+    unsafe { RtlRestoreContext(contextrecord, exceptionrecord.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]

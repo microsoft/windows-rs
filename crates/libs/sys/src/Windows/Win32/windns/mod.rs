@@ -6,61 +6,45 @@ windows_link::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentia
 windows_link::link!("dnsapi.dll" "system" fn DnsCancelQuery(pcancelhandle : PDNS_QUERY_CANCEL) -> DNS_STATUS);
 #[cfg(feature = "shared")]
 windows_link::link!("dnsapi.dll" "system" fn DnsCancelQueryRaw(cancelhandle : *const DNS_QUERY_RAW_CANCEL) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionFreeNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionFreeNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST));
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfo(pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyInfo(pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO));
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfoEx(pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyInfoEx(pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX));
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyList(pproxylist : *mut DNS_CONNECTION_PROXY_LIST));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyList(pproxylist : *mut DNS_CONNECTION_PROXY_LIST));
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionGetNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionGetNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_sys::core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_sys::core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_sys::core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pwszconnectionname : windows_sys::core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_sys::core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pwszconnectionname : windows_sys::core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyList(pwszconnectionname : windows_sys::core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyList(pwszconnectionname : windows_sys::core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
 #[cfg(feature = "shared")]
-windows_link::link!("dnsapi.dll" "C" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> super::DWORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : PDNS_MESSAGE_BUFFER, wmessagelength : super::WORD, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : PDNS_MESSAGE_BUFFER, wmessagelength : super::WORD, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("dnsapi.dll" "system" fn DnsFree(pdata : super::PVOID, freetype : DNS_FREE_TYPE));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsFreeCustomServers(pcservers : *mut super::DWORD, ppservers : *mut *mut DNS_CUSTOM_SERVER));
+windows_link::link!("dnsapi.dll" "system" fn DnsFreeCustomServers(pcservers : *mut super::DWORD, ppservers : *mut *mut DNS_CUSTOM_SERVER));
 windows_link::link!("dnsapi.dll" "system" fn DnsFreeProxyName(proxyname : windows_sys::core::PWSTR));
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsGetApplicationSettings(pcservers : *mut super::DWORD, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> super::DWORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsGetApplicationSettings(pcservers : *mut super::DWORD, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> super::DWORD);
 #[cfg(feature = "shared")]
 windows_link::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_sys::core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -95,9 +79,8 @@ windows_link::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : PDNS_RECO
 windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : PDNS_RECORD, prr2 : PDNS_RECORD, ppdiff1 : *mut PDNS_RECORD, ppdiff2 : *mut PDNS_RECORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCopyEx(precordset : PDNS_RECORD, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsRecordSetDetach(precordlist : PDNS_RECORD) -> PDNS_RECORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetDetach(precordlist : PDNS_RECORD) -> PDNS_RECORD);
 #[cfg(feature = "winnt")]
 windows_link::link!("dnsapi.dll" "system" fn DnsReleaseContextHandle(hcontext : super::HANDLE));
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -126,22 +109,17 @@ windows_link::link!("dnsapi.dll" "system" fn DnsServiceRegisterCancel(pcancelhan
 windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolve(prequest : PDNS_SERVICE_RESOLVE_REQUEST, pcancel : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsSetApplicationSettings(cservers : super::DWORD, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> super::DWORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsSetApplicationSettings(cservers : super::DWORD, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsStartMulticastQuery(pqueryrequest : PMDNS_QUERY_REQUEST, phandle : PMDNS_QUERY_HANDLE) -> DNS_STATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsStopMulticastQuery(phandle : PMDNS_QUERY_HANDLE) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_A(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_UTF8(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_W(pszname : windows_sys::core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("dnsapi.dll" "system" fn DnsValidateName_A(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsValidateName_UTF8(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsValidateName_W(pszname : windows_sys::core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "ws2"))]
-windows_link::link!("dnsapi.dll" "C" fn DnsValidateServerStatus(server : super::PSOCKADDR, queryname : windows_sys::core::PCWSTR, serverstatus : super::PDWORD) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsValidateServerStatus(server : super::PSOCKADDR, queryname : windows_sys::core::PCWSTR, serverstatus : super::PDWORD) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : PDNS_MESSAGE_BUFFER, pdwbuffersize : super::PDWORD, pszname : windows_sys::core::PCSTR, wtype : super::WORD, xid : super::WORD, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared"))]

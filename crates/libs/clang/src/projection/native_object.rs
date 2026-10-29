@@ -95,6 +95,7 @@ impl Projector<'_, '_> {
         });
         let attributes = annotations::write(&observation.attributes)?;
         Ok(Body {
+            abi: None,
             attributes: quote! { #attributes #packed #guid },
             declaration: quote! { struct #name { #(#fields)* } },
         })

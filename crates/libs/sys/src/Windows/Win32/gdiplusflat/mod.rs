@@ -628,9 +628,8 @@ windows_link::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(file
 windows_link::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromMetafile(metafile : *mut super::GpMetafile, header : *mut super::MetafileHeader) -> super::GpStatus);
 #[cfg(all(feature = "gdiplusenums", feature = "gdiplusgpstubs", feature = "gdiplusmetaheader", feature = "gdiplustypes", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wingdi"))]
 windows_link::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : *mut core::ffi::c_void, header : *mut super::MetafileHeader) -> super::GpStatus);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "gdiplusenums", feature = "gdiplusgpstubs", feature = "gdiplusmetaheader", feature = "gdiplustypes", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi"))]
-windows_link::link!("gdiplus.dll" "C" fn GdipGetMetafileHeaderFromWmf(hwmf : super::HMETAFILE, wmfplaceablefileheader : *const super::WmfPlaceableFileHeader, header : *mut super::MetafileHeader) -> super::GpStatus);
+windows_link::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::HMETAFILE, wmfplaceablefileheader : *const super::WmfPlaceableFileHeader, header : *mut super::MetafileHeader) -> super::GpStatus);
 #[cfg(all(feature = "gdiplusgpstubs", feature = "gdipluspixelformats", feature = "gdiplustypes"))]
 windows_link::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut super::GpGraphics, argb : *mut super::ARGB) -> super::GpStatus);
 #[cfg(all(feature = "gdiplusgpstubs", feature = "gdiplustypes"))]

@@ -291,10 +291,9 @@ pub unsafe fn I_RpcServerGetAssociationID(binding: Option<RPC_BINDING_HANDLE>, a
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : RPC_BINDING_HANDLE, associationid : *mut u32) -> windows_core::RPC_STATUS);
     unsafe { I_RpcServerGetAssociationID(binding.unwrap_or(core::mem::zeroed()) as _, associationid as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN {
-    windows_core::link!("rpcrt4.dll" "C" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
     unsafe { I_RpcServerInqAddressChangeFn() }
 }
 #[inline]

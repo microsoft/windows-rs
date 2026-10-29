@@ -72,18 +72,16 @@ windows_link::link!("advapi32.dll" "system" fn StartTraceW(traceid : *mut CONTRO
 windows_link::link!("advapi32.dll" "system" fn StopTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : PEVENT_TRACE_PROPERTIES) -> super::ULONG);
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StopTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : PEVENT_TRACE_PROPERTIES) -> super::ULONG);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : super::ULONG) -> super::ULONG);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : super::ULONG) -> super::ULONG);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn TraceEvent(tracehandle : TRACELOGGER_HANDLE, eventtrace : PEVENT_TRACE_HEADER) -> super::ULONG);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : TRACELOGGER_HANDLE, eventtrace : PEVENT_INSTANCE_HEADER, instinfo : PEVENT_INSTANCE_INFO, parentinstinfo : PEVENT_INSTANCE_INFO) -> super::ULONG);
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 windows_link::link!("advapi32.dll" "C" fn TraceMessage(loggerhandle : TRACELOGGER_HANDLE, messageflags : super::ULONG, messageguid : super::LPCGUID, messagenumber : super::USHORT, ...) -> super::ULONG);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-windows_link::link!("advapi32.dll" "C" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : super::ULONG, messageguid : super::LPCGUID, messagenumber : super::USHORT, messagearglist : super::va_list) -> super::ULONG);
+windows_link::link!("advapi32.dll" "system" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : super::ULONG, messageguid : super::LPCGUID, messagenumber : super::USHORT, messagearglist : super::va_list) -> super::ULONG);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn TraceQueryInformation(traceid : CONTROLTRACE_ID, informationclass : TRACE_INFO_CLASS, traceinformation : super::PVOID, informationlength : super::ULONG, returnlength : super::PULONG) -> super::ULONG);
 #[cfg(all(feature = "shared", feature = "winnt"))]

@@ -22,79 +22,69 @@ pub unsafe fn DnsCancelQueryRaw(cancelhandle: *const DNS_QUERY_RAW_CANCEL) -> DN
     windows_core::link!("dnsapi.dll" "system" fn DnsCancelQueryRaw(cancelhandle : *const DNS_QUERY_RAW_CANCEL) -> DNS_STATUS);
     unsafe { DnsCancelQueryRaw(cancelhandle) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> super::DWORD);
     unsafe { DnsConnectionDeletePolicyEntries(policyentrytag) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DnsConnectionDeleteProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> super::DWORD);
     unsafe { DnsConnectionDeleteProxyInfo(pwszconnectionname.param().abi(), r#type) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST));
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionFreeNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST));
     unsafe { DnsConnectionFreeNameList(pnamelist as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfo(pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO));
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyInfo(pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO));
     unsafe { DnsConnectionFreeProxyInfo(pproxyinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfoEx(pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX));
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyInfoEx(pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX));
     unsafe { DnsConnectionFreeProxyInfoEx(pproxyinfoex as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST) {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyList(pproxylist : *mut DNS_CONNECTION_PROXY_LIST));
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionFreeProxyList(pproxylist : *mut DNS_CONNECTION_PROXY_LIST));
     unsafe { DnsConnectionFreeProxyList(pproxylist as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST) -> super::DWORD);
     unsafe { DnsConnectionGetNameList(pnamelist as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
     unsafe { DnsConnectionGetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: Option<&[super::BYTE]>, dwexplicitinterfaceindex: super::DWORD, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
     unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pproxyinfoex as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: Option<&[super::BYTE]>, dwexplicitinterfaceindex: super::DWORD, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
@@ -102,41 +92,37 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
     unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyList<P0>(pwszconnectionname: P0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyList(pwszconnectionname : windows_core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyList(pwszconnectionname : windows_core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> super::DWORD);
     unsafe { DnsConnectionGetProxyList(pwszconnectionname.param().abi(), pproxylist as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> super::DWORD);
     unsafe { DnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsConnectionSetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> super::DWORD);
     unsafe { DnsConnectionSetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> super::DWORD);
     unsafe { DnsConnectionUpdateIfIndexTable(pconnectionifindexentries) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -157,11 +143,10 @@ pub unsafe fn DnsFree(pdata: super::PVOID, freetype: DNS_FREE_TYPE) {
     windows_core::link!("dnsapi.dll" "system" fn DnsFree(pdata : super::PVOID, freetype : DNS_FREE_TYPE));
     unsafe { DnsFree(pdata as _, freetype) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut super::DWORD, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
-    windows_core::link!("dnsapi.dll" "C" fn DnsFreeCustomServers(pcservers : *mut super::DWORD, ppservers : *mut *mut DNS_CUSTOM_SERVER));
+    windows_core::link!("dnsapi.dll" "system" fn DnsFreeCustomServers(pcservers : *mut super::DWORD, ppservers : *mut *mut DNS_CUSTOM_SERVER));
     unsafe { DnsFreeCustomServers(pcservers as _, ppservers as _) }
 }
 #[inline]
@@ -169,11 +154,10 @@ pub unsafe fn DnsFreeProxyName(proxyname: windows_core::PWSTR) {
     windows_core::link!("dnsapi.dll" "system" fn DnsFreeProxyName(proxyname : windows_core::PWSTR));
     unsafe { DnsFreeProxyName(proxyname) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsGetApplicationSettings(pcservers: *mut super::DWORD, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: Option<*mut DNS_APPLICATION_SETTINGS>) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsGetApplicationSettings(pcservers : *mut super::DWORD, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsGetApplicationSettings(pcservers : *mut super::DWORD, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> super::DWORD);
     unsafe { DnsGetApplicationSettings(pcservers as _, ppdefaultservers as _, psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
@@ -305,11 +289,10 @@ pub unsafe fn DnsRecordSetCopyEx(precordset: PDNS_RECORD, charsetin: DNS_CHARSET
     windows_core::link!("dnsapi.dll" "system" fn DnsRecordSetCopyEx(precordset : PDNS_RECORD, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
     unsafe { DnsRecordSetCopyEx(precordset, charsetin, charsetout) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsRecordSetDetach(precordlist: PDNS_RECORD) -> PDNS_RECORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsRecordSetDetach(precordlist : PDNS_RECORD) -> PDNS_RECORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsRecordSetDetach(precordlist : PDNS_RECORD) -> PDNS_RECORD);
     unsafe { DnsRecordSetDetach(precordlist as _) }
 }
 #[cfg(feature = "winnt")]
@@ -400,11 +383,10 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: PDNS_SERVICE_CANCEL) -> DNS
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
     unsafe { DnsServiceResolveCancel(pcancelhandle) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: Option<*const DNS_APPLICATION_SETTINGS>) -> super::DWORD {
-    windows_core::link!("dnsapi.dll" "C" fn DnsSetApplicationSettings(cservers : super::DWORD, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> super::DWORD);
+    windows_core::link!("dnsapi.dll" "system" fn DnsSetApplicationSettings(cservers : super::DWORD, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> super::DWORD);
     unsafe { DnsSetApplicationSettings(pservers.len().try_into().unwrap(), pservers.as_ptr(), psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -419,41 +401,37 @@ pub unsafe fn DnsStopMulticastQuery(phandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsStopMulticastQuery(phandle : PMDNS_QUERY_HANDLE) -> DNS_STATUS);
     unsafe { DnsStopMulticastQuery(phandle as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn DnsValidateName_A<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> DNS_STATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsValidateName_A(pszname : windows_core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
+    windows_core::link!("dnsapi.dll" "system" fn DnsValidateName_A(pszname : windows_core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
     unsafe { DnsValidateName_A(pszname.param().abi(), format) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn DnsValidateName_UTF8<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> DNS_STATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsValidateName_UTF8(pszname : windows_core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
+    windows_core::link!("dnsapi.dll" "system" fn DnsValidateName_UTF8(pszname : windows_core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
     unsafe { DnsValidateName_UTF8(pszname.param().abi(), format) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn DnsValidateName_W<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> DNS_STATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsValidateName_W(pszname : windows_core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
+    windows_core::link!("dnsapi.dll" "system" fn DnsValidateName_W(pszname : windows_core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
     unsafe { DnsValidateName_W(pszname.param().abi(), format) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsValidateServerStatus<P1>(server: super::PSOCKADDR, queryname: P1, serverstatus: super::PDWORD) -> DNS_STATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "C" fn DnsValidateServerStatus(server : super::PSOCKADDR, queryname : windows_core::PCWSTR, serverstatus : super::PDWORD) -> DNS_STATUS);
+    windows_core::link!("dnsapi.dll" "system" fn DnsValidateServerStatus(server : super::PSOCKADDR, queryname : windows_core::PCWSTR, serverstatus : super::PDWORD) -> DNS_STATUS);
     unsafe { DnsValidateServerStatus(server, queryname.param().abi(), serverstatus as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]

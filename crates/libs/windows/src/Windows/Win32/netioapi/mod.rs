@@ -400,11 +400,10 @@ pub unsafe fn GetUnicastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mu
     windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetUnicastIpAddressTable(family, table as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ifdef", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn InitializeFlVirtualInterfaceEntry(row: PMIB_FL_VIRTUAL_INTERFACE_ROW) {
-    windows_core::link!("iphlpapi.dll" "C" fn InitializeFlVirtualInterfaceEntry(row : PMIB_FL_VIRTUAL_INTERFACE_ROW));
+    windows_core::link!("iphlpapi.dll" "system" fn InitializeFlVirtualInterfaceEntry(row : PMIB_FL_VIRTUAL_INTERFACE_ROW));
     unsafe { InitializeFlVirtualInterfaceEntry(row as _) }
 }
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "shared", feature = "ws2"))]

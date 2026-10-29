@@ -122,6 +122,7 @@ impl Projector<'_, '_> {
             }
             // A nominal pointee marker carries no native storage or layout claim.
             return Ok(Body {
+                abi: None,
                 attributes: annotations::write(attributes)?,
                 declaration: quote! { struct #name {} },
             });
@@ -176,6 +177,7 @@ impl Projector<'_, '_> {
                 .collect::<Result<Vec<_>, Error>>()?;
             let native_attributes = annotations::write(attributes)?;
             return Ok(Body {
+                abi: None,
                 attributes: quote! { #native_attributes #anonymous_attribute },
                 declaration: quote! { struct #name { #(#nested)* #constants } },
             });
@@ -306,11 +308,7 @@ impl Projector<'_, '_> {
                     let full_name = &self.plan.names[self.plan.family(snapshot_id, record)];
                     let leaf = ident(full_name.rsplit('/').next().unwrap())?;
                     let body = self.record(reference.snapshot, child, &leaf, true)?;
-                    let Body {
-                        attributes,
-                        declaration,
-                    } = body;
-                    quote! { #attributes #declaration }
+                    body.tokens()
                 } else {
                     write_type(
                         self.namespace,
@@ -370,6 +368,7 @@ impl Projector<'_, '_> {
             quote! { #[align(#forced)] }
         });
         Ok(Body {
+            abi: None,
             attributes: quote! { #native_attributes #packing_attribute #alignment_attribute #anonymous_attribute },
             declaration: quote! { #keyword #declaration_name { #(#declarations)* #(#fields)* #constants } },
         })
@@ -579,11 +578,9 @@ impl Projector<'_, '_> {
     ) -> Result<TokenStream, Error> {
         let observation =
             &self.resolution.snapshots[reference.snapshot].observations[reference.observation.0];
-        let Body {
-            attributes,
-            declaration,
-        } = self.record(reference.snapshot, observation, &ident(name)?, false)?;
-        Ok(quote! { #attributes #declaration })
+        Ok(self
+            .record(reference.snapshot, observation, &ident(name)?, false)?
+            .tokens())
     }
 
     fn nested_records(

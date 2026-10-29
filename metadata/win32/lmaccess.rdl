@@ -398,16 +398,8 @@ mod Windows {
         extern fn NetAccessGetUserPerms(servername: LPCWSTR, UGname: LPCWSTR, resource: LPCWSTR, Perms: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetAccessSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] resource: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetAddServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Password: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetAddServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Password: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetEnumerateServiceAccounts(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[out] #[writable(success, *AccountsCount, indirect)] Accounts: *mut PZPWSTR) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetEnumerateServiceAccounts(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[out] #[writable(success, *AccountsCount, indirect)] Accounts: *mut PZPWSTR) -> NTSTATUS;
         #[library("NETAPI32.dll")]
@@ -436,16 +428,8 @@ mod Windows {
         extern fn NetGroupSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetGroupSetUsers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetIsServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetIsServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL) -> NTSTATUS;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetIsServiceAccount2(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL, #[out] AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetIsServiceAccount2(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL, #[out] AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
@@ -472,16 +456,8 @@ mod Windows {
         extern fn NetLocalGroupSetMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetQueryDisplayInformation(ServerName: LPCWSTR, Level: DWORD, Index: DWORD, EntriesRequested: DWORD, PreferredMaximumLength: DWORD, ReturnedEntryCount: LPDWORD, SortedBuffer: *mut PVOID) -> DWORD;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetQueryServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] InfoLevel: DWORD, #[out] #[out_ptr] Buffer: *mut PBYTE) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetQueryServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] InfoLevel: DWORD, #[out] #[out_ptr] Buffer: *mut PBYTE) -> NTSTATUS;
-        #[arch(X64 | Arm64)]
-        #[library("NETAPI32.dll")]
-        extern "C" fn NetRemoveServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
-        #[arch(X86)]
         #[library("NETAPI32.dll")]
         extern fn NetRemoveServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]

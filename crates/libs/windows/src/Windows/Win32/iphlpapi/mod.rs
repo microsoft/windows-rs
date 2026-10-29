@@ -264,11 +264,10 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: super::PDWORD) -> super::DWORD {
     windows_core::link!("iphlpapi.dll" "system" fn GetNumberOfInterfaces(pdwnumif : super::PDWORD) -> super::DWORD);
     unsafe { GetNumberOfInterfaces(pdwnumif as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "iprtrmib", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: super::ULONG, pinfo: *const super::ULONGLONG, class: super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: super::PVOID, pdwsize: super::PDWORD) -> super::DWORD {
-    windows_core::link!("iphlpapi.dll" "C" fn GetOwnerModuleFromPidAndInfo(ulpid : super::ULONG, pinfo : *const super::ULONGLONG, class : super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : super::PVOID, pdwsize : super::PDWORD) -> super::DWORD);
+    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromPidAndInfo(ulpid : super::ULONG, pinfo : *const super::ULONGLONG, class : super::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : super::PVOID, pdwsize : super::PDWORD) -> super::DWORD);
     unsafe { GetOwnerModuleFromPidAndInfo(ulpid, pinfo, class, pbuffer as _, pdwsize as _) }
 }
 #[cfg(all(feature = "iprtrmib", feature = "minwindef", feature = "shared", feature = "tcpmib", feature = "winnt"))]

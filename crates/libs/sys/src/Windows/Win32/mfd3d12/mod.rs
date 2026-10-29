@@ -1,6 +1,5 @@
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "d3d12", feature = "guiddef"))]
-windows_link::link!("mfplat.dll" "C" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const super::IID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("mfplat.dll" "system" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const super::IID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 0;
 pub const MF_D3D12_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 1;
 pub const MF_D3D12_SYNCHRONIZATION_OBJECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b);

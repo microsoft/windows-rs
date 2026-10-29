@@ -156,10 +156,6 @@ mod Windows {
         extern fn WTSCreateListenerW(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[in] pListenerName: LPWSTR, #[in] pBuffer: PWTSLISTENERCONFIGW, #[in] flag: DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSDisconnectSession(hServer: HANDLE, SessionId: DWORD, bWait: BOOL) -> BOOL;
-        #[arch(X64 | Arm64)]
-        #[library("WTSAPI32.dll")]
-        extern "C" fn WTSEnableChildSessions(bEnable: BOOL) -> BOOL;
-        #[arch(X86)]
         #[library("WTSAPI32.dll")]
         extern fn WTSEnableChildSessions(bEnable: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -192,10 +188,6 @@ mod Windows {
         extern fn WTSFreeMemoryExA(#[in] WTSTypeClass: WTS_TYPE_CLASS, #[in] pMemory: PVOID, #[in] NumberOfEntries: ULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSFreeMemoryExW(#[in] WTSTypeClass: WTS_TYPE_CLASS, #[in] pMemory: PVOID, #[in] NumberOfEntries: ULONG) -> BOOL;
-        #[arch(X64 | Arm64)]
-        #[library("WTSAPI32.dll")]
-        extern "C" fn WTSGetChildSessionId(#[out] pSessionId: PULONG) -> BOOL;
-        #[arch(X86)]
         #[library("WTSAPI32.dll")]
         extern fn WTSGetChildSessionId(#[out] pSessionId: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -290,10 +282,6 @@ mod Windows {
             LogonTime: LARGE_INTEGER,
             CurrentTime: LARGE_INTEGER,
         }
-        #[arch(X64 | Arm64)]
-        #[library("WTSAPI32.dll")]
-        extern "C" fn WTSIsChildSessionsEnabled(#[out] pbEnabled: PBOOL) -> BOOL;
-        #[arch(X86)]
         #[library("WTSAPI32.dll")]
         extern fn WTSIsChildSessionsEnabled(#[out] pbEnabled: PBOOL) -> BOOL;
         struct WTSLISTENERCONFIGA {

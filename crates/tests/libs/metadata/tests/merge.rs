@@ -545,3 +545,364 @@ fn arch_merge_rejects_callback_attribute_mismatch() {
     arches.sort();
     assert_eq!(arches, vec![1, 2]);
 }
+
+#[test]
+fn arch_merge_preserves_callback_contracts() {
+    let dir = std::path::Path::new(env!("CARGO_TARGET_TMPDIR")).join("callback-contracts");
+    std::fs::create_dir_all(&dir).unwrap();
+    let inputs = [
+        winmd(
+            &dir,
+            "x86",
+            r#"#[win32] mod Test {
+                extern fn Convention(value: i32);
+                extern fn Direction(#[in] value: *mut i32);
+                extern fn NativeDirection(#[in] value: *mut i32) -> i32;
+                extern fn Shared(value: i32);
+            }"#,
+        ),
+        winmd(
+            &dir,
+            "x64",
+            r#"#[win32] mod Test {
+                extern "C" fn Convention(value: i32);
+                extern fn Direction(#[out] value: *mut i32);
+                extern fn NativeDirection(#[out] value: *mut i32) -> isize;
+                extern fn Shared(value: i32);
+            }"#,
+        ),
+    ];
+    let output = dir.join("merged.winmd");
+    merge()
+        .arch_input(&inputs[0], 1)
+        .arch_input(&inputs[1], 2)
+        .arch_input(&inputs[1], 4)
+        .output(&output)
+        .merge()
+        .unwrap();
+    let index = reader::Index::read(&output).unwrap();
+    for name in ["Convention", "Direction", "NativeDirection"] {
+        let mut arches: Vec<_> = index.get("Test", name).map(|ty| ty.arches()).collect();
+        arches.sort();
+        assert_eq!(arches, [1, 6], "{name}");
+    }
+    assert_eq!(index.get("Test", "Shared").count(), 1);
+    assert_eq!(type_arch_bits(index.expect("Test", "Shared")), None);
+
+    let rdl = dir.join("rdl");
+    windows_rdl::writer()
+        .input(&output)
+        .output(&rdl)
+        .split()
+        .write()
+        .unwrap();
+    let roundtrip = dir.join("roundtrip.winmd");
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(&roundtrip)
+        .write()
+        .unwrap();
+    for (arch, input) in [(1, &inputs[0]), (2, &inputs[1]), (4, &inputs[1])] {
+        let source = reader::Index::read(input).unwrap();
+        let merged = reader::Index::new_for_architecture(
+            vec![reader::File::read(&roundtrip).unwrap()],
+            arch,
+        );
+        assert_eq!(
+            merged
+                .expect("Test", "Convention")
+                .find_attribute("UnmanagedFunctionPointerAttribute")
+                .unwrap()
+                .value(),
+            source
+                .expect("Test", "Convention")
+                .find_attribute("UnmanagedFunctionPointerAttribute")
+                .unwrap()
+                .value()
+        );
+        for name in ["Direction", "NativeDirection"] {
+            let actual = merged.expect("Test", name).methods().next().unwrap();
+            let expected = source.expect("Test", name).methods().next().unwrap();
+            assert_eq!(actual.signature(&[]), expected.signature(&[]));
+            let direction = actual.params().next().unwrap().direction();
+            assert_eq!(
+                direction,
+                if arch == 1 {
+                    reader::ParamDirection::Input
+                } else {
+                    reader::ParamDirection::Output
+                }
+            );
+        }
+    }
+    std::fs::remove_dir_all(dir).unwrap();
+}
+
+fn contract_attribute(file: &mut writer::File, parent: writer::HasAttribute, value: i32) {
+    let ty = writer::MemberRefParent::TypeRef(file.TypeRef("Test", "ContractAttribute"));
+    let ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            types: vec![Type::I32],
+            ..Default::default()
+        },
+        ty,
+    );
+    file.Attribute(
+        parent,
+        writer::AttributeType::MemberRef(ctor),
+        &[(String::new(), Value::I32(value))],
+    );
+}
+
+#[test]
+fn arch_merge_preserves_member_contracts_through_union() {
+    let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
+    let inputs = [
+        root.join("contracts-x86.winmd"),
+        root.join("contracts-wide.winmd"),
+    ];
+    let names = [
+        "Shared",
+        "Direction",
+        "Optional",
+        "ParameterAttribute",
+        "ReturnAttribute",
+        "ImportLibrary",
+        "ImportName",
+        "ImportFlags",
+        "MethodFlags",
+        "ImplementationFlags",
+        "MethodAttribute",
+    ];
+    for (variant, input) in inputs.iter().enumerate() {
+        let mut file = writer::File::new("contracts");
+        let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "Object"));
+        file.TypeDef("Test", "Apis", base, TypeAttributes::Public);
+        let arch_type = writer::MemberRefParent::TypeRef(
+            file.TypeRef("Windows.Win32.Metadata", "SupportedArchitectureAttribute"),
+        );
+        let arch_ctor = file.MemberRef(
+            ".ctor",
+            &Signature {
+                types: vec![Type::I32],
+                ..Default::default()
+            },
+            arch_type,
+        );
+        for name in names {
+            let changed = |case| variant == 1 && name == case;
+            let method = file.MethodDef(
+                name,
+                &Signature {
+                    flags: MethodCallAttributes(0),
+                    return_type: Type::I32,
+                    types: vec![Type::PtrMut(Box::new(Type::U8), 1)],
+                },
+                MethodAttributes::Public
+                    | MethodAttributes::Static
+                    | MethodAttributes::PInvokeImpl
+                    | if changed("MethodFlags") {
+                        MethodAttributes::SpecialName
+                    } else {
+                        MethodAttributes(0)
+                    },
+                if changed("ImplementationFlags") {
+                    MethodImplAttributes::PreserveSig
+                } else {
+                    MethodImplAttributes(0)
+                },
+            );
+            let result = file.Param("", 0, ParamAttributes(0));
+            contract_attribute(
+                &mut file,
+                writer::HasAttribute::Param(result),
+                i32::from(changed("ReturnAttribute")),
+            );
+            let param = file.Param(
+                "buffer",
+                1,
+                if changed("Direction") {
+                    ParamAttributes::Out
+                } else {
+                    ParamAttributes::In
+                } | if changed("Optional") {
+                    ParamAttributes::Optional
+                } else {
+                    ParamAttributes(0)
+                },
+            );
+            contract_attribute(
+                &mut file,
+                writer::HasAttribute::Param(param),
+                i32::from(changed("ParameterAttribute")),
+            );
+            contract_attribute(
+                &mut file,
+                writer::HasAttribute::MethodDef(method),
+                i32::from(changed("MethodAttribute")),
+            );
+            file.ImplMap(
+                method,
+                if changed("ImportFlags") {
+                    PInvokeAttributes::CallConvPlatformapi
+                } else {
+                    PInvokeAttributes::CallConvCdecl
+                },
+                if changed("ImportName") {
+                    "OtherEntry"
+                } else {
+                    name
+                },
+                if changed("ImportLibrary") {
+                    "wide.dll"
+                } else {
+                    "common.dll"
+                },
+            );
+            file.Attribute(
+                writer::HasAttribute::MethodDef(method),
+                writer::AttributeType::MemberRef(arch_ctor),
+                &[(String::new(), Value::I32(if variant == 0 { 1 } else { 6 }))],
+            );
+        }
+        for name in ["FieldFlags", "FieldAttribute"] {
+            let flags = FieldAttributes::Public
+                | FieldAttributes::Static
+                | if variant == 1 && name == "FieldFlags" {
+                    FieldAttributes::SpecialName
+                } else {
+                    FieldAttributes(0)
+                };
+            let field = file.Field(name, &Type::U32, flags);
+            contract_attribute(
+                &mut file,
+                writer::HasAttribute::Field(field),
+                i32::from(variant == 1 && name == "FieldAttribute"),
+            );
+            file.Attribute(
+                writer::HasAttribute::Field(field),
+                writer::AttributeType::MemberRef(arch_ctor),
+                &[(String::new(), Value::I32(if variant == 0 { 1 } else { 6 }))],
+            );
+        }
+        std::fs::write(input, file.into_stream()).unwrap();
+    }
+    let output = root.join("contracts-merged.winmd");
+    merge()
+        .arch_input(&inputs[0], 1)
+        .arch_input(&inputs[1], 2)
+        .arch_input(&inputs[1], 4)
+        .output(&output)
+        .merge()
+        .unwrap();
+    let union = root.join("contracts-union.winmd");
+    merge()
+        .input(&output)
+        .input(&output)
+        .union_enums()
+        .output(&union)
+        .merge()
+        .unwrap();
+    let tagged_union = root.join("contracts-tagged-union.winmd");
+    merge()
+        .inputs(&inputs)
+        .union_enums()
+        .output(&tagged_union)
+        .merge()
+        .unwrap();
+    for path in [&output, &union, &tagged_union] {
+        let index = reader::Index::read(path).unwrap();
+        let apis = index.expect("Test", "Apis");
+        for name in names {
+            let mut arches: Vec<_> = apis
+                .methods()
+                .filter(|method| method.name() == name)
+                .map(|method| method.arches())
+                .collect();
+            arches.sort();
+            assert_eq!(
+                arches,
+                if name == "Shared" && path != &tagged_union {
+                    vec![0]
+                } else {
+                    vec![1, 6]
+                },
+                "{name}: {}",
+                path.display()
+            );
+        }
+        for name in ["FieldFlags", "FieldAttribute"] {
+            let fields: Vec<_> = apis.fields().filter(|field| field.name() == name).collect();
+            assert_eq!(fields.len(), 2);
+            let mut arches: Vec<_> = fields.iter().map(|field| field.arches()).collect();
+            arches.sort();
+            assert_eq!(arches, [1, 6]);
+            assert_eq!(
+                fields
+                    .iter()
+                    .filter(|field| field.flags().contains(FieldAttributes::SpecialName))
+                    .count(),
+                usize::from(name == "FieldFlags")
+            );
+            let mut values: Vec<_> = fields
+                .iter()
+                .map(|field| field.find_attribute("ContractAttribute").unwrap().value())
+                .collect();
+            values.sort_by_key(|values| format!("{values:?}"));
+            assert_eq!(
+                values,
+                vec![
+                    vec![(String::new(), Value::I32(0))],
+                    vec![(
+                        String::new(),
+                        Value::I32(i32::from(name == "FieldAttribute"))
+                    )],
+                ]
+            );
+        }
+        for (arch, input) in [(1, &inputs[0]), (2, &inputs[1]), (4, &inputs[1])] {
+            let source = reader::Index::read(input).unwrap();
+            for expected in source.expect("Test", "Apis").methods() {
+                let actual = apis
+                    .methods()
+                    .find(|method| {
+                        method.name() == expected.name()
+                            && (method.arches() == 0 || method.arches() & arch != 0)
+                    })
+                    .unwrap();
+                assert_eq!(actual.flags(), expected.flags());
+                assert_eq!(actual.impl_flags(), expected.impl_flags());
+                assert_eq!(actual.signature(&[]), expected.signature(&[]));
+                assert_eq!(
+                    actual.find_attribute("ContractAttribute").unwrap().value(),
+                    expected
+                        .find_attribute("ContractAttribute")
+                        .unwrap()
+                        .value()
+                );
+                let params = |method: reader::MethodDef| {
+                    method
+                        .params()
+                        .map(|param| {
+                            (
+                                param.sequence(),
+                                param.flags(),
+                                param.find_attribute("ContractAttribute").unwrap().value(),
+                            )
+                        })
+                        .collect::<Vec<_>>()
+                };
+                assert_eq!(params(actual), params(expected));
+                let actual = actual.impl_map().unwrap();
+                let expected = expected.impl_map().unwrap();
+                assert_eq!(actual.flags(), expected.flags());
+                assert_eq!(actual.import_name(), expected.import_name());
+                assert_eq!(actual.import_scope().name(), expected.import_scope().name());
+            }
+        }
+    }
+    for path in inputs.into_iter().chain([output, union, tagged_union]) {
+        std::fs::remove_file(path).unwrap();
+    }
+}
