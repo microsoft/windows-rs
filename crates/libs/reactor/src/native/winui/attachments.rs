@@ -12,7 +12,7 @@ pub(super) struct NativeCommandBarFlyout {
     pub(super) revision: u64,
     native: native::CommandBarFlyout,
     _revokers: Vec<windows_core::EventRevoker>,
-    images: Vec<Rc<NativeImageSource>>,
+    images: Vec<ImageUse>,
 }
 
 impl WinUiAdapter {
@@ -293,7 +293,8 @@ impl WinUiAdapter {
             self.ui_element(target)?
                 .cast::<native::IButton>()?
                 .SetFlyout(None::<&native::FlyoutBase>)?;
-            self.released_images.extend(previous.images);
+            self.released_images
+                .extend(previous.images.into_iter().map(ImageUse::release));
         }
         let Some(flyout) = flyout else {
             return Ok(());
@@ -341,7 +342,7 @@ impl WinUiAdapter {
         &mut self,
         command: &CommandBarCommand,
         revokers: &mut Vec<windows_core::EventRevoker>,
-        images: &mut Vec<Rc<NativeImageSource>>,
+        images: &mut Vec<ImageUse>,
         target: ObjectId,
         revision: u64,
     ) -> Result<native::ICommandBarElement, WinUiError> {
@@ -357,10 +358,7 @@ impl WinUiAdapter {
                 button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
                 if let Some(icon) = icon {
                     let image = self.shared_icon_image(icon)?;
-                    button.SetIcon(&icon_element(
-                        icon,
-                        image.as_ref().map(|image| &image.value),
-                    )?)?;
+                    button.SetIcon(&icon_element(icon, image.as_deref())?)?;
                     images.extend(image);
                 }
                 let clicked_key = key.clone();

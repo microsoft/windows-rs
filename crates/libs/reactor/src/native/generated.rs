@@ -4252,7 +4252,7 @@ impl GeneratedHandle {
         &self,
         property: PropertyId,
         value: Option<&PropertyValue>,
-        image_source: Option<&native::ImageSource>,
+        image: Option<&Rc<NativeImageSource>>,
     ) -> Option<Result<(), WinUiError>> {
         match (self, property, value) {
             (Self::TextBox(object), PropertyId::Text, None) => {
@@ -4429,7 +4429,7 @@ impl GeneratedHandle {
             ),
             (Self::TitleBar(object), PropertyId::IconSource, Some(PropertyValue::Icon(value))) => {
                 Some(
-                    icon_source(value, image_source)
+                    icon_source(value, image)
                         .and_then(|icon| object.value.SetIconSource(&icon).map_err(Into::into)),
                 )
             }
@@ -4452,7 +4452,7 @@ impl GeneratedHandle {
                 PropertyId::QueryIcon,
                 Some(PropertyValue::Icon(value)),
             ) => Some(
-                icon_element(value, image_source)
+                icon_element(value, image)
                     .and_then(|icon| object.value.SetQueryIcon(&icon).map_err(Into::into)),
             ),
             (Self::NavigationViewItem(object), PropertyId::Icon, None) => Some(
@@ -4465,7 +4465,7 @@ impl GeneratedHandle {
                 PropertyId::Icon,
                 Some(PropertyValue::Icon(value)),
             ) => Some(
-                icon_element(value, image_source)
+                icon_element(value, image)
                     .and_then(|icon| object.SetIcon(&icon).map_err(Into::into)),
             ),
             (Self::SelectorBarItem(object), PropertyId::Icon, None) => Some(
@@ -4475,7 +4475,7 @@ impl GeneratedHandle {
             ),
             (Self::SelectorBarItem(object), PropertyId::Icon, Some(PropertyValue::Icon(value))) => {
                 Some(
-                    icon_element(value, image_source)
+                    icon_element(value, image)
                         .and_then(|icon| object.SetIcon(&icon).map_err(Into::into)),
                 )
             }
@@ -4487,7 +4487,7 @@ impl GeneratedHandle {
             ),
             (Self::AppBarButton(object), PropertyId::Icon, Some(PropertyValue::Icon(value))) => {
                 Some(
-                    icon_element(value, image_source)
+                    icon_element(value, image)
                         .and_then(|icon| object.value.SetIcon(&icon).map_err(Into::into)),
                 )
             }

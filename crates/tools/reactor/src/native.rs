@@ -1037,7 +1037,7 @@ fn emit_set_property(
 ) {
     output.push_str(
         "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>, \
-         image_source: Option<&native::ImageSource>) -> \
+         image: Option<&Rc<NativeImageSource>>) -> \
                      Option<Result<(), WinUiError>> { match (self, property, value) {\n",
     );
     for object in objects {
@@ -1565,7 +1565,7 @@ fn emit_native_property_arms(
             });
             let set = native_interface_call(target, class, interface, metadata, |object| {
                 format!(
-                    "{helper}(value, image_source).and_then(|icon| \
+                    "{helper}(value, image).and_then(|icon| \
                      {object}.Set{native}(&icon).map_err(Into::into))"
                 )
             });

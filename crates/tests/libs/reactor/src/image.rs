@@ -8,10 +8,13 @@ pub(super) const PNG: &[u8] = &[
     0x4e, 0x44, 0xae, 0x42, 0x60, 0x82,
 ];
 
-#[derive(Clone, Copy)]
+const SVG: &[u8] = br#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>"#;
+
+#[derive(Clone, Copy, PartialEq)]
 pub(super) enum Source {
     Valid,
     Invalid,
+    Svg,
 }
 
 pub(super) struct ImageFixture {
@@ -55,16 +58,33 @@ impl Component for ImageFixture {
             .height(32.0)
             .on_opened(context.message(Message::Opened))
             .on_failed(context.message(Message::Failed));
-        let data = match self.source {
-            Source::Valid => PNG,
-            Source::Invalid => &[0, 1, 2],
+        let image = match self.source {
+            Source::Valid => image.source_data(EncodedImage::from_static(PNG)),
+            Source::Invalid => image.source_data(EncodedImage::from_static(&[0, 1, 2])),
+            Source::Svg => image.source_svg(EncodedImage::from_static(SVG)),
         };
-        let image = image.source_data(EncodedImage::from_static(data));
+        let mut images: Vec<View> = vec![image.into()];
+        // The second SVG image mounts with the update, so its load starts from `Loaded` while the
+        // first image is already live.
+        if self.source == Source::Svg {
+            images.push(
+                Image::new()
+                    .width(64.0)
+                    .height(64.0)
+                    .on_opened(context.message(Message::Opened))
+                    .on_failed(context.message(Message::Failed))
+                    .source_svg(EncodedImage::from_static(SVG))
+                    .into(),
+            );
+        }
         StackPanel::new()
             .margin(20.0)
             .spacing(12.0)
             .children((
-                image,
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(12.0)
+                    .children(images),
                 Button::new()
                     .automation_id("invalid")
                     .content("Invalid image")
@@ -73,6 +93,10 @@ impl Component for ImageFixture {
                     .automation_id("valid")
                     .content("Valid image")
                     .on_click(context.message(Message::Source(Source::Valid))),
+                Button::new()
+                    .automation_id("svg")
+                    .content("SVG images")
+                    .on_click(context.message(Message::Source(Source::Svg))),
                 TextBlock::new()
                     .automation_id("events")
                     .text(format!("Opened {}; failed {}", self.opened, self.failed)),

@@ -5,25 +5,74 @@ pub(super) const IMAGE_SOURCE_EVENTS: [EventId; 2] = [EventId::ImageOpened, Even
 
 pub(super) struct NativeImageSource {
     pub(super) value: native::ImageSource,
+    deferred: RefCell<Option<DeferredLoad>>,
     state: Rc<ImageLoadState>,
     _opened: windows_core::EventRevoker,
     _failed: windows_core::EventRevoker,
 }
 
+/// SVG bytes waiting for their source to enter the live tree.
+///
+/// WinUI rasterizes an `SvgImageSource` at its rendered size only when its stream is set while
+/// the source is live. A stream set earlier rasterizes at the SVG's natural size or the window
+/// size, and then scales.
+struct DeferredLoad {
+    bytes: EncodedImage,
+    _loaded: Option<windows_core::EventRevoker>,
+}
+
 pub(super) struct ImageSubscription {
     pub(super) property: PropertyId,
-    pub(super) image: Rc<NativeImageSource>,
+    pub(super) image: ImageUse,
     pub(super) _callback: Option<Rc<dyn Fn(bool)>>,
+}
+
+/// A control's use of a cached image source.
+///
+/// WinUI rasterizes an SVG source once for all of its controls, so an SVG source has one user at
+/// a time and becomes available to another control when this use is dropped.
+pub(super) struct ImageUse<T = NativeImageSource> {
+    image: Rc<T>,
+    used: Option<Rc<Cell<bool>>>,
+}
+
+impl<T> ImageUse<T> {
+    /// Ends the use, returning the source so it can be kept alive for a replacement control.
+    pub(super) fn release(self) -> Rc<T> {
+        Rc::clone(&self.image)
+    }
+}
+
+impl<T> std::ops::Deref for ImageUse<T> {
+    type Target = Rc<T>;
+
+    fn deref(&self) -> &Rc<T> {
+        &self.image
+    }
+}
+
+impl<T> Drop for ImageUse<T> {
+    fn drop(&mut self) {
+        if let Some(used) = &self.used {
+            used.set(false);
+        }
+    }
+}
+
+pub(super) struct Pooled<P> {
+    image: P,
+    used: Rc<Cell<bool>>,
 }
 
 /// Native image sources shared by a window's controls.
 ///
 /// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes lives
 /// while the app holds those bytes, so controls that leave and return render without decoding
-/// again. Clones of an `EncodedImage` share its allocation and therefore one source.
+/// again. Clones of an `EncodedImage` share its allocation and therefore its sources. Bitmap
+/// sources are shared by all controls; SVG sources are pooled with one control per source.
 pub(super) struct ImageCache<T = NativeImageSource> {
-    uris: HashMap<Rc<str>, Weak<T>>,
-    pub(super) bytes: HashMap<(usize, usize, bool), (Option<SyncWeak<[u8]>>, Rc<T>)>,
+    uris: HashMap<Rc<str>, Vec<Pooled<Weak<T>>>>,
+    pub(super) bytes: HashMap<(usize, usize, bool), (Option<SyncWeak<[u8]>>, Vec<Pooled<Rc<T>>>)>,
 }
 
 impl<T> Default for ImageCache<T> {
@@ -40,39 +89,96 @@ impl<T> ImageCache<T> {
         &mut self,
         source: &ImageSourceValue,
         create: impl FnOnce() -> Result<T, E>,
-    ) -> Result<Rc<T>, E> {
+    ) -> Result<ImageUse<T>, E> {
+        let exclusive = is_svg(source);
         match source {
-            ImageSourceValue::Uri(uri) => {
-                if let Some(image) = self.uris.get(uri).and_then(Weak::upgrade) {
-                    return Ok(image);
-                }
-                let image = Rc::new(create()?);
-                self.uris.insert(Rc::clone(uri), Rc::downgrade(&image));
-                Ok(image)
-            }
+            ImageSourceValue::Uri(uri) => acquire(
+                self.uris.entry(Rc::clone(uri)).or_default(),
+                exclusive,
+                Weak::upgrade,
+                Rc::downgrade,
+                create,
+            ),
             ImageSourceValue::Encoded(bytes) | ImageSourceValue::Svg(bytes) => {
                 let key = (
                     bytes.as_bytes().as_ptr() as usize,
                     bytes.as_bytes().len(),
-                    matches!(source, ImageSourceValue::Svg(_)),
+                    exclusive,
                 );
-                if let Some((_, image)) = self.bytes.get(&key) {
-                    return Ok(Rc::clone(image));
-                }
-                let image = Rc::new(create()?);
-                self.bytes
-                    .insert(key, (bytes.downgrade(), Rc::clone(&image)));
-                Ok(image)
+                let (_, pool) = self
+                    .bytes
+                    .entry(key)
+                    .or_insert_with(|| (bytes.downgrade(), Vec::new()));
+                acquire(
+                    pool,
+                    exclusive,
+                    |image| Some(Rc::clone(image)),
+                    Rc::clone,
+                    create,
+                )
             }
         }
     }
 
-    /// Drops URI sources no control uses and byte sources whose bytes the app has released.
-    pub(super) fn prune(&mut self) {
-        self.uris.retain(|_, image| image.strong_count() != 0);
+    /// Drops URI sources no control uses, byte sources whose bytes the app has released, and
+    /// unused byte sources that are still `pending`.
+    ///
+    /// A pending source has not started loading and holds its bytes, so a control removed before
+    /// it was loaded would otherwise keep the bytes, and the source, alive.
+    pub(super) fn prune(&mut self, pending: impl Fn(&T) -> bool) {
+        self.uris.retain(|_, pool| {
+            pool.retain(|pooled| pooled.image.strong_count() != 0);
+            !pool.is_empty()
+        });
         // Holding a weak reference keeps the allocation, and so its key, from being reused.
-        self.bytes
-            .retain(|_, (owner, _)| owner.as_ref().is_none_or(|owner| owner.strong_count() != 0));
+        self.bytes.retain(|_, (owner, pool)| {
+            pool.retain(|pooled| pooled.used.get() || !pending(&pooled.image));
+            !pool.is_empty() && owner.as_ref().is_none_or(|owner| owner.strong_count() != 0)
+        });
+    }
+}
+
+fn acquire<P, T, E>(
+    pool: &mut Vec<Pooled<P>>,
+    exclusive: bool,
+    upgrade: impl Fn(&P) -> Option<Rc<T>>,
+    store: impl FnOnce(&Rc<T>) -> P,
+    create: impl FnOnce() -> Result<T, E>,
+) -> Result<ImageUse<T>, E> {
+    let available = pool.iter().find_map(|pooled| {
+        if exclusive && pooled.used.get() {
+            return None;
+        }
+        upgrade(&pooled.image).map(|image| (image, Rc::clone(&pooled.used)))
+    });
+    let (image, used) = if let Some(available) = available {
+        available
+    } else {
+        let image = Rc::new(create()?);
+        let used = Rc::new(Cell::new(false));
+        pool.push(Pooled {
+            image: store(&image),
+            used: Rc::clone(&used),
+        });
+        (image, used)
+    };
+    used.set(exclusive);
+    Ok(ImageUse {
+        image,
+        used: exclusive.then_some(used),
+    })
+}
+
+fn is_svg(source: &ImageSourceValue) -> bool {
+    match source {
+        ImageSourceValue::Svg(_) => true,
+        ImageSourceValue::Encoded(_) => false,
+        ImageSourceValue::Uri(uri) => uri
+            .split(['?', '#'])
+            .next()
+            .unwrap()
+            .to_ascii_lowercase()
+            .ends_with(".svg"),
     }
 }
 
@@ -110,20 +216,19 @@ impl NativeImageSource {
         let state = Rc::new(ImageLoadState::default());
         let opened = Rc::clone(&state);
         let failed = Rc::clone(&state);
-        let svg = matches!(source, ImageSourceValue::Svg(_))
-            || matches!(source, ImageSourceValue::Uri(uri)
-                if uri.split(['?', '#']).next().unwrap().to_ascii_lowercase().ends_with(".svg"));
+        let svg = is_svg(source);
+        let mut deferred = None;
         let (value, opened, failed) = if svg {
             let image = native::SvgImageSource::new()?;
             let opened = image.Opened(move |_, _| opened.complete(true))?;
             let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
             match source {
                 ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
-                ImageSourceValue::Svg(value) => {
-                    let decode_image = image.clone();
-                    load_encoded_image(value, move |stream| {
-                        decode_image.SetSourceAsync(stream).map(drop)
-                    })?;
+                ImageSourceValue::Svg(bytes) => {
+                    deferred = Some(DeferredLoad {
+                        bytes: bytes.clone(),
+                        _loaded: None,
+                    });
                 }
                 ImageSourceValue::Encoded(_) => unreachable!(),
             }
@@ -149,16 +254,76 @@ impl NativeImageSource {
         };
         Ok(Self {
             value,
+            deferred: RefCell::new(deferred),
             state,
             _opened: opened,
             _failed: failed,
+        })
+    }
+
+    /// Whether this source is waiting for a control to load before it starts loading.
+    pub(super) fn is_pending(&self) -> bool {
+        self.deferred.borrow().is_some()
+    }
+
+    /// Starts a deferred load once `consumer`, the control displaying this source, is loaded.
+    pub(super) fn attach(self: &Rc<Self>, consumer: &native::UIElement) -> Result<(), WinUiError> {
+        self.when_loaded(consumer, |image| image.start_deferred())
+    }
+
+    /// Starts a deferred load once the icon element of `title_bar` is loaded.
+    ///
+    /// TitleBar creates its icon element from the icon source and creates it again when its
+    /// template is applied, so the element that is displayed is known once the TitleBar loads.
+    pub(super) fn attach_title_bar(
+        self: &Rc<Self>,
+        title_bar: &native::TitleBar,
+    ) -> Result<(), WinUiError> {
+        let host = title_bar.clone();
+        self.when_loaded(&title_bar.cast()?, move |image| {
+            image.attach(&host.TemplateSettings()?.IconElement()?.cast()?)
+        })
+    }
+
+    fn when_loaded(
+        self: &Rc<Self>,
+        element: &native::UIElement,
+        start: impl Fn(&Rc<Self>) -> Result<(), WinUiError> + 'static,
+    ) -> Result<(), WinUiError> {
+        if self.deferred.borrow().is_none() {
+            return Ok(());
+        }
+        let element = element.cast::<native::IFrameworkElement>()?;
+        if element.IsLoaded()? {
+            return start(self);
+        }
+        let image = Rc::downgrade(self);
+        let loaded = element.Loaded(move |_, _| {
+            if let Some(image) = image.upgrade() {
+                start(&image).unwrap();
+            }
+        })?;
+        // Replaces the observer of a previous user that left before loading.
+        if let Some(deferred) = self.deferred.borrow_mut().as_mut() {
+            deferred._loaded = Some(loaded);
+        }
+        Ok(())
+    }
+
+    fn start_deferred(&self) -> Result<(), WinUiError> {
+        let Some(deferred) = self.deferred.take() else {
+            return Ok(());
+        };
+        let image = self.value.cast::<native::SvgImageSource>()?;
+        load_encoded_image(&deferred.bytes, move |stream| {
+            image.SetSourceAsync(stream).map(drop)
         })
     }
 }
 
 pub(super) fn icon_element(
     value: &Icon,
-    image_source: Option<&native::ImageSource>,
+    image: Option<&Rc<NativeImageSource>>,
 ) -> Result<native::IconElement, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
@@ -181,8 +346,10 @@ pub(super) fn icon_element(
             icon.cast().map_err(Into::into)
         }
         IconValue::Image(_) => {
+            let image = image.unwrap();
             let icon = native::ImageIcon::new()?;
-            icon.SetSource(image_source.unwrap())?;
+            icon.SetSource(&image.value)?;
+            image.attach(&icon.cast()?)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
@@ -193,9 +360,11 @@ pub(super) fn icon_element(
     }
 }
 
+/// Creates an icon source. The control that receives it creates the icon element, so the caller
+/// attaches `image` to that element.
 pub(super) fn icon_source(
     value: &Icon,
-    image_source: Option<&native::ImageSource>,
+    image: Option<&Rc<NativeImageSource>>,
 ) -> Result<native::IconSource, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
@@ -219,7 +388,7 @@ pub(super) fn icon_source(
         }
         IconValue::Image(_) => {
             let icon = native::ImageIconSource::new()?;
-            icon.SetImageSource(image_source.unwrap())?;
+            icon.SetImageSource(&image.unwrap().value)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
@@ -249,15 +418,16 @@ fn load_encoded_image(
 }
 
 impl WinUiAdapter {
-    fn shared_image(&mut self, source: &ImageSource) -> Result<Rc<NativeImageSource>, WinUiError> {
+    fn shared_image(&mut self, source: &ImageSource) -> Result<ImageUse, WinUiError> {
         self.images
             .get_or_insert(source.value(), || NativeImageSource::new(source.value()))
     }
 
+    /// Returns the image source for `icon`, if it shows an image.
     pub(super) fn shared_icon_image(
         &mut self,
         icon: &Icon,
-    ) -> Result<Option<Rc<NativeImageSource>>, WinUiError> {
+    ) -> Result<Option<ImageUse>, WinUiError> {
         match icon.value() {
             IconValue::Image(source) => self.shared_image(source).map(Some),
             _ => Ok(None),
@@ -267,7 +437,7 @@ impl WinUiAdapter {
     pub(super) fn release_image(&mut self, object: ObjectId) {
         // Keep released images until the batch completes so replacement controls can share them.
         if let Some(subscription) = self.image_subscriptions.remove(&object) {
-            self.released_images.push(subscription.image);
+            self.released_images.push(subscription.image.release());
         }
     }
 
@@ -276,10 +446,13 @@ impl WinUiAdapter {
         object: ObjectId,
         source: &ImageSource,
     ) -> Result<(), WinUiError> {
+        // Release first so a control keeps its SVG source when the source is set again.
+        self.release_image(object);
         let image = self.shared_image(source)?;
         let callback = match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::Image(control))) => {
                 control.value.SetSource(&image.value)?;
+                image.attach(&control.value.cast()?)?;
                 self.event_queue
                     .discard_events(object, &IMAGE_SOURCE_EVENTS);
                 control.source.set(true);
@@ -298,11 +471,11 @@ impl WinUiAdapter {
             }
             Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
                 control.SetSource(&image.value)?;
+                image.attach(&control.cast()?)?;
                 None
             }
             _ => return Err(WinUiError::InvalidObject(object)),
         };
-        self.release_image(object);
         let result = callback
             .as_ref()
             .and_then(|callback| image.state.subscribe(callback));

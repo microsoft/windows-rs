@@ -18,40 +18,89 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
     let bytes = EncodedImage::new(b"<svg/>".to_vec());
     let held = ImageSourceValue::Svg(bytes.clone());
     drop(get(&mut cache, &held));
-    cache.prune();
-    assert_eq!(*get(&mut cache, &ImageSourceValue::Svg(bytes.clone())), 1);
+    cache.prune(|_| false);
+    assert_eq!(**get(&mut cache, &ImageSourceValue::Svg(bytes.clone())), 1);
 
     // Separate allocations decode separately, and dropping one does not release the other.
     let copy = svg(b"<svg/>");
-    assert_eq!(*get(&mut cache, &copy), 2);
+    assert_eq!(**get(&mut cache, &copy), 2);
     drop(copy);
-    cache.prune();
-    assert_eq!(*get(&mut cache, &held), 1);
+    cache.prune(|_| false);
+    assert_eq!(**get(&mut cache, &held), 1);
 
     // The same bytes as a bitmap are a different source.
     assert_eq!(
-        *get(&mut cache, &ImageSourceValue::Encoded(bytes.clone())),
+        **get(&mut cache, &ImageSourceValue::Encoded(bytes.clone())),
         3
     );
 
     // Once the app drops the bytes, the source is released.
     drop((held, bytes));
-    cache.prune();
+    cache.prune(|_| false);
     assert!(cache.bytes.is_empty());
 
     // Static bytes are always held.
     let fixed = ImageSourceValue::Encoded(EncodedImage::from_static(b"png"));
     drop(get(&mut cache, &fixed));
-    cache.prune();
-    assert_eq!(*get(&mut cache, &fixed), 4);
+    cache.prune(|_| false);
+    assert_eq!(**get(&mut cache, &fixed), 4);
 
     // URI sources live only while a control uses them.
     let uri = ImageSourceValue::Uri(Rc::from("ms-appx:///icon.png"));
     let shown = get(&mut cache, &uri);
-    assert_eq!(get(&mut cache, &uri), shown);
+    assert!(Rc::ptr_eq(&get(&mut cache, &uri), &shown));
     drop(shown);
-    cache.prune();
-    assert_eq!(*get(&mut cache, &uri), 6);
+    cache.prune(|_| false);
+    assert_eq!(**get(&mut cache, &uri), 6);
+}
+
+#[test]
+fn image_cache_gives_each_control_its_own_svg_source() {
+    let created = Cell::new(0);
+    let get = |cache: &mut ImageCache<u32>, source: &ImageSourceValue| {
+        cache
+            .get_or_insert(source, || {
+                created.set(created.get() + 1);
+                Ok::<_, ()>(created.get())
+            })
+            .unwrap()
+    };
+    let mut cache = ImageCache::default();
+
+    // WinUI rasterizes an SVG source at one size, so controls showing it at once need their own.
+    for svg in [
+        ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec())),
+        ImageSourceValue::Uri(Rc::from("ms-appx:///icon.SVG?v=1")),
+    ] {
+        let first = get(&mut cache, &svg);
+        let second = get(&mut cache, &svg);
+        assert_ne!(**first, **second);
+
+        // A released source goes to the next control while the other stays in use.
+        let value = **first;
+        let kept = first.release();
+        let third = get(&mut cache, &svg);
+        assert_eq!(**third, value);
+        drop((kept, second, third));
+    }
+}
+
+#[test]
+fn image_cache_drops_unused_sources_that_have_not_started_loading() {
+    let mut cache = ImageCache::<u32>::default();
+    let svg = ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec()));
+    let get = |cache: &mut ImageCache<u32>, value| {
+        cache.get_or_insert(&svg, || Ok::<_, ()>(value)).unwrap()
+    };
+
+    // A pending source in use stays, while an unused one goes even though the app holds its bytes.
+    let shown = get(&mut cache, 1);
+    drop(get(&mut cache, 2));
+    cache.prune(|_| true);
+    assert_eq!(**get(&mut cache, 3), 3);
+    drop(shown);
+    cache.prune(|_| true);
+    assert!(cache.bytes.is_empty());
 }
 
 #[test]

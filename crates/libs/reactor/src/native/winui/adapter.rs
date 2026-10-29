@@ -118,7 +118,7 @@ impl Adapter for SharedWinUiAdapter {
         result.unwrap();
         if state.apply_depth == 0 {
             state.released_images.clear();
-            state.images.prune();
+            state.images.prune(NativeImageSource::is_pending);
         }
     }
 
@@ -624,7 +624,7 @@ impl WinUiAdapter {
                     )),
                 };
                 if result.is_ok() && self.image_subscriptions.remove(&object).is_some() {
-                    self.images.prune();
+                    self.images.prune(NativeImageSource::is_pending);
                 }
                 completion.call(result.map_err(integration_error));
             }
