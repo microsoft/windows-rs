@@ -614,10 +614,6 @@ impl Drop for WinUiAdapter {
     }
 }
 
-#[cfg(feature = "test")]
-#[path = "../../test_support/native/winui.rs"]
-mod test_support;
-
 fn relation_contract(
     kind: ObjectType,
     relation: RelationId,

@@ -85,9 +85,8 @@ pub mod test {
     pub use crate::generated::{EventId, ObjectType, PropertyId, RelationId};
     #[cfg(feature = "test")]
     pub use crate::native::{
-        LiveRenderingSubscription, LiveTickSubscription, bring_live_virtual_index,
-        live_virtual_shell_counts, schedule_live_test_exit, subscribe_live_interval,
-        subscribe_live_rendering, subscribe_live_tick,
+        LiveRenderingSubscription, LiveTickSubscription, schedule_live_test_exit,
+        subscribe_live_interval, subscribe_live_rendering,
     };
     pub use crate::reconcile::{
         Adapter, EventDispatch, Mutation, ObjectId, RealizationRequest, RealizedContainer,

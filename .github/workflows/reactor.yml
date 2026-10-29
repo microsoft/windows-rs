@@ -67,7 +67,6 @@ jobs:
           cargo clippy -p windows-reactor --all-targets --quiet
           cargo clippy -p windows-reactor --all-features --all-targets --quiet
           cargo clippy -p test-reactor --all-targets --quiet
-          cargo clippy -p reactor-virtual --features perf --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
           cargo clippy -p windows-composition --no-default-features `
@@ -128,5 +127,3 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-bench --release --quiet -- `
             --architecture-report --samples 6
-          cargo run -p reactor-virtual --bin reactor-virtual-perf `
-            --features perf --release --quiet

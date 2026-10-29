@@ -206,13 +206,6 @@ impl RetainedGraph {
             })
         })
     }
-
-    #[cfg(feature = "test")]
-    pub fn virtual_source_revision(&self, object: ObjectId) -> Option<u64> {
-        self.get(object)
-            .and_then(|object| object.virtual_items.as_ref())
-            .map(|items| items.source_revision)
-    }
 }
 
 #[cfg(feature = "test")]

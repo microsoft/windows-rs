@@ -1,51 +1,5 @@
 use super::*;
 
-fn with_primary_component_window<T>(
-    operation: impl FnOnce(&ComponentWindowState) -> Result<T, &'static str>,
-) -> Result<T, &'static str> {
-    APP_COMPONENT_APPLICATION.with(|application| {
-        let application = application.borrow();
-        let application = application.as_ref().ok_or("application is not running")?;
-        let state = application.state.borrow();
-        let window = state.windows.values().next().ok_or("window is not open")?;
-        let window = window.state.borrow();
-        let window = window.as_ref().ok_or("window is closed")?;
-        operation(window)
-    })
-}
-
-pub fn bring_live_virtual_index(index: usize) -> Result<(), &'static str> {
-    let repeater = with_primary_component_window(|window| {
-        let collection = window
-            .host
-            .runtime()
-            .graph()
-            .objects()
-            .find(|object| {
-                window.host.runtime().graph().kind(*object) == Some(ObjectType::ItemsRepeater)
-            })
-            .ok_or("virtual collection is not mounted")?;
-        window
-            .host
-            .runtime()
-            .adapter()
-            .virtual_repeater(collection)
-            .ok_or("virtual collection is not mounted")
-    })?;
-    // Realization applies content synchronously only once the host is no longer borrowed.
-    let index = i32::try_from(index).map_err(|_| "virtual index is out of range")?;
-    repeater
-        .GetOrCreateElement(index)
-        .and_then(|element| element.StartBringIntoView())
-        .map_err(|_| "virtual index could not be brought into view")
-}
-
-pub fn live_virtual_shell_counts() -> Result<(usize, usize), &'static str> {
-    with_primary_component_window(|window| {
-        Ok(window.host.runtime().adapter().virtual_shell_counts())
-    })
-}
-
 pub struct LiveTickSubscription {
     _tick: windows_core::EventRevoker,
     timer: DispatcherQueueTimer,
@@ -55,12 +9,6 @@ impl Drop for LiveTickSubscription {
     fn drop(&mut self) {
         _ = self.timer.Stop();
     }
-}
-
-pub fn subscribe_live_tick(
-    tick_callback: impl Fn() + 'static,
-) -> windows_core::Result<LiveTickSubscription> {
-    subscribe_live_interval(Duration::from_millis(16), tick_callback)
 }
 
 pub fn subscribe_live_interval(

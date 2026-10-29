@@ -11780,17 +11780,6 @@ impl IItemsRepeater {
             .ok()
         }
     }
-    pub(crate) fn GetOrCreateElement(&self, index: i32) -> windows_core::Result<UIElement> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOrCreateElement)(
-                windows_core::Interface::as_raw(self),
-                index,
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
 }
 #[repr(C)]
 pub struct IItemsRepeater_Vtbl {
@@ -11805,21 +11794,6 @@ pub struct IItemsRepeater_Vtbl {
     pub SetItemTemplate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    Layout: usize,
-    SetLayout: usize,
-    HorizontalCacheLength: usize,
-    SetHorizontalCacheLength: usize,
-    VerticalCacheLength: usize,
-    SetVerticalCacheLength: usize,
-    Background: usize,
-    SetBackground: usize,
-    GetElementIndex: usize,
-    TryGetElement: usize,
-    pub GetOrCreateElement: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -20223,14 +20197,6 @@ impl IUIElement {
             .ok()
         }
     }
-    pub(crate) fn StartBringIntoView(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).StartBringIntoView)(
-                windows_core::Interface::as_raw(self),
-            )
-            .ok()
-        }
-    }
     pub(crate) fn Focus(&self, value: FocusState) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -20580,8 +20546,7 @@ pub struct IUIElement_Vtbl {
     UpdateLayout: usize,
     CancelDirectManipulations: usize,
     StartDragAsync: usize,
-    pub StartBringIntoView:
-        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    StartBringIntoView: usize,
     StartBringIntoViewWithOptions: usize,
     TryInvokeKeyboardAccelerator: usize,
     pub Focus: unsafe extern "system" fn(
