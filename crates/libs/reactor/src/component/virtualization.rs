@@ -48,6 +48,9 @@ impl<A: Adapter> ComponentHost<A> {
                     self.busy_rows.push((lease.collection, row));
                 }
                 self.busy_rows.push(row_key.clone());
+                if let Some(owner) = owner {
+                    self.mark_busy_ancestors(owner);
+                }
                 let existing = self.virtual_rows.get(&row_key).copied();
                 let contexts = owner.map_or_else(
                     || self.contexts.clone(),
@@ -116,7 +119,7 @@ impl<A: Adapter> ComponentHost<A> {
                 self.virtual_rows.insert(row_key, id);
                 self.refresh_roots_from(declaration.0.as_object(), root);
                 self.prepare_pending(expansion.pending);
-                prepare_scope_retirement(&mut self.scopes, &retired);
+                self.prepare_scope_retirement(&retired);
                 self.retire_unseen(&expansion.seen);
                 self.sweep_virtual_rows();
                 self.publish_committed_window(publication);
@@ -124,8 +127,8 @@ impl<A: Adapter> ComponentHost<A> {
             }
             VirtualWork::Recycle { lease } => {
                 let row_key = (lease.collection, lease.key.clone());
-                if let Some(row) = self.virtual_rows.get(&row_key) {
-                    prepare_scope_retirement(&mut self.scopes, &[*row]);
+                if let Some(row) = self.virtual_rows.get(&row_key).copied() {
+                    self.prepare_scope_retirement(&[row]);
                 }
                 self.busy_rows.push(row_key);
                 let batch = self.runtime.plan_recycle_virtual(&lease);

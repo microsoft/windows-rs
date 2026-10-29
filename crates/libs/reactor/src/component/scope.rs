@@ -309,7 +309,7 @@ impl<A: Adapter> ComponentHost<A> {
         let publication = self.resolve_window_publication(&expansion.pending, &retired);
         let batch = self.runtime.plan_subtree_update(root, view.clone());
         self.prepare_pending(expansion.pending);
-        prepare_scope_retirement(&mut self.scopes, &retired);
+        self.prepare_scope_retirement(&retired);
         self.refresh_roots_from(view.0.as_object(), root);
         self.retire_unseen(&expansion.seen);
         self.sweep_virtual_rows();
@@ -375,6 +375,22 @@ impl<A: Adapter> ComponentHost<A> {
         self.discard_prepared_effects(id);
     }
 
+    /// Cancels the tasks and runs the effect cleanups of scopes that the batch being planned
+    /// retires, so cleanups observe roots, references, and native objects before the batch
+    /// applies. This includes retained effects that an in-flight batch prepared.
+    pub(super) fn prepare_scope_retirement(&mut self, roots: &[ComponentId]) {
+        let mut pending = roots.to_vec();
+        while let Some(id) = pending.pop() {
+            let Some(scope) = self.scope_mut(id) else {
+                continue;
+            };
+            pending.extend(scope.children.values().copied());
+            scope.component.cancel_tasks();
+            cleanup_effects(&mut scope.effects);
+            self.discard_prepared_effects(id);
+        }
+    }
+
     /// Runs the retained cleanups of a retiring scope whose effects an in-flight batch prepared.
     fn discard_prepared_effects(&mut self, id: ComponentId) {
         for index in (0..self.prepared_effects.len()).rev() {
@@ -411,23 +427,5 @@ impl<A: Adapter> ComponentHost<A> {
         (slot.generation == id.generation)
             .then_some(slot.scope.as_mut())
             .flatten()
-    }
-}
-
-pub(super) fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
-    let mut pending = roots.to_vec();
-    while let Some(id) = pending.pop() {
-        let Some(slot) = scopes.get_mut(id.index as usize) else {
-            continue;
-        };
-        if slot.generation != id.generation {
-            continue;
-        }
-        let Some(scope) = slot.scope.as_mut() else {
-            continue;
-        };
-        pending.extend(scope.children.values().copied());
-        scope.component.cancel_tasks();
-        cleanup_effects(&mut scope.effects);
     }
 }

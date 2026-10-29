@@ -125,7 +125,7 @@ impl Component for VirtualRemovingOwner {
 
 #[derive(Clone)]
 struct VirtualCleanupInput {
-    events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
+    events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus, bool)>>>,
     published: Rc<Cell<bool>>,
     reference: ElementRef,
     revision: Rc<Cell<u32>>,
@@ -159,12 +159,14 @@ impl Component for VirtualCleanup {
         let published = Rc::clone(&input.published);
         let reference = input.reference.clone();
         let task = Arc::clone(&input.task);
+        let root = context.root();
         context.use_effect("cleanup", (), move || {
             Some(Box::new(move || {
                 events.borrow_mut().push((
                     reference.get(),
                     published.get(),
                     task.lock().unwrap().as_ref().unwrap().status(),
+                    root.get().is_some(),
                 ));
             }))
         });
@@ -595,7 +597,7 @@ fn virtual_cleanup_precedes_native_recycle_publication() {
 
     assert_eq!(
         input.events.borrow().as_slice(),
-        [(object, false, ComponentTaskStatus::Cancelled)]
+        [(object, false, ComponentTaskStatus::Cancelled, true)]
     );
     assert!(input.published.get());
     assert_eq!(input.reference.get(), None);
@@ -845,15 +847,96 @@ fn row_recycled_after_a_nested_rerender_cleans_up_before_recycle() {
         .unwrap();
 
     // The nested realization re-renders the row and retains its effect until the outer batch
-    // completes. Recycling the row runs that retained cleanup while its reference is still live.
+    // completes. Recycling the row runs that retained cleanup while its root and reference are
+    // still live.
     assert!(sender.send(()));
     drain_shared(&host);
 
     assert_eq!(
         *observed.borrow(),
-        Some(vec![(object, false, ComponentTaskStatus::Cancelled)])
+        Some(vec![(object, false, ComponentTaskStatus::Cancelled, true)])
     );
     assert_eq!(input.events.borrow().len(), 1);
     assert_eq!(input.reference.get(), None);
     assert_eq!(host.borrow().test_state().virtual_rows, 0);
+}
+
+struct NestedVirtualParent;
+
+impl Component for NestedVirtualParent {
+    type Input = VirtualEffectLog;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        let log = input.clone();
+        ItemsRepeater::new()
+            .virtual_source(VirtualSource::new(1, 10, Key::from, move |outer| {
+                component::<VirtualParent>(outer, log.clone())
+            }))
+            .into()
+    }
+}
+
+#[test]
+fn layout_during_a_nested_row_batch_defers_its_enclosing_row() {
+    let events = Rc::new(RefCell::new(Vec::new()));
+    let adapter = LayoutAdapter::default();
+    let host = ComponentHost::mount(
+        adapter.clone(),
+        [component::<NestedVirtualParent>(
+            "virtual",
+            VirtualEffectLog(Rc::clone(&events)),
+        )],
+    );
+    let root = host.runtime().graph().root().unwrap();
+    let outer = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    let host = Rc::new(RefCell::new(host));
+    adapter
+        .inner
+        .borrow_mut()
+        .queue_realization(realize_row(outer, 0));
+    realize_shared(&host);
+    let inner = host
+        .borrow()
+        .runtime()
+        .graph()
+        .virtual_realization(outer, RealizedContainer(0))
+        .unwrap();
+
+    let observed = Rc::new(Cell::new(None));
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        let observed = Rc::clone(&observed);
+        move || {
+            let host = host.upgrade().unwrap();
+            adapter
+                .inner
+                .borrow_mut()
+                .queue_realization(recycle_row(outer, 0));
+            realize_shared(&host);
+            observed.set(Some(host.borrow().test_state().virtual_rows));
+        }
+    };
+    adapter
+        .inner
+        .borrow_mut()
+        .queue_realization(realize_row(inner, 0));
+    adapter.on_next_apply(layout);
+
+    realize_shared(&host);
+
+    // Recycling the outer row would destroy the inner collection while its row's batch applies,
+    // so the recycle waits for that batch to complete.
+    assert_eq!(observed.get(), Some(2));
+    assert_eq!(host.borrow().test_state().virtual_rows, 0);
+    assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
 }
