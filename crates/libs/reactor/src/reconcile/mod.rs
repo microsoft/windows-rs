@@ -191,12 +191,6 @@ impl NativeBatch {
     pub(crate) fn mutations(&self) -> &[Mutation] {
         &self.mutations
     }
-
-    /// Publishes the batch's reference changes once its mutations are applied.
-    pub(crate) fn publish(self, references: &ReferenceEndpoint) -> UpdateStats {
-        apply_reference_changes(references, self.references);
-        UpdateStats::capture(&self.mutations)
-    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

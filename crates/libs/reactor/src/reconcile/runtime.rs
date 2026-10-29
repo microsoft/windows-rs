@@ -38,9 +38,20 @@ impl<A: Adapter> Runtime<A> {
         self.publish_batch(batch)
     }
 
-    /// Publishes the reference changes of a batch whose mutations were applied.
-    pub(crate) fn publish_batch(&self, batch: NativeBatch) -> UpdateStats {
-        batch.publish(&self.references)
+    /// Publishes the reference changes of a batch whose mutations were applied, and keeps its
+    /// mutation buffer for the next batch unless a large batch grew it.
+    pub(crate) fn publish_batch(&mut self, batch: NativeBatch) -> UpdateStats {
+        let mut mutations = batch.mutations;
+        apply_reference_changes(&self.references, batch.references);
+        let stats = UpdateStats::capture(&mutations);
+        if mutations.capacity() > 256 {
+            mutations = Vec::with_capacity(256);
+        }
+        if mutations.capacity() > self.mutations.capacity() {
+            mutations.clear();
+            self.mutations = mutations;
+        }
+        stats
     }
 
     pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
