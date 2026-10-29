@@ -54,7 +54,7 @@ fn main() -> windows::core::Result<()> {
             .ok()?;
 
         let job = job.unwrap();
-        let destination = std::env::temp_dir().join("windows-rs-bits.svg");
+        let destination = std::env::temp_dir().join("windows-rs-bits.png");
         let destination_wide: Vec<u16> = destination
             .as_os_str()
             .encode_wide()
@@ -62,7 +62,7 @@ fn main() -> windows::core::Result<()> {
             .collect();
         job.AddFile(
             w!(
-                "https://raw.githubusercontent.com/microsoft/windows-rs/master/crates/samples/reactor/icon-elements/image.svg"
+                "https://raw.githubusercontent.com/microsoft/windows-rs/master/crates/samples/canvas/bitmap/sample.png"
             ),
             PCWSTR(destination_wide.as_ptr()),
         )
