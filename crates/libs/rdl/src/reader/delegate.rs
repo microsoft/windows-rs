@@ -142,7 +142,7 @@ impl Encoder<'_> {
         }
 
         let signature = metadata::Signature {
-            flags: Default::default(),
+            flags: metadata::MethodCallAttributes::HASTHIS,
             return_type,
             types,
         };
