@@ -511,12 +511,10 @@ pub windows_reactor::WindowTitleBarHeight::Standard
 pub windows_reactor::WindowTitleBarHeight::Tall
 pub struct windows_reactor::App
 impl windows_reactor::App
-pub fn windows_reactor::App::run(impl core::convert::Into<windows_reactor::View>) -> windows_result::Result<()>
+pub fn windows_reactor::App::run_application<A: windows_reactor::Application>(<A as windows_reactor::Application>::Input) -> windows_result::Result<()>
+impl windows_reactor::App
 pub fn windows_reactor::App::run_component<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input) -> windows_result::Result<()>
 pub fn windows_reactor::App::run_component_with_policy<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input, windows_reactor::WindowPolicy) -> windows_result::Result<()>
-pub fn windows_reactor::App::run_with<T>(impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<T> + 'static) -> windows_result::Result<()> where T: 'static
-impl windows_reactor::App
-pub fn windows_reactor::App::run_application<A: windows_reactor::Application>(<A as windows_reactor::Application>::Input) -> windows_result::Result<()>
 pub struct windows_reactor::AppBarButton(_)
 impl windows_reactor::AppBarButton
 pub fn windows_reactor::AppBarButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
@@ -599,21 +597,6 @@ impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::
 pub fn windows_reactor::View::from(windows_reactor::AppBarSeparator) -> Self
 impl core::default::Default for windows_reactor::AppBarSeparator
 pub fn windows_reactor::AppBarSeparator::default() -> Self
-pub struct windows_reactor::AppCallback
-impl windows_reactor::AppCallback
-pub fn windows_reactor::AppCallback::invoke(&self) -> windows_result::Result<()>
-pub struct windows_reactor::AppContext
-impl windows_reactor::AppContext
-pub fn windows_reactor::AppContext::callback(&self, impl core::ops::function::Fn() -> windows_result::Result<()> + 'static) -> windows_reactor::AppCallback
-pub fn windows_reactor::AppContext::exit(&self) -> windows_result::Result<()>
-pub fn windows_reactor::AppContext::open_component_window<C: windows_reactor::Component>(&self, <C as windows_reactor::Component>::Input) -> windows_result::Result<()>
-pub fn windows_reactor::AppContext::open_component_window_with_policy<C: windows_reactor::Component>(&self, <C as windows_reactor::Component>::Input, windows_reactor::WindowPolicy) -> windows_result::Result<()>
-pub fn windows_reactor::AppContext::proxy(&self) -> windows_reactor::AppProxy
-pub fn windows_reactor::AppContext::show_menu_at(&self, windows_reactor::ScreenPoint, windows_reactor::Menu) -> windows_result::Result<()>
-pub struct windows_reactor::AppProxy
-impl windows_reactor::AppProxy
-pub fn windows_reactor::AppProxy::dispatch(&self, impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<()> + core::marker::Send + 'static) -> windows_result::Result<()>
-pub fn windows_reactor::AppProxy::exit(&self) -> windows_result::Result<()>
 pub struct windows_reactor::ApplicationContext<A: windows_reactor::Application>
 impl<A: windows_reactor::Application> windows_reactor::ApplicationContext<A>
 pub fn windows_reactor::ApplicationContext<A>::callback<T>(&self, impl core::ops::function::Fn(T) -> <A as windows_reactor::Application>::Message + 'static) -> windows_reactor::Callback<T>
