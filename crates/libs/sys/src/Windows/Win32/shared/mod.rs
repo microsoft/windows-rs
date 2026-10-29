@@ -488,16 +488,16 @@ pub type PNTSTATUS = *mut i32;
 #[cfg(feature = "wdm")]
 pub type POBJECT_TYPE = *mut super::_OBJECT_TYPE;
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-pub type POWER_SETTING_CALLBACK = Option<unsafe extern "C" fn(settingguid: super::LPCGUID, value: super::PVOID, valuelength: ULONG, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
+pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: super::LPCGUID, value: super::PVOID, valuelength: ULONG, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-pub type PPOWER_SETTING_CALLBACK = Option<unsafe extern "C" fn(settingguid: super::LPCGUID, value: super::PVOID, valuelength: ULONG, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
+pub type PPOWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: super::LPCGUID, value: super::PVOID, valuelength: ULONG, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "wdm")]
 pub type PRKPROCESS = *mut super::_KPROCESS;
 #[cfg(feature = "wdm")]
 pub type PRKTHREAD = *mut super::_KTHREAD;
 pub type PROPERTYID = i32;
 #[cfg(feature = "winnt")]
-pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "C" fn(parameter: super::PVOID)>;
+pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(parameter: super::PVOID)>;
 #[cfg(feature = "winnt")]
 pub type PS_AVAILABLE_CPUS_CHANGE_REGISTRATION = super::PVOID;
 #[cfg(target_arch = "x86")]

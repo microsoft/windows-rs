@@ -10,6 +10,13 @@ pub unsafe fn DbgSetDebugFilterState(componentid: super::ULONG, level: super::UL
     windows_core::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : super::ULONG, level : super::ULONG, state : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { DbgSetDebugFilterState(componentid, level, state) }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "evntprov", feature = "shared"))]
+#[inline]
+pub unsafe fn EtwEventEnabled(reghandle: super::REGHANDLE, eventdescriptor: super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn EtwEventEnabled(reghandle : super::REGHANDLE, eventdescriptor : super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
+    unsafe { EtwEventEnabled(reghandle, eventdescriptor) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "evntprov", feature = "shared"))]
 #[inline]
@@ -779,11 +786,10 @@ pub unsafe fn ZwCreateKey(keyhandle: super::PHANDLE, desiredaccess: super::ACCES
     windows_core::link!("ntdll.dll" "system" fn ZwCreateKey(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : super::ULONG, class : super::PUNICODE_STRING, createoptions : super::ULONG, disposition : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwCreateKey(keyhandle as _, desiredaccess, objectattributes, titleindex.unwrap_or(core::mem::zeroed()) as _, class.unwrap_or(core::mem::zeroed()) as _, createoptions, disposition.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn ZwCreateKeyTransacted(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, titleindex: Option<super::ULONG>, class: Option<super::PUNICODE_STRING>, createoptions: super::ULONG, transactionhandle: super::HANDLE, disposition: Option<super::PULONG>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwCreateKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : super::ULONG, class : super::PUNICODE_STRING, createoptions : super::ULONG, transactionhandle : super::HANDLE, disposition : super::PULONG) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : super::ULONG, class : super::PUNICODE_STRING, createoptions : super::ULONG, transactionhandle : super::HANDLE, disposition : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwCreateKeyTransacted(keyhandle as _, desiredaccess, objectattributes, titleindex.unwrap_or(core::mem::zeroed()) as _, class.unwrap_or(core::mem::zeroed()) as _, createoptions, transactionhandle, disposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -1261,7 +1267,7 @@ pub const ADAPTER_INFO_API_BYPASS: i32 = 2;
 pub const ADAPTER_INFO_HYBRID_PASSTHROUGH: i32 = 4;
 pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: i32 = 1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type ALLOCATE_FUNCTION = Option<unsafe extern "C" fn(pooltype: POOL_TYPE, numberofbytes: super::SIZE_T, tag: super::ULONG) -> super::PVOID>;
+pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: POOL_TYPE, numberofbytes: super::SIZE_T, tag: super::ULONG) -> super::PVOID>;
 pub const ALLOC_DATA_PRAGMA: i32 = 1;
 pub const ALLOC_PRAGMA: i32 = 1;
 pub type ALTERNATIVE_ARCHITECTURE_TYPE = i32;
@@ -1533,7 +1539,7 @@ impl Default for BOOTDISK_INFORMATION_LITE {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub type BOUND_CALLBACK = Option<unsafe extern "C" fn() -> BOUND_CALLBACK_STATUS>;
+pub type BOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type BOUND_CALLBACK_STATUS = i32;
 pub type BUS_QUERY_ID_TYPE = i32;
@@ -1622,7 +1628,7 @@ pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = 1;
 pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = 3;
 pub const BusRelations: DEVICE_RELATION_TYPE = 0;
 #[cfg(feature = "winnt")]
-pub type CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID)>;
+pub type CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID)>;
 pub const CALLBACK_FUNCTION: i32 = 196608;
 pub const CBus: INTERFACE_TYPE = 9;
 #[cfg(feature = "shared")]
@@ -2452,11 +2458,11 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
 }
 pub type D3COLD_LAST_TRANSITION_STATUS = i32;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "C" fn(context: super::PVOID, auxpowerinmilliwatts: super::ULONG, retryinseconds: super::PULONG) -> windows_core::NTSTATUS>;
+pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: super::PVOID, auxpowerinmilliwatts: super::ULONG, retryinseconds: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "C" fn(context: super::PVOID, corepowerrailneeded: super::BOOLEAN)>;
+pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(context: super::PVOID, corepowerrailneeded: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "C" fn(context: super::PVOID, delayinmicroseconds: super::ULONG) -> windows_core::NTSTATUS>;
+pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: super::PVOID, delayinmicroseconds: super::ULONG) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -2481,7 +2487,7 @@ pub const DBG_STATUS_FATAL: i32 = 5;
 pub const DBG_STATUS_SYSRQ: i32 = 2;
 pub const DBG_STATUS_WORKER: i32 = 7;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PBUS_SPECIFIC_RESET_FLAGS, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
+pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PBUS_SPECIFIC_RESET_FLAGS, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -2769,7 +2775,7 @@ impl Default for DEVICE_CAPABILITIES {
     }
 }
 #[cfg(feature = "winnt")]
-pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -2983,7 +2989,7 @@ impl Default for DEVICE_OBJECT_0 {
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
+pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
 pub type DEVICE_REGISTRY_PROPERTY = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -3001,9 +3007,9 @@ impl Default for DEVICE_RELATIONS {
 pub type DEVICE_RELATION_TYPE = i32;
 pub type DEVICE_REMOVAL_POLICY = i32;
 #[cfg(feature = "winnt")]
-pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "C" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
+pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type DEVICE_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, resettype: DEVICE_RESET_TYPE, flags: super::ULONG, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
+pub type DEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, resettype: DEVICE_RESET_TYPE, flags: super::ULONG, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -4491,18 +4497,18 @@ pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u32 = 16;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u64 = 16;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_ADD_DEVICE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type DRIVER_ADD_DEVICE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_CANCEL = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+pub type DRIVER_CANCEL = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_CONTROL = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: super::PVOID, context: super::PVOID) -> IO_ALLOCATION_ACTION>;
+pub type DRIVER_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: super::PVOID, context: super::PVOID) -> IO_ALLOCATION_ACTION>;
 pub type DRIVER_DIRECTORY_TYPE = i32;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_DISPATCH = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+pub type DRIVER_DISPATCH = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_DISPATCH_RAISED = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+pub type DRIVER_DISPATCH_RAISED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -4513,9 +4519,9 @@ pub struct DRIVER_EXTENSION {
     pub ServiceKeyName: super::UNICODE_STRING,
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_INITIALIZE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+pub type DRIVER_INITIALIZE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(notificationstructure: super::PVOID, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(notificationstructure: super::PVOID, context: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug)]
@@ -4542,7 +4548,7 @@ impl Default for DRIVER_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "C" fn()>;
+pub type DRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "shared")]
 pub type DRIVER_PROXY_ENDPOINT_FUNCTION_ID = super::ULONG;
 pub const DRIVER_PROXY_ENDPOINT_FUNCTION_ID_INVALID: u32 = 4294967295;
@@ -4617,10 +4623,10 @@ impl DRIVER_PROXY_FEATURE_FLAGS_0 {
     }
 }
 #[cfg(feature = "winnt")]
-pub type DRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "C" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type DRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = i32;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "C" fn(workercontext: super::PVOID, waitstatus: windows_core::NTSTATUS) -> super::BOOLEAN>;
+pub type DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "system" fn(workercontext: super::PVOID, waitstatus: windows_core::NTSTATUS) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -4643,15 +4649,15 @@ impl Default for DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
     }
 }
 #[cfg(feature = "winnt")]
-pub type DRIVER_PROXY_REGISTER_CALLBACK = Option<unsafe extern "C" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type DRIVER_PROXY_REGISTER_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type DRIVER_PROXY_REGISTER_CALLBACK_PHASE = DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 pub type DRIVER_PROXY_VERSION = i32;
 pub type DRIVER_REGKEY_TYPE = i32;
 pub type DRIVER_RUNTIME_INIT_FLAGS = i32;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_STARTIO = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+pub type DRIVER_STARTIO = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_UNLOAD = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT)>;
+pub type DRIVER_UNLOAD = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DRS_LEVEL: i32 = 14;
 pub const DRVO_BUILTIN_DRIVER: i32 = 4;
@@ -4924,7 +4930,7 @@ impl EISA_PORT_DESCRIPTOR {
 }
 pub const EISA_SYSTEM_MEMORY: i32 = 0;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "C" fn(context: super::PVOID, numvfs: super::UINT16, enablevfmigration: super::BOOLEAN, enablemigrationinterrupt: super::BOOLEAN, enablevirtualization: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: super::PVOID, numvfs: super::UINT16, enablevfmigration: super::BOOLEAN, enablemigrationinterrupt: super::BOOLEAN, enablevirtualization: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -5074,9 +5080,9 @@ pub struct EXTENDED_CREATE_INFORMATION {
     pub DualOplockKeys: PEXTENDED_CREATE_DUAL_OPLOCK_KEYS,
 }
 #[cfg(feature = "winnt")]
-pub type EXT_CALLBACK = Option<unsafe extern "C" fn(timer: PEX_TIMER, context: super::PVOID)>;
+pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: PEX_TIMER, context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type EXT_DELETE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -5095,7 +5101,7 @@ pub struct EXT_SET_PARAMETERS {
     pub NoWakeTolerance: super::LONGLONG,
 }
 #[cfg(feature = "winnt")]
-pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID) -> windows_core::NTSTATUS>;
+pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID) -> windows_core::NTSTATUS>;
 pub const EX_CARR_ALLOCATE_NONPAGED_POOL: i32 = 1;
 pub const EX_CARR_ALLOCATE_PAGED_POOL: i32 = 0;
 pub const EX_CARR_DISABLE_EXPANSION: i32 = 2;
@@ -5167,17 +5173,17 @@ pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = 5;
 pub const Executive: KWAIT_REASON = 0;
 pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = 3;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+pub type FAST_IO_ACQUIRE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type FAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, endingoffset: super::PLARGE_INTEGER, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type FAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, endingoffset: super::PLARGE_INTEGER, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, checkforreadoperation: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, checkforreadoperation: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "C" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
+pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "system" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, inputbuffer: super::PVOID, inputbufferlength: super::ULONG, outputbuffer: super::PVOID, outputbufferlength: super::ULONG, iocontrolcode: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, inputbuffer: super::PVOID, inputbufferlength: super::ULONG, outputbuffer: super::PVOID, outputbufferlength: super::ULONG, iocontrolcode: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -5212,47 +5218,47 @@ pub struct FAST_IO_DISPATCH {
     pub ReleaseForCcFlush: PFAST_IO_RELEASE_FOR_CCFLUSH,
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_LOCK = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, failimmediately: super::BOOLEAN, exclusivelock: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_LOCK = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, failimmediately: super::BOOLEAN, exclusivelock: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_MDL_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_BASIC_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_BASIC_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_OPEN = Option<unsafe extern "C" fn(irp: *mut IRP, networkinformation: PFILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_QUERY_OPEN = Option<unsafe extern "system" fn(irp: *mut IRP, networkinformation: PFILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_STANDARD_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_STANDARD_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_READ_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_READ_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+pub type FAST_IO_RELEASE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type FAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type FAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_ALL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: super::PEPROCESS, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_UNLOCK_ALL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: super::PEPROCESS, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: super::PVOID, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: super::PVOID, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_SINGLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_UNLOCK_SINGLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_WRITE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type FAST_IO_WRITE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type FAST_MUTEX = _FAST_MUTEX;
 #[repr(C)]
@@ -5719,11 +5725,11 @@ pub const FO_TEMPORARY_FILE: i32 = 32768;
 pub const FO_VOLUME_OPEN: i32 = 4194304;
 pub const FO_WRITE_THROUGH: i32 = 16;
 #[cfg(feature = "winnt")]
-pub type FPGA_BUS_SCAN = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type FPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "C" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "C" fn(context: super::PVOID, uncorrectablemask: super::ULONG, correctablemask: super::ULONG, disableerrorreporting: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: super::PVOID, uncorrectablemask: super::ULONG, correctablemask: super::ULONG, disableerrorreporting: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -5739,9 +5745,9 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type FPGA_CONTROL_LINK = Option<unsafe extern "C" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type FPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type FREE_FUNCTION = Option<unsafe extern "C" fn(buffer: super::PVOID)>;
+pub type FREE_FUNCTION = Option<unsafe extern "system" fn(buffer: super::PVOID)>;
 pub type FS_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -5752,7 +5758,7 @@ pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub CompletionContext: super::PVOID,
 }
 #[cfg(feature = "winnt")]
-pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "C" fn(wnode: super::PVOID, context: super::PVOID)>;
+pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: super::PVOID, context: super::PVOID)>;
 pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 4;
 pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = 1;
 pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = 0;
@@ -5861,29 +5867,29 @@ pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 13;
 pub const FreePage: KWAIT_REASON = 1;
 pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = 0;
 #[cfg(feature = "winnt")]
-pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "C" fn(context: super::PVOID, d3coldsupported: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: super::PVOID, d3coldsupported: super::PBOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "C" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
+pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
+pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type GET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+pub type GET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "C" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
+pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID) -> super::ULONGLONG>;
+pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID) -> super::ULONGLONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type GET_SET_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, datatype: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type GET_SET_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, datatype: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "C" fn(context: super::PVOID, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
+pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn(context: super::PVOID, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, segmentnumber: super::PUINT16, busnumber: super::PUINT8, functionnumber: super::PUINT8) -> windows_core::NTSTATUS>;
+pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, segmentnumber: super::PUINT16, busnumber: super::PUINT8, functionnumber: super::PUINT8) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "C" fn(context: super::PVOID, capturedbusnumbers: super::PUINT8)>;
+pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: super::PVOID, capturedbusnumbers: super::PUINT8)>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "C" fn(context: super::PVOID, baseregistervalues: super::PULONG) -> windows_core::NTSTATUS>;
+pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: super::PVOID, baseregistervalues: super::PULONG) -> windows_core::NTSTATUS>;
 pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = 4;
 pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = 0;
 pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = 1;
@@ -6064,7 +6070,7 @@ pub const IOMMU_ACCESS_NONE: i32 = 0;
 pub const IOMMU_ACCESS_READ: i32 = 1;
 pub const IOMMU_ACCESS_WRITE: i32 = 2;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, deviceconfig: PIOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, deviceconfig: PIOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -6108,13 +6114,13 @@ pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_PASID {
     pub SuppressPasidFaults: super::BOOLEAN,
 }
 pub type IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = i32;
-pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "C" fn(context: super::PVOID, faultinformation: PFAULT_INFORMATION)>;
+pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn(context: super::PVOID, faultinformation: PFAULT_INFORMATION)>;
 #[cfg(feature = "minwindef")]
-pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, availabledomains: super::PULONG)>;
+pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, availabledomains: super::PULONG)>;
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-pub type IOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, size: super::ULONG, byteswritten: super::PULONG, buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
+pub type IOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, size: super::ULONG, byteswritten: super::PULONG, buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
 pub type IOMMU_DMA_DEVICE = _IOMMU_DMA_DEVICE;
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -6222,28 +6228,28 @@ pub struct IOMMU_DMA_RESERVED_REGION {
     pub ShouldMap: super::BOOLEAN,
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, mappingcount: super::ULONG) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, mappingcount: super::ULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, configuration: PDOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, configuration: PDOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "C" fn(osmanagedpagetable: super::BOOLEAN, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn(osmanagedpagetable: super::BOOLEAN, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "C" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: PIOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: PIOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
-pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_core::NTSTATUS>;
+pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -6258,7 +6264,7 @@ impl Default for IOMMU_INTERFACE_STATE_CHANGE {
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechange: PIOMMU_INTERFACE_STATE_CHANGE, context: super::PVOID)>;
+pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechange: PIOMMU_INTERFACE_STATE_CHANGE, context: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -6294,13 +6300,13 @@ impl IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     }
 }
 #[cfg(all(feature = "shared", feature = "usb"))]
-pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb"))]
-pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL, logicaladdress: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL, logicaladdress: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdressout: PIOMMU_DMA_LOGICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdressout: PIOMMU_DMA_LOGICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -6356,31 +6362,31 @@ pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
 }
 pub type IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = i32;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: super::SIZE_T, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: super::SIZE_T, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
 pub type IOMMU_PASID_CONFIGURATION_TYPE = i32;
 #[cfg(feature = "minwindef")]
-pub type IOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: super::PULONG) -> windows_core::NTSTATUS>;
-pub type IOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: super::PULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, buffer: PINPUT_MAPPING_ELEMENT, bufferlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn(physicaldeviceobject: PDEVICE_OBJECT, buffer: PINPUT_MAPPING_ELEMENT, bufferlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: super::PVOID, dmadevice: PIOMMU_DMA_DEVICE, statefields: PIOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
+pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: super::PVOID, dmadevice: PIOMMU_DMA_DEVICE, statefields: PIOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, size: super::SIZE_T, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, size: super::SIZE_T, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn(physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, mdl: super::PMDL) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mappedphysicaladdress: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, mappedphysicaladdress: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, logicaladdress: super::ULONGLONG, numberofpages: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, logicaladdress: super::ULONGLONG, numberofpages: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 pub type IO_ACCESS_MODE = i32;
 pub type IO_ACCESS_TYPE = i32;
 pub type IO_ALLOCATION_ACTION = i32;
@@ -6475,7 +6481,7 @@ pub struct IO_COMPLETION_CONTEXT {
     pub UsageCount: super::LONG_PTR,
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type IO_COMPLETION_ROUTINE_RESULT = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -6583,13 +6589,13 @@ pub struct IO_CSQ {
     pub ReservePointer: super::PVOID,
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
+pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
+pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP)>;
+pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: super::PIRP)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6599,11 +6605,11 @@ pub struct IO_CSQ_IRP_CONTEXT {
     pub Csq: PIO_CSQ,
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: super::PVOID) -> super::PIRP>;
+pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: super::PVOID) -> super::PIRP>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::KIRQL)>;
+pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn(csq: PIO_CSQ, irql: super::KIRQL)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
+pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP)>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -6632,7 +6638,7 @@ impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     }
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_DPC_ROUTINE = Option<unsafe extern "C" fn(dpc: PKDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: super::PVOID)>;
+pub type IO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: PKDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -6718,12 +6724,12 @@ impl Default for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
 }
 pub type IO_MINI_COMPLETION_PACKET_USER = _IO_MINI_COMPLETION_PACKET_USER;
 #[cfg(feature = "winnt")]
-pub type IO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(minipacket: *const _IO_MINI_COMPLETION_PACKET_USER, context: super::PVOID)>;
+pub type IO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(minipacket: *const _IO_MINI_COMPLETION_PACKET_USER, context: super::PVOID)>;
 pub type IO_NOTIFICATION_EVENT_CATEGORY = i32;
 pub const IO_NO_PARAMETER_CHECKING: i32 = 256;
 pub type IO_PAGING_PRIORITY = i32;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "C" fn(driverobject: PDRIVER_OBJECT, physicaldeviceobject: PDEVICE_OBJECT, physicaldeviceid: super::PUNICODE_STRING, datatag: super::PUSHORT, dataversion: super::PULONG, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: PDRIVER_OBJECT, physicaldeviceobject: PDEVICE_OBJECT, physicaldeviceid: super::PUNICODE_STRING, datatag: super::PUSHORT, dataversion: super::PULONG, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type IO_PRIORITY_HINT = i32;
 pub const IO_REMOUNT: i32 = 1;
 #[repr(C)]
@@ -7056,7 +7062,7 @@ pub struct IO_SESSION_CONNECT_INFO {
 pub type IO_SESSION_EVENT = i32;
 pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "C" fn(sessionobject: super::PVOID, ioobject: super::PVOID, event: super::ULONG, context: super::PVOID, notificationpayload: super::PVOID, payloadlength: super::ULONG) -> windows_core::NTSTATUS>;
+pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: super::PVOID, ioobject: super::PVOID, event: super::ULONG, context: super::PVOID, notificationpayload: super::PVOID, payloadlength: super::ULONG) -> windows_core::NTSTATUS>;
 pub type IO_SESSION_STATE = i32;
 pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295;
 pub const IO_SESSION_STATE_CONNECT_EVENT: i32 = 4;
@@ -8515,7 +8521,7 @@ impl Default for IO_STATUS_BLOCK64_0 {
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type IO_STATUS_BLOCK64 = super::IO_STATUS_BLOCK;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_TIMER_ROUTINE = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, context: super::PVOID)>;
+pub type IO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, context: super::PVOID)>;
 pub const IO_TYPE_ADAPTER: i32 = 1;
 pub const IO_TYPE_CONTROLLER: i32 = 2;
 pub const IO_TYPE_CSQ: i32 = 2;
@@ -8534,9 +8540,9 @@ pub const IO_TYPE_OPEN_PACKET: i32 = 8;
 pub const IO_TYPE_TIMER: i32 = 9;
 pub const IO_TYPE_VPB: i32 = 10;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, context: super::PVOID)>;
+pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "C" fn(ioobject: super::PVOID, context: super::PVOID, ioworkitem: PIO_WORKITEM)>;
+pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: super::PVOID, context: super::PVOID, ioworkitem: PIO_WORKITEM)>;
 #[cfg(target_arch = "x86")]
 pub const IPI_LEVEL: i32 = 29;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9249,7 +9255,7 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub State: super::UCHAR,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(buffer: super::PVOID, length: super::ULONG)>;
+pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: super::PVOID, length: super::ULONG)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9272,7 +9278,7 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub State: super::UCHAR,
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: super::PVOID, reasonspecificdatalength: super::ULONG)>;
+pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: super::PVOID, reasonspecificdatalength: super::ULONG)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9337,7 +9343,7 @@ pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: i32 = 2;
 pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1;
 pub type KCRM_PROTOCOL_ID = windows_core::GUID;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type KDEFERRED_ROUTINE = Option<unsafe extern "C" fn(dpc: *const KDPC, deferredcontext: super::PVOID, systemargument1: super::PVOID, systemargument2: super::PVOID)>;
+pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deferredcontext: super::PVOID, systemargument1: super::PVOID, systemargument2: super::PVOID)>;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
@@ -9768,7 +9774,7 @@ pub type KINTERRUPT_MODE = i32;
 pub type KINTERRUPT_POLARITY = i32;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
+pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
@@ -9780,7 +9786,7 @@ pub struct KLOCK_QUEUE_HANDLE {
     pub OldIrql: super::KIRQL,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID, messageid: super::ULONG) -> super::BOOLEAN>;
+pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID, messageid: super::ULONG) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KMUTANT = _KMUTANT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -9808,7 +9814,7 @@ pub const KSEMAPHORE_ACTUAL_LENGTH: u32 = 20;
 pub const KSEMAPHORE_ACTUAL_LENGTH: u64 = 28;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
+pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
@@ -9825,10 +9831,10 @@ pub type KSPIN_LOCK_QUEUE_NUMBER = super::ULONG64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type KSPIN_LOCK_QUEUE_NUMBER = i32;
 #[cfg(feature = "winnt")]
-pub type KSTART_ROUTINE = Option<unsafe extern "C" fn(startcontext: super::PVOID)>;
+pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: super::PVOID)>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
+pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
@@ -10294,7 +10300,7 @@ pub const MM_MAPPING_ADDRESS_DIVISIBLE: i32 = 1;
 pub const MM_MAXIMUM_DISK_IO_SIZE: i32 = 65536;
 pub type MM_MDL_PAGE_CONTENTS_STATE = _MM_MDL_PAGE_CONTENTS_STATE;
 #[cfg(feature = "winnt")]
-pub type MM_MDL_ROUTINE = Option<unsafe extern "C" fn(drivercontext: super::PVOID, mappedva: super::PVOID)>;
+pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: super::PVOID, mappedva: super::PVOID)>;
 #[cfg(feature = "shared")]
 pub type MM_NODE_NUMBER_ONE_BASED = super::ULONG;
 #[cfg(feature = "shared")]
@@ -10381,7 +10387,7 @@ impl Default for NAMED_PIPE_CREATE_PARAMETERS {
 }
 pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = 1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type NMI_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, handled: super::BOOLEAN) -> super::BOOLEAN>;
+pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, handled: super::BOOLEAN) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -10483,7 +10489,7 @@ impl NPEM_CAPABILITY_STANDARD_0 {
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "C" fn(context: super::PVOID, enablenpem: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID, enablenpem: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -10502,14 +10508,14 @@ pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: i32 = 2;
 pub const NPEM_CONTROL_INTERFACE_VERSION1: i32 = 1;
 pub const NPEM_CONTROL_INTERFACE_VERSION2: i32 = 2;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "C" fn(context: super::PVOID) -> super::ULONG>;
+pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: super::PVOID) -> super::ULONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "C" fn(context: super::PVOID, standardcapabilities: PNPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
+pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: super::PVOID, standardcapabilities: PNPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "C" fn(context: super::PVOID, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: super::PVOID, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::BOOLEAN) -> windows_core::NTSTATUS>;
 pub type NPEM_CONTROL_STANDARD_CONTROL_BIT = i32;
 #[cfg(feature = "winnt")]
-pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "C" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
+pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const NonPagedPool: POOL_TYPE = 0;
 #[cfg(target_arch = "aarch64")]
@@ -10701,7 +10707,7 @@ pub const PAGE_ENCLAVE_NO_CHANGE: i32 = 536870912;
 pub const PAGE_SHIFT: i32 = 12;
 pub const PAGE_SIZE: i32 = 4096;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PALLOCATE_FUNCTION = Option<unsafe extern "C" fn(pooltype: POOL_TYPE, numberofbytes: super::SIZE_T, tag: super::ULONG) -> super::PVOID>;
+pub type PALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: POOL_TYPE, numberofbytes: super::SIZE_T, tag: super::ULONG) -> super::PVOID>;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
 pub type PAMD_L1_CACHE_INFO = *mut AMD_L1_CACHE_INFO;
@@ -10722,7 +10728,7 @@ pub type PBOOTDISK_INFORMATION_EX = *mut BOOTDISK_INFORMATION_EX;
 #[cfg(feature = "shared")]
 pub type PBOOTDISK_INFORMATION_LITE = *mut BOOTDISK_INFORMATION_LITE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub type PBOUND_CALLBACK = Option<unsafe extern "C" fn() -> BOUND_CALLBACK_STATUS>;
+pub type PBOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type PBOUND_CALLBACK_STATUS = *mut BOUND_CALLBACK_STATUS;
 pub type PBUS_QUERY_ID_TYPE = *mut BUS_QUERY_ID_TYPE;
@@ -10731,7 +10737,7 @@ pub type PBUS_RESOURCE_UPDATE_INTERFACE = *mut BUS_RESOURCE_UPDATE_INTERFACE;
 #[cfg(feature = "shared")]
 pub type PBUS_SPECIFIC_RESET_FLAGS = *mut BUS_SPECIFIC_RESET_FLAGS;
 #[cfg(feature = "winnt")]
-pub type PCALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID)>;
+pub type PCALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID)>;
 pub type PCDRIVER_RUNTIME_INIT_FLAGS = *const DRIVER_RUNTIME_INIT_FLAGS;
 pub const PCIBus: INTERFACE_TYPE = 5;
 pub const PCI_ACS_ALLOWED: i32 = 0;
@@ -11814,7 +11820,7 @@ impl PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     }
 }
 #[cfg(feature = "winnt")]
-pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -11875,7 +11881,7 @@ impl PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     }
 }
 #[cfg(feature = "winnt")]
-pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: i32 = 33;
 pub const PCI_EXPRESS_IDE_CAP_ID: i32 = 48;
 pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: i32 = 30;
@@ -13489,21 +13495,21 @@ pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: i32 = 2;
 pub const PCI_EXTENDED_CONFIG_LENGTH: i32 = 4096;
 pub const PCI_INVALID_VENDORID: i32 = 65535;
 #[cfg(feature = "shared")]
-pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "C" fn(vendorid: super::USHORT, deviceid: super::USHORT, revisionid: super::UCHAR, subvendorid: super::USHORT, subsystemid: super::USHORT, flags: super::ULONG) -> super::BOOLEAN>;
+pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: super::USHORT, deviceid: super::USHORT, revisionid: super::UCHAR, subvendorid: super::USHORT, subsystemid: super::USHORT, flags: super::ULONG) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "C" fn(context: super::PVOID, parameters: PPCI_DEVICE_PRESENCE_PARAMETERS) -> super::BOOLEAN>;
+pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: super::PVOID, parameters: PPCI_DEVICE_PRESENCE_PARAMETERS) -> super::BOOLEAN>;
 pub const PCI_MAX_BRIDGE_NUMBER: i32 = 255;
 pub const PCI_MAX_DEVICES: i32 = 32;
 pub const PCI_MAX_FUNCTION: i32 = 8;
 pub const PCI_MAX_SEGMENT_NUMBER: i32 = 65535;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::PULONG, masked: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::PULONG, masked: super::PBOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "C" fn(context: super::PVOID, tablesize: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: super::PVOID, tablesize: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::ULONG) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -13852,13 +13858,13 @@ impl PCI_SEGMENT_BUS_NUMBER_0_0 {
     }
 }
 #[cfg(feature = "winnt")]
-pub type PCI_SET_ACS = Option<unsafe extern "C" fn(context: super::PVOID, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: super::PVOID, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_SET_ACS2 = Option<unsafe extern "C" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_SET_ACS3 = Option<unsafe extern "C" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG, partitionid: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS3 = Option<unsafe extern "system" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG, partitionid: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_SET_ATS = Option<unsafe extern "C" fn(context: super::PVOID, enableats: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ATS = Option<unsafe extern "system" fn(context: super::PVOID, enableats: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
@@ -14214,11 +14220,11 @@ impl PCI_X_CAPABILITY_1_0 {
     }
 }
 #[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, targetlsn: super::PCLFS_LSN, clientdata: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "system" fn(logfile: PLOG_FILE_OBJECT, targetlsn: super::PCLFS_LSN, clientdata: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, logispinned: super::BOOLEAN, clientdata: super::PVOID)>;
+pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, logispinned: super::BOOLEAN, clientdata: super::PVOID)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, clientdata: super::PVOID)>;
+pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(logfile: PLOG_FILE_OBJECT, clientdata: super::PVOID)>;
 #[cfg(feature = "winnt")]
 pub type PCLFS_MGMT_CLIENT = *mut super::PVOID;
 #[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -14230,7 +14236,7 @@ pub type PCLFS_MGMT_NOTIFICATION_TYPE = *mut CLFS_MGMT_NOTIFICATION_TYPE;
 pub type PCLFS_MGMT_POLICY = *mut CLFS_MGMT_POLICY;
 pub type PCLFS_MGMT_POLICY_TYPE = *mut CLFS_MGMT_POLICY_TYPE;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, clientdata: super::PVOID)>;
+pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, clientdata: super::PVOID)>;
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PCLIENT_ID = *mut super::CLIENT_ID;
 pub const PCMCIABus: INTERFACE_TYPE = 8;
@@ -14285,7 +14291,7 @@ pub type PCPOOL_EXTENDED_PARAMETER = *const POOL_EXTENDED_PARAMETER;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCRASHDUMP_FUNCTIONS_INTERFACE = *mut CRASHDUMP_FUNCTIONS_INTERFACE;
 #[cfg(feature = "winnt")]
-pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: PPCW_CALLBACK_INFORMATION, context: super::PVOID) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -14358,17 +14364,17 @@ pub const PCW_VERSION_2: i32 = 512;
 pub type PD3COLD_AUX_POWER_AND_TIMING_INTERFACE = *mut D3COLD_AUX_POWER_AND_TIMING_INTERFACE;
 pub type PD3COLD_LAST_TRANSITION_STATUS = *mut D3COLD_LAST_TRANSITION_STATUS;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PD3COLD_REQUEST_AUX_POWER = Option<unsafe extern "C" fn(context: super::PVOID, auxpowerinmilliwatts: super::ULONG, retryinseconds: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PD3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: super::PVOID, auxpowerinmilliwatts: super::ULONG, retryinseconds: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PD3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "C" fn(context: super::PVOID, corepowerrailneeded: super::BOOLEAN)>;
+pub type PD3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(context: super::PVOID, corepowerrailneeded: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PD3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "C" fn(context: super::PVOID, delayinmicroseconds: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PD3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: super::PVOID, delayinmicroseconds: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PD3COLD_SUPPORT_INTERFACE = *mut D3COLD_SUPPORT_INTERFACE;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "C" fn(output: super::PSTRING, componentid: super::ULONG, level: super::ULONG)>;
+pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: super::PSTRING, componentid: super::ULONG, level: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PBUS_SPECIFIC_RESET_FLAGS, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PBUS_SPECIFIC_RESET_FLAGS, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PDEVICE_BUS_SPECIFIC_RESET_INFO = *mut DEVICE_BUS_SPECIFIC_RESET_INFO;
 #[cfg(feature = "shared")]
@@ -14376,7 +14382,7 @@ pub type PDEVICE_BUS_SPECIFIC_RESET_TYPE = *mut DEVICE_BUS_SPECIFIC_RESET_TYPE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVICE_CAPABILITIES = *mut DEVICE_CAPABILITIES;
 #[cfg(feature = "winnt")]
-pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVICE_DESCRIPTION = *mut DEVICE_DESCRIPTION;
 pub type PDEVICE_DIRECTORY_TYPE = *mut DEVICE_DIRECTORY_TYPE;
@@ -14388,21 +14394,21 @@ pub type PDEVICE_INSTALL_STATE = *mut DEVICE_INSTALL_STATE;
 #[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PDEVICE_INTERFACE_CHANGE_NOTIFICATION = *mut DEVICE_INTERFACE_CHANGE_NOTIFICATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "C" fn(param0: super::PVOID, param1: super::ULONG)>;
+pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(param0: super::PVOID, param1: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "C" fn(notificationcontext: super::PVOID, notifycode: super::ULONG)>;
+pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificationcontext: super::PVOID, notifycode: super::ULONG)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVICE_OBJECT = *mut DEVICE_OBJECT;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
+pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVICE_RELATIONS = *mut DEVICE_RELATIONS;
 pub type PDEVICE_RELATION_TYPE = *mut DEVICE_RELATION_TYPE;
 pub type PDEVICE_REMOVAL_POLICY = *mut DEVICE_REMOVAL_POLICY;
 #[cfg(feature = "winnt")]
-pub type PDEVICE_RESET_COMPLETION = Option<unsafe extern "C" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
+pub type PDEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PDEVICE_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, resettype: DEVICE_RESET_TYPE, flags: super::ULONG, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PDEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, resettype: DEVICE_RESET_TYPE, flags: super::ULONG, resetparameters: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PDEVICE_RESET_INTERFACE_STANDARD = *mut DEVICE_RESET_INTERFACE_STANDARD;
 #[cfg(feature = "shared")]
@@ -14456,25 +14462,25 @@ pub type PDOMAIN_CONFIGURATION_X64 = *mut DOMAIN_CONFIGURATION_X64;
 #[cfg(feature = "shared")]
 pub type PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK = *mut DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_ADD_DEVICE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type PDRIVER_ADD_DEVICE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_CANCEL = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+pub type PDRIVER_CANCEL = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_CONTROL = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: super::PVOID, context: super::PVOID) -> IO_ALLOCATION_ACTION>;
+pub type PDRIVER_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: super::PVOID, context: super::PVOID) -> IO_ALLOCATION_ACTION>;
 pub type PDRIVER_DIRECTORY_TYPE = *mut DRIVER_DIRECTORY_TYPE;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_DISPATCH = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+pub type PDRIVER_DISPATCH = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_DISPATCH_PAGED = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+pub type PDRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDRIVER_EXTENSION = *mut DRIVER_EXTENSION;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_INITIALIZE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+pub type PDRIVER_INITIALIZE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(notificationstructure: super::PVOID, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(notificationstructure: super::PVOID, context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDRIVER_OBJECT = *mut DRIVER_OBJECT;
-pub type PDRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "C" fn()>;
+pub type PDRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "shared")]
 pub type PDRIVER_PROXY_ENDPOINT_FUNCTION_ID = *mut super::ULONG;
 #[cfg(feature = "shared")]
@@ -14485,23 +14491,23 @@ pub type PDRIVER_PROXY_EXTENSION_CREATION_FLAGS = *mut DRIVER_PROXY_EXTENSION_CR
 #[cfg(feature = "shared")]
 pub type PDRIVER_PROXY_FEATURE_FLAGS = *mut DRIVER_PROXY_FEATURE_FLAGS;
 #[cfg(feature = "winnt")]
-pub type PDRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "C" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PDRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "C" fn(workercontext: super::PVOID, waitstatus: windows_core::NTSTATUS) -> super::BOOLEAN>;
+pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "system" fn(workercontext: super::PVOID, waitstatus: windows_core::NTSTATUS) -> super::BOOLEAN>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT = *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT;
 #[cfg(feature = "winnt")]
-pub type PDRIVER_PROXY_REGISTER_CALLBACK = Option<unsafe extern "C" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PDRIVER_PROXY_REGISTER_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type PDRIVER_PROXY_REGISTER_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 pub type PDRIVER_PROXY_VERSION = *mut DRIVER_PROXY_VERSION;
-pub type PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION = Option<unsafe extern "C" fn()>;
+pub type PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION = Option<unsafe extern "system" fn()>;
 pub type PDRIVER_REGKEY_TYPE = *mut DRIVER_REGKEY_TYPE;
 pub type PDRIVER_RUNTIME_INIT_FLAGS = *mut DRIVER_RUNTIME_INIT_FLAGS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_STARTIO = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+pub type PDRIVER_STARTIO = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_UNLOAD = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT)>;
+pub type PDRIVER_UNLOAD = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT)>;
 #[cfg(feature = "shared")]
 pub type PEISA_DMA_CONFIGURATION = *mut EISA_DMA_CONFIGURATION;
 #[cfg(feature = "shared")]
@@ -14517,7 +14523,7 @@ pub type PEISA_PORT_CONFIGURATION = *mut EISA_PORT_CONFIGURATION;
 #[cfg(feature = "shared")]
 pub type PEISA_PORT_DESCRIPTOR = *mut EISA_PORT_DESCRIPTOR;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PENABLE_VIRTUALIZATION = Option<unsafe extern "C" fn(context: super::PVOID, numvfs: super::UINT16, enablevfmigration: super::BOOLEAN, enablemigrationinterrupt: super::BOOLEAN, enablevirtualization: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: super::PVOID, numvfs: super::UINT16, enablevfmigration: super::BOOLEAN, enablemigrationinterrupt: super::BOOLEAN, enablevirtualization: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PERESOURCE = *mut ERESOURCE;
 #[cfg(feature = "shared")]
@@ -14530,17 +14536,17 @@ pub type PEXTENDED_CREATE_DUAL_OPLOCK_KEYS = *mut EXTENDED_CREATE_DUAL_OPLOCK_KE
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PEXTENDED_CREATE_INFORMATION = *mut EXTENDED_CREATE_INFORMATION;
 #[cfg(feature = "winnt")]
-pub type PEXT_CALLBACK = Option<unsafe extern "C" fn(timer: PEX_TIMER, context: super::PVOID)>;
+pub type PEXT_CALLBACK = Option<unsafe extern "system" fn(timer: PEX_TIMER, context: super::PVOID)>;
 #[cfg(feature = "winnt")]
 pub type PEXT_CANCEL_PARAMETERS = super::PVOID;
 #[cfg(feature = "winnt")]
-pub type PEXT_DELETE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PEXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PEXT_DELETE_PARAMETERS = *mut EXT_DELETE_PARAMETERS;
 #[cfg(feature = "shared")]
 pub type PEXT_SET_PARAMETERS = *mut EXT_SET_PARAMETERS;
 #[cfg(feature = "winnt")]
-pub type PEX_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PEX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, argument1: super::PVOID, argument2: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PEX_RCU_FREE_POOL_CONTEXT = *mut EX_RCU_FREE_POOL_CONTEXT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -14551,61 +14557,61 @@ pub type PEX_SPIN_LOCK = *mut super::LONG;
 pub type PEX_TIMER = *mut _EX_TIMER;
 pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+pub type PFAST_IO_ACQUIRE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type PFAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, endingoffset: super::PLARGE_INTEGER, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type PFAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, endingoffset: super::PLARGE_INTEGER, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, checkforreadoperation: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, checkforreadoperation: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_DETACH_DEVICE = Option<unsafe extern "C" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
+pub type PFAST_IO_DETACH_DEVICE = Option<unsafe extern "system" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_DEVICE_CONTROL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, inputbuffer: super::PVOID, inputbufferlength: super::ULONG, outputbuffer: super::PVOID, outputbufferlength: super::ULONG, iocontrolcode: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_DEVICE_CONTROL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, inputbuffer: super::PVOID, inputbufferlength: super::ULONG, outputbuffer: super::PVOID, outputbufferlength: super::ULONG, iocontrolcode: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFAST_IO_DISPATCH = *mut FAST_IO_DISPATCH;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_LOCK = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, failimmediately: super::BOOLEAN, exclusivelock: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_LOCK = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, failimmediately: super::BOOLEAN, exclusivelock: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_MDL_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_BASIC_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_BASIC_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_OPEN = Option<unsafe extern "C" fn(irp: *mut IRP, networkinformation: PFILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_QUERY_OPEN = Option<unsafe extern "system" fn(irp: *mut IRP, networkinformation: PFILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_STANDARD_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_STANDARD_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_READ_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_READ_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+pub type PFAST_IO_RELEASE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type PFAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+pub type PFAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_ALL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: super::PEPROCESS, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_UNLOCK_ALL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: super::PEPROCESS, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: super::PVOID, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: super::PVOID, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_SINGLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_UNLOCK_SINGLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: super::PEPROCESS, key: super::ULONG, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, wait: super::BOOLEAN, lockkey: super::ULONG, buffer: super::PVOID, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_WRITE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+pub type PFAST_IO_WRITE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::ULONG, lockkey: super::ULONG, buffer: super::PVOID, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: super::ULONG, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFAST_MUTEX = *mut _FAST_MUTEX;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -14680,72 +14686,72 @@ pub type PFN_NUMBER = super::ULONG;
 #[cfg(feature = "shared")]
 pub type PFN_NUMBER = super::ULONG64;
 #[cfg(feature = "shared")]
-pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "C" fn(version: super::ULONG) -> super::BOOLEAN>;
+pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "system" fn(version: super::ULONG) -> super::BOOLEAN>;
 #[cfg(feature = "shared")]
-pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "C" fn(version: super::ULONG) -> super::BOOLEAN>;
+pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "system" fn(version: super::ULONG) -> super::BOOLEAN>;
 #[cfg(feature = "winnt")]
-pub type PFPGA_BUS_SCAN = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PFPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PFPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "C" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PFPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PFPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "C" fn(context: super::PVOID, uncorrectablemask: super::ULONG, correctablemask: super::ULONG, disableerrorreporting: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PFPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: super::PVOID, uncorrectablemask: super::ULONG, correctablemask: super::ULONG, disableerrorreporting: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFPGA_CONTROL_INTERFACE = *mut FPGA_CONTROL_INTERFACE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PFPGA_CONTROL_LINK = Option<unsafe extern "C" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PFPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PFREE_FUNCTION = Option<unsafe extern "C" fn(buffer: super::PVOID)>;
+pub type PFREE_FUNCTION = Option<unsafe extern "system" fn(buffer: super::PVOID)>;
 pub type PFS_INFORMATION_CLASS = *mut FS_INFORMATION_CLASS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS = *mut FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS;
 #[cfg(feature = "winnt")]
-pub type PGET_D3COLD_CAPABILITY = Option<unsafe extern "C" fn(context: super::PVOID, d3coldsupported: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+pub type PGET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: super::PVOID, d3coldsupported: super::PBOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "C" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
+pub type PGET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGET_DEVICE_RESET_STATUS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
+pub type PGET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PGET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+pub type PGET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "C" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
+pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGET_SDEV_IDENTIFIER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID) -> super::ULONGLONG>;
+pub type PGET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID) -> super::ULONGLONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGET_SET_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, datatype: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type PGET_SET_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, datatype: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PGET_UPDATED_BUS_RESOURCE = Option<unsafe extern "C" fn(context: super::PVOID, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
+pub type PGET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn(context: super::PVOID, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type PGET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PGET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, segmentnumber: super::PUINT16, busnumber: super::PUINT8, functionnumber: super::PUINT8) -> windows_core::NTSTATUS>;
+pub type PGET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, segmentnumber: super::PUINT16, busnumber: super::PUINT8, functionnumber: super::PUINT8) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-pub type PGET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "C" fn(context: super::PVOID, capturedbusnumbers: super::PUINT8)>;
+pub type PGET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: super::PVOID, capturedbusnumbers: super::PUINT8)>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "C" fn(context: super::PVOID, baseregistervalues: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: super::PVOID, baseregistervalues: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_CLEAR_STATUS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_CLEAR_STATUS = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "C" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "system" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: super::ULONG, param2: KINTERRUPT_MODE, param3: super::BOOLEAN, param4: PGPE_SERVICE_ROUTINE, param5: super::PVOID, param6: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: super::ULONG, param2: KINTERRUPT_MODE, param3: super::BOOLEAN, param4: PGPE_SERVICE_ROUTINE, param5: super::PVOID, param6: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "C" fn(context: super::PVOID, gpenumber: super::ULONG, mode: KINTERRUPT_MODE, shareable: super::BOOLEAN, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: super::PVOID, objectcontext: *mut super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: super::PVOID, gpenumber: super::ULONG, mode: KINTERRUPT_MODE, shareable: super::BOOLEAN, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: super::PVOID, objectcontext: *mut super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_DISABLE_EVENT = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_DISABLE_EVENT = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "C" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "system" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "C" fn(param0: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "system" fn(param0: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "C" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_ENABLE_EVENT = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_ENABLE_EVENT = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "C" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "system" fn(context: super::PVOID, objectcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "C" fn(param0: super::PVOID, param1: super::PVOID) -> super::BOOLEAN>;
+pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(param0: super::PVOID, param1: super::PVOID) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "C" fn(objectcontext: super::PVOID, servicecontext: super::PVOID) -> super::BOOLEAN>;
+pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "system" fn(objectcontext: super::PVOID, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(feature = "shared")]
 pub type PHWPROFILE_CHANGE_NOTIFICATION = *mut HWPROFILE_CHANGE_NOTIFICATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -14761,12 +14767,12 @@ pub type PINTEL_CACHE_INFO_EBX = *mut INTEL_CACHE_INFO_EBX;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PINTERFACE = *mut INTERFACE;
 #[cfg(feature = "winnt")]
-pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PINTERFACE_REFERENCE = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PINTERFACE_REFERENCE = Option<unsafe extern "system" fn(context: super::PVOID)>;
 pub type PINTERFACE_TYPE = *mut INTERFACE_TYPE;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DEVICE_CREATE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, deviceconfig: PIOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, deviceconfig: PIOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION = *mut IOMMU_DEVICE_CREATION_CONFIGURATION;
 #[cfg(feature = "shared")]
@@ -14774,13 +14780,13 @@ pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI = *mut IOMMU_DEVICE_CREATION_
 #[cfg(feature = "shared")]
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_PASID;
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE;
-pub type PIOMMU_DEVICE_DELETE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "C" fn(context: super::PVOID, faultinformation: PFAULT_INFORMATION)>;
+pub type PIOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn(context: super::PVOID, faultinformation: PFAULT_INFORMATION)>;
 #[cfg(feature = "minwindef")]
-pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, availabledomains: super::PULONG)>;
+pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, availabledomains: super::PULONG)>;
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-pub type PIOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, size: super::ULONG, byteswritten: super::PULONG, buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, size: super::ULONG, byteswritten: super::PULONG, buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
 pub type PIOMMU_DMA_DEVICE = *mut _IOMMU_DMA_DEVICE;
 #[cfg(feature = "shared")]
 pub type PIOMMU_DMA_DEVICE_INFORMATION = *mut IOMMU_DMA_DEVICE_INFORMATION;
@@ -14801,78 +14807,78 @@ pub type PIOMMU_DMA_PASID_DEVICE = *mut _IOMMU_DMA_PASID_DEVICE;
 #[cfg(feature = "shared")]
 pub type PIOMMU_DMA_RESERVED_REGION = *mut IOMMU_DMA_RESERVED_REGION;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, mappingcount: super::ULONG) -> windows_core::NTSTATUS>;
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type PIOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, mappingcount: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, configuration: PDOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, configuration: PDOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_DOMAIN_CREATE = Option<unsafe extern "C" fn(osmanagedpagetable: super::BOOLEAN, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn(osmanagedpagetable: super::BOOLEAN, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "C" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: PIOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DELETE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: PIOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_core::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
-pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PIOMMU_INTERFACE_STATE_CHANGE = *mut IOMMU_INTERFACE_STATE_CHANGE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechange: PIOMMU_INTERFACE_STATE_CHANGE, context: super::PVOID)>;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechange: PIOMMU_INTERFACE_STATE_CHANGE, context: super::PVOID)>;
 #[cfg(feature = "shared")]
 pub type PIOMMU_INTERFACE_STATE_CHANGE_FIELDS = *mut IOMMU_INTERFACE_STATE_CHANGE_FIELDS;
 #[cfg(all(feature = "shared", feature = "usb"))]
-pub type PIOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+pub type PIOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type PIOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb"))]
-pub type PIOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL, logicaladdress: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, mdl: super::PMDL, logicaladdress: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdressout: PIOMMU_DMA_LOGICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type PIOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdressout: PIOMMU_DMA_LOGICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
 pub type PIOMMU_MAP_PHYSICAL_ADDRESS = *mut IOMMU_MAP_PHYSICAL_ADDRESS;
 pub type PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE = *mut IOMMU_MAP_PHYSICAL_ADDRESS_TYPE;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: super::SIZE_T, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: super::SIZE_T, permissions: super::ULONG, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
 pub type PIOMMU_PASID_CONFIGURATION_TYPE = *mut IOMMU_PASID_CONFIGURATION_TYPE;
 #[cfg(feature = "minwindef")]
-pub type PIOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: super::PULONG) -> windows_core::NTSTATUS>;
-pub type PIOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, buffer: PINPUT_MAPPING_ELEMENT, bufferlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn(physicaldeviceobject: PDEVICE_OBJECT, buffer: PINPUT_MAPPING_ELEMENT, bufferlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: super::PVOID, dmadevice: PIOMMU_DMA_DEVICE, statefields: PIOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
+pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: super::PVOID, dmadevice: PIOMMU_DMA_DEVICE, statefields: PIOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, size: super::SIZE_T, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, size: super::SIZE_T, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn(physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE, inputmappingidbase: super::ULONG, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type PIOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, mdl: super::PMDL) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mappedphysicaladdress: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, mappedphysicaladdress: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, logicaladdress: super::ULONGLONG, numberofpages: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type PIOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, logicaladdress: super::ULONGLONG, numberofpages: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
-pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 pub type PIO_ALLOCATION_ACTION = *mut IO_ALLOCATION_ACTION;
 #[cfg(feature = "shared")]
 pub type PIO_ATTRIBUTION_INFORMATION = *mut IO_ATTRIBUTION_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIO_COMPLETION_CONTEXT = *mut IO_COMPLETION_CONTEXT;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_COMPLETION_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PIO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: super::PVOID) -> windows_core::NTSTATUS>;
 pub type PIO_COMPLETION_ROUTINE_RESULT = *mut IO_COMPLETION_ROUTINE_RESULT;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS;
@@ -14882,31 +14888,31 @@ pub type PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT
 pub type PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_PARAMETERS = *mut IO_CONNECT_INTERRUPT_PARAMETERS;
-pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "C" fn() -> windows_core::NTSTATUS>;
+pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 pub type PIO_CSQ = *mut IO_CSQ;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
+pub type PIO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
+pub type PIO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_INSERT_IRP = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP)>;
+pub type PIO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: super::PIRP)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_INSERT_IRP_EX = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PIO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 pub type PIO_CSQ_IRP_CONTEXT = *mut IO_CSQ_IRP_CONTEXT;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: super::PVOID) -> super::PIRP>;
+pub type PIO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: super::PVOID) -> super::PIRP>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_RELEASE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::KIRQL)>;
+pub type PIO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn(csq: PIO_CSQ, irql: super::KIRQL)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-pub type PIO_CSQ_REMOVE_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
+pub type PIO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP)>;
 #[cfg(feature = "winnt")]
-pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "C" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
+pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, context: super::PVOID)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "winnt"))]
 pub type PIO_DISCONNECT_INTERRUPT_PARAMETERS = *mut IO_DISCONNECT_INTERRUPT_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_DPC_ROUTINE = Option<unsafe extern "C" fn(dpc: PKDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: super::PVOID)>;
+pub type PIO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: PKDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIO_ERROR_LOG_MESSAGE = *mut IO_ERROR_LOG_MESSAGE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -14917,9 +14923,9 @@ pub type PIO_INTERRUPT_MESSAGE_INFO = *mut IO_INTERRUPT_MESSAGE_INFO;
 pub type PIO_INTERRUPT_MESSAGE_INFO_ENTRY = *mut IO_INTERRUPT_MESSAGE_INFO_ENTRY;
 pub type PIO_MINI_COMPLETION_PACKET_USER = *mut _IO_MINI_COMPLETION_PACKET_USER;
 #[cfg(feature = "winnt")]
-pub type PIO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(minipacket: *const _IO_MINI_COMPLETION_PACKET_USER, context: super::PVOID)>;
+pub type PIO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(minipacket: *const _IO_MINI_COMPLETION_PACKET_USER, context: super::PVOID)>;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "C" fn(driverobject: PDRIVER_OBJECT, physicaldeviceobject: PDEVICE_OBJECT, physicaldeviceid: super::PUNICODE_STRING, datatag: super::PUSHORT, dataversion: super::PULONG, context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: PDRIVER_OBJECT, physicaldeviceobject: PDEVICE_OBJECT, physicaldeviceid: super::PUNICODE_STRING, datatag: super::PUSHORT, dataversion: super::PULONG, context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIO_REMOVE_LOCK = *mut IO_REMOVE_LOCK;
 pub type PIO_REMOVE_LOCK_TRACKING_BLOCK = *mut _IO_REMOVE_LOCK_TRACKING_BLOCK;
@@ -14937,7 +14943,7 @@ pub type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
 pub type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
 pub type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PIO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "C" fn(sessionobject: super::PVOID, ioobject: super::PVOID, event: super::ULONG, context: super::PVOID, notificationpayload: super::PVOID, payloadlength: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PIO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: super::PVOID, ioobject: super::PVOID, event: super::ULONG, context: super::PVOID, notificationpayload: super::PVOID, payloadlength: super::ULONG) -> windows_core::NTSTATUS>;
 pub type PIO_SESSION_STATE = *mut IO_SESSION_STATE;
 #[cfg(feature = "shared")]
 pub type PIO_SESSION_STATE_INFORMATION = *mut IO_SESSION_STATE_INFORMATION;
@@ -14950,12 +14956,12 @@ pub type PIO_STATUS_BLOCK32 = *mut IO_STATUS_BLOCK32;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PIO_STATUS_BLOCK64 = *mut IO_STATUS_BLOCK64;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_TIMER_ROUTINE = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, context: super::PVOID)>;
+pub type PIO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, context: super::PVOID)>;
 pub type PIO_WORKITEM = *mut _IO_WORKITEM;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_WORKITEM_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, context: super::PVOID)>;
+pub type PIO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PIO_WORKITEM_ROUTINE_EX = Option<unsafe extern "C" fn(ioobject: super::PVOID, context: super::PVOID, ioworkitem: PIO_WORKITEM)>;
+pub type PIO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: super::PVOID, context: super::PVOID, ioworkitem: PIO_WORKITEM)>;
 pub type PIRQ_DEVICE_POLICY = *mut IRQ_DEVICE_POLICY;
 pub type PIRQ_GROUP_POLICY = *mut IRQ_GROUP_POLICY;
 pub type PIRQ_PRIORITY = *mut IRQ_PRIORITY;
@@ -14970,13 +14976,13 @@ pub type PKBUGCHECK_ADD_PAGES = *mut KBUGCHECK_ADD_PAGES;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PKBUGCHECK_CALLBACK_RECORD = *mut KBUGCHECK_CALLBACK_RECORD;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(buffer: super::PVOID, length: super::ULONG)>;
+pub type PKBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: super::PVOID, length: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKBUGCHECK_DUMP_IO = *mut KBUGCHECK_DUMP_IO;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PKBUGCHECK_REASON_CALLBACK_RECORD = *mut KBUGCHECK_REASON_CALLBACK_RECORD;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: super::PVOID, reasonspecificdatalength: super::ULONG)>;
+pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: super::PVOID, reasonspecificdatalength: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKBUGCHECK_REMOVE_PAGES = *mut KBUGCHECK_REMOVE_PAGES;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -14987,7 +14993,7 @@ pub type PKBUGCHECK_SECONDARY_DUMP_DATA_EX = *mut KBUGCHECK_SECONDARY_DUMP_DATA_
 pub type PKBUGCHECK_TRIAGE_DUMP_DATA = *mut KBUGCHECK_TRIAGE_DUMP_DATA;
 pub type PKCRM_PROTOCOL_ID = *mut windows_core::GUID;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PKDEFERRED_ROUTINE = Option<unsafe extern "C" fn(dpc: *const KDPC, deferredcontext: super::PVOID, systemargument1: super::PVOID, systemargument2: super::PVOID)>;
+pub type PKDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deferredcontext: super::PVOID, systemargument1: super::PVOID, systemargument2: super::PVOID)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 pub type PKDEVICE_QUEUE = *mut KDEVICE_QUEUE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -15041,14 +15047,14 @@ pub type PKGUARDED_MUTEX = *mut _FAST_MUTEX;
 pub type PKINTERRUPT_POLARITY = *mut KINTERRUPT_POLARITY;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
+pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 pub type PKLOCK_QUEUE_HANDLE = *mut KLOCK_QUEUE_HANDLE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID, messageid: super::ULONG) -> super::BOOLEAN>;
+pub type PKMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID, messageid: super::ULONG) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKMUTANT = *mut _KMUTANT;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -15058,7 +15064,7 @@ pub type PKRESOURCEMANAGER = *mut _KRESOURCEMANAGER;
 pub type PKSEMAPHORE = *mut KSEMAPHORE;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
+pub type PKSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
@@ -15068,10 +15074,10 @@ pub type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
 #[cfg(feature = "shared")]
 pub type PKSPIN_LOCK_QUEUE_NUMBER = *mut KSPIN_LOCK_QUEUE_NUMBER;
 #[cfg(feature = "winnt")]
-pub type PKSTART_ROUTINE = Option<unsafe extern "C" fn(startcontext: super::PVOID)>;
+pub type PKSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: super::PVOID)>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
+pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
@@ -15116,32 +15122,32 @@ pub type PMDLX = *mut MDL;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winternl"))]
-pub type PMM_DLL_INITIALIZE = Option<unsafe extern "C" fn(registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
-pub type PMM_DLL_UNLOAD = Option<unsafe extern "C" fn() -> windows_core::NTSTATUS>;
+pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "C" fn(modulename: super::PUNICODE_STRING, functionname: windows_core::PCSTR) -> super::PVOID>;
+pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(modulename: super::PUNICODE_STRING, functionname: windows_core::PCSTR) -> super::PVOID>;
 pub type PMM_MDL_PAGE_CONTENTS_STATE = _MM_MDL_PAGE_CONTENTS_STATE;
 #[cfg(feature = "winnt")]
-pub type PMM_MDL_ROUTINE = Option<unsafe extern "C" fn(drivercontext: super::PVOID, mappedva: super::PVOID)>;
+pub type PMM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: super::PVOID, mappedva: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMM_PHYSICAL_ADDRESS_LIST = *mut MM_PHYSICAL_ADDRESS_LIST;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNAMED_PIPE_CREATE_PARAMETERS = *mut NAMED_PIPE_CREATE_PARAMETERS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PNMI_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, handled: super::BOOLEAN) -> super::BOOLEAN>;
+pub type PNMI_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, handled: super::BOOLEAN) -> super::BOOLEAN>;
 pub const PNPBus: INTERFACE_TYPE = 15;
 #[cfg(feature = "shared")]
 pub type PNPEM_CAPABILITY_STANDARD = *mut NPEM_CAPABILITY_STANDARD;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PNPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "C" fn(context: super::PVOID, enablenpem: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PNPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID, enablenpem: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNPEM_CONTROL_INTERFACE = *mut NPEM_CONTROL_INTERFACE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PNPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "C" fn(context: super::PVOID) -> super::ULONG>;
+pub type PNPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: super::PVOID) -> super::ULONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "C" fn(context: super::PVOID, standardcapabilities: PNPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
+pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: super::PVOID, standardcapabilities: PNPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "C" fn(context: super::PVOID, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: super::PVOID, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::BOOLEAN) -> windows_core::NTSTATUS>;
 pub type PNPEM_CONTROL_STANDARD_CONTROL_BIT = *mut NPEM_CONTROL_STANDARD_CONTROL_BIT;
 pub const PNPISABus: INTERFACE_TYPE = 14;
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: i32 = 1;
@@ -15282,7 +15288,7 @@ impl Default for PNP_REPLACE_PROCESSOR_LIST_V1 {
 }
 pub const PNP_REPLACE_PROCESSOR_SUPPORTED: i32 = 2;
 #[cfg(feature = "winnt")]
-pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "C" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
+pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
 #[cfg(feature = "shared")]
 pub type POBJECT_HANDLE_INFORMATION = *mut OBJECT_HANDLE_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winternl"))]
@@ -15483,7 +15489,7 @@ pub type POWER_STATE_TYPE = i32;
 #[cfg(feature = "shared")]
 pub type POWNER_ENTRY = *mut OWNER_ENTRY;
 pub type PO_EFFECTIVE_POWER_MODE = i32;
-pub type PO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "C" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
+pub type PO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
 pub const PO_EFFECTIVE_POWER_MODE_V1: i32 = 1;
 pub const PO_EFFECTIVE_POWER_MODE_V2: i32 = 2;
 pub const PO_EFFECTIVE_POWER_MODE_VMAX: i32 = 2;
@@ -15496,10 +15502,10 @@ pub struct PO_EPM_HANDLE__ {
 #[cfg(feature = "shared")]
 pub type PO_FX_COMPONENT = PO_FX_COMPONENT_V1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG)>;
+pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
+pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
@@ -15507,7 +15513,7 @@ pub const PO_FX_COMPONENT_FLAG_F0_ON_CHILD_D0: i32 = 4;
 pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: i32 = 1;
 pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: i32 = 2;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG)>;
+pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15517,7 +15523,7 @@ pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub NominalPower: super::ULONG,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
+pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
@@ -15575,7 +15581,7 @@ pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Maximum: super::ULONGLONG,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
+pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15608,9 +15614,9 @@ pub const PO_FX_DEVICE_FLAG_NO_FAULT_CALLBACKS: u64 = 32;
 pub const PO_FX_DEVICE_FLAG_RESERVED_1: u64 = 1;
 pub const PO_FX_DEVICE_FLAG_RESERVED_2: u64 = 64;
 #[cfg(feature = "winnt")]
-pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
@@ -15684,11 +15690,11 @@ pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0;
 pub const PO_FX_DIRECTED_FX_IMMEDIATE_IDLE_TIMEOUT: super::ULONG = 4294967295;
 pub const PO_FX_DIRECTED_FX_MAX_IDLE_TIMEOUT: u32 = 600;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, flags: super::ULONG)>;
+pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, flags: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, flags: super::ULONG)>;
+pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, flags: super::ULONG)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, physicaldeviceobject: PDEVICE_OBJECT, uniqueid: super::ULONG)>;
+pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, physicaldeviceobject: PDEVICE_OBJECT, uniqueid: super::ULONG)>;
 pub const PO_FX_FLAG_ASYNC_ONLY: i32 = 2;
 pub const PO_FX_FLAG_BLOCKING: i32 = 1;
 pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: i32 = 1;
@@ -15730,7 +15736,7 @@ impl Default for PO_FX_PERF_STATE_CHANGE_0 {
 pub type PO_FX_PERF_STATE_TYPE = i32;
 pub type PO_FX_PERF_STATE_UNIT = i32;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
-pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "C" fn(devicecontext: super::PVOID, powercontrolcode: super::LPCGUID, inbuffer: super::PVOID, inbuffersize: super::SIZE_T, outbuffer: super::PVOID, outbuffersize: super::SIZE_T, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
+pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: super::PVOID, powercontrolcode: super::LPCGUID, inbuffer: super::PVOID, inbuffersize: super::SIZE_T, outbuffer: super::PVOID, outbuffersize: super::SIZE_T, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
 pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295;
 pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615;
 pub const PO_FX_VERSION: i32 = 1;
@@ -15799,11 +15805,11 @@ pub type PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER = *mut PCI_EXPRESS_DEVICE_CONTRO
 #[cfg(feature = "shared")]
 pub type PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = *mut PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER;
 #[cfg(feature = "winnt")]
-pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PPCI_EXPRESS_ERROR_SOURCE_ID = *mut PCI_EXPRESS_ERROR_SOURCE_ID;
 #[cfg(feature = "winnt")]
-pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE = *mut PCI_EXPRESS_LINK_QUIESCENT_INTERFACE;
 #[cfg(feature = "shared")]
@@ -15833,9 +15839,9 @@ pub type PPCI_EXPRESS_ROOT_ERROR_STATUS = *mut PCI_EXPRESS_ROOT_ERROR_STATUS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPCI_EXPRESS_ROOT_PORT_INTERFACE = *mut PCI_EXPRESS_ROOT_PORT_INTERFACE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "C" fn(context: super::PVOID, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(context: super::PVOID, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "C" fn(context: super::PVOID, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(context: super::PVOID, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(feature = "shared")]
 pub type PPCI_EXPRESS_SEC_AER_CAPABILITIES = *mut PCI_EXPRESS_SEC_AER_CAPABILITIES;
 #[cfg(feature = "shared")]
@@ -15867,17 +15873,17 @@ pub type PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_EXPRESS_VENDOR_SPECI
 #[cfg(feature = "shared")]
 pub type PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY = *mut PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY;
 #[cfg(feature = "shared")]
-pub type PPCI_IS_DEVICE_PRESENT = Option<unsafe extern "C" fn(vendorid: super::USHORT, deviceid: super::USHORT, revisionid: super::UCHAR, subvendorid: super::USHORT, subsystemid: super::USHORT, flags: super::ULONG) -> super::BOOLEAN>;
+pub type PPCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: super::USHORT, deviceid: super::USHORT, revisionid: super::UCHAR, subvendorid: super::USHORT, subsystemid: super::USHORT, flags: super::ULONG) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "C" fn(context: super::PVOID, parameters: PPCI_DEVICE_PRESENCE_PARAMETERS) -> super::BOOLEAN>;
+pub type PPCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: super::PVOID, parameters: PPCI_DEVICE_PRESENCE_PARAMETERS) -> super::BOOLEAN>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PPCI_MSIX_GET_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::PULONG, masked: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+pub type PPCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::PULONG, masked: super::PBOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PPCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "C" fn(context: super::PVOID, tablesize: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PPCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: super::PVOID, tablesize: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PPCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_MSIX_SET_ENTRY = Option<unsafe extern "C" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PPCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PPCI_MSIX_TABLE_CONFIG_INTERFACE = *mut PCI_MSIX_TABLE_CONFIG_INTERFACE;
 #[cfg(feature = "shared")]
@@ -15895,13 +15901,13 @@ pub type PPCI_SECURITY_INTERFACE2 = *mut PCI_SECURITY_INTERFACE2;
 #[cfg(feature = "shared")]
 pub type PPCI_SEGMENT_BUS_NUMBER = *mut PCI_SEGMENT_BUS_NUMBER;
 #[cfg(feature = "winnt")]
-pub type PPCI_SET_ACS = Option<unsafe extern "C" fn(context: super::PVOID, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
+pub type PPCI_SET_ACS = Option<unsafe extern "system" fn(context: super::PVOID, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_SET_ACS2 = Option<unsafe extern "C" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG) -> windows_core::NTSTATUS>;
+pub type PPCI_SET_ACS2 = Option<unsafe extern "system" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_SET_ACS3 = Option<unsafe extern "C" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG, partitionid: super::ULONGLONG) -> windows_core::NTSTATUS>;
+pub type PPCI_SET_ACS3 = Option<unsafe extern "system" fn(context: super::PVOID, scenariostomodify: super::ULONG, scenariostate: super::ULONG, partitionid: super::ULONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_SET_ATS = Option<unsafe extern "C" fn(context: super::PVOID, enableats: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PPCI_SET_ATS = Option<unsafe extern "system" fn(context: super::PVOID, enableats: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PPCI_SLOT_NUMBER = *mut PCI_SLOT_NUMBER;
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -15966,29 +15972,29 @@ pub type PPOWER_SEQUENCE = *mut POWER_SEQUENCE;
 pub type PPOWER_STATE = *mut POWER_STATE;
 pub type PPOWER_STATE_TYPE = *mut POWER_STATE_TYPE;
 pub type PPO_EFFECTIVE_POWER_MODE = *mut PO_EFFECTIVE_POWER_MODE;
-pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "C" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
+pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
 #[cfg(feature = "shared")]
 pub type PPO_FX_COMPONENT = *mut PO_FX_COMPONENT_V1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG)>;
+pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
+pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG)>;
+pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
 #[cfg(feature = "shared")]
 pub type PPO_FX_COMPONENT_IDLE_STATE = *mut PO_FX_COMPONENT_IDLE_STATE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
+pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PPO_FX_COMPONENT_PERF_INFO = *mut PO_FX_COMPONENT_PERF_INFO;
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PPO_FX_COMPONENT_PERF_SET = *mut PO_FX_COMPONENT_PERF_SET;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
+pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
 #[cfg(feature = "shared")]
 pub type PPO_FX_COMPONENT_V1 = *mut PO_FX_COMPONENT_V1;
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -15996,9 +16002,9 @@ pub type PPO_FX_COMPONENT_V2 = *mut PO_FX_COMPONENT_V2;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub type PPO_FX_DEVICE = *mut PO_FX_DEVICE_V1;
 #[cfg(feature = "winnt")]
-pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub type PPO_FX_DEVICE_V1 = *mut PO_FX_DEVICE_V1;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -16006,11 +16012,11 @@ pub type PPO_FX_DEVICE_V2 = *mut PO_FX_DEVICE_V2;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PPO_FX_DEVICE_V3 = *mut PO_FX_DEVICE_V3;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, flags: super::ULONG)>;
+pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, flags: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, flags: super::ULONG)>;
+pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, flags: super::ULONG)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, physicaldeviceobject: PDEVICE_OBJECT, uniqueid: super::ULONG)>;
+pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, physicaldeviceobject: PDEVICE_OBJECT, uniqueid: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_PERF_STATE = *mut PO_FX_PERF_STATE;
 #[cfg(feature = "shared")]
@@ -16018,34 +16024,34 @@ pub type PPO_FX_PERF_STATE_CHANGE = *mut PO_FX_PERF_STATE_CHANGE;
 pub type PPO_FX_PERF_STATE_TYPE = *mut PO_FX_PERF_STATE_TYPE;
 pub type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
-pub type PPO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "C" fn(devicecontext: super::PVOID, powercontrolcode: super::LPCGUID, inbuffer: super::PVOID, inbuffersize: super::SIZE_T, outbuffer: super::PVOID, outbuffersize: super::SIZE_T, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
+pub type PPO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: super::PVOID, powercontrolcode: super::LPCGUID, inbuffer: super::PVOID, inbuffersize: super::SIZE_T, outbuffer: super::PVOID, outbuffersize: super::SIZE_T, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
 pub type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
+pub type PPROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
 #[cfg(feature = "winnt")]
-pub type PPROCESSOR_HALT_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PPROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PPTM_CONTROL_INTERFACE = *mut PTM_CONTROL_INTERFACE;
 #[cfg(feature = "winnt")]
-pub type PPTM_DEVICE_DISABLE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PPTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PPTM_DEVICE_ENABLE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PPTM_DEVICE_ENABLE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PPTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "C" fn(context: super::PVOID, granularity: super::PUCHAR) -> windows_core::NTSTATUS>;
+pub type PPTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn(context: super::PVOID, granularity: super::PUCHAR) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PPTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "C" fn(context: super::PVOID, timesource: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PPTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn(context: super::PVOID, timesource: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "C" fn(context: super::PVOID, extendedaddress: super::PULONG64)>;
+pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "system" fn(context: super::PVOID, extendedaddress: super::PULONG64)>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PQUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, arraycount: super::ULONG, dataobjecttypes: super::PUCHAR, dataobjectcount: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PQUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, arraycount: super::ULONG, dataobjecttypes: super::PUCHAR, dataobjectcount: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PREENUMERATE_SELF = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PREENUMERATE_SELF = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_STANDARD;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "C" fn(context: super::PVOID, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: super::PVOID, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION = *mut REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -16109,32 +16115,32 @@ pub type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-pub type PREPLACE_BEGIN = Option<unsafe extern "C" fn(parameters: PPNP_REPLACE_PARAMETERS, context: *mut super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_BEGIN = Option<unsafe extern "system" fn(parameters: PPNP_REPLACE_PARAMETERS, context: *mut super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "winnt"))]
-pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "C" fn(interface: PPNP_REPLACE_DRIVER_INTERFACE, unused: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "system" fn(interface: PPNP_REPLACE_DRIVER_INTERFACE, unused: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "C" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PREPLACE_END = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_END = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
-pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "C" fn(context: super::PVOID, sourceaddress: super::PHYSICAL_ADDRESS, destinationaddress: super::PPHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "system" fn(context: super::PVOID, sourceaddress: super::PHYSICAL_ADDRESS, destinationaddress: super::PPHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "C" fn(targetphysicaladdress: super::PHYSICAL_ADDRESS, sparephysicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: super::PLARGE_INTEGER, targetaddress: *mut super::PVOID, spareaddress: *mut super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "system" fn(targetphysicaladdress: super::PHYSICAL_ADDRESS, sparephysicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: super::PLARGE_INTEGER, targetaddress: *mut super::PVOID, spareaddress: *mut super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "C" fn(context: super::PVOID, physicaladdress: super::PHYSICAL_ADDRESS, bytecount: super::LARGE_INTEGER) -> windows_core::NTSTATUS>;
+pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(context: super::PVOID, physicaladdress: super::PHYSICAL_ADDRESS, bytecount: super::LARGE_INTEGER) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "C" fn(context: super::PVOID, apicid: super::ULONG, target: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: super::PVOID, apicid: super::ULONG, target: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PREPLACE_SWAP = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
-pub type PREPLACE_UNLOAD = Option<unsafe extern "C" fn()>;
+pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PREQUEST_POWER_COMPLETE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, minorfunction: super::UCHAR, powerstate: POWER_STATE, context: super::PVOID, iostatus: super::PIO_STATUS_BLOCK)>;
+pub type PREQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, minorfunction: super::UCHAR, powerstate: POWER_STATE, context: super::PVOID, iostatus: super::PIO_STATUS_BLOCK)>;
 #[cfg(feature = "winnt")]
-pub type PRESET_DOE_INSTANCES = Option<unsafe extern "C" fn(interfacecontext: super::PVOID)>;
+pub type PRESET_DOE_INSTANCES = Option<unsafe extern "system" fn(interfacecontext: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRESOURCE_HASH_ENTRY = *mut RESOURCE_HASH_ENTRY;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -16164,10 +16170,10 @@ pub type PRKTRANSACTION = *mut _KTRANSACTION;
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "shared", feature = "winnt"))]
 pub type PRKWAIT_BLOCK = *mut KWAIT_BLOCK;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
+pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
 pub const PROCESSOR_FEATURE_MAX: i32 = 64;
 #[cfg(feature = "winnt")]
-pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
 pub const PROFILE_LEVEL: i32 = 27;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -16189,23 +16195,23 @@ pub type PSECTION_OBJECT_POINTERS = *mut SECTION_OBJECT_POINTERS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSECURE_DRIVER_INTERFACE = *mut SECURE_DRIVER_INTERFACE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, process: super::PEPROCESS)>;
+pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, process: super::PEPROCESS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PSECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID) -> super::PEPROCESS>;
+pub type PSECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID) -> super::PEPROCESS>;
 pub type PSECURITY_OPERATION_CODE = *mut SECURITY_OPERATION_CODE;
 #[cfg(feature = "winnt")]
 pub type PSECURITY_SUBJECT_CONTEXT = *mut SECURITY_SUBJECT_CONTEXT;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PSEND_DOE_REQUEST = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PSEND_DOE_REQUEST = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type PSEND_DOE_REQUEST_ASYNC = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, completionevent: PKEVENT, requestid: super::PLONGLONG) -> windows_core::NTSTATUS>;
+pub type PSEND_DOE_REQUEST_ASYNC = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, completionevent: PKEVENT, requestid: super::PLONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PSET_D3COLD_SUPPORT = Option<unsafe extern "C" fn(context: super::PVOID, d3coldsupport: super::BOOLEAN)>;
+pub type PSET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: super::PVOID, d3coldsupport: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PSET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type PSET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 pub type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt", feature = "winternl"))]
-pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
 #[cfg(feature = "winnt")]
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut super::PVOID;
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
@@ -16240,23 +16246,23 @@ pub struct PTM_CONTROL_INTERFACE {
     pub Disable: PPTM_DEVICE_DISABLE,
 }
 #[cfg(feature = "winnt")]
-pub type PTM_DEVICE_DISABLE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PTM_DEVICE_ENABLE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_ENABLE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "C" fn(context: super::PVOID, granularity: super::PUCHAR) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn(context: super::PVOID, granularity: super::PUCHAR) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "C" fn(context: super::PVOID, timesource: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn(context: super::PVOID, timesource: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PTM_PROPAGATE_ROUTINE = Option<unsafe extern "system" fn(propagationcookie: super::PVOID, callbackdata: super::PVOID, propagationstatus: windows_core::NTSTATUS, transactionguid: windows_core::GUID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: PKENLISTMENT, rmcontext: super::PVOID, transactioncontext: super::PVOID, transactionnotification: super::ULONG, tmvirtualclock: super::PLARGE_INTEGER, argumentlength: super::ULONG, argument: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "ntdef", feature = "shared", feature = "winnt"))]
-pub type PTRANSLATE_BUS_ADDRESS = Option<unsafe extern "C" fn(context: super::PVOID, busaddress: super::PHYSICAL_ADDRESS, length: super::ULONG, addressspace: super::PULONG, translatedaddress: super::PPHYSICAL_ADDRESS) -> super::BOOLEAN>;
+pub type PTRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn(context: super::PVOID, busaddress: super::PHYSICAL_ADDRESS, length: super::ULONG, addressspace: super::PULONG, translatedaddress: super::PPHYSICAL_ADDRESS) -> super::BOOLEAN>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
 #[cfg(feature = "winnt")]
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "C" fn(context: super::PVOID)>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[cfg(feature = "shared")]
 pub type PVIRTUAL_CHANNEL_CAPABILITIES1 = *mut VIRTUAL_CHANNEL_CAPABILITIES1;
 #[cfg(feature = "shared")]
@@ -16278,7 +16284,7 @@ pub type PVPB = *mut VPB;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PWAIT_CONTEXT_BLOCK = *mut WAIT_CONTEXT_BLOCK;
 #[cfg(feature = "winnt")]
-pub type PWORKER_THREAD_ROUTINE = Option<unsafe extern "C" fn(parameter: super::PVOID)>;
+pub type PWORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: super::PVOID)>;
 #[cfg(feature = "winnt")]
 pub type PWORK_QUEUE_ITEM = *mut WORK_QUEUE_ITEM;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -16358,7 +16364,7 @@ pub const ProfileTotalCycles: KPROFILE_SOURCE = 19;
 pub const ProfileTotalIssues: KPROFILE_SOURCE = 2;
 pub const ProfileTotalNonissues: KPROFILE_SOURCE = 7;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type QUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, arraycount: super::ULONG, dataobjecttypes: super::PUCHAR, dataobjectcount: super::PULONG) -> windows_core::NTSTATUS>;
+pub type QUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, arraycount: super::ULONG, dataobjecttypes: super::PUCHAR, dataobjectcount: super::PULONG) -> windows_core::NTSTATUS>;
 pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -16674,9 +16680,9 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub Reserved: super::PVOID,
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, minorfunction: super::UCHAR, powerstate: POWER_STATE, context: super::PVOID, iostatus: super::PIO_STATUS_BLOCK)>;
+pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, minorfunction: super::UCHAR, powerstate: POWER_STATE, context: super::PVOID, iostatus: super::PIO_STATUS_BLOCK)>;
 #[cfg(feature = "winnt")]
-pub type RESET_DOE_INSTANCES = Option<unsafe extern "C" fn(interfacecontext: super::PVOID)>;
+pub type RESET_DOE_INSTANCES = Option<unsafe extern "system" fn(interfacecontext: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16877,9 +16883,9 @@ pub struct SECURE_DRIVER_INTERFACE {
 }
 pub const SECURE_DRIVER_INTERFACE_VERSION: i32 = 1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, process: super::PEPROCESS)>;
+pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, process: super::PEPROCESS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID) -> super::PEPROCESS>;
+pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: super::PVOID) -> super::PEPROCESS>;
 pub const SECURE_POOL_FLAGS_FREEABLE: i32 = 1;
 pub const SECURE_POOL_FLAGS_MODIFIABLE: i32 = 2;
 pub const SECURE_POOL_FLAGS_NONE: i32 = 0;
@@ -16897,13 +16903,13 @@ pub struct SECURITY_SUBJECT_CONTEXT {
 pub const SEGMENT_ALL_ACCESS: i32 = 983071;
 pub const SEMAPHORE_QUERY_STATE: i32 = 1;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type SEND_DOE_REQUEST = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG) -> windows_core::NTSTATUS>;
+pub type SEND_DOE_REQUEST = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-pub type SEND_DOE_REQUEST_ASYNC = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, completionevent: PKEVENT, requestid: super::PLONGLONG) -> windows_core::NTSTATUS>;
+pub type SEND_DOE_REQUEST_ASYNC = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, dataobjectvendorid: super::USHORT, dataobjecttype: super::UCHAR, inputarraycount: super::ULONG, inputarray: super::PULONG, completionevent: PKEVENT, requestid: super::PLONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type SET_D3COLD_SUPPORT = Option<unsafe extern "C" fn(context: super::PVOID, d3coldsupport: super::BOOLEAN)>;
+pub type SET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: super::PVOID, d3coldsupport: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
-pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
+pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3;
 pub const SE_AUDIT_PRIVILEGE: i32 = 21;
 pub const SE_BACKUP_PRIVILEGE: i32 = 17;
@@ -16918,7 +16924,7 @@ pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36;
 pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27;
 pub type SE_IMAGE_TYPE = i32;
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt", feature = "winternl"))]
-pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
+pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
 #[cfg(feature = "winnt")]
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TOKEN = super::PVOID;
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;
@@ -17169,7 +17175,7 @@ pub struct TIME_FIELDS {
 }
 pub type TRACE_INFORMATION_CLASS = i32;
 #[cfg(all(feature = "minwindef", feature = "ntdef", feature = "shared", feature = "winnt"))]
-pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "C" fn(context: super::PVOID, busaddress: super::PHYSICAL_ADDRESS, length: super::ULONG, addressspace: super::PULONG, translatedaddress: super::PPHYSICAL_ADDRESS) -> super::BOOLEAN>;
+pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn(context: super::PVOID, busaddress: super::PHYSICAL_ADDRESS, length: super::ULONG, addressspace: super::PULONG, translatedaddress: super::PPHYSICAL_ADDRESS) -> super::BOOLEAN>;
 pub const TREE_CONNECT_NO_CLIENT_BUFFERING: i32 = 8;
 pub const TREE_CONNECT_WRITE_THROUGH: i32 = 2;
 pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = 4;
@@ -17675,9 +17681,9 @@ pub const WMIREG_ACTION_REREGISTER: i32 = 3;
 pub const WMIREG_ACTION_UPDATE_GUIDS: i32 = 4;
 pub const WMIUPDATE: i32 = 1;
 #[cfg(feature = "winnt")]
-pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "C" fn(wnode: super::PVOID, context: super::PVOID)>;
+pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: super::PVOID, context: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "C" fn(parameter: super::PVOID)>;
+pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]

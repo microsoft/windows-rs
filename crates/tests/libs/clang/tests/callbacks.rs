@@ -5,6 +5,195 @@ use windows_metadata::{HasAttributes, Type, Value, reader};
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn callback_abi_reuse() {
+    helpers::ensure_libclang();
+    let mut input = selected_fixture(
+        "callback_abi_reuse",
+        &[
+            "CallbackUses",
+            "ExplicitStop",
+            "InferredStop",
+            "InferredInner",
+            "ExplicitOuter",
+            "NormalizedInner",
+            "NamedOuter",
+            "ReferenceOuter",
+            "ConstReferenceOuter",
+            "VariantStop",
+            "InterfaceCallback",
+        ],
+    );
+    let mut snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    let path = test_clang::input_dir().join("callback_abi_reuse.rdl");
+    let text = &output.partitions["callback_abi_reuse"].rdl;
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(&path, text).unwrap();
+    }
+    assert_eq!(
+        text,
+        &std::fs::read_to_string(path).unwrap().replace("\r\n", "\n")
+    );
+    snapshots.reverse();
+    assert_eq!(
+        output,
+        projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap()
+    );
+    let partial = projection::generate_partial(std::slice::from_ref(&input), "Fixture").unwrap();
+    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+    assert_eq!(output, partial.output);
+    let mut scoped = selected_fixture("callback_abi_reuse", &[]);
+    scoped.source = format!("namespace Scoped {{\n{}\n}}", scoped.source);
+    scoped.roots = input
+        .roots
+        .iter()
+        .map(|name| format!("Scoped::{name}"))
+        .collect();
+    assert_eq!(output, projection::generate(&[scoped], "Fixture").unwrap());
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang-callback-abi-reuse.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_texts(
+            output
+                .partitions
+                .values()
+                .map(|partition| partition.rdl.replace("InferredInner", "ForeignInner")),
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    let references = projection::References::new(&index);
+    let options = projection::Options {
+        references: Some(&references),
+        ..Default::default()
+    };
+    input.source = input
+        .source
+        .replace("typedef void (*InferredInner)(unsigned);", "")
+        .replace("InferredInner const&", "void (*const&)(unsigned)")
+        .replace("InferredInner&", "void (*&)(unsigned)");
+    input.source.push_str(
+        "\nstruct ReferenceUses {
+            void (__attribute__((noreturn)) *outer)(void (__cdecl *)(unsigned));
+            void (__attribute__((noreturn)) *mutable_reference)(void (*&)(unsigned));
+            void (__attribute__((noreturn)) *const_reference)(void (*const&)(unsigned));
+        };",
+    );
+    input.roots = [
+        "ReferenceUses",
+        "ExplicitOuter",
+        "ReferenceOuter",
+        "ConstReferenceOuter",
+    ]
+    .map(String::from)
+    .into();
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    let reused =
+        projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options).unwrap();
+    assert_eq!(reused.records, 1);
+    assert!(
+        reused.partitions["callback_abi_reuse"]
+            .rdl
+            .contains("outer: ExplicitOuter")
+    );
+    assert!(
+        reused.partitions["callback_abi_reuse"]
+            .rdl
+            .contains("mutable_reference: ReferenceOuter")
+    );
+    assert!(
+        reused.partitions["callback_abi_reuse"]
+            .rdl
+            .contains("const_reference: ConstReferenceOuter")
+    );
+    let partial = projection::project_partial_with_options(
+        capture_partial(&[input], &TARGETS).unwrap(),
+        "Fixture",
+        &options,
+    )
+    .unwrap();
+    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+    assert_eq!(reused, partial.output);
+    std::fs::remove_file(winmd).unwrap();
+}
+
+#[test]
+fn nested_callback_reference_abi() {
+    helpers::ensure_libclang();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang-nested-callback-reference-abi.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(
+            "mod Fixture {
+                extern fn Inner(value: u32);
+                extern fn Outer(inner: Inner);
+                extern fn ReferenceOuter(inner: &mut Inner);
+            }",
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    let references = projection::References::new(&index);
+    let options = projection::Options {
+        references: Some(&references),
+        ..Default::default()
+    };
+    // X86 is written as stdcall so only the wide-target ABI evidence varies.
+    for (wide, compatible) in [
+        ("typedef void (*Outer)(void (*)(unsigned));", true),
+        ("typedef void (*Outer)(void (__cdecl *)(unsigned));", false),
+        (
+            "typedef void (__cdecl *LocalInner)(unsigned); typedef void (*Outer)(LocalInner);",
+            false,
+        ),
+        ("typedef void (*ReferenceOuter)(void (*&)(unsigned));", true),
+        (
+            "typedef void (*ReferenceOuter)(void (__cdecl *&)(unsigned));",
+            false,
+        ),
+    ] {
+        let name = if wide.contains("ReferenceOuter") {
+            "ReferenceOuter"
+        } else {
+            "Outer"
+        };
+        let x86 = if name == "Outer" {
+            "typedef void (__stdcall *Outer)(void (__stdcall *)(unsigned));"
+        } else {
+            "typedef void (__stdcall *ReferenceOuter)(void (__stdcall *&)(unsigned));"
+        };
+        let input = Input {
+            name: "nested_callback_reference_abi.h".into(),
+            source: format!(
+                "#if defined(_M_IX86)\n{x86}\n#else\n{wide}\n#endif\n\
+                 struct Uses {{ {name} field; }};"
+            ),
+            roots: vec!["Uses".into()],
+            ..Default::default()
+        };
+        let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+        let result =
+            projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options);
+        if compatible {
+            assert_eq!(result.unwrap().records, 1, "{wide}");
+        } else {
+            let error = result.unwrap_err().to_string();
+            assert!(
+                error.contains(&format!(
+                    "external callback `{name}` calling convention differs from metadata"
+                )),
+                "{wide}: {error}"
+            );
+        }
+    }
+    std::fs::remove_file(winmd).unwrap();
+}
+
+#[test]
 fn callbacks() {
     helpers::ensure_libclang();
     roundtrip();

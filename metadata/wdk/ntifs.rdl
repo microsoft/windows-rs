@@ -197,7 +197,7 @@ mod Windows {
         const DO_SYSTEM_SYSTEM_PARTITION: i32 = 2097152;
         const DO_VERIFY_VOLUME: i32 = 2;
         const DO_VOLUME_DEVICE_OBJECT: i32 = 1048576;
-        extern "C" fn DRIVER_FS_NOTIFICATION(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] FsActive: BOOLEAN);
+        extern fn DRIVER_FS_NOTIFICATION(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] FsActive: BOOLEAN);
         struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
             ParentOplockKey: GUID,
             TargetOplockKey: GUID,
@@ -908,7 +908,7 @@ mod Windows {
         const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: i32 = 1;
         const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: i32 = 2;
         const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: i32 = 4;
-        extern "C" fn FREE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[out] BaseAddress: *mut PVOID, #[in] #[out] RegionSize: PSIZE_T, #[in] FreeType: ULONG) -> NTSTATUS;
+        extern fn FREE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[out] BaseAddress: *mut PVOID, #[in] #[out] RegionSize: PSIZE_T, #[in] FreeType: ULONG) -> NTSTATUS;
         struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
             FileOffset: LARGE_INTEGER,
             ByteCount: LARGE_INTEGER,
@@ -1900,10 +1900,10 @@ mod Windows {
         }
         const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
         const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: i32 = 131072;
-        extern "C" fn PACQUIRE_FOR_LAZY_WRITE(#[in] Context: PVOID, #[in] Wait: BOOLEAN) -> BOOLEAN;
-        extern "C" fn PACQUIRE_FOR_LAZY_WRITE_EX(#[in] Context: PVOID, #[in] InFlags: ULONG, #[in] #[out] OutFlags: PULONG) -> BOOLEAN;
-        extern "C" fn PACQUIRE_FOR_READ_AHEAD(#[in] Context: PVOID, #[in] Wait: BOOLEAN) -> BOOLEAN;
-        extern "C" fn PASYNC_READ_COMPLETION_CALLBACK(#[in] Context: PVOID) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_LAZY_WRITE(#[in] Context: PVOID, #[in] Wait: BOOLEAN) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_LAZY_WRITE_EX(#[in] Context: PVOID, #[in] InFlags: ULONG, #[in] #[out] OutFlags: PULONG) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_READ_AHEAD(#[in] Context: PVOID, #[in] Wait: BOOLEAN) -> BOOLEAN;
+        extern fn PASYNC_READ_COMPLETION_CALLBACK(#[in] Context: PVOID) -> BOOLEAN;
         type PBASE_MCB = *mut BASE_MCB;
         type PCACHE_MANAGER_CALLBACKS = *mut CACHE_MANAGER_CALLBACKS;
         type PCACHE_MANAGER_CALLBACKS_EX = *mut CACHE_MANAGER_CALLBACKS_EX;
@@ -1913,9 +1913,9 @@ mod Windows {
         type PCC_DIRTY_PAGES_INFO = *mut CC_DIRTY_PAGES_INFO;
         type PCC_ERROR_CALLBACK_CONTEXT = *mut CC_ERROR_CALLBACK_CONTEXT;
         type PCC_FILE_SIZES = *mut CC_FILE_SIZES;
-        extern "C" fn PCC_POST_DEFERRED_WRITE(#[in] Context1: PVOID, #[in] Context2: PVOID);
-        extern "C" fn PCHECK_FOR_TRAVERSE_ACCESS(#[in] NotifyContext: PVOID, #[in] #[opt] TargetContext: PVOID, #[in] SubjectContext: PSECURITY_SUBJECT_CONTEXT) -> BOOLEAN;
-        extern "C" fn PCOMPLETE_LOCK_IRP_ROUTINE(#[in] Context: PVOID, #[in] Irp: PIRP) -> NTSTATUS;
+        extern fn PCC_POST_DEFERRED_WRITE(#[in] Context1: PVOID, #[in] Context2: PVOID);
+        extern fn PCHECK_FOR_TRAVERSE_ACCESS(#[in] NotifyContext: PVOID, #[in] #[opt] TargetContext: PVOID, #[in] SubjectContext: PSECURITY_SUBJECT_CONTEXT) -> BOOLEAN;
+        extern fn PCOMPLETE_LOCK_IRP_ROUTINE(#[in] Context: PVOID, #[in] Irp: PIRP) -> NTSTATUS;
         type PCOMPRESSED_DATA_INFO = *mut COMPRESSED_DATA_INFO;
         type PCOPY_INFORMATION = *mut COPY_INFORMATION;
         type PCREATE_REDIRECTION_ECP_CONTEXT = *mut CREATE_REDIRECTION_ECP_CONTEXT;
@@ -1923,8 +1923,8 @@ mod Windows {
         type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT = *mut CSV_QUERY_FILE_REVISION_ECP_CONTEXT;
         type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128;
         type PCSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT = *mut CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT;
-        extern "C" fn PDIRTY_PAGE_ROUTINE(#[in] FileObject: PFILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] OldestLsn: PLARGE_INTEGER, #[in] NewestLsn: PLARGE_INTEGER, #[in] Context1: PVOID, #[in] Context2: PVOID);
-        extern "C" fn PDRIVER_FS_NOTIFICATION(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] FsActive: BOOLEAN);
+        extern fn PDIRTY_PAGE_ROUTINE(#[in] FileObject: PFILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] OldestLsn: PLARGE_INTEGER, #[in] NewestLsn: PLARGE_INTEGER, #[in] Context1: PVOID, #[in] Context2: PVOID);
+        extern fn PDRIVER_FS_NOTIFICATION(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] FsActive: BOOLEAN);
         type PDUAL_OPLOCK_KEY_ECP_CONTEXT = *mut DUAL_OPLOCK_KEY_ECP_CONTEXT;
         type PDUPLICATE_CLUSTER_DATA = *mut DUPLICATE_CLUSTER_DATA;
         type PECP_HEADER = *mut _ECP_HEADER;
@@ -1932,7 +1932,7 @@ mod Windows {
         type PECP_OPEN_PARAMETERS = *mut ECP_OPEN_PARAMETERS;
         type PEOF_WAIT_BLOCK = *mut EOF_WAIT_BLOCK;
         type PEXTENT_READ_CACHE_INFO_BUFFER = *mut EXTENT_READ_CACHE_INFO_BUFFER;
-        extern "C" fn PEXTERNAL_CACHE_CALLBACK_EX(#[in] ExternalCacheContext: PVOID, #[in] DirtyPagesInfo: PCC_DIRTY_PAGES_INFO);
+        extern fn PEXTERNAL_CACHE_CALLBACK_EX(#[in] ExternalCacheContext: PVOID, #[in] DirtyPagesInfo: PCC_DIRTY_PAGES_INFO);
         type PFILE_ACCESS_INFORMATION = *mut FILE_ACCESS_INFORMATION;
         type PFILE_ALLOCATION_INFORMATION = *mut FILE_ALLOCATION_INFORMATION;
         type PFILE_ALL_INFORMATION = *mut FILE_ALL_INFORMATION;
@@ -2002,10 +2002,10 @@ mod Windows {
         type PFILE_TIMESTAMPS = *mut FILE_TIMESTAMPS;
         type PFILE_TRACKING_INFORMATION = *mut FILE_TRACKING_INFORMATION;
         type PFILE_VOLUME_NAME_INFORMATION = *mut FILE_VOLUME_NAME_INFORMATION;
-        extern "C" fn PFILTER_REPORT_CHANGE(#[in] NotifyContext: PVOID, #[in] FilterContext: PVOID) -> BOOLEAN;
-        extern "C" fn PFLUSH_TO_LSN(#[in] LogHandle: PVOID, #[in] Lsn: LARGE_INTEGER);
-        extern "C" fn PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS(#[in] AdvancedHeader: PFSRTL_ADVANCED_FCB_HEADER);
-        extern "C" fn PFREE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[out] BaseAddress: *mut PVOID, #[in] #[out] RegionSize: PSIZE_T, #[in] FreeType: ULONG) -> NTSTATUS;
+        extern fn PFILTER_REPORT_CHANGE(#[in] NotifyContext: PVOID, #[in] FilterContext: PVOID) -> BOOLEAN;
+        extern fn PFLUSH_TO_LSN(#[in] LogHandle: PVOID, #[in] Lsn: LARGE_INTEGER);
+        extern fn PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS(#[in] AdvancedHeader: PFSRTL_ADVANCED_FCB_HEADER);
+        extern fn PFREE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[out] BaseAddress: *mut PVOID, #[in] #[out] RegionSize: PSIZE_T, #[in] FreeType: ULONG) -> NTSTATUS;
         type PFSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER = *mut FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER;
         type PFSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE = *mut FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE;
         type PFSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT = *mut FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT;
@@ -2016,18 +2016,18 @@ mod Windows {
         type PFSRTL_AUXILIARY_BUFFER = *mut FSRTL_AUXILIARY_BUFFER;
         type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
         type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
-        extern "C" fn PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK(#[in] #[out] EcpContext: PVOID, #[in] EcpType: LPCGUID);
+        extern fn PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK(#[in] #[out] EcpContext: PVOID, #[in] EcpType: LPCGUID);
         type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
         type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
         type PFSRTL_PER_FILEOBJECT_CONTEXT = *mut FSRTL_PER_FILEOBJECT_CONTEXT;
         type PFSRTL_PER_FILE_CONTEXT = *mut FSRTL_PER_FILE_CONTEXT;
         type PFSRTL_PER_STREAM_CONTEXT = *mut FSRTL_PER_STREAM_CONTEXT;
-        extern "C" fn PFSRTL_STACK_OVERFLOW_ROUTINE(#[in] Context: PVOID, #[in] Event: PKEVENT);
+        extern fn PFSRTL_STACK_OVERFLOW_ROUTINE(#[in] Context: PVOID, #[in] Event: PKEVENT);
         type PFSRTL_UNC_PROVIDER_REGISTRATION = *mut FSRTL_UNC_PROVIDER_REGISTRATION;
-        extern "C" fn PFS_FILTER_CALLBACK(#[in] Data: PFS_FILTER_CALLBACK_DATA, #[out] CompletionContext: *mut PVOID) -> NTSTATUS;
+        extern fn PFS_FILTER_CALLBACK(#[in] Data: PFS_FILTER_CALLBACK_DATA, #[out] CompletionContext: *mut PVOID) -> NTSTATUS;
         type PFS_FILTER_CALLBACKS = *mut FS_FILTER_CALLBACKS;
         type PFS_FILTER_CALLBACK_DATA = *mut FS_FILTER_CALLBACK_DATA;
-        extern "C" fn PFS_FILTER_COMPLETION_CALLBACK(#[in] Data: PFS_FILTER_CALLBACK_DATA, #[in] OperationStatus: NTSTATUS, #[in] CompletionContext: PVOID);
+        extern fn PFS_FILTER_COMPLETION_CALLBACK(#[in] Data: PFS_FILTER_CALLBACK_DATA, #[in] OperationStatus: NTSTATUS, #[in] CompletionContext: PVOID);
         type PFS_FILTER_PARAMETERS = *mut FS_FILTER_PARAMETERS;
         type PFS_FILTER_SECTION_SYNC_OUTPUT = *mut FS_FILTER_SECTION_SYNC_OUTPUT;
         type PFS_FILTER_SECTION_SYNC_TYPE = *mut FS_FILTER_SECTION_SYNC_TYPE;
@@ -2103,11 +2103,11 @@ mod Windows {
         type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
         type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
         type POPLOCK = *mut PVOID;
-        extern "C" fn POPLOCK_FS_PREPOST_IRP(#[in] Context: PVOID, #[in] #[opt] Irp: PIRP);
+        extern fn POPLOCK_FS_PREPOST_IRP(#[in] Context: PVOID, #[in] #[opt] Irp: PIRP);
         type POPLOCK_KEY_ECP_CONTEXT = *mut OPLOCK_KEY_ECP_CONTEXT;
         type POPLOCK_NOTIFY_PARAMS = *mut OPLOCK_NOTIFY_PARAMS;
-        extern "C" fn POPLOCK_NOTIFY_ROUTINE(#[in] NotifyParams: POPLOCK_NOTIFY_PARAMS) -> NTSTATUS;
-        extern "C" fn POPLOCK_WAIT_COMPLETE_ROUTINE(#[in] Context: PVOID, #[in] #[opt] Irp: PIRP);
+        extern fn POPLOCK_NOTIFY_ROUTINE(#[in] NotifyParams: POPLOCK_NOTIFY_PARAMS) -> NTSTATUS;
+        extern fn POPLOCK_WAIT_COMPLETE_ROUTINE(#[in] Context: PVOID, #[in] #[opt] Irp: PIRP);
         const PO_CB_AC_STATUS: i32 = 1;
         const PO_CB_BUTTON_COLLISION: i32 = 2;
         const PO_CB_LID_SWITCH_STATE: i32 = 4;
@@ -2123,7 +2123,7 @@ mod Windows {
         type PPREFIX_TABLE_ENTRY = *mut PREFIX_TABLE_ENTRY;
         type PPUBLIC_BCB = *mut PUBLIC_BCB;
         type PQUERY_DIRECT_ACCESS_EXTENTS = *mut QUERY_DIRECT_ACCESS_EXTENTS;
-        extern "C" fn PQUERY_LOG_USAGE(#[in] LogHandle: PVOID, #[out] PercentageFull: PUSHORT);
+        extern fn PQUERY_LOG_USAGE(#[in] LogHandle: PVOID, #[out] PercentageFull: PUSHORT);
         type PQUERY_ON_CREATE_EA_INFORMATION = *mut QUERY_ON_CREATE_EA_INFORMATION;
         type PQUERY_ON_CREATE_ECP_CONTEXT = *mut QUERY_ON_CREATE_ECP_CONTEXT;
         type PQUERY_ON_CREATE_FILE_LX_INFORMATION = *mut QUERY_ON_CREATE_FILE_LX_INFORMATION;
@@ -2133,7 +2133,7 @@ mod Windows {
         type PQUERY_PATH_REQUEST = *mut QUERY_PATH_REQUEST;
         type PQUERY_PATH_REQUEST_EX = *mut QUERY_PATH_REQUEST_EX;
         type PQUERY_PATH_RESPONSE = *mut QUERY_PATH_RESPONSE;
-        extern "C" fn PQUERY_VIRTUAL_MEMORY_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[out] #[writable(entry, bytes(MemoryInformationLength))] MemoryInformation: PVOID, #[in] MemoryInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> NTSTATUS;
+        extern fn PQUERY_VIRTUAL_MEMORY_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[out] #[writable(entry, bytes(MemoryInformationLength))] MemoryInformation: PVOID, #[in] MemoryInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> NTSTATUS;
         type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
         type PREAD_LIST = *mut READ_LIST;
         struct PREFETCH_OPEN_ECP_CONTEXT {
@@ -2180,8 +2180,8 @@ mod Windows {
         type PREFS_VOLUME_COUNTER_INFO_INPUT_BUFFER = *mut REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER;
         type PREFS_VOLUME_DEDUP_INFO_INPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER;
         type PREFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER;
-        extern "C" fn PRELEASE_FROM_LAZY_WRITE(#[in] Context: PVOID);
-        extern "C" fn PRELEASE_FROM_READ_AHEAD(#[in] Context: PVOID);
+        extern fn PRELEASE_FROM_LAZY_WRITE(#[in] Context: PVOID);
+        extern fn PRELEASE_FROM_READ_AHEAD(#[in] Context: PVOID);
         type PREMOTE_LINK_TRACKING_INFORMATION = *mut REMOTE_LINK_TRACKING_INFORMATION;
         type PREPARSE_INDEX_KEY = *mut REPARSE_INDEX_KEY;
         type PRKAPC_STATE = *mut KAPC_STATE;
@@ -2210,8 +2210,8 @@ mod Windows {
         type PSE_AUDIT_INFO = *mut SE_AUDIT_INFO;
         type PSE_AUDIT_OPERATION = *mut SE_AUDIT_OPERATION;
         type PSE_EXPORTS = *mut SE_EXPORTS;
-        extern "C" fn PSE_LOGON_SESSION_TERMINATED_ROUTINE(#[in] LogonId: PLUID) -> NTSTATUS;
-        extern "C" fn PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX(#[in] LogonId: PLUID, #[in] pServerSilo: PESILO, #[in] #[opt] Context: PVOID) -> NTSTATUS;
+        extern fn PSE_LOGON_SESSION_TERMINATED_ROUTINE(#[in] LogonId: PLUID) -> NTSTATUS;
+        extern fn PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX(#[in] LogonId: PLUID, #[in] pServerSilo: PESILO, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: i32 = 4;
         const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: i32 = 2;
         type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
@@ -2227,7 +2227,7 @@ mod Windows {
         }
         type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
         type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
-        extern "C" fn PUNLOCK_ROUTINE(#[in] Context: PVOID, #[in] FileLockInfo: PFILE_LOCK_INFO);
+        extern fn PUNLOCK_ROUTINE(#[in] Context: PVOID, #[in] FileLockInfo: PFILE_LOCK_INFO);
         const PURGE_WITH_ACTIVE_VIEWS: i32 = 8;
         type PVBN = *mut VBN;
         type PVCN_RANGE_INPUT_BUFFER = *mut VCN_RANGE_INPUT_BUFFER;
@@ -2339,7 +2339,7 @@ mod Windows {
         struct QUERY_PATH_RESPONSE {
             LengthAccepted: ULONG,
         }
-        extern "C" fn QUERY_VIRTUAL_MEMORY_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[out] #[writable(entry, bytes(MemoryInformationLength))] MemoryInformation: PVOID, #[in] MemoryInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> NTSTATUS;
+        extern fn QUERY_VIRTUAL_MEMORY_CALLBACK(#[in] #[out] CallbackContext: HANDLE, #[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[out] #[writable(entry, bytes(MemoryInformationLength))] MemoryInformation: PVOID, #[in] MemoryInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> NTSTATUS;
         const QoCFileEaInformation: i32 = 4;
         const QoCFileLxInformation: i32 = 2;
         const QoCFileSecurityInformation: i32 = 16;
@@ -3092,8 +3092,8 @@ mod Windows {
             SeAppSiloPromptForAccessCapabilitySid: PSID,
             SeAppSiloAccessToPublisherDirectoryCapabilitySid: PSID,
         }
-        extern "C" fn SE_LOGON_SESSION_TERMINATED_ROUTINE(#[in] LogonId: PLUID) -> NTSTATUS;
-        extern "C" fn SE_LOGON_SESSION_TERMINATED_ROUTINE_EX(#[in] LogonId: PLUID, #[in] pServerSilo: PESILO, #[in] #[opt] Context: PVOID) -> NTSTATUS;
+        extern fn SE_LOGON_SESSION_TERMINATED_ROUTINE(#[in] LogonId: PLUID) -> NTSTATUS;
+        extern fn SE_LOGON_SESSION_TERMINATED_ROUTINE_EX(#[in] LogonId: PLUID, #[in] pServerSilo: PESILO, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         const SE_SERVER_SECURITY: i32 = 128;
         struct SOV_RANGE_CHECK_DATA {
             RemoveZone: BOOLEAN,
@@ -3136,7 +3136,7 @@ mod Windows {
         const SYSTEM_PAGE_PRIORITY_BITS: i32 = 3;
         const SYSTEM_PAGE_PRIORITY_LEVELS: i32 = 8;
         type SspiAsyncContext = _SspiAsyncContext;
-        extern "C" fn SspiAsyncNotifyCallback(#[in] Handle: *mut SspiAsyncContext, #[in] #[opt] CallbackData: PVOID);
+        extern fn SspiAsyncNotifyCallback(#[in] Handle: *mut SspiAsyncContext, #[in] #[opt] CallbackData: PVOID);
         const TOKEN_AUDIT_NO_CHILD_PROCESS: i32 = 2097152;
         const TOKEN_AUDIT_REDIRECTION_TRUST: i32 = 8388608;
         const TOKEN_DO_NOT_USE_GLOBAL_ATTRIBS_FOR_QUERY: i32 = 131072;
@@ -3321,13 +3321,11 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwDuplicateToken(#[in] ExistingTokenHandle: HANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] EffectiveOnly: BOOLEAN, #[in] TokenType: TOKEN_TYPE, #[out] NewTokenHandle: PHANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwFlushBuffersFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK) -> NTSTATUS;
+        extern fn ZwFlushBuffersFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwFlushBuffersFileEx(#[in] FileHandle: HANDLE, #[in] FLags: ULONG, #[in] #[readable(entry, bytes(ParametersSize))] Parameters: PVOID, #[in] ParametersSize: ULONG, #[out] IoStatusBlock: PIO_STATUS_BLOCK) -> NTSTATUS;
+        extern fn ZwFlushBuffersFileEx(#[in] FileHandle: HANDLE, #[in] FLags: ULONG, #[in] #[readable(entry, bytes(ParametersSize))] Parameters: PVOID, #[in] ParametersSize: ULONG, #[out] IoStatusBlock: PIO_STATUS_BLOCK) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn ZwFlushVirtualMemory(#[in] ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut PVOID, #[in] #[out] RegionSize: PSIZE_T, #[out] IoStatus: PIO_STATUS_BLOCK) -> NTSTATUS;
@@ -3360,9 +3358,8 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwQueryDirectoryFileEx(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS, #[in] QueryFlags: ULONG, #[in] #[opt] FileName: PUNICODE_STRING) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwQueryEaFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG, #[in] ReturnSingleEntry: BOOLEAN, #[in] #[opt] #[readable(entry, bytes(EaListLength))] EaList: PVOID, #[in] EaListLength: ULONG, #[in] #[opt] EaIndex: PULONG, #[in] RestartScan: BOOLEAN) -> NTSTATUS;
+        extern fn ZwQueryEaFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG, #[in] ReturnSingleEntry: BOOLEAN, #[in] #[opt] #[readable(entry, bytes(EaListLength))] EaList: PVOID, #[in] EaListLength: ULONG, #[in] #[opt] EaIndex: PULONG, #[in] RestartScan: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[opt] #[out] #[writable(entry, bytes(ObjectInformationLength))] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
@@ -3377,9 +3374,8 @@ mod Windows {
         #[must_use]
         extern fn ZwQueryVirtualMemory(#[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[out] #[writable(entry, bytes(MemoryInformationLength))] MemoryInformation: PVOID, #[in] MemoryInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "C" fn ZwSetEaFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG) -> NTSTATUS;
+        extern fn ZwSetEaFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwSetEvent(#[in] EventHandle: HANDLE, #[opt] #[out] PreviousState: PLONG) -> NTSTATUS;

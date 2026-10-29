@@ -3,12 +3,14 @@
 use super::*;
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::cell::RefCell;
 use std::collections::BTreeSet;
 use windows_metadata::Type as MetadataType;
 use windows_rdl::emit::{write_ident, write_param_direction, write_value};
 
 mod annotations;
 mod bitfields;
+mod callbacks;
 mod integer_expression;
 mod native_object;
 mod plan;
@@ -17,6 +19,7 @@ mod records;
 mod reference_values;
 mod references;
 mod values;
+use callbacks::abis_compatible;
 use plan::Plan;
 pub use references::References;
 
@@ -273,6 +276,8 @@ fn project_impl(
     let mut declarations = BTreeMap::new();
     let mut external_names = BTreeSet::new();
     let native_sized = native_sized_aliases(merged);
+    // X86 is projected first, supplying the same ABI anchor used by variants.
+    let mut x86_callbacks = HashMap::new();
     for (&target, resolution) in &merged.targets {
         let plan = Plan::new(resolution)?;
         let external = options
@@ -310,6 +315,8 @@ fn project_impl(
             external: &external,
             native_sized: &native_sized,
             interface_ids: &interface_ids,
+            x86_callbacks: &x86_callbacks,
+            callback_abis: RefCell::new(HashMap::new()),
         };
         projector.validate_references(&mut rejected)?;
         if rejected
@@ -360,6 +367,18 @@ fn project_impl(
             &mut declarations,
             &mut rejected,
         )?;
+        if target == Target::X86 {
+            x86_callbacks.extend(declarations.values().filter_map(|declaration| {
+                if declaration.kind != PublishedKind::Alias {
+                    return None;
+                }
+                let body = declaration.bodies.get(&Target::X86)?;
+                Some((
+                    declaration.native_name.clone(),
+                    (body.contract_key(), body.abi?.convention),
+                ))
+            }));
+        }
     }
     if rejected
         .as_deref()
@@ -467,6 +486,8 @@ struct Projector<'a, 'b> {
     native_sized: &'a HashSet<&'a str>,
     /// GUID constants named `IID_<interface>`, keyed by interface name.
     interface_ids: &'a HashMap<&'a str, u128>,
+    x86_callbacks: &'a HashMap<String, (String, CallingConvention)>,
+    callback_abis: RefCell<HashMap<String, Vec<CallingConvention>>>,
 }
 
 /// Indexes `IID_<name>` GUID constants, the C spelling of an interface's IID, by interface name.
@@ -698,11 +719,18 @@ fn agree(name: &str, target: Target, bodies: &mut [Body]) -> Result<(), Error> {
     Ok(())
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Eq, PartialEq)]
 struct CallableAbi {
     convention: CallingConvention,
-    // Callback reuse must retain the written ABI, even when the target's machine ABIs agree.
-    inferred_import: bool,
+    inferred: bool,
+}
+
+impl CallableAbi {
+    fn canonicalize(&mut self, target: Target, convention: CallingConvention) {
+        if target != Target::X86 && self.inferred {
+            self.convention = convention;
+        }
+    }
 }
 
 fn callable_abi(function: WrittenFunction<'_>) -> CallableAbi {
@@ -714,7 +742,7 @@ fn callable_abi(function: WrittenFunction<'_>) -> CallableAbi {
     };
     CallableAbi {
         convention,
-        inferred_import: false,
+        inferred: !function.explicit_convention && !function.prototype.variadic,
     }
 }
 
@@ -736,33 +764,47 @@ struct WrittenFunction<'a> {
 }
 
 impl WrittenFunction<'_> {
-    fn conventions(self, snapshot: &Snapshot) -> Result<Vec<CallingConvention>, Error> {
+    fn conventions(
+        self,
+        snapshot: &Snapshot,
+        aliases: &impl Fn(AliasId) -> Result<Option<Vec<CallableAbi>>, Error>,
+    ) -> Result<Vec<CallableAbi>, Error> {
         fn append(
             snapshot: &Snapshot,
             id: TypeId,
-            values: &mut Vec<CallingConvention>,
+            values: &mut Vec<CallableAbi>,
+            aliases: &impl Fn(AliasId) -> Result<Option<Vec<CallableAbi>>, Error>,
         ) -> Result<(), Error> {
             match snapshot.types[id.0].kind {
-                TypeKind::Alias(alias) => append(
-                    snapshot,
-                    snapshot.aliases[alias.0].observations[0].underlying,
-                    values,
-                )?,
+                TypeKind::Alias(alias) => {
+                    if let Some(conventions) = aliases(alias)? {
+                        values.extend(conventions);
+                    } else {
+                        append(
+                            snapshot,
+                            snapshot.aliases[alias.0].observations[0].underlying,
+                            values,
+                            aliases,
+                        )?;
+                    }
+                }
                 TypeKind::Pointer(inner)
                 | TypeKind::Pointer64(inner)
                 | TypeKind::LValueReference(inner)
-                | TypeKind::Array { element: inner, .. } => append(snapshot, inner, values)?,
+                | TypeKind::Array { element: inner, .. } => {
+                    append(snapshot, inner, values, aliases)?;
+                }
                 TypeKind::Function(_) | TypeKind::Attributed { .. } => {
-                    values.extend(written_function(snapshot, id)?.conventions(snapshot)?);
+                    values.extend(written_function(snapshot, id)?.conventions(snapshot, aliases)?);
                 }
                 _ => {}
             }
             Ok(())
         }
-        let mut values = vec![self.convention];
-        append(snapshot, self.prototype.result, &mut values)?;
+        let mut values = vec![callable_abi(self)];
+        append(snapshot, self.prototype.result, &mut values, aliases)?;
         for &parameter in &self.prototype.parameters {
-            append(snapshot, parameter, &mut values)?;
+            append(snapshot, parameter, &mut values, aliases)?;
         }
         Ok(values)
     }
@@ -1020,11 +1062,8 @@ impl Projector<'_, '_> {
             .iter()
             .enumerate()
             .map(|(index, id)| {
-                if let Some(written) = written {
-                    self.parameter_ty(snapshot, written.prototype.parameters[index], *id)
-                } else {
-                    self.ty(snapshot, *id)
-                }
+                let written = written.map_or(*id, |written| written.prototype.parameters[index]);
+                self.parameter_ty(snapshot, written, *id)
             })
             .collect::<Result<_, _>>()?;
         let return_type = if let Some(written) = written {
@@ -1388,16 +1427,34 @@ impl Projector<'_, '_> {
         function: &Function,
         written: Option<WrittenFunction<'_>>,
     ) -> Result<MetadataType, Error> {
-        let conventions = written
-            .unwrap_or(WrittenFunction {
-                prototype: function,
-                convention: function.convention,
-                explicit_convention: false,
-            })
-            .conventions(self.resolution.snapshots[snapshot])?;
-        if let Some(name) = self.plan.callbacks[snapshot].get(&(id, conventions)) {
-            Ok(self.callback_type(name))
-        } else if function.noreturn {
+        let source = self.resolution.snapshots[snapshot];
+        let prototype = written.unwrap_or(WrittenFunction {
+            prototype: function,
+            convention: function.convention,
+            explicit_convention: false,
+        });
+        if let Some(candidates) = self.plan.callbacks[snapshot].get(&id) {
+            let conventions = prototype.conventions(source, &|_| Ok(None))?;
+            let required = self.required_abis(snapshot, prototype)?;
+            // Prefer the same spelling, but require compatibility with the published ABI.
+            for preferred in [true, false] {
+                for (name, declared) in candidates {
+                    if (declared == &conventions) != preferred
+                        || declared.len() != conventions.len()
+                        || declared
+                            .iter()
+                            .zip(&conventions)
+                            .any(|(a, b)| a.convention != b.convention)
+                    {
+                        continue;
+                    }
+                    if abis_compatible(source.target, &required, &self.callback_abis(name)?) {
+                        return Ok(self.callback_type(name));
+                    }
+                }
+            }
+        }
+        if function.noreturn {
             Err(Error(
                 "noreturn function pointer requires a named callback to retain its contract".into(),
             ))
@@ -1769,16 +1826,13 @@ impl Body {
 
     fn retain_abi(&mut self, other: &Self) {
         if let Some(abi) = &mut self.abi {
-            abi.inferred_import &= other.abi.unwrap().inferred_import;
+            abi.inferred &= other.abi.unwrap().inferred;
         }
     }
 
-    fn canonicalize_import_abi(&mut self, target: Target, convention: CallingConvention) {
-        if target != Target::X86
-            && let Some(abi) = &mut self.abi
-            && abi.inferred_import
-        {
-            abi.convention = convention;
+    fn canonicalize_abi(&mut self, target: Target, convention: CallingConvention) {
+        if let Some(abi) = &mut self.abi {
+            abi.canonicalize(target, convention);
         }
     }
 
@@ -1805,8 +1859,8 @@ fn variants(bodies: BTreeMap<Target, Body>) -> TokenStream {
         if let Some((key, convention)) = &x86
             && body.contract_key() == *key
         {
-            // Same-target conflicts and import ownership have already been checked.
-            body.canonicalize_import_abi(target, *convention);
+            // Same-target conflicts and ownership have already been checked.
+            body.canonicalize_abi(target, *convention);
         }
         grouped
             .entry(body.key())

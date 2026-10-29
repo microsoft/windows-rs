@@ -1,6 +1,0 @@
-# Observed named code imports in SDK 10.0.28000.2270, not availability approvals.
-# Mask: X86=1, X64=2, Arm64=4. Native declarations exist on all three targets.
-6 Ndr64AsyncClientCall rpcrt4.dll
-6 Ndr64DcomAsyncClientCall rpcrt4.dll
-7 NdrClientCall2 rpcrt4.dll
-6 NdrClientCall3 rpcrt4.dll

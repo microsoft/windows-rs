@@ -101,6 +101,10 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     for input in &mut inputs {
         input.external_interfaces.clone_from(&external_interfaces);
         input.alias_variants = alias_variants();
+        // WindowsDriver.Common.props selects /Gz. Clang's equivalent is x86-only.
+        input
+            .arguments
+            .extend(["-Xarch_i686".into(), "-mrtd".into()]);
         configuration.push_str(&format!(
             "\nInput: {}\nArguments: {:?}\nAlias variants: {:?}\nMacro headers: {:?}\nRoot paths: {:?}\nSource:\n{}\n",
             input.name, input.arguments, input.alias_variants, input.macro_headers, input.root_paths, input.source,
@@ -325,8 +329,8 @@ fn target_native_imports() {
 
 #[test]
 fn user_mode_metadata_surface() {
-    use windows_metadata::Type;
     use windows_metadata::reader::{File, Index};
+    use windows_metadata::{Type, Value};
     let path = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("..\\..\\..\\crates\\libs\\default\\Windows.Win32.winmd");
     for bit in [1, 2, 4] {
@@ -339,6 +343,7 @@ fn user_mode_metadata_surface() {
             "ZwWriteFile",
             "RtlCompareString",
             "RtlEqualString",
+            "DbgPrint",
         ] {
             let items: Vec<_> = index.get_item("Windows.Win32", name).collect();
             let [Item::Fn(method)] = items.as_slice() else {
@@ -351,6 +356,10 @@ fn user_mode_metadata_surface() {
                     .import_scope()
                     .name()
                     .eq_ignore_ascii_case("ntdll.dll")
+            );
+            assert_eq!(
+                method.calling_convention(),
+                if name == "DbgPrint" { "C" } else { "system" }
             );
             if name == "RtlCompareString" {
                 let signature = method.signature(&[]);
@@ -381,6 +390,23 @@ fn user_mode_metadata_surface() {
                     .name()
                     .eq_ignore_ascii_case("offreg.dll")
             );
+            assert_eq!(method.calling_convention(), "system");
+        }
+        for name in [
+            "DRIVER_DISPATCH",
+            "PDRIVER_DISPATCH",
+            "DRIVER_INITIALIZE",
+            "DRIVER_UNLOAD",
+        ] {
+            let values = index
+                .expect("Windows.Win32", name)
+                .find_attribute("UnmanagedFunctionPointerAttribute")
+                .unwrap()
+                .value();
+            let [(_, Value::EnumValue(_, value))] = values.as_slice() else {
+                panic!("missing callback ABI for {name}");
+            };
+            assert_eq!(**value, Value::I32(1), "{name} on architecture {bit}");
         }
     }
 }

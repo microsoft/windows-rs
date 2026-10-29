@@ -159,9 +159,7 @@ impl Projector<'_, '_> {
                 let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let mut abi = callable_abi(function);
-                abi.inferred_import = *convention_origin == CallingConventionOrigin::Default
-                    && !function.explicit_convention
-                    && !function.prototype.variadic;
+                abi.inferred &= *convention_origin == CallingConventionOrigin::Default;
                 let name = ident(public_name(name))?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {

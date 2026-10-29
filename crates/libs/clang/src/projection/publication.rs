@@ -180,7 +180,7 @@ pub(super) fn values<'a>(
                             _ => None,
                         };
                         if let Some(convention) = convention {
-                            body.canonicalize_import_abi(target, convention);
+                            body.canonicalize_abi(target, convention);
                         }
                     }
                     let rendered = windows_rdl::emit::write_item(projector.namespace, *item)
@@ -640,21 +640,7 @@ pub(super) fn aliases<'a>(
                     .as_slice()
             }),
         )?;
-        let mut bodies = alias
-            .observations
-            .iter()
-            .filter(|reference| {
-                !resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
-                    [reference.observation]
-                    .implicit
-            })
-            .map(|reference| {
-                let snapshot = resolution.snapshots[reference.snapshot];
-                let observation =
-                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                projector.alias(reference.snapshot, observation, &alias.name, attributes)
-            })
-            .collect::<Result<Vec<_>, _>>();
+        let mut bodies = projector.alias_bodies(alias, attributes);
         if let Ok(bodies) = &mut bodies {
             agree(&alias.name, target, bodies)?;
         }

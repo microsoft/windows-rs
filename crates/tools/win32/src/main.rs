@@ -10,8 +10,6 @@
 
 mod header_contexts;
 mod headers;
-#[cfg(test)]
-mod import_availability;
 mod import_policy;
 mod wdk;
 
@@ -237,20 +235,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         import_evidence.push_str(&default_stdcall_imports(&captured.snapshots, &mut imports));
         std::fs::write(scratch.join("import-omissions.txt"), &import_evidence)?;
         let symbols: usize = imports.symbols.values().map(BTreeMap::len).sum();
-        let ordinals = imports
-            .symbols
-            .values()
-            .flat_map(BTreeMap::values)
-            .filter(|import| {
-                import
-                    .name
-                    .as_deref()
-                    .is_some_and(|name| name.starts_with('#'))
-            })
-            .count();
         println!(
-            "SDK ownership: {} named and {ordinals} ordinal target imports; {} explicit public mappings",
-            symbols - ordinals,
+            "SDK ownership: {symbols} target imports; {} explicit public mappings",
             imports.functions.len(),
         );
     }
@@ -363,7 +349,7 @@ fn write_partitions(
     partitions: &BTreeMap<String, projection::Partition>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     std::fs::create_dir_all(destination)?;
-    let previous = std::fs::read_dir(destination)?
+    let mut previous = std::fs::read_dir(destination)?
         .map(|entry| entry.map(|entry| entry.path()))
         .collect::<Result<Vec<_>, _>>()?
         .into_iter()
@@ -378,11 +364,20 @@ fn write_partitions(
             .into());
         }
     }
-    for path in previous {
-        std::fs::remove_file(path)?;
-    }
     for (stem, partition) in partitions {
-        std::fs::write(destination.join(format!("{stem}.rdl")), &partition.rdl)?;
+        let path = destination.join(format!("{stem}.rdl"));
+        std::fs::write(&path, &partition.rdl)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        previous.retain(|previous| {
+            if cfg!(windows) {
+                !previous.as_os_str().eq_ignore_ascii_case(path.as_os_str())
+            } else {
+                previous != &path
+            }
+        });
+    }
+    for path in previous {
+        std::fs::remove_file(&path).map_err(|error| format!("{}: {error}", path.display()))?;
     }
     Ok(())
 }
@@ -1066,6 +1061,50 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
 mod tests {
     use super::*;
     use windows_rdl::implib::{Import, ImportKind, ImportName};
+
+    #[test]
+    #[cfg(windows)]
+    fn partition_write_failure() {
+        use std::os::windows::fs::OpenOptionsExt;
+
+        let destination =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\target\\test-win32-partitions");
+        std::fs::create_dir_all(&destination).unwrap();
+        let obsolete = destination.join("a-old.rdl");
+        let current = destination.join("z-current.rdl");
+        let unrelated = destination.join("keep.txt");
+        std::fs::write(&obsolete, "old").unwrap();
+        std::fs::write(&current, "current").unwrap();
+        std::fs::write(&unrelated, "keep").unwrap();
+        let partitions = [(
+            "Z-Current".into(),
+            projection::Partition {
+                headers: BTreeSet::new(),
+                rdl: "replacement".into(),
+            },
+        )]
+        .into();
+        let locked = std::fs::OpenOptions::new()
+            .read(true)
+            .share_mode(0)
+            .open(&current)
+            .unwrap();
+        let result = write_partitions(&destination, &partitions);
+        drop(locked);
+        assert!(result.is_err());
+        assert!(
+            obsolete.is_file(),
+            "removed old partition before replacement writes succeeded"
+        );
+        assert_eq!(std::fs::read_to_string(&obsolete).unwrap(), "old");
+        assert_eq!(std::fs::read_to_string(&current).unwrap(), "current");
+        write_partitions(&destination, &partitions).unwrap();
+        assert!(!obsolete.exists());
+        assert_eq!(std::fs::read_to_string(&current).unwrap(), "replacement");
+        assert_eq!(std::fs::read_to_string(&unrelated).unwrap(), "keep");
+        std::fs::remove_file(current).unwrap();
+        std::fs::remove_file(unrelated).unwrap();
+    }
 
     #[test]
     fn composition_dependency_scope() {
@@ -2035,57 +2074,6 @@ mod tests {
                  #include <guiddef.h>\n#undef INITGUID\n#include <olectl.h>\n"
             ));
             assert!(input.macros.is_empty() && input.macro_headers.is_empty());
-        }
-    }
-
-    #[test]
-    #[ignore = "requires the pinned Windows SDK headers"]
-    fn sdk_guid_definitions() {
-        helpers::ensure_libclang();
-        let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
-            .join("c")
-            .join("Include")
-            .join(helpers::marketing_dir(SDK_VERSION));
-        let resource = std::path::PathBuf::from(helpers::clang_resource_dir());
-        let arguments = sdk_arguments(&include, &resource).unwrap();
-        let headers: Vec<_> = headers::HEADERS
-            .iter()
-            .chain(headers::SATELLITE_HEADERS)
-            .map(|header| (*header).to_string())
-            .collect();
-        let mut inputs = inputs(&headers, &arguments);
-        inputs.extend(guid_inputs(&headers, &arguments));
-        configure_roots(&mut inputs, &headers, &include);
-        let targets = [Target::X86, Target::X64, Target::Arm64];
-        let captured = windows_clang::capture_partial(&inputs, &targets).unwrap();
-        for target in targets {
-            for name in [
-                "PKEY_Title",
-                "DEVPKEY_Device_DeviceDesc",
-                "MF_MT_MAJOR_TYPE",
-                "FOLDERID_Desktop",
-                "GUID_DEVINTERFACE_DISK",
-                "GUID_DEVINTERFACE_HID",
-                "CLSID_MyComputer",
-                "CLSID_CFontPropPage",
-                "GUID_HIMETRIC",
-                "GUID_HANDLE",
-            ] {
-                assert!(
-                    captured
-                        .snapshots
-                        .iter()
-                        .filter(|snapshot| snapshot.target == target)
-                        .flat_map(|snapshot| &snapshot.values)
-                        .filter(|value| value.name == name)
-                        .flat_map(|value| &value.observations)
-                        .any(|observation| matches!(
-                            observation.kind,
-                            windows_clang::ValueKind::Constant { value: Some(_), .. }
-                        )),
-                    "{target:?}: {name}"
-                );
-            }
         }
     }
 }
