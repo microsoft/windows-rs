@@ -133,11 +133,12 @@ impl std::fmt::Display for Realization {
     }
 }
 
-#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 enum NativeCollection {
-    Vector,
-    ObservableVector,
+    UiElementCollection,
     ItemCollection,
+    Vector(String),
+    ObservableVector(String),
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
@@ -546,10 +547,6 @@ struct Object {
 }
 
 impl Object {
-    fn is_handwritten(&self) -> bool {
-        self.handwritten
-    }
-
     fn native_path(&self) -> Cow<'_, str> {
         self.native.as_deref().map_or_else(
             || Cow::Owned(format!("Microsoft.UI.Xaml.Controls.{}", self.name)),
@@ -609,8 +606,8 @@ struct Relation {
     realization: Realization,
     method: Option<String>,
     item: Option<String>,
+    #[serde(skip)]
     native_collection: Option<NativeCollection>,
-    native_item: Option<String>,
 }
 
 #[derive(Clone, Deserialize)]
@@ -851,44 +848,33 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                 continue;
             };
             relation.cardinality = Cardinality::Many;
-            let (native_collection, native_item) = match collection {
-                tool_reactor_metadata::CollectionType::UiElementCollection => continue,
-                tool_reactor_metadata::CollectionType::InspectableVector => {
-                    (NativeCollection::Vector, "IInspectable".to_string())
+            relation.native_collection = Some(match collection {
+                tool_reactor_metadata::CollectionType::UiElementCollection => {
+                    NativeCollection::UiElementCollection
                 }
                 tool_reactor_metadata::CollectionType::ItemCollection => {
-                    (NativeCollection::ItemCollection, "IInspectable".to_string())
+                    NativeCollection::ItemCollection
+                }
+                tool_reactor_metadata::CollectionType::InspectableVector => {
+                    NativeCollection::Vector("IInspectable".to_string())
                 }
                 tool_reactor_metadata::CollectionType::TypedVector(item) => {
-                    (NativeCollection::Vector, item)
+                    NativeCollection::Vector(item)
                 }
                 tool_reactor_metadata::CollectionType::ObservableVector(item) => {
-                    (NativeCollection::ObservableVector, item)
+                    NativeCollection::ObservableVector(item)
                 }
-            };
-            if let Some(explicit) = relation.native_collection {
-                assert_eq!(
-                    explicit, native_collection,
-                    "{}.{} native collection does not match metadata",
-                    object.name, relation.name
-                );
-            } else {
-                relation.native_collection = Some(native_collection);
-            }
-            if let Some(explicit) = &relation.native_item {
-                assert_eq!(
-                    explicit, &native_item,
-                    "{}.{} native item does not match metadata",
-                    object.name, relation.name
-                );
-            } else {
-                relation.native_item = Some(native_item);
-            }
+            });
         }
     }
 
     for object in &schema.objects {
         for property in &object.properties {
+            assert!(
+                property.name != "IsEnabled",
+                "{} must declare enabled = true instead of an IsEnabled property",
+                object.name
+            );
             assert!(
                 property.value != Value::Unresolved,
                 "{}.{} has no resolved value",
@@ -1137,13 +1123,6 @@ fn native_name(object: &Object) -> String {
     object.native_path().rsplit('.').next().unwrap().to_string()
 }
 
-fn has_local_property(object: &Object, name: &str) -> bool {
-    object
-        .properties
-        .iter()
-        .any(|property| property.name == name)
-}
-
 fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
     let mut properties = BTreeMap::new();
     let mut relations = BTreeMap::new();
@@ -1378,9 +1357,6 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
     output.push_str("match (kind, id) {\n");
     for object in &schema.objects {
         for property in &object.properties {
-            if property.name == "IsEnabled" && object.enabled {
-                continue;
-            }
             let value = if property.value.enum_name().is_none() {
                 format!("ValueType::{}", property.value)
             } else {
@@ -1431,7 +1407,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
                 shared_count + index
             ));
         }
-        if object.enabled && !has_local_property(object, "IsEnabled") {
+        if object.enabled {
             output.push_str(&format!(
                 "(ObjectType::{}, PropertyId::IsEnabled) => {},",
                 object.name,
@@ -1773,7 +1749,7 @@ fn generate_declarations(
                 property.name
             ));
         }
-        if object.enabled && !has_local_property(object, "IsEnabled") {
+        if object.enabled {
             output.push_str("enabled_methods!();\n");
         }
         if object.focus || object.reference {
