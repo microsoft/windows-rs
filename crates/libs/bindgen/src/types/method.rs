@@ -1005,11 +1005,23 @@ impl Method {
             }
             InterfaceKind::Static => {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
+                let invoke = if !noexcept {
+                    quote! { Self::#interface_name(|this| unsafe { #vcall }) }
+                } else if self.signature.return_type == Type::Void {
+                    quote! {
+                        Self::#interface_name(|this| unsafe {
+                            #vcall
+                            Ok(())
+                        }).unwrap();
+                    }
+                } else {
+                    quote! { Self::#interface_name(|this| Ok(unsafe { #vcall })).unwrap() }
+                };
 
                 quote! {
                     #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         #prelude
-                        Self::#interface_name(|this| unsafe { #vcall })
+                        #invoke
                     }
                 }
             }

@@ -9,12 +9,19 @@ mod Windows {
             attribute ExclusiveToAttribute {
                 fn(#[in] r#type: Type);
             }
+            attribute StaticAttribute {
+                fn(#[in] r#type: Type, #[in] version: u32);
+            }
+            attribute NoExceptionAttribute {
+                fn();
+            }
         }
     }
 }
 #[winrt]
 mod Test {
     #[Windows::Foundation::Metadata::Activatable(1)]
+    #[Windows::Foundation::Metadata::Static(IClassStatics, 1)]
     class Class {
         IClass,
     }
@@ -23,5 +30,20 @@ mod Test {
     interface IClass {
         fn Method(&self) -> i32;
         Name: String;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+    #[guid(auto)]
+    interface IClassStatics {
+        fn Create(&self, #[in] value: i32) -> Class;
+        #[Windows::Foundation::Metadata::NoException]
+        Value: i32;
+        #[Windows::Foundation::Metadata::NoException]
+        #[get]
+        Text: String;
+        #[Windows::Foundation::Metadata::NoException]
+        #[get]
+        Next: IClass;
+        #[Windows::Foundation::Metadata::NoException]
+        fn Numbers(&self) -> [i32];
     }
 }

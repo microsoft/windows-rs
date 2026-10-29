@@ -1,9 +1,57 @@
 use super::*;
 use Noexcept::*;
-use std::sync::Mutex;
+use std::sync::{
+    Mutex,
+    atomic::{AtomicI32, Ordering},
+};
 
 pub fn factory(name: &str) -> Option<IActivationFactory> {
-    (name == "Noexcept.Widget").then(activatable::<Widget, Noexcept::Widget>)
+    match name {
+        "Noexcept.Widget" => Some(activatable::<Widget, Noexcept::Widget>()),
+        "Noexcept.StaticValue" => Some(StaticValueFactory.into()),
+        _ => None,
+    }
+}
+
+static NUMBER: AtomicI32 = AtomicI32::new(0);
+
+#[implement(IActivationFactory, IStaticValue)]
+struct StaticValueFactory;
+
+impl IActivationFactory_Impl for StaticValueFactory_Impl {
+    fn ActivateInstance(&self) -> Result<IInspectable> {
+        Err(E_NOTIMPL.into())
+    }
+}
+
+impl IStaticValue_Impl for StaticValueFactory_Impl {
+    fn Number(&self) -> i32 {
+        NUMBER.load(Ordering::Relaxed)
+    }
+
+    fn SetNumber(&self, value: i32) {
+        NUMBER.store(value, Ordering::Relaxed);
+    }
+
+    fn Text(&self) -> HSTRING {
+        "static".into()
+    }
+
+    fn Object(&self, present: bool) -> Option<IValue> {
+        present.then(|| Widget::default().into())
+    }
+
+    fn Numbers(&self) -> Array<i32> {
+        Array::from_slice(&[2, 3, 5])
+    }
+
+    fn Checked(&self, value: i32) -> Result<i32> {
+        if value < 0 {
+            Err(E_INVALIDARG.into())
+        } else {
+            Ok(value)
+        }
+    }
 }
 
 #[implement(Noexcept::Widget, IValue)]

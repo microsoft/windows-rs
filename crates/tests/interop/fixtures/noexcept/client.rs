@@ -3,6 +3,23 @@ use Noexcept::*;
 use std::sync::Mutex;
 
 pub fn test() -> Result<()> {
+    assert_eq!(StaticValue::Number(), 0);
+    StaticValue::SetNumber(123);
+    assert_eq!(StaticValue::Number(), 123);
+    assert_eq!(StaticValue::Text(), "static");
+    assert!(StaticValue::Object(false).is_none());
+    assert_eq!(StaticValue::Object(true).unwrap().Number(), 0);
+    assert_eq!(&*StaticValue::Numbers(), &[2, 3, 5]);
+    assert_eq!(StaticValue::Checked(7)?, 7);
+    assert_eq!(StaticValue::Checked(-1).unwrap_err().code(), E_INVALIDARG);
+    StaticValue::SetNumber(0);
+
+    assert_eq!(
+        Unavailable::Fallible().unwrap_err().code(),
+        REGDB_E_CLASSNOTREG
+    );
+    assert!(std::panic::catch_unwind(Unavailable::Value).is_err());
+
     let widget = Widget::new()?;
 
     assert_eq!(widget.Number(), 0);

@@ -34,4 +34,34 @@ mod Noexcept {
         // Calls each member of the client's `value`, which must start empty.
         fn Check(&self, #[in] value: IValue);
     }
+
+    #[Static(IStaticValue, 1)]
+    class StaticValue {}
+
+    #[ExclusiveTo(StaticValue)]
+    #[guid(auto)]
+    interface IStaticValue {
+        #[NoException]
+        Number: i32;
+        #[NoException]
+        #[get]
+        Text: String;
+        #[NoException]
+        fn Object(&self, #[in] present: bool) -> IValue;
+        #[NoException]
+        fn Numbers(&self) -> [i32];
+        fn Checked(&self, #[in] value: i32) -> i32;
+    }
+
+    // The component does not provide this factory.
+    #[Static(IUnavailableStatics, 1)]
+    class Unavailable {}
+
+    #[ExclusiveTo(Unavailable)]
+    #[guid(auto)]
+    interface IUnavailableStatics {
+        #[NoException]
+        fn Value(&self) -> i32;
+        fn Fallible(&self) -> i32;
+    }
 }
