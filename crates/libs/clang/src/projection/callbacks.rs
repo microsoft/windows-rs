@@ -1,7 +1,66 @@
 use super::*;
 use windows_metadata::reader::AsRow;
 
+/// Checks a native ABI vector against published conventions. Only inferred native conventions
+/// may adopt another convention, and only where C and stdcall share one ABI.
+pub(super) fn abis_compatible(
+    target: Target,
+    required: &[CallableAbi],
+    actual: &[CallingConvention],
+) -> bool {
+    required.len() == actual.len()
+        && required.iter().zip(actual).all(|(required, actual)| {
+            required.convention == *actual || target != Target::X86 && required.inferred
+        })
+}
+
 impl Projector<'_, '_> {
+    /// Collects the ABI each callable in a written prototype requires. Named callbacks contribute
+    /// their published ABI, which callers cannot change.
+    pub(super) fn required_abis(
+        &self,
+        snapshot: usize,
+        prototype: WrittenFunction<'_>,
+    ) -> Result<Vec<CallableAbi>, Error> {
+        let source = self.resolution.snapshots[snapshot];
+        prototype.conventions(source, &|id| {
+            let alias = &source.aliases[id.0];
+            let observation = &alias.observations[0];
+            if matches!(
+                source.types[observation.canonical.0].kind,
+                TypeKind::Void | TypeKind::Scalar(_) | TypeKind::Record(_) | TypeKind::Enum(_)
+            ) {
+                return Ok(None);
+            }
+            if !self.external.aliases.contains_key(&alias.name)
+                && !publishable_alias(source, observation)
+            {
+                return Ok(None);
+            }
+            let ty = if let Some(definition) = self.external.aliases.get(&alias.name) {
+                references::metadata_type(*definition)
+            } else if callback(source, observation.canonical).is_some()
+                || matches!(
+                    source.types[observation.canonical.0].kind,
+                    TypeKind::Function(_)
+                )
+            {
+                self.callback_type(&alias.name)
+            } else {
+                self.written_ty(snapshot, observation.underlying, observation.canonical)?
+            };
+            Ok(Some(
+                self.type_callback_abis(&ty)?
+                    .into_iter()
+                    .map(|convention| CallableAbi {
+                        convention,
+                        inferred: false,
+                    })
+                    .collect(),
+            ))
+        })
+    }
+
     pub(super) fn alias_bodies(
         &self,
         alias: &AliasGroup,

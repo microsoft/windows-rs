@@ -120,6 +120,80 @@ fn callback_abi_reuse() {
 }
 
 #[test]
+fn nested_callback_reference_abi() {
+    helpers::ensure_libclang();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang-nested-callback-reference-abi.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(
+            "mod Fixture {
+                extern fn Inner(value: u32);
+                extern fn Outer(inner: Inner);
+                extern fn ReferenceOuter(inner: &mut Inner);
+            }",
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    let references = projection::References::new(&index);
+    let options = projection::Options {
+        references: Some(&references),
+        ..Default::default()
+    };
+    // X86 is written as stdcall so only the wide-target ABI evidence varies.
+    for (wide, compatible) in [
+        ("typedef void (*Outer)(void (*)(unsigned));", true),
+        ("typedef void (*Outer)(void (__cdecl *)(unsigned));", false),
+        (
+            "typedef void (__cdecl *LocalInner)(unsigned); typedef void (*Outer)(LocalInner);",
+            false,
+        ),
+        ("typedef void (*ReferenceOuter)(void (*&)(unsigned));", true),
+        (
+            "typedef void (*ReferenceOuter)(void (__cdecl *&)(unsigned));",
+            false,
+        ),
+    ] {
+        let name = if wide.contains("ReferenceOuter") {
+            "ReferenceOuter"
+        } else {
+            "Outer"
+        };
+        let x86 = if name == "Outer" {
+            "typedef void (__stdcall *Outer)(void (__stdcall *)(unsigned));"
+        } else {
+            "typedef void (__stdcall *ReferenceOuter)(void (__stdcall *&)(unsigned));"
+        };
+        let input = Input {
+            name: "nested_callback_reference_abi.h".into(),
+            source: format!(
+                "#if defined(_M_IX86)\n{x86}\n#else\n{wide}\n#endif\n\
+                 struct Uses {{ {name} field; }};"
+            ),
+            roots: vec!["Uses".into()],
+            ..Default::default()
+        };
+        let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+        let result =
+            projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options);
+        if compatible {
+            assert_eq!(result.unwrap().records, 1, "{wide}");
+        } else {
+            let error = result.unwrap_err().to_string();
+            assert!(
+                error.contains(&format!(
+                    "external callback `{name}` calling convention differs from metadata"
+                )),
+                "{wide}: {error}"
+            );
+        }
+    }
+    std::fs::remove_file(winmd).unwrap();
+}
+
+#[test]
 fn callbacks() {
     helpers::ensure_libclang();
     roundtrip();

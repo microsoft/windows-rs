@@ -134,14 +134,19 @@ impl Projector<'_, '_> {
             .ok_or_else(|| fail("has no native pointer prototype"))?;
         let written = written_function(snapshot, observation.underlying)?;
         let expected = callback_signature(metadata)?;
-        let convention = match expected.flags {
-            MethodCallAttributes::STDCALL => CallingConvention::Stdcall,
-            MethodCallAttributes::C => CallingConvention::C,
-            _ => unreachable!(),
-        };
-        let mut abi = callable_abi(written);
-        abi.canonicalize(snapshot.target, convention);
-        if abi.convention != convention {
+        // Expand without ABI normalization so nested C and stdcall contracts stay visible.
+        let published = self.type_callback_abis(&expand_type(
+            MetadataType::FnPtr(Box::new(expected.clone())),
+            metadata.index(),
+            snapshot.target,
+            &mut HashSet::new(),
+            false,
+        )?)?;
+        if !abis_compatible(
+            snapshot.target,
+            &self.required_abis(snapshot_id, written)?,
+            &published,
+        ) {
             return Err(fail("calling convention differs from metadata"));
         }
         let actual = self.signature(snapshot_id, function, None)?;

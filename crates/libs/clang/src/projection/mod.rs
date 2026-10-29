@@ -19,6 +19,7 @@ mod records;
 mod reference_values;
 mod references;
 mod values;
+use callbacks::abis_compatible;
 use plan::Plan;
 pub use references::References;
 
@@ -1434,42 +1435,7 @@ impl Projector<'_, '_> {
         });
         if let Some(candidates) = self.plan.callbacks[snapshot].get(&id) {
             let conventions = prototype.conventions(source, &|_| Ok(None))?;
-            let required = prototype.conventions(source, &|id| {
-                let alias = &source.aliases[id.0];
-                let observation = &alias.observations[0];
-                if matches!(
-                    source.types[observation.canonical.0].kind,
-                    TypeKind::Void | TypeKind::Scalar(_) | TypeKind::Record(_) | TypeKind::Enum(_)
-                ) {
-                    return Ok(None);
-                }
-                if !self.external.aliases.contains_key(&alias.name)
-                    && !publishable_alias(source, observation)
-                {
-                    return Ok(None);
-                }
-                let ty = if let Some(definition) = self.external.aliases.get(&alias.name) {
-                    references::metadata_type(*definition)
-                } else if callback(source, observation.canonical).is_some()
-                    || matches!(
-                        source.types[observation.canonical.0].kind,
-                        TypeKind::Function(_)
-                    )
-                {
-                    self.callback_type(&alias.name)
-                } else {
-                    self.written_ty(snapshot, observation.underlying, observation.canonical)?
-                };
-                Ok(Some(
-                    self.type_callback_abis(&ty)?
-                        .into_iter()
-                        .map(|convention| CallableAbi {
-                            convention,
-                            inferred: false,
-                        })
-                        .collect(),
-                ))
-            })?;
+            let required = self.required_abis(snapshot, prototype)?;
             // Prefer the same spelling, but require compatibility with the published ABI.
             for preferred in [true, false] {
                 for (name, declared) in candidates {
@@ -1482,13 +1448,7 @@ impl Projector<'_, '_> {
                     {
                         continue;
                     }
-                    let actual = self.callback_abis(name)?;
-                    if actual.len() == required.len()
-                        && required.iter().zip(actual).all(|(required, actual)| {
-                            required.convention == actual
-                                || source.target != Target::X86 && required.inferred
-                        })
-                    {
+                    if abis_compatible(source.target, &required, &self.callback_abis(name)?) {
                         return Ok(self.callback_type(name));
                     }
                 }
