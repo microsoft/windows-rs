@@ -69,7 +69,7 @@ fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Op
         syn::Expr::Path(syn::ExprPath { path, .. })
             if path.leading_colon.is_none() && path.segments.len() == 1 =>
         {
-            names.push(path.segments[0].ident.to_string());
+            names.push(path.segments[0].ident.unraw_to_string());
             Some(())
         }
         _ => None,
@@ -309,7 +309,7 @@ impl Encoder<'_> {
                     && path.leading_colon.is_none()
                     && path.segments.len() == 1
                 {
-                    let variant_name = path.segments[0].ident.to_string();
+                    let variant_name = path.segments[0].ident.unraw_to_string();
                     let inner = self.find_enum_variant_value(tn, &variant_name, value)?;
                     return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)));
                 }
@@ -409,7 +409,7 @@ impl Encoder<'_> {
             && let Some((_, Item::Enum(enum_item))) = variants.first()
         {
             for variant in &enum_item.variants {
-                if variant.ident == variant_name
+                if variant.ident.unraw_to_string() == variant_name
                     && let Some((_, discriminant)) = &variant.discriminant
                 {
                     let result = self

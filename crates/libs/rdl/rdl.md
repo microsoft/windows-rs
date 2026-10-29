@@ -168,6 +168,10 @@ enum EnumName {
 `#[repr(type)]` sets the underlying integer type. Supported types are `i8`, `u8`, `i16`, `u16`,
 `i32`, `u32`, `i64`, and `u64`.
 
+Enum member names may be keywords such as `Self` or `self`, or `_`. These names are preserved
+in metadata; `Self` and `Self_` are distinct members. Raw identifiers such as `r#type` are also
+accepted. Use the numeric value when referring to `_` in an attribute argument.
+
 Example:
 
 ```rust

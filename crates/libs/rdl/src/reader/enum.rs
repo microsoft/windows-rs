@@ -1,4 +1,5 @@
 use super::*;
+use syn::ext::IdentExt;
 
 #[derive(Debug)]
 pub struct Enum {
@@ -19,7 +20,7 @@ impl syn::parse::Parse for Enum {
         syn::braced!(content in input);
 
         let variants = content
-            .parse_terminated(syn::Variant::parse, syn::Token![,])?
+            .parse_terminated(parse_variant, syn::Token![,])?
             .into_iter()
             .collect();
 
@@ -31,6 +32,29 @@ impl syn::parse::Parse for Enum {
             winrt: false,
         })
     }
+}
+
+fn parse_variant(input: syn::parse::ParseStream) -> syn::Result<syn::Variant> {
+    let attrs = input.call(syn::Attribute::parse_outer)?;
+    let ident = input.call(syn::Ident::parse_any)?;
+    let fields = if input.peek(syn::token::Paren) {
+        syn::Fields::Unnamed(input.parse()?)
+    } else if input.peek(syn::token::Brace) {
+        syn::Fields::Named(input.parse()?)
+    } else {
+        syn::Fields::Unit
+    };
+    let discriminant = if input.peek(syn::Token![=]) {
+        Some((input.parse()?, input.parse()?))
+    } else {
+        None
+    };
+    Ok(syn::Variant {
+        attrs,
+        ident,
+        fields,
+        discriminant,
+    })
 }
 
 impl Encoder<'_> {

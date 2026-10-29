@@ -1048,7 +1048,11 @@ fn write_enum_value(
                         _ => false,
                     };
                     if matches {
-                        let variant = write_ident(field.name());
+                        // `_` is a member name, but not a value expression.
+                        if field.name() == "_" {
+                            return Ok(write_value(namespace, inner));
+                        }
+                        let variant = write_enum_member(field.name());
                         return Ok(quote! { #variant });
                     }
                 }
@@ -1118,14 +1122,14 @@ fn write_flags_combination(
         }
     }
 
-    if remaining != 0 || components.is_empty() {
+    if remaining != 0 || components.is_empty() || components.iter().any(|name| name == "_") {
         return None;
     }
 
     let mut iter = components.iter();
-    let first = write_ident(iter.next().unwrap());
+    let first = write_enum_member(iter.next().unwrap());
     let result = iter.fold(first, |acc, name| {
-        let variant = write_ident(name);
+        let variant = write_enum_member(name);
         quote! { #acc | #variant }
     });
 
