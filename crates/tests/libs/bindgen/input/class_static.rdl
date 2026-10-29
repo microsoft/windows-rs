@@ -12,6 +12,9 @@ mod Windows {
             attribute StaticAttribute {
                 fn(#[in] r#type: Type, #[in] version: u32);
             }
+            attribute NoExceptionAttribute {
+                fn();
+            }
         }
     }
 }
@@ -31,5 +34,15 @@ mod Test {
     #[guid(auto)]
     interface IClassStatics {
         fn Create(&self, #[in] value: i32) -> Class;
+        #[Windows::Foundation::Metadata::NoException]
+        Value: i32;
+        #[Windows::Foundation::Metadata::NoException]
+        #[get]
+        Text: String;
+        #[Windows::Foundation::Metadata::NoException]
+        #[get]
+        Next: IClass;
+        #[Windows::Foundation::Metadata::NoException]
+        fn Numbers(&self) -> [i32];
     }
 }

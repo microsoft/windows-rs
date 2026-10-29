@@ -6,6 +6,25 @@ public static class Client
 {
     public static void Test()
     {
+        Check(StaticValue.Number == 0);
+        StaticValue.Number = 123;
+        Check(StaticValue.Number == 123);
+        Check(StaticValue.Text == "static");
+        Check(StaticValue.Object(false) == null);
+        Check(StaticValue.Object(true).Number == 0);
+        var numbers = StaticValue.Numbers();
+        Check(numbers.Length == 3 && numbers[0] == 2 && numbers[1] == 3 && numbers[2] == 5);
+        Check(StaticValue.Checked(7) == 7);
+        try
+        {
+            StaticValue.Checked(-1);
+            Check(false);
+        }
+        catch (ArgumentException)
+        {
+        }
+        StaticValue.Number = 0;
+
         var widget = new Widget();
 
         Check(widget.Number == 0);

@@ -67,6 +67,25 @@ struct Value : implements<Value, IValue>
 
 void test()
 {
+    check(StaticValue::Number() == 0);
+    StaticValue::Number(123);
+    check(StaticValue::Number() == 123);
+    check(StaticValue::Text() == L"static");
+    check(!StaticValue::Object(false));
+    check(StaticValue::Object(true).Number() == 0);
+    auto numbers = StaticValue::Numbers();
+    check(numbers.size() == 3 && numbers[0] == 2 && numbers[1] == 3 && numbers[2] == 5);
+    check(StaticValue::Checked(7) == 7);
+    try
+    {
+        StaticValue::Checked(-1);
+        check(false);
+    }
+    catch (hresult_invalid_argument const&)
+    {
+    }
+    StaticValue::Number(0);
+
     Widget widget;
 
     check(widget.Number() == 0);
