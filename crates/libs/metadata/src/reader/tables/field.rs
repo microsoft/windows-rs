@@ -27,4 +27,11 @@ impl<'a> Field<'a> {
         self.equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
+
+    /// Returns the explicitly declared byte offset, if present.
+    pub fn offset(&self) -> Option<u32> {
+        self.equal_range::<FieldLayout>(1, self.pos() + 1)
+            .next()
+            .map(|layout| layout.offset())
+    }
 }
