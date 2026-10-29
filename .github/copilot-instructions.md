@@ -163,9 +163,9 @@ After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
   lint to enforce this for modules with external submodules.
 - **Fail fast**: Contract violations, internal bugs, and unexpected native failures panic
   (`.unwrap()` or `panic!`); Reactor does not roll back or poison state. Return `Result` only where
-  the caller can act: startup and public `App` APIs, errors returned from app closures (surfaced
-  through `App::run`), and imperative completions such as `FocusError`. A dispatcher that rejects
-  work is shutting down; drop the work rather than failing.
+  the caller can act: startup through the `App::run_*` entry points and imperative completions such
+  as `FocusError`. A dispatcher that rejects work is shutting down; drop the work rather than
+  failing.
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.

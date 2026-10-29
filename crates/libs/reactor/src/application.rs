@@ -143,7 +143,7 @@ pub struct NotifyIcon {
 }
 
 impl NotifyIcon {
-    /// Uses an `.ico` file. Loading failures are returned by [`App::run_application`].
+    /// Uses an `.ico` file. A file that fails to load panics, like other contract violations.
     pub fn new(path: impl Into<std::path::PathBuf>) -> Self {
         Self {
             path: path.into(),

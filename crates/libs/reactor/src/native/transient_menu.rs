@@ -3,12 +3,6 @@ use bindings::{Grid, HorizontalAlignment, VerticalAlignment, *};
 
 const HOST_SIZE: i32 = 2;
 
-#[derive(Clone, Copy, PartialEq)]
-pub(super) enum MenuTheme {
-    Application,
-    System,
-}
-
 pub(super) struct TransientMenuHost {
     state: Rc<RefCell<TransientMenuState>>,
     _loaded: windows_core::EventRevoker,
@@ -32,7 +26,6 @@ struct TransientMenuState {
 
 struct MenuThemeState {
     anchor: FrameworkElement,
-    mode: MenuTheme,
     applied: Cell<ElementTheme>,
     refresh_pending: Cell<bool>,
 }
@@ -51,7 +44,7 @@ impl Drop for ActiveMenu {
 }
 
 impl TransientMenuHost {
-    pub(super) fn new(dispatcher: DispatcherQueue, theme: MenuTheme) -> windows_core::Result<Self> {
+    pub(super) fn new(dispatcher: DispatcherQueue) -> windows_core::Result<Self> {
         let _coordinates = PhysicalCoordinates::enter()?;
         let root = Grid::new()?;
         let anchor = Grid::new()?;
@@ -63,7 +56,6 @@ impl TransientMenuHost {
         root.cast::<IPanel>()?.Children()?.Append(&anchor)?;
         let theme = Rc::new(MenuThemeState {
             anchor: anchor.cast()?,
-            mode: theme,
             applied: Cell::new(ElementTheme::Default),
             refresh_pending: Cell::new(false),
         });
@@ -163,9 +155,6 @@ fn theme_preference(status: i32, value: u32) -> windows_core::Result<ElementThem
 
 impl MenuThemeState {
     fn refresh(&self) -> windows_core::Result<()> {
-        if self.mode != MenuTheme::System {
-            return Ok(());
-        }
         let theme = system_theme()?;
         // Record the in-flight theme before native code can reenter.
         if self.applied.replace(theme) != theme {
@@ -175,7 +164,7 @@ impl MenuThemeState {
     }
 
     fn schedule(self: &Rc<Self>, dispatcher: &DispatcherQueue) -> windows_core::Result<()> {
-        if self.mode != MenuTheme::System || self.refresh_pending.replace(true) {
+        if self.refresh_pending.replace(true) {
             return Ok(());
         }
         let target = Rc::downgrade(self);

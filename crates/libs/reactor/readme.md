@@ -66,7 +66,7 @@ fn main() {
 ```
 
 Run with `cargo run`. Events enqueue messages, `update` changes state, and `view` describes the
-controls for that state. Use `App::run(view)` for a static view.
+controls for that state.
 
 ## Grow the component
 
