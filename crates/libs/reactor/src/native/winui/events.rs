@@ -187,7 +187,7 @@ impl WinUiAdapter {
         let result_for_handler = Arc::clone(&result);
         let event_queue = Rc::clone(event_queue);
         let deferral_for_handler = deferral.clone();
-        let callback = AppContext::ui_callback_once(move || {
+        let callback = UiCallback::once(move || {
             // The drag source owns the data and can fail or disconnect before it is read.
             let value = result_for_handler
                 .lock()
@@ -227,7 +227,7 @@ impl WinUiAdapter {
                         Ok(DroppedData::StorageItems(dropped))
                     });
                     *result.lock().unwrap() = Some(value);
-                    if completion.invoke().is_err() {
+                    if !matches!(completion.try_wake(), Ok(true)) {
                         _ = completion_deferral.Complete();
                     }
                 }) {
@@ -243,7 +243,7 @@ impl WinUiAdapter {
                 if let Err(error) = operation.when(move |value| {
                     *result.lock().unwrap() =
                         Some(value.map(|value| DroppedData::Text(value.to_string_lossy())));
-                    if completion.invoke().is_err() {
+                    if !matches!(completion.try_wake(), Ok(true)) {
                         _ = completion_deferral.Complete();
                     }
                 }) {

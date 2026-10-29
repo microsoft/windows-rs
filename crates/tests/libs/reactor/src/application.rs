@@ -187,38 +187,41 @@ impl Component for ReplacingWindow {
     }
 }
 
-/// Exits, or fails an app closure, while a window is still open. Teardown must close the window
-/// and `run_with` must return the exit or closure result.
-pub(super) fn exit_with_open_window(fail: bool) -> windows_core::Result<()> {
-    let expected = windows_core::HRESULT(0x80004005u32 as i32);
-    let result = App::run_with(move |context| {
-        context.open_component_window::<ReplacingWindow>(false)?;
-        context.proxy().dispatch(move |context| {
-            if fail {
-                Err(windows_core::Error::new(expected, "callback failed"))
-            } else {
-                context.exit()
-            }
-        })
-    });
-    if fail {
-        assert_eq!(result.unwrap_err().code(), expected);
-    } else {
-        result.unwrap();
+/// Exits from application state while its window is open. Teardown must close the window and
+/// `run_application` must return.
+pub(super) struct ExitFixture;
+
+impl Application for ExitFixture {
+    type Input = ();
+    type Message = ();
+
+    fn create(_: &(), context: &ApplicationContext<Self>) -> Self {
+        context.show_window("main");
+        Self
     }
-    Ok(())
+
+    fn update(&mut self, _: (), context: &ApplicationContext<Self>) {
+        context.exit();
+    }
+
+    fn view(&self, _: &(), context: &ApplicationViewContext<Self>) -> ApplicationView {
+        ApplicationView::new().window::<ExitWindow>("main", context.message(()))
+    }
 }
 
-pub(super) fn startup_error() -> windows_core::Result<()> {
-    let expected = windows_core::HRESULT(0x80004005u32 as i32);
-    let called = Rc::new(std::cell::Cell::new(false));
-    let startup_called = called.clone();
-    let error = App::run_with(move |_| {
-        startup_called.set(true);
-        Err::<(), _>(windows_core::Error::new(expected, "startup failed"))
-    })
-    .unwrap_err();
-    assert!(called.get(), "startup callback did not run");
-    assert_eq!(error.code(), expected);
-    Ok(())
+struct ExitWindow;
+
+impl Component for ExitWindow {
+    type Input = Callback<()>;
+    type Message = ();
+
+    fn create(exit: &Callback<()>, _: &ComponentContext<Self>) -> Self {
+        exit.call(());
+        Self
+    }
+
+    fn view(&self, _: &Callback<()>, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: exit-with-window");
+        TextBlock::new().text("Exiting").into()
+    }
 }

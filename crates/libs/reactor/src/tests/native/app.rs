@@ -379,22 +379,18 @@ fn placement_observations_coalesce_by_window_and_subscription() {
 }
 
 #[test]
-fn canceled_queued_app_callback_is_ignored() {
-    let id = NEXT_APP_CALLBACK.fetch_add(1, Ordering::Relaxed);
+fn canceled_queued_ui_callback_is_ignored() {
+    let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
     let invoked = Rc::new(Cell::new(false));
     let callback_invoked = Rc::clone(&invoked);
-    APP_CALLBACKS.with(|callbacks| {
-        callbacks.borrow_mut().insert(
-            id,
-            Rc::new(move || {
-                callback_invoked.set(true);
-                Ok(())
-            }),
-        );
+    UI_CALLBACKS.with(|callbacks| {
+        callbacks
+            .borrow_mut()
+            .insert(id, Rc::new(move || callback_invoked.set(true)));
         callbacks.borrow_mut().remove(&id);
     });
 
-    invoke_registered_app_callback(id).unwrap();
+    invoke_ui_callback(id);
 
     assert!(!invoked.get());
 }

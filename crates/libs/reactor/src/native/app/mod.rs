@@ -11,25 +11,15 @@ windows_core::link!("kernel32.dll" "system" fn LockResource(resource: *mut std::
 windows_core::link!("kernel32.dll" "system" fn SizeofResource(module: *mut std::ffi::c_void, resource: *mut std::ffi::c_void) -> u32);
 
 thread_local! {
-    static APP_CALLBACKS: RefCell<HashMap<u64, Rc<dyn Fn() -> windows_core::Result<()>>>> =
-        RefCell::new(HashMap::new());
-    static APP_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
-    static APP_LIFETIME: RefCell<Option<AppLifetime>> = const { RefCell::new(None) };
-    static APP_TIMERS: RefCell<HashMap<u64, DispatcherTimerState>> = RefCell::new(HashMap::new());
-    static APP_TRANSIENT_MENU: RefCell<Option<TransientMenuHost>> = const { RefCell::new(None) };
-    static APP_COMPONENT_APPLICATION: RefCell<Option<LiveApplication>> = const { RefCell::new(None) };
+    static UI_CALLBACKS: RefCell<HashMap<u64, Rc<dyn Fn()>>> = RefCell::new(HashMap::new());
+    static UI_TIMERS: RefCell<HashMap<u64, DispatcherTimerState>> = RefCell::new(HashMap::new());
 }
 
-static NEXT_APP_CALLBACK: AtomicU64 = AtomicU64::new(1);
-static NEXT_APP_TIMER: AtomicU64 = AtomicU64::new(1);
+static NEXT_UI_CALLBACK: AtomicU64 = AtomicU64::new(1);
+static NEXT_UI_TIMER: AtomicU64 = AtomicU64::new(1);
 const COMPONENT_DRAIN_BUDGET: usize = 64;
 const WINDOW_WORK_BUDGET: usize = 16;
 const WINDOW_WORK_CAPACITY: usize = 4_096;
-
-struct AppLifetime {
-    _resource: Box<dyn Any>,
-    _application: Application,
-}
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ScreenPoint {
@@ -43,67 +33,34 @@ impl ScreenPoint {
     }
 }
 
+/// Dispatcher work registered on the UI thread and woken from any thread.
+///
+/// Clones refer to the same registration, which lasts until it is canceled or the app exits.
 #[derive(Clone)]
-pub struct AppContext {
+pub(crate) struct UiCallback {
     dispatcher: DispatcherQueue,
-    services: Arc<DispatcherComponentServices>,
-    _ui_thread: PhantomData<Rc<()>>,
+    id: u64,
 }
 
-impl AppContext {
-    fn new(dispatcher: DispatcherQueue) -> Self {
-        Self {
-            services: Arc::new(DispatcherComponentServices {
-                dispatcher: dispatcher.clone(),
-            }),
-            dispatcher,
-            _ui_thread: PhantomData,
-        }
+impl UiCallback {
+    fn new(dispatcher: &DispatcherQueue, callback: impl Fn() + 'static) -> Self {
+        let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
+        Self::register(dispatcher.clone(), id, callback)
     }
 
-    pub fn proxy(&self) -> AppProxy {
-        AppProxy {
-            dispatcher: self.dispatcher.clone(),
-        }
-    }
-
-    pub(crate) fn ui_callback_once(
-        callback: impl FnOnce() + 'static,
-    ) -> windows_core::Result<AppCallback> {
+    /// Registers work that unregisters itself when it runs.
+    pub(crate) fn once(callback: impl FnOnce() + 'static) -> windows_core::Result<Self> {
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-        let proxy = AppProxy { dispatcher };
-        let id = NEXT_APP_CALLBACK.fetch_add(1, Ordering::Relaxed);
+        let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
         let callback = RefCell::new(Some(callback));
-        APP_CALLBACKS.with(|callbacks| {
-            assert!(
-                callbacks
-                    .borrow_mut()
-                    .insert(
-                        id,
-                        Rc::new(move || {
-                            APP_CALLBACKS.with(|callbacks| {
-                                callbacks.borrow_mut().remove(&id);
-                            });
-                            callback.borrow_mut().take().unwrap()();
-                            Ok(())
-                        }),
-                    )
-                    .is_none()
-            );
-        });
-        Ok(AppCallback { proxy, id })
+        Ok(Self::register(dispatcher, id, move || {
+            UI_CALLBACKS.with(|callbacks| callbacks.borrow_mut().remove(&id));
+            callback.borrow_mut().take().unwrap()();
+        }))
     }
 
-    /// Registers application-lifetime work that can be invoked through the dispatcher.
-    ///
-    /// The registration remains active until application shutdown. Use component effects,
-    /// observations, or other scoped handles for shorter-lived work.
-    pub fn callback(
-        &self,
-        callback: impl Fn() -> windows_core::Result<()> + 'static,
-    ) -> AppCallback {
-        let id = NEXT_APP_CALLBACK.fetch_add(1, Ordering::Relaxed);
-        APP_CALLBACKS.with(|callbacks| {
+    fn register(dispatcher: DispatcherQueue, id: u64, callback: impl Fn() + 'static) -> Self {
+        UI_CALLBACKS.with(|callbacks| {
             assert!(
                 callbacks
                     .borrow_mut()
@@ -111,49 +68,38 @@ impl AppContext {
                     .is_none()
             );
         });
-        AppCallback {
-            proxy: self.proxy(),
-            id,
-        }
+        Self { dispatcher, id }
     }
 
-    pub fn exit(&self) -> windows_core::Result<()> {
-        exit_application()
+    /// Queues the callback. A dispatcher that is shutting down drops it.
+    pub(crate) fn wake(&self) {
+        self.try_wake().unwrap();
     }
 
-    pub fn show_menu_at(&self, position: ScreenPoint, menu: Menu) -> windows_core::Result<()> {
-        let handle = APP_TRANSIENT_MENU.with(|host| {
-            let mut host = host.borrow_mut();
-            if host.is_none() {
-                *host = Some(TransientMenuHost::new(
-                    self.dispatcher.clone(),
-                    MenuTheme::Application,
-                )?);
-            }
-            Ok::<_, windows_core::Error>(host.as_ref().unwrap().handle())
-        })?;
-        handle.show(position, menu)
+    /// Queues the callback. Returns `false` when the dispatcher is shutting down and drops it.
+    pub(crate) fn try_wake(&self) -> windows_core::Result<bool> {
+        let id = self.id;
+        let handler = DispatcherQueueHandler::new(move || invoke_ui_callback(id));
+        self.dispatcher
+            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
     }
 
-    pub fn open_component_window<C: Component>(&self, input: C::Input) -> windows_core::Result<()> {
-        self.open_component_window_with_policy::<C>(input, WindowPolicy::new())
+    /// Runs the callback now. Only valid on the UI thread.
+    fn invoke(&self) {
+        invoke_ui_callback(self.id);
     }
 
-    pub fn open_component_window_with_policy<C: Component>(
-        &self,
-        input: C::Input,
-        policy: WindowPolicy,
-    ) -> windows_core::Result<()> {
-        APP_COMPONENT_APPLICATION.with(|application| {
-            let mut application = application.borrow_mut();
-            if application.is_none() {
-                *application = Some(LiveApplication::new(self, false)?);
-            }
-            application
-                .as_ref()
-                .unwrap()
-                .open(component::<C>("root", input), policy)
-        })
+    pub(crate) fn cancel(self) {
+        UI_CALLBACKS.with(|callbacks| {
+            callbacks.borrow_mut().remove(&self.id);
+        });
+    }
+}
+
+fn invoke_ui_callback(id: u64) {
+    let callback = UI_CALLBACKS.with(|callbacks| callbacks.borrow().get(&id).map(Rc::clone));
+    if let Some(callback) = callback {
+        callback();
     }
 }
 
@@ -201,14 +147,14 @@ impl ComponentServices for DispatcherComponentServices {
         delay: Duration,
         callback: Box<dyn FnOnce() + Send>,
     ) -> Arc<dyn ComponentTimerRegistration> {
-        let id = NEXT_APP_TIMER.fetch_add(1, Ordering::Relaxed);
+        let id = NEXT_UI_TIMER.fetch_add(1, Ordering::Relaxed);
         let timer = self.dispatcher.CreateTimer().unwrap();
         timer
             .SetInterval(TimeSpan::try_from(delay).unwrap())
             .unwrap();
         timer.SetIsRepeating(false).unwrap();
         let tick = timer.Tick(move |_, _| fire_timer(id)).unwrap();
-        APP_TIMERS.with(|timers| {
+        UI_TIMERS.with(|timers| {
             assert!(
                 timers
                     .borrow_mut()
@@ -234,7 +180,7 @@ impl ComponentServices for DispatcherComponentServices {
 }
 
 fn cancel_timer(id: u64) {
-    APP_TIMERS.with(|timers| {
+    UI_TIMERS.with(|timers| {
         if let Some(mut state) = timers.borrow_mut().remove(&id) {
             state.callback.take();
             _ = state.timer.Stop();
@@ -244,7 +190,7 @@ fn cancel_timer(id: u64) {
 }
 
 fn fire_timer(id: u64) {
-    APP_TIMERS.with(|timers| {
+    UI_TIMERS.with(|timers| {
         let Some(mut state) = timers.borrow_mut().remove(&id) else {
             return;
         };
@@ -256,117 +202,16 @@ fn fire_timer(id: u64) {
     });
 }
 
-#[derive(Clone)]
-pub struct AppProxy {
-    dispatcher: DispatcherQueue,
-}
-
-impl AppProxy {
-    pub fn dispatch(
-        &self,
-        callback: impl FnOnce(&AppContext) -> windows_core::Result<()> + Send + 'static,
-    ) -> windows_core::Result<()> {
-        if self.enqueue(callback)? {
-            Ok(())
-        } else {
-            Err(windows_core::Error::new(
-                E_FAIL,
-                "application dispatcher rejected work",
-            ))
-        }
-    }
-
-    /// Returns `false` when the dispatcher is shutting down and rejects the work.
-    fn enqueue(
-        &self,
-        callback: impl FnOnce(&AppContext) -> windows_core::Result<()> + Send + 'static,
-    ) -> windows_core::Result<bool> {
-        let callback = Arc::new(Mutex::new(Some(callback)));
-        let invoke = Arc::clone(&callback);
-        let dispatcher = self.dispatcher.clone();
-        let handler = DispatcherQueueHandler::new(move || {
-            let Some(callback) = invoke.lock().unwrap().take() else {
-                return;
-            };
-            if let Err(error) = callback(&AppContext::new(dispatcher.clone())) {
-                report_error(error);
-            }
-        });
-        self.dispatcher
-            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
-    }
-
-    pub fn exit(&self) -> windows_core::Result<()> {
-        self.dispatch(AppContext::exit)
-    }
-
-    /// Queues application exit from Reactor's own drains. `exit_application` falls back to
-    /// `PostQuitMessage`, and a dispatcher that rejects the work is already shutting down.
-    fn queue_exit(&self) {
-        self.enqueue(|_| {
-            _ = exit_application();
-            Ok(())
-        })
+/// Queues application exit from Reactor's own drains. A dispatcher that rejects the work is
+/// already shutting down.
+fn queue_exit(dispatcher: &DispatcherQueue) {
+    let handler = DispatcherQueueHandler::new(exit_application);
+    dispatcher
+        .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
         .unwrap();
-    }
-}
-
-/// Application-lifetime dispatcher work registered by [`AppContext::callback`].
-///
-/// Clones refer to the same registration. Dropping the handles does not cancel it.
-#[derive(Clone)]
-pub struct AppCallback {
-    proxy: AppProxy,
-    id: u64,
-}
-
-impl AppCallback {
-    pub fn invoke(&self) -> windows_core::Result<()> {
-        let id = self.id;
-        self.proxy
-            .dispatch(move |_| invoke_registered_app_callback(id))
-    }
-
-    /// Queues the callback from any thread. Errors from the callback reach `run` on the UI
-    /// thread; a dispatcher that is shutting down drops the wake.
-    pub(crate) fn wake(&self) {
-        let id = self.id;
-        self.proxy
-            .enqueue(move |_| invoke_registered_app_callback(id))
-            .unwrap();
-    }
-
-    pub(crate) fn cancel(self) {
-        APP_CALLBACKS.with(|callbacks| {
-            callbacks.borrow_mut().remove(&self.id);
-        });
-    }
-}
-
-fn invoke_registered_app_callback(id: u64) -> windows_core::Result<()> {
-    let callback = APP_CALLBACKS.with(|callbacks| callbacks.borrow().get(&id).map(Rc::clone));
-    if let Some(callback) = callback {
-        callback()?;
-    }
-    Ok(())
 }
 
 pub struct App;
-
-struct StaticView;
-
-impl Component for StaticView {
-    type Input = View;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        input.clone()
-    }
-}
 
 struct ComponentWindowState {
     host: ComponentHost<SharedWinUiAdapter>,
@@ -399,7 +244,7 @@ impl ComponentWindowLifecycle {
 }
 
 struct ComponentWindow {
-    drain: AppCallback,
+    drain: UiCallback,
     state: Rc<RefCell<Option<ComponentWindowState>>>,
 }
 
@@ -450,27 +295,26 @@ enum WindowWork {
 #[derive(Default)]
 struct WindowDispatch {
     active: Cell<bool>,
-    deferred: RefCell<Vec<AppCallback>>,
+    deferred: RefCell<Vec<UiCallback>>,
 }
 
 impl WindowDispatch {
     fn callback(
         self: &Rc<Self>,
-        context: &AppContext,
-        work: impl Fn() -> windows_core::Result<()> + 'static,
-    ) -> AppCallback {
+        dispatcher: &DispatcherQueue,
+        work: impl Fn() + 'static,
+    ) -> UiCallback {
         let dispatch = Rc::clone(self);
-        let registration = Rc::new(std::cell::OnceCell::<AppCallback>::new());
+        let registration = Rc::new(std::cell::OnceCell::<UiCallback>::new());
         let wake = Rc::clone(&registration);
-        let callback = context.callback(move || {
+        let callback = UiCallback::new(dispatcher, move || {
             let wake = wake.get().unwrap();
-            dispatch.run(&work).unwrap_or_else(|| {
+            if dispatch.run(&work).is_none() {
                 let mut deferred = dispatch.deferred.borrow_mut();
                 if !deferred.iter().any(|callback| callback.id == wake.id) {
                     deferred.push(wake.clone());
                 }
-                Ok(())
-            })
+            }
         });
         assert!(registration.set(callback.clone()).is_ok());
         callback
@@ -497,13 +341,13 @@ impl WindowDispatch {
 struct LiveWindowServices {
     active: Cell<bool>,
     pending: RefCell<VecDeque<WindowWork>>,
-    wake: RefCell<Option<AppCallback>>,
+    wake: RefCell<Option<UiCallback>>,
     wake_pending: Cell<bool>,
     dispatch: Rc<WindowDispatch>,
 }
 
 impl LiveWindowServices {
-    fn activate(&self, wake: AppCallback) {
+    fn activate(&self, wake: UiCallback) {
         self.active.set(true);
         *self.wake.borrow_mut() = Some(wake);
         if !self.pending.borrow().is_empty() {
@@ -700,26 +544,28 @@ impl ComponentUiServices for LiveComponentWindowServices {
 }
 
 struct LiveApplicationState {
-    application: AppProxy,
-    context: AppContext,
+    dispatcher: DispatcherQueue,
+    services: Arc<DispatcherComponentServices>,
     exit_when_empty: bool,
     next_window: u64,
     windows: HashMap<u64, ComponentWindow>,
-    changed: Option<AppCallback>,
+    changed: Option<UiCallback>,
 }
 
 struct LiveApplication {
-    drain_requests: AppCallback,
+    drain_requests: UiCallback,
     services: Rc<LiveWindowServices>,
     state: Rc<RefCell<LiveApplicationState>>,
 }
 
 impl LiveApplication {
-    fn new(context: &AppContext, exit_when_empty: bool) -> windows_core::Result<Self> {
+    fn new(dispatcher: &DispatcherQueue, exit_when_empty: bool) -> Self {
         let services = Rc::new(LiveWindowServices::default());
         let state = Rc::new(RefCell::new(LiveApplicationState {
-            application: context.proxy(),
-            context: context.clone(),
+            dispatcher: dispatcher.clone(),
+            services: Arc::new(DispatcherComponentServices {
+                dispatcher: dispatcher.clone(),
+            }),
             exit_when_empty,
             next_window: 1,
             windows: HashMap::new(),
@@ -727,16 +573,15 @@ impl LiveApplication {
         }));
         let drain_state = Rc::clone(&state);
         let drain_services = Rc::clone(&services);
-        let drain_requests = services.dispatch.callback(context, move || {
+        let drain_requests = services.dispatch.callback(dispatcher, move || {
             drain_window_requests(&drain_state, &drain_services);
-            Ok(())
         });
         services.activate(drain_requests.clone());
-        Ok(Self {
+        Self {
             drain_requests,
             services,
             state,
-        })
+        }
     }
 
     fn open(&self, root: ComponentNode, policy: WindowPolicy) -> windows_core::Result<()> {
@@ -763,11 +608,7 @@ impl Drop for LiveApplication {
 }
 
 impl App {
-    /// Runs one static view in a native window.
-    pub fn run(view: impl Into<View>) -> windows_core::Result<()> {
-        Self::run_component::<StaticView>(view.into())
-    }
-
+    /// Runs a component in one window. The application exits when its last window closes.
     pub fn run_component<C: Component>(input: C::Input) -> windows_core::Result<()> {
         Self::run_component_with_policy::<C>(input, WindowPolicy::new())
     }
@@ -776,81 +617,76 @@ impl App {
         input: C::Input,
         policy: WindowPolicy,
     ) -> windows_core::Result<()> {
-        Self::run_with(move |context| {
-            let application = LiveApplication::new(context, true)?;
+        run(move |dispatcher| {
+            let application = LiveApplication::new(dispatcher, true);
             application.open(component::<C>("root", input), policy)?;
-            APP_COMPONENT_APPLICATION.with(|current| {
-                assert!(current.borrow_mut().replace(application).is_none());
-            });
-            Ok(())
+            Ok(application)
         })
-    }
-
-    pub fn run_with<T>(
-        startup: impl FnOnce(&AppContext) -> windows_core::Result<T> + 'static,
-    ) -> windows_core::Result<()>
-    where
-        T: 'static,
-    {
-        bootstrap_runtime()?;
-        initialize_ui_thread()?;
-
-        let startup = Rc::new(RefCell::new(Some(startup)));
-        let result = Rc::new(RefCell::new(Ok(())));
-        let callback_result = Rc::clone(&result);
-        let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
-            let application = Rc::new(RefCell::new(None));
-            let launch_application = Rc::clone(&application);
-            let launch_startup = Rc::clone(&startup);
-            let launch_result = Rc::clone(&callback_result);
-            let on_launched = Box::new(move || {
-                let launched = (|| {
-                    let application = launch_application.borrow_mut().take().unwrap();
-                    install_xaml_controls_resources(&application)?;
-                    application
-                        .cast::<IApplication3>()?
-                        .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
-                    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-                    let startup = launch_startup.borrow_mut().take().unwrap();
-                    let resource = startup(&AppContext::new(dispatcher))?;
-                    APP_LIFETIME.with(|lifetime| {
-                        *lifetime.borrow_mut() = Some(AppLifetime {
-                            _resource: Box::new(resource),
-                            _application: application,
-                        });
-                    });
-                    Ok(())
-                })();
-                if let Err(error) = launched {
-                    *launch_result.borrow_mut() = Err(error);
-                    exit_ui_thread();
-                }
-                Ok(())
-            });
-            match create_application(on_launched) {
-                Ok(created) => *application.borrow_mut() = Some(created),
-                Err(error) => {
-                    *callback_result.borrow_mut() = Err(error);
-                    exit_ui_thread();
-                }
-            }
-        }));
-
-        let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
-        APP_COMPONENT_APPLICATION.with(|application| drop(application.borrow_mut().take()));
-        APP_CALLBACKS.with(|callbacks| callbacks.borrow_mut().clear());
-        APP_TIMERS.with(|timers| timers.borrow_mut().clear());
-        APP_TRANSIENT_MENU.with(|host| drop(host.borrow_mut().take()));
-        APP_LIFETIME.with(|lifetime| drop(lifetime.borrow_mut().take()));
-        let fault = APP_FAULT
-            .with(|fault| fault.borrow_mut().take())
-            .map_or(Ok(()), Err);
-        #[cfg(windows_cast_diagnostics)]
-        report_casts();
-        start.and(callback_result).and(fault)
     }
 }
 
+/// Starts WinUI on the current thread and runs until the application exits.
+///
+/// `startup` creates the host that owns the application's windows. The host is dropped before
+/// the remaining dispatcher registrations and the WinUI application object.
+fn run<T: 'static>(
+    startup: impl FnOnce(&DispatcherQueue) -> windows_core::Result<T> + 'static,
+) -> windows_core::Result<()> {
+    bootstrap_runtime()?;
+    initialize_ui_thread()?;
+
+    let startup = Rc::new(RefCell::new(Some(startup)));
+    let result = Rc::new(RefCell::new(Ok(())));
+    let lifetime = Rc::new(RefCell::new(None::<(T, Application)>));
+    let callback_result = Rc::clone(&result);
+    let callback_lifetime = Rc::clone(&lifetime);
+    let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
+        let application = Rc::new(RefCell::new(None));
+        let launch_application = Rc::clone(&application);
+        let launch_startup = Rc::clone(&startup);
+        let launch_result = Rc::clone(&callback_result);
+        let launch_lifetime = Rc::clone(&callback_lifetime);
+        let on_launched = Box::new(move || {
+            let launched = (|| {
+                let application = launch_application.borrow_mut().take().unwrap();
+                install_xaml_controls_resources(&application)?;
+                application
+                    .cast::<IApplication3>()?
+                    .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
+                let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+                let startup = launch_startup.borrow_mut().take().unwrap();
+                let host = startup(&dispatcher)?;
+                *launch_lifetime.borrow_mut() = Some((host, application));
+                Ok(())
+            })();
+            if let Err(error) = launched {
+                *launch_result.borrow_mut() = Err(error);
+                exit_ui_thread();
+            }
+            Ok(())
+        });
+        match create_application(on_launched) {
+            Ok(created) => *application.borrow_mut() = Some(created),
+            Err(error) => {
+                *callback_result.borrow_mut() = Err(error);
+                exit_ui_thread();
+            }
+        }
+    }));
+
+    let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
+    let lifetime = lifetime.borrow_mut().take();
+    let application = lifetime.map(|(host, application)| {
+        drop(host);
+        application
+    });
+    UI_CALLBACKS.with(|callbacks| callbacks.borrow_mut().clear());
+    UI_TIMERS.with(|timers| timers.borrow_mut().clear());
+    drop(application);
+    #[cfg(windows_cast_diagnostics)]
+    report_casts();
+    start.and(callback_result)
+}
 /// Prints the casts made while the app ran, busiest call sites first, when building with
 /// `RUSTFLAGS=--cfg windows_cast_diagnostics`.
 #[cfg(windows_cast_diagnostics)]
@@ -896,7 +732,10 @@ fn open_component_window(
         application.next_window += 1;
         id
     };
-    let context = application.borrow().context.clone();
+    let (dispatcher, component_services) = {
+        let application = application.borrow();
+        (application.dispatcher.clone(), application.services.clone())
+    };
     let state = Rc::new(RefCell::new(None::<ComponentWindowState>));
     let ui_services: Rc<dyn ComponentUiServices> = Rc::new(LiveComponentWindowServices {
         application: Rc::clone(services),
@@ -904,13 +743,13 @@ fn open_component_window(
     });
     let mut host = ComponentHost::mount_with_all_services(
         SharedWinUiAdapter::default(),
-        context.services.clone(),
+        component_services,
         ui_services,
         [root],
     );
     let drain_state = Rc::clone(&state);
     let changed_application = Rc::downgrade(application);
-    let drain = services.dispatch.callback(&context, move || {
+    let drain = services.dispatch.callback(&dispatcher, move || {
         let mut drain = drain_state
             .borrow_mut()
             .as_mut()
@@ -928,16 +767,12 @@ fn open_component_window(
         {
             changed.wake();
         }
-        Ok(())
     });
     let wake = drain.clone();
     host.set_waker(move || wake.wake());
     let native_drain = drain.clone();
     let wake = drain.clone();
-    host.set_native_event_wakers(
-        move || invoke_registered_app_callback(native_drain.id).unwrap(),
-        move || wake.wake(),
-    );
+    host.set_native_event_wakers(move || native_drain.invoke(), move || wake.wake());
     let wake = drain.clone();
     host.set_continuation_waker(move || wake.wake());
     let realize_state = Rc::downgrade(&state);
@@ -1248,36 +1083,27 @@ fn close_component_window(
     services: &Rc<LiveWindowServices>,
     id: u64,
 ) {
-    let (window, exit, proxy) = {
+    let (window, exit, dispatcher) = {
         let mut application = application.borrow_mut();
         let window = application.windows.remove(&id);
         let exit = application.exit_when_empty
             && application.windows.is_empty()
             && !services.has_pending();
-        (window, exit, application.application.clone())
+        (window, exit, application.dispatcher.clone())
     };
     if let Some(window) = window {
         window.dispose();
     }
     if exit {
-        proxy.queue_exit();
+        queue_exit(&dispatcher);
     }
 }
 
 fn exit_if_no_windows(application: &Rc<RefCell<LiveApplicationState>>) {
     let application = application.borrow();
     if application.exit_when_empty && application.windows.is_empty() {
-        application.application.queue_exit();
+        queue_exit(&application.dispatcher);
     }
-}
-
-fn report_error(error: windows_core::Error) {
-    APP_FAULT.with(|fault| {
-        if fault.borrow().is_none() {
-            *fault.borrow_mut() = Some(error);
-        }
-    });
-    exit_ui_thread();
 }
 
 fn initialize_ui_thread() -> windows_core::Result<()> {
@@ -1357,21 +1183,19 @@ fn self_contained_manifest_present() -> bool {
     }
 }
 
-fn exit_application() -> windows_core::Result<()> {
-    let result = Application::Current().and_then(|application| application.Exit());
-    if result.is_err() {
+fn exit_application() {
+    if Application::Current()
+        .and_then(|application| application.Exit())
+        .is_err()
+    {
         unsafe {
             PostQuitMessage(0);
         }
     }
-
-    result
 }
 
 fn exit_ui_thread() {
-    let handler = DispatcherQueueHandler::new(|| {
-        _ = exit_application();
-    });
+    let handler = DispatcherQueueHandler::new(exit_application);
     let queued = DispatcherQueue::GetForCurrentThread().and_then(|dispatcher| {
         dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::High, &handler)
     });

@@ -5,7 +5,7 @@ use crate::native::notifyicon::{NotifyIcon as NativeIcon, NotifyIconEvent};
 
 struct ApplicationHost<A: Application> {
     state: Rc<RefCell<Option<ApplicationState<A>>>>,
-    drain: AppCallback,
+    drain: UiCallback,
 }
 
 struct ApplicationState<A: Application> {
@@ -47,22 +47,21 @@ impl App {
     /// Window declarations are reopenable slots, not open windows. The application exits when
     /// no user windows or notification icons remain, after pending lifecycle work has settled.
     pub fn run_application<A: Application>(input: A::Input) -> windows_core::Result<()> {
-        Self::run_with(move |context| ApplicationHost::<A>::new(context, input))
+        run(move |dispatcher| Ok(ApplicationHost::<A>::new(dispatcher, input)))
     }
 }
 
 impl<A: Application> ApplicationHost<A> {
-    fn new(app: &AppContext, input: A::Input) -> windows_core::Result<Self> {
+    fn new(dispatcher: &DispatcherQueue, input: A::Input) -> Self {
         let state: Rc<RefCell<Option<ApplicationState<A>>>> = Rc::new(RefCell::new(None));
         let weak = Rc::downgrade(&state);
-        let application = LiveApplication::new(app, false)?;
-        let drain = application.services.dispatch.callback(app, move || {
+        let application = LiveApplication::new(dispatcher, false);
+        let drain = application.services.dispatch.callback(dispatcher, move || {
             if let Some(state) = weak.upgrade()
                 && let Some(state) = state.borrow_mut().as_mut()
             {
                 state.drain();
             }
-            Ok(())
         });
         let host = Self { state, drain };
         let wake = host.drain.clone();
@@ -90,8 +89,8 @@ impl<A: Application> ApplicationHost<A> {
         };
         state.render();
         *host.state.borrow_mut() = Some(state);
-        host.drain.invoke()?;
-        Ok(host)
+        host.drain.wake();
+        host
     }
 }
 
@@ -281,11 +280,8 @@ impl<A: Application> ApplicationState<A> {
                 }
                 if self.menu_host.is_none() {
                     self.menu_host = Some(
-                        TransientMenuHost::new(
-                            self.application.state.borrow().context.dispatcher.clone(),
-                            MenuTheme::System,
-                        )
-                        .unwrap(),
+                        TransientMenuHost::new(self.application.state.borrow().dispatcher.clone())
+                            .unwrap(),
                     );
                 }
                 self.menu_host
@@ -335,7 +331,7 @@ impl<A: Application> ApplicationState<A> {
             .any(|command| matches!(command, ApplicationCommand::Exit))
         {
             self.exiting = true;
-            self.application.state.borrow().application.queue_exit();
+            queue_exit(&self.application.state.borrow().dispatcher);
             return;
         }
         for command in commands {
@@ -417,7 +413,7 @@ impl<A: Application> ApplicationState<A> {
             && self.application.state.borrow().windows.is_empty()
         {
             self.exiting = true;
-            self.application.state.borrow().application.queue_exit();
+            queue_exit(&self.application.state.borrow().dispatcher);
         }
     }
 }
