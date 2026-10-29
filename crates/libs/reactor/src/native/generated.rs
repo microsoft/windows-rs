@@ -2426,44 +2426,44 @@ impl GeneratedHandle {
                 value
                     .cast::<native::IPanel>()
                     .map_err(Into::into)
-                    .and_then(|value| {
-                        value
+                    .and_then(|object| {
+                        object
                             .Children()
-                            .map(GeneratedCollection::Visual)
                             .map_err(Into::into)
+                            .map(GeneratedCollection::Visual)
                     }),
             ),
             (Self::StackPanel(value), RelationId::Children) => Some(
                 value
                     .cast::<native::IPanel>()
                     .map_err(Into::into)
-                    .and_then(|value| {
-                        value
+                    .and_then(|object| {
+                        object
                             .Children()
-                            .map(GeneratedCollection::Visual)
                             .map_err(Into::into)
+                            .map(GeneratedCollection::Visual)
                     }),
             ),
             (Self::Canvas(value), RelationId::Children) => Some(
                 value
                     .cast::<native::IPanel>()
                     .map_err(Into::into)
-                    .and_then(|value| {
-                        value
+                    .and_then(|object| {
+                        object
                             .Children()
-                            .map(GeneratedCollection::Visual)
                             .map_err(Into::into)
+                            .map(GeneratedCollection::Visual)
                     }),
             ),
             (Self::VariableSizedWrapGrid(value), RelationId::Children) => Some(
                 value
                     .cast::<native::IPanel>()
                     .map_err(Into::into)
-                    .and_then(|value| {
-                        value
+                    .and_then(|object| {
+                        object
                             .Children()
-                            .map(GeneratedCollection::Visual)
                             .map_err(Into::into)
+                            .map(GeneratedCollection::Visual)
                     }),
             ),
             (Self::NavigationView(value), RelationId::MenuItems) => Some(
@@ -2593,11 +2593,11 @@ impl GeneratedHandle {
                 value
                     .cast::<native::IPanel>()
                     .map_err(Into::into)
-                    .and_then(|value| {
-                        value
+                    .and_then(|object| {
+                        object
                             .Children()
-                            .map(GeneratedCollection::Visual)
                             .map_err(Into::into)
+                            .map(GeneratedCollection::Visual)
                     }),
             ),
             _ => None,
