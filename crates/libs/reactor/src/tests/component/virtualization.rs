@@ -940,3 +940,94 @@ fn layout_during_a_nested_row_batch_defers_its_enclosing_row() {
     assert_eq!(host.borrow().test_state().virtual_rows, 0);
     assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
 }
+
+struct NestedCleanupParent;
+
+impl Component for NestedCleanupParent {
+    type Input = VirtualCleanupInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        let input = input.clone();
+        ItemsRepeater::new()
+            .virtual_source(VirtualSource::new(1, 1, Key::from, move |_| {
+                component::<VirtualCleanupParent>("inner", input.clone())
+            }))
+            .into()
+    }
+}
+
+#[test]
+fn enclosing_row_recycled_after_a_nested_rerender_cleans_up_inner_rows_first() {
+    let input = VirtualCleanupInput {
+        events: Rc::default(),
+        published: Rc::default(),
+        reference: ElementRef::default(),
+        revision: Rc::default(),
+        rendered: 0,
+        task: Arc::new(Mutex::new(None)),
+    };
+    let adapter = LayoutAdapter::default();
+    let host = ComponentHost::mount_with_services(
+        adapter.clone(),
+        Arc::new(TestServices::default()),
+        [component::<NestedCleanupParent>("virtual", input.clone())],
+    );
+    let root = host.runtime().graph().root().unwrap();
+    let outer = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    let host = Rc::new(RefCell::new(host));
+    let queue = |request| adapter.inner.borrow_mut().queue_realization(request);
+    queue(realize_row(outer, 0));
+    realize_shared(&host);
+    let inner = host
+        .borrow()
+        .runtime()
+        .graph()
+        .virtual_realization(outer, RealizedContainer(0))
+        .unwrap();
+    queue(realize_row(inner, 0));
+    realize_shared(&host);
+    let object = input.reference.get();
+    assert!(object.is_some());
+
+    let observed = Rc::new(RefCell::new(None));
+    let layout = {
+        let host = Rc::downgrade(&host);
+        let adapter = adapter.clone();
+        let observed = Rc::clone(&observed);
+        move || {
+            let host = host.upgrade().unwrap();
+            let queue = |request| adapter.inner.borrow_mut().queue_realization(request);
+            input.revision.set(1);
+            queue(realize_row(inner, 0));
+            realize_shared(&host);
+            queue(recycle_row(outer, 0));
+            realize_shared(&host);
+            *observed.borrow_mut() = Some(input.events.borrow().clone());
+        }
+    };
+    adapter.on_next_apply(layout);
+    let sender = host
+        .borrow()
+        .sender::<NestedCleanupParent>(&Key::from("virtual"))
+        .unwrap();
+
+    // Recycling the outer row retires the inner row, whose effect a nested batch retained. Its
+    // cleanup runs while the inner row's root and reference are still live.
+    assert!(sender.send(()));
+    drain_shared(&host);
+
+    assert_eq!(
+        *observed.borrow(),
+        Some(vec![(object, false, ComponentTaskStatus::Cancelled, true)])
+    );
+    assert_eq!(host.borrow().test_state().virtual_rows, 0);
+}

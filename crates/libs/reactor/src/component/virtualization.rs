@@ -157,6 +157,7 @@ impl<A: Adapter> ComponentHost<A> {
             .collect::<Vec<_>>();
         for (key, id) in retired {
             self.virtual_rows.remove(&key);
+            self.prepare_scope_retirement(&[id]);
             self.retire_scope(id);
         }
     }
