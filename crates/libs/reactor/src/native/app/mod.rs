@@ -369,7 +369,7 @@ impl Component for StaticView {
 }
 
 struct ComponentWindowState {
-    host: ComponentHost<WinUiAdapter>,
+    host: ComponentHost<SharedWinUiAdapter>,
     window: NativeWindow,
     lifecycle: Rc<Cell<ComponentWindowLifecycle>>,
     color_scheme_generation: Option<u64>,
@@ -878,6 +878,12 @@ fn report_casts() {
     }
 }
 
+fn window_host(
+    state: &mut Option<ComponentWindowState>,
+) -> Option<&mut ComponentHost<SharedWinUiAdapter>> {
+    state.as_mut().map(|state| &mut state.host)
+}
+
 fn open_component_window(
     application: &Rc<RefCell<LiveApplicationState>>,
     services: &Rc<LiveWindowServices>,
@@ -897,7 +903,7 @@ fn open_component_window(
         window: id,
     });
     let mut host = ComponentHost::mount_with_all_services(
-        WinUiAdapter::default(),
+        SharedWinUiAdapter::default(),
         context.services.clone(),
         ui_services,
         [root],
@@ -905,12 +911,18 @@ fn open_component_window(
     let drain_state = Rc::clone(&state);
     let changed_application = Rc::downgrade(application);
     let drain = services.dispatch.callback(&context, move || {
-        drain_state
+        let mut drain = drain_state
             .borrow_mut()
             .as_mut()
             .unwrap()
             .host
-            .drain(COMPONENT_DRAIN_BUDGET);
+            .begin_drain(COMPONENT_DRAIN_BUDGET);
+        drive_host(&drain_state, window_host, |host| {
+            host.drain_step(&mut drain)
+        });
+        if let Some(state) = drain_state.borrow_mut().as_mut() {
+            state.host.end_drain(drain);
+        }
         if let Some(application) = changed_application.upgrade()
             && let Some(changed) = &application.borrow().changed
         {
@@ -934,14 +946,30 @@ fn open_component_window(
         let Some(state) = realize_state.upgrade() else {
             return;
         };
-        // Layout forced while a driver is active keeps the queued realization.
-        realize_dispatch.run(|| {
-            if let Ok(mut state) = state.try_borrow_mut()
-                && let Some(state) = state.as_mut()
-            {
-                state.host.realize_pending();
+        // Layout forced while this window applies a batch realizes rows within that batch. Layout
+        // forced while the host or adapter is borrowed, or while another driver is active, keeps
+        // the queued realization for the next drain.
+        let Ok(applying) = state.try_borrow().map(|state| {
+            state.as_ref().map(|state| {
+                (
+                    state.host.in_flight(),
+                    state.host.runtime().adapter().is_available(),
+                )
+            })
+        }) else {
+            return;
+        };
+        let realize = || {
+            drive_host(&state, window_host, ComponentHost::next_realization_batch);
+            if let Some(state) = state.borrow().as_ref() {
+                state.host.rearm_wake();
             }
-        });
+        };
+        match applying {
+            Some((true, true)) => realize(),
+            Some((false, true)) => _ = realize_dispatch.run(realize),
+            _ => {}
+        }
     });
     let root = host.runtime().graph().root().unwrap();
     let mut window = match host

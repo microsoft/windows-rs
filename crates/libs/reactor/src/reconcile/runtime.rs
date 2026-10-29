@@ -21,28 +21,37 @@ impl<A: Adapter> Runtime<A> {
         &self.adapter
     }
 
-    pub(crate) fn adapter_mut(&mut self) -> &mut A {
-        &mut self.adapter
+    /// Takes the planned mutations as a batch. The retained graph already reflects the batch, so
+    /// later planning, including a realization nested inside the batch's native application,
+    /// builds on it.
+    pub(super) fn take_batch(&mut self, references: Vec<ReferenceChange>) -> NativeBatch {
+        let mut mutations = std::mem::take(&mut self.mutations);
+        defer_window_title_bar_sets(&mut mutations);
+        NativeBatch {
+            mutations,
+            references,
+        }
     }
 
-    pub(super) fn finish_update(&mut self) -> UpdateStats {
-        let stats = UpdateStats::capture(&self.mutations);
-        if self.mutations.capacity() > 256 {
-            self.mutations = Vec::with_capacity(256);
+    pub(crate) fn apply_batch(&mut self, batch: NativeBatch) -> UpdateStats {
+        self.adapter.apply(&batch.mutations);
+        self.publish_batch(batch)
+    }
+
+    /// Publishes the reference changes of a batch whose mutations were applied, and keeps its
+    /// mutation buffer for the next batch unless a large batch grew it.
+    pub(crate) fn publish_batch(&mut self, batch: NativeBatch) -> UpdateStats {
+        let mut mutations = batch.mutations;
+        apply_reference_changes(&self.references, batch.references);
+        let stats = UpdateStats::capture(&mutations);
+        if mutations.capacity() > 256 {
+            mutations = Vec::with_capacity(256);
+        }
+        if mutations.capacity() > self.mutations.capacity() {
+            mutations.clear();
+            self.mutations = mutations;
         }
         stats
-    }
-
-    /// Applies the planned mutations, then publishes the planned reference changes.
-    pub(super) fn apply_plan(
-        &mut self,
-        references: Vec<ReferenceChange>,
-        before_apply: impl FnOnce(),
-    ) {
-        defer_window_title_bar_sets(&mut self.mutations);
-        before_apply();
-        self.adapter.apply(&self.mutations);
-        apply_reference_changes(&self.references, references);
     }
 
     pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
@@ -233,27 +242,25 @@ impl<A: Adapter> Runtime<A> {
             None => planner.mount(&declaration),
         };
         planner.retained.root = Some(root);
-        self.apply_plan(references, || {});
+        let batch = self.take_batch(references);
         self.virtual_refreshes.extend(virtual_refreshes);
-        self.finish_update()
+        self.apply_batch(batch)
     }
 
-    pub(crate) fn update_subtree_before_apply(
+    pub(crate) fn plan_subtree_update(
         &mut self,
         object: ObjectId,
         root: impl Into<View>,
-        before_apply: impl FnOnce(),
-    ) -> UpdateStats {
-        self.update_subtree_inner(object, root.into(), None, before_apply)
+    ) -> NativeBatch {
+        self.plan_subtree(object, root.into(), None)
     }
 
-    fn update_subtree_inner(
+    fn plan_subtree(
         &mut self,
         object: ObjectId,
         declaration: View,
         owner: Option<(ObjectId, RelationId)>,
-        before_apply: impl FnOnce(),
-    ) -> UpdateStats {
+    ) -> NativeBatch {
         self.assert_ready();
         self.mutations.clear();
         let declaration = declaration.0.object();
@@ -296,8 +303,7 @@ impl<A: Adapter> Runtime<A> {
             .graph
             .matches_subtree_declaration(object, &declaration, &mut remaining)
         {
-            before_apply();
-            return UpdateStats::default();
+            return NativeBatch::default();
         }
         let mut references = Vec::new();
         let mut virtual_refreshes = Vec::new();
@@ -312,8 +318,8 @@ impl<A: Adapter> Runtime<A> {
         } else {
             planner.replace_object(object, &declaration);
         }
-        self.apply_plan(references, before_apply);
+        let batch = self.take_batch(references);
         self.virtual_refreshes.extend(virtual_refreshes);
-        self.finish_update()
+        batch
     }
 }

@@ -107,6 +107,17 @@ impl EffectDraft {
 }
 
 impl PreparedEffects {
+    /// Runs the cleanups of retained effects whose scope retires before the commit.
+    pub(super) fn discard(self) {
+        for effect in self.0.into_iter().rev() {
+            if let PreparedEffect::Retained(slot) = effect
+                && let Some(cleanup) = slot.cleanup
+            {
+                cleanup();
+            }
+        }
+    }
+
     pub(super) fn commit(self, slots: &mut Vec<EffectSlot>) {
         for effect in self.0 {
             match effect {

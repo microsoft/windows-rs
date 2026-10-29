@@ -15,6 +15,7 @@ mod style;
 mod virtualization;
 mod window;
 
+pub(crate) use adapter::SharedWinUiAdapter;
 use attachments::*;
 use automation::*;
 use content_dialog::*;
@@ -22,6 +23,7 @@ use dependency::*;
 use event_queue::*;
 use events::*;
 use images::*;
+use objects::set_properties;
 use relations::*;
 use style::*;
 use virtualization::*;
@@ -498,6 +500,8 @@ pub struct WinUiAdapter {
     /// Index properties written by the batch being applied. Reactor writes an index after the
     /// items it indexes change, so selection moves caused by those changes are not reported.
     index_writes: HashSet<(ObjectId, PropertyId)>,
+    /// Nesting depth of the batches being applied.
+    apply_depth: usize,
     live_regions: HashSet<ObjectId>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
@@ -543,6 +547,7 @@ impl Default for WinUiAdapter {
             released_images: Vec::new(),
             owners: HashMap::new(),
             index_writes: HashSet::new(),
+            apply_depth: 0,
             live_regions: HashSet::new(),
             tree_template: None,
             list_template: None,

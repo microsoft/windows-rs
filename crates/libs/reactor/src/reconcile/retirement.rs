@@ -50,8 +50,8 @@ impl<A: Adapter> Runtime<A> {
             nodes: nodes.to_vec(),
         });
         self.graph.complete_retirement(completion.root);
-        self.apply_plan(Vec::new(), || {});
-        self.mutations.clear();
+        let batch = self.take_batch(Vec::new());
+        self.apply_batch(batch);
     }
 }
 

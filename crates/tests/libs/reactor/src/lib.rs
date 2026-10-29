@@ -314,7 +314,17 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "repeater" => App::run_component::<repeater::RepeaterFixture>(())?,
-        "repeater_layout" => App::run_component::<repeater::RepeaterLayoutFixture>(())?,
+        "repeater_layout" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(
+                repeater::Selector::RadioButtons,
+            )?;
+        }
+        "repeater_layout_flip_view" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(repeater::Selector::FlipView)?;
+        }
+        "repeater_layout_pivot" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(repeater::Selector::Pivot)?;
+        }
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,

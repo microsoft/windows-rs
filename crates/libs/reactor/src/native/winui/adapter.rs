@@ -1,17 +1,17 @@
 use super::*;
 
-impl Runtime<WinUiAdapter> {
+impl Runtime<SharedWinUiAdapter> {
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
         imperative: impl Fn() + 'static,
     ) {
-        self.adapter_mut().set_event_waker(native);
+        self.adapter().state.borrow_mut().set_event_waker(native);
         self.set_imperative_waker(imperative);
     }
 }
 
-impl ComponentHost<WinUiAdapter> {
+impl ComponentHost<SharedWinUiAdapter> {
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -22,17 +22,77 @@ impl ComponentHost<WinUiAdapter> {
     }
 
     pub(crate) fn set_realizer(&mut self, realizer: impl Fn() + 'static) {
-        self.runtime_mut_internal()
-            .adapter_mut()
+        self.runtime()
+            .adapter()
+            .state
+            .borrow_mut()
             .set_realizer(realizer);
     }
 }
 
-impl WinUiAdapter {
-    fn apply_mutations(&mut self, mutations: &[Mutation]) -> Result<(), WinUiError> {
+/// The WinUI adapter shared between a component host and the native callbacks that run while
+/// the host applies a batch. A layout forced by a native call realizes virtualized rows by
+/// planning and applying their batches within that call, so the adapter is borrowed per step
+/// rather than for a whole batch.
+#[derive(Clone, Default)]
+pub(crate) struct SharedWinUiAdapter {
+    state: Rc<RefCell<WinUiAdapter>>,
+}
+
+impl SharedWinUiAdapter {
+    /// Returns whether a nested batch can be applied: no native call is running with the adapter
+    /// borrowed.
+    pub(crate) fn is_available(&self) -> bool {
+        self.state.try_borrow_mut().is_ok()
+    }
+
+    pub(crate) fn create_window_with_policy(
+        &self,
+        root: ObjectId,
+        policy: &WindowPolicy,
+    ) -> Result<NativeWindow, WinUiError> {
+        self.state
+            .borrow_mut()
+            .create_window_with_policy(root, policy)
+    }
+
+    fn apply_mutations(&self, mutations: &[Mutation]) -> Result<(), WinUiError> {
+        let state = &*self.state;
         let mut initializing = HashSet::new();
         let mut live_regions = LiveRegionBatch::default();
-        self.index_writes = mutations
+        for mutation in mutations {
+            if let Mutation::SetProperties { object, set, clear } = mutation {
+                state
+                    .borrow_mut()
+                    .record_live_regions(&mut live_regions, *object, set, clear);
+                set_properties(state, *object, set, clear, initializing.remove(object))?;
+            } else {
+                state
+                    .borrow_mut()
+                    .apply_mutation(mutation, &mut initializing)?;
+            }
+        }
+        let state = state.borrow();
+        state.raise_live_regions(live_regions)?;
+        state.sync_window_title_bars()
+    }
+}
+
+impl Adapter for SharedWinUiAdapter {
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        self.state.borrow().peek_native_event()
+    }
+
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.state.borrow().peek_native_dispatch()
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        self.state.borrow_mut().pop_native_event()
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) {
+        let index_writes = mutations
             .iter()
             .filter_map(|mutation| match mutation {
                 Mutation::SetProperties { object, set, .. } => Some((object, set)),
@@ -44,7 +104,36 @@ impl WinUiAdapter {
                     .map(|property| (*object, property.id))
             })
             .collect();
-        for mutation in mutations {
+        // A batch applied within another restores the outer batch's index writes and leaves the
+        // images released by the outer batch to it.
+        let outer = {
+            let mut state = self.state.borrow_mut();
+            state.apply_depth += 1;
+            std::mem::replace(&mut state.index_writes, index_writes)
+        };
+        let result = self.apply_mutations(mutations);
+        let mut state = self.state.borrow_mut();
+        state.index_writes = outer;
+        state.apply_depth -= 1;
+        result.unwrap();
+        if state.apply_depth == 0 {
+            state.released_images.clear();
+            state.images.prune();
+        }
+    }
+
+    fn imperative(&mut self, request: ImperativeRequest) {
+        self.state.borrow_mut().apply_imperative(request).unwrap();
+    }
+}
+
+impl WinUiAdapter {
+    fn apply_mutation(
+        &mut self,
+        mutation: &Mutation,
+        initializing: &mut HashSet<ObjectId>,
+    ) -> Result<(), WinUiError> {
+        {
             match mutation {
                 Mutation::Create { object, kind } => {
                     self.create(*object, *kind)?;
@@ -54,10 +143,7 @@ impl WinUiAdapter {
                     self.replace(*object, *kind)?;
                     initializing.insert(*object);
                 }
-                Mutation::SetProperties { object, set, clear } => {
-                    self.record_live_regions(&mut live_regions, *object, set, clear);
-                    self.set_properties(*object, set, clear, initializing.remove(object))?;
-                }
+                Mutation::SetProperties { .. } => unreachable!(),
                 Mutation::SetEvents { object, set, clear } => {
                     self.set_events(*object, set, clear)?;
                 }
@@ -235,19 +321,16 @@ impl WinUiAdapter {
                 }
             }
         }
-        self.raise_live_regions(live_regions)?;
-        self.sync_window_title_bars()
+        Ok(())
     }
-}
 
-impl Adapter for WinUiAdapter {
     // A reorder whose object was destroyed resolves to nothing; peek and pop skip it alike.
-    fn peek_native_event(&self) -> Option<NativeEvent> {
+    pub(crate) fn peek_native_event(&self) -> Option<NativeEvent> {
         let events = self.event_queue.events.borrow();
         events.iter().find_map(|queued| self.native_event(queued))
     }
 
-    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+    pub(crate) fn peek_native_dispatch(&self) -> Option<NativeEvent> {
         let events = self.event_queue.events.borrow();
         events
             .iter()
@@ -256,7 +339,7 @@ impl Adapter for WinUiAdapter {
             .find(NativeEvent::dispatches)
     }
 
-    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+    pub(crate) fn pop_native_event(&mut self) -> Option<NativeEvent> {
         loop {
             let queued = self.event_queue.events.borrow_mut().pop_front()?;
             if let Some(event) = self.native_event(&queued) {
@@ -265,18 +348,6 @@ impl Adapter for WinUiAdapter {
         }
     }
 
-    fn apply(&mut self, mutations: &[Mutation]) {
-        self.apply_mutations(mutations).unwrap();
-        self.released_images.clear();
-        self.images.prune();
-    }
-
-    fn imperative(&mut self, request: ImperativeRequest) {
-        self.apply_imperative(request).unwrap();
-    }
-}
-
-impl WinUiAdapter {
     fn focus(&mut self, object: ObjectId) -> Result<bool, WinUiError> {
         let element = self.ui_element(object)?;
         self.pending_focus_states

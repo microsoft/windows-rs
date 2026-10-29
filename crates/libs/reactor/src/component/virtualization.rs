@@ -16,18 +16,16 @@ impl Component for VirtualRow {
 }
 
 impl<A: Adapter> ComponentHost<A> {
-    /// Applies virtual realizations at the front of the native queue. Native events, messages,
-    /// and the work queued behind them are left in order for the next drain.
-    pub(crate) fn realize_pending(&mut self) -> ComponentDrain {
-        let mut report = ComponentDrain::default();
-        while let Some(work) = self.runtime.next_realization() {
-            report.mutations += self.apply_virtual_work(work).len();
-        }
-        self.rearm_wake();
-        report
+    /// Plans the realization at the front of the native queue, unless it targets a row whose batch
+    /// is being applied or renders a row whose effects are not yet committed.
+    pub(crate) fn next_realization_batch(&mut self) -> Option<NativeBatch> {
+        let pending = self.pending_rows();
+        let work = self.runtime.next_realization(&self.busy_rows, &pending)?;
+        Some(self.plan_virtual_work(work))
     }
 
-    pub(super) fn apply_virtual_work(&mut self, work: VirtualWork) -> UpdateStats {
+    pub(super) fn plan_virtual_work(&mut self, work: VirtualWork) -> NativeBatch {
+        self.begin_batch();
         match work {
             VirtualWork::Realize {
                 lease,
@@ -39,9 +37,20 @@ impl<A: Adapter> ComponentHost<A> {
                 if let Some(owner) = owner
                     && self.scope(owner).is_none()
                 {
-                    return UpdateStats::default();
+                    return NativeBatch::default();
                 }
                 let row_key = (lease.collection, lease.key.clone());
+                if let Some(row) = self
+                    .runtime
+                    .graph()
+                    .virtual_row_key(lease.collection, lease.container)
+                {
+                    self.busy_rows.push((lease.collection, row));
+                }
+                self.busy_rows.push(row_key.clone());
+                if let Some(owner) = owner {
+                    self.mark_busy_ancestors(owner);
+                }
                 let existing = self.virtual_rows.get(&row_key).copied();
                 let contexts = owner.map_or_else(
                     || self.contexts.clone(),
@@ -99,9 +108,9 @@ impl<A: Adapter> ComponentHost<A> {
                 let declaration = self.expand_virtual_view(id, view, &mut expansion);
                 let retired = self.unseen_scopes(&expansion.seen);
                 let publication = self.resolve_window_publication(&expansion.pending, &retired);
-                let mutations = self
+                let batch = self
                     .runtime
-                    .realize_virtual(&lease, index, declaration.clone());
+                    .plan_realize_virtual(&lease, index, declaration.clone());
                 let root = self
                     .runtime
                     .graph()
@@ -109,41 +118,31 @@ impl<A: Adapter> ComponentHost<A> {
                     .unwrap();
                 self.virtual_rows.insert(row_key, id);
                 self.refresh_roots_from(declaration.0.as_object(), root);
-                for pending in expansion.pending {
-                    let environment = *pending.environment;
-                    self.scope_mut(pending.id).unwrap().window = pending.window;
-                    self.scope_mut(pending.id).unwrap().contexts = environment.contexts;
-                    self.scope_mut(pending.id).unwrap().provided_contexts = environment.provided;
-                    pending
-                        .effects
-                        .commit(&mut self.scope_mut(pending.id).unwrap().effects);
-                    self.replace_dependencies(pending.id, pending.dependencies);
-                }
+                self.prepare_pending(expansion.pending);
+                self.prepare_scope_retirement(&retired);
                 self.retire_unseen(&expansion.seen);
                 self.sweep_virtual_rows();
                 self.publish_committed_window(publication);
-                mutations
+                batch
             }
             VirtualWork::Recycle { lease } => {
-                let row = self
-                    .virtual_rows
-                    .get(&(lease.collection, lease.key.clone()))
-                    .copied();
-                let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-                let mutations = runtime.recycle_virtual_before_apply(&lease, || {
-                    if let Some(row) = row {
-                        prepare_scope_retirement(scopes, &[row]);
-                    }
-                });
+                let row_key = (lease.collection, lease.key.clone());
+                if let Some(row) = self.virtual_rows.get(&row_key).copied() {
+                    self.prepare_scope_retirement(&[row]);
+                }
+                self.busy_rows.push(row_key);
+                let batch = self.runtime.plan_recycle_virtual(&lease);
                 self.sweep_virtual_rows();
                 self.publish_window();
-                mutations
+                batch
             }
             VirtualWork::Cancel {
                 collection,
                 relation,
                 container,
-            } => self.runtime.cancel_virtual(collection, relation, container),
+            } => self
+                .runtime
+                .plan_cancel_virtual(collection, relation, container),
         }
     }
 
@@ -158,6 +157,7 @@ impl<A: Adapter> ComponentHost<A> {
             .collect::<Vec<_>>();
         for (key, id) in retired {
             self.virtual_rows.remove(&key);
+            self.prepare_scope_retirement(&[id]);
             self.retire_scope(id);
         }
     }

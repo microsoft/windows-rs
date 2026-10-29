@@ -65,6 +65,64 @@ impl RetainedGraph {
             .child
     }
 
+    /// Returns the key of the row a container currently holds.
+    pub(crate) fn virtual_row_key(
+        &self,
+        collection: ObjectId,
+        container: RealizedContainer,
+    ) -> Option<Key> {
+        self.get(collection)?
+            .virtual_items
+            .as_ref()?
+            .containers
+            .get(&container)
+            .map(|realization| realization.key.clone())
+    }
+
+    /// Returns whether a realization must wait: it touches a row whose batch is being applied, or
+    /// it renders a row whose effects are pending. Recycling or replacing a pending row retires it
+    /// and discards its prepared effects, so those requests proceed.
+    fn realization_busy(
+        &self,
+        request: RealizationRequest,
+        applying: &[(ObjectId, Key)],
+        pending: &[(ObjectId, Key)],
+    ) -> bool {
+        let (collection, container, index) = match request {
+            RealizationRequest::Realize {
+                collection,
+                container,
+                index,
+                ..
+            } => (collection, container, Some(index)),
+            RealizationRequest::Recycle {
+                collection,
+                container,
+                ..
+            }
+            | RealizationRequest::Cancel {
+                collection,
+                container,
+                ..
+            } => (collection, container, None),
+        };
+        let Some(items) = self
+            .get(collection)
+            .and_then(|object| object.virtual_items.as_ref())
+        else {
+            return false;
+        };
+        let contains = |rows: &[(ObjectId, Key)], key: Option<&Key>| {
+            key.is_some_and(|key| rows.iter().any(|row| row.0 == collection && row.1 == *key))
+        };
+        let rendered = index.and_then(|index| items.keys.get(index));
+        let contained = items
+            .containers
+            .get(&container)
+            .map(|realization| &realization.key);
+        contains(applying, rendered) || contains(applying, contained) || contains(pending, rendered)
+    }
+
     fn validate_realization_request(&self, request: RealizationRequest) -> bool {
         let (collection, source_revision, index) = match request {
             RealizationRequest::Realize {
@@ -183,15 +241,26 @@ impl RetainedGraph {
 
 impl<A: Adapter> Runtime<A> {
     /// Returns the virtual work for a realization at the front of the native queue, after applying
-    /// the observations ahead of it. Returns `None` when a native event comes first.
-    pub(crate) fn next_realization(&mut self) -> Option<VirtualWork> {
+    /// the observations ahead of it. Returns `None` when a native event comes first, when the
+    /// realization would replace one of the `busy` rows, or when a native event is being
+    /// dispatched and a user observation would change the state it reads.
+    pub(crate) fn next_realization(
+        &mut self,
+        applying: &[(ObjectId, Key)],
+        pending: &[(ObjectId, Key)],
+    ) -> Option<VirtualWork> {
         loop {
-            if self.prepare_update() {
+            let next = self.adapter.peek_native_event()?;
+            if next.event.is_some() {
                 return None;
             }
-            let next = self.adapter.peek_native_event()?;
-            if next.event.is_some() || next.realization.is_none() {
-                return None;
+            match next.realization {
+                Some(request) if self.graph.realization_busy(request, applying, pending) => {
+                    return None;
+                }
+                Some(_) => {}
+                None if self.native_event_active.get() && !next.record => return None,
+                None => {}
             }
             match self.pop_native_work()? {
                 NativeWork::Virtual(work) => return Some(work),
@@ -201,12 +270,12 @@ impl<A: Adapter> Runtime<A> {
         }
     }
 
-    pub(crate) fn realize_virtual(
+    pub(crate) fn plan_realize_virtual(
         &mut self,
         lease: &RealizationLease,
         index: usize,
         root: impl Into<View>,
-    ) -> UpdateStats {
+    ) -> NativeBatch {
         self.mutations.clear();
         let mut declaration = root.into().0.object();
         declaration.key = Some(lease.key.clone());
@@ -376,15 +445,10 @@ impl<A: Adapter> Runtime<A> {
             index,
             child,
         });
-        self.apply_plan(references, || {});
-        self.finish_update()
+        self.take_batch(references)
     }
 
-    pub(crate) fn recycle_virtual_before_apply(
-        &mut self,
-        lease: &RealizationLease,
-        before_apply: impl FnOnce(),
-    ) -> UpdateStats {
+    pub(crate) fn plan_recycle_virtual(&mut self, lease: &RealizationLease) -> NativeBatch {
         self.mutations.clear();
         let items = self
             .graph
@@ -433,16 +497,15 @@ impl<A: Adapter> Runtime<A> {
                 .retire(child);
             }
         }
-        self.apply_plan(references, before_apply);
-        self.finish_update()
+        self.take_batch(references)
     }
 
-    pub(crate) fn cancel_virtual(
+    pub(crate) fn plan_cancel_virtual(
         &mut self,
         collection: ObjectId,
         relation: RelationId,
         container: RealizedContainer,
-    ) -> UpdateStats {
+    ) -> NativeBatch {
         self.mutations.clear();
         self.mutations.push(Mutation::Recycle {
             parent: collection,
@@ -450,8 +513,7 @@ impl<A: Adapter> Runtime<A> {
             container,
             child: None,
         });
-        self.apply_plan(Vec::new(), || {});
-        self.finish_update()
+        self.take_batch(Vec::new())
     }
 
     pub(crate) fn virtual_lease_active(&self, collection: ObjectId, key: &Key) -> bool {

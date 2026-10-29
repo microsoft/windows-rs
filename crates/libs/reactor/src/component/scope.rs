@@ -268,19 +268,23 @@ impl<A: Adapter> ComponentHost<A> {
         (id, render)
     }
 
-    pub(super) fn apply_render(&mut self, id: ComponentId, render: ComponentRender) -> UpdateStats {
+    pub(super) fn plan_render(&mut self, id: ComponentId, render: ComponentRender) -> NativeBatch {
         let contexts = self.scope(id).unwrap().contexts.clone();
         let provided_contexts = self.scope(id).unwrap().provided_contexts.clone();
-        self.apply_render_with_contexts(id, render, contexts, provided_contexts)
+        self.plan_render_with_contexts(id, render, contexts, provided_contexts)
     }
 
-    pub(super) fn apply_render_with_contexts(
+    /// Plans a component render and completes its structural host work. Effect setup waits for
+    /// `complete_batch` so it runs after the native application.
+    pub(super) fn plan_render_with_contexts(
         &mut self,
         id: ComponentId,
         render: ComponentRender,
         contexts: HashMap<ContextId, ContextValue>,
         provided_contexts: HashSet<ContextId>,
-    ) -> UpdateStats {
+    ) -> NativeBatch {
+        self.begin_batch();
+        self.mark_busy_ancestors(id);
         let root = self.scope(id).unwrap().root.unwrap();
         let mut expansion = ExpansionState::default();
         let view = expansion.push_render(
@@ -303,39 +307,29 @@ impl<A: Adapter> ComponentHost<A> {
         );
         let retired = self.unseen_scopes(&expansion.seen);
         let publication = self.resolve_window_publication(&expansion.pending, &retired);
-        let mut pending = Some(expansion.pending);
-        let mut prepared = Vec::new();
-        let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-        let mutations = runtime.update_subtree_before_apply(root, view.clone(), || {
-            for pending in pending.take().unwrap() {
-                let slots = &mut scopes[pending.id.index as usize]
-                    .scope
-                    .as_mut()
-                    .unwrap()
-                    .effects;
-                prepared.push((
-                    pending.id,
-                    pending.effects.prepare(slots),
-                    pending.environment,
-                    pending.dependencies,
-                    pending.window,
-                ));
-            }
-            prepare_scope_retirement(scopes, &retired);
-        });
+        let batch = self.runtime.plan_subtree_update(root, view.clone());
+        self.prepare_pending(expansion.pending);
+        self.prepare_scope_retirement(&retired);
         self.refresh_roots_from(view.0.as_object(), root);
         self.retire_unseen(&expansion.seen);
-        for (id, prepared, environment, dependencies, window) in prepared {
-            let environment = *environment;
-            prepared.commit(&mut self.scope_mut(id).unwrap().effects);
-            self.scope_mut(id).unwrap().contexts = environment.contexts;
-            self.replace_dependencies(id, dependencies);
-            self.scope_mut(id).unwrap().provided_contexts = environment.provided;
-            self.scope_mut(id).unwrap().window = window;
-        }
         self.sweep_virtual_rows();
         self.publish_committed_window(publication);
-        mutations
+        batch
+    }
+
+    /// Prepares the effects of rendered scopes, running the cleanups of changed and removed
+    /// effects, and commits the rest of each scope's render state.
+    pub(super) fn prepare_pending(&mut self, pending: Vec<PendingScopeRender>) {
+        for pending in pending {
+            let environment = *pending.environment;
+            let scope = self.scope_mut(pending.id).unwrap();
+            let effects = pending.effects.prepare(&mut scope.effects);
+            scope.contexts = environment.contexts;
+            scope.provided_contexts = environment.provided;
+            scope.window = pending.window;
+            self.prepared_effects.push((pending.id, effects));
+            self.replace_dependencies(pending.id, pending.dependencies);
+        }
     }
 
     pub(super) fn retire_unseen(&mut self, seen: &HashMap<ComponentId, HashSet<Key>>) {
@@ -378,6 +372,32 @@ impl<A: Adapter> ComponentHost<A> {
         cleanup_effects(&mut scope.effects);
         slot.generation = slot.generation.wrapping_add(1);
         self.free_scopes.push(id.index);
+        self.discard_prepared_effects(id);
+    }
+
+    /// Cancels the tasks and runs the effect cleanups of scopes that the batch being planned
+    /// retires, so cleanups observe roots, references, and native objects before the batch
+    /// applies. This includes retained effects that an in-flight batch prepared.
+    pub(super) fn prepare_scope_retirement(&mut self, roots: &[ComponentId]) {
+        let mut pending = roots.to_vec();
+        while let Some(id) = pending.pop() {
+            let Some(scope) = self.scope_mut(id) else {
+                continue;
+            };
+            pending.extend(scope.children.values().copied());
+            scope.component.cancel_tasks();
+            cleanup_effects(&mut scope.effects);
+            self.discard_prepared_effects(id);
+        }
+    }
+
+    /// Runs the retained cleanups of a retiring scope whose effects an in-flight batch prepared.
+    fn discard_prepared_effects(&mut self, id: ComponentId) {
+        for index in (0..self.prepared_effects.len()).rev() {
+            if self.prepared_effects[index].0 == id {
+                self.prepared_effects.remove(index).1.discard();
+            }
+        }
     }
 
     pub(super) fn unseen_scopes(
@@ -407,23 +427,5 @@ impl<A: Adapter> ComponentHost<A> {
         (slot.generation == id.generation)
             .then_some(slot.scope.as_mut())
             .flatten()
-    }
-}
-
-pub(super) fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
-    let mut pending = roots.to_vec();
-    while let Some(id) = pending.pop() {
-        let Some(slot) = scopes.get_mut(id.index as usize) else {
-            continue;
-        };
-        if slot.generation != id.generation {
-            continue;
-        }
-        let Some(scope) = slot.scope.as_mut() else {
-            continue;
-        };
-        pending.extend(scope.children.values().copied());
-        scope.component.cancel_tasks();
-        cleanup_effects(&mut scope.effects);
     }
 }

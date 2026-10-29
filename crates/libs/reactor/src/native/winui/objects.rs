@@ -122,13 +122,13 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    pub(super) fn set_properties(
+    fn prepare_properties(
         &mut self,
         object: ObjectId,
         set: &[Property],
         clear: &[PropertyId],
         initializing: bool,
-    ) -> Result<(), WinUiError> {
+    ) -> Result<(ObjectType, Option<native::UIElement>), WinUiError> {
         let kind = self.kind(object)?;
         let element = self.ui_element(object).ok();
         if let Some(Handle::Generated(handle)) = self.handles.get_mut(&object) {
@@ -151,74 +151,42 @@ impl WinUiAdapter {
         {
             self.release_image(object);
         }
-        let properties = clear
-            .iter()
-            .map(|id| (*id, None))
-            .chain(
-                set.iter()
-                    .map(|property| (property.id, Some(&property.value))),
-            )
-            .filter(|(id, _)| !is_implicit_transition(*id));
-        for (property, value) in properties {
-            // Reactor's write raises the event that reports it; drop it and record the native
-            // value the write produced instead.
-            let feedback = reporting_event(kind, property);
-            if let Some(event) = feedback {
-                self.event_queue
-                    .feedback
-                    .borrow_mut()
-                    .suppress(object, event);
-            }
-            let suppressed = match self.selection_feedback(object, property)? {
-                Some(feedback) => Some(feedback),
-                None => self
-                    .index_event(object, IndexItems::Property(property))?
-                    .map(|event| (object, event)),
-            };
-            if let Some((owner, event)) = suppressed {
-                self.event_queue
-                    .feedback
-                    .borrow_mut()
-                    .suppress(owner, event);
-            }
-            if let Some(PropertyValue::SelectionIndex(Some(_))) = value
-                && index_contract(kind)
-                    .is_some_and(|contract| contract.property == property && contract.realize_items)
-                && let Some(element) = element.as_ref()
-            {
-                // Measure only this control so its item containers exist. `UpdateLayout` would lay
-                // out the whole window, including virtualized repeaters elsewhere in the tree,
-                // while their element factories cannot render rows.
-                element.Measure(native::LayoutInformation::GetAvailableSize(element)?)?;
-            }
-            let result = self.apply_property(object, kind, element.as_ref(), property, value);
-            if let Some((owner, event)) = suppressed {
-                self.event_queue.feedback.borrow_mut().release(owner, event);
-            }
-            if let Some(event) = feedback {
-                self.event_queue
-                    .feedback
-                    .borrow_mut()
-                    .release(object, event);
-            }
-            result?;
-            if let Some(event) = feedback
-                && let Some(Handle::Generated(handle)) = self.handles.get(&object)
-            {
-                let property = handle.read_observed(event).unwrap()?;
-                Self::record(
-                    &self.event_queue,
-                    Observation::SetProperty { object, property },
-                );
-            }
+        Ok((kind, element))
+    }
+
+    fn suppress_feedback(
+        &self,
+        object: ObjectId,
+        property: PropertyId,
+    ) -> Result<Option<(ObjectId, EventId)>, WinUiError> {
+        let suppressed = match self.selection_feedback(object, property)? {
+            Some(feedback) => Some(feedback),
+            None => self
+                .index_event(object, IndexItems::Property(property))?
+                .map(|event| (object, event)),
+        };
+        if let Some((owner, event)) = suppressed {
+            self.event_queue
+                .feedback
+                .borrow_mut()
+                .suppress(owner, event);
         }
-        if initializing {
-            self.set_transition_properties(object, set, clear)?;
+        Ok(suppressed)
+    }
+
+    fn record_feedback(&self, object: ObjectId, event: EventId) -> Result<(), WinUiError> {
+        if let Some(Handle::Generated(handle)) = self.handles.get(&object) {
+            let property = handle.read_observed(event).unwrap()?;
+            Self::record(
+                &self.event_queue,
+                Observation::SetProperty { object, property },
+            );
         }
         Ok(())
     }
 
-    /// Sets one property, or restores its default when `value` is `None`.
+    /// Sets one property, or restores its default when `value` is `None`. A plain dependency
+    /// property write is returned for the caller to apply once the adapter is released.
     fn apply_property(
         &mut self,
         object: ObjectId,
@@ -226,7 +194,7 @@ impl WinUiAdapter {
         element: Option<&native::UIElement>,
         property: PropertyId,
         value: Option<&PropertyValue>,
-    ) -> Result<(), WinUiError> {
+    ) -> Result<Option<DependencyWrite>, WinUiError> {
         if property == PropertyId::Source
             && value.is_none()
             && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
@@ -236,28 +204,31 @@ impl WinUiAdapter {
                 .discard_events(object, &IMAGE_SOURCE_EVENTS);
             control.source.set(false);
         }
-        match (property, value) {
+        let applied = match (property, value) {
             (PropertyId::Resources, None) => {
-                return self.set_resource_overrides(object, &ResourceOverrides::default());
+                Some(self.set_resource_overrides(object, &ResourceOverrides::default()))
             }
             (PropertyId::Resources, Some(PropertyValue::ResourceOverrides(value))) => {
-                return self.set_resource_overrides(object, value);
+                Some(self.set_resource_overrides(object, value))
             }
             (PropertyId::KeyboardAccelerators, None) => {
-                return self.set_key_accelerators(object, &KeyAccelerators::default());
+                Some(self.set_key_accelerators(object, &KeyAccelerators::default()))
             }
             (PropertyId::KeyboardAccelerators, Some(PropertyValue::KeyAccelerators(value))) => {
-                return self.set_key_accelerators(object, value);
+                Some(self.set_key_accelerators(object, value))
             }
             (PropertyId::Style, None) if kind == ObjectType::Button => {
-                return self.set_button_style(object, None);
+                Some(self.set_button_style(object, None))
             }
             (PropertyId::Style, Some(PropertyValue::ButtonStyle(value)))
                 if kind == ObjectType::Button =>
             {
-                return self.set_button_style(object, Some(*value));
+                Some(self.set_button_style(object, Some(*value)))
             }
-            _ => {}
+            _ => None,
+        };
+        if let Some(applied) = applied {
+            return applied.map(|()| None);
         }
         if theme_style_info(kind).is_some_and(|(_, properties)| {
             properties
@@ -266,13 +237,15 @@ impl WinUiAdapter {
         }) {
             match value {
                 Some(PropertyValue::Brush(Brush::Theme(value))) => {
-                    let Some(result) = element
-                        .and_then(|element| set_dependency_property(element, kind, property, None))
+                    let Some(write) =
+                        element.and_then(|element| dependency_write(element, kind, property, None))
                     else {
                         return Err(WinUiError::InvalidObject(object));
                     };
-                    result?;
-                    return self.set_theme_brush(object, property, Some(*value));
+                    write?.apply()?;
+                    return self
+                        .set_theme_brush(object, property, Some(*value))
+                        .map(|()| None);
                 }
                 None | Some(PropertyValue::Brush(Brush::Solid(_))) => {
                     self.set_theme_brush(object, property, None)?;
@@ -281,10 +254,21 @@ impl WinUiAdapter {
             }
         }
         if let Some(element) = element
-            && let Some(result) = set_dependency_property(element, kind, property, value)
+            && let Some(write) = dependency_write(element, kind, property, value)
         {
-            return result;
+            return write.map(Some);
         }
+        self.apply_handle_property(object, property, value)
+            .map(|()| None)
+    }
+
+    /// Sets a property that has no WinUI dependency property.
+    fn apply_handle_property(
+        &mut self,
+        object: ObjectId,
+        property: PropertyId,
+        value: Option<&PropertyValue>,
+    ) -> Result<(), WinUiError> {
         if property == PropertyId::Source
             && let Some(PropertyValue::ImageSource(source)) = value
         {
@@ -541,4 +525,69 @@ impl WinUiAdapter {
         }
         Ok(())
     }
+}
+
+/// Sets an object's properties. The adapter is borrowed for each step rather than the whole call:
+/// measuring a control and writing its dependency properties can lay it out, and layout realizes
+/// virtualized rows by applying their batches within the call.
+pub(super) fn set_properties(
+    state: &RefCell<WinUiAdapter>,
+    object: ObjectId,
+    set: &[Property],
+    clear: &[PropertyId],
+    initializing: bool,
+) -> Result<(), WinUiError> {
+    let (kind, element) =
+        state
+            .borrow_mut()
+            .prepare_properties(object, set, clear, initializing)?;
+    let event_queue = Rc::clone(&state.borrow().event_queue);
+    let properties = clear
+        .iter()
+        .map(|id| (*id, None))
+        .chain(
+            set.iter()
+                .map(|property| (property.id, Some(&property.value))),
+        )
+        .filter(|(id, _)| !is_implicit_transition(*id));
+    for (property, value) in properties {
+        // Reactor's write raises the event that reports it; drop it and record the native value
+        // the write produced instead.
+        let feedback = reporting_event(kind, property);
+        if let Some(event) = feedback {
+            event_queue.feedback.borrow_mut().suppress(object, event);
+        }
+        let suppressed = state.borrow().suppress_feedback(object, property)?;
+        if let Some(PropertyValue::SelectionIndex(Some(_))) = value
+            && index_contract(kind)
+                .is_some_and(|contract| contract.property == property && contract.realize_items)
+            && let Some(element) = element.as_ref()
+        {
+            // Measure only this control so its item containers exist. `UpdateLayout` would lay out
+            // the whole window, including virtualized repeaters elsewhere in the tree, while their
+            // element factories cannot render rows.
+            element.Measure(native::LayoutInformation::GetAvailableSize(element)?)?;
+        }
+        let write =
+            state
+                .borrow_mut()
+                .apply_property(object, kind, element.as_ref(), property, value);
+        let result = write.and_then(|write| write.map_or(Ok(()), DependencyWrite::apply));
+        if let Some((owner, event)) = suppressed {
+            event_queue.feedback.borrow_mut().release(owner, event);
+        }
+        if let Some(event) = feedback {
+            event_queue.feedback.borrow_mut().release(object, event);
+        }
+        result?;
+        if let Some(event) = feedback {
+            state.borrow().record_feedback(object, event)?;
+        }
+    }
+    if initializing {
+        state
+            .borrow()
+            .set_transition_properties(object, set, clear)?;
+    }
+    Ok(())
 }
