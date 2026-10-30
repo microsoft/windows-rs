@@ -76,14 +76,16 @@ without changing the Rust signature.
 | Result parameter | MIDL `[retval]`; trailing `_COM_Outptr_`, or `_Outptr_` to an interface, when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result, subject to eligibility checks |
 | Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(null_on_failure)` | `NativeReturnedPointer` | Result and query eligibility |
 | COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection when eligible |
-| Nullable pointer | `_maybenull_` and `_opt_` returned-pointer forms; `__RPC__deref_opt_*`; `_Ret_maybenull_`; `_Maybenull_` on fields | `nullable` | `Nullable` | `Option<T>` for COM query results |
+| Nullable pointer | `_Outptr_` and `_COM_Outptr_` `maybenull` forms; `__deref_[opt_]out_opt`, `_Deref_[opt_]out_opt_`; `__RPC__deref_out_opt_string`, `__RPC__deref_out_ecount_*_opt`; `_Ret_maybenull_`; `_Maybenull_` on fields | `nullable` | `Nullable` | `Option<T>` for COM query results |
 | Integer range | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `_Ret_range_`, `_Field_range_`; `__RPC__in_range` | `range(entry, 0..=15)` | `IntegerRange` | - |
 
 `opt` lets the caller pass a null argument. `nullable` records that the API may produce null: the
 pointer stored through an `out` parameter, a return value, or a field. Absence does not promise
-non-null; only an `out_ptr` or indirect extent without `nullable` does. Consumers should still
-handle null where the header makes no promise. `out_ptr` promises one readable element on success;
-it does not imply an allocator or ownership transfer.
+non-null; only an `out_ptr` or indirect extent without `nullable` does. The `_opt_` in
+`_Outptr_opt_` and `_COM_Outptr_opt_` makes the argument optional; the returned pointer is still
+non-null on success. Consumers should still handle null where the header makes no promise.
+`out_ptr` promises one readable element on success; it does not imply an allocator or ownership
+transfer.
 
 ## Buffers and strings
 
