@@ -80,7 +80,7 @@ Browse WinUI controls built with Reactor.
 cargo run -p reactor-gallery
 ```
 
-![Reactor gallery](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-gallery.png)
+![Reactor gallery](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-gallery.png)
 
 ### Solitaire
 
@@ -90,7 +90,7 @@ A complete game built from standard controls.
 cargo run -p reactor-solitaire
 ```
 
-![Solitaire](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-solitaire.png)
+![Solitaire](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-solitaire.png)
 
 ### Stacker
 
@@ -100,7 +100,7 @@ Reactor, Canvas, and Composition together.
 cargo run -p reactor-stacker
 ```
 
-![Stacker](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-stacker.png)
+![Stacker](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-stacker.png)
 
 ## Next steps
 

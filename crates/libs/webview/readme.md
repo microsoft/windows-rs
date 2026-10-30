@@ -40,7 +40,7 @@ A small browser built with Reactor and WebView2.
 cargo run -p webview-reactor
 ```
 
-![Browser built with Reactor and WebView2](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/webview-reactor.png)
+![Browser built with Reactor and WebView2](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/webview-reactor.png)
 
 ## Talk to the page
 
