@@ -286,11 +286,7 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::ClearWindowTitleBar { object });
         }
-        self.clear_content_dialog(object);
-        self.clear_command_bar_flyout(object);
-        self.clear_menu(object);
-        self.clear_flyout(object);
-        self.clear_tooltip(object);
+        self.clear_attachments(object);
         let virtual_items = self.retained.get_mut(object).virtual_items.take();
         let relations = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in relations {
@@ -368,11 +364,7 @@ impl Planner<'_> {
         let mut nodes = Vec::new();
         self.collect_subtree_postorder(root, &mut nodes);
         for object in nodes.iter().copied() {
-            self.clear_content_dialog(object);
-            self.clear_command_bar_flyout(object);
-            self.clear_menu(object);
-            self.clear_flyout(object);
-            self.clear_tooltip(object);
+            self.clear_attachments(object);
         }
         for object in &nodes {
             let retained = self.retained.get_mut(*object);

@@ -367,6 +367,16 @@ struct RetainedAttachments {
     content_dialog: Option<RetainedContentDialog>,
 }
 
+impl RetainedAttachments {
+    const EMPTY: Self = Self {
+        tooltip: None,
+        flyout: None,
+        menu: None,
+        command_bar_flyout: None,
+        content_dialog: None,
+    };
+}
+
 #[derive(Clone, Debug, PartialEq)]
 struct RetainedTooltip {
     object: ObjectId,

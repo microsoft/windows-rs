@@ -1745,6 +1745,16 @@ pub(crate) struct DeclaredAttachments {
     pub content_dialog: Option<DeclaredContentDialog>,
 }
 
+impl DeclaredAttachments {
+    pub(crate) const EMPTY: Self = Self {
+        tooltip: None,
+        flyout: None,
+        menu: None,
+        command_bar_flyout: None,
+        content_dialog: None,
+    };
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) struct Declaration {
     pub kind: ObjectType,

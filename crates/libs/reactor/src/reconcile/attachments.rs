@@ -34,380 +34,305 @@ impl Planner<'_> {
             .get_or_insert_with(Default::default)
     }
 
-    pub(super) fn mount_tooltip(&mut self, target: ObjectId, tooltip: &DeclaredTooltip) {
-        let object = self.mount(&tooltip.declaration());
-        self.retained_attachments(target).tooltip = Some(RetainedTooltip {
-            object,
-            placement: tooltip.placement,
-        });
-        self.mutations.push(Mutation::SetTooltip {
-            target,
-            tooltip: Some(object),
-            placement: tooltip.placement,
-        });
+    pub(super) fn take_attachments(&mut self, owner: ObjectId) -> RetainedAttachments {
+        self.retained
+            .get_mut(owner)
+            .attachments
+            .as_deref_mut()
+            .map(std::mem::take)
+            .unwrap_or_default()
     }
 
-    pub(super) fn clear_tooltip(&mut self, target: ObjectId) {
-        let tooltip = self
-            .retained
-            .get_mut(target)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.tooltip.take());
-        if let Some(tooltip) = tooltip {
-            self.mutations.push(Mutation::SetTooltip {
-                target,
-                tooltip: None,
-                placement: tooltip.placement,
-            });
+    /// Detaches every attachment from a target whose native object is about to be replaced. The
+    /// attachment objects stay alive for `reconcile_attachments` to reuse or retire.
+    pub(super) fn detach_attachments(&mut self, target: ObjectId, previous: &RetainedAttachments) {
+        if let Some(tooltip) = &previous.tooltip {
+            self.detach_tooltip(target, tooltip);
+        }
+        if let Some(flyout) = &previous.flyout {
+            self.detach_flyout(target, flyout);
+        }
+        if let Some(menu) = &previous.menu {
+            self.detach_menu(target, menu);
+        }
+        if let Some(flyout) = &previous.command_bar_flyout {
+            self.detach_command_bar_flyout(target, flyout);
+        }
+        if let Some(dialog) = &previous.content_dialog {
+            self.detach_content_dialog(target, dialog);
+        }
+    }
+
+    pub(super) fn clear_attachments(&mut self, target: ObjectId) {
+        let previous = self.take_attachments(target);
+        if let Some(dialog) = previous.content_dialog {
+            self.detach_content_dialog(target, &dialog);
+            self.retire(dialog.object);
+        }
+        if let Some(flyout) = previous.command_bar_flyout {
+            self.detach_command_bar_flyout(target, &flyout);
+        }
+        if let Some(menu) = previous.menu {
+            self.detach_menu(target, &menu);
+        }
+        if let Some(flyout) = previous.flyout {
+            self.detach_flyout(target, &flyout);
+            self.retire(flyout.object);
+        }
+        if let Some(tooltip) = previous.tooltip {
+            self.detach_tooltip(target, &tooltip);
             self.retire(tooltip.object);
         }
     }
 
-    pub(super) fn reconcile_tooltip(
+    /// Reconciles `previous`, taken from the target, with the declared attachments. A replaced
+    /// target has already had `previous` detached and needs every desired attachment set again.
+    pub(super) fn reconcile_attachments(
+        &mut self,
+        target: ObjectId,
+        previous: RetainedAttachments,
+        desired: Option<&DeclaredAttachments>,
+        replaced: bool,
+    ) {
+        let desired = desired.unwrap_or(&DeclaredAttachments::EMPTY);
+        self.reconcile_tooltip(target, previous.tooltip, desired.tooltip.as_ref(), replaced);
+        self.reconcile_flyout(target, previous.flyout, desired.flyout.as_ref(), replaced);
+        self.reconcile_menu(target, previous.menu, desired.menu.as_ref(), replaced);
+        self.reconcile_command_bar_flyout(
+            target,
+            previous.command_bar_flyout,
+            desired.command_bar_flyout.as_ref(),
+            replaced,
+        );
+        self.reconcile_content_dialog(
+            target,
+            previous.content_dialog,
+            desired.content_dialog.as_ref(),
+            replaced,
+        );
+    }
+
+    fn detach_tooltip(&mut self, target: ObjectId, tooltip: &RetainedTooltip) {
+        self.mutations.push(Mutation::SetTooltip {
+            target,
+            tooltip: None,
+            placement: tooltip.placement,
+        });
+    }
+
+    fn reconcile_tooltip(
         &mut self,
         target: ObjectId,
         previous: Option<RetainedTooltip>,
         desired: Option<&DeclaredTooltip>,
-        target_replaced: bool,
+        replaced: bool,
     ) {
-        match (previous, desired) {
-            (None, None) => {}
-            (None, Some(desired)) => self.mount_tooltip(target, desired),
-            (Some(previous), None) => {
-                if !target_replaced {
-                    self.mutations.push(Mutation::SetTooltip {
-                        target,
-                        tooltip: None,
-                        placement: previous.placement,
-                    });
+        let Some(desired) = desired else {
+            if let Some(previous) = previous {
+                if !replaced {
+                    self.detach_tooltip(target, &previous);
                 }
                 self.retire(previous.object);
             }
-            (Some(previous), Some(desired)) => {
-                let object = self.reconcile_object(previous.object, &desired.declaration());
-                if target_replaced
-                    || object != previous.object
-                    || desired.placement != previous.placement
-                {
-                    self.mutations.push(Mutation::SetTooltip {
-                        target,
-                        tooltip: Some(object),
-                        placement: desired.placement,
-                    });
-                }
-                self.retained_attachments(target).tooltip = Some(RetainedTooltip {
-                    object,
-                    placement: desired.placement,
-                });
-            }
+            return;
+        };
+        let declaration = desired.declaration();
+        let object = match &previous {
+            Some(previous) => self.reconcile_object(previous.object, &declaration),
+            None => self.mount(&declaration),
+        };
+        let tooltip = RetainedTooltip {
+            object,
+            placement: desired.placement,
+        };
+        if replaced || previous.as_ref() != Some(&tooltip) {
+            self.mutations.push(Mutation::SetTooltip {
+                target,
+                tooltip: Some(object),
+                placement: desired.placement,
+            });
         }
+        self.retained_attachments(target).tooltip = Some(tooltip);
     }
 
-    pub(super) fn mount_flyout(&mut self, target: ObjectId, flyout: &DeclaredFlyout) {
-        let object = self.mount(&flyout.declaration());
-        self.retained_attachments(target).flyout = Some(RetainedFlyout {
-            object,
-            placement: flyout.placement,
-        });
+    fn detach_flyout(&mut self, target: ObjectId, flyout: &RetainedFlyout) {
         self.mutations.push(Mutation::SetFlyout {
             target,
-            content: Some(object),
+            content: None,
             placement: flyout.placement,
         });
     }
 
-    pub(super) fn clear_flyout(&mut self, target: ObjectId) {
-        let flyout = self
-            .retained
-            .get_mut(target)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.flyout.take());
-        if let Some(flyout) = flyout {
-            self.mutations.push(Mutation::SetFlyout {
-                target,
-                content: None,
-                placement: flyout.placement,
-            });
-            self.retire(flyout.object);
-        }
-    }
-
-    pub(super) fn reconcile_flyout(
+    fn reconcile_flyout(
         &mut self,
         target: ObjectId,
         previous: Option<RetainedFlyout>,
         desired: Option<&DeclaredFlyout>,
-        target_replaced: bool,
+        replaced: bool,
     ) {
-        match (previous, desired) {
-            (None, None) => {}
-            (None, Some(desired)) => self.mount_flyout(target, desired),
-            (Some(previous), None) => {
-                if !target_replaced {
-                    self.mutations.push(Mutation::SetFlyout {
-                        target,
-                        content: None,
-                        placement: previous.placement,
-                    });
+        let Some(desired) = desired else {
+            if let Some(previous) = previous {
+                if !replaced {
+                    self.detach_flyout(target, &previous);
                 }
                 self.retire(previous.object);
             }
-            (Some(previous), Some(desired)) => {
-                let object = self.reconcile_object(previous.object, &desired.declaration());
-                if target_replaced
-                    || object != previous.object
-                    || desired.placement != previous.placement
-                {
-                    self.mutations.push(Mutation::SetFlyout {
-                        target,
-                        content: Some(object),
-                        placement: desired.placement,
-                    });
-                }
-                self.retained_attachments(target).flyout = Some(RetainedFlyout {
-                    object,
-                    placement: desired.placement,
-                });
-            }
-        }
-    }
-
-    pub(super) fn mount_menu(&mut self, target: ObjectId, menu: &DeclaredMenu) {
-        let revision = 1;
-        self.retained_attachments(target).menu = Some(RetainedMenu {
-            menu: menu.menu.clone(),
-            revision,
-        });
-        self.mutations.push(Mutation::SetMenu {
-            target,
-            menu: Some(menu.menu.clone()),
-            revision,
-        });
-    }
-
-    pub(super) fn clear_menu(&mut self, target: ObjectId) {
-        let menu = self
-            .retained
-            .get_mut(target)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.menu.take());
-        if let Some(menu) = menu {
-            self.mutations.push(Mutation::SetMenu {
+            return;
+        };
+        let declaration = desired.declaration();
+        let object = match &previous {
+            Some(previous) => self.reconcile_object(previous.object, &declaration),
+            None => self.mount(&declaration),
+        };
+        let flyout = RetainedFlyout {
+            object,
+            placement: desired.placement,
+        };
+        if replaced || previous.as_ref() != Some(&flyout) {
+            self.mutations.push(Mutation::SetFlyout {
                 target,
-                menu: None,
-                revision: menu.revision.wrapping_add(1),
+                content: Some(object),
+                placement: desired.placement,
             });
         }
+        self.retained_attachments(target).flyout = Some(flyout);
     }
 
-    pub(super) fn reconcile_menu(
+    fn detach_menu(&mut self, target: ObjectId, menu: &RetainedMenu) {
+        self.mutations.push(Mutation::SetMenu {
+            target,
+            menu: None,
+            revision: menu.revision.wrapping_add(1),
+        });
+    }
+
+    fn reconcile_menu(
         &mut self,
         target: ObjectId,
         previous: Option<RetainedMenu>,
         desired: Option<&DeclaredMenu>,
-        target_replaced: bool,
+        replaced: bool,
     ) {
-        match (previous, desired) {
-            (None, None) => {}
-            (None, Some(desired)) => self.mount_menu(target, desired),
-            (Some(previous), None) => {
-                if !target_replaced {
-                    self.mutations.push(Mutation::SetMenu {
-                        target,
-                        menu: None,
-                        revision: previous.revision.wrapping_add(1),
-                    });
-                }
+        let Some(desired) = desired else {
+            if let Some(previous) = previous.filter(|_| !replaced) {
+                self.detach_menu(target, &previous);
             }
-            (Some(previous), Some(desired))
-                if !target_replaced && previous.menu == desired.menu =>
-            {
+            return;
+        };
+        let revision = match previous {
+            Some(previous) if !replaced && previous.menu == desired.menu => {
                 self.retained_attachments(target).menu = Some(previous);
+                return;
             }
-            (Some(previous), Some(desired)) => {
-                let revision = if !target_replaced && previous.menu.same_content(&desired.menu) {
-                    previous.revision
-                } else {
-                    previous.revision.wrapping_add(1)
-                };
-                self.retained_attachments(target).menu = Some(RetainedMenu {
-                    menu: desired.menu.clone(),
-                    revision,
-                });
-                self.mutations.push(Mutation::SetMenu {
-                    target,
-                    menu: Some(desired.menu.clone()),
-                    revision,
-                });
+            Some(previous) if !replaced && previous.menu.same_content(&desired.menu) => {
+                previous.revision
             }
-        }
-    }
-
-    pub(super) fn mount_command_bar_flyout(
-        &mut self,
-        target: ObjectId,
-        flyout: &DeclaredCommandBarFlyout,
-    ) {
-        let revision = 1;
-        self.retained_attachments(target).command_bar_flyout = Some(RetainedCommandBarFlyout {
-            flyout: flyout.flyout.clone(),
+            Some(previous) => previous.revision.wrapping_add(1),
+            None => 1,
+        };
+        self.retained_attachments(target).menu = Some(RetainedMenu {
+            menu: desired.menu.clone(),
             revision,
         });
+        self.mutations.push(Mutation::SetMenu {
+            target,
+            menu: Some(desired.menu.clone()),
+            revision,
+        });
+    }
+
+    fn detach_command_bar_flyout(&mut self, target: ObjectId, flyout: &RetainedCommandBarFlyout) {
         self.mutations.push(Mutation::SetCommandBarFlyout {
             target,
-            flyout: Some(flyout.flyout.clone()),
-            revision,
+            flyout: None,
+            revision: flyout.revision.wrapping_add(1),
         });
     }
 
-    pub(super) fn clear_command_bar_flyout(&mut self, target: ObjectId) {
-        let flyout = self
-            .retained
-            .get_mut(target)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.command_bar_flyout.take());
-        if let Some(flyout) = flyout {
-            self.mutations.push(Mutation::SetCommandBarFlyout {
-                target,
-                flyout: None,
-                revision: flyout.revision.wrapping_add(1),
-            });
-        }
-    }
-
-    pub(super) fn reconcile_command_bar_flyout(
+    fn reconcile_command_bar_flyout(
         &mut self,
         target: ObjectId,
         previous: Option<RetainedCommandBarFlyout>,
         desired: Option<&DeclaredCommandBarFlyout>,
-        target_replaced: bool,
+        replaced: bool,
     ) {
-        match (previous, desired) {
-            (None, None) => {}
-            (None, Some(desired)) => self.mount_command_bar_flyout(target, desired),
-            (Some(previous), None) => {
-                if !target_replaced {
-                    self.mutations.push(Mutation::SetCommandBarFlyout {
-                        target,
-                        flyout: None,
-                        revision: previous.revision.wrapping_add(1),
-                    });
-                }
+        let Some(desired) = desired else {
+            if let Some(previous) = previous.filter(|_| !replaced) {
+                self.detach_command_bar_flyout(target, &previous);
             }
-            (Some(previous), Some(desired))
-                if !target_replaced && previous.flyout == desired.flyout =>
-            {
+            return;
+        };
+        let revision = match previous {
+            Some(previous) if !replaced && previous.flyout == desired.flyout => {
                 self.retained_attachments(target).command_bar_flyout = Some(previous);
+                return;
             }
-            (Some(previous), Some(desired)) => {
-                let revision = if !target_replaced && previous.flyout.same_content(&desired.flyout)
-                {
-                    previous.revision
-                } else {
-                    previous.revision.wrapping_add(1)
-                };
-                self.retained_attachments(target).command_bar_flyout =
-                    Some(RetainedCommandBarFlyout {
-                        flyout: desired.flyout.clone(),
-                        revision,
-                    });
-                self.mutations.push(Mutation::SetCommandBarFlyout {
-                    target,
-                    flyout: Some(desired.flyout.clone()),
-                    revision,
-                });
+            Some(previous) if !replaced && previous.flyout.same_content(&desired.flyout) => {
+                previous.revision
             }
-        }
+            Some(previous) => previous.revision.wrapping_add(1),
+            None => 1,
+        };
+        self.retained_attachments(target).command_bar_flyout = Some(RetainedCommandBarFlyout {
+            flyout: desired.flyout.clone(),
+            revision,
+        });
+        self.mutations.push(Mutation::SetCommandBarFlyout {
+            target,
+            flyout: Some(desired.flyout.clone()),
+            revision,
+        });
     }
 
-    pub(super) fn mount_content_dialog(&mut self, owner: ObjectId, dialog: &DeclaredContentDialog) {
-        let object = self.mount(&dialog.declaration);
-        self.retained_attachments(owner).content_dialog = Some(RetainedContentDialog {
-            object,
-            open: dialog.open,
-        });
-        self.mutations.push(Mutation::SetContentDialog {
-            owner,
-            dialog: Some(object),
-        });
+    fn detach_content_dialog(&mut self, owner: ObjectId, dialog: &RetainedContentDialog) {
         if dialog.open {
             self.mutations.push(Mutation::SetContentDialogOpen {
-                dialog: object,
-                open: true,
+                dialog: dialog.object,
+                open: false,
             });
         }
+        self.mutations.push(Mutation::SetContentDialog {
+            owner,
+            dialog: None,
+        });
     }
 
-    pub(super) fn clear_content_dialog(&mut self, owner: ObjectId) {
-        let dialog = self
-            .retained
-            .get_mut(owner)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.content_dialog.take());
-        if let Some(dialog) = dialog {
-            if dialog.open {
-                self.mutations.push(Mutation::SetContentDialogOpen {
-                    dialog: dialog.object,
-                    open: false,
-                });
-            }
-            self.mutations.push(Mutation::SetContentDialog {
-                owner,
-                dialog: None,
-            });
-            self.retire(dialog.object);
-        }
-    }
-
-    pub(super) fn reconcile_content_dialog(
+    fn reconcile_content_dialog(
         &mut self,
         owner: ObjectId,
         previous: Option<RetainedContentDialog>,
         desired: Option<&DeclaredContentDialog>,
-        owner_replaced: bool,
+        replaced: bool,
     ) {
-        match (previous, desired) {
-            (None, None) => {}
-            (None, Some(desired)) => self.mount_content_dialog(owner, desired),
-            (Some(previous), None) => {
-                if !owner_replaced {
-                    if previous.open {
-                        self.mutations.push(Mutation::SetContentDialogOpen {
-                            dialog: previous.object,
-                            open: false,
-                        });
-                    }
-                    self.mutations.push(Mutation::SetContentDialog {
-                        owner,
-                        dialog: None,
-                    });
+        let Some(desired) = desired else {
+            if let Some(previous) = previous {
+                if !replaced {
+                    self.detach_content_dialog(owner, &previous);
                 }
                 self.retire(previous.object);
             }
-            (Some(previous), Some(desired)) => {
-                let object = self.reconcile_object(previous.object, &desired.declaration);
-                if owner_replaced || object != previous.object {
-                    self.mutations.push(Mutation::SetContentDialog {
-                        owner,
-                        dialog: Some(object),
-                    });
-                }
-                if owner_replaced && desired.open || previous.open != desired.open {
-                    self.mutations.push(Mutation::SetContentDialogOpen {
-                        dialog: object,
-                        open: desired.open,
-                    });
-                }
-                self.retained_attachments(owner).content_dialog = Some(RetainedContentDialog {
-                    object,
-                    open: desired.open,
-                });
-            }
+            return;
+        };
+        let object = match &previous {
+            Some(previous) => self.reconcile_object(previous.object, &desired.declaration),
+            None => self.mount(&desired.declaration),
+        };
+        if replaced || previous.as_ref().map(|previous| previous.object) != Some(object) {
+            self.mutations.push(Mutation::SetContentDialog {
+                owner,
+                dialog: Some(object),
+            });
         }
+        let was_open = previous.is_some_and(|previous| previous.open);
+        if replaced && desired.open || was_open != desired.open {
+            self.mutations.push(Mutation::SetContentDialogOpen {
+                dialog: object,
+                open: desired.open,
+            });
+        }
+        self.retained_attachments(owner).content_dialog = Some(RetainedContentDialog {
+            object,
+            open: desired.open,
+        });
     }
 }
