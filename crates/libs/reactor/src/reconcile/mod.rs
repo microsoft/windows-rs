@@ -10,6 +10,7 @@ mod runtime;
 mod virtualization;
 
 pub use feedback::*;
+use retirement::NativeChildren;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ObjectId {
@@ -408,6 +409,7 @@ struct RetainedRealization {
 struct RetainedRetirement {
     nodes: Vec<ObjectId>,
     parent: ObjectId,
+    relation: RelationId,
 }
 
 fn retained_events(events: &Option<Rc<Vec<Event>>>) -> &[Event] {
@@ -434,6 +436,9 @@ pub struct RetainedGraph {
     objects: Vec<RetainedSlot>,
     free: Vec<u32>,
     retirements: HashMap<ObjectId, RetainedRetirement>,
+    /// The native order of each relation with retiring children, which keep their native slots
+    /// until their retirement completes. Other relations' native order is their active order.
+    native_orders: HashMap<(ObjectId, RelationId), Vec<ObjectId>>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
     #[cfg(test)]
     full_reference_scans: ReferenceScanCounter,

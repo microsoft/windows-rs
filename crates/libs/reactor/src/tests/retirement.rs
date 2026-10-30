@@ -576,3 +576,232 @@ fn events_queued_after_logical_retirement_are_stale_before_completion() {
     assert_eq!(calls.get(), 0);
     assert_eq!(runtime.graph().retired_count(), 0);
 }
+
+/// Drives random keyed (`Grid`) and positional (`Canvas`) updates with fading children. The
+/// recording adapter applies the reconciler's native indices and moves as given and rejects a
+/// mismatched removal, a reorder that does not produce the declared order, and a move of a
+/// retiring child.
+#[test]
+fn native_order_tracks_interleaved_retirements() {
+    struct Random(u64);
+    impl Random {
+        fn next(&mut self, bound: usize) -> usize {
+            self.0 = self
+                .0
+                .wrapping_mul(6_364_136_223_846_793_005)
+                .wrapping_add(1_442_695_040_888_963_407);
+            ((self.0 >> 33) % bound as u64) as usize
+        }
+    }
+    fn child(random: &mut Random, label: usize) -> View {
+        let fade = (random.next(3) != 0).then_some(Duration::from_millis(100));
+        let text = label.to_string();
+        let button = random.next(2) == 0;
+        match fade {
+            Some(fade) if button => Button::new().content(text).exit_fade(fade).into(),
+            Some(fade) => TextBlock::new().text(text).exit_fade(fade).into(),
+            None if button => Button::new().content(text).into(),
+            None => TextBlock::new().text(text).into(),
+        }
+    }
+    for seed in 0..64 {
+        let mut random = Random(seed);
+        let keyed_parent = seed % 2 == 0;
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        let mut previous_native = Vec::new();
+        for _ in 0..40 {
+            let mut keys = (0..8).filter(|_| random.next(3) != 0).collect::<Vec<_>>();
+            for index in (1..keys.len()).rev() {
+                keys.swap(index, random.next(index + 1));
+            }
+            let view: View = if keyed_parent {
+                Grid::new()
+                    .keyed_children(
+                        keys.iter()
+                            .map(|key| keyed(*key, child(&mut random, *key)))
+                            .collect::<Vec<_>>(),
+                    )
+                    .into()
+            } else {
+                Canvas::new()
+                    .children(
+                        keys.iter()
+                            .map(|key| child(&mut random, *key))
+                            .collect::<Vec<_>>(),
+                    )
+                    .into()
+            };
+            runtime.update(view);
+            let root = runtime.graph().root().unwrap();
+            let active = runtime
+                .graph()
+                .children(root, RelationId::Children)
+                .unwrap()
+                .to_vec();
+            let native = runtime
+                .adapter()
+                .children(root, RelationId::Children)
+                .unwrap()
+                .to_vec();
+            assert_eq!(
+                native
+                    .iter()
+                    .copied()
+                    .filter(|child| active.contains(child))
+                    .collect::<Vec<_>>(),
+                active
+            );
+            let retiring = native
+                .iter()
+                .copied()
+                .filter(|child| !active.contains(child))
+                .collect::<Vec<_>>();
+            assert_eq!(retiring.len(), runtime.adapter().retirement_count());
+            assert_eq!(retiring.len(), runtime.graph().retired_count());
+            // Retiring children keep their relative native order.
+            let mut previous = previous_native.iter();
+            assert!(
+                retiring
+                    .iter()
+                    .all(|child| previous.any(|previous| previous == child))
+            );
+            for child in &retiring {
+                if random.next(3) == 0 {
+                    assert!(runtime.adapter_mut().complete_retirement(*child));
+                }
+            }
+            runtime.dispatch_native_events();
+            previous_native = runtime
+                .adapter()
+                .children(root, RelationId::Children)
+                .unwrap()
+                .to_vec();
+        }
+    }
+}
+
+#[test]
+fn reorder_moves_active_children_around_retiring_slots() {
+    let view = |keys: &[&str]| {
+        Grid::new().keyed_children(
+            keys.iter()
+                .map(|key| {
+                    keyed(
+                        *key,
+                        TextBlock::new()
+                            .text(*key)
+                            .exit_fade(Duration::from_millis(100)),
+                    )
+                })
+                .collect::<Vec<_>>(),
+        )
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view(&["a", "r", "b"]));
+    let root = runtime.graph().root().unwrap();
+    let [a, r, b] = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()
+        .try_into()
+        .unwrap();
+    runtime.update(view(&["a", "b"]));
+    runtime.adapter_mut().record_batches(true);
+
+    runtime.update(view(&["b", "a"]));
+
+    // Each active child crosses the retiring slot, which stays at native index 1.
+    let [
+        Mutation::Reorder {
+            moves, children, ..
+        },
+    ] = runtime.adapter().batches().last().unwrap().as_slice()
+    else {
+        panic!("expected one reorder");
+    };
+    assert_eq!(children, &[b, r, a]);
+    assert!(moves.iter().all(|movement| movement.child != r));
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        &[b, r, a]
+    );
+}
+
+#[test]
+fn replacing_a_parent_completes_its_child_retirements() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(Grid::new().children((StackPanel::new().keyed_children([
+        keyed(
+            "fading",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        ),
+        keyed("kept", Button::new()),
+    ]),)));
+    let root = runtime.graph().root().unwrap();
+    let panel = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    let fading = runtime
+        .graph()
+        .children(panel, RelationId::Children)
+        .unwrap()[0];
+    runtime.update_subtree(
+        panel,
+        StackPanel::new().keyed_children([keyed("kept", Button::new())]),
+    );
+    assert_eq!(runtime.graph().retired_count(), 1);
+
+    runtime.update_subtree(panel, Grid::new().children((Button::new(),)));
+
+    assert_eq!(runtime.graph().retired_count(), 0);
+    assert_eq!(runtime.adapter().retirement_count(), 0);
+    assert_eq!(runtime.graph().kind(fading), None);
+    assert!(!runtime.adapter_mut().complete_retirement(fading));
+}
+
+#[test]
+fn direct_removal_tracks_native_slots() {
+    let view = |keys: &[&str]| {
+        Grid::new().keyed_children(
+            keys.iter()
+                .map(|key| {
+                    keyed(
+                        *key,
+                        TextBlock::new()
+                            .text(*key)
+                            .exit_fade(Duration::from_millis(100)),
+                    )
+                })
+                .collect::<Vec<_>>(),
+        )
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view(&["a", "b", "c"]));
+    let root = runtime.graph().root().unwrap();
+    let [a, b, c] = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()
+        .try_into()
+        .unwrap();
+
+    runtime.remove_child(root, RelationId::Children, a);
+    runtime.remove_child(root, RelationId::Children, b);
+    runtime.update(view(&["d", "c"]));
+
+    let d = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        &[a, b, d, c]
+    );
+}

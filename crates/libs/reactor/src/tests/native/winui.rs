@@ -419,27 +419,6 @@ fn content_dialog_schedule_ignores_stale_completion_generation() {
     assert_eq!(schedule.active, None);
 }
 
-#[test]
-fn active_slot_reorder_preserves_interleaved_retiring_indices() {
-    let mut current = vec![(1, 1), (99, 99), (2, 2), (3, 3), (4, 4)];
-    let active = HashSet::from([1, 2, 3, 4]);
-
-    let swaps = simulate_active_slot_reorder(&mut current, &active, &[4, 3, 2, 1]).unwrap();
-
-    assert_eq!(current, [(4, 4), (99, 99), (3, 3), (2, 2), (1, 1)]);
-    assert_eq!(swaps.len(), 2);
-    assert!(swaps.iter().all(|(left, right, _, _)| left < right));
-}
-
-#[test]
-fn active_slot_reorder_rejects_missing_or_duplicate_active_identity() {
-    let mut current = vec![(1, ()), (99, ()), (2, ())];
-    let active = HashSet::from([1, 2]);
-
-    assert!(simulate_active_slot_reorder(&mut current, &active, &[2, 3]).is_none());
-    assert!(simulate_active_slot_reorder(&mut current, &active, &[2, 2]).is_none());
-}
-
 fn virtual_index(value: IInspectable) -> i32 {
     value
         .cast::<windows_reference::IReference<i32>>()

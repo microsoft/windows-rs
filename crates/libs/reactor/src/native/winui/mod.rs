@@ -633,40 +633,6 @@ fn com_identity(value: &impl Interface) -> Result<usize, WinUiError> {
     Ok(value.cast::<windows_core::IUnknown>()?.as_raw() as usize)
 }
 
-fn simulate_active_slot_reorder<T: Clone>(
-    current: &mut [(usize, T)],
-    active: &HashSet<usize>,
-    desired: &[usize],
-) -> Option<Vec<(usize, usize, T, T)>> {
-    let slots = current
-        .iter()
-        .enumerate()
-        .filter_map(|(index, (identity, _))| active.contains(identity).then_some(index))
-        .collect::<Vec<_>>();
-    if slots.len() != desired.len() || active.len() != desired.len() {
-        return None;
-    }
-    let mut swaps = Vec::new();
-    for (desired_index, left) in slots.iter().copied().enumerate() {
-        if current[left].0 == desired[desired_index] {
-            continue;
-        }
-        let right = slots[desired_index + 1..]
-            .iter()
-            .copied()
-            .find(|right| current[*right].0 == desired[desired_index])?;
-        let left_value = current[right].1.clone();
-        let right_value = current[left].1.clone();
-        current.swap(left, right);
-        swaps.push((left, right, left_value, right_value));
-    }
-    current
-        .iter()
-        .filter_map(|(identity, _)| active.contains(identity).then_some(*identity))
-        .eq(desired.iter().copied())
-        .then_some(swaps)
-}
-
 fn index32(index: usize) -> Result<u32, WinUiError> {
     index
         .try_into()
