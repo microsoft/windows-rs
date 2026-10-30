@@ -96,7 +96,8 @@ mod Windows {
             // Exactly one count source is required. Counts use the contract phase unless CountOnEntry.
             // Indirect selects initialized pointer storage at the contract phase: the incoming
             // pointer on entry, or the returned pointer on success.
-            // The pointer stays non-null unless Nullable, even with an unavailable optional count.
+            // An indirect pointer is non-null at the contract phase unless NullableAttribute is
+            // present, even with an unavailable optional count.
             attribute BufferExtentAttribute {
                 fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
                 CountConst: u64,
@@ -117,7 +118,6 @@ mod Windows {
                 // Guards the single dereferenced count, including inside an expression.
                 NullFallbackParamIndex: u16,
                 Indirect: bool,
-                Nullable: bool,
             }
             // Zero termination is independent of capacity and does not specify an encoding.
             // OnSuccess is a postcondition subject to the callable's success contract.
@@ -133,26 +133,21 @@ mod Windows {
                 DoubleNullOnSuccess: bool,
                 Indirect: bool,
             }
-            // Null is permitted at the selected phases. Absence leaves nullability unspecified.
-            // Indirect selects the pointer stored in the parameter, not the argument storage.
-            // This permission alone does not require or promise initialized/readable storage.
-            // On a return row, no phase properties means a nullable returned value, independently
-            // of success. RDL spells this as `-> #[nullable] T`.
-            // On a field, no phase properties permits null in a valid containing value.
+            // A pointer the API gives the caller may be null: on an output parameter, the pointer
+            // stored through it; on a return, the returned value; on a field, the field. Argument
+            // storage the caller may omit is the separate Optional param flag. Absence leaves
+            // nullability unspecified unless an indirect BufferExtent or NativeReturnedPointer
+            // promises a non-null pointer. This does not promise initialized/readable storage.
             attribute NullableAttribute {
                 fn();
-                OnEntry: bool,
-                OnSuccess: bool,
-                Indirect: bool,
             }
             // A parameter supplies storage for a returned pointer. If storage is supplied,
-            // successful completion initializes it; a non-null result points to one readable
-            // element. MayBeNull permits a null result on success, not a null storage argument.
-            // NullOnFailure additionally requires a null result on failure. Success/failure
-            // follows the callable's contract. This specifies no allocator or ownership transfer.
+            // successful completion initializes it to a non-null pointer to one readable element,
+            // unless NullableAttribute is present. NullOnFailure requires a null result on failure.
+            // Success/failure follows the callable's contract. This specifies no allocator or
+            // ownership transfer.
             attribute NativeReturnedPointerAttribute {
                 fn();
-                MayBeNull: bool,
                 NullOnFailure: bool,
             }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).

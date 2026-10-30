@@ -94,8 +94,9 @@ mod Windows {
         }
         struct DXGI_PRESENT_PARAMETERS {
             DirtyRectsCount: UINT,
-            #[readable(DirtyRectsCount, nullable)]
-            #[writable(DirtyRectsCount, nullable)]
+            #[nullable]
+            #[readable(DirtyRectsCount)]
+            #[writable(DirtyRectsCount)]
             pDirtyRects: *mut RECT,
             pScrollRect: *mut RECT,
             pScrollOffset: *mut POINT,

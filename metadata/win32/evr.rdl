@@ -53,7 +53,7 @@ mod Windows {
             fn SetVideoWindow(&self, #[in] hwndVideo: HWND) -> HRESULT;
             fn GetVideoWindow(&self, #[out] #[out_ptr] phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbDib, indirect, nullable)] #[writable(success, *pcbDib, indirect, nullable)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[nullable] #[out] #[readable(success, *pcbDib, indirect)] #[writable(success, *pcbDib, indirect)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
             fn SetBorderColor(&self, #[in] Clr: COLORREF) -> HRESULT;
             fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
             fn SetRenderingPrefs(&self, #[in] dwRenderFlags: DWORD) -> HRESULT;
@@ -91,9 +91,9 @@ mod Windows {
         #[library("EVR.dll")]
         extern fn MFCreateVideoMixerAndPresenter(#[in] #[opt] pMixerOwner: IUnknown, #[in] #[opt] pPresenterOwner: IUnknown, riidMixer: &IID, #[out] #[out_ptr] ppvVideoMixer: *mut *mut void, riidPresenter: &IID, #[out] #[out_ptr] ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] #[out_ptr(nullable)] ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[nullable] #[out] #[out_ptr] ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[out] #[out_ptr(nullable)] ppVideoRenderer: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[nullable] #[out] #[out_ptr] ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern fn MFCreateVideoSampleAllocator(#[in] riid: &IID, #[out] #[out_ptr] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]

@@ -191,7 +191,7 @@ mod Windows {
         interface IAsyncRpcChannelBuffer: IRpcChannelBuffer2 {
             fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, #[in] pSync: ISynchronize, #[out] pulStatus: *mut ULONG) -> HRESULT;
             fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, #[out] pulStatus: *mut ULONG) -> HRESULT;
-            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[out] pdwDestContext: *mut DWORD, #[opt] #[out] #[out_ptr(nullable)] ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[out] pdwDestContext: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppvDestContext: *mut *mut void) -> HRESULT;
         }
         #[guid(0x1c733a30_2a1c_11ce_ade5_00aa0044773d)]
         interface ICallFactory: IUnknown {
@@ -213,7 +213,7 @@ mod Windows {
         }
         #[guid(0x0000013d_0000_0000_c000_000000000046)]
         interface IClientSecurity: IUnknown {
-            fn QueryBlanket(&self, #[in] pProxy: IUnknown, #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[out] #[out_ptr] pServerPrincName: *mut *mut OLECHAR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[out] #[out_ptr(nullable)] pAuthInfo: *mut *mut void, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
+            fn QueryBlanket(&self, #[in] pProxy: IUnknown, #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[out] #[out_ptr] pServerPrincName: *mut *mut OLECHAR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[nullable] #[out] #[out_ptr] pAuthInfo: *mut *mut void, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
             fn SetBlanket(&self, #[in] pProxy: IUnknown, #[in] dwAuthnSvc: DWORD, #[in] dwAuthzSvc: DWORD, #[in] #[opt] pServerPrincName: *mut OLECHAR, #[in] dwAuthnLevel: DWORD, #[in] dwImpLevel: DWORD, #[in] #[opt] pAuthInfo: *mut void, #[in] dwCapabilities: DWORD) -> HRESULT;
             fn CopyProxy(&self, #[in] pProxy: IUnknown, #[out] #[out_ptr] #[retval] ppCopy: *mut IUnknown) -> HRESULT;
         }
@@ -336,7 +336,7 @@ mod Windows {
             fn GetBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[in] riid: &IID) -> HRESULT;
             fn SendReceive(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[opt] #[out] pStatus: *mut ULONG) -> HRESULT;
             fn FreeBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE) -> HRESULT;
-            fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[out] #[out_ptr(nullable)] ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[nullable] #[out] #[out_ptr] ppvDestContext: *mut *mut void) -> HRESULT;
             fn IsConnected(&self) -> HRESULT;
         }
         #[guid(0x594f31d0_7f19_11d0_b194_00a0c90dc8bf)]
@@ -349,7 +349,7 @@ mod Windows {
             fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, #[in] ulSize: ULONG, #[out] pulStatus: *mut ULONG) -> HRESULT;
             fn Cancel(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE) -> HRESULT;
             fn GetCallContext(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[in] riid: &IID, #[out] #[out_ptr] pInterface: *mut *mut void) -> HRESULT;
-            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[out] pdwDestContext: *mut DWORD, #[opt] #[out] #[out_ptr(nullable)] ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[out] pdwDestContext: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppvDestContext: *mut *mut void) -> HRESULT;
             fn GetState(&self, #[in] pMsg: *mut RPCOLEMESSAGE, #[out] pState: *mut DWORD) -> HRESULT;
             fn RegisterAsync(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, #[in] pAsyncMgr: IAsyncManager) -> HRESULT;
         }
@@ -389,7 +389,7 @@ mod Windows {
         }
         #[guid(0x0000013e_0000_0000_c000_000000000046)]
         interface IServerSecurity: IUnknown {
-            fn QueryBlanket(&self, #[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[out] #[out_ptr] pServerPrincName: *mut *mut OLECHAR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[out] #[out_ptr(nullable)] pPrivs: *mut *mut void, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
+            fn QueryBlanket(&self, #[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[out] #[out_ptr] pServerPrincName: *mut *mut OLECHAR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[nullable] #[out] #[out_ptr] pPrivs: *mut *mut void, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
             fn ImpersonateClient(&self) -> HRESULT;
             fn RevertToSelf(&self) -> HRESULT;
             fn IsImpersonating(&self) -> BOOL;

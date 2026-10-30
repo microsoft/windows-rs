@@ -7720,10 +7720,10 @@ mod Windows {
         extern fn RtlVirtualUnwind(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PULONG_PTR, #[in] #[opt] HighLimit: PULONG_PTR, #[opt] #[out] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
+        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PULONG_PTR, #[in] #[opt] HighLimit: PULONG_PTR, #[nullable] #[opt] #[out] #[out_ptr] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PDWORD64, #[in] #[opt] HighLimit: PDWORD64, #[opt] #[out] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
+        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PDWORD64, #[in] #[opt] HighLimit: PDWORD64, #[nullable] #[opt] #[out] #[out_ptr] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
         const SACL_SECURITY_INFORMATION: i32 = 8;
         const SANDBOX_INERT: i32 = 2;
         const SCOPE_SECURITY_INFORMATION: i32 = 64;
@@ -10142,7 +10142,8 @@ mod Windows {
             Length: DWORD,
             Flags: BYTE,
             Reserved0: [BYTE; 3],
-            #[writable(bytes(Length), nullable)]
+            #[nullable]
+            #[writable(bytes(Length))]
             Area: PXSAVE_AREA,
             Buffer: PVOID,
         }
@@ -10152,7 +10153,8 @@ mod Windows {
             Length: DWORD,
             Flags: BYTE,
             Reserved0: [BYTE; 3],
-            #[writable(bytes(Length), nullable)]
+            #[nullable]
+            #[writable(bytes(Length))]
             Area: PXSAVE_AREA,
             Reserved2: DWORD,
             Buffer: PVOID,

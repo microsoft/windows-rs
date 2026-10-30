@@ -10,7 +10,8 @@ mod Windows {
             ResultListLength: DWORD,
             #[writable(ResultListLength)]
             GrantedAccessMask: PACCESS_MASK,
-            #[writable(ResultListLength, nullable)]
+            #[nullable]
+            #[writable(ResultListLength)]
             SaclEvaluationResults: PDWORD,
             #[writable(ResultListLength)]
             Error: PDWORD,

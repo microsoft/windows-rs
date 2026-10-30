@@ -70,7 +70,6 @@ mod Windows {
             }
             attribute NativeReturnedPointerAttribute {
                 fn();
-                MayBeNull: bool,
                 NullOnFailure: bool,
             }
         }

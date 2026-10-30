@@ -225,9 +225,11 @@ mod Windows {
             glyphCount: UINT32,
             #[writable(glyphCount)]
             glyphIndices: *const UINT16,
-            #[writable(glyphCount, nullable)]
+            #[nullable]
+            #[writable(glyphCount)]
             glyphAdvances: *const FLOAT,
-            #[writable(glyphCount, nullable)]
+            #[nullable]
+            #[writable(glyphCount)]
             glyphOffsets: *const DWRITE_GLYPH_OFFSET,
             isSideways: BOOL,
             bidiLevel: UINT32,
@@ -238,7 +240,8 @@ mod Windows {
             #[writable(stringLength)]
             string: *const WCHAR,
             stringLength: UINT32,
-            #[writable(stringLength, nullable)]
+            #[nullable]
+            #[writable(stringLength)]
             clusterMap: *const UINT16,
             textPosition: UINT32,
         }
@@ -510,7 +513,7 @@ mod Windows {
             fn GetStyle(&self) -> DWRITE_FONT_STYLE;
             fn IsSymbolFont(&self) -> BOOL;
             fn GetFaceNames(&self, #[out] #[out_ptr(null_on_failure)] #[retval] names: *mut IDWriteLocalizedStrings) -> HRESULT;
-            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, #[out] #[out_ptr(nullable, null_on_failure)] informationalStrings: *mut IDWriteLocalizedStrings, #[out] exists: *mut BOOL) -> HRESULT;
+            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, #[nullable] #[out] #[out_ptr(null_on_failure)] informationalStrings: *mut IDWriteLocalizedStrings, #[out] exists: *mut BOOL) -> HRESULT;
             fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
             fn GetMetrics(&self, #[out] fontMetrics: *mut DWRITE_FONT_METRICS);
             fn HasCharacter(&self, unicodeValue: UINT32, #[out] exists: *mut BOOL) -> HRESULT;

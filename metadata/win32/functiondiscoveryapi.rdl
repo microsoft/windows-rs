@@ -21,10 +21,10 @@ mod Windows {
         struct IFunctionDiscoveryProviderRefresh {}
         #[guid(0x33591c10_0bed_4f02_b0ab_1530d5533ee9)]
         interface IFunctionInstance: IServiceProvider {
-            fn GetID(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] ppszCoMemIdentity: *mut *mut WCHAR) -> HRESULT;
-            fn GetProviderInstanceID(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] ppszCoMemProviderInstanceIdentity: *mut *mut WCHAR) -> HRESULT;
+            fn GetID(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] ppszCoMemIdentity: *mut *mut WCHAR) -> HRESULT;
+            fn GetProviderInstanceID(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] ppszCoMemProviderInstanceIdentity: *mut *mut WCHAR) -> HRESULT;
             fn OpenPropertyStore(&self, #[in] dwStgAccess: DWORD, #[out] #[out_ptr] #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
-            fn GetCategory(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszCoMemCategory: *mut *mut WCHAR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszCoMemSubCategory: *mut *mut WCHAR) -> HRESULT;
+            fn GetCategory(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszCoMemCategory: *mut *mut WCHAR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszCoMemSubCategory: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xf0a3d895_855c_42a2_948d_2f97d450ecb1)]
         interface IFunctionInstanceCollection: IUnknown {

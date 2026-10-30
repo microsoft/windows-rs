@@ -62,7 +62,7 @@ mod Windows {
         extern fn GetStateTextW(#[in] lStateBit: DWORD, #[opt] #[out] #[writable(entry, cchState)] lpszState: LPWSTR, #[in] cchState: UINT) -> UINT;
         #[guid(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f)]
         interface IAccIdentity: IUnknown {
-            fn GetIdentityString(&self, #[in] dwIDChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn GetIdentityString(&self, #[in] dwIDChild: DWORD, #[nullable] #[out] #[readable(success, *pdwIDStringLen, indirect)] #[writable(success, *pdwIDStringLen, indirect)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
         }
         #[guid(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0)]
         interface IAccPropServer: IUnknown {
@@ -77,13 +77,13 @@ mod Windows {
             fn SetHwndPropStr(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
             fn SetHwndPropServer(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHwndProps(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
-            fn ComposeHwndIdentityString(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn ComposeHwndIdentityString(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[nullable] #[out] #[readable(success, *pdwIDStringLen, indirect)] #[writable(success, *pdwIDStringLen, indirect)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
             fn DecomposeHwndIdentityString(&self, #[in] #[readable(entry, dwIDStringLen)] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[out] #[out_ptr] phwnd: *mut HWND, #[out] pidObject: *mut DWORD, #[out] pidChild: *mut DWORD) -> HRESULT;
             fn SetHmenuProp(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] var: VARIANT) -> HRESULT;
             fn SetHmenuPropStr(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
             fn SetHmenuPropServer(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHmenuProps(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
-            fn ComposeHmenuIdentityString(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn ComposeHmenuIdentityString(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[nullable] #[out] #[readable(success, *pdwIDStringLen, indirect)] #[writable(success, *pdwIDStringLen, indirect)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
             fn DecomposeHmenuIdentityString(&self, #[in] #[readable(entry, dwIDStringLen)] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[out] #[out_ptr] phmenu: *mut HMENU, #[out] pidChild: *mut DWORD) -> HRESULT;
         }
         #[guid(0x618736e0_3c3d_11cf_810c_00aa00389b71)]

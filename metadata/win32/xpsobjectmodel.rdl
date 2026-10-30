@@ -11,9 +11,9 @@ mod Windows {
             fn GetVisuals(&self, #[out] #[out_ptr] #[retval] visuals: *mut IXpsOMVisualCollection) -> HRESULT;
             fn GetUseAliasedEdgeMode(&self, #[out] #[retval] useAliasedEdgeMode: *mut BOOL) -> HRESULT;
             fn SetUseAliasedEdgeMode(&self, #[in] useAliasedEdgeMode: BOOL) -> HRESULT;
-            fn GetAccessibilityShortDescription(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] shortDescription: *mut LPWSTR) -> HRESULT;
+            fn GetAccessibilityShortDescription(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] shortDescription: *mut LPWSTR) -> HRESULT;
             fn SetAccessibilityShortDescription(&self, #[in] #[null_terminated(entry)] shortDescription: LPCWSTR) -> HRESULT;
-            fn GetAccessibilityLongDescription(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] longDescription: *mut LPWSTR) -> HRESULT;
+            fn GetAccessibilityLongDescription(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] longDescription: *mut LPWSTR) -> HRESULT;
             fn SetAccessibilityLongDescription(&self, #[in] #[null_terminated(entry)] longDescription: LPCWSTR) -> HRESULT;
             fn GetDictionary(&self, #[out] #[out_ptr] #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
             fn GetDictionaryLocal(&self, #[out] #[out_ptr] #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
@@ -40,37 +40,37 @@ mod Windows {
         #[guid(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597)]
         interface IXpsOMCoreProperties: IXpsOMPart {
             fn GetOwner(&self, #[out] #[out_ptr] #[retval] package: *mut IXpsOMPackage) -> HRESULT;
-            fn GetCategory(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] category: *mut LPWSTR) -> HRESULT;
+            fn GetCategory(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] category: *mut LPWSTR) -> HRESULT;
             fn SetCategory(&self, #[in] #[null_terminated(entry)] category: LPCWSTR) -> HRESULT;
-            fn GetContentStatus(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] contentStatus: *mut LPWSTR) -> HRESULT;
+            fn GetContentStatus(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] contentStatus: *mut LPWSTR) -> HRESULT;
             fn SetContentStatus(&self, #[in] #[null_terminated(entry)] contentStatus: LPCWSTR) -> HRESULT;
-            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
+            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
             fn SetContentType(&self, #[in] #[null_terminated(entry)] contentType: LPCWSTR) -> HRESULT;
             fn GetCreated(&self, #[out] #[retval] created: *mut SYSTEMTIME) -> HRESULT;
             fn SetCreated(&self, #[in] created: *const SYSTEMTIME) -> HRESULT;
-            fn GetCreator(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] creator: *mut LPWSTR) -> HRESULT;
+            fn GetCreator(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] creator: *mut LPWSTR) -> HRESULT;
             fn SetCreator(&self, #[in] #[null_terminated(entry)] creator: LPCWSTR) -> HRESULT;
-            fn GetDescription(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] description: *mut LPWSTR) -> HRESULT;
+            fn GetDescription(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] description: *mut LPWSTR) -> HRESULT;
             fn SetDescription(&self, #[in] #[null_terminated(entry)] description: LPCWSTR) -> HRESULT;
-            fn GetIdentifier(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] identifier: *mut LPWSTR) -> HRESULT;
+            fn GetIdentifier(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] identifier: *mut LPWSTR) -> HRESULT;
             fn SetIdentifier(&self, #[in] #[null_terminated(entry)] identifier: LPCWSTR) -> HRESULT;
-            fn GetKeywords(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] keywords: *mut LPWSTR) -> HRESULT;
+            fn GetKeywords(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] keywords: *mut LPWSTR) -> HRESULT;
             fn SetKeywords(&self, #[in] #[null_terminated(entry)] keywords: LPCWSTR) -> HRESULT;
-            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] language: *mut LPWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] language: *mut LPWSTR) -> HRESULT;
             fn SetLanguage(&self, #[in] #[null_terminated(entry)] language: LPCWSTR) -> HRESULT;
-            fn GetLastModifiedBy(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lastModifiedBy: *mut LPWSTR) -> HRESULT;
+            fn GetLastModifiedBy(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lastModifiedBy: *mut LPWSTR) -> HRESULT;
             fn SetLastModifiedBy(&self, #[in] #[null_terminated(entry)] lastModifiedBy: LPCWSTR) -> HRESULT;
             fn GetLastPrinted(&self, #[out] #[retval] lastPrinted: *mut SYSTEMTIME) -> HRESULT;
             fn SetLastPrinted(&self, #[in] lastPrinted: *const SYSTEMTIME) -> HRESULT;
             fn GetModified(&self, #[out] #[retval] modified: *mut SYSTEMTIME) -> HRESULT;
             fn SetModified(&self, #[in] modified: *const SYSTEMTIME) -> HRESULT;
-            fn GetRevision(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] revision: *mut LPWSTR) -> HRESULT;
+            fn GetRevision(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] revision: *mut LPWSTR) -> HRESULT;
             fn SetRevision(&self, #[in] #[null_terminated(entry)] revision: LPCWSTR) -> HRESULT;
-            fn GetSubject(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] subject: *mut LPWSTR) -> HRESULT;
+            fn GetSubject(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] subject: *mut LPWSTR) -> HRESULT;
             fn SetSubject(&self, #[in] #[null_terminated(entry)] subject: LPCWSTR) -> HRESULT;
-            fn GetTitle(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] title: *mut LPWSTR) -> HRESULT;
+            fn GetTitle(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] title: *mut LPWSTR) -> HRESULT;
             fn SetTitle(&self, #[in] #[null_terminated(entry)] title: LPCWSTR) -> HRESULT;
-            fn GetVersion(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] version: *mut LPWSTR) -> HRESULT;
+            fn GetVersion(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] version: *mut LPWSTR) -> HRESULT;
             fn SetVersion(&self, #[in] #[null_terminated(entry)] version: LPCWSTR) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] coreProperties: *mut IXpsOMCoreProperties) -> HRESULT;
         }
@@ -87,7 +87,7 @@ mod Windows {
         interface IXpsOMDictionary: IUnknown {
             fn GetOwner(&self, #[out] #[out_ptr] #[retval] owner: *mut IUnknown) -> HRESULT;
             fn GetCount(&self, #[out] #[retval] count: *mut UINT32) -> HRESULT;
-            fn GetAt(&self, #[in] index: UINT32, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] key: *mut LPWSTR, #[out] #[out_ptr] #[retval] entry: *mut IXpsOMShareable) -> HRESULT;
+            fn GetAt(&self, #[in] index: UINT32, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] key: *mut LPWSTR, #[out] #[out_ptr] #[retval] entry: *mut IXpsOMShareable) -> HRESULT;
             fn GetByKey(&self, #[in] #[null_terminated(entry)] key: LPCWSTR, #[in] #[opt] beforeEntry: IXpsOMShareable, #[out] #[out_ptr] #[retval] entry: *mut IXpsOMShareable) -> HRESULT;
             fn GetIndex(&self, #[in] #[opt] entry: IXpsOMShareable, #[out] #[retval] index: *mut UINT32) -> HRESULT;
             fn Append(&self, #[in] #[null_terminated(entry)] key: LPCWSTR, #[in] #[opt] entry: IXpsOMShareable) -> HRESULT;
@@ -153,7 +153,7 @@ mod Windows {
             fn GetTransform(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn GetTransformLocal(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn SetTransformLocal(&self, #[in] #[opt] transform: IXpsOMMatrixTransform) -> HRESULT;
-            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
+            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
             fn SetTransformLookup(&self, #[in] #[null_terminated(entry)] lookup: LPCWSTR) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
         }
@@ -186,7 +186,7 @@ mod Windows {
         }
         #[guid(0x819b3199_0a5a_4b64_bec7_a9e17e780de2)]
         interface IXpsOMGlyphs: IXpsOMVisual {
-            fn GetUnicodeString(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] unicodeString: *mut LPWSTR) -> HRESULT;
+            fn GetUnicodeString(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] unicodeString: *mut LPWSTR) -> HRESULT;
             fn GetGlyphIndexCount(&self, #[out] #[retval] indexCount: *mut UINT32) -> HRESULT;
             fn GetGlyphIndices(&self, #[in] #[out] indexCount: *mut UINT32, #[in] #[out] glyphIndices: *mut XPS_GLYPH_INDEX) -> HRESULT;
             fn GetGlyphMappingCount(&self, #[out] #[retval] glyphMappingCount: *mut UINT32) -> HRESULT;
@@ -195,7 +195,7 @@ mod Windows {
             fn GetProhibitedCaretStops(&self, #[in] #[out] prohibitedCaretStopCount: *mut UINT32, #[out] prohibitedCaretStops: *mut UINT32) -> HRESULT;
             fn GetBidiLevel(&self, #[out] #[retval] bidiLevel: *mut UINT32) -> HRESULT;
             fn GetIsSideways(&self, #[out] #[retval] isSideways: *mut BOOL) -> HRESULT;
-            fn GetDeviceFontName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] deviceFontName: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceFontName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] deviceFontName: *mut LPWSTR) -> HRESULT;
             fn GetStyleSimulations(&self, #[out] #[retval] styleSimulations: *mut XPS_STYLE_SIMULATION) -> HRESULT;
             fn SetStyleSimulations(&self, #[in] styleSimulations: XPS_STYLE_SIMULATION) -> HRESULT;
             fn GetOrigin(&self, #[out] #[retval] origin: *mut XPS_POINT) -> HRESULT;
@@ -209,7 +209,7 @@ mod Windows {
             fn GetFillBrush(&self, #[out] #[out_ptr] #[retval] fillBrush: *mut IXpsOMBrush) -> HRESULT;
             fn GetFillBrushLocal(&self, #[out] #[out_ptr] #[retval] fillBrush: *mut IXpsOMBrush) -> HRESULT;
             fn SetFillBrushLocal(&self, #[in] #[opt] fillBrush: IXpsOMBrush) -> HRESULT;
-            fn GetFillBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetFillBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetFillBrushLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
             fn GetGlyphsEditor(&self, #[out] #[out_ptr] #[retval] editor: *mut IXpsOMGlyphsEditor) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] glyphs: *mut IXpsOMGlyphs) -> HRESULT;
@@ -217,7 +217,7 @@ mod Windows {
         #[guid(0xa5ab8616_5b16_4b9f_9629_89b323ed7909)]
         interface IXpsOMGlyphsEditor: IUnknown {
             fn ApplyEdits(&self) -> HRESULT;
-            fn GetUnicodeString(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] unicodeString: *mut LPWSTR) -> HRESULT;
+            fn GetUnicodeString(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] unicodeString: *mut LPWSTR) -> HRESULT;
             fn SetUnicodeString(&self, #[in] #[null_terminated(entry)] unicodeString: LPCWSTR) -> HRESULT;
             fn GetGlyphIndexCount(&self, #[out] #[retval] indexCount: *mut UINT32) -> HRESULT;
             fn GetGlyphIndices(&self, #[in] #[out] indexCount: *mut UINT32, #[out] glyphIndices: *mut XPS_GLYPH_INDEX) -> HRESULT;
@@ -232,7 +232,7 @@ mod Windows {
             fn SetBidiLevel(&self, #[in] bidiLevel: UINT32) -> HRESULT;
             fn GetIsSideways(&self, #[out] #[retval] isSideways: *mut BOOL) -> HRESULT;
             fn SetIsSideways(&self, #[in] isSideways: BOOL) -> HRESULT;
-            fn GetDeviceFontName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] deviceFontName: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceFontName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] deviceFontName: *mut LPWSTR) -> HRESULT;
             fn SetDeviceFontName(&self, #[in] #[null_terminated(entry)] deviceFontName: LPCWSTR) -> HRESULT;
         }
         #[guid(0xedb59622_61a2_42c3_bace_acf2286c06bf)]
@@ -241,7 +241,7 @@ mod Windows {
             fn GetTransform(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn GetTransformLocal(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn SetTransformLocal(&self, #[in] #[opt] transform: IXpsOMMatrixTransform) -> HRESULT;
-            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetTransformLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
             fn GetSpreadMethod(&self, #[out] #[retval] spreadMethod: *mut XPS_SPREAD_METHOD) -> HRESULT;
             fn SetSpreadMethod(&self, #[in] spreadMethod: XPS_SPREAD_METHOD) -> HRESULT;
@@ -307,7 +307,7 @@ mod Windows {
         #[guid(0x4bddf8ec_c915_421b_a166_d173d25653d2)]
         interface IXpsOMNameCollection: IUnknown {
             fn GetCount(&self, #[out] #[retval] count: *mut UINT32) -> HRESULT;
-            fn GetAt(&self, #[in] index: UINT32, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetAt(&self, #[in] index: UINT32, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca)]
         interface IXpsOMObjectFactory: IUnknown {
@@ -384,9 +384,9 @@ mod Windows {
             fn SetContentBox(&self, #[in] contentBox: *const XPS_RECT) -> HRESULT;
             fn GetBleedBox(&self, #[out] #[retval] bleedBox: *mut XPS_RECT) -> HRESULT;
             fn SetBleedBox(&self, #[in] bleedBox: *const XPS_RECT) -> HRESULT;
-            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] language: *mut LPWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] language: *mut LPWSTR) -> HRESULT;
             fn SetLanguage(&self, #[in] #[null_terminated(entry)] language: LPCWSTR) -> HRESULT;
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn SetName(&self, #[in] #[null_terminated(entry)] name: LPCWSTR) -> HRESULT;
             fn GetIsHyperlinkTarget(&self, #[out] #[retval] isHyperlinkTarget: *mut BOOL) -> HRESULT;
             fn SetIsHyperlinkTarget(&self, #[in] isHyperlinkTarget: BOOL) -> HRESULT;
@@ -396,7 +396,7 @@ mod Windows {
             fn GetDictionaryResource(&self, #[out] #[out_ptr] #[retval] remoteDictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
             fn SetDictionaryResource(&self, #[in] #[opt] remoteDictionaryResource: IXpsOMRemoteDictionaryResource) -> HRESULT;
             fn Write(&self, #[in] #[opt] stream: ISequentialStream, #[in] optimizeMarkupSize: BOOL) -> HRESULT;
-            fn GenerateUnusedLookupKey(&self, #[in] r#type: XPS_OBJECT_TYPE, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GenerateUnusedLookupKey(&self, #[in] r#type: XPS_OBJECT_TYPE, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] page: *mut IXpsOMPage) -> HRESULT;
         }
         #[guid(0xed360180_6f92_4998_890d_2f208531a0a0)]
@@ -454,18 +454,18 @@ mod Windows {
             fn GetGeometry(&self, #[out] #[out_ptr] #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
             fn GetGeometryLocal(&self, #[out] #[out_ptr] #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
             fn SetGeometryLocal(&self, #[in] #[opt] geometry: IXpsOMGeometry) -> HRESULT;
-            fn GetGeometryLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
+            fn GetGeometryLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
             fn SetGeometryLookup(&self, #[in] #[null_terminated(entry)] lookup: LPCWSTR) -> HRESULT;
-            fn GetAccessibilityShortDescription(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] shortDescription: *mut LPWSTR) -> HRESULT;
+            fn GetAccessibilityShortDescription(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] shortDescription: *mut LPWSTR) -> HRESULT;
             fn SetAccessibilityShortDescription(&self, #[in] #[null_terminated(entry)] shortDescription: LPCWSTR) -> HRESULT;
-            fn GetAccessibilityLongDescription(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] longDescription: *mut LPWSTR) -> HRESULT;
+            fn GetAccessibilityLongDescription(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] longDescription: *mut LPWSTR) -> HRESULT;
             fn SetAccessibilityLongDescription(&self, #[in] #[null_terminated(entry)] longDescription: LPCWSTR) -> HRESULT;
             fn GetSnapsToPixels(&self, #[out] #[retval] snapsToPixels: *mut BOOL) -> HRESULT;
             fn SetSnapsToPixels(&self, #[in] snapsToPixels: BOOL) -> HRESULT;
             fn GetStrokeBrush(&self, #[out] #[out_ptr] #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn GetStrokeBrushLocal(&self, #[out] #[out_ptr] #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn SetStrokeBrushLocal(&self, #[in] #[opt] brush: IXpsOMBrush) -> HRESULT;
-            fn GetStrokeBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
+            fn GetStrokeBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
             fn SetStrokeBrushLookup(&self, #[in] #[null_terminated(entry)] lookup: LPCWSTR) -> HRESULT;
             fn GetStrokeDashes(&self, #[out] #[out_ptr] #[retval] strokeDashes: *mut IXpsOMDashCollection) -> HRESULT;
             fn GetStrokeDashCap(&self, #[out] #[retval] strokeDashCap: *mut XPS_DASH_CAP) -> HRESULT;
@@ -485,7 +485,7 @@ mod Windows {
             fn GetFillBrush(&self, #[out] #[out_ptr] #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn GetFillBrushLocal(&self, #[out] #[out_ptr] #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn SetFillBrushLocal(&self, #[in] #[opt] brush: IXpsOMBrush) -> HRESULT;
-            fn GetFillBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
+            fn GetFillBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
             fn SetFillBrushLookup(&self, #[in] #[null_terminated(entry)] lookup: LPCWSTR) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] path: *mut IXpsOMPath) -> HRESULT;
         }
@@ -563,7 +563,7 @@ mod Windows {
             fn GetTransform(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn GetTransformLocal(&self, #[out] #[out_ptr] #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn SetTransformLocal(&self, #[in] #[opt] transform: IXpsOMMatrixTransform) -> HRESULT;
-            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetTransformLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
             fn GetViewbox(&self, #[out] #[retval] viewbox: *mut XPS_RECT) -> HRESULT;
             fn SetViewbox(&self, #[in] viewbox: *const XPS_RECT) -> HRESULT;
@@ -577,27 +577,27 @@ mod Windows {
             fn GetTransform(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn GetTransformLocal(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IXpsOMMatrixTransform) -> HRESULT;
             fn SetTransformLocal(&self, #[in] #[opt] matrixTransform: IXpsOMMatrixTransform) -> HRESULT;
-            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetTransformLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetTransformLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
             fn GetClipGeometry(&self, #[out] #[out_ptr] #[retval] clipGeometry: *mut IXpsOMGeometry) -> HRESULT;
             fn GetClipGeometryLocal(&self, #[out] #[out_ptr] #[retval] clipGeometry: *mut IXpsOMGeometry) -> HRESULT;
             fn SetClipGeometryLocal(&self, #[in] #[opt] clipGeometry: IXpsOMGeometry) -> HRESULT;
-            fn GetClipGeometryLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetClipGeometryLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetClipGeometryLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
             fn GetOpacity(&self, #[out] #[retval] opacity: *mut FLOAT) -> HRESULT;
             fn SetOpacity(&self, #[in] opacity: FLOAT) -> HRESULT;
             fn GetOpacityMaskBrush(&self, #[out] #[out_ptr] #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
             fn GetOpacityMaskBrushLocal(&self, #[out] #[out_ptr] #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
             fn SetOpacityMaskBrushLocal(&self, #[in] #[opt] opacityMaskBrush: IXpsOMBrush) -> HRESULT;
-            fn GetOpacityMaskBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] key: *mut LPWSTR) -> HRESULT;
+            fn GetOpacityMaskBrushLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] key: *mut LPWSTR) -> HRESULT;
             fn SetOpacityMaskBrushLookup(&self, #[in] #[null_terminated(entry)] key: LPCWSTR) -> HRESULT;
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn SetName(&self, #[in] #[null_terminated(entry)] name: LPCWSTR) -> HRESULT;
             fn GetIsHyperlinkTarget(&self, #[out] #[retval] isHyperlink: *mut BOOL) -> HRESULT;
             fn SetIsHyperlinkTarget(&self, #[in] isHyperlink: BOOL) -> HRESULT;
             fn GetHyperlinkNavigateUri(&self, #[out] #[out_ptr] #[retval] hyperlinkUri: *mut IUri) -> HRESULT;
             fn SetHyperlinkNavigateUri(&self, #[in] #[opt] hyperlinkUri: IUri) -> HRESULT;
-            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] language: *mut LPWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] language: *mut LPWSTR) -> HRESULT;
             fn SetLanguage(&self, #[in] #[null_terminated(entry)] language: LPCWSTR) -> HRESULT;
         }
         #[guid(0x97e294af_5b37_46b4_8057_874d2f64119b)]
@@ -605,7 +605,7 @@ mod Windows {
             fn GetVisual(&self, #[out] #[out_ptr] #[retval] visual: *mut IXpsOMVisual) -> HRESULT;
             fn GetVisualLocal(&self, #[out] #[out_ptr] #[retval] visual: *mut IXpsOMVisual) -> HRESULT;
             fn SetVisualLocal(&self, #[in] #[opt] visual: IXpsOMVisual) -> HRESULT;
-            fn GetVisualLookup(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
+            fn GetVisualLookup(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] lookup: *mut LPWSTR) -> HRESULT;
             fn SetVisualLookup(&self, #[in] #[null_terminated(entry)] lookup: LPCWSTR) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] visualBrush: *mut IXpsOMVisualBrush) -> HRESULT;
         }

@@ -2720,7 +2720,7 @@ mod Windows {
         struct LOGPALETTE {
             palVersion: WORD,
             palNumEntries: WORD,
-            #[writable(palNumEntries, nullable)]
+            #[writable(palNumEntries)]
             palPalEntry: [PALETTEENTRY; 1],
         }
         struct LOGPEN {

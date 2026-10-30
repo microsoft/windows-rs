@@ -133,7 +133,8 @@ mod Windows {
             aPropID: *mut MGMTPROPID,
             #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
-            #[writable(cProp, nullable)]
+            #[nullable]
+            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQMSGPROPS {
@@ -142,7 +143,8 @@ mod Windows {
             aPropID: *mut MSGPROPID,
             #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
-            #[writable(cProp, nullable)]
+            #[nullable]
+            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: UCHAR = 5;
@@ -225,7 +227,8 @@ mod Windows {
             aPropID: *mut QMPROPID,
             #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
-            #[writable(cProp, nullable)]
+            #[nullable]
+            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQPROPERTYRESTRICTION {
@@ -244,7 +247,8 @@ mod Windows {
             aPropID: *mut QMPROPID,
             #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
-            #[writable(cProp, nullable)]
+            #[nullable]
+            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQQUEUEPROPS {
@@ -253,7 +257,8 @@ mod Windows {
             aPropID: *mut QUEUEPROPID,
             #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
-            #[writable(cProp, nullable)]
+            #[nullable]
+            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQRESTRICTION {

@@ -44,7 +44,7 @@ mod Windows {
         extern fn GetActiveObject(rclsid: &IID, pvReserved: *mut void, ppunk: *mut IUnknown) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn GetAltMonthNames(lcid: LCID, #[out] #[writable(success, 13, indirect, nullable)] prgp: *mut *mut LPOLESTR) -> HRESULT;
+        extern fn GetAltMonthNames(lcid: LCID, #[nullable] #[out] #[writable(success, 13, indirect)] prgp: *mut *mut LPOLESTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
         extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] #[retval] pperrinfo: *mut IErrorInfo) -> HRESULT;

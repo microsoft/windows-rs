@@ -4152,7 +4152,8 @@ mod Windows {
         struct KBUGCHECK_CALLBACK_RECORD {
             Entry: LIST_ENTRY,
             CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
-            #[writable(bytes(Length), nullable)]
+            #[nullable]
+            #[writable(bytes(Length))]
             Buffer: PVOID,
             Length: ULONG,
             Component: PUCHAR,

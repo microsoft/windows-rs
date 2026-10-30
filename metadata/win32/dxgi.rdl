@@ -233,7 +233,7 @@ mod Windows {
             fn Present(&self, #[in] SyncInterval: UINT, #[in] Flags: UINT) -> HRESULT;
             fn GetBuffer(&self, #[in] Buffer: UINT, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppSurface: *mut *mut void) -> HRESULT;
             fn SetFullscreenState(&self, #[in] Fullscreen: BOOL, #[in] #[opt] pTarget: IDXGIOutput) -> HRESULT;
-            fn GetFullscreenState(&self, #[opt] #[out] pFullscreen: *mut BOOL, #[opt] #[out] #[out_ptr(nullable, null_on_failure)] ppTarget: *mut IDXGIOutput) -> HRESULT;
+            fn GetFullscreenState(&self, #[opt] #[out] pFullscreen: *mut BOOL, #[nullable] #[opt] #[out] #[out_ptr(null_on_failure)] ppTarget: *mut IDXGIOutput) -> HRESULT;
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
             fn ResizeBuffers(&self, #[in] BufferCount: UINT, #[in] Width: UINT, #[in] Height: UINT, #[in] NewFormat: DXGI_FORMAT, #[in] SwapChainFlags: UINT) -> HRESULT;
             fn ResizeTarget(&self, #[in] pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;

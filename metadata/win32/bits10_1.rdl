@@ -10,7 +10,7 @@ mod Windows {
         interface IBackgroundCopyFile6: IBackgroundCopyFile5 {
             fn UpdateDownloadPosition(&self, #[in] offset: UINT64) -> HRESULT;
             fn RequestFileRanges(&self, #[in] rangeCount: DWORD, #[in] #[readable(entry, rangeCount)] ranges: *const BG_FILE_RANGE) -> HRESULT;
-            fn GetFilledFileRanges(&self, #[out] rangeCount: *mut DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *rangeCount, indirect, nullable)] #[writable(success, *rangeCount, indirect, nullable)] ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+            fn GetFilledFileRanges(&self, #[out] rangeCount: *mut DWORD, #[nullable] #[out] #[readable(success, *rangeCount, indirect)] #[writable(success, *rangeCount, indirect)] ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
         }
     }
 }

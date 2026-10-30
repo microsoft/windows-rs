@@ -865,10 +865,10 @@ mod Windows {
         extern fn DsReplicaSyncA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaSyncAllA(#[in] hDS: HANDLE, #[in] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
+        extern fn DsReplicaSyncAllA(#[in] hDS: HANDLE, #[in] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaSyncAllW(#[in] hDS: HANDLE, #[in] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
+        extern fn DsReplicaSyncAllW(#[in] hDS: HANDLE, #[in] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsReplicaSyncW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;

@@ -1625,7 +1625,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetCustomHeader(#[in] message: *mut WS_MESSAGE, #[in] customHeaderDescription: *const WS_ELEMENT_DESCRIPTION, #[in] repeatingOption: WS_REPEATING_HEADER_OPTION, #[in] headerIndex: ULONG, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[opt] #[out] headerAttributes: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetDictionary(#[in] encoding: WS_ENCODING, #[out] #[out_ptr(nullable)] dictionary: *mut *mut WS_XML_DICTIONARY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetDictionary(#[in] encoding: WS_ENCODING, #[nullable] #[out] #[out_ptr] dictionary: *mut *mut WS_XML_DICTIONARY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetErrorProperty(#[in] error: *mut WS_ERROR, #[in] id: WS_ERROR_PROPERTY_ID, #[out] #[writable(entry, bytes(bufferSize))] buffer: *mut void, #[in] bufferSize: ULONG) -> HRESULT;
         #[library("webservices.dll")]
@@ -1651,7 +1651,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetMetadataProperty(#[in] metadata: *mut WS_METADATA, #[in] id: WS_METADATA_PROPERTY_ID, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetMissingMetadataDocumentAddress(#[in] metadata: *mut WS_METADATA, #[out] #[out_ptr(nullable)] address: *mut *mut WS_ENDPOINT_ADDRESS, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetMissingMetadataDocumentAddress(#[in] metadata: *mut WS_METADATA, #[nullable] #[out] #[out_ptr] address: *mut *mut WS_ENDPOINT_ADDRESS, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetNamespaceFromPrefix(#[in] reader: *mut WS_XML_READER, #[in] prefix: *const WS_XML_STRING, #[in] required: BOOL, #[out] #[out_ptr] ns: *mut *const WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1990,7 +1990,8 @@ mod Windows {
             freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
         }
         struct _WS_CHANNEL_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_CHANNEL_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2205,7 +2206,8 @@ mod Windows {
         }
         struct _WS_HEAP {}
         struct _WS_HEAP_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_HEAP_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2379,7 +2381,8 @@ mod Windows {
         struct _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
             bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
             bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-            #[writable(claimConstraintCount, nullable)]
+            #[nullable]
+            #[writable(claimConstraintCount)]
             claimConstraints: *mut WS_XML_STRING,
             claimConstraintCount: ULONG,
             requestSecurityTokenPropertyConstraints: *mut WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT,
@@ -2510,11 +2513,13 @@ mod Windows {
         struct _WS_POLICY {}
         struct _WS_POLICY_CONSTRAINTS {
             channelBinding: WS_CHANNEL_BINDING,
-            #[writable(channelPropertyConstraintCount, nullable)]
+            #[nullable]
+            #[writable(channelPropertyConstraintCount)]
             channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
             channelPropertyConstraintCount: ULONG,
             securityConstraints: *mut WS_SECURITY_CONSTRAINTS,
-            #[writable(policyExtensionCount, nullable)]
+            #[nullable]
+            #[writable(policyExtensionCount)]
             policyExtensions: *mut *mut WS_POLICY_EXTENSION,
             policyExtensionCount: ULONG,
         }
@@ -2592,7 +2597,8 @@ mod Windows {
             maxSymmetricKeyLength: ULONG,
             minAsymmetricKeyLength: ULONG,
             maxAsymmetricKeyLength: ULONG,
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2604,12 +2610,14 @@ mod Windows {
         }
         struct _WS_SECURITY_BINDING_CONSTRAINT {
             r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
-            #[writable(propertyConstraintCount, nullable)]
+            #[nullable]
+            #[writable(propertyConstraintCount)]
             propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
             propertyConstraintCount: ULONG,
         }
         struct _WS_SECURITY_BINDING_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_SECURITY_BINDING_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2629,10 +2637,12 @@ mod Windows {
             },
         }
         struct _WS_SECURITY_CONSTRAINTS {
-            #[writable(securityPropertyConstraintCount, nullable)]
+            #[nullable]
+            #[writable(securityPropertyConstraintCount)]
             securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
             securityPropertyConstraintCount: ULONG,
-            #[writable(securityBindingConstraintCount, nullable)]
+            #[nullable]
+            #[writable(securityBindingConstraintCount)]
             securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
             securityBindingConstraintCount: ULONG,
         }
@@ -2672,7 +2682,8 @@ mod Windows {
             #[writable(securityBindingCount)]
             securityBindings: *mut *mut WS_SECURITY_BINDING,
             securityBindingCount: ULONG,
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_SECURITY_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2680,7 +2691,8 @@ mod Windows {
             keyHandleType: WS_SECURITY_KEY_HANDLE_TYPE,
         }
         struct _WS_SECURITY_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_SECURITY_PROPERTY,
             propertyCount: ULONG,
         }
@@ -2820,7 +2832,8 @@ mod Windows {
             typeLocalName: *mut WS_XML_STRING,
             typeNs: *mut WS_XML_STRING,
             parentType: *mut WS_STRUCT_DESCRIPTION,
-            #[writable(subTypeCount, nullable)]
+            #[nullable]
+            #[writable(subTypeCount)]
             subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
             subTypeCount: ULONG,
             structOptions: ULONG,
@@ -3151,7 +3164,8 @@ mod Windows {
             startUri: WS_STRING,
         }
         struct _WS_XML_READER_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_XML_READER_PROPERTY,
             propertyCount: ULONG,
         }
@@ -3250,7 +3264,8 @@ mod Windows {
             outputType: WS_XML_WRITER_OUTPUT_TYPE,
         }
         struct _WS_XML_WRITER_PROPERTIES {
-            #[writable(propertyCount, nullable)]
+            #[nullable]
+            #[writable(propertyCount)]
             properties: *mut WS_XML_WRITER_PROPERTY,
             propertyCount: ULONG,
         }

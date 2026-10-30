@@ -852,7 +852,7 @@ mod Windows {
         }
         #[guid(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0)]
         interface ISpTranscript: IUnknown {
-            fn GetTranscript(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszTranscript: *mut LPWSTR) -> HRESULT;
+            fn GetTranscript(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszTranscript: *mut LPWSTR) -> HRESULT;
             fn AppendTranscript(&self, #[in] #[null_terminated(entry)] pszTranscript: LPCWSTR) -> HRESULT;
         }
         #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]

@@ -9,24 +9,24 @@ mod Test {
     type TrackedSlot = *mut Tracked;
     #[guid(0x10000000_0000_0000_0000_000000000002)]
     interface Results: Windows::Win32::IUnknown {
-        fn Nullable(&self, #[out] #[retval] #[out_ptr(nullable, null_on_failure)] value: *mut ObjectAlias) -> HRESULT;
-        fn Reserved(&self, #[reserved] reserved: usize, #[out] #[retval] #[out_ptr(nullable)] value: *mut Tracked) -> HRESULT;
+        fn Nullable(&self, #[out] #[retval] #[out_ptr(null_on_failure)] #[nullable] value: *mut ObjectAlias) -> HRESULT;
+        fn Reserved(&self, #[reserved] reserved: usize, #[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked) -> HRESULT;
         fn Required(&self, #[out] #[retval] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
         fn UnspecifiedFailure(&self, #[out] #[retval] #[out_ptr] value: *mut Tracked) -> HRESULT;
-        fn NullableVoid(&self, #[out] #[retval] #[out_ptr(nullable)] value: *mut Tracked);
-        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(nullable, null_on_failure)] #[readable(success, unknown(), indirect, nullable)] value: OutputSlot) -> HRESULT;
-        fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] #[out_ptr(nullable)] value: *mut *mut void) -> HRESULT;
+        fn NullableVoid(&self, #[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked);
+        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(null_on_failure)] #[nullable] #[readable(success, unknown(), indirect)] value: OutputSlot) -> HRESULT;
+        fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] #[out_ptr] #[nullable] value: *mut *mut void) -> HRESULT;
         fn InOutQuery(&self, #[in] iid: *const GUID, #[in] #[out] #[iid_is] value: *mut *mut void) -> HRESULT;
-        fn Data(&self, #[out] #[retval] #[out_ptr(nullable, null_on_failure)] value: *mut *mut u8) -> HRESULT;
+        fn Data(&self, #[out] #[retval] #[out_ptr(null_on_failure)] #[nullable] value: *mut *mut u8) -> HRESULT;
         fn ReadThenFail(&self, #[in] input: *const *mut void, #[out] #[retval] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
         fn TypedefSlot(&self, #[out] #[retval] #[out_ptr] value: TrackedSlot) -> HRESULT;
     }
     #[library("test.dll")]
-    extern fn Nullable(#[out] #[retval] #[out_ptr(nullable)] value: *mut Tracked) -> HRESULT;
+    extern fn Nullable(#[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked) -> HRESULT;
     #[library("test.dll")]
-    extern fn NullableVoid(#[out] #[retval] #[out_ptr(nullable)] value: *mut Tracked);
+    extern fn NullableVoid(#[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked);
     #[library("test.dll")]
-    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(nullable)] #[readable(success, unknown(), indirect, nullable)] value: *mut RawObject) -> HRESULT;
+    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[nullable] #[readable(success, unknown(), indirect)] value: *mut RawObject) -> HRESULT;
 }
 #[win32]
 mod Windows {
@@ -45,12 +45,13 @@ mod Windows {
                 fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
                 CountUnknown: bool,
                 Indirect: bool,
-                Nullable: bool,
             }
             attribute NativeReturnedPointerAttribute {
                 fn();
-                MayBeNull: bool,
                 NullOnFailure: bool,
+            }
+            attribute NullableAttribute {
+                fn();
             }
             attribute ComOutPtrAttribute { fn(); }
         }

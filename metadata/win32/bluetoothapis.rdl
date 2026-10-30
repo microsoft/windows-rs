@@ -132,7 +132,8 @@ mod Windows {
             pfnDeviceCallback: PFN_DEVICE_CALLBACK,
             pvParam: LPVOID,
             cNumDevices: DWORD,
-            #[writable(cNumDevices, nullable)]
+            #[nullable]
+            #[writable(cNumDevices)]
             pDevices: PBLUETOOTH_DEVICE_INFO,
         }
         const BLUETOOTH_SERVICE_DISABLE: i32 = 0;

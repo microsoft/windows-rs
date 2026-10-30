@@ -1668,7 +1668,8 @@ mod Windows {
             Height: UINT,
             Stride: UINT,
             ReservedBits: UINT,
-            #[writable(IVSize, nullable)]
+            #[nullable]
+            #[writable(IVSize)]
             pIV: *mut void,
             IVSize: UINT,
             PartialEncryption: BOOL,
@@ -1721,7 +1722,8 @@ mod Windows {
             pPrivateOutputData: *mut void,
             PrivateOutputDataSize: UINT,
             ResourceCount: UINT,
-            #[writable(ResourceCount, nullable)]
+            #[nullable]
+            #[writable(ResourceCount)]
             ppResourceList: *mut ID3D11Resource,
         }
         struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
@@ -1953,7 +1955,8 @@ mod Windows {
             pInputSurface: ID3D11VideoProcessorInputView,
             #[writable(FutureFrames)]
             ppFutureSurfaces: *mut ID3D11VideoProcessorInputView,
-            #[writable(PastFrames, nullable)]
+            #[nullable]
+            #[writable(PastFrames)]
             ppPastSurfacesRight: *mut ID3D11VideoProcessorInputView,
             pInputSurfaceRight: ID3D11VideoProcessorInputView,
             #[writable(FutureFrames)]
@@ -2174,40 +2177,40 @@ mod Windows {
             fn CSSetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer);
             fn VSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
             fn PSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn PSGetShader(&self, #[out] #[out_ptr(nullable)] ppPixelShader: *mut ID3D11PixelShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn PSGetShader(&self, #[nullable] #[out] #[out_ptr] ppPixelShader: *mut ID3D11PixelShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
-            fn VSGetShader(&self, #[out] #[out_ptr(nullable)] ppVertexShader: *mut ID3D11VertexShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn VSGetShader(&self, #[nullable] #[out] #[out_ptr] ppVertexShader: *mut ID3D11VertexShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn IAGetInputLayout(&self, #[out] #[out_ptr(nullable)] ppInputLayout: *mut ID3D11InputLayout);
+            fn IAGetInputLayout(&self, #[nullable] #[out] #[out_ptr] ppInputLayout: *mut ID3D11InputLayout);
             fn IAGetVertexBuffers(&self, #[range(entry, 0..=31)] StartSlot: UINT, #[range(entry, 0..=32 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppVertexBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pStrides: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pOffsets: *mut UINT);
-            fn IAGetIndexBuffer(&self, #[opt] #[out] #[out_ptr(nullable)] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
+            fn IAGetIndexBuffer(&self, #[nullable] #[opt] #[out] #[out_ptr] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
             fn GSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn GSGetShader(&self, #[out] #[out_ptr(nullable)] ppGeometryShader: *mut ID3D11GeometryShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn GSGetShader(&self, #[nullable] #[out] #[out_ptr] ppGeometryShader: *mut ID3D11GeometryShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn IAGetPrimitiveTopology(&self, #[out] pTopology: *mut D3D11_PRIMITIVE_TOPOLOGY);
             fn VSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn VSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
-            fn GetPredication(&self, #[opt] #[out] #[out_ptr(nullable)] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
+            fn GetPredication(&self, #[nullable] #[opt] #[out] #[out_ptr] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
             fn GSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn GSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
-            fn OMGetRenderTargets(&self, #[range(entry, 0..=8)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[opt] #[out] #[out_ptr(nullable)] ppDepthStencilView: *mut ID3D11DepthStencilView);
-            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, #[range(entry, 0..=8)] NumRTVs: UINT, #[opt] #[out] #[writable(entry, NumRTVs)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[opt] #[out] #[out_ptr(nullable)] ppDepthStencilView: *mut ID3D11DepthStencilView, #[range(entry, 0..=7)] UAVStartSlot: UINT, #[range(entry, 0..=8 - UAVStartSlot)] NumUAVs: UINT, #[opt] #[out] #[writable(entry, NumUAVs)] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, #[opt] #[out] #[out_ptr(nullable)] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
-            fn OMGetDepthStencilState(&self, #[opt] #[out] #[out_ptr(nullable)] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
+            fn OMGetRenderTargets(&self, #[range(entry, 0..=8)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilView: *mut ID3D11DepthStencilView);
+            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, #[range(entry, 0..=8)] NumRTVs: UINT, #[opt] #[out] #[writable(entry, NumRTVs)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilView: *mut ID3D11DepthStencilView, #[range(entry, 0..=7)] UAVStartSlot: UINT, #[range(entry, 0..=8 - UAVStartSlot)] NumUAVs: UINT, #[opt] #[out] #[writable(entry, NumUAVs)] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
+            fn OMGetBlendState(&self, #[nullable] #[opt] #[out] #[out_ptr] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
+            fn OMGetDepthStencilState(&self, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
             fn SOGetTargets(&self, #[range(entry, 0..=4)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppSOTargets: *mut ID3D11Buffer);
-            fn RSGetState(&self, #[out] #[out_ptr(nullable)] ppRasterizerState: *mut ID3D11RasterizerState);
+            fn RSGetState(&self, #[nullable] #[out] #[out_ptr] ppRasterizerState: *mut ID3D11RasterizerState);
             fn RSGetViewports(&self, #[in] #[out] pNumViewports: *mut UINT, #[opt] #[out] #[writable(entry, *pNumViewports)] pViewports: *mut D3D11_VIEWPORT);
             fn RSGetScissorRects(&self, #[in] #[out] pNumRects: *mut UINT, #[opt] #[out] #[writable(entry, *pNumRects)] pRects: *mut D3D11_RECT);
             fn HSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn HSGetShader(&self, #[out] #[out_ptr(nullable)] ppHullShader: *mut ID3D11HullShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn HSGetShader(&self, #[nullable] #[out] #[out_ptr] ppHullShader: *mut ID3D11HullShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn HSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
             fn HSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
             fn DSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn DSGetShader(&self, #[out] #[out_ptr(nullable)] ppDomainShader: *mut ID3D11DomainShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn DSGetShader(&self, #[nullable] #[out] #[out_ptr] ppDomainShader: *mut ID3D11DomainShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn DSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
             fn DSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
             fn CSGetShaderResources(&self, #[range(entry, 0..=127)] StartSlot: UINT, #[range(entry, 0..=128 - StartSlot)] NumViews: UINT, #[opt] #[out] #[writable(entry, NumViews)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn CSGetUnorderedAccessViews(&self, #[range(entry, 0..=63)] StartSlot: UINT, #[range(entry, 0..=64 - StartSlot)] NumUAVs: UINT, #[opt] #[out] #[writable(entry, NumUAVs)] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn CSGetShader(&self, #[out] #[out_ptr(nullable)] ppComputeShader: *mut ID3D11ComputeShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn CSGetShader(&self, #[nullable] #[out] #[out_ptr] ppComputeShader: *mut ID3D11ComputeShader, #[opt] #[out] #[writable(entry, if_present(*pNumClassInstances))] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn CSGetSamplers(&self, #[range(entry, 0..=15)] StartSlot: UINT, #[range(entry, 0..=16 - StartSlot)] NumSamplers: UINT, #[opt] #[out] #[writable(entry, NumSamplers)] ppSamplers: *mut ID3D11SamplerState);
             fn CSGetConstantBuffers(&self, #[range(entry, 0..=13)] StartSlot: UINT, #[range(entry, 0..=14 - StartSlot)] NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer);
             fn ClearState(&self);

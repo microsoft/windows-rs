@@ -13,9 +13,6 @@ const SCHEMA: &str = r#"
     }
     attribute NullableAttribute {
         fn();
-        OnEntry: bool,
-        OnSuccess: bool,
-        Indirect: bool,
     }
 }}}
 "#;
@@ -326,12 +323,6 @@ fn termination_requires_unambiguous_phases() {
         "null_terminated(indirect)",
         "null_terminated(success, indirect, indirect)",
         "null_terminated(success, indirect)",
-        "nullable",
-        "nullable()",
-        "nullable(double_entry)",
-        "nullable(entry, entry)",
-        "nullable(success, indirect, indirect)",
-        "nullable(entry, indirect)",
     ] {
         assert!(
             windows_rdl::reader()
@@ -363,12 +354,17 @@ fn pointer_contract_owners_are_checked() {
         "#[null_terminated(entry)] struct Value { value: u32, }",
         "struct Value { #[null_terminated(entry)] value: *mut u16, }",
         "struct Value { #[null_terminated(double_success)] value: [u16; 8], }",
-        "extern fn F(#[nullable(entry)] value: u32);",
+        "extern fn F(#[out] #[nullable(success, indirect)] value: *mut *mut u8);",
+        "extern fn F(#[out] #[nullable()] value: *mut *mut u8);",
+        "extern fn F(#[nullable] value: *mut *mut u8);",
+        "extern fn F(#[out] #[nullable] value: *mut u8);",
+        "extern fn F(#[out] #[nullable] value: u32);",
         "extern fn F() -> #[nullable] u32;",
-        "extern fn F() -> #[nullable(entry)] *mut u8;",
+        "extern fn F() -> #[nullable(success)] *mut u8;",
         "extern fn F() -> #[null_terminated(success, indirect)] *mut *mut u8;",
-        "#[nullable(entry)] extern fn F();",
+        "#[nullable] extern fn F();",
         "struct Value { #[nullable(entry)] value: *mut u8, }",
+        "struct Value { #[nullable] value: u32, }",
     ] {
         assert!(
             windows_rdl::reader()
@@ -379,6 +375,47 @@ fn pointer_contract_owners_are_checked() {
             "{declaration}"
         );
     }
+}
+
+#[test]
+fn nullable_shorthand_requires_valid_owner() {
+    let full = "#[Windows::Win32::Metadata::Nullable]";
+    let source = format!(
+        r#"{SCHEMA}
+        #[win32] mod Test {{
+            extern fn Valid(#[out] {full} value: *mut *mut u8) -> {full} *mut u8;
+            struct Record {{ {full} valid: *mut u8, {full} scalar: u32, }}
+            extern fn Input(#[in] {full} value: *mut *mut u8);
+            extern fn Direct(#[out] {full} value: *mut u8);
+            extern fn Scalar() -> {full} u32;
+        }}
+        "#
+    );
+    let out = std::path::Path::new(env!("OUT_DIR")).join("nullable-owners");
+    std::fs::create_dir_all(&out).unwrap();
+    let first = out.join("first.winmd");
+    let rdl = out.join("roundtrip.rdl");
+    let second = out.join("second.winmd");
+    windows_rdl::reader()
+        .input_text(&source)
+        .output(&first)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&first)
+        .filter("Test")
+        .output(&rdl)
+        .write()
+        .unwrap();
+    let text = std::fs::read_to_string(&rdl).unwrap();
+    assert_eq!(text.matches("#[nullable]").count(), 3, "{text}");
+    assert_eq!(text.matches(full).count(), 4, "{text}");
+    windows_rdl::reader()
+        .input_text(SCHEMA)
+        .input(&rdl)
+        .output(&second)
+        .write()
+        .unwrap();
 }
 
 #[test]

@@ -32,7 +32,7 @@ mod Fixture {
         fn Get(&self, #[iid_is] #[out] #[out_ptr(null_on_failure)] object: *mut *mut void) -> Status;
     }
     #[library("example.dll")]
-    extern "C" fn InspectResult(#[out] #[out_ptr(nullable)] result: *mut *mut void);
+    extern "C" fn InspectResult(#[nullable] #[out] #[out_ptr] result: *mut *mut void);
     struct OnlyInferred {
         callback: ZPlain,
     }

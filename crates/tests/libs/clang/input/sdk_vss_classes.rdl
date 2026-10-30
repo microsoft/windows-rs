@@ -747,11 +747,11 @@ mod Fixture {
     interface IVssComponentEx: IVssComponent {
         fn SetPrepareForBackupFailureMsg(&self, #[in] wszFailureMsg: LPCWSTR) -> HRESULT;
         fn SetPostSnapshotFailureMsg(&self, #[in] wszFailureMsg: LPCWSTR) -> HRESULT;
-        fn GetPrepareForBackupFailureMsg(&self, #[out] #[out_ptr(nullable)] pbstrFailureMsg: *mut BSTR) -> HRESULT;
-        fn GetPostSnapshotFailureMsg(&self, #[out] #[out_ptr(nullable)] pbstrFailureMsg: *mut BSTR) -> HRESULT;
+        fn GetPrepareForBackupFailureMsg(&self, #[nullable] #[out] #[out_ptr] pbstrFailureMsg: *mut BSTR) -> HRESULT;
+        fn GetPostSnapshotFailureMsg(&self, #[nullable] #[out] #[out_ptr] pbstrFailureMsg: *mut BSTR) -> HRESULT;
         fn GetAuthoritativeRestore(&self, #[out] pbAuth: *mut bool) -> HRESULT;
-        fn GetRollForward(&self, #[out] pRollType: *mut VSS_ROLLFORWARD_TYPE, #[out] #[out_ptr(nullable)] pbstrPoint: *mut BSTR) -> HRESULT;
-        fn GetRestoreName(&self, #[out] #[out_ptr(nullable)] pbstrName: *mut BSTR) -> HRESULT;
+        fn GetRollForward(&self, #[out] pRollType: *mut VSS_ROLLFORWARD_TYPE, #[nullable] #[out] #[out_ptr] pbstrPoint: *mut BSTR) -> HRESULT;
+        fn GetRestoreName(&self, #[nullable] #[out] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
     }
     #[guid(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d)]
     interface IVssComponentEx2: IVssComponentEx {

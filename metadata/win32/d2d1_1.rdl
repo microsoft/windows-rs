@@ -270,11 +270,11 @@ mod Windows {
         #[guid(0xa898a84c_3873_4588_b08b_ebbf978df041)]
         interface ID2D1Bitmap1: ID2D1Bitmap {
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetColorContext(&self, #[out] #[out_ptr(nullable)] colorContext: *mut ID2D1ColorContext);
+            fn GetColorContext(&self, #[nullable] #[out] #[out_ptr] colorContext: *mut ID2D1ColorContext);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetSurface(&self, #[out] #[out_ptr(nullable, null_on_failure)] dxgiSurface: *mut IDXGISurface) -> HRESULT;
+            fn GetSurface(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] dxgiSurface: *mut IDXGISurface) -> HRESULT;
             fn Map(&self, options: D2D1_MAP_OPTIONS, #[out] mappedRect: *mut D2D1_MAPPED_RECT) -> HRESULT;
             fn Unmap(&self) -> HRESULT;
         }
@@ -362,7 +362,7 @@ mod Windows {
             fn GetDevice(&self, #[out] #[out_ptr] device: *mut ID2D1Device);
             fn SetTarget(&self, #[in] #[opt] image: ID2D1Image);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetTarget(&self, #[out] #[out_ptr(nullable)] image: *mut ID2D1Image);
+            fn GetTarget(&self, #[nullable] #[out] #[out_ptr] image: *mut ID2D1Image);
             fn SetRenderingControls(&self, #[in] renderingControls: *const D2D1_RENDERING_CONTROLS);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetRenderingControls(&self, #[out] renderingControls: *mut D2D1_RENDERING_CONTROLS);
@@ -394,7 +394,7 @@ mod Windows {
             fn SetInput(&self, index: UINT32, #[in] #[opt] input: ID2D1Image, invalidate: BOOL);
             fn SetInputCount(&self, inputCount: UINT32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetInput(&self, index: UINT32, #[out] #[out_ptr(nullable)] input: *mut ID2D1Image);
+            fn GetInput(&self, index: UINT32, #[nullable] #[out] #[out_ptr] input: *mut ID2D1Image);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInputCount(&self) -> UINT32;
             #[Windows::Win32::Metadata::NativeConstMethod]
@@ -445,7 +445,7 @@ mod Windows {
             fn SetInterpolationMode(&self, interpolationMode: D2D1_INTERPOLATION_MODE);
             fn SetSourceRectangle(&self, #[in] sourceRectangle: *const D2D1_RECT_F);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetImage(&self, #[out] #[out_ptr(nullable)] image: *mut ID2D1Image);
+            fn GetImage(&self, #[nullable] #[out] #[out_ptr] image: *mut ID2D1Image);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
             #[Windows::Win32::Metadata::NativeConstMethod]
@@ -493,7 +493,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetValueSize(&self, index: UINT32) -> UINT32;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetSubProperties(&self, index: UINT32, #[out] #[out_ptr(nullable, null_on_failure)] subProperties: *mut ID2D1Properties) -> HRESULT;
+            fn GetSubProperties(&self, index: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] subProperties: *mut ID2D1Properties) -> HRESULT;
         }
         #[guid(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a)]
         interface ID2D1StrokeStyle1: ID2D1StrokeStyle {

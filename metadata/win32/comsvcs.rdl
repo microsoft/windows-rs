@@ -542,7 +542,7 @@ mod Windows {
         #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
         interface IComTrackingInfoProperties: IUnknown {
             fn PropCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn GetPropName(&self, #[in] ulIndex: ULONG, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszPropName: *mut LPOLESTR) -> HRESULT;
+            fn GetPropName(&self, #[in] ulIndex: ULONG, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszPropName: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
         interface IComTransaction2Events: IUnknown {
@@ -695,10 +695,10 @@ mod Windows {
         }
         #[guid(0x507c3ac8_3e12_4cb0_9366_653d3e050638)]
         interface IGetAppTrackerData: IUnknown {
-            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumApplicationProcesses, indirect, nullable)] #[writable(success, *NumApplicationProcesses, indirect, nullable)] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
+            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[nullable] #[out] #[readable(success, *NumApplicationProcesses, indirect)] #[writable(success, *NumApplicationProcesses, indirect)] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
             fn GetApplicationProcessDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ApplicationProcessSummary, #[opt] #[out] Statistics: *mut ApplicationProcessStatistics, #[opt] #[out] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[opt] #[out] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
-            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumApplicationsInProcess, indirect, nullable)] #[writable(success, *NumApplicationsInProcess, indirect, nullable)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
-            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumComponentsInProcess, indirect, nullable)] #[writable(success, *NumComponentsInProcess, indirect, nullable)] Components: *mut *mut ComponentSummary) -> HRESULT;
+            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[nullable] #[out] #[readable(success, *NumApplicationsInProcess, indirect)] #[writable(success, *NumApplicationsInProcess, indirect)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
+            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[nullable] #[out] #[readable(success, *NumComponentsInProcess, indirect)] #[writable(success, *NumComponentsInProcess, indirect)] Components: *mut *mut ComponentSummary) -> HRESULT;
             fn GetComponentDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Clsid: &IID, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ComponentSummary, #[opt] #[out] Statistics: *mut ComponentStatistics, #[opt] #[out] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
             fn GetTrackerDataAsCollectionObject(&self, #[out] #[out_ptr] #[retval] TopLevelCollection: *mut IUnknown) -> HRESULT;
             fn GetSuggestedPollingInterval(&self, #[out] PollingIntervalInSeconds: *mut DWORD) -> HRESULT;

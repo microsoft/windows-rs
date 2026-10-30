@@ -397,12 +397,14 @@ mod Windows {
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
             NodeIndex: UINT,
             CommandId: GUID,
-            #[readable(bytes(InputDataSizeInBytes), nullable)]
-            #[writable(bytes(InputDataSizeInBytes), nullable)]
+            #[nullable]
+            #[readable(bytes(InputDataSizeInBytes))]
+            #[writable(bytes(InputDataSizeInBytes))]
             pInputData: *const void,
             InputDataSizeInBytes: SIZE_T,
-            #[readable(bytes(OutputDataSizeInBytes), nullable)]
-            #[writable(bytes(OutputDataSizeInBytes), nullable)]
+            #[nullable]
+            #[readable(bytes(OutputDataSizeInBytes))]
+            #[writable(bytes(OutputDataSizeInBytes))]
             pOutputData: *mut void,
             OutputDataSizeInBytes: SIZE_T,
         }
@@ -720,8 +722,9 @@ mod Windows {
             #[readable(NumTexture2Ds)]
             #[writable(NumTexture2Ds)]
             pSubresources: *mut UINT,
-            #[readable(NumTexture2Ds, nullable)]
-            #[writable(NumTexture2Ds, nullable)]
+            #[nullable]
+            #[readable(NumTexture2Ds)]
+            #[writable(NumTexture2Ds)]
             ppHeaps: *mut ID3D12VideoDecoderHeap,
         }
         #[repr(i32)]

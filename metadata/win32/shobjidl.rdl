@@ -50,7 +50,7 @@ mod Windows {
         }
         #[guid(0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db)]
         interface IAutoCompleteDropDown: IUnknown {
-            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppwszString: *mut LPWSTR) -> HRESULT;
+            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszString: *mut LPWSTR) -> HRESULT;
             fn ResetEnumerator(&self) -> HRESULT;
         }
         #[guid(0xb9075c7c_d48e_403f_ab99_d6c77a1084ac)]
@@ -98,7 +98,7 @@ mod Windows {
         }
         #[guid(0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7)]
         interface IDynamicHWHandler: IUnknown {
-            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszAction: *mut LPWSTR) -> HRESULT;
+            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszAction: *mut LPWSTR) -> HRESULT;
         }
         const IENamespaceTreeControl: GUID = 0xace52d03_e5cd_4b20_82ff_e71b11beae1d;
         #[guid(0x61e00d45_8fff_4e60_924e_6537b61612dd)]
@@ -236,7 +236,7 @@ mod Windows {
         #[guid(0x6af6e03f_d664_4ef4_9626_f7e0ed36755e)]
         interface ISearchBoxInfo: IUnknown {
             fn GetCondition(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn GetText(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetText(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppsz: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xfce4bde0_4b68_4b80_8e9c_7426315a7388)]
         interface IShellRunDll: IUnknown {

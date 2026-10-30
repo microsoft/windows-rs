@@ -14,10 +14,10 @@ mod Windows {
         extern fn I_RpcBindingHandleToAsyncHandle(Binding: RPC_BINDING_HANDLE, AsyncHandle: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn I_RpcBindingInqDynamicEndpointA(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr(nullable)] DynamicEndpoint: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn I_RpcBindingInqDynamicEndpointA(#[in] Binding: RPC_BINDING_HANDLE, #[nullable] #[out] #[out_ptr] DynamicEndpoint: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn I_RpcBindingInqDynamicEndpointW(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr(nullable)] DynamicEndpoint: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn I_RpcBindingInqDynamicEndpointW(#[in] Binding: RPC_BINDING_HANDLE, #[nullable] #[out] #[out_ptr] DynamicEndpoint: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingInqLocalClientPID(Binding: RPC_BINDING_HANDLE, Pid: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]

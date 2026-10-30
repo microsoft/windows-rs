@@ -101,7 +101,7 @@ mod Windows {
         }
         #[guid(0x50dc93e4_ba4f_4275_ae66_83e836e57469)]
         interface IMFMediaEngineEME: IUnknown {
-            fn get_Keys(&self, #[out] #[out_ptr(nullable, null_on_failure)] keys: *mut IMFMediaKeys) -> HRESULT;
+            fn get_Keys(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] keys: *mut IMFMediaKeys) -> HRESULT;
             fn SetMediaKeys(&self, #[in] #[opt] keys: IMFMediaKeys) -> HRESULT;
         }
         #[guid(0x9e184d15_cdb7_4f86_b49e_566689f4a601)]
@@ -189,7 +189,7 @@ mod Windows {
         #[guid(0x654a6bb3_e1a3_424a_9908_53a43a0dfda0)]
         interface IMFMediaEngineSrcElementsEx: IMFMediaEngineSrcElements {
             fn AddElementEx(&self, #[in] #[opt] pURL: BSTR, #[in] #[opt] pType: BSTR, #[in] #[opt] pMedia: BSTR, #[in] #[opt] keySystem: BSTR) -> HRESULT;
-            fn GetKeySystem(&self, #[in] index: DWORD, #[out] #[out_ptr(nullable)] pType: *mut BSTR) -> HRESULT;
+            fn GetKeySystem(&self, #[in] index: DWORD, #[nullable] #[out] #[out_ptr] pType: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa724b056_1b2e_4642_a6f3_db9420c52908)]
         interface IMFMediaEngineSupportsSourceTransfer: IUnknown {
@@ -367,9 +367,9 @@ mod Windows {
             fn GetStartTime(&self) -> f64;
             fn GetDuration(&self) -> f64;
             fn GetTrackId(&self) -> DWORD;
-            fn GetData(&self, #[out] #[out_ptr(nullable, null_on_failure)] data: *mut IMFTimedTextBinary) -> HRESULT;
-            fn GetRegion(&self, #[out] #[out_ptr(nullable, null_on_failure)] region: *mut IMFTimedTextRegion) -> HRESULT;
-            fn GetStyle(&self, #[out] #[out_ptr(nullable, null_on_failure)] style: *mut IMFTimedTextStyle) -> HRESULT;
+            fn GetData(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] data: *mut IMFTimedTextBinary) -> HRESULT;
+            fn GetRegion(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] region: *mut IMFTimedTextRegion) -> HRESULT;
+            fn GetStyle(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] style: *mut IMFTimedTextStyle) -> HRESULT;
             fn GetLineCount(&self) -> DWORD;
             fn GetLine(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] line: *mut IMFTimedTextFormattedText) -> HRESULT;
         }
@@ -385,9 +385,9 @@ mod Windows {
         }
         #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]
         interface IMFTimedTextFormattedText: IUnknown {
-            fn GetText(&self, #[out] #[out_ptr(nullable)] text: *mut LPWSTR) -> HRESULT;
+            fn GetText(&self, #[nullable] #[out] #[out_ptr] text: *mut LPWSTR) -> HRESULT;
             fn GetSubformattingCount(&self) -> DWORD;
-            fn GetSubformatting(&self, #[in] index: DWORD, #[out] firstChar: *mut DWORD, #[out] charLength: *mut DWORD, #[out] #[out_ptr(nullable, null_on_failure)] style: *mut IMFTimedTextStyle) -> HRESULT;
+            fn GetSubformatting(&self, #[in] index: DWORD, #[out] firstChar: *mut DWORD, #[out] charLength: *mut DWORD, #[nullable] #[out] #[out_ptr(null_on_failure)] style: *mut IMFTimedTextStyle) -> HRESULT;
         }
         #[guid(0xdf6b87b6_ce12_45db_aba7_432fe054e57d)]
         interface IMFTimedTextNotify: IUnknown {
@@ -439,8 +439,8 @@ mod Windows {
         }
         #[guid(0xdb639199_c809_4c89_bfca_d0bbb9729d6e)]
         interface IMFTimedTextStyle2: IUnknown {
-            fn GetRuby(&self, #[out] #[out_ptr(nullable, null_on_failure)] ruby: *mut IMFTimedTextRuby) -> HRESULT;
-            fn GetBouten(&self, #[out] #[out_ptr(nullable, null_on_failure)] bouten: *mut IMFTimedTextBouten) -> HRESULT;
+            fn GetRuby(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ruby: *mut IMFTimedTextRuby) -> HRESULT;
+            fn GetBouten(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] bouten: *mut IMFTimedTextBouten) -> HRESULT;
             fn IsTextCombined(&self, #[out] value: *mut BOOL) -> HRESULT;
             fn GetFontAngleInDegrees(&self, #[out] value: *mut f64) -> HRESULT;
         }

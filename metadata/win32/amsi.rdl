@@ -147,7 +147,7 @@ mod Windows {
         #[guid(0xb2cabfe4_fe04_42b1_a5df_08d483d4d125)]
         interface IAntimalwareUacProvider: IUnknown {
             fn UacScan(&self, #[in] context: LPAMSI_UAC_REQUEST_CONTEXT, #[out] result: *mut AMSI_RESULT) -> HRESULT;
-            fn DisplayName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] displayName: *mut LPWSTR) -> HRESULT;
+            fn DisplayName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] displayName: *mut LPWSTR) -> HRESULT;
         }
         type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;
         type LPAMSI_UAC_REQUEST_COM_INFO = *mut AMSI_UAC_REQUEST_COM_INFO;

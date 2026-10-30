@@ -1022,7 +1022,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(SubmitBufferLength))] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[opt] #[out] #[writable(success, if_present(*ReturnBufferLength), indirect, nullable)] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(SubmitBufferLength))] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[nullable] #[opt] #[out] #[writable(success, if_present(*ReturnBufferLength), indirect)] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaClose(#[in] ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]

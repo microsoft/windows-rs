@@ -450,8 +450,8 @@ mod Windows {
             hParentWindow: HWND,
         }
         #[library("SCHANNEL.dll")]
-        extern fn SslDeserializeCertificateStore(#[in] SerializedCertificateStore: CERT_BLOB, #[out] #[out_ptr(nullable)] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
-        extern fn SslDeserializeCertificateStoreFn(#[in] SerializedCertificateStore: CERT_BLOB, #[out] #[out_ptr(nullable)] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
+        extern fn SslDeserializeCertificateStore(#[in] SerializedCertificateStore: CERT_BLOB, #[nullable] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
+        extern fn SslDeserializeCertificateStoreFn(#[in] SerializedCertificateStore: CERT_BLOB, #[nullable] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
         #[library("SCHANNEL.dll")]
         extern fn SslGetExtensions(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
         extern fn SslGetExtensionsFn(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;

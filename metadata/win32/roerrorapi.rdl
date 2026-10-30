@@ -4,7 +4,7 @@ mod Windows {
         const EXCEPTION_RO_ORIGINATEERROR: DWORD = 1074266625;
         const EXCEPTION_RO_TRANSFORMERROR: DWORD = 1074266626;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn GetRestrictedErrorInfo(#[out] #[out_ptr(nullable)] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn GetRestrictedErrorInfo(#[nullable] #[out] #[out_ptr] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
         const MAX_ERROR_MESSAGE_CHARS: i32 = 512;

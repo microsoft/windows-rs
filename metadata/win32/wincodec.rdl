@@ -255,7 +255,7 @@ mod Windows {
         interface IWICBitmapLock: IUnknown {
             fn GetSize(&self, #[out] puiWidth: *mut UINT, #[out] puiHeight: *mut UINT) -> HRESULT;
             fn GetStride(&self, #[out] pcbStride: *mut UINT) -> HRESULT;
-            fn GetDataPointer(&self, #[out] pcbBufferSize: *mut UINT, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbBufferSize, indirect, nullable)] #[writable(success, *pcbBufferSize, indirect, nullable)] ppbData: *mut WICInProcPointer) -> HRESULT;
+            fn GetDataPointer(&self, #[out] pcbBufferSize: *mut UINT, #[nullable] #[out] #[readable(success, *pcbBufferSize, indirect)] #[writable(success, *pcbBufferSize, indirect)] ppbData: *mut WICInProcPointer) -> HRESULT;
             fn GetPixelFormat(&self, #[out] pPixelFormat: *mut WICPixelFormatGUID) -> HRESULT;
         }
         #[guid(0x00000302_a8f2_4877_ba0a_fd2b6645fb94)]

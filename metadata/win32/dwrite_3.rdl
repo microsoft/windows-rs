@@ -380,7 +380,7 @@ mod Windows {
             fn GetStyle(&self) -> DWRITE_FONT_STYLE;
             fn GetFamilyNames(&self, #[out] #[out_ptr(null_on_failure)] #[retval] names: *mut IDWriteLocalizedStrings) -> HRESULT;
             fn GetFaceNames(&self, #[out] #[out_ptr(null_on_failure)] #[retval] names: *mut IDWriteLocalizedStrings) -> HRESULT;
-            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, #[out] #[out_ptr(nullable, null_on_failure)] informationalStrings: *mut IDWriteLocalizedStrings, #[out] exists: *mut BOOL) -> HRESULT;
+            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, #[nullable] #[out] #[out_ptr(null_on_failure)] informationalStrings: *mut IDWriteLocalizedStrings, #[out] exists: *mut BOOL) -> HRESULT;
             fn HasCharacter(&self, unicodeValue: UINT32) -> BOOL;
             fn GetRecommendedRenderingMode(&self, fontEmSize: FLOAT, dpiX: FLOAT, dpiY: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, #[in] #[opt] renderingParams: IDWriteRenderingParams, #[out] renderingMode: *mut DWRITE_RENDERING_MODE1, #[out] gridFitMode: *mut DWRITE_GRID_FIT_MODE) -> HRESULT;
             fn IsCharacterLocal(&self, unicodeValue: UINT32) -> BOOL;
@@ -392,7 +392,7 @@ mod Windows {
         interface IDWriteFontFace4: IDWriteFontFace3 {
             fn GetGlyphImageFormats(&self, glyphId: UINT16, pixelsPerEmFirst: UINT32, pixelsPerEmLast: UINT32, #[out] glyphImageFormats: *mut DWRITE_GLYPH_IMAGE_FORMATS) -> HRESULT;
             fn GetGlyphImageFormats(&self) -> DWRITE_GLYPH_IMAGE_FORMATS;
-            fn GetGlyphImageData(&self, #[in] glyphId: UINT16, pixelsPerEm: UINT32, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, #[out] glyphData: *mut DWRITE_GLYPH_IMAGE_DATA, #[out] #[out_ptr(nullable)] glyphDataContext: *mut *mut void) -> HRESULT;
+            fn GetGlyphImageData(&self, #[in] glyphId: UINT16, pixelsPerEm: UINT32, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, #[out] glyphData: *mut DWRITE_GLYPH_IMAGE_DATA, #[nullable] #[out] #[out_ptr] glyphDataContext: *mut *mut void) -> HRESULT;
             fn ReleaseGlyphImageData(&self, glyphDataContext: *mut void);
         }
         #[guid(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29)]
@@ -484,7 +484,7 @@ mod Windows {
             fn FindFontFace(&self, fontFace: IDWriteFontFace, #[out] listIndex: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
             fn GetPropertyValues(&self, propertyID: DWRITE_FONT_PROPERTY_ID, #[out] #[out_ptr(null_on_failure)] #[retval] values: *mut IDWriteStringList) -> HRESULT;
             fn GetPropertyValues(&self, propertyID: DWRITE_FONT_PROPERTY_ID, #[in] #[null_terminated(entry)] preferredLocaleNames: *const WCHAR, #[out] #[out_ptr(null_on_failure)] #[retval] values: *mut IDWriteStringList) -> HRESULT;
-            fn GetPropertyValues(&self, listIndex: UINT32, propertyId: DWRITE_FONT_PROPERTY_ID, #[out] exists: *mut BOOL, #[out] #[out_ptr(nullable, null_on_failure)] values: *mut IDWriteLocalizedStrings) -> HRESULT;
+            fn GetPropertyValues(&self, listIndex: UINT32, propertyId: DWRITE_FONT_PROPERTY_ID, #[out] exists: *mut BOOL, #[nullable] #[out] #[out_ptr(null_on_failure)] values: *mut IDWriteLocalizedStrings) -> HRESULT;
             fn GetPropertyOccurrenceCount(&self, #[in] property: *const DWRITE_FONT_PROPERTY, #[out] propertyOccurrenceCount: *mut UINT32) -> HRESULT;
             fn GetMatchingFonts(&self, #[in] #[null_terminated(entry)] familyName: *const WCHAR, fontWeight: DWRITE_FONT_WEIGHT, fontStretch: DWRITE_FONT_STRETCH, fontStyle: DWRITE_FONT_STYLE, #[out] #[out_ptr(null_on_failure)] #[retval] filteredSet: *mut IDWriteFontSet) -> HRESULT;
             fn GetMatchingFonts(&self, #[in] #[readable(entry, propertyCount)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] filteredSet: *mut IDWriteFontSet) -> HRESULT;
@@ -571,7 +571,7 @@ mod Windows {
             fn GetLocalFileSize(&self, #[out] localFileSize: *mut UINT64) -> HRESULT;
             fn GetFileFragmentLocality(&self, fileOffset: UINT64, fragmentSize: UINT64, #[out] isLocal: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,fragmentSize", "0,fragmentSize")] partialSize: *mut UINT64) -> HRESULT;
             fn GetLocality(&self) -> DWRITE_LOCALITY;
-            fn BeginDownload(&self, #[in] downloadOperationID: *const UUID, #[in] #[readable(entry, fragmentCount)] fileFragments: *const DWRITE_FILE_FRAGMENT, fragmentCount: UINT32, #[out] #[out_ptr(nullable, null_on_failure)] asyncResult: *mut IDWriteAsyncResult) -> HRESULT;
+            fn BeginDownload(&self, #[in] downloadOperationID: *const UUID, #[in] #[readable(entry, fragmentCount)] fileFragments: *const DWRITE_FILE_FRAGMENT, fragmentCount: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] asyncResult: *mut IDWriteAsyncResult) -> HRESULT;
         }
         #[guid(0xb7924baa_391b_412a_8c5c_e44cc2d867dc)]
         interface IDWriteRenderingParams3: IDWriteRenderingParams2 {

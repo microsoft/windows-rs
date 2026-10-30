@@ -445,8 +445,9 @@ mod Windows {
         struct NTSCSI_UNICODE_STRING {
             Length: USHORT,
             MaximumLength: USHORT,
-            #[readable(bytes(Length), nullable)]
-            #[writable(bytes(MaximumLength), nullable)]
+            #[nullable]
+            #[readable(bytes(Length))]
+            #[writable(bytes(MaximumLength))]
             Buffer: PWCH,
         }
         #[packed(1)]
@@ -717,8 +718,9 @@ mod Windows {
             #[readable(bytes(DataOutTransferLength))]
             #[writable(bytes(DataOutTransferLength))]
             DataOutBuffer: *mut void,
-            #[readable(bytes(DataInTransferLength), nullable)]
-            #[writable(bytes(DataInTransferLength), nullable)]
+            #[nullable]
+            #[readable(bytes(DataInTransferLength))]
+            #[writable(bytes(DataInTransferLength))]
             DataInBuffer: *mut void,
             #[readable(bytes(CdbLength))]
             #[writable(bytes(CdbLength))]

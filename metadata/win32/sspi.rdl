@@ -1109,7 +1109,7 @@ mod Windows {
         #[library("SspiCli.dll")]
         extern fn SspiDecryptAuthIdentityEx(#[in] Options: ULONG, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr(nullable)] ppszUserName: *mut PCWSTR, #[out] #[out_ptr(nullable)] ppszDomainName: *mut PCWSTR, #[opt] #[out] #[out_ptr(nullable)] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
+        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[nullable] #[out] #[out_ptr] ppszUserName: *mut PCWSTR, #[nullable] #[out] #[out_ptr] ppszDomainName: *mut PCWSTR, #[nullable] #[opt] #[out] #[out_ptr] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] pszUserName: PCWSTR, #[in] #[opt] pszDomainName: PCWSTR, #[in] #[opt] pszPackedCredentialsString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]

@@ -105,10 +105,10 @@ mod Windows {
             fn RemoveFocusChangedEventHandler(&self, #[in] #[opt] handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
             fn RemoveAllEventHandlers(&self) -> HRESULT;
             fn IntNativeArrayToSafeArray(&self, #[in] #[readable(entry, arrayCount)] array: *mut i32, #[in] arrayCount: i32, #[out] #[out_ptr] #[retval] safeArray: *mut *mut SAFEARRAY) -> HRESULT;
-            fn IntSafeArrayToNativeArray(&self, #[in] intArray: *mut SAFEARRAY, #[nullable(entry, indirect)] #[out] #[readable(success, *arrayCount, indirect, nullable)] #[writable(success, *arrayCount, indirect, nullable)] array: *mut *mut i32, #[out] #[retval] arrayCount: *mut i32) -> HRESULT;
+            fn IntSafeArrayToNativeArray(&self, #[in] intArray: *mut SAFEARRAY, #[nullable] #[out] #[readable(success, *arrayCount, indirect)] #[writable(success, *arrayCount, indirect)] array: *mut *mut i32, #[out] #[retval] arrayCount: *mut i32) -> HRESULT;
             fn RectToVariant(&self, #[in] rc: RECT, #[out] #[retval] var: *mut VARIANT) -> HRESULT;
             fn VariantToRect(&self, #[in] var: VARIANT, #[out] #[retval] rc: *mut RECT) -> HRESULT;
-            fn SafeArrayToRectNativeArray(&self, #[in] rects: *mut SAFEARRAY, #[nullable(entry, indirect)] #[out] #[readable(success, *rectArrayCount, indirect, nullable)] #[writable(success, *rectArrayCount, indirect, nullable)] rectArray: *mut *mut RECT, #[out] #[retval] rectArrayCount: *mut i32) -> HRESULT;
+            fn SafeArrayToRectNativeArray(&self, #[in] rects: *mut SAFEARRAY, #[nullable] #[out] #[readable(success, *rectArrayCount, indirect)] #[writable(success, *rectArrayCount, indirect)] rectArray: *mut *mut RECT, #[out] #[retval] rectArrayCount: *mut i32) -> HRESULT;
             fn CreateProxyFactoryEntry(&self, #[in] #[opt] factory: IUIAutomationProxyFactory, #[out] #[out_ptr] #[retval] factoryEntry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
             #[special]
             fn get_ProxyFactoryMapping(&self, #[out] #[out_ptr] #[retval] factoryMapping: *mut IUIAutomationProxyFactoryMapping) -> HRESULT;
@@ -178,7 +178,7 @@ mod Windows {
         interface IUIAutomationAndCondition: IUIAutomationCondition {
             #[special]
             fn get_ChildCount(&self, #[out] #[retval] childCount: *mut i32) -> HRESULT;
-            fn GetChildrenAsNativeArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *childArrayCount, indirect, nullable)] #[writable(success, *childArrayCount, indirect, nullable)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
+            fn GetChildrenAsNativeArray(&self, #[nullable] #[out] #[readable(success, *childArrayCount, indirect)] #[writable(success, *childArrayCount, indirect)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
             fn GetChildren(&self, #[out] #[out_ptr] #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9a175b21_339e_41b1_8e8b_623f6b681098)]
@@ -656,7 +656,7 @@ mod Windows {
         interface IUIAutomationOrCondition: IUIAutomationCondition {
             #[special]
             fn get_ChildCount(&self, #[out] #[retval] childCount: *mut i32) -> HRESULT;
-            fn GetChildrenAsNativeArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *childArrayCount, indirect, nullable)] #[writable(success, *childArrayCount, indirect, nullable)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
+            fn GetChildrenAsNativeArray(&self, #[nullable] #[out] #[readable(success, *childArrayCount, indirect)] #[writable(success, *childArrayCount, indirect)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
             fn GetChildren(&self, #[out] #[out_ptr] #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50)]
@@ -860,7 +860,7 @@ mod Windows {
             fn get_CurrentFillPatternColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
             fn get_CurrentExtendedProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCurrentExtendedPropertiesAsArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *propertyCount, indirect, nullable)] #[writable(success, *propertyCount, indirect, nullable)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
+            fn GetCurrentExtendedPropertiesAsArray(&self, #[nullable] #[out] #[readable(success, *propertyCount, indirect)] #[writable(success, *propertyCount, indirect)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
             #[special]
             fn get_CachedStyleId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
@@ -875,7 +875,7 @@ mod Windows {
             fn get_CachedFillPatternColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
             fn get_CachedExtendedProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCachedExtendedPropertiesAsArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *propertyCount, indirect, nullable)] #[writable(success, *propertyCount, indirect, nullable)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
+            fn GetCachedExtendedPropertiesAsArray(&self, #[nullable] #[out] #[readable(success, *propertyCount, indirect)] #[writable(success, *propertyCount, indirect)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
         }
         #[guid(0x2233be0b_afb7_448b_9fda_3b378aa5eae1)]
         interface IUIAutomationSynchronizedInputPattern: IUnknown {

@@ -30,7 +30,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptProtectMemory(#[in] #[out] pDataIn: LPVOID, #[in] cbDataIn: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptUnprotectData(#[in] pDataIn: *mut DATA_BLOB, #[opt] #[out] #[out_ptr(nullable)] ppszDataDescr: *mut LPWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: PVOID, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, #[in] dwFlags: DWORD, #[out] pDataOut: *mut DATA_BLOB) -> BOOL;
+        extern fn CryptUnprotectData(#[in] pDataIn: *mut DATA_BLOB, #[nullable] #[opt] #[out] #[out_ptr] ppszDataDescr: *mut LPWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: PVOID, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, #[in] dwFlags: DWORD, #[out] pDataOut: *mut DATA_BLOB) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptUnprotectMemory(#[in] #[out] pDataIn: LPVOID, #[in] cbDataIn: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]

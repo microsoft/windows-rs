@@ -700,7 +700,7 @@ fn write_params(
                     namespace,
                     method.index(),
                     &[],
-                    Some(ExtentOwner::Parameter(&names, &ty)),
+                    Some(ExtentOwner::Parameter(&names, &ty, has_out)),
                 )?,
                 None => Vec::new(),
             };
@@ -740,7 +740,7 @@ fn write_return_type(
                 namespace,
                 method.index(),
                 &[],
-                Some(ExtentOwner::Return(&names)),
+                Some(ExtentOwner::Return(&names, &signature.return_type)),
             )
         })
         .transpose()?
@@ -772,7 +772,7 @@ pub(crate) fn write_field_attributes(
         namespace,
         field.index(),
         &[],
-        Some(ExtentOwner::Field),
+        Some(ExtentOwner::Field(&field.ty())),
     )?
     .into_iter()
     .collect())
@@ -789,9 +789,38 @@ fn write_custom_attributes_except<'a>(
 
 #[derive(Clone, Copy)]
 enum ExtentOwner<'a> {
-    Parameter(&'a [&'a str], &'a metadata::Type),
-    Field,
-    Return(&'a [&'a str]),
+    Parameter(&'a [&'a str], &'a metadata::Type, bool),
+    Field(&'a metadata::Type),
+    Return(&'a [&'a str], &'a metadata::Type),
+}
+
+impl ExtentOwner<'_> {
+    // Mirrors the reader: `#[nullable]` applies to the pointer an `out` parameter stores, or to a
+    // returned or field pointer.
+    fn accepts_nullable(self, index: &metadata::reader::Index) -> bool {
+        let (ty, indirect) = match self {
+            Self::Parameter(_, ty, true) => (ty, true),
+            Self::Parameter(_, _, false) => return false,
+            Self::Field(ty) | Self::Return(_, ty) => (ty, false),
+        };
+        let mut subject = metadata_underlying(ty.clone(), index);
+        if indirect {
+            subject = subject
+                .and_then(buffer_extent::pointee)
+                .and_then(|ty| metadata_underlying(ty, index));
+        }
+        subject.is_some_and(|ty| {
+            matches!(
+                ty,
+                metadata::Type::PtrMut(..)
+                    | metadata::Type::PtrConst(..)
+                    | metadata::Type::RefMut(_)
+                    | metadata::Type::RefConst(_)
+                    | metadata::Type::ClassName(_)
+                    | metadata::Type::FnPtr(_)
+            )
+        })
+    }
 }
 
 fn metadata_underlying(
@@ -844,15 +873,15 @@ fn write_custom_attributes_with_names<'a>(
                 && attr.name() == "IntegerRangeAttribute"
                 && let Some(range) = metadata::IntegerRange::from_values(&values)
                 && let Some(names) = match extent_owner {
-                    Some(ExtentOwner::Parameter(names, _))
+                    Some(ExtentOwner::Parameter(names, _, _))
                         if range.phase != metadata::BufferPhase::Value =>
                     {
                         Some(names)
                     }
-                    Some(ExtentOwner::Field) if range.phase == metadata::BufferPhase::Value => {
+                    Some(ExtentOwner::Field(_)) if range.phase == metadata::BufferPhase::Value => {
                         Some(&[][..])
                     }
-                    Some(ExtentOwner::Return(names))
+                    Some(ExtentOwner::Return(names, _))
                         if range.phase == metadata::BufferPhase::Success && !range.indirect =>
                     {
                         Some(names)
@@ -868,12 +897,12 @@ fn write_custom_attributes_with_names<'a>(
                 && attr.name() == "BufferExtentAttribute"
                 && let Some(extent) = metadata::BufferExtent::from_values(&values)
                 && let Some(names) = match extent_owner {
-                    Some(ExtentOwner::Parameter(names, _))
+                    Some(ExtentOwner::Parameter(names, _, _))
                         if extent.phase != metadata::BufferPhase::Value =>
                     {
                         Some(names)
                     }
-                    Some(ExtentOwner::Field) if extent.phase == metadata::BufferPhase::Value => {
+                    Some(ExtentOwner::Field(_)) if extent.phase == metadata::BufferPhase::Value => {
                         Some(&[][..])
                     }
                     _ => None,
@@ -892,10 +921,7 @@ fn write_custom_attributes_with_names<'a>(
                 let termination = attr.name() == "NativeNullTerminatedAttribute";
                 if !termination
                     && values.is_empty()
-                    && matches!(
-                        extent_owner,
-                        Some(ExtentOwner::Return(_) | ExtentOwner::Field)
-                    )
+                    && extent_owner.is_some_and(|owner| owner.accepts_nullable(index))
                 {
                     return Ok(quote! { #[nullable] });
                 }
@@ -913,18 +939,14 @@ fn write_custom_attributes_with_names<'a>(
                         == 2 + usize::from(double_entry)
                             + usize::from(double_success)
                             + usize::from(indirect)
+                        && termination
                         && (entry || success)
                         && (!double_entry || entry)
                         && (!double_success || success)
-                        && (termination || !double_entry && !double_success)
-                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty))
-                            if !termination || buffer_extent::is_buffer_storage(
+                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty, _))
+                            if buffer_extent::is_buffer_storage(
                                 ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
                     {
-                        if !termination {
-                            return Ok(write_nullable(entry, success, indirect));
-                        }
-
                         return Ok(write_null_terminated(
                             entry.then_some(double_entry),
                             success.then_some(double_success),
@@ -936,16 +958,10 @@ fn write_custom_attributes_with_names<'a>(
 
             if attr_ns == METADATA_NAMESPACE
                 && attr.name() == "NativeReturnedPointerAttribute"
-                && let [
-                    (first, metadata::Value::Bool(a)),
-                    (second, metadata::Value::Bool(b)),
-                ] = values.as_slice()
+                && let [(name, metadata::Value::Bool(null_on_failure))] = values.as_slice()
+                && name == "NullOnFailure"
             {
-                match (first.as_str(), second.as_str()) {
-                    ("MayBeNull", "NullOnFailure") => return Ok(write_returned_pointer(*a, *b)),
-                    ("NullOnFailure", "MayBeNull") => return Ok(write_returned_pointer(*b, *a)),
-                    _ => {}
-                }
+                return Ok(write_returned_pointer(*null_on_failure));
             }
 
             if attr_ns == METADATA_NAMESPACE

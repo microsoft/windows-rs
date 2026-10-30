@@ -994,7 +994,7 @@ mod Windows {
             ModuleWriteCodeSegs = 64,
         }
         #[library("dbghelp.dll")]
-        extern fn MiniDumpReadDumpStream(#[in] BaseOfDump: PVOID, #[in] StreamNumber: ULONG, #[out] #[out_ptr(nullable)] Dir: *mut PMINIDUMP_DIRECTORY, #[out] #[out_ptr(nullable)] StreamPointer: *mut PVOID, #[opt] #[out] StreamSize: *mut ULONG) -> BOOL;
+        extern fn MiniDumpReadDumpStream(#[in] BaseOfDump: PVOID, #[in] StreamNumber: ULONG, #[nullable] #[out] #[out_ptr] Dir: *mut PMINIDUMP_DIRECTORY, #[nullable] #[out] #[out_ptr] StreamPointer: *mut PVOID, #[opt] #[out] StreamSize: *mut ULONG) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn MiniDumpWriteDump(#[in] hProcess: HANDLE, #[in] ProcessId: DWORD, #[in] hFile: HANDLE, #[in] DumpType: MINIDUMP_TYPE, #[in] #[opt] ExceptionParam: PMINIDUMP_EXCEPTION_INFORMATION, #[in] #[opt] UserStreamParam: PMINIDUMP_USER_STREAM_INFORMATION, #[in] #[opt] CallbackParam: PMINIDUMP_CALLBACK_INFORMATION) -> BOOL;
         type PCPU_INFORMATION = *mut CPU_INFORMATION;

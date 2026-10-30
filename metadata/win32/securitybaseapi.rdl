@@ -79,7 +79,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn DeleteAce(#[in] #[out] pAcl: PACL, #[in] dwAceIndex: DWORD) -> BOOL;
         #[library("api-ms-win-security-base-l1-2-2.dll")]
-        extern fn DeriveCapabilitySidsFromName(#[in] CapName: LPCWSTR, #[out] #[writable(success, *CapabilityGroupSidCount, indirect, nullable)] CapabilityGroupSids: *mut *mut PSID, #[out] CapabilityGroupSidCount: *mut DWORD, #[out] #[writable(success, *CapabilitySidCount, indirect, nullable)] CapabilitySids: *mut *mut PSID, #[out] CapabilitySidCount: *mut DWORD) -> BOOL;
+        extern fn DeriveCapabilitySidsFromName(#[in] CapName: LPCWSTR, #[nullable] #[out] #[writable(success, *CapabilityGroupSidCount, indirect)] CapabilityGroupSids: *mut *mut PSID, #[out] CapabilityGroupSidCount: *mut DWORD, #[nullable] #[out] #[writable(success, *CapabilitySidCount, indirect)] CapabilitySids: *mut *mut PSID, #[out] CapabilitySidCount: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn DestroyPrivateObjectSecurity(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_valid_", "", "")] ObjectDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("ADVAPI32.dll")]
