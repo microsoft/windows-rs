@@ -334,7 +334,7 @@ impl WinUiAdapter {
         let events = self.event_queue.events.borrow();
         events
             .iter()
-            .filter(|queued| queued.event.is_some())
+            .filter(|queued| queued.dispatches())
             .filter_map(|queued| self.native_event(queued))
             .find(NativeEvent::dispatches)
     }

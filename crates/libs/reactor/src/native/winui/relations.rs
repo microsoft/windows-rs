@@ -619,13 +619,7 @@ impl WinUiAdapter {
             event_queue
                 .events
                 .borrow_mut()
-                .push_back(QueuedNativeEvent {
-                    observation: None,
-                    event: None,
-                    record: false,
-                    retirement: Some(RetirementCompletion { root }),
-                    realization: None,
-                });
+                .push_back(NativeEvent::Retirement(RetirementCompletion { root }));
             Self::schedule_event_wake(&event_queue);
         })?;
         self.retirements.insert(
@@ -687,15 +681,20 @@ impl WinUiAdapter {
     }
 
     pub(super) fn native_event(&self, queued: &QueuedNativeEvent) -> Option<NativeEvent> {
-        if let Some(completion) = queued.retirement {
-            return Some(NativeEvent::retirement(completion));
-        }
-        if let Some(request) = queued.realization {
-            return Some(NativeEvent::realization(request));
-        }
+        let (observation, event) = match queued {
+            NativeEvent::Observation(observation) => (Some(observation), None),
+            NativeEvent::Record(observation) => {
+                return Some(NativeEvent::Record(observation.clone()));
+            }
+            NativeEvent::Event { observation, event } => (observation.as_ref(), Some(event)),
+            NativeEvent::Retirement(completion) => {
+                return Some(NativeEvent::Retirement(*completion));
+            }
+            NativeEvent::Realization(request) => return Some(NativeEvent::Realization(*request)),
+        };
         // Native handlers queue reorders without an order; reading it here keeps queued
         // notifications from replaying an order that a later render has already replaced.
-        let mut observation = queued.observation.clone();
+        let mut observation = observation.cloned();
         let mut native_order = None;
         if let Some(Observation::Reorder {
             object,
@@ -710,7 +709,7 @@ impl WinUiAdapter {
             children.clone_from(&native);
             native_order = Some(native);
         }
-        let event = queued.event.as_ref().and_then(|queued| {
+        let event = event.and_then(|queued| {
             let call = match (&queued.handler, queued.event) {
                 (QueuedHandler::Presentation { revision, key }, EventId::MenuItemInvoked) => {
                     let menu = self.menus.get(&queued.object)?;
@@ -733,10 +732,7 @@ impl WinUiAdapter {
             };
             Some(EventDispatch::new(queued.object, queued.event, call))
         });
-        Some(match observation {
-            Some(observation) if queued.record => NativeEvent::record(observation),
-            observation => NativeEvent::new(observation, event),
-        })
+        NativeEvent::report(observation, event)
     }
 
     /// Returns the registered children of a reorderable relation in native order.

@@ -251,16 +251,19 @@ impl<A: Adapter> Runtime<A> {
     ) -> Option<VirtualWork> {
         loop {
             let next = self.adapter.peek_native_event()?;
-            if next.event.is_some() {
-                return None;
-            }
-            match next.realization {
-                Some(request) if self.graph.realization_busy(request, applying, pending) => {
+            match next {
+                NativeEvent::Event { .. } => return None,
+                NativeEvent::Realization(request)
+                    if self.graph.realization_busy(request, applying, pending) =>
+                {
                     return None;
                 }
-                Some(_) => {}
-                None if self.native_event_active.get() && !next.record => return None,
-                None => {}
+                NativeEvent::Observation(_) | NativeEvent::Retirement(_)
+                    if self.native_event_active.get() =>
+                {
+                    return None;
+                }
+                _ => {}
             }
             match self.pop_native_work()? {
                 NativeWork::Virtual(work) => return Some(work),

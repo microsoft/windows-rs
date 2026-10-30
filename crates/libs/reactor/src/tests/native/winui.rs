@@ -168,30 +168,28 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
     );
     adapter.event_queue.queue(Some(observation.clone()), None);
 
-    let stale = adapter.peek_native_event();
-    assert_eq!(stale, Some(NativeEvent::new(None, None)));
+    // A stale click resolves to nothing, so peek and pop both skip it.
+    let next = Some(NativeEvent::Observation(observation.clone()));
+    assert_eq!(adapter.peek_native_event(), next);
     assert_eq!(adapter.event_queue.events.borrow().len(), 4);
-    assert_eq!(adapter.pop_native_event(), stale);
-    assert_eq!(
-        adapter.pop_native_event(),
-        Some(NativeEvent::new(Some(observation.clone()), None))
-    );
+    assert_eq!(adapter.pop_native_event(), next);
+    assert_eq!(adapter.event_queue.events.borrow().len(), 2);
 
     // Callback replacement preserves the menu presentation revision.
     adapter.menus.get_mut(&object).unwrap().menu.on_click = second.clone();
-    let current = Some(NativeEvent::new(
-        None,
-        Some(EventDispatch::new(
+    let current = Some(NativeEvent::Event {
+        observation: None,
+        event: EventDispatch::new(
             object,
             EventId::MenuItemInvoked,
             EventCall::Key(second, "current".into()),
-        )),
-    ));
+        ),
+    });
     assert_eq!(adapter.peek_native_event(), current);
     assert_eq!(adapter.pop_native_event(), current);
     assert_eq!(
         adapter.pop_native_event(),
-        Some(NativeEvent::new(Some(observation), None))
+        Some(NativeEvent::Observation(observation))
     );
     assert_eq!(adapter.pop_native_event(), None);
 }
@@ -206,25 +204,23 @@ fn native_queue_expired_report_keeps_only_its_observation() {
             values.borrow_mut().push(value);
         })
     };
-    let report = |value: &str, live: bool| QueuedNativeEvent {
-        observation: Some(Observation::SetProperty {
-            object,
-            property: Property {
-                id: PropertyId::Text,
-                value: PropertyValue::String(Rc::from(value)),
-            },
-        }),
-        event: Some(QueuedEvent {
+    let observation = |value: &str| Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from(value)),
+        },
+    };
+    let report = |value: &str, live: bool| QueuedNativeEvent::Event {
+        observation: Some(observation(value)),
+        event: QueuedEvent {
             object,
             event: EventId::TextChanged,
             handler: QueuedHandler::Callback {
                 call: EventCall::String(callback.clone(), Rc::from(value)),
                 live: Rc::new(Cell::new(live)),
             },
-        }),
-        record: false,
-        retirement: None,
-        realization: None,
+        },
     };
     let mut adapter = WinUiAdapter::default();
     // `on_text_changed` was removed and added again between the two reports.
@@ -233,15 +229,15 @@ fn native_queue_expired_report_keeps_only_its_observation() {
         .events
         .borrow_mut()
         .extend([report("Expired", false), report("Live", true)]);
-    let expected = Some(NativeEvent::new(
-        report("Live", true).observation,
-        Some(EventDispatch::new(
+    let expected = Some(NativeEvent::Event {
+        observation: Some(observation("Live")),
+        event: EventDispatch::new(
             object,
             EventId::TextChanged,
             EventCall::String(callback.clone(), Rc::from("Live")),
-        )),
-    ));
-    let expired = Some(NativeEvent::new(report("Expired", false).observation, None));
+        ),
+    });
+    let expired = Some(NativeEvent::Observation(observation("Expired")));
     assert_eq!(adapter.peek_native_event(), expired);
     assert_eq!(adapter.pop_native_event(), expired);
     assert_eq!(adapter.peek_native_event(), expected);
@@ -273,7 +269,7 @@ fn image_source_change_discards_only_queued_load_results() {
     let remaining: Vec<_> = events
         .iter()
         .map(|queued| {
-            let event = queued.event.as_ref().unwrap();
+            let event = queued.event().unwrap();
             (event.object, event.event)
         })
         .collect();
@@ -303,7 +299,7 @@ fn replacement_discards_queued_reorders_without_callbacks() {
 
     let events = queue.events.borrow();
     assert_eq!(events.len(), 1);
-    assert_eq!(events[0].observation, Some(reorder(other)));
+    assert_eq!(events[0].observation(), Some(&reorder(other)));
 }
 
 #[test]
@@ -656,8 +652,13 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     ));
     let queued = event_queue.events.borrow();
     assert_eq!(queued.len(), 1);
-    assert!(queued[0].observation.is_none());
-    let event = queued[0].event.as_ref().unwrap();
+    let NativeEvent::Event {
+        observation: None,
+        event,
+    } = &queued[0]
+    else {
+        panic!("expected an event without an observation");
+    };
     assert_eq!(event.object, object);
     assert_eq!(event.event, EventId::PointerReleased);
     assert!(matches!(
@@ -688,14 +689,10 @@ fn queued_occurrences_follow_their_subscription() {
         ));
     };
     let delivered = |callback: &Callback<()>| {
-        Some(NativeEvent::new(
-            None,
-            Some(EventDispatch::new(
-                object,
-                EventId::Click,
-                EventCall::Unit(callback.clone()),
-            )),
-        ))
+        Some(NativeEvent::Event {
+            observation: None,
+            event: EventDispatch::new(object, EventId::Click, EventCall::Unit(callback.clone())),
+        })
     };
 
     // Replacing the callback keeps the subscription, so the occurrence reaches the callback
@@ -709,10 +706,7 @@ fn queued_occurrences_follow_their_subscription() {
     queue(&adapter);
     event.borrow_mut().set(None);
     event.borrow_mut().set(Some(third.clone()));
-    assert_eq!(
-        adapter.pop_native_event(),
-        Some(NativeEvent::new(None, None))
-    );
+    assert_eq!(adapter.pop_native_event(), None);
 
     queue(&adapter);
     assert_eq!(adapter.pop_native_event(), delivered(&third));

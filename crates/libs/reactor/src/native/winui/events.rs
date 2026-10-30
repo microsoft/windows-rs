@@ -27,11 +27,7 @@ impl WinUiAdapter {
             event: event_id,
             handler,
         });
-        let queue = observation.is_some() || queued.is_some();
-        if queue {
-            event_queue.queue(observation, queued);
-        }
-        queue
+        event_queue.queue(observation, queued)
     }
 
     pub(super) fn drag_kind(
@@ -405,13 +401,7 @@ impl WinUiAdapter {
         event_queue
             .events
             .borrow_mut()
-            .push_back(QueuedNativeEvent {
-                observation: Some(observation),
-                event: None,
-                record: true,
-                retirement: None,
-                realization: None,
-            });
+            .push_back(NativeEvent::Record(observation));
         Self::schedule_event_wake(event_queue);
     }
 

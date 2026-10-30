@@ -21,14 +21,7 @@ pub(super) enum QueuedHandler {
     Presentation { revision: u64, key: Key },
 }
 
-pub(super) struct QueuedNativeEvent {
-    pub(super) observation: Option<Observation>,
-    pub(super) event: Option<QueuedEvent>,
-    /// The observation records native state that Reactor's own write produced.
-    pub(super) record: bool,
-    pub(super) retirement: Option<RetirementCompletion>,
-    pub(super) realization: Option<RealizationRequest>,
-}
+pub(super) type QueuedNativeEvent = NativeEvent<QueuedEvent>;
 
 /// A child of a selection or reorder relation, keyed by native COM identity so event handlers can
 /// map native items back to objects.
@@ -56,13 +49,9 @@ impl NativeEventQueue {
     /// Drops queued events and observations for an object whose control was replaced.
     pub(super) fn discard_object(&self, object: ObjectId) {
         self.events.borrow_mut().retain(|queued| {
-            queued
-                .event
-                .as_ref()
-                .is_none_or(|event| event.object != object)
+            queued.event().is_none_or(|event| event.object != object)
                 && queued
-                    .observation
-                    .as_ref()
+                    .observation()
                     .is_none_or(|observation| observation.object() != object)
         });
     }
@@ -71,8 +60,7 @@ impl NativeEventQueue {
     pub(super) fn discard_events(&self, object: ObjectId, events: &[EventId]) {
         self.events.borrow_mut().retain(|queued| {
             queued
-                .event
-                .as_ref()
+                .event()
                 .is_none_or(|event| event.object != object || !events.contains(&event.event))
         });
     }
@@ -84,26 +72,24 @@ impl NativeEventQueue {
         })
     }
 
-    pub(super) fn queue(&self, observation: Option<Observation>, event: Option<QueuedEvent>) {
-        self.events.borrow_mut().push_back(QueuedNativeEvent {
-            observation,
-            event,
-            record: false,
-            retirement: None,
-            realization: None,
-        });
+    /// Queues an event occurrence with the state it reports, or the state alone. Returns false
+    /// when there is neither.
+    pub(super) fn queue(
+        &self,
+        observation: Option<Observation>,
+        event: Option<QueuedEvent>,
+    ) -> bool {
+        let Some(queued) = NativeEvent::report(observation, event) else {
+            return false;
+        };
+        self.events.borrow_mut().push_back(queued);
+        true
     }
 
     pub(super) fn queue_realization(self: &Rc<Self>, request: RealizationRequest) {
         let mut events = self.events.borrow_mut();
         let request = coalesce_queued_realization(&mut events, request);
-        events.push_back(QueuedNativeEvent {
-            observation: None,
-            event: None,
-            record: false,
-            retirement: None,
-            realization: Some(request),
-        });
+        events.push_back(NativeEvent::Realization(request));
         drop(events);
         WinUiAdapter::schedule_event_wake(self);
     }
@@ -134,12 +120,12 @@ fn coalesce_queued_realization(
     };
     let pending = events.iter().rposition(|event| {
         matches!(
-            event.realization,
-            Some(RealizationRequest::Realize {
+            event,
+            NativeEvent::Realization(RealizationRequest::Realize {
                 collection: pending_collection,
                 container: pending_container,
                 ..
-            }) if pending_collection == collection && pending_container == container
+            }) if *pending_collection == collection && *pending_container == container
         )
     });
     if let Some(pending) = pending {
