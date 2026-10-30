@@ -32,8 +32,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             old,
             EventId::Click,
-            EventValue::Unit(callback.clone()),
-            EventPayload::Unit,
+            EventCall::Unit(callback.clone()),
         ));
     }
     let mut active = runtime.next_native_event().unwrap();
@@ -442,8 +441,7 @@ fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         active,
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
 
     assert!(!runtime.prepare_update());
@@ -484,8 +482,7 @@ fn native_event_before_retirement_completion_keeps_chronological_order() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         children[1],
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
     runtime
         .adapter_mut()
@@ -530,8 +527,7 @@ fn retirement_completion_before_later_event_keeps_chronological_order() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         children[1],
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
 
     let mut event = runtime.next_native_event().unwrap();
@@ -567,8 +563,7 @@ fn events_queued_after_logical_retirement_are_stale_before_completion() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         retired,
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
     runtime.adapter_mut().queue_retirement_completion(retired);
 

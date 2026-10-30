@@ -1,113 +1,31 @@
 use super::*;
 
-pub(super) trait IntoEventPayload {
-    fn into_payload(self) -> EventPayload;
-}
-
-impl IntoEventPayload for () {
-    fn into_payload(self) -> EventPayload {
-        EventPayload::Unit
-    }
-}
-
-macro_rules! into_event_payload {
-    ($($type:ty => $variant:ident,)*) => {
-        $(impl IntoEventPayload for $type {
-            fn into_payload(self) -> EventPayload {
-                EventPayload::$variant(self)
-            }
-        })*
-    };
-}
-
-into_event_payload! {
-    bool => Bool,
-    Color => Color,
-    ContentDialogResult => ContentDialogResult,
-    DragKind => DragKind,
-    DroppedData => DroppedData,
-    f64 => F64,
-    FocusEventInfo => FocusEventInfo,
-    NavigationViewDisplayMode => NavigationViewDisplayMode,
-    Option<bool> => OptionalBool,
-    Option<DateTime> => OptionalDateTime,
-    Option<f64> => OptionalF64,
-    Option<TimeSpan> => OptionalTimeSpan,
-    Option<usize> => SelectionIndex,
-    PointerEventInfo => PointerEventInfo,
-    Rc<str> => String,
-    ObjectId => Item,
-    Vec<ObjectId> => Items,
-}
-
-pub(super) trait IntoEventValue {
-    fn into_event_value(self) -> EventValue;
-}
-
-macro_rules! into_event_value {
-    ($($type:ty => $variant:ident,)*) => {
-        $(impl IntoEventValue for Callback<$type> {
-            fn into_event_value(self) -> EventValue {
-                EventValue::$variant(self)
-            }
-        })*
-    };
-}
-
-into_event_value! {
-    () => Unit,
-    bool => Bool,
-    Color => Color,
-    ContentDialogResult => ContentDialogResult,
-    DragKind => DragKind,
-    DroppedData => DroppedData,
-    f64 => F64,
-    FocusEventInfo => FocusEventInfo,
-    Key => Key,
-    NavigationViewDisplayMode => NavigationViewDisplayMode,
-    Option<bool> => OptionalBool,
-    Option<DateTime> => OptionalDateTime,
-    Option<f64> => OptionalF64,
-    Option<Rc<str>> => Selection,
-    Option<TimeSpan> => OptionalTimeSpan,
-    Option<usize> => SelectionIndex,
-    PointerEventInfo => PointerEventInfo,
-    Rc<str> => String,
-    Vec<Key> => Keys,
-}
-
 impl WinUiAdapter {
-    pub(super) fn dispatch<T, P: IntoEventPayload>(
+    pub(super) fn dispatch<T: EventArg>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: P,
-    ) where
-        Callback<T>: IntoEventValue,
-    {
+        value: T::Native,
+    ) {
         if Self::queue_event(event, event_queue, object, event_id, observation, value) {
             Self::schedule_event_wake(event_queue);
         }
     }
 
-    pub(super) fn queue_event<T, P: IntoEventPayload>(
+    pub(super) fn queue_event<T: EventArg>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: P,
-    ) -> bool
-    where
-        Callback<T>: IntoEventValue,
-    {
-        let queued = event.borrow().handler().map(|handler| QueuedEvent {
+        value: T::Native,
+    ) -> bool {
+        let queued = event.borrow().handler(value).map(|handler| QueuedEvent {
             object,
             event: event_id,
             handler,
-            payload: value.into_payload(),
         });
         let queue = observation.is_some() || queued.is_some();
         if queue {
@@ -182,7 +100,7 @@ impl WinUiAdapter {
             return Ok(());
         };
         args.SetAcceptedOperation(Self::native_drag_operation(action.operation))?;
-        let handler = event.borrow().handler();
+        let subscription = event.borrow().subscription.clone();
         let result = Arc::new(Mutex::new(None::<windows_core::Result<DroppedData>>));
         let result_for_handler = Arc::clone(&result);
         let event_queue = Rc::clone(event_queue);
@@ -195,14 +113,13 @@ impl WinUiAdapter {
                 .take()
                 .unwrap()
                 .unwrap_or(DroppedData::Unsupported);
-            if let Some(handler) = handler {
+            if let Some(subscription) = subscription {
                 event_queue.queue(
                     observation,
                     Some(QueuedEvent {
                         object,
                         event: event_id,
-                        handler,
-                        payload: EventPayload::DroppedData(value),
+                        handler: subscription.handler(value),
                     }),
                 );
                 Self::schedule_event_wake(&event_queue);
@@ -295,17 +212,16 @@ impl WinUiAdapter {
         let value = selected.as_ref().and_then(|selected| {
             GeneratedHandle::selection_payload(payload_property, selected).unwrap()
         });
-        let handler = event.borrow().handler();
+        let handler = event.borrow().handler(SelectionChange {
+            item: selected_object,
+            value,
+        });
         event_queue.queue(
             Some(observation),
             handler.map(|handler| QueuedEvent {
                 object,
                 event: event_id,
                 handler,
-                payload: EventPayload::Selection(SelectionChange {
-                    item: selected_object,
-                    value,
-                }),
             }),
         );
         Self::schedule_event_wake(event_queue);

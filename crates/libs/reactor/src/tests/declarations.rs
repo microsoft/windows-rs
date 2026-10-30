@@ -968,8 +968,7 @@ fn button_content_and_click_use_generated_contracts() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         button,
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(calls.get(), 1);
@@ -1076,8 +1075,7 @@ fn final_value_parity_contracts_are_typed() {
     picker.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::ColorChanged,
-        EventValue::Color(color_callback),
-        EventPayload::Color(color),
+        EventCall::Color(color_callback, color),
     ));
     assert_eq!(picker.dispatch_native_events(), 1);
     assert_eq!(&*color_values.borrow(), &[color]);
@@ -1094,8 +1092,7 @@ fn final_value_parity_contracts_are_typed() {
     date_picker.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::SelectedDateChanged,
-        EventValue::OptionalDateTime(date_callback),
-        EventPayload::OptionalDateTime(Some(date)),
+        EventCall::OptionalDateTime(date_callback, Some(date)),
     ));
     assert_eq!(date_picker.dispatch_native_events(), 1);
     assert_eq!(&*date_values.borrow(), &[Some(date)]);
@@ -1112,8 +1109,7 @@ fn final_value_parity_contracts_are_typed() {
     time_picker.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::SelectedTimeChanged,
-        EventValue::OptionalTimeSpan(time_callback),
-        EventPayload::OptionalTimeSpan(Some(time)),
+        EventCall::OptionalTimeSpan(time_callback, Some(time)),
     ));
     assert_eq!(time_picker.dispatch_native_events(), 1);
     assert_eq!(&*time_values.borrow(), &[Some(time)]);
@@ -1129,8 +1125,7 @@ fn final_value_parity_contracts_are_typed() {
     navigation.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::DisplayModeChanged,
-        EventValue::NavigationViewDisplayMode(mode_callback),
-        EventPayload::NavigationViewDisplayMode(NavigationViewDisplayMode::Compact),
+        EventCall::NavigationViewDisplayMode(mode_callback, NavigationViewDisplayMode::Compact),
     ));
     assert_eq!(navigation.dispatch_native_events(), 1);
     assert_eq!(&*modes.borrow(), &[NavigationViewDisplayMode::Compact]);

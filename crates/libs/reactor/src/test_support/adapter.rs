@@ -157,8 +157,7 @@ impl RecordingAdapter {
         self.queue_event(EventDispatch::new(
             target,
             EventId::MenuItemInvoked,
-            EventValue::Key(callback),
-            EventPayload::Key(key.into()),
+            EventCall::Key(callback, key.into()),
         ));
     }
 
@@ -179,8 +178,7 @@ impl RecordingAdapter {
         self.queue_event(EventDispatch::new(
             target,
             EventId::CommandInvoked,
-            EventValue::Key(callback),
-            EventPayload::Key(key.into()),
+            EventCall::Key(callback, key.into()),
         ));
     }
 
@@ -230,8 +228,7 @@ impl RecordingAdapter {
             self.queue_event(EventDispatch::new(
                 dialog,
                 EventId::Closed,
-                EventValue::ContentDialogResult(callback),
-                EventPayload::ContentDialogResult(result),
+                EventCall::ContentDialogResult(callback, result),
             ));
         }
         if !self.objects.contains_key(&dialog) && !pending {

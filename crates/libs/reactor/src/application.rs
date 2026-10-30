@@ -355,11 +355,13 @@ mod tests {
         );
         let object = host.reference(&Key::from("main")).unwrap().get().unwrap();
         let event = host.runtime().graph().events(object).unwrap()[0].clone();
+        let EventValue::Unit(activated) = event.value else {
+            panic!("expected a unit event");
+        };
         host.queue_event(EventDispatch::new(
             object,
             event.id,
-            event.value,
-            EventPayload::Unit,
+            EventCall::Unit(activated),
         ));
         host.update_root(component::<ObservedWindow>("main", (2, callback.clone())));
         host.update_root(component::<ObservedWindow>("main", (3, callback)));

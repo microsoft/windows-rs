@@ -1468,35 +1468,87 @@ pub enum EventValue {
     Unit(Callback<()>),
 }
 
+/// A callback paired with the value it receives. `Item` and `Items` carry native children, which
+/// resolve to their keys before dispatch.
 #[derive(Clone, Debug, PartialEq)]
-pub enum EventPayload {
-    Bool(bool),
-    Color(Color),
-    ContentDialogResult(ContentDialogResult),
+pub enum EventCall {
+    Bool(Callback<bool>, bool),
+    Color(Callback<Color>, Color),
+    ContentDialogResult(Callback<ContentDialogResult>, ContentDialogResult),
     #[cfg(any(test, feature = "test"))]
-    CharacterEventInfo(CharacterEventInfo),
-    String(Rc<str>),
-    F64(f64),
-    FocusEventInfo(FocusEventInfo),
-    DragKind(DragKind),
-    DroppedData(DroppedData),
-    OptionalBool(Option<bool>),
-    OptionalDateTime(Option<DateTime>),
-    OptionalF64(Option<f64>),
-    OptionalTimeSpan(Option<TimeSpan>),
-    NavigationViewDisplayMode(NavigationViewDisplayMode),
-    PointerEventInfo(PointerEventInfo),
+    CharacterEventInfo(RoutedCallback<CharacterEventInfo>, CharacterEventInfo),
+    String(Callback<Rc<str>>, Rc<str>),
+    F64(Callback<f64>, f64),
+    FocusEventInfo(Callback<FocusEventInfo>, FocusEventInfo),
+    DragKind(Callback<DragKind>, DragKind),
+    DroppedData(Callback<DroppedData>, DroppedData),
+    OptionalBool(Callback<Option<bool>>, Option<bool>),
+    OptionalDateTime(Callback<Option<DateTime>>, Option<DateTime>),
+    OptionalF64(Callback<Option<f64>>, Option<f64>),
+    OptionalTimeSpan(Callback<Option<TimeSpan>>, Option<TimeSpan>),
+    NavigationViewDisplayMode(
+        Callback<NavigationViewDisplayMode>,
+        NavigationViewDisplayMode,
+    ),
+    PointerEventInfo(Callback<PointerEventInfo>, PointerEventInfo),
     #[cfg(any(test, feature = "test"))]
-    KeyEventInfo(KeyEventInfo),
-    Key(Key),
-    Keys(Vec<Key>),
-    /// A native child, resolved to its key before dispatch.
-    Item(ObjectId),
-    /// Native children in native order, resolved to their keys before dispatch.
-    Items(Vec<ObjectId>),
-    Selection(SelectionChange),
-    SelectionIndex(Option<usize>),
-    Unit,
+    KeyEventInfo(RoutedCallback<KeyEventInfo>, KeyEventInfo),
+    /// A menu or command bar item's key, or the key resolved from `Item`.
+    Key(Callback<Key>, Key),
+    /// A native child.
+    Item(Callback<Key>, ObjectId),
+    /// Native children in native order.
+    Items(Callback<Vec<Key>>, Vec<ObjectId>),
+    /// The keys of reordered children, resolved from `Items`.
+    Keys(Callback<Vec<Key>>, Vec<Key>),
+    Selection(Callback<Option<Rc<str>>>, SelectionChange),
+    SelectionIndex(Callback<Option<usize>>, Option<usize>),
+    Unit(Callback<()>),
+}
+
+/// A callback value type and the native value an adapter reports for it.
+pub(crate) trait EventArg: Sized {
+    type Native;
+    fn bind(callback: Callback<Self>, value: Self::Native) -> EventCall;
+}
+
+impl EventArg for () {
+    type Native = ();
+    fn bind(callback: Callback<()>, (): ()) -> EventCall {
+        EventCall::Unit(callback)
+    }
+}
+
+macro_rules! event_args {
+    ($($type:ty => $variant:ident($native:ty),)*) => {
+        $(impl EventArg for $type {
+            type Native = $native;
+            fn bind(callback: Callback<Self>, value: $native) -> EventCall {
+                EventCall::$variant(callback, value)
+            }
+        })*
+    };
+}
+
+event_args! {
+    bool => Bool(bool),
+    Color => Color(Color),
+    ContentDialogResult => ContentDialogResult(ContentDialogResult),
+    DragKind => DragKind(DragKind),
+    DroppedData => DroppedData(DroppedData),
+    f64 => F64(f64),
+    FocusEventInfo => FocusEventInfo(FocusEventInfo),
+    Key => Item(ObjectId),
+    NavigationViewDisplayMode => NavigationViewDisplayMode(NavigationViewDisplayMode),
+    Option<bool> => OptionalBool(Option<bool>),
+    Option<DateTime> => OptionalDateTime(Option<DateTime>),
+    Option<f64> => OptionalF64(Option<f64>),
+    Option<Rc<str>> => Selection(SelectionChange),
+    Option<TimeSpan> => OptionalTimeSpan(Option<TimeSpan>),
+    Option<usize> => SelectionIndex(Option<usize>),
+    PointerEventInfo => PointerEventInfo(PointerEventInfo),
+    Rc<str> => String(Rc<str>),
+    Vec<Key> => Items(Vec<ObjectId>),
 }
 
 #[derive(Clone, Debug, PartialEq)]

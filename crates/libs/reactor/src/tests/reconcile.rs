@@ -603,8 +603,7 @@ fn replacement_discards_observations_and_events_from_the_old_native_object() {
             Some(EventDispatch::new(
                 child,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
     }

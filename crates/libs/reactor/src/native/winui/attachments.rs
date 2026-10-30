@@ -369,8 +369,10 @@ impl WinUiAdapter {
                         Some(QueuedEvent {
                             object: target,
                             event: EventId::CommandInvoked,
-                            handler: QueuedHandler::Presentation(revision),
-                            payload: EventPayload::Key(clicked_key.clone()),
+                            handler: QueuedHandler::Presentation {
+                                revision,
+                                key: clicked_key.clone(),
+                            },
                         }),
                     );
                     Self::schedule_event_wake(&clicked_queue);
@@ -408,8 +410,10 @@ fn build_menu_items(
                         Some(QueuedEvent {
                             object: target,
                             event: EventId::MenuItemInvoked,
-                            handler: QueuedHandler::Presentation(revision),
-                            payload: EventPayload::Key(clicked_key.clone()),
+                            handler: QueuedHandler::Presentation {
+                                revision,
+                                key: clicked_key.clone(),
+                            },
                         }),
                     );
                     WinUiAdapter::schedule_event_wake(&clicked_queue);

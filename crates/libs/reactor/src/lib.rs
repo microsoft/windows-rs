@@ -81,7 +81,7 @@ pub use windows_time::{DateTime, TimeSpan};
 pub mod test {
     pub use crate::adapter::RecordingAdapter;
     pub use crate::component::{ComponentDrain, ComponentHost};
-    pub use crate::declaration::{EventPayload, EventValue, PropertyValue};
+    pub use crate::declaration::{EventCall, EventValue, PropertyValue};
     pub use crate::generated::{EventId, ObjectType, PropertyId, RelationId};
     #[cfg(feature = "test")]
     pub use crate::native::{

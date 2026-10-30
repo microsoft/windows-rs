@@ -99,8 +99,12 @@ impl NativeEvent {
         }) = &mut self.observation
             && let Some(native) = read(*object, *relation)
         {
-            if let Some(event) = &mut self.event {
-                event.payload = EventPayload::Items(native.clone());
+            if let Some(EventDispatch {
+                call: EventCall::Items(_, items),
+                ..
+            }) = &mut self.event
+            {
+                items.clone_from(&native);
             }
             *children = native;
         }

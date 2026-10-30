@@ -696,7 +696,7 @@ impl WinUiAdapter {
         // Native handlers queue reorders without an order; reading it here keeps queued
         // notifications from replaying an order that a later render has already replaced.
         let mut observation = queued.observation.clone();
-        let mut order = None;
+        let mut native_order = None;
         if let Some(Observation::Reorder {
             object,
             relation,
@@ -708,33 +708,30 @@ impl WinUiAdapter {
             }
             let native = self.native_children(*object, *relation).unwrap();
             children.clone_from(&native);
-            order = Some(EventPayload::Items(native));
+            native_order = Some(native);
         }
         let event = queued.event.as_ref().and_then(|queued| {
-            let callback = match (&queued.handler, queued.event) {
-                (QueuedHandler::Presentation(revision), EventId::MenuItemInvoked) => {
+            let call = match (&queued.handler, queued.event) {
+                (QueuedHandler::Presentation { revision, key }, EventId::MenuItemInvoked) => {
                     let menu = self.menus.get(&queued.object)?;
                     (menu.revision == *revision)
-                        .then(|| EventValue::Key(menu.menu.on_click.clone()))
+                        .then(|| EventCall::Key(menu.menu.on_click.clone(), key.clone()))
                 }
-                (QueuedHandler::Presentation(revision), EventId::CommandInvoked) => {
+                (QueuedHandler::Presentation { revision, key }, EventId::CommandInvoked) => {
                     let flyout = self.command_bar_flyouts.get(&queued.object)?;
                     (flyout.revision == *revision)
-                        .then(|| EventValue::Key(flyout.flyout.on_click.clone()))
+                        .then(|| EventCall::Key(flyout.flyout.on_click.clone(), key.clone()))
                 }
-                (QueuedHandler::Callback { callback, live }, _) => {
-                    live.get().then(|| callback.clone())
-                }
-                (QueuedHandler::Presentation(_), event) => {
+                (QueuedHandler::Callback { call, live }, _) => live.get().then(|| call.clone()),
+                (QueuedHandler::Presentation { .. }, event) => {
                     unreachable!("{event:?} has no presentation")
                 }
             }?;
-            Some(EventDispatch::new(
-                queued.object,
-                queued.event,
-                callback,
-                order.unwrap_or_else(|| queued.payload.clone()),
-            ))
+            let call = match (call, native_order) {
+                (EventCall::Items(callback, _), Some(native)) => EventCall::Items(callback, native),
+                (call, _) => call,
+            };
+            Some(EventDispatch::new(queued.object, queued.event, call))
         });
         Some(match observation {
             Some(observation) if queued.record => NativeEvent::record(observation),

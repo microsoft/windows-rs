@@ -668,8 +668,7 @@ fn native_callbacks_reconcile_before_the_next_native_occurrence() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback, Rc::from(value)),
             )),
         );
     }
@@ -715,8 +714,7 @@ fn drain_budget_counts_native_work_and_rearms() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
     }
@@ -840,12 +838,10 @@ fn captureless_component_callbacks_keep_event_identity() {
         .get()
         .unwrap();
     let before = host.runtime().graph().events(object).unwrap()[0].clone();
-    host.queue_event(EventDispatch::new(
-        object,
-        before.id,
-        before.value.clone(),
-        EventPayload::Unit,
-    ));
+    let EventValue::Unit(unit) = before.value.clone() else {
+        panic!("expected a unit event");
+    };
+    host.queue_event(EventDispatch::new(object, before.id, EventCall::Unit(unit)));
 
     assert_eq!(host.drain(usize::MAX).dispatched, 1);
     let after = host.runtime().graph().events(object).unwrap()[0].clone();

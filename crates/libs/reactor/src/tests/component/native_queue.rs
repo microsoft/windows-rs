@@ -83,26 +83,31 @@ fn native_queue_callback_bursts_are_linear() {
         );
         let object = host.reference(&Key::from("burst")).unwrap().get().unwrap();
         let event = host.runtime().graph().events(object).unwrap()[0].clone();
+        let EventValue::PointerEventInfo(callback) = event.value else {
+            panic!("expected a pointer event");
+        };
         for pointer_id in 0..count {
             host.test_adapter_mut()
                 .inner
                 .queue_event(EventDispatch::new(
                     object,
                     event.id,
-                    event.value.clone(),
-                    EventPayload::PointerEventInfo(PointerEventInfo {
-                        x: f64::from(pointer_id),
-                        y: 1.0,
-                        window_x: f64::from(pointer_id),
-                        window_y: 1.0,
-                        pointer_id,
-                        modifiers: InputModifiers::NONE,
-                        capture_succeeded: None,
-                        is_captured: false,
-                        is_left_button_pressed: false,
-                        is_right_button_pressed: false,
-                        is_middle_button_pressed: false,
-                    }),
+                    EventCall::PointerEventInfo(
+                        callback.clone(),
+                        PointerEventInfo {
+                            x: f64::from(pointer_id),
+                            y: 1.0,
+                            window_x: f64::from(pointer_id),
+                            window_y: 1.0,
+                            pointer_id,
+                            modifiers: InputModifiers::NONE,
+                            capture_succeeded: None,
+                            is_captured: false,
+                            is_left_button_pressed: false,
+                            is_right_button_pressed: false,
+                            is_middle_button_pressed: false,
+                        },
+                    ),
                 ));
         }
         host.runtime().adapter().visits.set(0);

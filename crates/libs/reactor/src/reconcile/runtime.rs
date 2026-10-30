@@ -139,12 +139,13 @@ impl<A: Adapter> Runtime<A> {
                     .map_or(NativeWork::Maintenance, NativeWork::Virtual),
             );
         }
-        let Some(mut dispatch) = event.event.filter(|_| dispatch) else {
+        let Some(dispatch) = event
+            .event
+            .filter(|_| dispatch)
+            .and_then(|dispatch| self.graph.validate_event_dispatch(dispatch))
+        else {
             return Some(NativeWork::Maintenance);
         };
-        if !self.graph.validate_event_dispatch(&mut dispatch) {
-            return Some(NativeWork::Maintenance);
-        }
         self.native_event_active.set(true);
         Some(NativeWork::Event(NativeEventDispatch::new(
             dispatch,

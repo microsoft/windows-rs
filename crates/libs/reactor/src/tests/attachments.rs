@@ -516,8 +516,7 @@ fn command_bar_owned_commands_route_keys_through_generated_children() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         save,
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*clicked.borrow(), &[Key::from("save")]);
@@ -572,8 +571,7 @@ fn command_bar_flyout_routes_keys_and_clears_on_removal() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         target,
         EventId::CommandInvoked,
-        EventValue::Key(first_callback),
-        EventPayload::Key(Key::from("copy")),
+        EventCall::Key(first_callback, Key::from("copy")),
     ));
     runtime
         .adapter_mut()
