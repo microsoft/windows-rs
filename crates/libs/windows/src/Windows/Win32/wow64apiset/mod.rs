@@ -24,12 +24,9 @@ pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: Option<windows_core::PWSTR>, us
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: super::USHORT) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: super::USHORT, machineissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : super::USHORT, machineissupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
-    }
+    unsafe { IsWow64GuestMachineSupported(wowguestmachine, machineissupported as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]

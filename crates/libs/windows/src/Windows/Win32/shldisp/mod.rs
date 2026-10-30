@@ -1623,11 +1623,8 @@ impl IAutoComplete2 {
         unsafe { (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), dwflag) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOptions(&self, pdwflag: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), pdwflag as _) }
     }
 }
 #[repr(C)]
@@ -1646,7 +1643,7 @@ pub struct IAutoComplete2_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IAutoComplete2_Impl: IAutoComplete_Impl {
     fn SetOptions(&self, dwflag: super::DWORD) -> windows_core::Result<()>;
-    fn GetOptions(&self) -> windows_core::Result<super::DWORD>;
+    fn GetOptions(&self, pdwflag: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IAutoComplete2_Vtbl {
@@ -1660,13 +1657,7 @@ impl IAutoComplete2_Vtbl {
         unsafe extern "system" fn GetOptions<Identity: IAutoComplete2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflag: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAutoComplete2_Impl::GetOptions(this) {
-                    Ok(ok__) => {
-                        pdwflag.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAutoComplete2_Impl::GetOptions(this, core::mem::transmute_copy(&pdwflag)).into()
             }
         }
         Self { base__: IAutoComplete_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
@@ -1683,11 +1674,8 @@ impl IDataObjectAsyncCapability {
     pub unsafe fn SetAsyncMode(&self, fdoopasync: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAsyncMode)(windows_core::Interface::as_raw(self), fdoopasync.into()) }
     }
-    pub unsafe fn GetAsyncMode(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAsyncMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAsyncMode(&self, pfisopasync: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAsyncMode)(windows_core::Interface::as_raw(self), pfisopasync as _) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn StartOperation<P0>(&self, pbcreserved: P0) -> windows_core::HRESULT
@@ -1696,11 +1684,8 @@ impl IDataObjectAsyncCapability {
     {
         unsafe { (windows_core::Interface::vtable(self).StartOperation)(windows_core::Interface::as_raw(self), pbcreserved.param().abi()) }
     }
-    pub unsafe fn InOperation(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InOperation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InOperation(&self, pfinasyncop: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InOperation)(windows_core::Interface::as_raw(self), pfinasyncop as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn EndOperation<P1>(&self, hresult: windows_core::HRESULT, pbcreserved: P1, dweffects: super::DWORD) -> windows_core::HRESULT
@@ -1729,9 +1714,9 @@ pub struct IDataObjectAsyncCapability_Vtbl {
 #[cfg(all(feature = "objidl", feature = "shared"))]
 pub trait IDataObjectAsyncCapability_Impl: windows_core::IUnknownImpl {
     fn SetAsyncMode(&self, fdoopasync: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetAsyncMode(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetAsyncMode(&self, pfisopasync: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn StartOperation(&self, pbcreserved: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
-    fn InOperation(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn InOperation(&self, pfinasyncop: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn EndOperation(&self, hresult: windows_core::HRESULT, pbcreserved: windows_core::Ref<super::IBindCtx>, dweffects: super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -1746,13 +1731,7 @@ impl IDataObjectAsyncCapability_Vtbl {
         unsafe extern "system" fn GetAsyncMode<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisopasync: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataObjectAsyncCapability_Impl::GetAsyncMode(this) {
-                    Ok(ok__) => {
-                        pfisopasync.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDataObjectAsyncCapability_Impl::GetAsyncMode(this, core::mem::transmute_copy(&pfisopasync)).into()
             }
         }
         unsafe extern "system" fn StartOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcreserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1764,13 +1743,7 @@ impl IDataObjectAsyncCapability_Vtbl {
         unsafe extern "system" fn InOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinasyncop: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataObjectAsyncCapability_Impl::InOperation(this) {
-                    Ok(ok__) => {
-                        pfinasyncop.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDataObjectAsyncCapability_Impl::InOperation(this, core::mem::transmute_copy(&pfinasyncop)).into()
             }
         }
         unsafe extern "system" fn EndOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, pbcreserved: *mut core::ffi::c_void, dweffects: super::DWORD) -> windows_core::HRESULT {
@@ -1816,11 +1789,8 @@ impl IEnumACString {
         unsafe { (windows_core::Interface::vtable(self).SetEnumOptions)(windows_core::Interface::as_raw(self), dwoptions) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetEnumOptions(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnumOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEnumOptions(&self, pdwoptions: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnumOptions)(windows_core::Interface::as_raw(self), pdwoptions as _) }
     }
 }
 #[cfg(feature = "objidlbase")]
@@ -1845,7 +1815,7 @@ pub struct IEnumACString_Vtbl {
 pub trait IEnumACString_Impl: super::IEnumString_Impl {
     fn NextItem(&self, pszurl: windows_core::PWSTR, cchmax: super::ULONG, pulsortindex: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetEnumOptions(&self, dwoptions: super::DWORD) -> windows_core::Result<()>;
-    fn GetEnumOptions(&self) -> windows_core::Result<super::DWORD>;
+    fn GetEnumOptions(&self, pdwoptions: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 impl IEnumACString_Vtbl {
@@ -1865,13 +1835,7 @@ impl IEnumACString_Vtbl {
         unsafe extern "system" fn GetEnumOptions<Identity: IEnumACString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwoptions: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumACString_Impl::GetEnumOptions(this) {
-                    Ok(ok__) => {
-                        pdwoptions.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumACString_Impl::GetEnumOptions(this, core::mem::transmute_copy(&pdwoptions)).into()
             }
         }
         Self {

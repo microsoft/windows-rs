@@ -15,28 +15,9 @@ impl Signature {
     }
 
     pub fn is_retval(&self, reader: &Reader) -> bool {
-        // First we check whether there's an explicit retval parameter.
-        if let Some(param) = self.params.last()
-            && param.is_retval_attribute()
-        {
-            return param.is_explicit_retval_candidate(reader);
-        }
-
-        // Otherwise we check heuristically for additional candidates.
-        if let Some(param) = self.params.last()
-            && param.is_heuristic_retval_candidate(reader)
-        {
-            // Unannotated pointers remain raw arguments; only explicit outputs and buffer
-            // contracts compete with the trailing result.
-            return self.params[..self.params.len() - 1].iter().all(|param| {
-                param.is_input_only()
-                    || !param.has_direction()
-                        && !param.has_buffer_attributes()
-                        && !param.has_unresolved_contracts()
-            });
-        }
-
-        false
+        self.params
+            .last()
+            .is_some_and(|param| param.is_retval_candidate(reader))
     }
 }
 

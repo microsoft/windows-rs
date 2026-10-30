@@ -96,11 +96,8 @@ impl IDebugExtendedProperty {
         unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, ppeepi: *mut Option<IEnumDebugExtendedPropertyInfo>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppeepi)) }
     }
 }
 #[repr(C)]
@@ -119,7 +116,7 @@ pub struct IDebugExtendedProperty_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDebugExtendedProperty_Impl: IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()>;
-    fn EnumExtendedMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
+    fn EnumExtendedMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, ppeepi: windows_core::OutRef<IEnumDebugExtendedPropertyInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDebugExtendedProperty_Vtbl {
@@ -133,13 +130,7 @@ impl IDebugExtendedProperty_Vtbl {
         unsafe extern "system" fn EnumExtendedMembers<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, ppeepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugExtendedProperty_Impl::EnumExtendedMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix)) {
-                    Ok(ok__) => {
-                        ppeepi.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugExtendedProperty_Impl::EnumExtendedMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppeepi)).into()
             }
         }
         Self {
@@ -170,17 +161,11 @@ impl IDebugProperty {
         unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue, nradix) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn EnumMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID) -> windows_core::Result<IEnumDebugPropertyInfo> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn EnumMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID, ppepi: *mut Option<IEnumDebugPropertyInfo>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, core::mem::transmute(ppepi)) }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetParent(&self, ppdebugprop: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdebugprop)) }
     }
 }
 #[repr(C)]
@@ -210,8 +195,8 @@ pub trait IDebugProperty_Impl: windows_core::IUnknownImpl {
     fn GetPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()>;
     fn GetExtendedInfo(&self, cinfos: super::ULONG, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::VARIANT) -> windows_core::Result<()>;
     fn SetValueAsString(&self, pszvalue: super::LPCOLESTR, nradix: super::UINT) -> windows_core::Result<()>;
-    fn EnumMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID) -> windows_core::Result<IEnumDebugPropertyInfo>;
-    fn GetParent(&self) -> windows_core::Result<IDebugProperty>;
+    fn EnumMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID, ppepi: windows_core::OutRef<IEnumDebugPropertyInfo>) -> windows_core::Result<()>;
+    fn GetParent(&self, ppdebugprop: windows_core::OutRef<IDebugProperty>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDebugProperty_Vtbl {
@@ -237,25 +222,13 @@ impl IDebugProperty_Vtbl {
         unsafe extern "system" fn EnumMembers<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugProperty_Impl::EnumMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&refiid)) {
-                    Ok(ok__) => {
-                        ppepi.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugProperty_Impl::EnumMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&ppepi)).into()
             }
         }
         unsafe extern "system" fn GetParent<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdebugprop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugProperty_Impl::GetParent(this) {
-                    Ok(ok__) => {
-                        ppdebugprop.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugProperty_Impl::GetParent(this, core::mem::transmute_copy(&ppdebugprop)).into()
             }
         }
         Self {
@@ -276,11 +249,8 @@ impl windows_core::RuntimeName for IDebugProperty {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetName(&self, __midl__idebugpropertyenumtype_all0000: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__idebugpropertyenumtype_all0000)) }
     }
 }
 #[repr(C)]
@@ -290,20 +260,14 @@ pub struct IDebugPropertyEnumType_All_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugPropertyEnumType_All_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetName(&self, __midl__idebugpropertyenumtype_all0000: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IDebugPropertyEnumType_All_Vtbl {
     pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugPropertyEnumType_All_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        __midl__idebugpropertyenumtype_all0000.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugPropertyEnumType_All_Impl::GetName(this, core::mem::transmute_copy(&__midl__idebugpropertyenumtype_all0000)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, OFFSET> }
@@ -419,18 +383,12 @@ impl IEnumDebugExtendedPropertyInfo {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, pedpe: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(pedpe)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelt as _) }
     }
 }
 #[repr(C)]
@@ -457,8 +415,8 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
-    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
+    fn Clone(&self, pedpe: windows_core::OutRef<IEnumDebugExtendedPropertyInfo>) -> windows_core::Result<()>;
+    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
@@ -484,25 +442,13 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pedpe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumDebugExtendedPropertyInfo_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        pedpe.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumDebugExtendedPropertyInfo_Impl::Clone(this, core::mem::transmute_copy(&pedpe)).into()
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumDebugExtendedPropertyInfo_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pcelt.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumDebugExtendedPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt)).into()
             }
         }
         Self {
@@ -534,18 +480,12 @@ impl IEnumDebugPropertyInfo {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppepi: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppepi)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelt as _) }
     }
 }
 #[repr(C)]
@@ -572,8 +512,8 @@ pub trait IEnumDebugPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, pi: *mut DebugPropertyInfo, pceltsfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo>;
-    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
+    fn Clone(&self, ppepi: windows_core::OutRef<IEnumDebugPropertyInfo>) -> windows_core::Result<()>;
+    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IEnumDebugPropertyInfo_Vtbl {
@@ -599,25 +539,13 @@ impl IEnumDebugPropertyInfo_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumDebugPropertyInfo_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppepi.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumDebugPropertyInfo_Impl::Clone(this, core::mem::transmute_copy(&ppepi)).into()
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumDebugPropertyInfo_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pcelt.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumDebugPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt)).into()
             }
         }
         Self {
@@ -639,18 +567,12 @@ windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing
 windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDisplayString(&self, dispid: super::DISPID) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetDisplayString(&self, dispid: super::DISPID, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, core::mem::transmute(pbstr)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn MapPropertyToPage(&self, dispid: super::DISPID) -> windows_core::Result<super::CLSID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn MapPropertyToPage(&self, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, pclsidproppage as _) }
     }
     #[cfg(all(feature = "ocidl", feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::HRESULT {
@@ -684,8 +606,8 @@ pub struct IPerPropertyBrowsing2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IPerPropertyBrowsing2_Impl: windows_core::IUnknownImpl {
-    fn GetDisplayString(&self, dispid: super::DISPID) -> windows_core::Result<windows_core::BSTR>;
-    fn MapPropertyToPage(&self, dispid: super::DISPID) -> windows_core::Result<super::CLSID>;
+    fn GetDisplayString(&self, dispid: super::DISPID, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn MapPropertyToPage(&self, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::Result<()>;
     fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::Result<()>;
     fn SetPredefinedValue(&self, dispid: super::DISPID, dwcookie: super::DWORD) -> windows_core::Result<()>;
 }
@@ -695,25 +617,13 @@ impl IPerPropertyBrowsing2_Vtbl {
         unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
-                    Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pbstr)).into()
             }
         }
         unsafe extern "system" fn MapPropertyToPage<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
-                    Ok(ok__) => {
-                        pclsidproppage.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pclsidproppage)).into()
             }
         }
         unsafe extern "system" fn GetPredefinedStrings<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::HRESULT {

@@ -2,11 +2,8 @@ windows_core::imp::define_interface!(IWeakReference, IWeakReference_Vtbl, 0x0000
 windows_core::imp::interface_hierarchy!(IWeakReference, windows_core::IUnknown);
 impl IWeakReference {
     #[cfg(feature = "guiddef")]
-    pub unsafe fn Resolve(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Resolve(&self, riid: *const super::IID, objectreference: *mut Option<windows_core::IInspectable>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(objectreference)) }
     }
 }
 #[repr(C)]
@@ -20,7 +17,7 @@ pub struct IWeakReference_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
-    fn Resolve(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IInspectable>;
+    fn Resolve(&self, riid: *const super::IID, objectreference: windows_core::OutRef<windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "guiddef")]
 impl IWeakReference_Vtbl {
@@ -28,13 +25,7 @@ impl IWeakReference_Vtbl {
         unsafe extern "system" fn Resolve<Identity: IWeakReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, objectreference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWeakReference_Impl::Resolve(this, core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        objectreference.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWeakReference_Impl::Resolve(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&objectreference)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, OFFSET> }

@@ -180,7 +180,13 @@ impl<'a> DrawingSession<'a> {
     /// Creates a solid-color brush for this device context.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
-        unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
+        let mut brush = None;
+        unsafe {
+            self.context
+                .CreateSolidColorBrush(&c, None, &mut brush)
+                .ok()?;
+        }
+        Ok(Brush(brush.unwrap()))
     }
 
     /// Stops define colors at positions 0.0-1.0 along the axis from `start` to `end`.
@@ -192,18 +198,24 @@ impl<'a> DrawingSession<'a> {
     ) -> Result<LinearGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
-            let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
-                D2D1_GAMMA_2_2,
-                D2D1_EXTEND_MODE_CLAMP,
-            )?;
+            let mut collection = None;
+            self.context
+                .CreateGradientStopCollection(
+                    &abi_stops,
+                    D2D1_GAMMA_2_2,
+                    D2D1_EXTEND_MODE_CLAMP,
+                    &mut collection,
+                )
+                .ok()?;
             let props = D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
                 startPoint: start,
                 endPoint: end,
             };
+            let mut brush = None;
             self.context
-                .CreateLinearGradientBrush(&props, None, &collection)
-                .map(LinearGradient)
+                .CreateLinearGradientBrush(&props, None, &collection.unwrap(), &mut brush)
+                .ok()?;
+            Ok(LinearGradient(brush.unwrap()))
         }
     }
 
@@ -217,20 +229,26 @@ impl<'a> DrawingSession<'a> {
     ) -> Result<RadialGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
-            let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
-                D2D1_GAMMA_2_2,
-                D2D1_EXTEND_MODE_CLAMP,
-            )?;
+            let mut collection = None;
+            self.context
+                .CreateGradientStopCollection(
+                    &abi_stops,
+                    D2D1_GAMMA_2_2,
+                    D2D1_EXTEND_MODE_CLAMP,
+                    &mut collection,
+                )
+                .ok()?;
             let props = D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
                 center,
                 gradientOriginOffset: Vector2::new(0.0, 0.0),
                 radiusX: radius_x,
                 radiusY: radius_y,
             };
+            let mut brush = None;
             self.context
-                .CreateRadialGradientBrush(&props, None, &collection)
-                .map(RadialGradient)
+                .CreateRadialGradientBrush(&props, None, &collection.unwrap(), &mut brush)
+                .ok()?;
+            Ok(RadialGradient(brush.unwrap()))
         }
     }
 
@@ -388,16 +406,22 @@ impl<'a> DrawingSession<'a> {
                 ..Default::default()
             };
 
+            let mut bitmap = None;
             self.context
-                .CreateBitmap(pixel_size, None, 0, &properties)
-                .map(Bitmap)
+                .CreateBitmap(pixel_size, None, 0, &properties, &mut bitmap)
+                .ok()?;
+            Ok(Bitmap(bitmap.unwrap()))
         }
     }
 
     /// Creates a shadow effect whose input is `source`.
     pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
-            let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
+            let mut effect = None;
+            self.context
+                .CreateEffect(&CLSID_D2D1Shadow, &mut effect)
+                .ok()?;
+            let effect = effect.unwrap();
             effect.SetInput(0, &source.0, true);
             Ok(Effect(effect))
         }
@@ -406,7 +430,8 @@ impl<'a> DrawingSession<'a> {
     /// Redirect drawing to a bitmap target for the duration of the closure.
     pub fn with_target(&self, bitmap: &Bitmap, f: impl FnOnce()) {
         unsafe {
-            let previous = self.context.GetTarget();
+            let mut previous = None;
+            self.context.GetTarget(&mut previous);
             self.context.SetTarget(&bitmap.0);
             f();
             self.context.SetTarget(previous.as_ref());
@@ -428,7 +453,9 @@ impl<'a> DrawingSession<'a> {
 
     /// Draws the output of a Direct2D effect.
     pub fn draw_effect(&self, effect: &Effect) {
-        if let Ok(output) = unsafe { effect.0.GetOutput() } {
+        let mut output = None;
+        unsafe { effect.0.GetOutput(&mut output) };
+        if let Some(output) = output {
             unsafe {
                 self.context.DrawImage(
                     &output,

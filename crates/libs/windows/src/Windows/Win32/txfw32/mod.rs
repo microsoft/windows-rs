@@ -1,12 +1,8 @@
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
+pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: super::PUSHORT) {
     windows_core::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : super::PUSHORT));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        TxfGetThreadMiniVersionForCreate(&mut result__);
-        result__
-    }
+    unsafe { TxfGetThreadMiniVersionForCreate(miniversion as _) }
 }
 #[cfg(all(feature = "clfs", feature = "shared", feature = "winnt"))]
 #[inline]

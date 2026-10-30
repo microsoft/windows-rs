@@ -36,26 +36,26 @@ impl TypeClosure {
                     if filter.includes_full_hierarchy(namespace, name) {
                         for required in iface.required_interfaces(reader) {
                             Type::Interface(required)
-                                .combine_closure(&mut types, reader, references, style, 7);
+                                .combine_root(&mut types, reader, references, style);
                         }
                     }
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_closure(&mut types, reader, references, style, 7);
+                                dep_ty.combine_root(&mut types, reader, references, style);
                             }
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
                     for base in iface.base_interfaces(reader) {
-                        base.combine_closure(&mut types, reader, references, style, 7);
+                        base.combine_root(&mut types, reader, references, style);
                     }
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_closure(&mut types, reader, references, style, 7);
+                                dep_ty.combine_root(&mut types, reader, references, style);
                             }
                         }
                     }
@@ -68,7 +68,7 @@ impl TypeClosure {
                 if filter.excludes_type_name(ty.type_name()) {
                     continue;
                 }
-                ty.combine_closure(&mut types, reader, references, style, 7);
+                ty.combine_root(&mut types, reader, references, style);
                 types.insert(ty.clone());
 
                 if let Type::Interface(interface) = &ty
@@ -78,7 +78,7 @@ impl TypeClosure {
                     for method in interface.def.methods() {
                         let sig = method.method_signature(&interface.generics, reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_closure(&mut types, reader, references, style, 7);
+                            dep_ty.combine_root(&mut types, reader, references, style);
                         }
                     }
                 }
@@ -96,8 +96,7 @@ impl TypeClosure {
                         {
                             for constant in reader.with_full_name(e.def.namespace(), field.name()) {
                                 if matches!(constant, Type::CppConst(_)) {
-                                    constant
-                                        .combine_closure(&mut types, reader, references, style, 7);
+                                    constant.combine_root(&mut types, reader, references, style);
                                 }
                             }
                         }
@@ -129,6 +128,17 @@ impl TypeClosure {
 
 /// Bottom-up dependency walk that avoids pulling full interface surfaces.
 trait CombineClosure {
+    /// Walks dependencies reached from a selected item on every architecture.
+    fn combine_root(
+        &self,
+        types: &mut TypeMap,
+        reader: &Reader,
+        references: &References,
+        style: Style,
+    ) {
+        self.combine_closure(types, reader, references, style, ALL_ARCHES);
+    }
+
     fn combine_closure(
         &self,
         types: &mut TypeMap,
@@ -259,7 +269,7 @@ impl CombineClosure for Type {
         );
         for (insert_ty, definition) in candidates {
             let own = insert_ty.arches();
-            let reached = arches & if own == 0 { 7 } else { own };
+            let reached = arches & arch_mask(own);
             if reached == 0 {
                 continue;
             }

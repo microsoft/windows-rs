@@ -317,11 +317,8 @@ impl IDXCoreAdapter {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), property, buffersize, propertydata as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<super::size_t> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty, buffersize: *mut super::size_t) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), property, buffersize as _) }
     }
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsQueryStateSupported)(windows_core::Interface::as_raw(self), property) }
@@ -382,7 +379,7 @@ pub trait IDXCoreAdapter_Impl: windows_core::IUnknownImpl {
     fn IsAttributeSupported(&self, attributeguid: *const windows_core::GUID) -> bool;
     fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool;
     fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: super::size_t, propertydata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<super::size_t>;
+    fn GetPropertySize(&self, property: DXCoreAdapterProperty, buffersize: *mut super::size_t) -> windows_core::Result<()>;
     fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool;
     fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: *const core::ffi::c_void, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
@@ -419,13 +416,7 @@ impl IDXCoreAdapter_Vtbl {
         unsafe extern "system" fn GetPropertySize<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: *mut super::size_t) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXCoreAdapter_Impl::GetPropertySize(this, core::mem::transmute_copy(&property)) {
-                    Ok(ok__) => {
-                        buffersize.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDXCoreAdapter_Impl::GetPropertySize(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&buffersize)).into()
             }
         }
         unsafe extern "system" fn IsQueryStateSupported<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterState) -> bool {
@@ -545,14 +536,11 @@ impl IDXCoreAdapterFactory {
         unsafe { (windows_core::Interface::vtable(self).IsNotificationTypeSupported)(windows_core::Interface::as_raw(self), notificationtype) }
     }
     #[cfg(feature = "stdint")]
-    pub unsafe fn RegisterEventNotification<P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::uint32_t>
+    pub unsafe fn RegisterEventNotification<P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>, eventcookie: *mut super::uint32_t) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, callbackcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, callbackcontext.unwrap_or(core::mem::zeroed()) as _, eventcookie as _) }
     }
     #[cfg(feature = "stdint")]
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: super::uint32_t) -> windows_core::HRESULT {
@@ -586,7 +574,7 @@ pub trait IDXCoreAdapterFactory_Impl: windows_core::IUnknownImpl {
     fn CreateAdapterList(&self, numattributes: super::uint32_t, filterattributes: *const windows_core::GUID, riid: *const super::IID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterByLuid(&self, adapterluid: *const super::LUID, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<super::uint32_t>;
+    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void, eventcookie: *mut super::uint32_t) -> windows_core::Result<()>;
     fn UnregisterEventNotification(&self, eventcookie: super::uint32_t) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
@@ -613,13 +601,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn RegisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxcoreobject: *mut core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void, eventcookie: *mut super::uint32_t) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXCoreAdapterFactory_Impl::RegisterEventNotification(this, core::mem::transmute_copy(&dxcoreobject), core::mem::transmute_copy(&notificationtype), core::mem::transmute_copy(&callbackfunction), core::mem::transmute_copy(&callbackcontext)) {
-                    Ok(ok__) => {
-                        eventcookie.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDXCoreAdapterFactory_Impl::RegisterEventNotification(this, core::mem::transmute_copy(&dxcoreobject), core::mem::transmute_copy(&notificationtype), core::mem::transmute_copy(&callbackfunction), core::mem::transmute_copy(&callbackcontext), core::mem::transmute_copy(&eventcookie)).into()
             }
         }
         unsafe extern "system" fn UnregisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::uint32_t) -> windows_core::HRESULT {

@@ -173,11 +173,8 @@ impl core::ops::Deref for IPixelFilter {
 windows_core::imp::interface_hierarchy!(IPixelFilter, windows_core::IUnknown, IFilter);
 impl IPixelFilter {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetImageInfo(&self) -> windows_core::Result<IMAGE_INFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetImageInfo(&self, imageinfo: *mut IMAGE_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), imageinfo as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
     pub unsafe fn GetPixelsForImage(&self, scalingfactor: super::FLOAT, sourcerect: Option<*const super::RECT>, pixelbuffersize: super::ULONG, pixelbuffer: *mut super::BYTE) -> windows_core::HRESULT {
@@ -199,7 +196,7 @@ pub struct IPixelFilter_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPixelFilter_Impl: IFilter_Impl {
-    fn GetImageInfo(&self) -> windows_core::Result<IMAGE_INFO>;
+    fn GetImageInfo(&self, imageinfo: *mut IMAGE_INFO) -> windows_core::Result<()>;
     fn GetPixelsForImage(&self, scalingfactor: super::FLOAT, sourcerect: *const super::RECT, pixelbuffersize: super::ULONG, pixelbuffer: *mut super::BYTE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -208,13 +205,7 @@ impl IPixelFilter_Vtbl {
         unsafe extern "system" fn GetImageInfo<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageinfo: *mut IMAGE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPixelFilter_Impl::GetImageInfo(this) {
-                    Ok(ok__) => {
-                        imageinfo.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPixelFilter_Impl::GetImageInfo(this, core::mem::transmute_copy(&imageinfo)).into()
             }
         }
         unsafe extern "system" fn GetPixelsForImage<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalingfactor: super::FLOAT, sourcerect: *const super::RECT, pixelbuffersize: super::ULONG, pixelbuffer: *mut super::BYTE) -> windows_core::HRESULT {

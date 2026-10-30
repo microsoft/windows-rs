@@ -11,18 +11,12 @@ windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
     #[cfg(feature = "windef")]
-    pub unsafe fn Add(&self, hbmimage: super::HBITMAP, hbmmask: Option<super::HBITMAP>) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Add(&self, hbmimage: super::HBITMAP, hbmmask: Option<super::HBITMAP>, pi: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _, pi as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn ReplaceIcon(&self, i: i32, hicon: super::HICON) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), i, hicon, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ReplaceIcon(&self, i: i32, hicon: super::HICON, pi: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), i, hicon, pi as _) }
     }
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOverlayImage)(windows_core::Interface::as_raw(self), iimage, ioverlay) }
@@ -32,11 +26,8 @@ impl IImageList {
         unsafe { (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), i, hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn AddMasked(&self, hbmimage: super::HBITMAP, crmask: super::COLORREF) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), hbmimage, crmask, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddMasked(&self, hbmimage: super::HBITMAP, crmask: super::COLORREF, pi: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), hbmimage, crmask, pi as _) }
     }
     #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub unsafe fn Draw(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
@@ -46,11 +37,8 @@ impl IImageList {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), i) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetIcon(&self, i: i32, flags: super::UINT) -> windows_core::Result<super::HICON> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), i, flags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIcon(&self, i: i32, flags: super::UINT, picon: *mut super::HICON) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), i, flags, picon as _) }
     }
     #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut super::IMAGEINFO) -> windows_core::HRESULT {
@@ -81,11 +69,8 @@ impl IImageList {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetImageRect(&self, i: i32) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImageRect)(windows_core::Interface::as_raw(self), i, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetImageRect(&self, i: i32, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetImageRect)(windows_core::Interface::as_raw(self), i, prc as _) }
     }
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIconSize)(windows_core::Interface::as_raw(self), cx as _, cy as _) }
@@ -93,29 +78,20 @@ impl IImageList {
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIconSize)(windows_core::Interface::as_raw(self), cx, cy) }
     }
-    pub unsafe fn GetImageCount(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetImageCount(&self, pi: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetImageCount)(windows_core::Interface::as_raw(self), pi as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetImageCount(&self, unewcount: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), unewcount) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn SetBkColor(&self, clrbk: super::COLORREF) -> windows_core::Result<super::COLORREF> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetBkColor)(windows_core::Interface::as_raw(self), clrbk, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetBkColor(&self, clrbk: super::COLORREF, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBkColor)(windows_core::Interface::as_raw(self), clrbk, pclr as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetBkColor(&self) -> windows_core::Result<super::COLORREF> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBkColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBkColor(&self, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBkColor)(windows_core::Interface::as_raw(self), pclr as _) }
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginDrag)(windows_core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot) }
@@ -152,17 +128,11 @@ impl IImageList {
         unsafe { (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), ppt.unwrap_or(core::mem::zeroed()) as _, ppthotspot.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetItemFlags(&self, i: i32) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), i, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetItemFlags(&self, i: i32, dwflags: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), i, dwflags as _) }
     }
-    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOverlayImage)(windows_core::Interface::as_raw(self), ioverlay, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOverlayImage(&self, ioverlay: i32, piindex: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayImage)(windows_core::Interface::as_raw(self), ioverlay, piindex as _) }
     }
 }
 #[repr(C)]
@@ -255,25 +225,25 @@ pub struct IImageList_Vtbl {
 }
 #[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IImageList_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP) -> windows_core::Result<i32>;
-    fn ReplaceIcon(&self, i: i32, hicon: super::HICON) -> windows_core::Result<i32>;
+    fn Add(&self, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, pi: *mut i32) -> windows_core::Result<()>;
+    fn ReplaceIcon(&self, i: i32, hicon: super::HICON, pi: *mut i32) -> windows_core::Result<()>;
     fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::Result<()>;
     fn Replace(&self, i: i32, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP) -> windows_core::Result<()>;
-    fn AddMasked(&self, hbmimage: super::HBITMAP, crmask: super::COLORREF) -> windows_core::Result<i32>;
+    fn AddMasked(&self, hbmimage: super::HBITMAP, crmask: super::COLORREF, pi: *mut i32) -> windows_core::Result<()>;
     fn Draw(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::Result<()>;
     fn Remove(&self, i: i32) -> windows_core::Result<()>;
-    fn GetIcon(&self, i: i32, flags: super::UINT) -> windows_core::Result<super::HICON>;
+    fn GetIcon(&self, i: i32, flags: super::UINT, picon: *mut super::HICON) -> windows_core::Result<()>;
     fn GetImageInfo(&self, i: i32, pimageinfo: *mut super::IMAGEINFO) -> windows_core::Result<()>;
     fn Copy(&self, idst: i32, punksrc: windows_core::Ref<windows_core::IUnknown>, isrc: i32, uflags: super::UINT) -> windows_core::Result<()>;
     fn Merge(&self, i1: i32, punk2: windows_core::Ref<windows_core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Clone(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetImageRect(&self, i: i32) -> windows_core::Result<super::RECT>;
+    fn GetImageRect(&self, i: i32, prc: *mut super::RECT) -> windows_core::Result<()>;
     fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> windows_core::Result<()>;
     fn SetIconSize(&self, cx: i32, cy: i32) -> windows_core::Result<()>;
-    fn GetImageCount(&self) -> windows_core::Result<i32>;
+    fn GetImageCount(&self, pi: *mut i32) -> windows_core::Result<()>;
     fn SetImageCount(&self, unewcount: super::UINT) -> windows_core::Result<()>;
-    fn SetBkColor(&self, clrbk: super::COLORREF) -> windows_core::Result<super::COLORREF>;
-    fn GetBkColor(&self) -> windows_core::Result<super::COLORREF>;
+    fn SetBkColor(&self, clrbk: super::COLORREF, pclr: *mut super::COLORREF) -> windows_core::Result<()>;
+    fn GetBkColor(&self, pclr: *mut super::COLORREF) -> windows_core::Result<()>;
     fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
     fn EndDrag(&self) -> windows_core::Result<()>;
     fn DragEnter(&self, hwndlock: super::HWND, x: i32, y: i32) -> windows_core::Result<()>;
@@ -282,8 +252,8 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn SetDragCursorImage(&self, punk: windows_core::Ref<windows_core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
     fn DragShowNolock(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDragImage(&self, ppt: *mut super::POINT, ppthotspot: *mut super::POINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetItemFlags(&self, i: i32) -> windows_core::Result<super::DWORD>;
-    fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32>;
+    fn GetItemFlags(&self, i: i32, dwflags: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOverlayImage(&self, ioverlay: i32, piindex: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 impl IImageList_Vtbl {
@@ -291,25 +261,13 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn Add<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, pi: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::Add(this, core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask)) {
-                    Ok(ok__) => {
-                        pi.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::Add(this, core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask), core::mem::transmute_copy(&pi)).into()
             }
         }
         unsafe extern "system" fn ReplaceIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, hicon: super::HICON, pi: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::ReplaceIcon(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&hicon)) {
-                    Ok(ok__) => {
-                        pi.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::ReplaceIcon(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&hicon), core::mem::transmute_copy(&pi)).into()
             }
         }
         unsafe extern "system" fn SetOverlayImage<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimage: i32, ioverlay: i32) -> windows_core::HRESULT {
@@ -327,13 +285,7 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn AddMasked<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmimage: super::HBITMAP, crmask: super::COLORREF, pi: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::AddMasked(this, core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&crmask)) {
-                    Ok(ok__) => {
-                        pi.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::AddMasked(this, core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&crmask), core::mem::transmute_copy(&pi)).into()
             }
         }
         unsafe extern "system" fn Draw<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
@@ -351,13 +303,7 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn GetIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, flags: super::UINT, picon: *mut super::HICON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetIcon(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&flags)) {
-                    Ok(ok__) => {
-                        picon.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetIcon(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&picon)).into()
             }
         }
         unsafe extern "system" fn GetImageInfo<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, pimageinfo: *mut super::IMAGEINFO) -> windows_core::HRESULT {
@@ -387,13 +333,7 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn GetImageRect<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, prc: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetImageRect(this, core::mem::transmute_copy(&i)) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetImageRect(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn GetIconSize<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cx: *mut i32, cy: *mut i32) -> windows_core::HRESULT {
@@ -411,13 +351,7 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn GetImageCount<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pi: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetImageCount(this) {
-                    Ok(ok__) => {
-                        pi.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetImageCount(this, core::mem::transmute_copy(&pi)).into()
             }
         }
         unsafe extern "system" fn SetImageCount<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unewcount: super::UINT) -> windows_core::HRESULT {
@@ -429,25 +363,13 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn SetBkColor<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clrbk: super::COLORREF, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::SetBkColor(this, core::mem::transmute_copy(&clrbk)) {
-                    Ok(ok__) => {
-                        pclr.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::SetBkColor(this, core::mem::transmute_copy(&clrbk), core::mem::transmute_copy(&pclr)).into()
             }
         }
         unsafe extern "system" fn GetBkColor<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetBkColor(this) {
-                    Ok(ok__) => {
-                        pclr.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetBkColor(this, core::mem::transmute_copy(&pclr)).into()
             }
         }
         unsafe extern "system" fn BeginDrag<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::HRESULT {
@@ -501,25 +423,13 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn GetItemFlags<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, dwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetItemFlags(this, core::mem::transmute_copy(&i)) {
-                    Ok(ok__) => {
-                        dwflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetItemFlags(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&dwflags)).into()
             }
         }
         unsafe extern "system" fn GetOverlayImage<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ioverlay: i32, piindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageList_Impl::GetOverlayImage(this, core::mem::transmute_copy(&ioverlay)) {
-                    Ok(ok__) => {
-                        piindex.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageList_Impl::GetOverlayImage(this, core::mem::transmute_copy(&ioverlay), core::mem::transmute_copy(&piindex)).into()
             }
         }
         Self {

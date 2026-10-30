@@ -373,7 +373,8 @@ macro_rules! subscription {
         $(#[$doc])*
         pub fn $method<F: FnMut($arg) + 'static>(&self, handler: F) -> Result<EventRegistration> {
             let handler = crate::handler::$handler::create(handler);
-            let token = unsafe { self.0.$add(&handler)? };
+            let mut token = Default::default();
+            unsafe { self.0.$add(&handler, &mut token).ok()? };
             let source = self.0.clone();
             Ok(EventRegistration::new(move || {
                 let _ = unsafe { source.$remove(token) };

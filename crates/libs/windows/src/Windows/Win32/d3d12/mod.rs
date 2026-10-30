@@ -9931,11 +9931,8 @@ impl ID3D12CommandQueue {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), pfence.param().abi(), value) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTimestampFrequency(&self) -> windows_core::Result<super::UINT64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTimestampFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTimestampFrequency(&self, pfrequency: *mut super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTimestampFrequency)(windows_core::Interface::as_raw(self), pfrequency as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetClockCalibration(&self, pgputimestamp: *mut super::UINT64, pcputimestamp: *mut super::UINT64) -> windows_core::HRESULT {
@@ -10006,7 +10003,7 @@ pub trait ID3D12CommandQueue_Impl: ID3D12Pageable_Impl {
     fn EndEvent(&self);
     fn Signal(&self, pfence: windows_core::Ref<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
     fn Wait(&self, pfence: windows_core::Ref<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
-    fn GetTimestampFrequency(&self) -> windows_core::Result<super::UINT64>;
+    fn GetTimestampFrequency(&self, pfrequency: *mut super::UINT64) -> windows_core::Result<()>;
     fn GetClockCalibration(&self, pgputimestamp: *mut super::UINT64, pcputimestamp: *mut super::UINT64) -> windows_core::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
 }
@@ -10064,13 +10061,7 @@ impl ID3D12CommandQueue_Vtbl {
         unsafe extern "system" fn GetTimestampFrequency<Identity: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequency: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12CommandQueue_Impl::GetTimestampFrequency(this) {
-                    Ok(ok__) => {
-                        pfrequency.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12CommandQueue_Impl::GetTimestampFrequency(this, core::mem::transmute_copy(&pfrequency)).into()
             }
         }
         unsafe extern "system" fn GetClockCalibration<Identity: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgputimestamp: *mut super::UINT64, pcputimestamp: *mut super::UINT64) -> windows_core::HRESULT {
@@ -13423,17 +13414,11 @@ windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData, ID3D12Devi
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAutoBreadcrumbsOutput(&self, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput)(windows_core::Interface::as_raw(self), poutput as _) }
     }
-    pub unsafe fn GetPageFaultAllocationOutput(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPageFaultAllocationOutput(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput)(windows_core::Interface::as_raw(self), poutput as _) }
     }
 }
 #[repr(C)]
@@ -13448,8 +13433,8 @@ pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D12DeviceRemovedExtendedData_Impl: windows_core::IUnknownImpl {
-    fn GetAutoBreadcrumbsOutput(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>;
-    fn GetPageFaultAllocationOutput(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT>;
+    fn GetAutoBreadcrumbsOutput(&self, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> windows_core::Result<()>;
+    fn GetPageFaultAllocationOutput(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl ID3D12DeviceRemovedExtendedData_Vtbl {
@@ -13457,25 +13442,13 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
         unsafe extern "system" fn GetAutoBreadcrumbsOutput<Identity: ID3D12DeviceRemovedExtendedData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12DeviceRemovedExtendedData_Impl::GetAutoBreadcrumbsOutput(this) {
-                    Ok(ok__) => {
-                        poutput.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12DeviceRemovedExtendedData_Impl::GetAutoBreadcrumbsOutput(this, core::mem::transmute_copy(&poutput)).into()
             }
         }
         unsafe extern "system" fn GetPageFaultAllocationOutput<Identity: ID3D12DeviceRemovedExtendedData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12DeviceRemovedExtendedData_Impl::GetPageFaultAllocationOutput(this) {
-                    Ok(ok__) => {
-                        poutput.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12DeviceRemovedExtendedData_Impl::GetPageFaultAllocationOutput(this, core::mem::transmute_copy(&poutput)).into()
             }
         }
         Self {
@@ -13500,17 +13473,11 @@ impl core::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, windows_core::IUnknown, ID3D12DeviceRemovedExtendedData);
 impl ID3D12DeviceRemovedExtendedData1 {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAutoBreadcrumbsOutput1(&self, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput1)(windows_core::Interface::as_raw(self), poutput as _) }
     }
-    pub unsafe fn GetPageFaultAllocationOutput1(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPageFaultAllocationOutput1(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT1) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput1)(windows_core::Interface::as_raw(self), poutput as _) }
     }
 }
 #[repr(C)]
@@ -13525,8 +13492,8 @@ pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D12DeviceRemovedExtendedData1_Impl: ID3D12DeviceRemovedExtendedData_Impl {
-    fn GetAutoBreadcrumbsOutput1(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>;
-    fn GetPageFaultAllocationOutput1(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1>;
+    fn GetAutoBreadcrumbsOutput1(&self, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> windows_core::Result<()>;
+    fn GetPageFaultAllocationOutput1(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT1) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl ID3D12DeviceRemovedExtendedData1_Vtbl {
@@ -13534,25 +13501,13 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
         unsafe extern "system" fn GetAutoBreadcrumbsOutput1<Identity: ID3D12DeviceRemovedExtendedData1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12DeviceRemovedExtendedData1_Impl::GetAutoBreadcrumbsOutput1(this) {
-                    Ok(ok__) => {
-                        poutput.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12DeviceRemovedExtendedData1_Impl::GetAutoBreadcrumbsOutput1(this, core::mem::transmute_copy(&poutput)).into()
             }
         }
         unsafe extern "system" fn GetPageFaultAllocationOutput1<Identity: ID3D12DeviceRemovedExtendedData1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12DeviceRemovedExtendedData1_Impl::GetPageFaultAllocationOutput1(this) {
-                    Ok(ok__) => {
-                        poutput.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12DeviceRemovedExtendedData1_Impl::GetPageFaultAllocationOutput1(this, core::mem::transmute_copy(&poutput)).into()
             }
         }
         Self {
@@ -13813,11 +13768,8 @@ impl core::ops::Deref for ID3D12DeviceTools1 {
 windows_core::imp::interface_hierarchy!(ID3D12DeviceTools1, windows_core::IUnknown, ID3D12DeviceTools);
 impl ID3D12DeviceTools1 {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetApplicationSpecificDriverState(&self, ppblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), core::mem::transmute(ppblob)) }
     }
     pub unsafe fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS {
         unsafe { (windows_core::Interface::vtable(self).GetApplicationSpecificDriverBlobStatus)(windows_core::Interface::as_raw(self)) }
@@ -13835,7 +13787,7 @@ pub struct ID3D12DeviceTools1_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12DeviceTools1_Impl: ID3D12DeviceTools_Impl {
-    fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob>;
+    fn GetApplicationSpecificDriverState(&self, ppblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
     fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS;
 }
 #[cfg(feature = "d3dcommon")]
@@ -13844,16 +13796,7 @@ impl ID3D12DeviceTools1_Vtbl {
         unsafe extern "system" fn GetApplicationSpecificDriverState<Identity: ID3D12DeviceTools1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppblob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverState(this) {
-                    Ok(ok__) => {
-                        ppblob.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppblob.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverState(this, core::mem::transmute_copy(&ppblob)).into()
             }
         }
         unsafe extern "system" fn GetApplicationSpecificDriverBlobStatus<Identity: ID3D12DeviceTools1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS {
@@ -14201,23 +14144,17 @@ impl ID3D12GBVDiagnostics {
         unsafe { (windows_core::Interface::vtable(self).GetGBVEntireSubresourceStatesData)(windows_core::Interface::as_raw(self), presource.param().abi(), pdata as _, datasize) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetGBVSubresourceState<P0>(&self, presource: P0, subresource: super::UINT) -> windows_core::Result<i32>
+    pub unsafe fn GetGBVSubresourceState<P0>(&self, presource: P0, subresource: super::UINT, pdata: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGBVSubresourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetGBVSubresourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, pdata as _) }
     }
-    pub unsafe fn GetGBVResourceUniformState<P0>(&self, presource: P0) -> windows_core::Result<i32>
+    pub unsafe fn GetGBVResourceUniformState<P0>(&self, presource: P0, pdata: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGBVResourceUniformState)(windows_core::Interface::as_raw(self), presource.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetGBVResourceUniformState)(windows_core::Interface::as_raw(self), presource.param().abi(), pdata as _) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
     pub unsafe fn GetGBVResourceInfo<P0>(&self, presource: P0, presourcedesc: Option<*const D3D12_RESOURCE_DESC>, presourcehash: Option<*const super::UINT32>, psubresourcestatesbyteoffset: Option<*const super::UINT32>) -> windows_core::HRESULT
@@ -14260,8 +14197,8 @@ pub struct ID3D12GBVDiagnostics_Vtbl {
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D12GBVDiagnostics_Impl: windows_core::IUnknownImpl {
     fn GetGBVEntireSubresourceStatesData(&self, presource: windows_core::Ref<ID3D12Resource>, pdata: *mut i32, datasize: super::UINT) -> windows_core::Result<()>;
-    fn GetGBVSubresourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: super::UINT) -> windows_core::Result<i32>;
-    fn GetGBVResourceUniformState(&self, presource: windows_core::Ref<ID3D12Resource>) -> windows_core::Result<i32>;
+    fn GetGBVSubresourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: super::UINT, pdata: *mut i32) -> windows_core::Result<()>;
+    fn GetGBVResourceUniformState(&self, presource: windows_core::Ref<ID3D12Resource>, pdata: *mut i32) -> windows_core::Result<()>;
     fn GetGBVResourceInfo(&self, presource: windows_core::Ref<ID3D12Resource>, presourcedesc: *const D3D12_RESOURCE_DESC, presourcehash: *const super::UINT32, psubresourcestatesbyteoffset: *const super::UINT32) -> windows_core::Result<()>;
     fn GBVReserved0(&self);
     fn GBVReserved1(&self);
@@ -14278,25 +14215,13 @@ impl ID3D12GBVDiagnostics_Vtbl {
         unsafe extern "system" fn GetGBVSubresourceState<Identity: ID3D12GBVDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: super::UINT, pdata: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12GBVDiagnostics_Impl::GetGBVSubresourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource)) {
-                    Ok(ok__) => {
-                        pdata.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12GBVDiagnostics_Impl::GetGBVSubresourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&pdata)).into()
             }
         }
         unsafe extern "system" fn GetGBVResourceUniformState<Identity: ID3D12GBVDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdata: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12GBVDiagnostics_Impl::GetGBVResourceUniformState(this, core::mem::transmute_copy(&presource)) {
-                    Ok(ok__) => {
-                        pdata.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12GBVDiagnostics_Impl::GetGBVResourceUniformState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdata)).into()
             }
         }
         unsafe extern "system" fn GetGBVResourceInfo<Identity: ID3D12GBVDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, presourcedesc: *const D3D12_RESOURCE_DESC, presourcehash: *const super::UINT32, psubresourcestatesbyteoffset: *const super::UINT32) -> windows_core::HRESULT {
@@ -16791,11 +16716,8 @@ windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryRefle
 windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
 impl ID3D12LibraryReflection {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFunctionByIndex(&self, functionindex: super::INT) -> Option<ID3D12FunctionReflection> {
@@ -16817,7 +16739,7 @@ pub struct ID3D12LibraryReflection_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D12LibraryReflection_Impl: windows_core::IUnknownImpl {
-    fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC>;
+    fn GetDesc(&self, pdesc: *mut D3D12_LIBRARY_DESC) -> windows_core::Result<()>;
     fn GetFunctionByIndex(&self, functionindex: super::INT) -> Option<ID3D12FunctionReflection>;
 }
 #[cfg(feature = "shared")]
@@ -16826,13 +16748,7 @@ impl ID3D12LibraryReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12LibraryReflection_Impl::GetDesc(this) {
-                    Ok(ok__) => {
-                        pdesc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12LibraryReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
         unsafe extern "system" fn GetFunctionByIndex<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionindex: super::INT) -> Option<ID3D12FunctionReflection> {
@@ -17344,11 +17260,8 @@ impl core::ops::Deref for ID3D12PipelineState {
 windows_core::imp::interface_hierarchy!(ID3D12PipelineState, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12PipelineState {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetCachedBlob(&self, ppblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(ppblob)) }
     }
 }
 #[repr(C)]
@@ -17362,7 +17275,7 @@ pub struct ID3D12PipelineState_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "guiddef", feature = "shared"))]
 pub trait ID3D12PipelineState_Impl: ID3D12Pageable_Impl {
-    fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob>;
+    fn GetCachedBlob(&self, ppblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "d3dcommon", feature = "guiddef", feature = "shared"))]
 impl ID3D12PipelineState_Vtbl {
@@ -17370,16 +17283,7 @@ impl ID3D12PipelineState_Vtbl {
         unsafe extern "system" fn GetCachedBlob<Identity: ID3D12PipelineState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppblob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12PipelineState_Impl::GetCachedBlob(this) {
-                    Ok(ok__) => {
-                        ppblob.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppblob.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                ID3D12PipelineState_Impl::GetCachedBlob(this, core::mem::transmute_copy(&ppblob)).into()
             }
         }
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetCachedBlob: GetCachedBlob::<Identity, OFFSET> }
@@ -18204,11 +18108,8 @@ impl ID3D12ShaderReflection {
         unsafe { (windows_core::Interface::vtable(self).GetNumInterfaceSlots)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetMinFeatureLevel(&self) -> windows_core::Result<super::D3D_FEATURE_LEVEL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMinFeatureLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMinFeatureLevel(&self, plevel: *mut super::D3D_FEATURE_LEVEL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMinFeatureLevel)(windows_core::Interface::as_raw(self), plevel as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetThreadGroupSize(&self, psizex: Option<*mut super::UINT>, psizey: Option<*mut super::UINT>, psizez: Option<*mut super::UINT>) -> super::UINT {
@@ -18309,7 +18210,7 @@ pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
     fn GetGSInputPrimitive(&self) -> super::D3D_PRIMITIVE;
     fn IsSampleFrequencyShader(&self) -> windows_core::BOOL;
     fn GetNumInterfaceSlots(&self) -> super::UINT;
-    fn GetMinFeatureLevel(&self) -> windows_core::Result<super::D3D_FEATURE_LEVEL>;
+    fn GetMinFeatureLevel(&self, plevel: *mut super::D3D_FEATURE_LEVEL) -> windows_core::Result<()>;
     fn GetThreadGroupSize(&self, psizex: *mut super::UINT, psizey: *mut super::UINT, psizez: *mut super::UINT) -> super::UINT;
     fn GetRequiresFlags(&self) -> super::UINT64;
 }
@@ -18415,13 +18316,7 @@ impl ID3D12ShaderReflection_Vtbl {
         unsafe extern "system" fn GetMinFeatureLevel<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut super::D3D_FEATURE_LEVEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this) {
-                    Ok(ok__) => {
-                        plevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this, core::mem::transmute_copy(&plevel)).into()
             }
         }
         unsafe extern "system" fn GetThreadGroupSize<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizex: *mut super::UINT, psizey: *mut super::UINT, psizez: *mut super::UINT) -> super::UINT {
@@ -19430,11 +19325,8 @@ windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, I
 windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*const D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(windows_core::Interface::as_raw(self), converttoversion, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(windows_core::Interface::as_raw(self), converttoversion, ppdesc as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetUnconvertedRootSignatureDesc(&self) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
@@ -19456,7 +19348,7 @@ pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ID3D12VersionedRootSignatureDeserializer_Impl: windows_core::IUnknownImpl {
-    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*const D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
+    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::Result<()>;
     fn GetUnconvertedRootSignatureDesc(&self) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -19465,13 +19357,7 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
         unsafe extern "system" fn GetRootSignatureDescAtVersion<Identity: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion)) {
-                    Ok(ok__) => {
-                        ppdesc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion), core::mem::transmute_copy(&ppdesc)).into()
             }
         }
         unsafe extern "system" fn GetUnconvertedRootSignatureDesc<Identity: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
@@ -22325,14 +22211,11 @@ impl ID3D12VirtualizationGuestDevice {
         unsafe { (windows_core::Interface::vtable(self).ShareWithHost)(windows_core::Interface::as_raw(self), pobject.param().abi(), phandle as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: super::UINT64) -> windows_core::Result<i32>
+    pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: super::UINT64, pfencefd: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12Fence>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFenceFd)(windows_core::Interface::as_raw(self), pfence.param().abi(), fencevalue, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateFenceFd)(windows_core::Interface::as_raw(self), pfence.param().abi(), fencevalue, pfencefd as _) }
     }
 }
 #[repr(C)]
@@ -22351,7 +22234,7 @@ pub struct ID3D12VirtualizationGuestDevice_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ID3D12VirtualizationGuestDevice_Impl: windows_core::IUnknownImpl {
     fn ShareWithHost(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
-    fn CreateFenceFd(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: super::UINT64) -> windows_core::Result<i32>;
+    fn CreateFenceFd(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: super::UINT64, pfencefd: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl ID3D12VirtualizationGuestDevice_Vtbl {
@@ -22365,13 +22248,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
         unsafe extern "system" fn CreateFenceFd<Identity: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfence: *mut core::ffi::c_void, fencevalue: super::UINT64, pfencefd: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12VirtualizationGuestDevice_Impl::CreateFenceFd(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue)) {
-                    Ok(ok__) => {
-                        pfencefd.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12VirtualizationGuestDevice_Impl::CreateFenceFd(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue), core::mem::transmute_copy(&pfencefd)).into()
             }
         }
         Self {

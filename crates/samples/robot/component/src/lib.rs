@@ -60,10 +60,12 @@ impl bindings::IRobotInterop_Impl for Robot_Impl {
 struct RobotFactory;
 
 impl IActivationFactory_Impl for RobotFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
-        Ok(Robot {
-            handle: std::ptr::null_mut(),
-        }
-        .into())
+    fn ActivateInstance(&self, instance: OutRef<IInspectable>) -> Result<()> {
+        instance.write(Some(
+            Robot {
+                handle: std::ptr::null_mut(),
+            }
+            .into(),
+        ))
     }
 }

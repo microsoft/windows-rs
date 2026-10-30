@@ -30,13 +30,19 @@ impl IServiceProvider_Impl for Borrowed_Impl {
 }
 
 impl IProfferService_Impl for Borrowed_Impl {
-    fn ProfferService(&self, _: *const GUID, provider: Ref<IServiceProvider>) -> Result<u32> {
+    fn ProfferService(
+        &self,
+        _: *const GUID,
+        provider: Ref<IServiceProvider>,
+        cookie: *mut u32,
+    ) -> Result<()> {
         unsafe {
-            if let Ok(provider) = provider.ok() {
-                Ok(provider.cast::<IBorrowed>()?.Call())
+            *cookie = if let Ok(provider) = provider.ok() {
+                provider.cast::<IBorrowed>()?.Call()
             } else {
-                Ok(0)
-            }
+                0
+            };
+            Ok(())
         }
     }
 
@@ -56,16 +62,29 @@ fn test() -> Result<()> {
 
         let service = one_two_three.cast::<IProfferService>()?;
 
-        assert_eq!(service.ProfferService(&GUID::zeroed(), None)?, 0);
+        let mut cookie = u32::MAX;
+        service
+            .ProfferService(&GUID::zeroed(), None, &mut cookie)
+            .ok()?;
+        assert_eq!(cookie, 0);
 
-        assert_eq!(
-            service.ProfferService(&GUID::zeroed(), &one_two_three.cast::<IServiceProvider>()?)?,
-            123
-        );
-        assert_eq!(
-            service.ProfferService(&GUID::zeroed(), &four_five_six.cast::<IServiceProvider>()?)?,
-            456
-        );
+        service
+            .ProfferService(
+                &GUID::zeroed(),
+                &one_two_three.cast::<IServiceProvider>()?,
+                &mut cookie,
+            )
+            .ok()?;
+        assert_eq!(cookie, 123);
+
+        service
+            .ProfferService(
+                &GUID::zeroed(),
+                &four_five_six.cast::<IServiceProvider>()?,
+                &mut cookie,
+            )
+            .ok()?;
+        assert_eq!(cookie, 456);
 
         Ok(())
     }

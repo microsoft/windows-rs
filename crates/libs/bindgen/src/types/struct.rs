@@ -146,26 +146,6 @@ impl Struct {
             .fields()
             .all(|field| field.field_type(None, reader).is_copyable(reader))
     }
-
-    pub fn size(&self, reader: &Reader) -> usize {
-        let mut sum = 0;
-        for field in self.def.fields() {
-            let ty = field.field_type(None, reader);
-            let size = ty.size(reader);
-            let align = ty.align(reader);
-            sum = (sum + (align - 1)) & !(align - 1);
-            sum += size;
-        }
-        sum
-    }
-
-    pub fn align(&self, reader: &Reader) -> usize {
-        self.def
-            .fields()
-            .map(|field| field.field_type(None, reader).align(reader))
-            .max()
-            .unwrap_or(1)
-    }
 }
 
 impl Dependencies for Struct {

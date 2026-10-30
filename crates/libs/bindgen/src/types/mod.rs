@@ -12,6 +12,7 @@ mod cpp_struct;
 mod delegate;
 mod r#enum;
 mod interface;
+mod layout;
 mod method;
 mod r#struct;
 
@@ -26,6 +27,7 @@ pub use cpp_struct::*;
 pub use delegate::*;
 pub use r#enum::*;
 pub use interface::*;
+use layout::*;
 pub use method::*;
 pub use r#struct::*;
 
@@ -1087,41 +1089,6 @@ impl Type {
             Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_byte_size(),
             Self::I8 | Self::U8 | Self::PSTR | Self::PCSTR => true,
             _ => false,
-        }
-    }
-
-    pub fn is_void(&self) -> bool {
-        match self {
-            Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_void(),
-            Self::Void => true,
-            _ => false,
-        }
-    }
-
-    pub fn size(&self, reader: &Reader) -> usize {
-        match self {
-            Self::I8 | Self::U8 => 1,
-            Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
-            Self::GUID => 16,
-            Self::ArrayFixed(ty, len) => ty.size(reader) * len,
-            Self::CppStruct(ty) => ty.size(reader),
-            Self::Struct(ty) => ty.size(reader),
-            Self::CppEnum(ty) => ty.size(reader),
-            _ => 4,
-        }
-    }
-
-    pub fn align(&self, reader: &Reader) -> usize {
-        match self {
-            Self::I8 | Self::U8 => 1,
-            Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
-            Self::ArrayFixed(ty, len) => ty.align(reader) * len,
-            Self::CppStruct(ty) => ty.align(reader),
-            Self::Struct(ty) => ty.align(reader),
-            Self::CppEnum(ty) => ty.align(reader),
-            _ => 4,
         }
     }
 

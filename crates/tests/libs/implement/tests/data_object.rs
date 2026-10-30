@@ -21,10 +21,11 @@ struct TestData {
 struct Test(std::cell::UnsafeCell<TestData>);
 
 impl IDataObject_Impl for Test_Impl {
-    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
+    fn GetData(&self, _: *const FORMATETC, medium: *mut STGMEDIUM) -> Result<()> {
         unsafe {
             (*self.0.get()).GetData = true;
-            Ok(STGMEDIUM::default())
+            medium.write(STGMEDIUM::default());
+            Ok(())
         }
     }
 
@@ -56,17 +57,24 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
+    fn EnumFormatEtc(&self, _: u32, _: OutRef<IEnumFORMATETC>) -> Result<()> {
         unsafe {
             (*self.0.get()).EnumFormatEtc = true;
             Err(Error::empty())
         }
     }
 
-    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(
+        &self,
+        _: *const FORMATETC,
+        _: u32,
+        _: Ref<IAdviseSink>,
+        connection: *mut u32,
+    ) -> Result<()> {
         unsafe {
             (*self.0.get()).DAdvise = true;
-            Ok(0)
+            *connection = 0;
+            Ok(())
         }
     }
 
@@ -77,7 +85,7 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
         unsafe {
             (*self.0.get()).EnumDAdvise = true;
             Err(Error::empty())
@@ -89,7 +97,8 @@ impl IDataObject_Impl for Test_Impl {
 fn test() -> Result<()> {
     unsafe {
         let d: IDataObject = Test::default().into();
-        d.GetData(&Default::default())?;
+        d.GetData(&Default::default(), &mut Default::default())
+            .ok()?;
         d.GetDataHere(&Default::default(), &mut Default::default())
             .ok()?;
         d.QueryGetData(Some(&Default::default())).ok()?;
@@ -99,13 +108,13 @@ fn test() -> Result<()> {
             .ok()?;
 
         // EnumFormatEtc returns a null result value with a successful (S_OK) return code.
-        let r = d.EnumFormatEtc(0);
-        assert!(r.is_err());
-        let e = r.unwrap_err();
-        assert!(e.code() == S_OK);
-        assert!(e.as_ptr().is_null());
+        let mut r = None;
+        assert!(d.EnumFormatEtc(0, &mut r) == S_OK);
+        assert!(r.is_none());
 
-        d.DAdvise(&Default::default(), 0, None)?;
+        let mut connection = 0;
+        d.DAdvise(&Default::default(), 0, None, &mut connection)
+            .ok()?;
 
         let i = d.as_impl().0.get();
         assert!((*i).GetData);
@@ -120,7 +129,7 @@ fn test() -> Result<()> {
         assert!(!(*i).EnumDAdvise);
 
         d.DUnadvise(0).ok()?;
-        _ = d.EnumDAdvise();
+        _ = d.EnumDAdvise(&mut None);
 
         assert!((*i).DUnadvise);
         assert!((*i).EnumDAdvise);

@@ -58,11 +58,8 @@ impl IStiDevice {
         unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), escapefunction, lpindata, cbindatasize, poutdata as _, dwoutdatasize, pdwactualdata as _) }
     }
     #[cfg(feature = "minwindef")]
-    pub unsafe fn GetLastError(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLastError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLastError(&self, pdwlastdeviceerror: super::LPDWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLastError)(windows_core::Interface::as_raw(self), pdwlastdeviceerror as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn LockDevice(&self, dwtimeout: super::DWORD) -> windows_core::HRESULT {
@@ -175,7 +172,7 @@ pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
     fn DeviceReset(&self) -> windows_core::Result<()>;
     fn Diagnostic(&self, pbuffer: LPSTI_DIAG) -> windows_core::Result<()>;
     fn Escape(&self, escapefunction: STI_RAW_CONTROL_CODE, lpindata: super::LPVOID, cbindatasize: super::DWORD, poutdata: super::LPVOID, dwoutdatasize: super::DWORD, pdwactualdata: super::LPDWORD) -> windows_core::Result<()>;
-    fn GetLastError(&self) -> windows_core::Result<u32>;
+    fn GetLastError(&self, pdwlastdeviceerror: super::LPDWORD) -> windows_core::Result<()>;
     fn LockDevice(&self, dwtimeout: super::DWORD) -> windows_core::Result<()>;
     fn UnLockDevice(&self) -> windows_core::Result<()>;
     fn RawReadData(&self, lpbuffer: super::LPVOID, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
@@ -229,13 +226,7 @@ impl IStiDevice_Vtbl {
         unsafe extern "system" fn GetLastError<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlastdeviceerror: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStiDevice_Impl::GetLastError(this) {
-                    Ok(ok__) => {
-                        pdwlastdeviceerror.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IStiDevice_Impl::GetLastError(this, core::mem::transmute_copy(&pdwlastdeviceerror)).into()
             }
         }
         unsafe extern "system" fn LockDevice<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtimeout: super::DWORD) -> windows_core::HRESULT {
@@ -393,14 +384,11 @@ impl IStillImageW {
     {
         unsafe { (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), bnewstate.into()) }
     }
-    pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0, pbcurrentstate: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pbcurrentstate as _) }
     }
     pub unsafe fn RefreshDeviceBus<P0>(&self, pwszdevicename: P0) -> windows_core::HRESULT
     where
@@ -490,7 +478,7 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn RegisterLaunchApplication(&self, pwszappname: &windows_core::PCWSTR, pwszcommandline: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UnregisterLaunchApplication(&self, pwszappname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnableHwNotifications(&self, pwszdevicename: &windows_core::PCWSTR, bnewstate: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetHwNotificationState(&self, pwszdevicename: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
+    fn GetHwNotificationState(&self, pwszdevicename: &windows_core::PCWSTR, pbcurrentstate: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn RefreshDeviceBus(&self, pwszdevicename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn LaunchApplicationForDevice(&self, pwszdevicename: &windows_core::PCWSTR, pwszappname: &windows_core::PCWSTR, pstinotify: LPSTINOTIFY) -> windows_core::Result<()>;
     fn SetupDeviceParameters(&self, param0: PSTI_DEVICE_INFORMATIONW) -> windows_core::Result<()>;
@@ -562,13 +550,7 @@ impl IStillImageW_Vtbl {
         unsafe extern "system" fn GetHwNotificationState<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, pbcurrentstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStillImageW_Impl::GetHwNotificationState(this, core::mem::transmute(&pwszdevicename)) {
-                    Ok(ok__) => {
-                        pbcurrentstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IStillImageW_Impl::GetHwNotificationState(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&pbcurrentstate)).into()
             }
         }
         unsafe extern "system" fn RefreshDeviceBus<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR) -> windows_core::HRESULT {

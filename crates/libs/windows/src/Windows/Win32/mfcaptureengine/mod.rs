@@ -28,17 +28,11 @@ impl IMFCaptureEngine {
     pub unsafe fn TakePhoto(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TakePhoto)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE) -> windows_core::Result<IMFCaptureSink> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), mfcaptureenginesinktype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE, ppsink: *mut Option<IMFCaptureSink>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), mfcaptureenginesinktype, core::mem::transmute(ppsink)) }
     }
-    pub unsafe fn GetSource(&self) -> windows_core::Result<IMFCaptureSource> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSource(&self, ppsource: *mut Option<IMFCaptureSource>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsource)) }
     }
 }
 #[repr(C)]
@@ -65,8 +59,8 @@ pub trait IMFCaptureEngine_Impl: windows_core::IUnknownImpl {
     fn StartRecord(&self) -> windows_core::Result<()>;
     fn StopRecord(&self, bfinalize: windows_core::BOOL, bflushunprocessedsamples: windows_core::BOOL) -> windows_core::Result<()>;
     fn TakePhoto(&self) -> windows_core::Result<()>;
-    fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE) -> windows_core::Result<IMFCaptureSink>;
-    fn GetSource(&self) -> windows_core::Result<IMFCaptureSource>;
+    fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE, ppsink: windows_core::OutRef<IMFCaptureSink>) -> windows_core::Result<()>;
+    fn GetSource(&self, ppsource: windows_core::OutRef<IMFCaptureSource>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFCaptureEngine_Vtbl {
@@ -110,25 +104,13 @@ impl IMFCaptureEngine_Vtbl {
         unsafe extern "system" fn GetSink<Identity: IMFCaptureEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureEngine_Impl::GetSink(this, core::mem::transmute_copy(&mfcaptureenginesinktype)) {
-                    Ok(ok__) => {
-                        ppsink.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureEngine_Impl::GetSink(this, core::mem::transmute_copy(&mfcaptureenginesinktype), core::mem::transmute_copy(&ppsink)).into()
             }
         }
         unsafe extern "system" fn GetSource<Identity: IMFCaptureEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureEngine_Impl::GetSource(this) {
-                    Ok(ok__) => {
-                        ppsource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureEngine_Impl::GetSource(this, core::mem::transmute_copy(&ppsource)).into()
             }
         }
         Self {
@@ -430,21 +412,15 @@ impl IMFCapturePreviewSink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSampleCallback)(windows_core::Interface::as_raw(self), dwstreamsinkindex, pcallback.param().abi()) }
     }
-    pub unsafe fn GetMirrorState(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMirrorState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMirrorState(&self, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMirrorState)(windows_core::Interface::as_raw(self), pfmirrorstate as _) }
     }
     pub unsafe fn SetMirrorState(&self, fmirrorstate: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMirrorState)(windows_core::Interface::as_raw(self), fmirrorstate.into()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRotation(&self, dwstreamindex: super::DWORD) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRotation)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRotation(&self, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRotation)(windows_core::Interface::as_raw(self), dwstreamindex, pdwrotationvalue as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetRotation(&self, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::HRESULT {
@@ -496,9 +472,9 @@ pub trait IMFCapturePreviewSink_Impl: IMFCaptureSink_Impl {
     fn SetRenderSurface(&self, psurface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UpdateVideo(&self, psrc: *const super::MFVideoNormalizedRect, pdst: *const super::RECT, pborderclr: *const super::COLORREF) -> windows_core::Result<()>;
     fn SetSampleCallback(&self, dwstreamsinkindex: super::DWORD, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
-    fn GetMirrorState(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetMirrorState(&self, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetMirrorState(&self, fmirrorstate: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetRotation(&self, dwstreamindex: super::DWORD) -> windows_core::Result<super::DWORD>;
+    fn GetRotation(&self, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetRotation(&self, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::Result<()>;
     fn SetCustomSink(&self, pmediasink: windows_core::Ref<super::IMFMediaSink>) -> windows_core::Result<()>;
 }
@@ -532,13 +508,7 @@ impl IMFCapturePreviewSink_Vtbl {
         unsafe extern "system" fn GetMirrorState<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCapturePreviewSink_Impl::GetMirrorState(this) {
-                    Ok(ok__) => {
-                        pfmirrorstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCapturePreviewSink_Impl::GetMirrorState(this, core::mem::transmute_copy(&pfmirrorstate)).into()
             }
         }
         unsafe extern "system" fn SetMirrorState<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmirrorstate: windows_core::BOOL) -> windows_core::HRESULT {
@@ -550,13 +520,7 @@ impl IMFCapturePreviewSink_Vtbl {
         unsafe extern "system" fn GetRotation<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCapturePreviewSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex)) {
-                    Ok(ok__) => {
-                        pdwrotationvalue.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCapturePreviewSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pdwrotationvalue)).into()
             }
         }
         unsafe extern "system" fn SetRotation<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::HRESULT {
@@ -627,11 +591,8 @@ impl IMFCaptureRecordSink {
         unsafe { (windows_core::Interface::vtable(self).SetCustomSink)(windows_core::Interface::as_raw(self), pmediasink.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRotation(&self, dwstreamindex: super::DWORD) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRotation)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRotation(&self, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRotation)(windows_core::Interface::as_raw(self), dwstreamindex, pdwrotationvalue as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetRotation(&self, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::HRESULT {
@@ -670,7 +631,7 @@ pub trait IMFCaptureRecordSink_Impl: IMFCaptureSink_Impl {
     fn SetOutputFileName(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetSampleCallback(&self, dwstreamsinkindex: super::DWORD, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
     fn SetCustomSink(&self, pmediasink: windows_core::Ref<super::IMFMediaSink>) -> windows_core::Result<()>;
-    fn GetRotation(&self, dwstreamindex: super::DWORD) -> windows_core::Result<super::DWORD>;
+    fn GetRotation(&self, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetRotation(&self, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "shared"))]
@@ -703,13 +664,7 @@ impl IMFCaptureRecordSink_Vtbl {
         unsafe extern "system" fn GetRotation<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, pdwrotationvalue: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureRecordSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex)) {
-                    Ok(ok__) => {
-                        pdwrotationvalue.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureRecordSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pdwrotationvalue)).into()
             }
         }
         unsafe extern "system" fn SetRotation<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, dwrotationvalue: super::DWORD) -> windows_core::HRESULT {
@@ -928,43 +883,28 @@ impl IMFCaptureSource {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, pmediatype.param().abi()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, core::mem::transmute(ppmediatype)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDeviceStreamCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceStreamCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDeviceStreamCount(&self, pdwstreamcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceStreamCount)(windows_core::Interface::as_raw(self), pdwstreamcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDeviceStreamCategory(&self, dwsourcestreamindex: super::DWORD) -> windows_core::Result<MF_CAPTURE_ENGINE_STREAM_CATEGORY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceStreamCategory)(windows_core::Interface::as_raw(self), dwsourcestreamindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDeviceStreamCategory(&self, dwsourcestreamindex: super::DWORD, pstreamcategory: *mut MF_CAPTURE_ENGINE_STREAM_CATEGORY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceStreamCategory)(windows_core::Interface::as_raw(self), dwsourcestreamindex, pstreamcategory as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMirrorState(&self, dwstreamindex: super::DWORD) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMirrorState)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMirrorState(&self, dwstreamindex: super::DWORD, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMirrorState)(windows_core::Interface::as_raw(self), dwstreamindex, pfmirrorstate as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetMirrorState(&self, dwstreamindex: super::DWORD, fmirrorstate: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMirrorState)(windows_core::Interface::as_raw(self), dwstreamindex, fmirrorstate.into()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: super::UINT32) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamIndexFromFriendlyName)(windows_core::Interface::as_raw(self), uifriendlyname, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: super::UINT32, pdwactualstreamindex: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamIndexFromFriendlyName)(windows_core::Interface::as_raw(self), uifriendlyname, pdwactualstreamindex as _) }
     }
 }
 #[repr(C)]
@@ -1038,12 +978,12 @@ pub trait IMFCaptureSource_Impl: windows_core::IUnknownImpl {
     fn RemoveAllEffects(&self, dwsourcestreamindex: super::DWORD) -> windows_core::Result<()>;
     fn GetAvailableDeviceMediaType(&self, dwsourcestreamindex: super::DWORD, dwmediatypeindex: super::DWORD, ppmediatype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
     fn SetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
-    fn GetDeviceStreamCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetDeviceStreamCategory(&self, dwsourcestreamindex: super::DWORD) -> windows_core::Result<MF_CAPTURE_ENGINE_STREAM_CATEGORY>;
-    fn GetMirrorState(&self, dwstreamindex: super::DWORD) -> windows_core::Result<windows_core::BOOL>;
+    fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD, ppmediatype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
+    fn GetDeviceStreamCount(&self, pdwstreamcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetDeviceStreamCategory(&self, dwsourcestreamindex: super::DWORD, pstreamcategory: *mut MF_CAPTURE_ENGINE_STREAM_CATEGORY) -> windows_core::Result<()>;
+    fn GetMirrorState(&self, dwstreamindex: super::DWORD, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetMirrorState(&self, dwstreamindex: super::DWORD, fmirrorstate: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: super::UINT32) -> windows_core::Result<super::DWORD>;
+    fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: super::UINT32, pdwactualstreamindex: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "shared"))]
 impl IMFCaptureSource_Vtbl {
@@ -1099,49 +1039,25 @@ impl IMFCaptureSource_Vtbl {
         unsafe extern "system" fn GetCurrentDeviceMediaType<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourcestreamindex: super::DWORD, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureSource_Impl::GetCurrentDeviceMediaType(this, core::mem::transmute_copy(&dwsourcestreamindex)) {
-                    Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureSource_Impl::GetCurrentDeviceMediaType(this, core::mem::transmute_copy(&dwsourcestreamindex), core::mem::transmute_copy(&ppmediatype)).into()
             }
         }
         unsafe extern "system" fn GetDeviceStreamCount<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstreamcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureSource_Impl::GetDeviceStreamCount(this) {
-                    Ok(ok__) => {
-                        pdwstreamcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureSource_Impl::GetDeviceStreamCount(this, core::mem::transmute_copy(&pdwstreamcount)).into()
             }
         }
         unsafe extern "system" fn GetDeviceStreamCategory<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourcestreamindex: super::DWORD, pstreamcategory: *mut MF_CAPTURE_ENGINE_STREAM_CATEGORY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureSource_Impl::GetDeviceStreamCategory(this, core::mem::transmute_copy(&dwsourcestreamindex)) {
-                    Ok(ok__) => {
-                        pstreamcategory.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureSource_Impl::GetDeviceStreamCategory(this, core::mem::transmute_copy(&dwsourcestreamindex), core::mem::transmute_copy(&pstreamcategory)).into()
             }
         }
         unsafe extern "system" fn GetMirrorState<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, pfmirrorstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureSource_Impl::GetMirrorState(this, core::mem::transmute_copy(&dwstreamindex)) {
-                    Ok(ok__) => {
-                        pfmirrorstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureSource_Impl::GetMirrorState(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pfmirrorstate)).into()
             }
         }
         unsafe extern "system" fn SetMirrorState<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, fmirrorstate: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1153,13 +1069,7 @@ impl IMFCaptureSource_Vtbl {
         unsafe extern "system" fn GetStreamIndexFromFriendlyName<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uifriendlyname: super::UINT32, pdwactualstreamindex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCaptureSource_Impl::GetStreamIndexFromFriendlyName(this, core::mem::transmute_copy(&uifriendlyname)) {
-                    Ok(ok__) => {
-                        pdwactualstreamindex.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCaptureSource_Impl::GetStreamIndexFromFriendlyName(this, core::mem::transmute_copy(&uifriendlyname), core::mem::transmute_copy(&pdwactualstreamindex)).into()
             }
         }
         Self {

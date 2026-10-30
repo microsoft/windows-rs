@@ -17,7 +17,9 @@ fn main() -> Result<()> {
 
     robot.Speak(h!("Hello world"))?;
 
-    let handy_robot = unsafe { CreateRobotFromHandle(123 as _)? };
+    let mut handy_robot = None;
+    unsafe { CreateRobotFromHandle(123 as _, &mut handy_robot).ok()? };
+    let handy_robot = handy_robot.unwrap();
 
     handy_robot.Speak(h!("Hello handy"))?;
 

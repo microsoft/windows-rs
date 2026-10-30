@@ -25,20 +25,6 @@ mod Test {
             #[in] #[out] state: *mut u32,
             #[out] #[retval] result: *mut Struct,
         ) -> HRESULT;
-        fn HeuristicAfterInputOutput(
-            &self,
-            #[in] #[out] state: *mut u32,
-            #[out] result: *mut Struct,
-        ) -> HRESULT;
-        fn AfterReserved(&self, #[reserved] reserved: usize, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedPointer(&self, #[reserved] reserved: *mut void, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedVoid(&self, #[reserved] reserved: usize, #[out] result: *mut Struct);
-        fn AfterUnknown(&self, value: usize, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterOptional(&self, #[opt] value: usize, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedOutput(&self, #[out] #[reserved] value: *mut u32, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedInputOutput(&self, #[in] #[out] #[reserved] value: *mut u32, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedArray(&self, #[reserved] #[len_const(1)] value: *mut u32, #[out] result: *mut Struct) -> HRESULT;
-        fn AfterReservedResidual(&self, #[reserved] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled, _Out_", "enabled, _Out_")] value: *mut u32, #[out] result: *mut Struct) -> HRESULT;
         fn RetvalInputOutput(
             &self,
             #[in] #[out] #[retval] result: *mut Struct,
@@ -47,30 +33,22 @@ mod Test {
         fn RetvalReserved(&self, #[out] #[reserved] #[retval] result: *mut Struct) -> HRESULT;
         fn RetvalArray(&self, #[out] #[len_const(1)] #[retval] result: *mut Struct) -> HRESULT;
         fn ExplicitLarge(&self, #[out] #[retval] result: *mut Large) -> HRESULT;
-        fn HeuristicLarge(&self, #[out] result: *mut Large) -> HRESULT;
         fn ExplicitVoidPointer(
             &self,
             #[out] #[retval] result: *mut *mut void,
         ) -> HRESULT;
-        fn ConstResultValue(
-            &self,
-            #[out] result: *const *const u16,
-        ) -> HRESULT;
     }
 
     #[library("test.dll")]
-    extern fn AfterReserved(#[reserved] reserved: usize, #[out] result: *mut Struct) -> HRESULT;
+    extern fn Annotated(#[in] value: u32, #[out] #[retval] result: *mut Struct) -> HRESULT;
     #[library("test.dll")]
-    extern fn AfterUnknown(value: usize, #[out] result: *mut Struct) -> HRESULT;
+    extern fn Unannotated(#[in] value: u32, #[out] result: *mut Struct) -> HRESULT;
 }
 
 #[win32]
 mod Windows {
     mod Win32 {
         mod Metadata {
-            attribute NativeSalAttribute {
-                fn(#[in] version: String, #[in] name: String, #[in] arguments: String, #[in] expanded: String);
-            }
             attribute ReservedAttribute {
                 fn();
             }

@@ -8,14 +8,12 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn GetValue(&self) -> windows_core::Result<Struct> {
+    pub unsafe fn GetValue(&self, result: *mut Struct) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                result as _,
             )
-            .map(|| result__)
         }
     }
 }
@@ -27,7 +25,7 @@ pub struct Interface_Vtbl {
 }
 pub trait Interface_Impl {
     fn Method(&self, value: u32) -> windows_core::Result<()>;
-    fn GetValue(&self) -> windows_core::Result<Struct>;
+    fn GetValue(&self, result: *mut Struct) -> windows_core::Result<()>;
 }
 impl Interface_Vtbl {
     pub const fn new<Identity: Interface_Impl>() -> Self {
@@ -48,13 +46,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                match Interface_Impl::GetValue(this) {
-                    Ok(ok__) => {
-                        result.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                Interface_Impl::GetValue(this, core::mem::transmute_copy(&result)).into()
             }
         }
         Self {

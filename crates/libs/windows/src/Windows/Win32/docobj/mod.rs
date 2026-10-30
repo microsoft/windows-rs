@@ -70,11 +70,8 @@ impl IEnumOleDocumentViews {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
     }
 }
 #[repr(C)]
@@ -97,7 +94,7 @@ pub trait IEnumOleDocumentViews_Impl: windows_core::IUnknownImpl {
     fn Next(&self, cviews: super::ULONG, rgpview: windows_core::OutRef<IOleDocumentView>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, cviews: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumOleDocumentViews>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumOleDocumentViews>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IEnumOleDocumentViews_Vtbl {
@@ -123,13 +120,7 @@ impl IEnumOleDocumentViews_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumOleDocumentViews_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumOleDocumentViews_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
             }
         }
         Self {
@@ -209,22 +200,16 @@ windows_core::imp::define_interface!(IOleDocument, IOleDocument_Vtbl, 0xb722bcc5
 windows_core::imp::interface_hierarchy!(IOleDocument, windows_core::IUnknown);
 impl IOleDocument {
     #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
-    pub unsafe fn CreateView<P0, P1>(&self, pipsite: P0, pstm: P1, dwreserved: super::DWORD) -> windows_core::Result<IOleDocumentView>
+    pub unsafe fn CreateView<P0, P1>(&self, pipsite: P0, pstm: P1, dwreserved: super::DWORD, ppview: *mut Option<IOleDocumentView>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IOleInPlaceSite>,
         P1: windows_core::Param<super::IStream>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), pipsite.param().abi(), pstm.param().abi(), dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), pipsite.param().abi(), pstm.param().abi(), dwreserved, core::mem::transmute(ppview)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDocMiscStatus(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDocMiscStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDocMiscStatus(&self, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDocMiscStatus)(windows_core::Interface::as_raw(self), pdwstatus as _) }
     }
     pub unsafe fn EnumViews(&self, ppenum: *mut Option<IEnumOleDocumentViews>, ppview: *mut Option<IOleDocumentView>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumViews)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum), core::mem::transmute(ppview)) }
@@ -246,8 +231,8 @@ pub struct IOleDocument_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
 pub trait IOleDocument_Impl: windows_core::IUnknownImpl {
-    fn CreateView(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>, pstm: windows_core::Ref<super::IStream>, dwreserved: super::DWORD) -> windows_core::Result<IOleDocumentView>;
-    fn GetDocMiscStatus(&self) -> windows_core::Result<super::DWORD>;
+    fn CreateView(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>, pstm: windows_core::Ref<super::IStream>, dwreserved: super::DWORD, ppview: windows_core::OutRef<IOleDocumentView>) -> windows_core::Result<()>;
+    fn GetDocMiscStatus(&self, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
     fn EnumViews(&self, ppenum: windows_core::OutRef<IEnumOleDocumentViews>, ppview: windows_core::OutRef<IOleDocumentView>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
@@ -256,25 +241,13 @@ impl IOleDocument_Vtbl {
         unsafe extern "system" fn CreateView<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, dwreserved: super::DWORD, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocument_Impl::CreateView(this, core::mem::transmute_copy(&pipsite), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&dwreserved)) {
-                    Ok(ok__) => {
-                        ppview.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocument_Impl::CreateView(this, core::mem::transmute_copy(&pipsite), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&ppview)).into()
             }
         }
         unsafe extern "system" fn GetDocMiscStatus<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocument_Impl::GetDocMiscStatus(this) {
-                    Ok(ok__) => {
-                        pdwstatus.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocument_Impl::GetDocMiscStatus(this, core::mem::transmute_copy(&pdwstatus)).into()
             }
         }
         unsafe extern "system" fn EnumViews<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -341,28 +314,19 @@ impl IOleDocumentView {
         unsafe { (windows_core::Interface::vtable(self).SetInPlaceSite)(windows_core::Interface::as_raw(self), pipsite.param().abi()) }
     }
     #[cfg(feature = "oleidl")]
-    pub unsafe fn GetInPlaceSite(&self) -> windows_core::Result<super::IOleInPlaceSite> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInPlaceSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetInPlaceSite(&self, ppipsite: *mut Option<super::IOleInPlaceSite>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInPlaceSite)(windows_core::Interface::as_raw(self), core::mem::transmute(ppipsite)) }
     }
-    pub unsafe fn GetDocument(&self) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDocument(&self, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetRect(&self, prcview: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), prcview) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetRect(&self) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRect(&self, prcview: super::LPRECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), prcview as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetRectComplex(&self, prcview: Option<super::LPRECT>, prchscroll: Option<super::LPRECT>, prcvscroll: Option<super::LPRECT>, prcsizebox: Option<super::LPRECT>) -> windows_core::HRESULT {
@@ -396,14 +360,11 @@ impl IOleDocumentView {
         unsafe { (windows_core::Interface::vtable(self).ApplyViewState)(windows_core::Interface::as_raw(self), pstm.param().abi()) }
     }
     #[cfg(feature = "oleidl")]
-    pub unsafe fn Clone<P0>(&self, pipsitenew: P0) -> windows_core::Result<Self>
+    pub unsafe fn Clone<P0>(&self, pipsitenew: P0, ppviewnew: *mut Option<Self>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IOleInPlaceSite>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), pipsitenew.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), pipsitenew.param().abi(), core::mem::transmute(ppviewnew)) }
     }
 }
 #[repr(C)]
@@ -454,10 +415,10 @@ pub struct IOleDocumentView_Vtbl {
 #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "windef"))]
 pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn SetInPlaceSite(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>) -> windows_core::Result<()>;
-    fn GetInPlaceSite(&self) -> windows_core::Result<super::IOleInPlaceSite>;
-    fn GetDocument(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetInPlaceSite(&self, ppipsite: windows_core::OutRef<super::IOleInPlaceSite>) -> windows_core::Result<()>;
+    fn GetDocument(&self, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetRect(&self, prcview: super::LPRECT) -> windows_core::Result<()>;
-    fn GetRect(&self) -> windows_core::Result<super::RECT>;
+    fn GetRect(&self, prcview: super::LPRECT) -> windows_core::Result<()>;
     fn SetRectComplex(&self, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::Result<()>;
     fn Show(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn UIActivate(&self, fuiactivate: windows_core::BOOL) -> windows_core::Result<()>;
@@ -465,7 +426,7 @@ pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn CloseView(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
     fn SaveViewState(&self, pstm: windows_core::Ref<super::LPSTREAM>) -> windows_core::Result<()>;
     fn ApplyViewState(&self, pstm: windows_core::Ref<super::LPSTREAM>) -> windows_core::Result<()>;
-    fn Clone(&self, pipsitenew: windows_core::Ref<super::IOleInPlaceSite>) -> windows_core::Result<IOleDocumentView>;
+    fn Clone(&self, pipsitenew: windows_core::Ref<super::IOleInPlaceSite>, ppviewnew: windows_core::OutRef<IOleDocumentView>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "windef"))]
 impl IOleDocumentView_Vtbl {
@@ -479,25 +440,13 @@ impl IOleDocumentView_Vtbl {
         unsafe extern "system" fn GetInPlaceSite<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppipsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocumentView_Impl::GetInPlaceSite(this) {
-                    Ok(ok__) => {
-                        ppipsite.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocumentView_Impl::GetInPlaceSite(this, core::mem::transmute_copy(&ppipsite)).into()
             }
         }
         unsafe extern "system" fn GetDocument<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocumentView_Impl::GetDocument(this) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocumentView_Impl::GetDocument(this, core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn SetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT) -> windows_core::HRESULT {
@@ -509,13 +458,7 @@ impl IOleDocumentView_Vtbl {
         unsafe extern "system" fn GetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocumentView_Impl::GetRect(this) {
-                    Ok(ok__) => {
-                        prcview.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocumentView_Impl::GetRect(this, core::mem::transmute_copy(&prcview)).into()
             }
         }
         unsafe extern "system" fn SetRectComplex<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::HRESULT {
@@ -563,13 +506,7 @@ impl IOleDocumentView_Vtbl {
         unsafe extern "system" fn Clone<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsitenew: *mut core::ffi::c_void, ppviewnew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOleDocumentView_Impl::Clone(this, core::mem::transmute_copy(&pipsitenew)) {
-                    Ok(ok__) => {
-                        ppviewnew.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IOleDocumentView_Impl::Clone(this, core::mem::transmute_copy(&pipsitenew), core::mem::transmute_copy(&ppviewnew)).into()
             }
         }
         Self {
@@ -674,11 +611,8 @@ impl windows_core::RuntimeName for IPrint {}
 windows_core::imp::define_interface!(IProtectFocus, IProtectFocus_Vtbl, 0xd81f90a3_8156_44f7_ad28_5abb87003274);
 windows_core::imp::interface_hierarchy!(IProtectFocus, windows_core::IUnknown);
 impl IProtectFocus {
-    pub unsafe fn AllowFocusChange(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllowFocusChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn AllowFocusChange(&self, pfallow: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AllowFocusChange)(windows_core::Interface::as_raw(self), pfallow as _) }
     }
 }
 #[repr(C)]
@@ -688,20 +622,14 @@ pub struct IProtectFocus_Vtbl {
     pub AllowFocusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IProtectFocus_Impl: windows_core::IUnknownImpl {
-    fn AllowFocusChange(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn AllowFocusChange(&self, pfallow: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IProtectFocus_Vtbl {
     pub const fn new<Identity: IProtectFocus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AllowFocusChange<Identity: IProtectFocus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallow: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProtectFocus_Impl::AllowFocusChange(this) {
-                    Ok(ok__) => {
-                        pfallow.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IProtectFocus_Impl::AllowFocusChange(this, core::mem::transmute_copy(&pfallow)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AllowFocusChange: AllowFocusChange::<Identity, OFFSET> }
@@ -715,32 +643,23 @@ windows_core::imp::define_interface!(IProtectedModeMenuServices, IProtectedModeM
 windows_core::imp::interface_hierarchy!(IProtectedModeMenuServices, windows_core::IUnknown);
 impl IProtectedModeMenuServices {
     #[cfg(feature = "windef")]
-    pub unsafe fn CreateMenu(&self) -> windows_core::Result<super::HMENU> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMenu)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CreateMenu(&self, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMenu)(windows_core::Interface::as_raw(self), phmenu as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn LoadMenu<P0, P1>(&self, pszmodulename: P0, pszmenuname: P1) -> windows_core::Result<super::HMENU>
+    pub unsafe fn LoadMenu<P0, P1>(&self, pszmodulename: P0, pszmenuname: P1, phmenu: *mut super::HMENU) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadMenu)(windows_core::Interface::as_raw(self), pszmodulename.param().abi(), pszmenuname.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).LoadMenu)(windows_core::Interface::as_raw(self), pszmodulename.param().abi(), pszmenuname.param().abi(), phmenu as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn LoadMenuID<P0>(&self, pszmodulename: P0, wresourceid: super::WORD) -> windows_core::Result<super::HMENU>
+    pub unsafe fn LoadMenuID<P0>(&self, pszmodulename: P0, wresourceid: super::WORD, phmenu: *mut super::HMENU) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadMenuID)(windows_core::Interface::as_raw(self), pszmodulename.param().abi(), wresourceid, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).LoadMenuID)(windows_core::Interface::as_raw(self), pszmodulename.param().abi(), wresourceid, phmenu as _) }
     }
 }
 #[repr(C)]
@@ -762,9 +681,9 @@ pub struct IProtectedModeMenuServices_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IProtectedModeMenuServices_Impl: windows_core::IUnknownImpl {
-    fn CreateMenu(&self) -> windows_core::Result<super::HMENU>;
-    fn LoadMenu(&self, pszmodulename: &windows_core::PCWSTR, pszmenuname: &windows_core::PCWSTR) -> windows_core::Result<super::HMENU>;
-    fn LoadMenuID(&self, pszmodulename: &windows_core::PCWSTR, wresourceid: super::WORD) -> windows_core::Result<super::HMENU>;
+    fn CreateMenu(&self, phmenu: *mut super::HMENU) -> windows_core::Result<()>;
+    fn LoadMenu(&self, pszmodulename: &windows_core::PCWSTR, pszmenuname: &windows_core::PCWSTR, phmenu: *mut super::HMENU) -> windows_core::Result<()>;
+    fn LoadMenuID(&self, pszmodulename: &windows_core::PCWSTR, wresourceid: super::WORD, phmenu: *mut super::HMENU) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IProtectedModeMenuServices_Vtbl {
@@ -772,37 +691,19 @@ impl IProtectedModeMenuServices_Vtbl {
         unsafe extern "system" fn CreateMenu<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProtectedModeMenuServices_Impl::CreateMenu(this) {
-                    Ok(ok__) => {
-                        phmenu.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IProtectedModeMenuServices_Impl::CreateMenu(this, core::mem::transmute_copy(&phmenu)).into()
             }
         }
         unsafe extern "system" fn LoadMenu<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, pszmenuname: windows_core::PCWSTR, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProtectedModeMenuServices_Impl::LoadMenu(this, core::mem::transmute(&pszmodulename), core::mem::transmute(&pszmenuname)) {
-                    Ok(ok__) => {
-                        phmenu.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IProtectedModeMenuServices_Impl::LoadMenu(this, core::mem::transmute(&pszmodulename), core::mem::transmute(&pszmenuname), core::mem::transmute_copy(&phmenu)).into()
             }
         }
         unsafe extern "system" fn LoadMenuID<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, wresourceid: super::WORD, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProtectedModeMenuServices_Impl::LoadMenuID(this, core::mem::transmute(&pszmodulename), core::mem::transmute_copy(&wresourceid)) {
-                    Ok(ok__) => {
-                        phmenu.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IProtectedModeMenuServices_Impl::LoadMenuID(this, core::mem::transmute(&pszmodulename), core::mem::transmute_copy(&wresourceid), core::mem::transmute_copy(&phmenu)).into()
             }
         }
         Self {

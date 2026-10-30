@@ -419,27 +419,21 @@ pub unsafe fn LBItemFromPt(hlb: super::HWND, pt: super::POINT, bautoscroll: bool
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn LoadIconMetric<P1>(hinst: super::HINSTANCE, pszname: P1, lims: i32) -> windows_core::Result<super::HICON>
+pub unsafe fn LoadIconMetric<P1>(hinst: super::HINSTANCE, pszname: P1, lims: i32, phico: *mut super::HICON) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::HINSTANCE, pszname : windows_core::PCWSTR, lims : i32, phico : *mut super::HICON) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        LoadIconMetric(hinst as _, pszname.param().abi(), lims, &mut result__).map(|| result__)
-    }
+    unsafe { LoadIconMetric(hinst as _, pszname.param().abi(), lims, phico as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn LoadIconWithScaleDown<P1>(hinst: super::HINSTANCE, pszname: P1, cx: i32, cy: i32) -> windows_core::Result<super::HICON>
+pub unsafe fn LoadIconWithScaleDown<P1>(hinst: super::HINSTANCE, pszname: P1, cx: i32, cy: i32, phico: *mut super::HICON) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::HINSTANCE, pszname : windows_core::PCWSTR, cx : i32, cy : i32, phico : *mut super::HICON) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        LoadIconWithScaleDown(hinst as _, pszname.param().abi(), cx, cy, &mut result__).map(|| result__)
-    }
+    unsafe { LoadIconWithScaleDown(hinst as _, pszname.param().abi(), cx, cy, phico as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]

@@ -446,15 +446,12 @@ pub unsafe fn UiaProviderForNonClient(hwnd: super::HWND, idobject: i32, idchild:
 }
 #[cfg(all(feature = "oaidl", feature = "oleacc", feature = "shared", feature = "uiautomationcore"))]
 #[inline]
-pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: super::DWORD) -> windows_core::Result<super::IRawElementProviderSimple>
+pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: super::DWORD, ppprovider: *mut Option<super::IRawElementProviderSimple>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IAccessible>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : *mut core::ffi::c_void, idchild : i32, dwflags : super::DWORD, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, core::mem::transmute(ppprovider)) }
 }
 #[cfg(feature = "uiautomationcore")]
 #[inline]

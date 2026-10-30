@@ -37,7 +37,8 @@ fn main() -> windows::core::Result<()> {
 
     impl Angles {
         fn now() -> Self {
-            let time = unsafe { GetLocalTime() };
+            let mut time = SYSTEMTIME::default();
+            unsafe { GetLocalTime(&mut time) };
 
             let second = (time.wSecond as f32 + time.wMilliseconds as f32 / 1000.0) * 6.0;
             let minute = time.wMinute as f32 * 6.0 + second / 60.0;
@@ -115,10 +116,15 @@ fn main() -> windows::core::Result<()> {
 
             if let Err(error) = self.present(1, 0) {
                 if error.code() == DXGI_STATUS_OCCLUDED {
-                    self.occlusion = unsafe {
+                    unsafe {
                         self.dxfactory
-                            .RegisterOcclusionStatusWindow(self.handle, WM_USER as u32)?
-                    };
+                            .RegisterOcclusionStatusWindow(
+                                self.handle,
+                                WM_USER as u32,
+                                &mut self.occlusion,
+                            )
+                            .ok()?;
+                    }
                     self.visible = false;
                 } else {
                     self.release_device();
@@ -158,15 +164,21 @@ fn main() -> windows::core::Result<()> {
                     a: 1.0,
                 }));
 
-                let previous = target.GetTarget().ok_or_else(Error::empty)?;
+                let mut previous = None;
+                target.GetTarget(&mut previous);
+                let previous = previous.ok_or_else(Error::empty)?;
                 target.SetTarget(clock);
                 target.Clear(None);
                 self.draw_clock()?;
                 target.SetTarget(&previous);
                 target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
+                let mut output = None;
+                shadow.GetOutput(&mut output);
+                let output = output.ok_or_else(Error::empty)?;
+
                 target.DrawImage(
-                    &shadow.GetOutput()?,
+                    &output,
                     None,
                     None,
                     D2D1_INTERPOLATION_MODE_LINEAR,
@@ -288,7 +300,9 @@ fn main() -> windows::core::Result<()> {
                 ..Default::default()
             };
 
-            unsafe { target.CreateBitmap(size_u, None, 0, &properties) }
+            let mut bitmap = None;
+            unsafe { target.CreateBitmap(size_u, None, 0, &properties, &mut bitmap) }.ok()?;
+            Ok(bitmap.unwrap())
         }
 
         fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -373,12 +387,16 @@ fn main() -> windows::core::Result<()> {
             transform: Matrix3x2::identity(),
         };
 
-        unsafe { target.CreateSolidColorBrush(&color, Some(&properties)) }
+        let mut brush = None;
+        unsafe { target.CreateSolidColorBrush(&color, Some(&properties), &mut brush) }.ok()?;
+        Ok(brush.unwrap())
     }
 
     fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
         unsafe {
-            let shadow = target.CreateEffect(&CLSID_D2D1Shadow)?;
+            let mut shadow = None;
+            target.CreateEffect(&CLSID_D2D1Shadow, &mut shadow).ok()?;
+            let shadow = shadow.unwrap();
 
             shadow.SetInput(0, clock, true);
             Ok(shadow)
@@ -411,7 +429,9 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        unsafe { factory.CreateStrokeStyle(&props, None) }
+        let mut style = None;
+        unsafe { factory.CreateStrokeStyle(&props, None, &mut style) }.ok()?;
+        Ok(style.unwrap())
     }
 
     fn create_transition() -> Result<Transition> {
@@ -460,9 +480,17 @@ fn main() -> windows::core::Result<()> {
         device: &ID3D11Device,
     ) -> Result<ID2D1DeviceContext> {
         unsafe {
-            let d2device = factory.CreateDevice(&device.cast::<IDXGIDevice>()?)?;
+            let mut d2device = None;
+            factory
+                .CreateDevice(&device.cast::<IDXGIDevice>()?, &mut d2device)
+                .ok()?;
+            let d2device = d2device.unwrap();
 
-            let target = d2device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
+            let mut target = None;
+            d2device
+                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut target)
+                .ok()?;
+            let target = target.unwrap();
 
             target.SetUnitMode(D2D1_UNIT_MODE_DIPS);
 
@@ -472,7 +500,11 @@ fn main() -> windows::core::Result<()> {
 
     fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
         let dxdevice = device.cast::<IDXGIDevice>()?;
-        unsafe { dxdevice.GetAdapter()?.GetParent() }
+        let mut adapter = None;
+        unsafe {
+            dxdevice.GetAdapter(&mut adapter).ok()?;
+            adapter.unwrap().GetParent()
+        }
     }
 
     fn create_swapchain_bitmap(
@@ -493,8 +525,11 @@ fn main() -> windows::core::Result<()> {
         };
 
         unsafe {
-            let bitmap = target.CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
-            target.SetTarget(&bitmap);
+            let mut bitmap = None;
+            target
+                .CreateBitmapFromDxgiSurface(&surface, Some(&props), &mut bitmap)
+                .ok()?;
+            target.SetTarget(&bitmap.unwrap());
         };
 
         Ok(())
@@ -515,7 +550,12 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        unsafe { factory.CreateSwapChainForHwnd(device, window, &props, None, None) }
+        let mut swapchain = None;
+        unsafe {
+            factory.CreateSwapChainForHwnd(device, window, &props, None, None, &mut swapchain)
+        }
+        .ok()?;
+        Ok(swapchain.unwrap())
     }
 
     unsafe {

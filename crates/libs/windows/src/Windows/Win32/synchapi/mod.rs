@@ -168,23 +168,15 @@ pub unsafe fn InitOnceExecuteOnce(initonce: PINIT_ONCE, initfn: PINIT_ONCE_FN, p
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn InitOnceInitialize() -> super::RTL_RUN_ONCE {
+pub unsafe fn InitOnceInitialize(initonce: PINIT_ONCE) {
     windows_core::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : PINIT_ONCE));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        InitOnceInitialize(&mut result__);
-        result__
-    }
+    unsafe { InitOnceInitialize(initonce as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn InitializeConditionVariable() -> super::RTL_CONDITION_VARIABLE {
+pub unsafe fn InitializeConditionVariable(conditionvariable: PCONDITION_VARIABLE) {
     windows_core::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : PCONDITION_VARIABLE));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        InitializeConditionVariable(&mut result__);
-        result__
-    }
+    unsafe { InitializeConditionVariable(conditionvariable as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -206,13 +198,9 @@ pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: super::LPCRITICAL_S
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn InitializeSRWLock() -> super::RTL_SRWLOCK {
+pub unsafe fn InitializeSRWLock(srwlock: PSRWLOCK) {
     windows_core::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : PSRWLOCK));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        InitializeSRWLock(&mut result__);
-        result__
-    }
+    unsafe { InitializeSRWLock(srwlock as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

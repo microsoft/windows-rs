@@ -107,7 +107,6 @@ impl MethodDefExt for MethodDef {
                 def,
                 name,
                 ty,
-                native_reference,
                 implied_input,
             });
         }

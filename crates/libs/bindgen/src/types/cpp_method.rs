@@ -58,7 +58,7 @@ fn param_hint(
             .filter(|fixed| {
                 buffer_element(param, reader)
                     .projection_type(reader)
-                    .size(reader)
+                    .max_native_size(reader)
                     .checked_mul(*fixed)
                     .is_some_and(|size| size <= i32::MAX as usize)
             })

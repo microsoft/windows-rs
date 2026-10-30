@@ -337,11 +337,8 @@ impl core::ops::Deref for IXAudio2MasteringVoice {
 windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl IXAudio2MasteringVoice {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelMask(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelMask(&self, pchannelmask: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), pchannelmask as _) }
     }
 }
 #[repr(C)]
@@ -355,7 +352,7 @@ pub struct IXAudio2MasteringVoice_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IXAudio2MasteringVoice_Impl: IXAudio2Voice_Impl {
-    fn GetChannelMask(&self) -> windows_core::Result<super::DWORD>;
+    fn GetChannelMask(&self, pchannelmask: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IXAudio2MasteringVoice_Vtbl {
@@ -364,13 +361,7 @@ impl IXAudio2MasteringVoice_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                match IXAudio2MasteringVoice_Impl::GetChannelMask(this) {
-                    Ok(ok__) => {
-                        pchannelmask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXAudio2MasteringVoice_Impl::GetChannelMask(this, core::mem::transmute_copy(&pchannelmask)).into()
             }
         }
         Self { base__: IXAudio2Voice_Vtbl::new::<Identity>(), GetChannelMask: GetChannelMask::<Identity> }
@@ -431,11 +422,9 @@ impl IXAudio2SourceVoice {
     pub unsafe fn SetFrequencyRatio(&self, ratio: f32, operationset: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFrequencyRatio)(windows_core::Interface::as_raw(self), ratio, operationset) }
     }
-    pub unsafe fn GetFrequencyRatio(&self) -> f32 {
+    pub unsafe fn GetFrequencyRatio(&self, pratio: *mut f32) {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFrequencyRatio)(windows_core::Interface::as_raw(self), &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetFrequencyRatio)(windows_core::Interface::as_raw(self), pratio as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -632,11 +621,9 @@ impl IXAudio2SubmixVoice {
 windows_core::imp::define_interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
 impl IXAudio2Voice {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
+    pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVoiceDetails)(windows_core::Interface::as_raw(self), &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetVoiceDetails)(windows_core::Interface::as_raw(self), pvoicedetails as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -656,11 +643,9 @@ impl IXAudio2Voice {
         unsafe { (windows_core::Interface::vtable(self).DisableEffect)(windows_core::Interface::as_raw(self), effectindex, operationset) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetEffectState(&self, effectindex: super::UINT32) -> windows_core::BOOL {
+    pub unsafe fn GetEffectState(&self, effectindex: super::UINT32, penabled: *mut windows_core::BOOL) {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEffectState)(windows_core::Interface::as_raw(self), effectindex, &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetEffectState)(windows_core::Interface::as_raw(self), effectindex, penabled as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -675,11 +660,9 @@ impl IXAudio2Voice {
     pub unsafe fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFilterParameters)(windows_core::Interface::as_raw(self), pparameters, operationset) }
     }
-    pub unsafe fn GetFilterParameters(&self) -> XAUDIO2_FILTER_PARAMETERS {
+    pub unsafe fn GetFilterParameters(&self, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFilterParameters)(windows_core::Interface::as_raw(self), &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetFilterParameters)(windows_core::Interface::as_raw(self), pparameters as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -689,25 +672,21 @@ impl IXAudio2Voice {
     {
         unsafe { (windows_core::Interface::vtable(self).SetOutputFilterParameters)(windows_core::Interface::as_raw(self), pdestinationvoice.param().abi(), pparameters, operationset) }
     }
-    pub unsafe fn GetOutputFilterParameters<P0>(&self, pdestinationvoice: P0) -> XAUDIO2_FILTER_PARAMETERS
+    pub unsafe fn GetOutputFilterParameters<P0>(&self, pdestinationvoice: P0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS)
     where
         P0: windows_core::Param<Self>,
     {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputFilterParameters)(windows_core::Interface::as_raw(self), pdestinationvoice.param().abi(), &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetOutputFilterParameters)(windows_core::Interface::as_raw(self), pdestinationvoice.param().abi(), pparameters as _);
         }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetVolume(&self, volume: f32, operationset: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), volume, operationset) }
     }
-    pub unsafe fn GetVolume(&self) -> f32 {
+    pub unsafe fn GetVolume(&self, pvolume: *mut f32) {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), &mut result__);
-            result__
+            (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), pvolume as _);
         }
     }
     #[cfg(feature = "shared")]

@@ -1,11 +1,8 @@
 #[cfg(feature = "oleidl")]
 #[inline]
-pub unsafe fn CreateOleAdviseHolder() -> windows_core::Result<super::LPOLEADVISEHOLDER> {
+pub unsafe fn CreateOleAdviseHolder(ppoaholder: *mut Option<super::LPOLEADVISEHOLDER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateOleAdviseHolder(ppoaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateOleAdviseHolder(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateOleAdviseHolder(core::mem::transmute(ppoaholder)) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shared"))]
 #[inline]
@@ -294,12 +291,9 @@ pub unsafe fn OleGetAutoConvert(clsidold: *const super::IID, pclsidnew: super::L
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn OleGetClipboard() -> windows_core::Result<super::LPDATAOBJECT> {
+pub unsafe fn OleGetClipboard(ppdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleGetClipboard(ppdataobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleGetClipboard(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { OleGetClipboard(core::mem::transmute(ppdataobj)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -406,21 +400,15 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn OleRegEnumFormatEtc(clsid: *const super::IID, dwdirection: super::DWORD) -> windows_core::Result<super::LPENUMFORMATETC> {
+pub unsafe fn OleRegEnumFormatEtc(clsid: *const super::IID, dwdirection: super::DWORD, ppenum: *mut Option<super::LPENUMFORMATETC>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleRegEnumFormatEtc(clsid : *const super::IID, dwdirection : super::DWORD, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleRegEnumFormatEtc(clsid, dwdirection, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { OleRegEnumFormatEtc(clsid, dwdirection, core::mem::transmute(ppenum)) }
 }
 #[cfg(all(feature = "guiddef", feature = "oleidl"))]
 #[inline]
-pub unsafe fn OleRegEnumVerbs(clsid: *const super::IID) -> windows_core::Result<super::LPENUMOLEVERB> {
+pub unsafe fn OleRegEnumVerbs(clsid: *const super::IID, ppenum: *mut Option<super::LPENUMOLEVERB>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleRegEnumVerbs(clsid : *const super::IID, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleRegEnumVerbs(clsid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { OleRegEnumVerbs(clsid, core::mem::transmute(ppenum)) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -430,12 +418,9 @@ pub unsafe fn OleRegGetMiscStatus(clsid: *const super::IID, dwaspect: super::DWO
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleRegGetUserType(clsid: *const super::IID, dwformoftype: super::DWORD) -> windows_core::Result<super::LPOLESTR> {
+pub unsafe fn OleRegGetUserType(clsid: *const super::IID, dwformoftype: super::DWORD, pszusertype: *mut super::LPOLESTR) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleRegGetUserType(clsid : *const super::IID, dwformoftype : super::DWORD, pszusertype : *mut super::LPOLESTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleRegGetUserType(clsid, dwformoftype, &mut result__).map(|| result__)
-    }
+    unsafe { OleRegGetUserType(clsid, dwformoftype, pszusertype as _) }
 }
 #[cfg(feature = "unknwnbase")]
 #[inline]

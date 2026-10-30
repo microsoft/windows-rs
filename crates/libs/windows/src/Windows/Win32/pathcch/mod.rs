@@ -1,27 +1,21 @@
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathAllocCanonicalize<P0>(pszpathin: P0, dwflags: super::ULONG) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PathAllocCanonicalize<P0>(pszpathin: P0, dwflags: super::ULONG, ppszpathout: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCanonicalize(pszpathin : windows_core::PCWSTR, dwflags : super::ULONG, ppszpathout : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PathAllocCanonicalize(pszpathin.param().abi(), dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { PathAllocCanonicalize(pszpathin.param().abi(), dwflags, ppszpathout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathAllocCombine<P0, P1>(pszpathin: P0, pszmore: P1, dwflags: super::ULONG) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PathAllocCombine<P0, P1>(pszpathin: P0, pszmore: P1, dwflags: super::ULONG, ppszpathout: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCombine(pszpathin : windows_core::PCWSTR, pszmore : windows_core::PCWSTR, dwflags : super::ULONG, ppszpathout : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PathAllocCombine(pszpathin.param().abi(), pszmore.param().abi(), dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { PathAllocCombine(pszpathin.param().abi(), pszmore.param().abi(), dwflags, ppszpathout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -102,12 +96,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchFindExtension(pszpath: windows_core::PCWSTR, cchpath: super::size_t) -> windows_core::Result<windows_core::PCWSTR> {
+pub unsafe fn PathCchFindExtension(pszpath: windows_core::PCWSTR, cchpath: super::size_t, ppszext: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : windows_core::PCWSTR, cchpath : super::size_t, ppszext : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PathCchFindExtension(pszpath, cchpath, &mut result__).map(|| result__)
-    }
+    unsafe { PathCchFindExtension(pszpath, cchpath, ppszext as _) }
 }
 #[inline]
 pub unsafe fn PathCchIsRoot<P0>(pszpath: P0) -> windows_core::BOOL
@@ -151,15 +142,12 @@ where
     unsafe { PathCchRenameExtension(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszext.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0) -> windows_core::Result<windows_core::PCWSTR>
+pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0, ppszrootend: *mut windows_core::PCWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchSkipRoot(pszpath : windows_core::PCWSTR, ppszrootend : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PathCchSkipRoot(pszpath.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PathCchSkipRoot(pszpath.param().abi(), ppszrootend as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

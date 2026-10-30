@@ -24,14 +24,11 @@ windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderSe
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);
 impl IWTSBitmapRenderService {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: super::UINT64, pmappedrenderercallback: P1) -> windows_core::Result<IWTSBitmapRenderer>
+    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: super::UINT64, pmappedrenderercallback: P1, ppmappedrenderer: *mut Option<IWTSBitmapRenderer>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IWTSBitmapRendererCallback>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMappedRenderer)(windows_core::Interface::as_raw(self), mappingid, pmappedrenderercallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetMappedRenderer)(windows_core::Interface::as_raw(self), mappingid, pmappedrenderercallback.param().abi(), core::mem::transmute(ppmappedrenderer)) }
     }
 }
 #[repr(C)]
@@ -45,7 +42,7 @@ pub struct IWTSBitmapRenderService_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderService_Impl: windows_core::IUnknownImpl {
-    fn GetMappedRenderer(&self, mappingid: super::UINT64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: super::UINT64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>, ppmappedrenderer: windows_core::OutRef<IWTSBitmapRenderer>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IWTSBitmapRenderService_Vtbl {
@@ -53,13 +50,7 @@ impl IWTSBitmapRenderService_Vtbl {
         unsafe extern "system" fn GetMappedRenderer<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappingid: super::UINT64, pmappedrenderercallback: *mut core::ffi::c_void, ppmappedrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback)) {
-                    Ok(ok__) => {
-                        ppmappedrenderer.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback), core::mem::transmute_copy(&ppmappedrenderer)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMappedRenderer: GetMappedRenderer::<Identity, OFFSET> }
@@ -78,11 +69,8 @@ impl IWTSBitmapRenderer {
         unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), imageformat, dwwidth, dwheight, cbstride, pimagebuffer.len().try_into().unwrap(), pimagebuffer.as_ptr()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRendererStatistics(&self) -> windows_core::Result<BITMAP_RENDERER_STATISTICS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRendererStatistics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRendererStatistics(&self, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRendererStatistics)(windows_core::Interface::as_raw(self), pstatistics as _) }
     }
     pub unsafe fn RemoveMapping(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveMapping)(windows_core::Interface::as_raw(self)) }
@@ -105,7 +93,7 @@ pub struct IWTSBitmapRenderer_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderer_Impl: windows_core::IUnknownImpl {
     fn Render(&self, imageformat: &windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::Result<()>;
-    fn GetRendererStatistics(&self) -> windows_core::Result<BITMAP_RENDERER_STATISTICS>;
+    fn GetRendererStatistics(&self, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::Result<()>;
     fn RemoveMapping(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -120,13 +108,7 @@ impl IWTSBitmapRenderer_Vtbl {
         unsafe extern "system" fn GetRendererStatistics<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSBitmapRenderer_Impl::GetRendererStatistics(this) {
-                    Ok(ok__) => {
-                        pstatistics.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWTSBitmapRenderer_Impl::GetRendererStatistics(this, core::mem::transmute_copy(&pstatistics)).into()
             }
         }
         unsafe extern "system" fn RemoveMapping<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -190,11 +172,8 @@ windows_core::imp::define_interface!(IWTSListener, IWTSListener_Vtbl, 0xa1230206
 windows_core::imp::interface_hierarchy!(IWTSListener, windows_core::IUnknown);
 impl IWTSListener {
     #[cfg(feature = "oaidl")]
-    pub unsafe fn GetConfiguration(&self) -> windows_core::Result<super::IPropertyBag> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetConfiguration(&self, pppropertybag: *mut Option<super::IPropertyBag>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropertybag)) }
     }
 }
 #[repr(C)]
@@ -208,7 +187,7 @@ pub struct IWTSListener_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IWTSListener_Impl: windows_core::IUnknownImpl {
-    fn GetConfiguration(&self) -> windows_core::Result<super::IPropertyBag>;
+    fn GetConfiguration(&self, pppropertybag: windows_core::OutRef<super::IPropertyBag>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "oaidl")]
 impl IWTSListener_Vtbl {
@@ -216,13 +195,7 @@ impl IWTSListener_Vtbl {
         unsafe extern "system" fn GetConfiguration<Identity: IWTSListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertybag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSListener_Impl::GetConfiguration(this) {
-                    Ok(ok__) => {
-                        pppropertybag.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWTSListener_Impl::GetConfiguration(this, core::mem::transmute_copy(&pppropertybag)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetConfiguration: GetConfiguration::<Identity, OFFSET> }
@@ -350,11 +323,8 @@ impl windows_core::RuntimeName for IWTSPlugin {}
 windows_core::imp::define_interface!(IWTSPluginServiceProvider, IWTSPluginServiceProvider_Vtbl, 0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
 windows_core::imp::interface_hierarchy!(IWTSPluginServiceProvider, windows_core::IUnknown);
 impl IWTSPluginServiceProvider {
-    pub unsafe fn GetService(&self, serviceid: windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), serviceid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetService(&self, serviceid: windows_core::GUID, ppunkobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), serviceid, core::mem::transmute(ppunkobject)) }
     }
 }
 #[repr(C)]
@@ -364,20 +334,14 @@ pub struct IWTSPluginServiceProvider_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSPluginServiceProvider_Impl: windows_core::IUnknownImpl {
-    fn GetService(&self, serviceid: &windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetService(&self, serviceid: &windows_core::GUID, ppunkobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWTSPluginServiceProvider_Vtbl {
     pub const fn new<Identity: IWTSPluginServiceProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetService<Identity: IWTSPluginServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: windows_core::GUID, ppunkobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSPluginServiceProvider_Impl::GetService(this, core::mem::transmute(&serviceid)) {
-                    Ok(ok__) => {
-                        ppunkobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWTSPluginServiceProvider_Impl::GetService(this, core::mem::transmute(&serviceid), core::mem::transmute_copy(&ppunkobject)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, OFFSET> }
@@ -496,14 +460,11 @@ windows_core::imp::define_interface!(IWTSVirtualChannelManager, IWTSVirtualChann
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannelManager, windows_core::IUnknown);
 impl IWTSVirtualChannelManager {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: P2) -> windows_core::Result<IWTSListener>
+    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: P2, pplistener: *mut Option<IWTSListener>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWTSListenerCallback>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateListener)(windows_core::Interface::as_raw(self), pszchannelname, uflags, plistenercallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateListener)(windows_core::Interface::as_raw(self), pszchannelname, uflags, plistenercallback.param().abi(), core::mem::transmute(pplistener)) }
     }
 }
 #[repr(C)]
@@ -517,7 +478,7 @@ pub struct IWTSVirtualChannelManager_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSVirtualChannelManager_Impl: windows_core::IUnknownImpl {
-    fn CreateListener(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: windows_core::Ref<IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: windows_core::Ref<IWTSListenerCallback>, pplistener: windows_core::OutRef<IWTSListener>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IWTSVirtualChannelManager_Vtbl {
@@ -525,13 +486,7 @@ impl IWTSVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateListener<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: *mut core::ffi::c_void, pplistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback)) {
-                    Ok(ok__) => {
-                        pplistener.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback), core::mem::transmute_copy(&pplistener)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateListener: CreateListener::<Identity, OFFSET> }

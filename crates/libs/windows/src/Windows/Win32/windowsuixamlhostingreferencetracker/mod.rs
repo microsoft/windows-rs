@@ -47,11 +47,8 @@ impl IReferenceTracker {
     {
         unsafe { (windows_core::Interface::vtable(self).FindTrackerTargets)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
-    pub unsafe fn GetReferenceTrackerManager(&self) -> windows_core::Result<IReferenceTrackerManager> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReferenceTrackerManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetReferenceTrackerManager(&self, value: *mut Option<IReferenceTrackerManager>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReferenceTrackerManager)(windows_core::Interface::as_raw(self), core::mem::transmute(value)) }
     }
     pub unsafe fn AddRefFromTrackerSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRefFromTrackerSource)(windows_core::Interface::as_raw(self)) }
@@ -79,7 +76,7 @@ pub trait IReferenceTracker_Impl: windows_core::IUnknownImpl {
     fn ConnectFromTrackerSource(&self) -> windows_core::Result<()>;
     fn DisconnectFromTrackerSource(&self) -> windows_core::Result<()>;
     fn FindTrackerTargets(&self, callback: windows_core::Ref<IFindReferenceTargetsCallback>) -> windows_core::Result<()>;
-    fn GetReferenceTrackerManager(&self) -> windows_core::Result<IReferenceTrackerManager>;
+    fn GetReferenceTrackerManager(&self, value: windows_core::OutRef<IReferenceTrackerManager>) -> windows_core::Result<()>;
     fn AddRefFromTrackerSource(&self) -> windows_core::Result<()>;
     fn ReleaseFromTrackerSource(&self) -> windows_core::Result<()>;
     fn PegFromTrackerSource(&self) -> windows_core::Result<()>;
@@ -107,13 +104,7 @@ impl IReferenceTracker_Vtbl {
         unsafe extern "system" fn GetReferenceTrackerManager<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IReferenceTracker_Impl::GetReferenceTrackerManager(this) {
-                    Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IReferenceTracker_Impl::GetReferenceTrackerManager(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn AddRefFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

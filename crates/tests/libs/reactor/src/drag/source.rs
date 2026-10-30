@@ -2,7 +2,7 @@ use super::*;
 use std::cell::Cell;
 use std::sync::atomic::AtomicU32;
 use std::time::{Duration, Instant};
-use windows_core::{BOOL, Error, Interface, Ref, Result};
+use windows_core::{BOOL, Error, Interface, OutRef, Ref, Result};
 
 #[allow(
     dead_code,
@@ -232,7 +232,7 @@ fn format() -> FORMATETC {
 
 #[allow(non_snake_case)]
 impl IDataObject_Impl for TextData_Impl {
-    fn GetData(&self, requested: *const FORMATETC) -> Result<STGMEDIUM> {
+    fn GetData(&self, requested: *const FORMATETC, output: *mut STGMEDIUM) -> Result<()> {
         self.QueryGetData(requested)?;
         let text: Vec<u16> = "Reactor native drag text"
             .encode_utf16()
@@ -258,8 +258,9 @@ impl IDataObject_Impl for TextData_Impl {
                 ..Default::default()
             };
             std::mem::forget(memory);
+            output.write(medium);
             self.reads.fetch_add(1, Ordering::Relaxed);
-            Ok(medium)
+            Ok(())
         }
     }
 
@@ -290,18 +291,18 @@ impl IDataObject_Impl for TextData_Impl {
         Err(Error::from_hresult(E_NOTIMPL))
     }
 
-    fn EnumFormatEtc(&self, direction: u32) -> Result<IEnumFORMATETC> {
+    fn EnumFormatEtc(&self, direction: u32, output: OutRef<IEnumFORMATETC>) -> Result<()> {
         if direction != DATADIR_GET as u32 {
             return Err(Error::from_hresult(E_NOTIMPL));
         }
         unsafe {
             let mut raw = std::ptr::null_mut();
             SHCreateStdEnumFmtEtc(1, &format(), &mut raw).ok()?;
-            Ok(IEnumFORMATETC::from_raw(raw))
+            output.write(Some(IEnumFORMATETC::from_raw(raw)))
         }
     }
 
-    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>, _: *mut u32) -> Result<()> {
         Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
     }
 
@@ -309,7 +310,7 @@ impl IDataObject_Impl for TextData_Impl {
         Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
     }
 
-    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
         Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
     }
 }
@@ -359,12 +360,15 @@ fn text_data_transfers_owned_unicode_memory() -> Result<()> {
             },
         ] {
             assert_eq!(data.QueryGetData(Some(&invalid)), DV_E_FORMATETC);
-            assert_eq!(data.GetData(&invalid).err().unwrap().code(), DV_E_FORMATETC);
+            let mut medium = Medium(STGMEDIUM::default());
+            assert_eq!(data.GetData(&invalid, &mut medium.0), DV_E_FORMATETC);
         }
         assert_eq!(reads.load(Ordering::Relaxed), 0);
         data.QueryGetData(Some(&format())).ok()?;
-        let first = Medium(data.GetData(&format())?);
-        let second = Medium(data.GetData(&format())?);
+        let mut first = Medium(STGMEDIUM::default());
+        data.GetData(&format(), &mut first.0).ok()?;
+        let mut second = Medium(STGMEDIUM::default());
+        data.GetData(&format(), &mut second.0).ok()?;
         assert_ne!(first.0.Anonymous.hGlobal, second.0.Anonymous.hGlobal);
         assert_eq!(reads.load(Ordering::Relaxed), 2);
         drop(data);

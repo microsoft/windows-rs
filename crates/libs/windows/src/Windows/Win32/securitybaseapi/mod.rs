@@ -607,13 +607,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn QuerySecurityAccessMask(securityinformation: super::SECURITY_INFORMATION) -> u32 {
+pub unsafe fn QuerySecurityAccessMask(securityinformation: super::SECURITY_INFORMATION, desiredaccess: super::LPDWORD) {
     windows_core::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : super::SECURITY_INFORMATION, desiredaccess : super::LPDWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        QuerySecurityAccessMask(securityinformation, &mut result__);
-        result__
-    }
+    unsafe { QuerySecurityAccessMask(securityinformation, desiredaccess as _) }
 }
 #[inline]
 pub unsafe fn RevertToSelf() -> windows_core::BOOL {
@@ -661,13 +657,9 @@ pub unsafe fn SetPrivateObjectSecurityEx(securityinformation: super::SECURITY_IN
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetSecurityAccessMask(securityinformation: super::SECURITY_INFORMATION) -> u32 {
+pub unsafe fn SetSecurityAccessMask(securityinformation: super::SECURITY_INFORMATION, desiredaccess: super::LPDWORD) {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : super::SECURITY_INFORMATION, desiredaccess : super::LPDWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SetSecurityAccessMask(securityinformation, &mut result__);
-        result__
-    }
+    unsafe { SetSecurityAccessMask(securityinformation, desiredaccess as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

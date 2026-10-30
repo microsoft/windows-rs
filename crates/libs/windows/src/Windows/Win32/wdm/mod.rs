@@ -660,13 +660,9 @@ pub unsafe fn RtlTimeFieldsToTime(timefields: PTIME_FIELDS, time: super::PLARGE_
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlTimeToTimeFields(time: super::PLARGE_INTEGER) -> TIME_FIELDS {
+pub unsafe fn RtlTimeToTimeFields(time: super::PLARGE_INTEGER, timefields: PTIME_FIELDS) {
     windows_core::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : super::PLARGE_INTEGER, timefields : PTIME_FIELDS));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtlTimeToTimeFields(time, &mut result__);
-        result__
-    }
+    unsafe { RtlTimeToTimeFields(time, timefields as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[inline]

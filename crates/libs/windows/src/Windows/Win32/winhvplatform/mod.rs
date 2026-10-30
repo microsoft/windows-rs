@@ -155,12 +155,9 @@ pub unsafe fn WHvGetVirtualProcessorCounters(partition: super::WHV_PARTITION_HAN
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs"))]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCpuidOutput(partition: super::WHV_PARTITION_HANDLE, vpindex: super::UINT32, eax: super::UINT32, ecx: super::UINT32) -> windows_core::Result<super::WHV_CPUID_OUTPUT> {
+pub unsafe fn WHvGetVirtualProcessorCpuidOutput(partition: super::WHV_PARTITION_HANDLE, vpindex: super::UINT32, eax: super::UINT32, ecx: super::UINT32, cpuidoutput: *mut super::WHV_CPUID_OUTPUT) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCpuidOutput(partition : super::WHV_PARTITION_HANDLE, vpindex : super::UINT32, eax : super::UINT32, ecx : super::UINT32, cpuidoutput : *mut super::WHV_CPUID_OUTPUT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvGetVirtualProcessorCpuidOutput(partition, vpindex, eax, ecx, &mut result__).map(|| result__)
-    }
+    unsafe { WHvGetVirtualProcessorCpuidOutput(partition, vpindex, eax, ecx, cpuidoutput as _) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs"))]

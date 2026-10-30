@@ -1,13 +1,10 @@
 #[inline]
 pub unsafe fn CreateRobotFromHandle(
     handle: *const core::ffi::c_void,
-) -> windows_core::Result<Robot> {
+    robot: *mut Option<Robot>,
+) -> windows_core::HRESULT {
     windows_core::link!("robotics.dll" "system" fn CreateRobotFromHandle(handle : *const core::ffi::c_void, robot : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateRobotFromHandle(handle, &mut result__)
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateRobotFromHandle(handle, core::mem::transmute(robot)) }
 }
 windows_core::imp::define_interface!(IRobot, IRobot_Vtbl, 0xd93d56c9_37a7_537e_becc_236d421cc48f);
 impl windows_core::RuntimeType for IRobot {

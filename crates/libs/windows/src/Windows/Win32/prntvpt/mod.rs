@@ -65,15 +65,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: super::DWORD) -> windows_core::Result<HPTPROVIDER>
+pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: super::DWORD, phprovider: *mut HPTPROVIDER) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_core::PCWSTR, dwversion : super::DWORD, phprovider : *mut HPTPROVIDER) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PTOpenProvider(pszprintername.param().abi(), dwversion, &mut result__).map(|| result__)
-    }
+    unsafe { PTOpenProvider(pszprintername.param().abi(), dwversion, phprovider as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -86,15 +83,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_core::Result<super::DWORD>
+pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0, pmaxversion: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_core::PCWSTR, pmaxversion : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PTQuerySchemaVersionSupport(pszprintername.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PTQuerySchemaVersionSupport(pszprintername.param().abi(), pmaxversion as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

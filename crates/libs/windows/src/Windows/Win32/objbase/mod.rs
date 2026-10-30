@@ -118,15 +118,12 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CoRegisterInitializeSpy<P0>(pspy: P0) -> windows_core::Result<super::ULARGE_INTEGER>
+pub unsafe fn CoRegisterInitializeSpy<P0>(pspy: P0, pulicookie: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IInitializeSpy>,
 {
     windows_core::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : *mut core::ffi::c_void, pulicookie : *mut super::ULARGE_INTEGER) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoRegisterInitializeSpy(pspy.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { CoRegisterInitializeSpy(pspy.param().abi(), pulicookie as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -165,30 +162,21 @@ pub unsafe fn CoTreatAsClass(clsidold: *const super::IID, clsidnew: *const super
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CreateAntiMoniker() -> windows_core::Result<super::LPMONIKER> {
+pub unsafe fn CreateAntiMoniker(ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateAntiMoniker(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateAntiMoniker(core::mem::transmute(ppmk)) }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateBindCtx(reserved: super::DWORD) -> windows_core::Result<super::LPBC> {
+pub unsafe fn CreateBindCtx(reserved: super::DWORD, ppbc: *mut Option<super::LPBC>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateBindCtx(reserved : super::DWORD, ppbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateBindCtx(reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateBindCtx(reserved, core::mem::transmute(ppbc)) }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl"))]
 #[inline]
-pub unsafe fn CreateClassMoniker(rclsid: *const super::IID) -> windows_core::Result<super::LPMONIKER> {
+pub unsafe fn CreateClassMoniker(rclsid: *const super::IID, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const super::IID, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateClassMoniker(rclsid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateClassMoniker(rclsid, core::mem::transmute(ppmk)) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "unknwnbase"))]
 #[inline]
@@ -201,70 +189,52 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateFileMoniker(lpszpathname: super::LPCOLESTR) -> windows_core::Result<super::LPMONIKER> {
+pub unsafe fn CreateFileMoniker(lpszpathname: super::LPCOLESTR, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateFileMoniker(lpszpathname, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateFileMoniker(lpszpathname, core::mem::transmute(ppmk)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CreateGenericComposite<P0, P1>(pmkfirst: P0, pmkrest: P1) -> windows_core::Result<super::LPMONIKER>
+pub unsafe fn CreateGenericComposite<P0, P1>(pmkfirst: P0, pmkrest: P1, ppmkcomposite: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::LPMONIKER>,
     P1: windows_core::Param<super::LPMONIKER>,
 {
     windows_core::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : *mut core::ffi::c_void, pmkrest : *mut core::ffi::c_void, ppmkcomposite : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateGenericComposite(pmkfirst.param().abi(), pmkrest.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateGenericComposite(pmkfirst.param().abi(), pmkrest.param().abi(), core::mem::transmute(ppmkcomposite)) }
 }
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateItemMoniker(lpszdelim: super::LPCOLESTR, lpszitem: super::LPCOLESTR) -> windows_core::Result<super::LPMONIKER> {
+pub unsafe fn CreateItemMoniker(lpszdelim: super::LPCOLESTR, lpszitem: super::LPCOLESTR, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : super::LPCOLESTR, lpszitem : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateItemMoniker(lpszdelim, lpszitem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateItemMoniker(lpszdelim, lpszitem, core::mem::transmute(ppmk)) }
 }
 #[cfg(all(feature = "objidl", feature = "unknwnbase"))]
 #[inline]
-pub unsafe fn CreateObjrefMoniker<P0>(punk: P0) -> windows_core::Result<super::LPMONIKER>
+pub unsafe fn CreateObjrefMoniker<P0>(punk: P0, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::LPUNKNOWN>,
 {
     windows_core::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateObjrefMoniker(punk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateObjrefMoniker(punk.param().abi(), core::mem::transmute(ppmk)) }
 }
 #[cfg(all(feature = "objidl", feature = "unknwnbase"))]
 #[inline]
-pub unsafe fn CreatePointerMoniker<P0>(punk: P0) -> windows_core::Result<super::LPMONIKER>
+pub unsafe fn CreatePointerMoniker<P0>(punk: P0, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::LPUNKNOWN>,
 {
     windows_core::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreatePointerMoniker(punk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreatePointerMoniker(punk.param().abi(), core::mem::transmute(ppmk)) }
 }
 #[cfg(all(feature = "urlmon", feature = "windef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateStdProgressIndicator<P2>(hwndparent: super::HWND, psztitle: super::LPCOLESTR, pibsccaller: P2) -> windows_core::Result<super::IBindStatusCallback>
+pub unsafe fn CreateStdProgressIndicator<P2>(hwndparent: super::HWND, psztitle: super::LPCOLESTR, pibsccaller: P2, ppibsc: *mut Option<super::IBindStatusCallback>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IBindStatusCallback>,
 {
     windows_core::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::HWND, psztitle : super::LPCOLESTR, pibsccaller : *mut core::ffi::c_void, ppibsc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateStdProgressIndicator(hwndparent, psztitle, pibsccaller.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateStdProgressIndicator(hwndparent, psztitle, pibsccaller.param().abi(), core::mem::transmute(ppibsc)) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -274,21 +244,15 @@ pub unsafe fn DcomChannelSetHResult(pvreserved: Option<super::LPVOID>, pulreserv
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn GetClassFile(szfilename: super::LPCOLESTR) -> windows_core::Result<super::CLSID> {
+pub unsafe fn GetClassFile(szfilename: super::LPCOLESTR, pclsid: *mut super::CLSID) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn GetClassFile(szfilename : super::LPCOLESTR, pclsid : *mut super::CLSID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetClassFile(szfilename, &mut result__).map(|| result__)
-    }
+    unsafe { GetClassFile(szfilename, pclsid as _) }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn GetRunningObjectTable(reserved: super::DWORD) -> windows_core::Result<super::LPRUNNINGOBJECTTABLE> {
+pub unsafe fn GetRunningObjectTable(reserved: super::DWORD, pprot: *mut Option<super::LPRUNNINGOBJECTTABLE>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : super::DWORD, pprot : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetRunningObjectTable(reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { GetRunningObjectTable(reserved, core::mem::transmute(pprot)) }
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 #[inline]
@@ -301,16 +265,13 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn MonikerCommonPrefixWith<P0, P1>(pmkthis: P0, pmkother: P1) -> windows_core::Result<super::LPMONIKER>
+pub unsafe fn MonikerCommonPrefixWith<P0, P1>(pmkthis: P0, pmkother: P1, ppmkcommon: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::LPMONIKER>,
     P1: windows_core::Param<super::LPMONIKER>,
 {
     windows_core::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : *mut core::ffi::c_void, pmkother : *mut core::ffi::c_void, ppmkcommon : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MonikerCommonPrefixWith(pmkthis.param().abi(), pmkother.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MonikerCommonPrefixWith(pmkthis.param().abi(), pmkother.param().abi(), core::mem::transmute(ppmkcommon)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -324,45 +285,33 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn StgGetIFillLockBytesOnFile(pwcsname: *const super::OLECHAR) -> windows_core::Result<super::IFillLockBytes> {
+pub unsafe fn StgGetIFillLockBytesOnFile(pwcsname: *const super::OLECHAR, ppflb: *mut Option<super::IFillLockBytes>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : *const super::OLECHAR, ppflb : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        StgGetIFillLockBytesOnFile(pwcsname, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { StgGetIFillLockBytesOnFile(pwcsname, core::mem::transmute(ppflb)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn StgGetIFillLockBytesOnILockBytes<P0>(pilb: P0) -> windows_core::Result<super::IFillLockBytes>
+pub unsafe fn StgGetIFillLockBytesOnILockBytes<P0>(pilb: P0, ppflb: *mut Option<super::IFillLockBytes>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::ILockBytes>,
 {
     windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : *mut core::ffi::c_void, ppflb : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        StgGetIFillLockBytesOnILockBytes(pilb.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { StgGetIFillLockBytesOnILockBytes(pilb.param().abi(), core::mem::transmute(ppflb)) }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<P0>(pflb: P0, grfmode: super::DWORD, asyncflags: super::DWORD) -> windows_core::Result<super::IStorage>
+pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<P0>(pflb: P0, grfmode: super::DWORD, asyncflags: super::DWORD, ppstgopen: *mut Option<super::IStorage>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IFillLockBytes>,
 {
     windows_core::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : *mut core::ffi::c_void, grfmode : super::DWORD, asyncflags : super::DWORD, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        StgOpenAsyncDocfileOnIFillLockBytes(pflb.param().abi(), grfmode, asyncflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { StgOpenAsyncDocfileOnIFillLockBytes(pflb.param().abi(), grfmode, asyncflags, core::mem::transmute(ppstgopen)) }
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn StgOpenLayoutDocfile(pwcsdfname: *const super::OLECHAR, grfmode: super::DWORD, reserved: super::DWORD) -> windows_core::Result<super::IStorage> {
+pub unsafe fn StgOpenLayoutDocfile(pwcsdfname: *const super::OLECHAR, grfmode: super::DWORD, reserved: super::DWORD, ppstgopen: *mut Option<super::IStorage>) -> windows_core::HRESULT {
     windows_core::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : *const super::OLECHAR, grfmode : super::DWORD, reserved : super::DWORD, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        StgOpenLayoutDocfile(pwcsdfname, grfmode, reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { StgOpenLayoutDocfile(pwcsdfname, grfmode, reserved, core::mem::transmute(ppstgopen)) }
 }
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1;
 pub const ASYNC_MODE_DEFAULT: i32 = 0;

@@ -750,11 +750,8 @@ windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNot
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
     #[cfg(feature = "shared")]
-    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackfn, pdata, pcallbackid as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: super::UINT) -> windows_core::HRESULT {
@@ -776,7 +773,7 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
-    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<super::UINT>;
+    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::Result<()>;
     fn UnregisterDestructionCallback(&self, callbackid: super::UINT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -785,13 +782,7 @@ impl ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
-                    Ok(ok__) => {
-                        pcallbackid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pcallbackid)).into()
             }
         }
         unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: super::UINT) -> windows_core::HRESULT {

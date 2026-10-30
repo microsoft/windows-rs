@@ -33,11 +33,8 @@ impl IAudioEndpointVolume {
         unsafe { (windows_core::Interface::vtable(self).UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelCount(&self, pnchannelcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), pnchannelcount as _) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -47,17 +44,11 @@ impl IAudioEndpointVolume {
     pub unsafe fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), flevel, pguideventcontext) }
     }
-    pub unsafe fn GetMasterVolumeLevel(&self) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMasterVolumeLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMasterVolumeLevel(&self, pfleveldb: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMasterVolumeLevel)(windows_core::Interface::as_raw(self), pfleveldb as _) }
     }
-    pub unsafe fn GetMasterVolumeLevelScalar(&self) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMasterVolumeLevelScalar(&self, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), pflevel as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn SetChannelVolumeLevel(&self, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -68,28 +59,19 @@ impl IAudioEndpointVolume {
         unsafe { (windows_core::Interface::vtable(self).SetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), nchannel, flevel, pguideventcontext) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelVolumeLevel(&self, nchannel: super::UINT) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelVolumeLevel)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelVolumeLevel(&self, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelVolumeLevel)(windows_core::Interface::as_raw(self), nchannel, pfleveldb as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelVolumeLevelScalar(&self, nchannel: super::UINT) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelVolumeLevelScalar(&self, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), nchannel, pflevel as _) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn SetMute(&self, bmute: bool, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), pguideventcontext) }
     }
-    pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMute(&self, pbmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), pbmute as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetVolumeStepInfo(&self, pnstep: *mut super::UINT, pnstepcount: *mut super::UINT) -> windows_core::HRESULT {
@@ -104,11 +86,8 @@ impl IAudioEndpointVolume {
         unsafe { (windows_core::Interface::vtable(self).VolumeStepDown)(windows_core::Interface::as_raw(self), pguideventcontext) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryHardwareSupport(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHardwareSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryHardwareSupport(&self, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryHardwareSupport)(windows_core::Interface::as_raw(self), pdwhardwaresupportmask as _) }
     }
     pub unsafe fn GetVolumeRange(&self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVolumeRange)(windows_core::Interface::as_raw(self), pflvolumemindb as _, pflvolumemaxdb as _, pflvolumeincrementdb as _) }
@@ -177,21 +156,21 @@ pub struct IAudioEndpointVolume_Vtbl {
 pub trait IAudioEndpointVolume_Impl: windows_core::IUnknownImpl {
     fn RegisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
     fn UnregisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
-    fn GetChannelCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetChannelCount(&self, pnchannelcount: *mut super::UINT) -> windows_core::Result<()>;
     fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetMasterVolumeLevel(&self) -> windows_core::Result<f32>;
-    fn GetMasterVolumeLevelScalar(&self) -> windows_core::Result<f32>;
+    fn GetMasterVolumeLevel(&self, pfleveldb: *mut f32) -> windows_core::Result<()>;
+    fn GetMasterVolumeLevelScalar(&self, pflevel: *mut f32) -> windows_core::Result<()>;
     fn SetChannelVolumeLevel(&self, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn SetChannelVolumeLevelScalar(&self, nchannel: super::UINT, flevel: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetChannelVolumeLevel(&self, nchannel: super::UINT) -> windows_core::Result<f32>;
-    fn GetChannelVolumeLevelScalar(&self, nchannel: super::UINT) -> windows_core::Result<f32>;
+    fn GetChannelVolumeLevel(&self, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::Result<()>;
+    fn GetChannelVolumeLevelScalar(&self, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::Result<()>;
     fn SetMute(&self, bmute: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetMute(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetMute(&self, pbmute: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetVolumeStepInfo(&self, pnstep: *mut super::UINT, pnstepcount: *mut super::UINT) -> windows_core::Result<()>;
     fn VolumeStepUp(&self, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn VolumeStepDown(&self, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn QueryHardwareSupport(&self) -> windows_core::Result<super::DWORD>;
+    fn QueryHardwareSupport(&self, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetVolumeRange(&self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -212,13 +191,7 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn GetChannelCount<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnchannelcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetChannelCount(this) {
-                    Ok(ok__) => {
-                        pnchannelcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetChannelCount(this, core::mem::transmute_copy(&pnchannelcount)).into()
             }
         }
         unsafe extern "system" fn SetMasterVolumeLevel<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -236,25 +209,13 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn GetMasterVolumeLevel<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfleveldb: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetMasterVolumeLevel(this) {
-                    Ok(ok__) => {
-                        pfleveldb.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetMasterVolumeLevel(this, core::mem::transmute_copy(&pfleveldb)).into()
             }
         }
         unsafe extern "system" fn GetMasterVolumeLevelScalar<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetMasterVolumeLevelScalar(this) {
-                    Ok(ok__) => {
-                        pflevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetMasterVolumeLevelScalar(this, core::mem::transmute_copy(&pflevel)).into()
             }
         }
         unsafe extern "system" fn SetChannelVolumeLevel<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -272,25 +233,13 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn GetChannelVolumeLevel<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetChannelVolumeLevel(this, core::mem::transmute_copy(&nchannel)) {
-                    Ok(ok__) => {
-                        pfleveldb.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetChannelVolumeLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pfleveldb)).into()
             }
         }
         unsafe extern "system" fn GetChannelVolumeLevelScalar<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetChannelVolumeLevelScalar(this, core::mem::transmute_copy(&nchannel)) {
-                    Ok(ok__) => {
-                        pflevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetChannelVolumeLevelScalar(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pflevel)).into()
             }
         }
         unsafe extern "system" fn SetMute<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -302,13 +251,7 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn GetMute<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::GetMute(this) {
-                    Ok(ok__) => {
-                        pbmute.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::GetMute(this, core::mem::transmute_copy(&pbmute)).into()
             }
         }
         unsafe extern "system" fn GetVolumeStepInfo<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnstep: *mut super::UINT, pnstepcount: *mut super::UINT) -> windows_core::HRESULT {
@@ -332,13 +275,7 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn QueryHardwareSupport<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioEndpointVolume_Impl::QueryHardwareSupport(this) {
-                    Ok(ok__) => {
-                        pdwhardwaresupportmask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioEndpointVolume_Impl::QueryHardwareSupport(this, core::mem::transmute_copy(&pdwhardwaresupportmask)).into()
             }
         }
         unsafe extern "system" fn GetVolumeRange<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> windows_core::HRESULT {
@@ -460,32 +397,20 @@ impl windows_core::RuntimeName for IAudioEndpointVolumeEx {}
 windows_core::imp::define_interface!(IAudioMeterInformation, IAudioMeterInformation_Vtbl, 0xc02216f6_8c67_4b5b_9d00_d008e73e0064);
 windows_core::imp::interface_hierarchy!(IAudioMeterInformation, windows_core::IUnknown);
 impl IAudioMeterInformation {
-    pub unsafe fn GetPeakValue(&self) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPeakValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPeakValue(&self, pfpeak: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPeakValue)(windows_core::Interface::as_raw(self), pfpeak as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMeteringChannelCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMeteringChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMeteringChannelCount(&self, pnchannelcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMeteringChannelCount)(windows_core::Interface::as_raw(self), pnchannelcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelsPeakValues(&self, u32channelcount: super::UINT32) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelsPeakValues)(windows_core::Interface::as_raw(self), u32channelcount, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelsPeakValues(&self, u32channelcount: super::UINT32, afpeakvalues: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelsPeakValues)(windows_core::Interface::as_raw(self), u32channelcount, afpeakvalues as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryHardwareSupport(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHardwareSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryHardwareSupport(&self, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryHardwareSupport)(windows_core::Interface::as_raw(self), pdwhardwaresupportmask as _) }
     }
 }
 #[repr(C)]
@@ -508,10 +433,10 @@ pub struct IAudioMeterInformation_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAudioMeterInformation_Impl: windows_core::IUnknownImpl {
-    fn GetPeakValue(&self) -> windows_core::Result<f32>;
-    fn GetMeteringChannelCount(&self) -> windows_core::Result<super::UINT>;
-    fn GetChannelsPeakValues(&self, u32channelcount: super::UINT32) -> windows_core::Result<f32>;
-    fn QueryHardwareSupport(&self) -> windows_core::Result<super::DWORD>;
+    fn GetPeakValue(&self, pfpeak: *mut f32) -> windows_core::Result<()>;
+    fn GetMeteringChannelCount(&self, pnchannelcount: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetChannelsPeakValues(&self, u32channelcount: super::UINT32, afpeakvalues: *mut f32) -> windows_core::Result<()>;
+    fn QueryHardwareSupport(&self, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IAudioMeterInformation_Vtbl {
@@ -519,49 +444,25 @@ impl IAudioMeterInformation_Vtbl {
         unsafe extern "system" fn GetPeakValue<Identity: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpeak: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioMeterInformation_Impl::GetPeakValue(this) {
-                    Ok(ok__) => {
-                        pfpeak.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioMeterInformation_Impl::GetPeakValue(this, core::mem::transmute_copy(&pfpeak)).into()
             }
         }
         unsafe extern "system" fn GetMeteringChannelCount<Identity: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnchannelcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioMeterInformation_Impl::GetMeteringChannelCount(this) {
-                    Ok(ok__) => {
-                        pnchannelcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioMeterInformation_Impl::GetMeteringChannelCount(this, core::mem::transmute_copy(&pnchannelcount)).into()
             }
         }
         unsafe extern "system" fn GetChannelsPeakValues<Identity: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32channelcount: super::UINT32, afpeakvalues: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioMeterInformation_Impl::GetChannelsPeakValues(this, core::mem::transmute_copy(&u32channelcount)) {
-                    Ok(ok__) => {
-                        afpeakvalues.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioMeterInformation_Impl::GetChannelsPeakValues(this, core::mem::transmute_copy(&u32channelcount), core::mem::transmute_copy(&afpeakvalues)).into()
             }
         }
         unsafe extern "system" fn QueryHardwareSupport<Identity: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhardwaresupportmask: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioMeterInformation_Impl::QueryHardwareSupport(this) {
-                    Ok(ok__) => {
-                        pdwhardwaresupportmask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioMeterInformation_Impl::QueryHardwareSupport(this, core::mem::transmute_copy(&pdwhardwaresupportmask)).into()
             }
         }
         Self {

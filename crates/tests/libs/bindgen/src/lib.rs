@@ -116,7 +116,7 @@ fn buffer_contracts_preserve_storage() {
     let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Residual;
     let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualInput;
     let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualCount;
-    let _: unsafe fn(&Buffers) -> Result<u32> = Buffers::Scalar;
+    let _: unsafe fn(&Buffers, *mut u32) -> HRESULT = Buffers::Scalar;
     let _: unsafe fn(&Buffers) -> Result<IUnknown> = Buffers::Query::<IUnknown>;
     let _: unsafe fn(&Buffers, &[GUID], *mut *mut c_void) -> HRESULT = Buffers::GuidBuffer;
     let _: unsafe fn(&Buffers, *const GUID, u32, *mut *mut c_void) -> HRESULT =
@@ -175,7 +175,7 @@ fn nested_member_alignment() {
 #[test]
 fn unspecified_direction_preserves_pointer_parameters() {
     use unspecified_direction::*;
-    use windows_core::{GUID, HRESULT, Result};
+    use windows_core::{GUID, HRESULT};
 
     let _: unsafe fn(&Unknown, u32) -> HRESULT = Unknown::Scalar;
     let _: unsafe fn(&Unknown, *mut u32) -> HRESULT = Unknown::Raw;
@@ -185,7 +185,7 @@ fn unspecified_direction_preserves_pointer_parameters() {
         Unknown::Query;
     let _: unsafe fn(&Unknown, *mut Option<Unknown>) -> HRESULT = Unknown::Interface;
     let _: unsafe fn(&Unknown, *const u32) -> HRESULT = Unknown::Input;
-    let _: unsafe fn(&Unknown) -> Result<u32> = Unknown::Output;
+    let _: unsafe fn(&Unknown, *mut u32) -> HRESULT = Unknown::Output;
 }
 
 #[test]

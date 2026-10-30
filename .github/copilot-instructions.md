@@ -307,9 +307,13 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
 - Metadata reader bounds: `File::new` in `crates/libs/metadata/src/reader/file.rs` and decoding in
   `blob.rs` need focused malformed-input coverage for container/table/heap bounds, compressed
   integers, signature depth, and relationship ordering.
-- WDK/SDK x86 callback ownership: kernel observations for `CLFS_BLOCK_ALLOCATION`,
-  `CLFS_BLOCK_DEALLOCATION`, and `IO_IRP_EXT_TRACK_OFFSET_HEADER` conflict with SDK references
-  in `crates/tools/win32/src/wdk.rs`. Resolve ownership without weakening ABI compatibility checks.
+- WDK/SDK x86 callback ownership: `CLFS_BLOCK_ALLOCATION`, `CLFS_BLOCK_DEALLOCATION`, and
+  `PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK` are written without a convention in both SDK and
+  WDK headers, so x86 user-mode builds read C and driver builds read stdcall. The SDK owns the
+  `Windows.Win32` names and `crates/tools/win32/src/wdk.rs` correctly omits the kernel
+  observations; no published ntdll/offreg import depends on them. Publishing kernel exports such
+  as `ClfsCreateMarshallingArea` or `IoSetFsTrackOffsetState` needs a separate home for kernel
+  metadata, not a per-name or per-header preference.
 - Shared type traversal: compare `write_type_with_signature` in
   `crates/libs/metadata/src/merge/mod.rs` with `write_type` in `merge/remap.rs`; keep signature and
   nominal-reference handling consistent.

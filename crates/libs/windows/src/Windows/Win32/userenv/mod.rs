@@ -135,24 +135,18 @@ pub unsafe fn GetAllUsersProfileDirectoryW(lpprofiledir: Option<windows_core::PW
     unsafe { GetAllUsersProfileDirectoryW(lpprofiledir.unwrap_or(core::mem::zeroed()) as _, lpcchsize as _) }
 }
 #[inline]
-pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0, ppszpath: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn GetAppContainerFolderPath(pszappcontainersid : windows_core::PCWSTR, ppszpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetAppContainerFolderPath(pszappcontainersid.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { GetAppContainerFolderPath(pszappcontainersid.param().abi(), ppszpath as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: super::REGSAM) -> windows_core::Result<*mut super::HKEY__> {
+pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: super::REGSAM, phappcontainerkey: super::PHKEY) -> windows_core::HRESULT {
     windows_core::link!("userenv.dll" "system" fn GetAppContainerRegistryLocation(desiredaccess : super::REGSAM, phappcontainerkey : super::PHKEY) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetAppContainerRegistryLocation(desiredaccess, &mut result__).map(|| result__)
-    }
+    unsafe { GetAppContainerRegistryLocation(desiredaccess, phappcontainerkey as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

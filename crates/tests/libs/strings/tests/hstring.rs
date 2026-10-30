@@ -227,15 +227,20 @@ fn hstring_compat() -> Result<()> {
         use windows::Win32::*;
         let hey = HSTRING::from("Hey");
         let world = HSTRING::from("World");
-        assert_eq!(WindowsCompareStringOrdinal(&hey, &world)?, -1);
+        let mut order = 0;
+        WindowsCompareStringOrdinal(&hey, &world, &mut order).ok()?;
+        assert_eq!(order, -1);
 
-        let result = WindowsConcatString(&hey, &world)?;
+        let mut result = HSTRING::new();
+        WindowsConcatString(&hey, &world, &mut result).ok()?;
         assert_eq!(result, "HeyWorld");
 
-        let result = WindowsCreateString(Some(&hey))?;
+        let mut result = HSTRING::new();
+        WindowsCreateString(Some(&hey), &mut result).ok()?;
         assert_eq!(result, "Hey");
 
-        let result = WindowsDuplicateString(&hey)?;
+        let mut result = HSTRING::new();
+        WindowsDuplicateString(&hey, &mut result).ok()?;
         assert_eq!(result, "Hey");
 
         assert_eq!(WindowsGetStringLen(&hey), 3);

@@ -1,27 +1,18 @@
 #[inline]
-pub unsafe fn CreateVssBackupComponentsInternal() -> windows_core::Result<IVssBackupComponents> {
+pub unsafe fn CreateVssBackupComponentsInternal(ppbackup: *mut Option<IVssBackupComponents>) -> windows_core::HRESULT {
     windows_core::link!("vssapi.dll" "system" fn CreateVssBackupComponentsInternal(ppbackup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateVssBackupComponentsInternal(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateVssBackupComponentsInternal(core::mem::transmute(ppbackup)) }
 }
 #[inline]
-pub unsafe fn CreateVssExamineWriterMetadataInternal(bstrxml: &windows_core::BSTR) -> windows_core::Result<IVssExamineWriterMetadata> {
+pub unsafe fn CreateVssExamineWriterMetadataInternal(bstrxml: &windows_core::BSTR, ppmetadata: *mut Option<IVssExamineWriterMetadata>) -> windows_core::HRESULT {
     windows_core::link!("vssapi.dll" "system" fn CreateVssExamineWriterMetadataInternal(bstrxml : *mut core::ffi::c_void, ppmetadata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateVssExamineWriterMetadataInternal(core::mem::transmute_copy(bstrxml), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateVssExamineWriterMetadataInternal(core::mem::transmute_copy(bstrxml), core::mem::transmute(ppmetadata)) }
 }
 #[cfg(all(feature = "guiddef", feature = "vss"))]
 #[inline]
-pub unsafe fn GetProviderMgmtInterfaceInternal(providerid: super::VSS_ID, interfaceid: super::IID) -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn GetProviderMgmtInterfaceInternal(providerid: super::VSS_ID, interfaceid: super::IID, ppitf: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
     windows_core::link!("vssapi.dll" "system" fn GetProviderMgmtInterfaceInternal(providerid : super::VSS_ID, interfaceid : super::IID, ppitf : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetProviderMgmtInterfaceInternal(providerid, interfaceid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { GetProviderMgmtInterfaceInternal(providerid, interfaceid, core::mem::transmute(ppitf)) }
 }
 #[cfg(all(feature = "shared", feature = "vss"))]
 #[inline]
@@ -30,15 +21,12 @@ pub unsafe fn IsVolumeSnapshottedInternal(pwszvolumename: super::VSS_PWSZ, pbsna
     unsafe { IsVolumeSnapshottedInternal(pwszvolumename, pbsnapshotspresent as _, plsnapshotcapability as _) }
 }
 #[inline]
-pub unsafe fn ShouldBlockRevertInternal<P0>(wszvolumename: P0) -> windows_core::Result<bool>
+pub unsafe fn ShouldBlockRevertInternal<P0>(wszvolumename: P0, pbblock: *mut bool) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("vssapi.dll" "system" fn ShouldBlockRevertInternal(wszvolumename : windows_core::PCWSTR, pbblock : *mut bool) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ShouldBlockRevertInternal(wszvolumename.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { ShouldBlockRevertInternal(wszvolumename.param().abi(), pbblock as _) }
 }
 #[cfg(all(feature = "shared", feature = "vss"))]
 #[inline]
@@ -58,18 +46,12 @@ windows_core::imp::define_interface!(IVssBackupComponents, IVssBackupComponents_
 windows_core::imp::interface_hierarchy!(IVssBackupComponents, windows_core::IUnknown);
 impl IVssBackupComponents {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetWriterComponentsCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterComponentsCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWriterComponentsCount(&self, pccomponents: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWriterComponentsCount)(windows_core::Interface::as_raw(self), pccomponents as _) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetWriterComponents(&self, iwriter: super::UINT) -> windows_core::Result<*mut IVssWriterComponentsExt> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterComponents)(windows_core::Interface::as_raw(self), iwriter, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWriterComponents(&self, iwriter: super::UINT, ppwriter: *mut *mut IVssWriterComponentsExt) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWriterComponents)(windows_core::Interface::as_raw(self), iwriter, ppwriter as _) }
     }
     pub unsafe fn InitializeForBackup(&self, bstrxml: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeForBackup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml)) }
@@ -86,18 +68,12 @@ impl IVssBackupComponents {
         unsafe { (windows_core::Interface::vtable(self).SetRestoreState)(windows_core::Interface::as_raw(self), restoretype) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn GatherWriterMetadata(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GatherWriterMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GatherWriterMetadata(&self, pasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GatherWriterMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pasync)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetWriterMetadataCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterMetadataCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWriterMetadataCount(&self, pcwriters: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWriterMetadataCount)(windows_core::Interface::as_raw(self), pcwriters as _) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
     pub unsafe fn GetWriterMetadata(&self, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, ppmetadata: *mut Option<IVssExamineWriterMetadata>) -> windows_core::HRESULT {
@@ -115,28 +91,19 @@ impl IVssBackupComponents {
         unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), instanceid, writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi()) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn PrepareForBackup(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareForBackup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn PrepareForBackup(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PrepareForBackup)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     pub unsafe fn AbortBackup(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AbortBackup)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn GatherWriterStatus(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GatherWriterStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GatherWriterStatus(&self, pasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GatherWriterStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pasync)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetWriterStatusCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterStatusCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWriterStatusCount(&self, pcwriters: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWriterStatusCount)(windows_core::Interface::as_raw(self), pcwriters as _) }
     }
     pub unsafe fn FreeWriterStatus(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreeWriterStatus)(windows_core::Interface::as_raw(self)) }
@@ -200,11 +167,8 @@ impl IVssBackupComponents {
         unsafe { (windows_core::Interface::vtable(self).SaveAsXML)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrxml)) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn BackupComplete(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackupComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn BackupComplete(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BackupComplete)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn AddAlternativeLocationMapping<P2, P3, P4, P5, P7>(&self, writerid: super::VSS_ID, componenttype: super::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszpath: P4, wszfilespec: P5, brecursive: bool, wszdestination: P7) -> windows_core::HRESULT
@@ -256,54 +220,36 @@ impl IVssBackupComponents {
         unsafe { (windows_core::Interface::vtable(self).SetRangesFilePath)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), ipartialfile, wszrangesfile.param().abi()) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn PreRestore(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn PreRestore(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn PostRestore(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn PostRestore(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetContext(&self, lcontext: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), lcontext) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn StartSnapshotSet(&self) -> windows_core::Result<super::VSS_ID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartSnapshotSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn StartSnapshotSet(&self, psnapshotsetid: *mut super::VSS_ID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StartSnapshotSet)(windows_core::Interface::as_raw(self), psnapshotsetid as _) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn AddToSnapshotSet(&self, pwszvolumename: super::VSS_PWSZ, providerid: super::VSS_ID) -> windows_core::Result<super::VSS_ID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddToSnapshotSet)(windows_core::Interface::as_raw(self), pwszvolumename, providerid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddToSnapshotSet(&self, pwszvolumename: super::VSS_PWSZ, providerid: super::VSS_ID, pidsnapshot: *mut super::VSS_ID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddToSnapshotSet)(windows_core::Interface::as_raw(self), pwszvolumename, providerid, pidsnapshot as _) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn DoSnapshotSet(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoSnapshotSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn DoSnapshotSet(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoSnapshotSet)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
     pub unsafe fn DeleteSnapshots(&self, sourceobjectid: super::VSS_ID, esourceobjecttype: super::VSS_OBJECT_TYPE, bforcedelete: bool, pldeletedsnapshots: *const super::LONG, pnondeletedsnapshotid: *const super::VSS_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), sourceobjectid, esourceobjecttype, bforcedelete.into(), pldeletedsnapshots, pnondeletedsnapshotid) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn ImportSnapshots(&self) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportSnapshots)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn ImportSnapshots(&self, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImportSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn BreakSnapshotSet(&self, snapshotsetid: super::VSS_ID) -> windows_core::HRESULT {
@@ -334,22 +280,16 @@ impl IVssBackupComponents {
         unsafe { (windows_core::Interface::vtable(self).DisableWriterInstances)(windows_core::Interface::as_raw(self), rgwriterinstanceid, cinstanceid) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn ExposeSnapshot(&self, snapshotid: super::VSS_ID, wszpathfromroot: super::VSS_PWSZ, lattributes: super::LONG, wszexpose: super::VSS_PWSZ) -> windows_core::Result<super::VSS_PWSZ> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExposeSnapshot)(windows_core::Interface::as_raw(self), snapshotid, wszpathfromroot, lattributes, wszexpose, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ExposeSnapshot(&self, snapshotid: super::VSS_ID, wszpathfromroot: super::VSS_PWSZ, lattributes: super::LONG, wszexpose: super::VSS_PWSZ, pwszexposed: *mut super::VSS_PWSZ) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExposeSnapshot)(windows_core::Interface::as_raw(self), snapshotid, wszpathfromroot, lattributes, wszexpose, pwszexposed as _) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn RevertToSnapshot(&self, snapshotid: super::VSS_ID, bforcedismount: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RevertToSnapshot)(windows_core::Interface::as_raw(self), snapshotid, bforcedismount.into()) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn QueryRevertStatus(&self, pwszvolume: super::VSS_PWSZ) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryRevertStatus)(windows_core::Interface::as_raw(self), pwszvolume, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn QueryRevertStatus(&self, pwszvolume: super::VSS_PWSZ, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryRevertStatus)(windows_core::Interface::as_raw(self), pwszvolume, core::mem::transmute(ppasync)) }
     }
 }
 #[repr(C)]
@@ -533,21 +473,21 @@ pub struct IVssBackupComponents_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
 pub trait IVssBackupComponents_Impl: windows_core::IUnknownImpl {
-    fn GetWriterComponentsCount(&self) -> windows_core::Result<super::UINT>;
-    fn GetWriterComponents(&self, iwriter: super::UINT) -> windows_core::Result<*mut IVssWriterComponentsExt>;
+    fn GetWriterComponentsCount(&self, pccomponents: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetWriterComponents(&self, iwriter: super::UINT, ppwriter: *mut *mut IVssWriterComponentsExt) -> windows_core::Result<()>;
     fn InitializeForBackup(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetBackupState(&self, bselectcomponents: bool, bbackupbootablesystemstate: bool, backuptype: super::VSS_BACKUP_TYPE, bpartialfilesupport: bool) -> windows_core::Result<()>;
     fn InitializeForRestore(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetRestoreState(&self, restoretype: super::VSS_RESTORE_TYPE) -> windows_core::Result<()>;
-    fn GatherWriterMetadata(&self) -> windows_core::Result<super::IVssAsync>;
-    fn GetWriterMetadataCount(&self) -> windows_core::Result<super::UINT>;
+    fn GatherWriterMetadata(&self, pasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn GetWriterMetadataCount(&self, pcwriters: *mut super::UINT) -> windows_core::Result<()>;
     fn GetWriterMetadata(&self, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, ppmetadata: windows_core::OutRef<IVssExamineWriterMetadata>) -> windows_core::Result<()>;
     fn FreeWriterMetadata(&self) -> windows_core::Result<()>;
     fn AddComponent(&self, instanceid: &super::VSS_ID, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PrepareForBackup(&self) -> windows_core::Result<super::IVssAsync>;
+    fn PrepareForBackup(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
     fn AbortBackup(&self) -> windows_core::Result<()>;
-    fn GatherWriterStatus(&self) -> windows_core::Result<super::IVssAsync>;
-    fn GetWriterStatusCount(&self) -> windows_core::Result<super::UINT>;
+    fn GatherWriterStatus(&self, pasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn GetWriterStatusCount(&self, pcwriters: *mut super::UINT) -> windows_core::Result<()>;
     fn FreeWriterStatus(&self) -> windows_core::Result<()>;
     fn GetWriterStatus(&self, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, pidwriter: *mut super::VSS_ID, pbstrwriter: *mut windows_core::BSTR, pnstatus: *mut super::VSS_WRITER_STATE, phresultfailure: *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn SetBackupSucceeded(&self, instanceid: &super::VSS_ID, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, bsucceded: bool) -> windows_core::Result<()>;
@@ -557,20 +497,20 @@ pub trait IVssBackupComponents_Impl: windows_core::IUnknownImpl {
     fn SetAdditionalRestores(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, badditionalrestores: bool) -> windows_core::Result<()>;
     fn SetPreviousBackupStamp(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszpreviousbackupstamp: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SaveAsXML(&self, pbstrxml: *const windows_core::BSTR) -> windows_core::Result<()>;
-    fn BackupComplete(&self) -> windows_core::Result<super::IVssAsync>;
+    fn BackupComplete(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
     fn AddAlternativeLocationMapping(&self, writerid: &super::VSS_ID, componenttype: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszpath: &windows_core::PCWSTR, wszfilespec: &windows_core::PCWSTR, brecursive: bool, wszdestination: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddRestoreSubcomponent(&self, writerid: &super::VSS_ID, componenttype: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszsubcomponentlogicalpath: &windows_core::PCWSTR, wszsubcomponentname: &windows_core::PCWSTR, brepair: bool) -> windows_core::Result<()>;
     fn SetFileRestoreStatus(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, status: super::VSS_FILE_RESTORE_STATUS) -> windows_core::Result<()>;
     fn AddNewTarget(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszpath: &windows_core::PCWSTR, wszfilename: &windows_core::PCWSTR, brecursive: bool, wszalternatepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetRangesFilePath(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, ipartialfile: super::UINT, wszrangesfile: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PreRestore(&self) -> windows_core::Result<super::IVssAsync>;
-    fn PostRestore(&self) -> windows_core::Result<super::IVssAsync>;
+    fn PreRestore(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn PostRestore(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
     fn SetContext(&self, lcontext: super::LONG) -> windows_core::Result<()>;
-    fn StartSnapshotSet(&self) -> windows_core::Result<super::VSS_ID>;
-    fn AddToSnapshotSet(&self, pwszvolumename: super::VSS_PWSZ, providerid: &super::VSS_ID) -> windows_core::Result<super::VSS_ID>;
-    fn DoSnapshotSet(&self) -> windows_core::Result<super::IVssAsync>;
+    fn StartSnapshotSet(&self, psnapshotsetid: *mut super::VSS_ID) -> windows_core::Result<()>;
+    fn AddToSnapshotSet(&self, pwszvolumename: super::VSS_PWSZ, providerid: &super::VSS_ID, pidsnapshot: *mut super::VSS_ID) -> windows_core::Result<()>;
+    fn DoSnapshotSet(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
     fn DeleteSnapshots(&self, sourceobjectid: &super::VSS_ID, esourceobjecttype: super::VSS_OBJECT_TYPE, bforcedelete: windows_core::BOOL, pldeletedsnapshots: *const super::LONG, pnondeletedsnapshotid: *const super::VSS_ID) -> windows_core::Result<()>;
-    fn ImportSnapshots(&self) -> windows_core::Result<super::IVssAsync>;
+    fn ImportSnapshots(&self, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
     fn BreakSnapshotSet(&self, snapshotsetid: &super::VSS_ID) -> windows_core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &super::VSS_ID, pprop: *mut super::VSS_SNAPSHOT_PROP) -> windows_core::Result<()>;
     fn Query(&self, queriedobjectid: &super::VSS_ID, equeriedobjecttype: super::VSS_OBJECT_TYPE, ereturnedobjectstype: super::VSS_OBJECT_TYPE, ppenum: *const Option<super::IVssEnumObject>) -> windows_core::Result<()>;
@@ -578,9 +518,9 @@ pub trait IVssBackupComponents_Impl: windows_core::IUnknownImpl {
     fn DisableWriterClasses(&self, rgwriterclassid: *const super::VSS_ID, cclassid: super::UINT) -> windows_core::Result<()>;
     fn EnableWriterClasses(&self, rgwriterclassid: *const super::VSS_ID, cclassid: super::UINT) -> windows_core::Result<()>;
     fn DisableWriterInstances(&self, rgwriterinstanceid: *const super::VSS_ID, cinstanceid: super::UINT) -> windows_core::Result<()>;
-    fn ExposeSnapshot(&self, snapshotid: &super::VSS_ID, wszpathfromroot: super::VSS_PWSZ, lattributes: super::LONG, wszexpose: super::VSS_PWSZ) -> windows_core::Result<super::VSS_PWSZ>;
+    fn ExposeSnapshot(&self, snapshotid: &super::VSS_ID, wszpathfromroot: super::VSS_PWSZ, lattributes: super::LONG, wszexpose: super::VSS_PWSZ, pwszexposed: *mut super::VSS_PWSZ) -> windows_core::Result<()>;
     fn RevertToSnapshot(&self, snapshotid: &super::VSS_ID, bforcedismount: windows_core::BOOL) -> windows_core::Result<()>;
-    fn QueryRevertStatus(&self, pwszvolume: super::VSS_PWSZ) -> windows_core::Result<super::IVssAsync>;
+    fn QueryRevertStatus(&self, pwszvolume: super::VSS_PWSZ, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
 impl IVssBackupComponents_Vtbl {
@@ -588,25 +528,13 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn GetWriterComponentsCount<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccomponents: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GetWriterComponentsCount(this) {
-                    Ok(ok__) => {
-                        pccomponents.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GetWriterComponentsCount(this, core::mem::transmute_copy(&pccomponents)).into()
             }
         }
         unsafe extern "system" fn GetWriterComponents<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iwriter: super::UINT, ppwriter: *mut *mut IVssWriterComponentsExt) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GetWriterComponents(this, core::mem::transmute_copy(&iwriter)) {
-                    Ok(ok__) => {
-                        ppwriter.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GetWriterComponents(this, core::mem::transmute_copy(&iwriter), core::mem::transmute_copy(&ppwriter)).into()
             }
         }
         unsafe extern "system" fn InitializeForBackup<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -636,25 +564,13 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn GatherWriterMetadata<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GatherWriterMetadata(this) {
-                    Ok(ok__) => {
-                        pasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GatherWriterMetadata(this, core::mem::transmute_copy(&pasync)).into()
             }
         }
         unsafe extern "system" fn GetWriterMetadataCount<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwriters: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GetWriterMetadataCount(this) {
-                    Ok(ok__) => {
-                        pcwriters.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GetWriterMetadataCount(this, core::mem::transmute_copy(&pcwriters)).into()
             }
         }
         unsafe extern "system" fn GetWriterMetadata<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -678,13 +594,7 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn PrepareForBackup<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::PrepareForBackup(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::PrepareForBackup(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn AbortBackup<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -696,25 +606,13 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn GatherWriterStatus<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GatherWriterStatus(this) {
-                    Ok(ok__) => {
-                        pasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GatherWriterStatus(this, core::mem::transmute_copy(&pasync)).into()
             }
         }
         unsafe extern "system" fn GetWriterStatusCount<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwriters: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::GetWriterStatusCount(this) {
-                    Ok(ok__) => {
-                        pcwriters.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::GetWriterStatusCount(this, core::mem::transmute_copy(&pcwriters)).into()
             }
         }
         unsafe extern "system" fn FreeWriterStatus<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -774,13 +672,7 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn BackupComplete<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::BackupComplete(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::BackupComplete(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn AddAlternativeLocationMapping<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writerid: super::VSS_ID, componenttype: super::VSS_COMPONENT_TYPE, wszlogicalpath: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: bool, wszdestination: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -816,25 +708,13 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn PreRestore<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::PreRestore(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::PreRestore(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn PostRestore<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::PostRestore(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::PostRestore(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn SetContext<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcontext: super::LONG) -> windows_core::HRESULT {
@@ -846,37 +726,19 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn StartSnapshotSet<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psnapshotsetid: *mut super::VSS_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::StartSnapshotSet(this) {
-                    Ok(ok__) => {
-                        psnapshotsetid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::StartSnapshotSet(this, core::mem::transmute_copy(&psnapshotsetid)).into()
             }
         }
         unsafe extern "system" fn AddToSnapshotSet<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszvolumename: super::VSS_PWSZ, providerid: super::VSS_ID, pidsnapshot: *mut super::VSS_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::AddToSnapshotSet(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute(&providerid)) {
-                    Ok(ok__) => {
-                        pidsnapshot.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::AddToSnapshotSet(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute(&providerid), core::mem::transmute_copy(&pidsnapshot)).into()
             }
         }
         unsafe extern "system" fn DoSnapshotSet<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::DoSnapshotSet(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::DoSnapshotSet(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn DeleteSnapshots<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceobjectid: super::VSS_ID, esourceobjecttype: super::VSS_OBJECT_TYPE, bforcedelete: windows_core::BOOL, pldeletedsnapshots: *const super::LONG, pnondeletedsnapshotid: *const super::VSS_ID) -> windows_core::HRESULT {
@@ -888,13 +750,7 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn ImportSnapshots<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::ImportSnapshots(this) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::ImportSnapshots(this, core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn BreakSnapshotSet<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotsetid: super::VSS_ID) -> windows_core::HRESULT {
@@ -942,13 +798,7 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn ExposeSnapshot<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: super::VSS_ID, wszpathfromroot: super::VSS_PWSZ, lattributes: super::LONG, wszexpose: super::VSS_PWSZ, pwszexposed: *mut super::VSS_PWSZ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::ExposeSnapshot(this, core::mem::transmute(&snapshotid), core::mem::transmute_copy(&wszpathfromroot), core::mem::transmute_copy(&lattributes), core::mem::transmute_copy(&wszexpose)) {
-                    Ok(ok__) => {
-                        pwszexposed.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::ExposeSnapshot(this, core::mem::transmute(&snapshotid), core::mem::transmute_copy(&wszpathfromroot), core::mem::transmute_copy(&lattributes), core::mem::transmute_copy(&wszexpose), core::mem::transmute_copy(&pwszexposed)).into()
             }
         }
         unsafe extern "system" fn RevertToSnapshot<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: super::VSS_ID, bforcedismount: windows_core::BOOL) -> windows_core::HRESULT {
@@ -960,13 +810,7 @@ impl IVssBackupComponents_Vtbl {
         unsafe extern "system" fn QueryRevertStatus<Identity: IVssBackupComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszvolume: super::VSS_PWSZ, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponents_Impl::QueryRevertStatus(this, core::mem::transmute_copy(&pwszvolume)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponents_Impl::QueryRevertStatus(this, core::mem::transmute_copy(&pwszvolume), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         Self {
@@ -1134,25 +978,16 @@ impl IVssBackupComponentsEx2 {
         unsafe { (windows_core::Interface::vtable(self).SetRestoreName)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszrestorename.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn BreakSnapshotSetEx(&self, snapshotsetid: super::VSS_ID, dwbreakflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), snapshotsetid, dwbreakflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn BreakSnapshotSetEx(&self, snapshotsetid: super::VSS_ID, dwbreakflags: super::DWORD, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), snapshotsetid, dwbreakflags, core::mem::transmute(ppasync)) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn PreFastRecovery(&self, snapshotsetid: super::VSS_ID, dwprefastrecoveryflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwprefastrecoveryflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn PreFastRecovery(&self, snapshotsetid: super::VSS_ID, dwprefastrecoveryflags: super::DWORD, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwprefastrecoveryflags, core::mem::transmute(ppasync)) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn FastRecovery(&self, snapshotsetid: super::VSS_ID, dwfastrecoveryflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwfastrecoveryflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn FastRecovery(&self, snapshotsetid: super::VSS_ID, dwfastrecoveryflags: super::DWORD, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwfastrecoveryflags, core::mem::transmute(ppasync)) }
     }
 }
 #[repr(C)]
@@ -1194,9 +1029,9 @@ pub trait IVssBackupComponentsEx2_Impl: IVssBackupComponentsEx_Impl {
     fn SetAuthoritativeRestore(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, bauth: bool) -> windows_core::Result<()>;
     fn SetRollForward(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, rolltype: super::VSS_ROLLFORWARD_TYPE, wszrollforwardpoint: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetRestoreName(&self, writerid: &super::VSS_ID, ct: super::VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszrestorename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn BreakSnapshotSetEx(&self, snapshotsetid: &super::VSS_ID, dwbreakflags: super::DWORD) -> windows_core::Result<super::IVssAsync>;
-    fn PreFastRecovery(&self, snapshotsetid: &super::VSS_ID, dwprefastrecoveryflags: super::DWORD) -> windows_core::Result<super::IVssAsync>;
-    fn FastRecovery(&self, snapshotsetid: &super::VSS_ID, dwfastrecoveryflags: super::DWORD) -> windows_core::Result<super::IVssAsync>;
+    fn BreakSnapshotSetEx(&self, snapshotsetid: &super::VSS_ID, dwbreakflags: super::DWORD, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn PreFastRecovery(&self, snapshotsetid: &super::VSS_ID, dwprefastrecoveryflags: super::DWORD, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn FastRecovery(&self, snapshotsetid: &super::VSS_ID, dwfastrecoveryflags: super::DWORD, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
 impl IVssBackupComponentsEx2_Vtbl {
@@ -1228,37 +1063,19 @@ impl IVssBackupComponentsEx2_Vtbl {
         unsafe extern "system" fn BreakSnapshotSetEx<Identity: IVssBackupComponentsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotsetid: super::VSS_ID, dwbreakflags: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponentsEx2_Impl::BreakSnapshotSetEx(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwbreakflags)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponentsEx2_Impl::BreakSnapshotSetEx(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwbreakflags), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn PreFastRecovery<Identity: IVssBackupComponentsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotsetid: super::VSS_ID, dwprefastrecoveryflags: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponentsEx2_Impl::PreFastRecovery(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwprefastrecoveryflags)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponentsEx2_Impl::PreFastRecovery(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwprefastrecoveryflags), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn FastRecovery<Identity: IVssBackupComponentsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotsetid: super::VSS_ID, dwfastrecoveryflags: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponentsEx2_Impl::FastRecovery(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwfastrecoveryflags)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponentsEx2_Impl::FastRecovery(this, core::mem::transmute(&snapshotsetid), core::mem::transmute_copy(&dwfastrecoveryflags), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         Self {
@@ -1296,18 +1113,12 @@ impl IVssBackupComponentsEx3 {
         unsafe { (windows_core::Interface::vtable(self).AddSnapshotToRecoverySet)(windows_core::Interface::as_raw(self), snapshotid, dwflags, pwszdestinationvolume.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn RecoverSet(&self, dwflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn RecoverSet(&self, dwflags: super::DWORD, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(ppasync)) }
     }
     #[cfg(feature = "vss")]
-    pub unsafe fn GetSessionId(&self) -> windows_core::Result<super::VSS_ID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSessionId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSessionId(&self, idsession: *mut super::VSS_ID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSessionId)(windows_core::Interface::as_raw(self), idsession as _) }
     }
 }
 #[repr(C)]
@@ -1335,8 +1146,8 @@ pub struct IVssBackupComponentsEx3_Vtbl {
 pub trait IVssBackupComponentsEx3_Impl: IVssBackupComponentsEx2_Impl {
     fn GetWriterStatusEx(&self, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, pidwriter: *mut super::VSS_ID, pbstrwriter: *mut windows_core::BSTR, pnstatus: *mut super::VSS_WRITER_STATE, phrfailurewriter: *mut windows_core::HRESULT, phrapplication: *mut windows_core::HRESULT, pbstrapplicationmessage: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn AddSnapshotToRecoverySet(&self, snapshotid: &super::VSS_ID, dwflags: super::DWORD, pwszdestinationvolume: super::VSS_PWSZ) -> windows_core::Result<()>;
-    fn RecoverSet(&self, dwflags: super::DWORD) -> windows_core::Result<super::IVssAsync>;
-    fn GetSessionId(&self) -> windows_core::Result<super::VSS_ID>;
+    fn RecoverSet(&self, dwflags: super::DWORD, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn GetSessionId(&self, idsession: *mut super::VSS_ID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
 impl IVssBackupComponentsEx3_Vtbl {
@@ -1356,25 +1167,13 @@ impl IVssBackupComponentsEx3_Vtbl {
         unsafe extern "system" fn RecoverSet<Identity: IVssBackupComponentsEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponentsEx3_Impl::RecoverSet(this, core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponentsEx3_Impl::RecoverSet(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn GetSessionId<Identity: IVssBackupComponentsEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idsession: *mut super::VSS_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssBackupComponentsEx3_Impl::GetSessionId(this) {
-                    Ok(ok__) => {
-                        idsession.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssBackupComponentsEx3_Impl::GetSessionId(this, core::mem::transmute_copy(&idsession)).into()
             }
         }
         Self {
@@ -1447,50 +1246,32 @@ impl IVssExamineWriterMetadata {
         unsafe { (windows_core::Interface::vtable(self).GetFileCounts)(windows_core::Interface::as_raw(self), pcincludefiles as _, pcexcludefiles as _, pccomponents as _) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetIncludeFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIncludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetIncludeFile(&self, ifile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIncludeFile)(windows_core::Interface::as_raw(self), ifile, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetExcludeFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExcludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetExcludeFile(&self, ifile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExcludeFile)(windows_core::Interface::as_raw(self), ifile, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetComponent(&self, icomponent: super::UINT) -> windows_core::Result<IVssWMComponent> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetComponent(&self, icomponent: super::UINT, ppcomponent: *mut Option<IVssWMComponent>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, core::mem::transmute(ppcomponent)) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
     pub unsafe fn GetRestoreMethod(&self, pmethod: *mut super::VSS_RESTOREMETHOD_ENUM, pbstrservice: *mut windows_core::BSTR, pbstruserprocedure: *mut windows_core::BSTR, pwriterrestore: *mut super::VSS_WRITERRESTORE_ENUM, pbrebootrequired: *mut bool, pcmappings: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRestoreMethod)(windows_core::Interface::as_raw(self), pmethod as _, core::mem::transmute(pbstrservice), core::mem::transmute(pbstruserprocedure), pwriterrestore as _, pbrebootrequired as _, pcmappings as _) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetAlternateLocationMapping(&self, imapping: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetAlternateLocationMapping(&self, imapping: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetBackupSchema(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBackupSchema)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBackupSchema(&self, pdwschemamask: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBackupSchema)(windows_core::Interface::as_raw(self), pdwschemamask as _) }
     }
     #[cfg(all(feature = "msxml", feature = "oaidl"))]
-    pub unsafe fn GetDocument(&self) -> windows_core::Result<super::IXMLDOMDocument> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDocument(&self, pdoc: *mut Option<super::IXMLDOMDocument>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), core::mem::transmute(pdoc)) }
     }
     pub unsafe fn SaveAsXML(&self, pbstrxml: *const windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SaveAsXML)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrxml)) }
@@ -1546,13 +1327,13 @@ pub struct IVssExamineWriterMetadata_Vtbl {
 pub trait IVssExamineWriterMetadata_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, pidinstance: *mut super::VSS_ID, pidwriter: *mut super::VSS_ID, pbstrwritername: *mut windows_core::BSTR, pusage: *mut super::VSS_USAGE_TYPE, psource: *mut super::VSS_SOURCE_TYPE) -> windows_core::Result<()>;
     fn GetFileCounts(&self, pcincludefiles: *mut super::UINT, pcexcludefiles: *mut super::UINT, pccomponents: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetIncludeFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetExcludeFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetComponent(&self, icomponent: super::UINT) -> windows_core::Result<IVssWMComponent>;
+    fn GetIncludeFile(&self, ifile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetExcludeFile(&self, ifile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetComponent(&self, icomponent: super::UINT, ppcomponent: windows_core::OutRef<IVssWMComponent>) -> windows_core::Result<()>;
     fn GetRestoreMethod(&self, pmethod: *mut super::VSS_RESTOREMETHOD_ENUM, pbstrservice: *mut windows_core::BSTR, pbstruserprocedure: *mut windows_core::BSTR, pwriterrestore: *mut super::VSS_WRITERRESTORE_ENUM, pbrebootrequired: *mut bool, pcmappings: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetAlternateLocationMapping(&self, imapping: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetBackupSchema(&self) -> windows_core::Result<super::DWORD>;
-    fn GetDocument(&self) -> windows_core::Result<super::IXMLDOMDocument>;
+    fn GetAlternateLocationMapping(&self, imapping: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetBackupSchema(&self, pdwschemamask: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetDocument(&self, pdoc: windows_core::OutRef<super::IXMLDOMDocument>) -> windows_core::Result<()>;
     fn SaveAsXML(&self, pbstrxml: *const windows_core::BSTR) -> windows_core::Result<()>;
     fn LoadFromXML(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()>;
 }
@@ -1574,37 +1355,19 @@ impl IVssExamineWriterMetadata_Vtbl {
         unsafe extern "system" fn GetIncludeFile<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetIncludeFile(this, core::mem::transmute_copy(&ifile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetIncludeFile(this, core::mem::transmute_copy(&ifile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetExcludeFile<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetExcludeFile(this, core::mem::transmute_copy(&ifile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetExcludeFile(this, core::mem::transmute_copy(&ifile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetComponent<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icomponent: super::UINT, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetComponent(this, core::mem::transmute_copy(&icomponent)) {
-                    Ok(ok__) => {
-                        ppcomponent.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetComponent(this, core::mem::transmute_copy(&icomponent), core::mem::transmute_copy(&ppcomponent)).into()
             }
         }
         unsafe extern "system" fn GetRestoreMethod<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmethod: *mut super::VSS_RESTOREMETHOD_ENUM, pbstrservice: *mut *mut core::ffi::c_void, pbstruserprocedure: *mut *mut core::ffi::c_void, pwriterrestore: *mut super::VSS_WRITERRESTORE_ENUM, pbrebootrequired: *mut bool, pcmappings: *mut super::UINT) -> windows_core::HRESULT {
@@ -1616,37 +1379,19 @@ impl IVssExamineWriterMetadata_Vtbl {
         unsafe extern "system" fn GetAlternateLocationMapping<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imapping: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetAlternateLocationMapping(this, core::mem::transmute_copy(&imapping)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetAlternateLocationMapping(this, core::mem::transmute_copy(&imapping), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetBackupSchema<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwschemamask: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetBackupSchema(this) {
-                    Ok(ok__) => {
-                        pdwschemamask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetBackupSchema(this, core::mem::transmute_copy(&pdwschemamask)).into()
             }
         }
         unsafe extern "system" fn GetDocument<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadata_Impl::GetDocument(this) {
-                    Ok(ok__) => {
-                        pdoc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadata_Impl::GetDocument(this, core::mem::transmute_copy(&pdoc)).into()
             }
         }
         unsafe extern "system" fn SaveAsXML<Identity: IVssExamineWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1740,18 +1485,12 @@ impl IVssExamineWriterMetadataEx2 {
         unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pdwmajorversion as _, pdwminorversion as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetExcludeFromSnapshotCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExcludeFromSnapshotCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetExcludeFromSnapshotCount(&self, pcexcludedfromsnapshot: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExcludeFromSnapshotCount)(windows_core::Interface::as_raw(self), pcexcludedfromsnapshot as _) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetExcludeFromSnapshotFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExcludeFromSnapshotFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetExcludeFromSnapshotFile(&self, ifile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExcludeFromSnapshotFile)(windows_core::Interface::as_raw(self), ifile, core::mem::transmute(ppfiledesc)) }
     }
 }
 #[repr(C)]
@@ -1774,8 +1513,8 @@ pub struct IVssExamineWriterMetadataEx2_Vtbl {
 #[cfg(all(feature = "msxml", feature = "oaidl", feature = "shared", feature = "vss", feature = "vswriter"))]
 pub trait IVssExamineWriterMetadataEx2_Impl: IVssExamineWriterMetadataEx_Impl {
     fn GetVersion(&self, pdwmajorversion: *mut super::DWORD, pdwminorversion: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetExcludeFromSnapshotCount(&self) -> windows_core::Result<super::UINT>;
-    fn GetExcludeFromSnapshotFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
+    fn GetExcludeFromSnapshotCount(&self, pcexcludedfromsnapshot: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetExcludeFromSnapshotFile(&self, ifile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "msxml", feature = "oaidl", feature = "shared", feature = "vss", feature = "vswriter"))]
 impl IVssExamineWriterMetadataEx2_Vtbl {
@@ -1789,25 +1528,13 @@ impl IVssExamineWriterMetadataEx2_Vtbl {
         unsafe extern "system" fn GetExcludeFromSnapshotCount<Identity: IVssExamineWriterMetadataEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcexcludedfromsnapshot: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadataEx2_Impl::GetExcludeFromSnapshotCount(this) {
-                    Ok(ok__) => {
-                        pcexcludedfromsnapshot.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadataEx2_Impl::GetExcludeFromSnapshotCount(this, core::mem::transmute_copy(&pcexcludedfromsnapshot)).into()
             }
         }
         unsafe extern "system" fn GetExcludeFromSnapshotFile<Identity: IVssExamineWriterMetadataEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssExamineWriterMetadataEx2_Impl::GetExcludeFromSnapshotFile(this, core::mem::transmute_copy(&ifile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssExamineWriterMetadataEx2_Impl::GetExcludeFromSnapshotFile(this, core::mem::transmute_copy(&ifile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         Self {
@@ -1827,43 +1554,28 @@ windows_core::imp::define_interface!(IVssWMComponent, IVssWMComponent_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IVssWMComponent, windows_core::IUnknown);
 impl IVssWMComponent {
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetComponentInfo(&self) -> windows_core::Result<PVSSCOMPONENTINFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetComponentInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetComponentInfo(&self, ppinfo: *mut PVSSCOMPONENTINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetComponentInfo)(windows_core::Interface::as_raw(self), ppinfo as _) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
     pub unsafe fn FreeComponentInfo(&self, pinfo: PVSSCOMPONENTINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreeComponentInfo)(windows_core::Interface::as_raw(self), pinfo) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetFile(&self, ifile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), ifile, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetDatabaseFile(&self, idbfile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDatabaseFile)(windows_core::Interface::as_raw(self), idbfile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDatabaseFile(&self, idbfile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDatabaseFile)(windows_core::Interface::as_raw(self), idbfile, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetDatabaseLogFile(&self, idblogfile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDatabaseLogFile)(windows_core::Interface::as_raw(self), idblogfile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDatabaseLogFile(&self, idblogfile: super::UINT, ppfiledesc: *mut Option<super::IVssWMFiledesc>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDatabaseLogFile)(windows_core::Interface::as_raw(self), idblogfile, core::mem::transmute(ppfiledesc)) }
     }
     #[cfg(all(feature = "shared", feature = "vswriter"))]
-    pub unsafe fn GetDependency(&self, idependency: super::UINT) -> windows_core::Result<super::IVssWMDependency> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDependency)(windows_core::Interface::as_raw(self), idependency, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDependency(&self, idependency: super::UINT, ppdependency: *mut Option<super::IVssWMDependency>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDependency)(windows_core::Interface::as_raw(self), idependency, core::mem::transmute(ppdependency)) }
     }
 }
 #[repr(C)]
@@ -1897,12 +1609,12 @@ pub struct IVssWMComponent_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vswriter"))]
 pub trait IVssWMComponent_Impl: windows_core::IUnknownImpl {
-    fn GetComponentInfo(&self) -> windows_core::Result<PVSSCOMPONENTINFO>;
+    fn GetComponentInfo(&self, ppinfo: *mut PVSSCOMPONENTINFO) -> windows_core::Result<()>;
     fn FreeComponentInfo(&self, pinfo: PVSSCOMPONENTINFO) -> windows_core::Result<()>;
-    fn GetFile(&self, ifile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetDatabaseFile(&self, idbfile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetDatabaseLogFile(&self, idblogfile: super::UINT) -> windows_core::Result<super::IVssWMFiledesc>;
-    fn GetDependency(&self, idependency: super::UINT) -> windows_core::Result<super::IVssWMDependency>;
+    fn GetFile(&self, ifile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetDatabaseFile(&self, idbfile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetDatabaseLogFile(&self, idblogfile: super::UINT, ppfiledesc: windows_core::OutRef<super::IVssWMFiledesc>) -> windows_core::Result<()>;
+    fn GetDependency(&self, idependency: super::UINT, ppdependency: windows_core::OutRef<super::IVssWMDependency>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vswriter"))]
 impl IVssWMComponent_Vtbl {
@@ -1910,13 +1622,7 @@ impl IVssWMComponent_Vtbl {
         unsafe extern "system" fn GetComponentInfo<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinfo: *mut PVSSCOMPONENTINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssWMComponent_Impl::GetComponentInfo(this) {
-                    Ok(ok__) => {
-                        ppinfo.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssWMComponent_Impl::GetComponentInfo(this, core::mem::transmute_copy(&ppinfo)).into()
             }
         }
         unsafe extern "system" fn FreeComponentInfo<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: PVSSCOMPONENTINFO) -> windows_core::HRESULT {
@@ -1928,49 +1634,25 @@ impl IVssWMComponent_Vtbl {
         unsafe extern "system" fn GetFile<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssWMComponent_Impl::GetFile(this, core::mem::transmute_copy(&ifile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssWMComponent_Impl::GetFile(this, core::mem::transmute_copy(&ifile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetDatabaseFile<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idbfile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssWMComponent_Impl::GetDatabaseFile(this, core::mem::transmute_copy(&idbfile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssWMComponent_Impl::GetDatabaseFile(this, core::mem::transmute_copy(&idbfile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetDatabaseLogFile<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idblogfile: super::UINT, ppfiledesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssWMComponent_Impl::GetDatabaseLogFile(this, core::mem::transmute_copy(&idblogfile)) {
-                    Ok(ok__) => {
-                        ppfiledesc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssWMComponent_Impl::GetDatabaseLogFile(this, core::mem::transmute_copy(&idblogfile), core::mem::transmute_copy(&ppfiledesc)).into()
             }
         }
         unsafe extern "system" fn GetDependency<Identity: IVssWMComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idependency: super::UINT, ppdependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVssWMComponent_Impl::GetDependency(this, core::mem::transmute_copy(&idependency)) {
-                    Ok(ok__) => {
-                        ppdependency.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVssWMComponent_Impl::GetDependency(this, core::mem::transmute_copy(&idependency), core::mem::transmute_copy(&ppdependency)).into()
             }
         }
         Self {

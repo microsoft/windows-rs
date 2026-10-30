@@ -198,13 +198,9 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: PCORRELATION_VEC
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
+pub unsafe fn RtlInitializeSListHead(listhead: PSLIST_HEADER) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : PSLIST_HEADER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtlInitializeSListHead(&mut result__);
-        result__
-    }
+    unsafe { RtlInitializeSListHead(listhead as _) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]

@@ -298,7 +298,12 @@ impl WebView {
         let event_name = HSTRING::from(event_name);
         let receiver = unsafe { self.0.GetDevToolsProtocolEventReceiver(&event_name)? };
         let handler = handler::DevToolsProtocolEventReceived::create(handler);
-        let token = unsafe { receiver.add_DevToolsProtocolEventReceived(&handler)? };
+        let mut token = Default::default();
+        unsafe {
+            receiver
+                .add_DevToolsProtocolEventReceived(&handler, &mut token)
+                .ok()?;
+        };
         Ok(EventRegistration::new(move || {
             let _ = unsafe { receiver.remove_DevToolsProtocolEventReceived(token) };
         }))
@@ -356,7 +361,12 @@ impl WebView {
         handler: F,
     ) -> Result<EventRegistration> {
         let handler = handler::ContainsFullScreenElementChanged::create(handler);
-        let token = unsafe { self.0.add_ContainsFullScreenElementChanged(&handler)? };
+        let mut token = Default::default();
+        unsafe {
+            self.0
+                .add_ContainsFullScreenElementChanged(&handler, &mut token)
+                .ok()?;
+        };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_ContainsFullScreenElementChanged(token) };
@@ -408,7 +418,8 @@ impl WebView {
         handler: F,
     ) -> Result<EventRegistration> {
         let handler = handler::WindowCloseRequested::create(handler);
-        let token = unsafe { self.0.add_WindowCloseRequested(&handler)? };
+        let mut token = Default::default();
+        unsafe { self.0.add_WindowCloseRequested(&handler, &mut token).ok()? };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_WindowCloseRequested(token) };
@@ -443,7 +454,8 @@ impl WebView {
     ) -> Result<EventRegistration> {
         let source: ICoreWebView2_4 = self.0.cast()?;
         let handler = handler::DownloadStarting::create(handler);
-        let token = unsafe { source.add_DownloadStarting(&handler)? };
+        let mut token = Default::default();
+        unsafe { source.add_DownloadStarting(&handler, &mut token).ok()? };
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_DownloadStarting(token) };
         }))
@@ -462,15 +474,13 @@ impl WebView {
         let filter = HSTRING::from(uri_filter);
         unsafe { protocol::add_requested_filter(&self.0, &filter)? };
         let handler = protocol::WebResourceRequested::create(environment, handler);
-        let token = match unsafe { self.0.add_WebResourceRequested(&handler) } {
-            Ok(token) => token,
-            Err(err) => {
-                unsafe {
-                    protocol::remove_requested_filter(&self.0, &filter);
-                };
-                return Err(err);
-            }
-        };
+        let mut token = Default::default();
+        if let Err(err) = unsafe { self.0.add_WebResourceRequested(&handler, &mut token) }.ok() {
+            unsafe {
+                protocol::remove_requested_filter(&self.0, &filter);
+            };
+            return Err(err);
+        }
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_WebResourceRequested(token) };

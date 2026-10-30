@@ -63,14 +63,12 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Output(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Output(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Output)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                value as _,
             )
-            .map(|| result__)
         }
     }
 }
@@ -107,7 +105,7 @@ pub trait Unknown_Impl {
     ) -> windows_core::Result<()>;
     fn Interface(&self, value: *mut Option<Unknown>) -> windows_core::Result<()>;
     fn Input(&self, value: *const u32) -> windows_core::Result<()>;
-    fn Output(&self) -> windows_core::Result<u32>;
+    fn Output(&self, value: *mut u32) -> windows_core::Result<()>;
 }
 impl Unknown_Vtbl {
     pub const fn new<Identity: Unknown_Impl>() -> Self {
@@ -200,13 +198,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                match Unknown_Impl::Output(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                Unknown_Impl::Output(this, core::mem::transmute_copy(&value)).into()
             }
         }
         Self {

@@ -49,7 +49,7 @@ impl Config<'_> {
     /// narrowing the gate the metadata declares.
     pub fn write_reached_arches(&self, ty: &Type, def: TypeDef) -> TokenStream {
         let own = def.arches();
-        let available = if own == 0 { 7 } else { own };
+        let available = arch_mask(own);
         let arches = write_arch_bits(own);
         if self.bindgen.dead_code && available & self.types.reached_arches(ty) != available {
             quote! { #arches #[allow(dead_code)] }

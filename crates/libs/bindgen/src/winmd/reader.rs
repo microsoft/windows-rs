@@ -240,12 +240,7 @@ impl Reader {
                 if let Type::CppConst(constant) = ty
                     && !constant.is_enum_member
                 {
-                    arches
-                        | if constant.arches == 0 {
-                            7
-                        } else {
-                            constant.arches
-                        }
+                    arches | arch_mask(constant.arches)
                 } else {
                     arches
                 }
@@ -255,12 +250,7 @@ impl Reader {
                     if let Type::CppConst(constant) = ty
                         && constant.is_enum_member
                     {
-                        let arches = if constant.arches == 0 {
-                            7
-                        } else {
-                            constant.arches
-                        };
-                        constant.arches = arches & !explicit_arches;
+                        constant.arches = arch_mask(constant.arches) & !explicit_arches;
                         return constant.arches != 0;
                     }
                     true

@@ -1,301 +1,223 @@
 #[cfg(feature = "propsys")]
 #[inline]
-pub unsafe fn CreateNamedPropertyStore() -> windows_core::Result<super::INamedPropertyStore> {
+pub unsafe fn CreateNamedPropertyStore(ppstore: *mut Option<super::INamedPropertyStore>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn CreateNamedPropertyStore(ppstore : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateNamedPropertyStore(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateNamedPropertyStore(core::mem::transmute(ppstore)) }
 }
 #[cfg(feature = "propsys")]
 #[inline]
-pub unsafe fn CreatePropertyStore() -> windows_core::Result<super::IPropertyStore> {
+pub unsafe fn CreatePropertyStore(ppstore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn CreatePropertyStore(ppstore : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreatePropertyStore(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreatePropertyStore(core::mem::transmute(ppstore)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreate3GPMediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreate3GPMediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2, ppimediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
     P2: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreate3GPMediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreate3GPMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreate3GPMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppimediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateAC3MediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateAC3MediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1, ppmediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateAC3MediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateAC3MediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateAC3MediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppmediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateADTSMediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateADTSMediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1, ppmediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateADTSMediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateADTSMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateADTSMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppmediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateAVIMediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateAVIMediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2, ppimediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
     P2: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfsrcsnk.dll" "system" fn MFCreateAVIMediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateAVIMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateAVIMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppimediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateAggregateSource<P0>(psourcecollection: P0) -> windows_core::Result<IMFMediaSource>
+pub unsafe fn MFCreateAggregateSource<P0>(psourcecollection: P0, ppaggsource: *mut Option<IMFMediaSource>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFCollection>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateAggregateSource(psourcecollection : *mut core::ffi::c_void, ppaggsource : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateAggregateSource(psourcecollection.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateAggregateSource(psourcecollection.param().abi(), core::mem::transmute(ppaggsource)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateAudioRenderer<P0>(paudioattributes: P0) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateAudioRenderer<P0>(paudioattributes: P0, ppsink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateAudioRenderer(paudioattributes : *mut core::ffi::c_void, ppsink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateAudioRenderer(paudioattributes.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateAudioRenderer(paudioattributes.param().abi(), core::mem::transmute(ppsink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateAudioRendererActivate() -> windows_core::Result<super::IMFActivate> {
+pub unsafe fn MFCreateAudioRendererActivate(ppactivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateAudioRendererActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateAudioRendererActivate(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateAudioRendererActivate(core::mem::transmute(ppactivate)) }
 }
 #[inline]
-pub unsafe fn MFCreateCameraControlMonitor<P0, P1>(symboliclink: P0, callback: P1) -> windows_core::Result<IMFCameraControlMonitor>
+pub unsafe fn MFCreateCameraControlMonitor<P0, P1>(symboliclink: P0, callback: P1, ppcameracontrolmonitor: *mut Option<IMFCameraControlMonitor>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFCameraControlNotify>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateCameraControlMonitor(symboliclink : windows_core::PCWSTR, callback : *mut core::ffi::c_void, ppcameracontrolmonitor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateCameraControlMonitor(symboliclink.param().abi(), callback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateCameraControlMonitor(symboliclink.param().abi(), callback.param().abi(), core::mem::transmute(ppcameracontrolmonitor)) }
 }
 #[inline]
-pub unsafe fn MFCreateCameraOcclusionStateMonitor<P0, P1>(symboliclink: P0, callback: P1) -> windows_core::Result<IMFCameraOcclusionStateMonitor>
+pub unsafe fn MFCreateCameraOcclusionStateMonitor<P0, P1>(symboliclink: P0, callback: P1, occlusionstatemonitor: *mut Option<IMFCameraOcclusionStateMonitor>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFCameraOcclusionStateReportCallback>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateCameraOcclusionStateMonitor(symboliclink : windows_core::PCWSTR, callback : *mut core::ffi::c_void, occlusionstatemonitor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateCameraOcclusionStateMonitor(symboliclink.param().abi(), callback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateCameraOcclusionStateMonitor(symboliclink.param().abi(), callback.param().abi(), core::mem::transmute(occlusionstatemonitor)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateContentDecryptorContext<P1, P2>(guidmediaprotectionsystemid: *const windows_core::GUID, pd3dmanager: P1, pcontentprotectiondevice: P2) -> windows_core::Result<IMFContentDecryptorContext>
+pub unsafe fn MFCreateContentDecryptorContext<P1, P2>(guidmediaprotectionsystemid: *const windows_core::GUID, pd3dmanager: P1, pcontentprotectiondevice: P2, ppcontentdecryptorcontext: *mut Option<IMFContentDecryptorContext>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IMFDXGIDeviceManager>,
     P2: windows_core::Param<IMFContentProtectionDevice>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid : *const windows_core::GUID, pd3dmanager : *mut core::ffi::c_void, pcontentprotectiondevice : *mut core::ffi::c_void, ppcontentdecryptorcontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateContentDecryptorContext(guidmediaprotectionsystemid, pd3dmanager.param().abi(), pcontentprotectiondevice.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateContentDecryptorContext(guidmediaprotectionsystemid, pd3dmanager.param().abi(), pcontentprotectiondevice.param().abi(), core::mem::transmute(ppcontentdecryptorcontext)) }
 }
 #[inline]
-pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const windows_core::GUID) -> windows_core::Result<IMFContentProtectionDevice> {
+pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const windows_core::GUID, contentprotectiondevice: *mut Option<IMFContentProtectionDevice>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateContentProtectionDevice(protectionsystemid : *const windows_core::GUID, contentprotectiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateContentProtectionDevice(protectionsystemid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateContentProtectionDevice(protectionsystemid, core::mem::transmute(contentprotectiondevice)) }
 }
 #[inline]
-pub unsafe fn MFCreateCredentialCache() -> windows_core::Result<IMFNetCredentialCache> {
+pub unsafe fn MFCreateCredentialCache(ppcache: *mut Option<IMFNetCredentialCache>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateCredentialCache(ppcache : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateCredentialCache(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateCredentialCache(core::mem::transmute(ppcache)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateDeviceSource<P0>(pattributes: P0) -> windows_core::Result<IMFMediaSource>
+pub unsafe fn MFCreateDeviceSource<P0>(pattributes: P0, ppsource: *mut Option<IMFMediaSource>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateDeviceSource(pattributes : *mut core::ffi::c_void, ppsource : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateDeviceSource(pattributes.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateDeviceSource(pattributes.param().abi(), core::mem::transmute(ppsource)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateDeviceSourceActivate<P0>(pattributes: P0) -> windows_core::Result<super::IMFActivate>
+pub unsafe fn MFCreateDeviceSourceActivate<P0>(pattributes: P0, ppactivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateDeviceSourceActivate(pattributes : *mut core::ffi::c_void, ppactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateDeviceSourceActivate(pattributes.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateDeviceSourceActivate(pattributes.param().abi(), core::mem::transmute(ppactivate)) }
 }
 #[inline]
-pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> windows_core::Result<IMFExtendedCameraIntrinsicModel> {
+pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut Option<IMFExtendedCameraIntrinsicModel>) -> windows_core::HRESULT {
     windows_core::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype : MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateExtendedCameraIntrinsicModel(distortionmodeltype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateExtendedCameraIntrinsicModel(distortionmodeltype, core::mem::transmute(ppextendedcameraintrinsicmodel)) }
 }
 #[inline]
-pub unsafe fn MFCreateExtendedCameraIntrinsics() -> windows_core::Result<IMFExtendedCameraIntrinsics> {
+pub unsafe fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut Option<IMFExtendedCameraIntrinsics>) -> windows_core::HRESULT {
     windows_core::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateExtendedCameraIntrinsics(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateExtendedCameraIntrinsics(core::mem::transmute(ppextendedcameraintrinsics)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateFMPEG4MediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateFMPEG4MediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2, ppimediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
     P2: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateFMPEG4MediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateFMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateFMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppimediasink)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "objidlbase"))]
 #[inline]
-pub unsafe fn MFCreateMFByteStreamOnStream<P0>(pstream: P0) -> windows_core::Result<super::IMFByteStream>
+pub unsafe fn MFCreateMFByteStreamOnStream<P0>(pstream: P0, ppbytestream: *mut Option<super::IMFByteStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IStream>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStream(pstream : *mut core::ffi::c_void, ppbytestream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMFByteStreamOnStream(pstream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMFByteStreamOnStream(pstream.param().abi(), core::mem::transmute(ppbytestream)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMFByteStreamOnStreamEx<P0>(punkstream: P0) -> windows_core::Result<super::IMFByteStream>
+pub unsafe fn MFCreateMFByteStreamOnStreamEx<P0>(punkstream: P0, ppbytestream: *mut Option<super::IMFByteStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStreamEx(punkstream : *mut core::ffi::c_void, ppbytestream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMFByteStreamOnStreamEx(punkstream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMFByteStreamOnStreamEx(punkstream.param().abi(), core::mem::transmute(ppbytestream)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMP3MediaSink<P0>(ptargetbytestream: P0) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateMP3MediaSink<P0>(ptargetbytestream: P0, ppmediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateMP3MediaSink(ptargetbytestream : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMP3MediaSink(ptargetbytestream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMP3MediaSink(ptargetbytestream.param().abi(), core::mem::transmute(ppmediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMPEG4MediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateMPEG4MediaSink<P0, P1, P2>(pibytestream: P0, pvideomediatype: P1, paudiomediatype: P2, ppimediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
     P2: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateMPEG4MediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppimediasink)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMediaSession<P0>(pconfiguration: P0) -> windows_core::Result<IMFMediaSession>
+pub unsafe fn MFCreateMediaSession<P0>(pconfiguration: P0, ppmediasession: *mut Option<IMFMediaSession>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateMediaSession(pconfiguration : *mut core::ffi::c_void, ppmediasession : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMediaSession(pconfiguration.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMediaSession(pconfiguration.param().abi(), core::mem::transmute(ppmediasession)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMediaTypeFromProperties<P0>(punkstream: P0) -> windows_core::Result<super::IMFMediaType>
+pub unsafe fn MFCreateMediaTypeFromProperties<P0>(punkstream: P0, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromProperties(punkstream : *mut core::ffi::c_void, ppmediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMediaTypeFromProperties(punkstream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMediaTypeFromProperties(punkstream.param().abi(), core::mem::transmute(ppmediatype)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMuxSink<P1, P2>(guidoutputsubtype: windows_core::GUID, poutputattributes: P1, poutputbytestream: P2) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateMuxSink<P1, P2>(guidoutputsubtype: windows_core::GUID, poutputattributes: P1, poutputbytestream: P2, ppmuxsink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IMFAttributes>,
     P2: windows_core::Param<super::IMFByteStream>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateMuxSink(guidoutputsubtype : windows_core::GUID, poutputattributes : *mut core::ffi::c_void, poutputbytestream : *mut core::ffi::c_void, ppmuxsink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateMuxSink(guidoutputsubtype, poutputattributes.param().abi(), poutputbytestream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateMuxSink(guidoutputsubtype, poutputattributes.param().abi(), poutputbytestream.param().abi(), core::mem::transmute(ppmuxsink)) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
@@ -314,29 +236,20 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFCreatePMPServer(dwcreationflags: super::DWORD) -> windows_core::Result<IMFPMPServer> {
+pub unsafe fn MFCreatePMPServer(dwcreationflags: super::DWORD, pppmpserver: *mut Option<IMFPMPServer>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreatePMPServer(dwcreationflags : super::DWORD, pppmpserver : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreatePMPServer(dwcreationflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreatePMPServer(dwcreationflags, core::mem::transmute(pppmpserver)) }
 }
 #[inline]
-pub unsafe fn MFCreatePresentationClock() -> windows_core::Result<IMFPresentationClock> {
+pub unsafe fn MFCreatePresentationClock(pppresentationclock: *mut Option<IMFPresentationClock>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreatePresentationClock(pppresentationclock : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreatePresentationClock(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreatePresentationClock(core::mem::transmute(pppresentationclock)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Option<IMFStreamDescriptor>]>) -> windows_core::Result<IMFPresentationDescriptor> {
+pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Option<IMFStreamDescriptor>]>, pppresentationdescriptor: *mut Option<IMFPresentationDescriptor>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : super::DWORD, apstreamdescriptors : *const *mut core::ffi::c_void, pppresentationdescriptor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreatePresentationDescriptor(apstreamdescriptors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreatePresentationDescriptor(apstreamdescriptors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pppresentationdescriptor)) }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects"))]
 #[inline]
@@ -348,187 +261,133 @@ where
     unsafe { MFCreatePropertiesFromMediaType(pmediatype.param().abi(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn MFCreateProtectedEnvironmentAccess() -> windows_core::Result<IMFProtectedEnvironmentAccess> {
+pub unsafe fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut Option<IMFProtectedEnvironmentAccess>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateProtectedEnvironmentAccess(ppaccess : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateProtectedEnvironmentAccess(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateProtectedEnvironmentAccess(core::mem::transmute(ppaccess)) }
 }
 #[cfg(feature = "propsys")]
 #[inline]
-pub unsafe fn MFCreateProxyLocator<P0, P1>(pszprotocol: P0, pproxyconfig: P1) -> windows_core::Result<IMFNetProxyLocator>
+pub unsafe fn MFCreateProxyLocator<P0, P1>(pszprotocol: P0, pproxyconfig: P1, ppproxylocator: *mut Option<IMFNetProxyLocator>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::IPropertyStore>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateProxyLocator(pszprotocol : windows_core::PCWSTR, pproxyconfig : *mut core::ffi::c_void, ppproxylocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateProxyLocator(pszprotocol.param().abi(), pproxyconfig.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateProxyLocator(pszprotocol.param().abi(), pproxyconfig.param().abi(), core::mem::transmute(ppproxylocator)) }
 }
 #[inline]
-pub unsafe fn MFCreateRelativePanelWatcher<P0, P1>(videodeviceid: P0, displaymonitordeviceid: P1) -> windows_core::Result<IMFRelativePanelWatcher>
+pub unsafe fn MFCreateRelativePanelWatcher<P0, P1>(videodeviceid: P0, displaymonitordeviceid: P1, pprelativepanelwatcher: *mut Option<IMFRelativePanelWatcher>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateRelativePanelWatcher(videodeviceid : windows_core::PCWSTR, displaymonitordeviceid : windows_core::PCWSTR, pprelativepanelwatcher : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateRelativePanelWatcher(videodeviceid.param().abi(), displaymonitordeviceid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateRelativePanelWatcher(videodeviceid.param().abi(), displaymonitordeviceid.param().abi(), core::mem::transmute(pprelativepanelwatcher)) }
 }
 #[inline]
-pub unsafe fn MFCreateRemoteDesktopPlugin() -> windows_core::Result<IMFRemoteDesktopPlugin> {
+pub unsafe fn MFCreateRemoteDesktopPlugin(ppplugin: *mut Option<IMFRemoteDesktopPlugin>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateRemoteDesktopPlugin(ppplugin : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateRemoteDesktopPlugin(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateRemoteDesktopPlugin(core::mem::transmute(ppplugin)) }
 }
 #[cfg(feature = "mftransform")]
 #[inline]
-pub unsafe fn MFCreateSampleCopierMFT() -> windows_core::Result<super::IMFTransform> {
+pub unsafe fn MFCreateSampleCopierMFT(ppcopiermft: *mut Option<super::IMFTransform>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateSampleCopierMFT(ppcopiermft : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSampleCopierMFT(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSampleCopierMFT(core::mem::transmute(ppcopiermft)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateSampleGrabberSinkActivate<P0, P1>(pimfmediatype: P0, pimfsamplegrabbersinkcallback: P1) -> windows_core::Result<super::IMFActivate>
+pub unsafe fn MFCreateSampleGrabberSinkActivate<P0, P1>(pimfmediatype: P0, pimfsamplegrabbersinkcallback: P1, ppiactivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFMediaType>,
     P1: windows_core::Param<IMFSampleGrabberSinkCallback>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateSampleGrabberSinkActivate(pimfmediatype : *mut core::ffi::c_void, pimfsamplegrabbersinkcallback : *mut core::ffi::c_void, ppiactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSampleGrabberSinkActivate(pimfmediatype.param().abi(), pimfsamplegrabbersinkcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSampleGrabberSinkActivate(pimfmediatype.param().abi(), pimfsamplegrabbersinkcallback.param().abi(), core::mem::transmute(ppiactivate)) }
 }
 #[inline]
-pub unsafe fn MFCreateSensorActivityMonitor<P0>(pcallback: P0) -> windows_core::Result<IMFSensorActivityMonitor>
+pub unsafe fn MFCreateSensorActivityMonitor<P0>(pcallback: P0, ppactivitymonitor: *mut Option<IMFSensorActivityMonitor>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IMFSensorActivitiesReportCallback>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorActivityMonitor(pcallback : *mut core::ffi::c_void, ppactivitymonitor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSensorActivityMonitor(pcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSensorActivityMonitor(pcallback.param().abi(), core::mem::transmute(ppactivitymonitor)) }
 }
 #[inline]
-pub unsafe fn MFCreateSensorGroup<P0>(sensorgroupsymboliclink: P0) -> windows_core::Result<IMFSensorGroup>
+pub unsafe fn MFCreateSensorGroup<P0>(sensorgroupsymboliclink: P0, ppsensorgroup: *mut Option<IMFSensorGroup>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorGroup(sensorgroupsymboliclink : windows_core::PCWSTR, ppsensorgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSensorGroup(sensorgroupsymboliclink.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSensorGroup(sensorgroupsymboliclink.param().abi(), core::mem::transmute(ppsensorgroup)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFCreateSensorProfile<P2>(profiletype: *const windows_core::GUID, profileindex: super::UINT32, constraints: P2) -> windows_core::Result<IMFSensorProfile>
+pub unsafe fn MFCreateSensorProfile<P2>(profiletype: *const windows_core::GUID, profileindex: super::UINT32, constraints: P2, ppprofile: *mut Option<IMFSensorProfile>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfile(profiletype : *const windows_core::GUID, profileindex : super::UINT32, constraints : windows_core::PCWSTR, ppprofile : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSensorProfile(profiletype, profileindex, constraints.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSensorProfile(profiletype, profileindex, constraints.param().abi(), core::mem::transmute(ppprofile)) }
 }
 #[inline]
-pub unsafe fn MFCreateSensorProfileCollection() -> windows_core::Result<IMFSensorProfileCollection> {
+pub unsafe fn MFCreateSensorProfileCollection(ppsensorprofile: *mut Option<IMFSensorProfileCollection>) -> windows_core::HRESULT {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfileCollection(ppsensorprofile : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSensorProfileCollection(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSensorProfileCollection(core::mem::transmute(ppsensorprofile)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateSensorStream<P1, P2>(streamid: super::DWORD, pattributes: P1, pmediatypecollection: P2) -> windows_core::Result<IMFSensorStream>
+pub unsafe fn MFCreateSensorStream<P1, P2>(streamid: super::DWORD, pattributes: P1, pmediatypecollection: P2, ppstream: *mut Option<IMFSensorStream>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IMFAttributes>,
     P2: windows_core::Param<super::IMFCollection>,
 {
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorStream(streamid : super::DWORD, pattributes : *mut core::ffi::c_void, pmediatypecollection : *mut core::ffi::c_void, ppstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSensorStream(streamid, pattributes.param().abi(), pmediatypecollection.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSensorStream(streamid, pattributes.param().abi(), pmediatypecollection.param().abi(), core::mem::transmute(ppstream)) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MFCreateSequencerSegmentOffset(dwid: MFSequencerElementId, hnsoffset: MFTIME) -> windows_core::Result<super::PROPVARIANT> {
+pub unsafe fn MFCreateSequencerSegmentOffset(dwid: MFSequencerElementId, hnsoffset: MFTIME, pvarsegmentoffset: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : MFSequencerElementId, hnsoffset : MFTIME, pvarsegmentoffset : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSequencerSegmentOffset(dwid, hnsoffset, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { MFCreateSequencerSegmentOffset(dwid, hnsoffset, pvarsegmentoffset) }
 }
 #[inline]
-pub unsafe fn MFCreateSequencerSource<P0>(preserved: P0) -> windows_core::Result<IMFSequencerSource>
+pub unsafe fn MFCreateSequencerSource<P0>(preserved: P0, ppsequencersource: *mut Option<IMFSequencerSource>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateSequencerSource(preserved : *mut core::ffi::c_void, ppsequencersource : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSequencerSource(preserved.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSequencerSource(preserved.param().abi(), core::mem::transmute(ppsequencersource)) }
 }
 #[inline]
-pub unsafe fn MFCreateSimpleTypeHandler() -> windows_core::Result<IMFMediaTypeHandler> {
+pub unsafe fn MFCreateSimpleTypeHandler(pphandler: *mut Option<IMFMediaTypeHandler>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateSimpleTypeHandler(pphandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSimpleTypeHandler(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSimpleTypeHandler(core::mem::transmute(pphandler)) }
 }
 #[inline]
-pub unsafe fn MFCreateSourceResolver() -> windows_core::Result<IMFSourceResolver> {
+pub unsafe fn MFCreateSourceResolver(ppisourceresolver: *mut Option<IMFSourceResolver>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateSourceResolver(ppisourceresolver : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSourceResolver(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSourceResolver(core::mem::transmute(ppisourceresolver)) }
 }
 #[inline]
-pub unsafe fn MFCreateStandardQualityManager() -> windows_core::Result<IMFQualityManager> {
+pub unsafe fn MFCreateStandardQualityManager(ppqualitymanager: *mut Option<IMFQualityManager>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateStandardQualityManager(ppqualitymanager : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateStandardQualityManager(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateStandardQualityManager(core::mem::transmute(ppqualitymanager)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: super::DWORD, apmediatypes: &[Option<super::IMFMediaType>]) -> windows_core::Result<IMFStreamDescriptor> {
+pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: super::DWORD, apmediatypes: &[Option<super::IMFMediaType>], ppdescriptor: *mut Option<IMFStreamDescriptor>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateStreamDescriptor(dwstreamidentifier : super::DWORD, cmediatypes : super::DWORD, apmediatypes : *const *mut core::ffi::c_void, ppdescriptor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len().try_into().unwrap(), core::mem::transmute(apmediatypes.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len().try_into().unwrap(), core::mem::transmute(apmediatypes.as_ptr()), core::mem::transmute(ppdescriptor)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "objidlbase"))]
 #[inline]
-pub unsafe fn MFCreateStreamOnMFByteStream<P0>(pbytestream: P0) -> windows_core::Result<super::IStream>
+pub unsafe fn MFCreateStreamOnMFByteStream<P0>(pbytestream: P0, ppstream: *mut Option<super::IStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStream(pbytestream : *mut core::ffi::c_void, ppstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateStreamOnMFByteStream(pbytestream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateStreamOnMFByteStream(pbytestream.param().abi(), core::mem::transmute(ppstream)) }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects"))]
 #[inline]
@@ -540,122 +399,86 @@ where
     unsafe { MFCreateStreamOnMFByteStreamEx(pbytestream.param().abi(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn MFCreateSystemTimeSource() -> windows_core::Result<IMFPresentationTimeSource> {
+pub unsafe fn MFCreateSystemTimeSource(ppsystemtimesource: *mut Option<IMFPresentationTimeSource>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateSystemTimeSource(ppsystemtimesource : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateSystemTimeSource(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateSystemTimeSource(core::mem::transmute(ppsystemtimesource)) }
 }
 #[inline]
-pub unsafe fn MFCreateTopoLoader() -> windows_core::Result<IMFTopoLoader> {
+pub unsafe fn MFCreateTopoLoader(ppobj: *mut Option<IMFTopoLoader>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateTopoLoader(ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTopoLoader(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTopoLoader(core::mem::transmute(ppobj)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateTopology() -> windows_core::Result<IMFTopology> {
+pub unsafe fn MFCreateTopology(pptopo: *mut Option<IMFTopology>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateTopology(pptopo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTopology(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTopology(core::mem::transmute(pptopo)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> windows_core::Result<IMFTopologyNode> {
+pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut Option<IMFTopologyNode>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateTopologyNode(nodetype : MF_TOPOLOGY_TYPE, ppnode : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTopologyNode(nodetype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTopologyNode(nodetype, core::mem::transmute(ppnode)) }
 }
 #[inline]
-pub unsafe fn MFCreateTrackedSample() -> windows_core::Result<IMFTrackedSample> {
+pub unsafe fn MFCreateTrackedSample(ppmfsample: *mut Option<IMFTrackedSample>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateTrackedSample(ppmfsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTrackedSample(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTrackedSample(core::mem::transmute(ppmfsample)) }
 }
 #[inline]
-pub unsafe fn MFCreateTranscodeProfile() -> windows_core::Result<IMFTranscodeProfile> {
+pub unsafe fn MFCreateTranscodeProfile(pptranscodeprofile: *mut Option<IMFTranscodeProfile>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateTranscodeProfile(pptranscodeprofile : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTranscodeProfile(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTranscodeProfile(core::mem::transmute(pptranscodeprofile)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateTranscodeSinkActivate() -> windows_core::Result<super::IMFActivate> {
+pub unsafe fn MFCreateTranscodeSinkActivate(ppactivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateTranscodeSinkActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTranscodeSinkActivate(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTranscodeSinkActivate(core::mem::transmute(ppactivate)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateTranscodeTopology<P0, P1, P2>(psrc: P0, pwszoutputfilepath: P1, pprofile: P2) -> windows_core::Result<IMFTopology>
+pub unsafe fn MFCreateTranscodeTopology<P0, P1, P2>(psrc: P0, pwszoutputfilepath: P1, pprofile: P2, pptranscodetopo: *mut Option<IMFTopology>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IMFMediaSource>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<IMFTranscodeProfile>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateTranscodeTopology(psrc : *mut core::ffi::c_void, pwszoutputfilepath : windows_core::PCWSTR, pprofile : *mut core::ffi::c_void, pptranscodetopo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTranscodeTopology(psrc.param().abi(), pwszoutputfilepath.param().abi(), pprofile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTranscodeTopology(psrc.param().abi(), pwszoutputfilepath.param().abi(), pprofile.param().abi(), core::mem::transmute(pptranscodetopo)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateTranscodeTopologyFromByteStream<P0, P1, P2>(psrc: P0, poutputstream: P1, pprofile: P2) -> windows_core::Result<IMFTopology>
+pub unsafe fn MFCreateTranscodeTopologyFromByteStream<P0, P1, P2>(psrc: P0, poutputstream: P1, pprofile: P2, pptranscodetopo: *mut Option<IMFTopology>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IMFMediaSource>,
     P1: windows_core::Param<super::IMFByteStream>,
     P2: windows_core::Param<IMFTranscodeProfile>,
 {
     windows_core::link!("mf.dll" "system" fn MFCreateTranscodeTopologyFromByteStream(psrc : *mut core::ffi::c_void, poutputstream : *mut core::ffi::c_void, pprofile : *mut core::ffi::c_void, pptranscodetopo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateTranscodeTopologyFromByteStream(psrc.param().abi(), poutputstream.param().abi(), pprofile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateTranscodeTopologyFromByteStream(psrc.param().abi(), poutputstream.param().abi(), pprofile.param().abi(), core::mem::transmute(pptranscodetopo)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "windef"))]
 #[inline]
-pub unsafe fn MFCreateVideoRendererActivate(hwndvideo: super::HWND) -> windows_core::Result<super::IMFActivate> {
+pub unsafe fn MFCreateVideoRendererActivate(hwndvideo: super::HWND, ppactivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFCreateVideoRendererActivate(hwndvideo : super::HWND, ppactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateVideoRendererActivate(hwndvideo, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateVideoRendererActivate(hwndvideo, core::mem::transmute(ppactivate)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateWAVEMediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1) -> windows_core::Result<IMFMediaSink>
+pub unsafe fn MFCreateWAVEMediaSink<P0, P1>(ptargetbytestream: P0, paudiomediatype: P1, ppmediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFByteStream>,
     P1: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfsrcsnk.dll" "system" fn MFCreateWAVEMediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateWAVEMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateWAVEMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), core::mem::transmute(ppmediasink)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[super::BYTE]) -> windows_core::Result<IMFPresentationDescriptor> {
+pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[super::BYTE], pppd: *mut Option<IMFPresentationDescriptor>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor(cbdata : super::DWORD, pbdata : *const super::BYTE, pppd : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFDeserializePresentationDescriptor(pbdata.len().try_into().unwrap(), pbdata.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFDeserializePresentationDescriptor(pbdata.len().try_into().unwrap(), pbdata.as_ptr(), core::mem::transmute(pppd)) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -668,12 +491,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFGetLocalId(verifier: &[u8]) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn MFGetLocalId(verifier: &[u8], id: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const super::BYTE, size : super::UINT32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), &mut result__).map(|| result__)
-    }
+    unsafe { MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), id as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
@@ -686,29 +506,20 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MFGetSupportedMimeTypes() -> windows_core::Result<super::PROPVARIANT> {
+pub unsafe fn MFGetSupportedMimeTypes(ppropvarmimetypearray: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFGetSupportedMimeTypes(&mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { MFGetSupportedMimeTypes(ppropvarmimetypearray) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MFGetSupportedSchemes() -> windows_core::Result<super::PROPVARIANT> {
+pub unsafe fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFGetSupportedSchemes(&mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { MFGetSupportedSchemes(ppropvarschemearray) }
 }
 #[inline]
-pub unsafe fn MFGetSystemId() -> windows_core::Result<IMFSystemId> {
+pub unsafe fn MFGetSystemId(ppid: *mut Option<IMFSystemId>) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFGetSystemId(ppid : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFGetSystemId(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFGetSystemId(core::mem::transmute(ppid)) }
 }
 #[inline]
 pub unsafe fn MFGetSystemTime() -> MFTIME {
@@ -717,34 +528,25 @@ pub unsafe fn MFGetSystemTime() -> MFTIME {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFGetTopoNodeCurrentType<P0>(pnode: P0, dwstreamindex: super::DWORD, foutput: bool) -> windows_core::Result<super::IMFMediaType>
+pub unsafe fn MFGetTopoNodeCurrentType<P0>(pnode: P0, dwstreamindex: super::DWORD, foutput: bool, pptype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IMFTopologyNode>,
 {
     windows_core::link!("mf.dll" "system" fn MFGetTopoNodeCurrentType(pnode : *mut core::ffi::c_void, dwstreamindex : super::DWORD, foutput : windows_core::BOOL, pptype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFGetTopoNodeCurrentType(pnode.param().abi(), dwstreamindex, foutput.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFGetTopoNodeCurrentType(pnode.param().abi(), dwstreamindex, foutput.into(), core::mem::transmute(pptype)) }
 }
 #[inline]
-pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const windows_core::GUID, issupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFIsContentProtectionDeviceSupported(protectionsystemid : *const windows_core::GUID, issupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).map(|| result__)
-    }
+    unsafe { MFIsContentProtectionDeviceSupported(protectionsystemid, issupported as _) }
 }
 #[inline]
-pub unsafe fn MFLoadSignedLibrary<P0>(pszname: P0) -> windows_core::Result<IMFSignedLibrary>
+pub unsafe fn MFLoadSignedLibrary<P0>(pszname: P0, pplib: *mut Option<IMFSignedLibrary>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mf.dll" "system" fn MFLoadSignedLibrary(pszname : windows_core::PCWSTR, pplib : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFLoadSignedLibrary(pszname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFLoadSignedLibrary(pszname.param().abi(), core::mem::transmute(pplib)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -774,15 +576,12 @@ where
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<P2>(guidsubtype: *const windows_core::GUID, dwmftflags: super::DWORD, pcodecconfig: P2) -> windows_core::Result<super::IMFCollection>
+pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<P2>(guidsubtype: *const windows_core::GUID, dwmftflags: super::DWORD, pcodecconfig: P2, ppavailabletypes: *mut Option<super::IMFCollection>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mf.dll" "system" fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype : *const windows_core::GUID, dwmftflags : super::DWORD, pcodecconfig : *mut core::ffi::c_void, ppavailabletypes : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFTranscodeGetAudioOutputAvailableTypes(guidsubtype, dwmftflags, pcodecconfig.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFTranscodeGetAudioOutputAvailableTypes(guidsubtype, dwmftflags, pcodecconfig.param().abi(), core::mem::transmute(ppavailabletypes)) }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
@@ -840,11 +639,8 @@ impl IMFAudioPolicy {
     pub unsafe fn SetGroupingParam(&self, rguidclass: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGroupingParam)(windows_core::Interface::as_raw(self), rguidclass) }
     }
-    pub unsafe fn GetGroupingParam(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGroupingParam)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetGroupingParam(&self, pguidclass: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGroupingParam)(windows_core::Interface::as_raw(self), pguidclass as _) }
     }
     pub unsafe fn SetDisplayName<P0>(&self, pszname: P0) -> windows_core::HRESULT
     where
@@ -852,11 +648,8 @@ impl IMFAudioPolicy {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), pszname.param().abi()) }
     }
-    pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDisplayName(&self, pszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), pszname as _) }
     }
     pub unsafe fn SetIconPath<P0>(&self, pszpath: P0) -> windows_core::HRESULT
     where
@@ -864,11 +657,8 @@ impl IMFAudioPolicy {
     {
         unsafe { (windows_core::Interface::vtable(self).SetIconPath)(windows_core::Interface::as_raw(self), pszpath.param().abi()) }
     }
-    pub unsafe fn GetIconPath(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIconPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIconPath(&self, pszpath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIconPath)(windows_core::Interface::as_raw(self), pszpath as _) }
     }
 }
 #[repr(C)]
@@ -884,11 +674,11 @@ pub struct IMFAudioPolicy_Vtbl {
 }
 pub trait IMFAudioPolicy_Impl: windows_core::IUnknownImpl {
     fn SetGroupingParam(&self, rguidclass: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetGroupingParam(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetGroupingParam(&self, pguidclass: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn SetDisplayName(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetDisplayName(&self, pszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetIconPath(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetIconPath(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetIconPath(&self, pszpath: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IMFAudioPolicy_Vtbl {
     pub const fn new<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>() -> Self {
@@ -901,13 +691,7 @@ impl IMFAudioPolicy_Vtbl {
         unsafe extern "system" fn GetGroupingParam<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidclass: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFAudioPolicy_Impl::GetGroupingParam(this) {
-                    Ok(ok__) => {
-                        pguidclass.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFAudioPolicy_Impl::GetGroupingParam(this, core::mem::transmute_copy(&pguidclass)).into()
             }
         }
         unsafe extern "system" fn SetDisplayName<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -919,13 +703,7 @@ impl IMFAudioPolicy_Vtbl {
         unsafe extern "system" fn GetDisplayName<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFAudioPolicy_Impl::GetDisplayName(this) {
-                    Ok(ok__) => {
-                        pszname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFAudioPolicy_Impl::GetDisplayName(this, core::mem::transmute_copy(&pszname)).into()
             }
         }
         unsafe extern "system" fn SetIconPath<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -937,13 +715,7 @@ impl IMFAudioPolicy_Vtbl {
         unsafe extern "system" fn GetIconPath<Identity: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFAudioPolicy_Impl::GetIconPath(this) {
-                    Ok(ok__) => {
-                        pszpath.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFAudioPolicy_Impl::GetIconPath(this, core::mem::transmute_copy(&pszpath)).into()
             }
         }
         Self {
@@ -965,22 +737,16 @@ windows_core::imp::define_interface!(IMFAudioStreamVolume, IMFAudioStreamVolume_
 windows_core::imp::interface_hierarchy!(IMFAudioStreamVolume, windows_core::IUnknown);
 impl IMFAudioStreamVolume {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelCount(&self, pdwcount: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChannelVolume(&self, dwindex: super::UINT32, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, pflevel as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
@@ -1018,9 +784,9 @@ pub struct IMFAudioStreamVolume_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFAudioStreamVolume_Impl: windows_core::IUnknownImpl {
-    fn GetChannelCount(&self) -> windows_core::Result<super::UINT32>;
+    fn GetChannelCount(&self, pdwcount: *mut super::UINT32) -> windows_core::Result<()>;
     fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32) -> windows_core::Result<()>;
-    fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32>;
+    fn GetChannelVolume(&self, dwindex: super::UINT32, pflevel: *mut f32) -> windows_core::Result<()>;
     fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::Result<()>;
     fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::Result<()>;
 }
@@ -1030,13 +796,7 @@ impl IMFAudioStreamVolume_Vtbl {
         unsafe extern "system" fn GetChannelCount<Identity: IMFAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFAudioStreamVolume_Impl::GetChannelCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFAudioStreamVolume_Impl::GetChannelCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn SetChannelVolume<Identity: IMFAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, flevel: f32) -> windows_core::HRESULT {
@@ -1048,13 +808,7 @@ impl IMFAudioStreamVolume_Vtbl {
         unsafe extern "system" fn GetChannelVolume<Identity: IMFAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFAudioStreamVolume_Impl::GetChannelVolume(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        pflevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFAudioStreamVolume_Impl::GetChannelVolume(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pflevel)).into()
             }
         }
         unsafe extern "system" fn SetAllVolumes<Identity: IMFAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::HRESULT {
@@ -1197,11 +951,8 @@ impl IMFByteStreamCacheControl2 {
     pub unsafe fn SetCacheLimit(&self, qwbytes: super::QWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCacheLimit)(windows_core::Interface::as_raw(self), qwbytes) }
     }
-    pub unsafe fn IsBackgroundTransferActive(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsBackgroundTransferActive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsBackgroundTransferActive(&self, pfactive: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsBackgroundTransferActive)(windows_core::Interface::as_raw(self), pfactive as _) }
     }
 }
 #[repr(C)]
@@ -1222,7 +973,7 @@ pub struct IMFByteStreamCacheControl2_Vtbl {
 pub trait IMFByteStreamCacheControl2_Impl: IMFByteStreamCacheControl_Impl {
     fn GetByteRanges(&self, pcranges: *mut super::DWORD, ppranges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> windows_core::Result<()>;
     fn SetCacheLimit(&self, qwbytes: super::QWORD) -> windows_core::Result<()>;
-    fn IsBackgroundTransferActive(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsBackgroundTransferActive(&self, pfactive: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFByteStreamCacheControl2_Vtbl {
@@ -1242,13 +993,7 @@ impl IMFByteStreamCacheControl2_Vtbl {
         unsafe extern "system" fn IsBackgroundTransferActive<Identity: IMFByteStreamCacheControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfactive: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFByteStreamCacheControl2_Impl::IsBackgroundTransferActive(this) {
-                    Ok(ok__) => {
-                        pfactive.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFByteStreamCacheControl2_Impl::IsBackgroundTransferActive(this, core::mem::transmute_copy(&pfactive)).into()
             }
         }
         Self {
@@ -1292,11 +1037,8 @@ impl IMFByteStreamHandler {
         unsafe { (windows_core::Interface::vtable(self).CancelObjectCreation)(windows_core::Interface::as_raw(self), piunknowncancelcookie.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMaxNumberOfBytesRequiredForResolution(&self) -> windows_core::Result<super::QWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaxNumberOfBytesRequiredForResolution)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaxNumberOfBytesRequiredForResolution(&self, pqwbytes: *mut super::QWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxNumberOfBytesRequiredForResolution)(windows_core::Interface::as_raw(self), pqwbytes as _) }
     }
 }
 #[repr(C)]
@@ -1322,7 +1064,7 @@ pub trait IMFByteStreamHandler_Impl: windows_core::IUnknownImpl {
     fn BeginCreateObject(&self, pbytestream: windows_core::Ref<super::IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: super::DWORD, pprops: windows_core::Ref<super::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<windows_core::IUnknown>, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndCreateObject(&self, presult: windows_core::Ref<super::IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetMaxNumberOfBytesRequiredForResolution(&self) -> windows_core::Result<super::QWORD>;
+    fn GetMaxNumberOfBytesRequiredForResolution(&self, pqwbytes: *mut super::QWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "propsys", feature = "shared"))]
 impl IMFByteStreamHandler_Vtbl {
@@ -1348,13 +1090,7 @@ impl IMFByteStreamHandler_Vtbl {
         unsafe extern "system" fn GetMaxNumberOfBytesRequiredForResolution<Identity: IMFByteStreamHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwbytes: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFByteStreamHandler_Impl::GetMaxNumberOfBytesRequiredForResolution(this) {
-                    Ok(ok__) => {
-                        pqwbytes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFByteStreamHandler_Impl::GetMaxNumberOfBytesRequiredForResolution(this, core::mem::transmute_copy(&pqwbytes)).into()
             }
         }
         Self {
@@ -1374,11 +1110,8 @@ impl windows_core::RuntimeName for IMFByteStreamHandler {}
 windows_core::imp::define_interface!(IMFByteStreamTimeSeek, IMFByteStreamTimeSeek_Vtbl, 0x64976bfa_fb61_4041_9069_8c9a5f659beb);
 windows_core::imp::interface_hierarchy!(IMFByteStreamTimeSeek, windows_core::IUnknown);
 impl IMFByteStreamTimeSeek {
-    pub unsafe fn IsTimeSeekSupported(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsTimeSeekSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsTimeSeekSupported(&self, pftimeseekissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsTimeSeekSupported)(windows_core::Interface::as_raw(self), pftimeseekissupported as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn TimeSeek(&self, qwtimeposition: super::QWORD) -> windows_core::HRESULT {
@@ -1405,7 +1138,7 @@ pub struct IMFByteStreamTimeSeek_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFByteStreamTimeSeek_Impl: windows_core::IUnknownImpl {
-    fn IsTimeSeekSupported(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsTimeSeekSupported(&self, pftimeseekissupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn TimeSeek(&self, qwtimeposition: super::QWORD) -> windows_core::Result<()>;
     fn GetTimeSeekResult(&self, pqwstarttime: *mut super::QWORD, pqwstoptime: *mut super::QWORD, pqwduration: *mut super::QWORD) -> windows_core::Result<()>;
 }
@@ -1415,13 +1148,7 @@ impl IMFByteStreamTimeSeek_Vtbl {
         unsafe extern "system" fn IsTimeSeekSupported<Identity: IMFByteStreamTimeSeek_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pftimeseekissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFByteStreamTimeSeek_Impl::IsTimeSeekSupported(this) {
-                    Ok(ok__) => {
-                        pftimeseekissupported.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFByteStreamTimeSeek_Impl::IsTimeSeekSupported(this, core::mem::transmute_copy(&pftimeseekissupported)).into()
             }
         }
         unsafe extern "system" fn TimeSeek<Identity: IMFByteStreamTimeSeek_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwtimeposition: super::QWORD) -> windows_core::HRESULT {
@@ -1453,14 +1180,11 @@ windows_core::imp::define_interface!(IMFCameraConfigurationManager, IMFCameraCon
 windows_core::imp::interface_hierarchy!(IMFCameraConfigurationManager, windows_core::IUnknown);
 impl IMFCameraConfigurationManager {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn LoadDefaults<P0>(&self, cameraattributes: P0) -> windows_core::Result<IMFCameraControlDefaultsCollection>
+    pub unsafe fn LoadDefaults<P0>(&self, cameraattributes: P0, configurations: *mut Option<IMFCameraControlDefaultsCollection>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAttributes>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadDefaults)(windows_core::Interface::as_raw(self), cameraattributes.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).LoadDefaults)(windows_core::Interface::as_raw(self), cameraattributes.param().abi(), core::mem::transmute(configurations)) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SaveDefaults<P0>(&self, configurations: P0) -> windows_core::HRESULT
@@ -1491,7 +1215,7 @@ pub struct IMFCameraConfigurationManager_Vtbl {
 }
 #[cfg(feature = "mfobjects")]
 pub trait IMFCameraConfigurationManager_Impl: windows_core::IUnknownImpl {
-    fn LoadDefaults(&self, cameraattributes: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<IMFCameraControlDefaultsCollection>;
+    fn LoadDefaults(&self, cameraattributes: windows_core::Ref<super::IMFAttributes>, configurations: windows_core::OutRef<IMFCameraControlDefaultsCollection>) -> windows_core::Result<()>;
     fn SaveDefaults(&self, configurations: windows_core::Ref<IMFCameraControlDefaultsCollection>) -> windows_core::Result<()>;
     fn Shutdown(&self);
 }
@@ -1501,16 +1225,7 @@ impl IMFCameraConfigurationManager_Vtbl {
         unsafe extern "system" fn LoadDefaults<Identity: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cameraattributes: *mut core::ffi::c_void, configurations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraConfigurationManager_Impl::LoadDefaults(this, core::mem::transmute_copy(&cameraattributes)) {
-                    Ok(ok__) => {
-                        configurations.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        configurations.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFCameraConfigurationManager_Impl::LoadDefaults(this, core::mem::transmute_copy(&cameraattributes), core::mem::transmute_copy(&configurations)).into()
             }
         }
         unsafe extern "system" fn SaveDefaults<Identity: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configurations: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1545,11 +1260,8 @@ impl IMFCameraControlDefaults {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRangeInfo(&self) -> windows_core::Result<MF_CAMERA_CONTROL_RANGE_INFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRangeInfo(&self, rangeinfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRangeInfo)(windows_core::Interface::as_raw(self), rangeinfo as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn LockControlData(&self, control: *mut *mut core::ffi::c_void, controlsize: *mut super::ULONG, data: Option<*mut *mut core::ffi::c_void>, datasize: Option<*mut super::ULONG>) -> windows_core::HRESULT {
@@ -1577,7 +1289,7 @@ pub struct IMFCameraControlDefaults_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFCameraControlDefaults_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE;
-    fn GetRangeInfo(&self) -> windows_core::Result<MF_CAMERA_CONTROL_RANGE_INFO>;
+    fn GetRangeInfo(&self, rangeinfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> windows_core::Result<()>;
     fn LockControlData(&self, control: *mut *mut core::ffi::c_void, controlsize: *mut super::ULONG, data: *mut *mut core::ffi::c_void, datasize: *mut super::ULONG) -> windows_core::Result<()>;
     fn UnlockControlData(&self) -> windows_core::Result<()>;
 }
@@ -1593,13 +1305,7 @@ impl IMFCameraControlDefaults_Vtbl {
         unsafe extern "system" fn GetRangeInfo<Identity: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangeinfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraControlDefaults_Impl::GetRangeInfo(this) {
-                    Ok(ok__) => {
-                        rangeinfo.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCameraControlDefaults_Impl::GetRangeInfo(this, core::mem::transmute_copy(&rangeinfo)).into()
             }
         }
         unsafe extern "system" fn LockControlData<Identity: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, control: *mut *mut core::ffi::c_void, controlsize: *mut super::ULONG, data: *mut *mut core::ffi::c_void, datasize: *mut super::ULONG) -> windows_core::HRESULT {
@@ -1646,25 +1352,16 @@ impl IMFCameraControlDefaultsCollection {
         unsafe { (windows_core::Interface::vtable(self).GetControlCount)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetControl(&self, index: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetControl)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetControl(&self, index: super::ULONG, configuration: *mut Option<IMFCameraControlDefaults>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetControl)(windows_core::Interface::as_raw(self), index, core::mem::transmute(configuration)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: super::ULONG, streamid: super::DWORD, datasize: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOrAddExtendedControl)(windows_core::Interface::as_raw(self), configtype, constrolid, streamid, datasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: super::ULONG, streamid: super::DWORD, datasize: super::ULONG, defaults: *mut Option<IMFCameraControlDefaults>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOrAddExtendedControl)(windows_core::Interface::as_raw(self), configtype, constrolid, streamid, datasize, core::mem::transmute(defaults)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const windows_core::GUID, constrolid: super::ULONG, controlsize: super::ULONG, datasize: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOrAddControl)(windows_core::Interface::as_raw(self), configtype, controlset, constrolid, controlsize, datasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const windows_core::GUID, constrolid: super::ULONG, controlsize: super::ULONG, datasize: super::ULONG, defaults: *mut Option<IMFCameraControlDefaults>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOrAddControl)(windows_core::Interface::as_raw(self), configtype, controlset, constrolid, controlsize, datasize, core::mem::transmute(defaults)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveControl(&self, controlset: *const windows_core::GUID, constrolid: super::ULONG) -> windows_core::HRESULT {
@@ -1704,9 +1401,9 @@ pub struct IMFCameraControlDefaultsCollection_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFCameraControlDefaultsCollection_Impl: super::IMFAttributes_Impl {
     fn GetControlCount(&self) -> super::ULONG;
-    fn GetControl(&self, index: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults>;
-    fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: super::ULONG, streamid: super::DWORD, datasize: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults>;
-    fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const windows_core::GUID, constrolid: super::ULONG, controlsize: super::ULONG, datasize: super::ULONG) -> windows_core::Result<IMFCameraControlDefaults>;
+    fn GetControl(&self, index: super::ULONG, configuration: windows_core::OutRef<IMFCameraControlDefaults>) -> windows_core::Result<()>;
+    fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: super::ULONG, streamid: super::DWORD, datasize: super::ULONG, defaults: windows_core::OutRef<IMFCameraControlDefaults>) -> windows_core::Result<()>;
+    fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const windows_core::GUID, constrolid: super::ULONG, controlsize: super::ULONG, datasize: super::ULONG, defaults: windows_core::OutRef<IMFCameraControlDefaults>) -> windows_core::Result<()>;
     fn RemoveControl(&self, controlset: *const windows_core::GUID, constrolid: super::ULONG) -> windows_core::Result<()>;
     fn RemoveAllControls(&self) -> windows_core::Result<()>;
 }
@@ -1722,46 +1419,19 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
         unsafe extern "system" fn GetControl<Identity: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, configuration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraControlDefaultsCollection_Impl::GetControl(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        configuration.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        configuration.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFCameraControlDefaultsCollection_Impl::GetControl(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&configuration)).into()
             }
         }
         unsafe extern "system" fn GetOrAddExtendedControl<Identity: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: super::ULONG, streamid: super::DWORD, datasize: super::ULONG, defaults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraControlDefaultsCollection_Impl::GetOrAddExtendedControl(this, core::mem::transmute_copy(&configtype), core::mem::transmute_copy(&constrolid), core::mem::transmute_copy(&streamid), core::mem::transmute_copy(&datasize)) {
-                    Ok(ok__) => {
-                        defaults.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        defaults.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFCameraControlDefaultsCollection_Impl::GetOrAddExtendedControl(this, core::mem::transmute_copy(&configtype), core::mem::transmute_copy(&constrolid), core::mem::transmute_copy(&streamid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&defaults)).into()
             }
         }
         unsafe extern "system" fn GetOrAddControl<Identity: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const windows_core::GUID, constrolid: super::ULONG, controlsize: super::ULONG, datasize: super::ULONG, defaults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraControlDefaultsCollection_Impl::GetOrAddControl(this, core::mem::transmute_copy(&configtype), core::mem::transmute_copy(&controlset), core::mem::transmute_copy(&constrolid), core::mem::transmute_copy(&controlsize), core::mem::transmute_copy(&datasize)) {
-                    Ok(ok__) => {
-                        defaults.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        defaults.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFCameraControlDefaultsCollection_Impl::GetOrAddControl(this, core::mem::transmute_copy(&configtype), core::mem::transmute_copy(&controlset), core::mem::transmute_copy(&constrolid), core::mem::transmute_copy(&controlsize), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&defaults)).into()
             }
         }
         unsafe extern "system" fn RemoveControl<Identity: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, controlset: *const windows_core::GUID, constrolid: super::ULONG) -> windows_core::HRESULT {
@@ -2009,11 +1679,8 @@ windows_core::imp::define_interface!(IMFCameraOcclusionStateReport, IMFCameraOcc
 windows_core::imp::interface_hierarchy!(IMFCameraOcclusionStateReport, windows_core::IUnknown);
 impl IMFCameraOcclusionStateReport {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOcclusionState(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOcclusionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOcclusionState(&self, occlusionstate: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOcclusionState)(windows_core::Interface::as_raw(self), occlusionstate as _) }
     }
 }
 #[repr(C)]
@@ -2027,7 +1694,7 @@ pub struct IMFCameraOcclusionStateReport_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFCameraOcclusionStateReport_Impl: windows_core::IUnknownImpl {
-    fn GetOcclusionState(&self) -> windows_core::Result<super::DWORD>;
+    fn GetOcclusionState(&self, occlusionstate: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFCameraOcclusionStateReport_Vtbl {
@@ -2035,13 +1702,7 @@ impl IMFCameraOcclusionStateReport_Vtbl {
         unsafe extern "system" fn GetOcclusionState<Identity: IMFCameraOcclusionStateReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, occlusionstate: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCameraOcclusionStateReport_Impl::GetOcclusionState(this) {
-                    Ok(ok__) => {
-                        occlusionstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCameraOcclusionStateReport_Impl::GetOcclusionState(this, core::mem::transmute_copy(&occlusionstate)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOcclusionState: GetOcclusionState::<Identity, OFFSET> }
@@ -2099,11 +1760,8 @@ impl IMFCapturePhotoConfirmation {
     pub unsafe fn SetPixelFormat(&self, subtype: windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), subtype) }
     }
-    pub unsafe fn GetPixelFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPixelFormat(&self, subtype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), subtype as _) }
     }
 }
 #[repr(C)]
@@ -2121,7 +1779,7 @@ pub struct IMFCapturePhotoConfirmation_Vtbl {
 pub trait IMFCapturePhotoConfirmation_Impl: windows_core::IUnknownImpl {
     fn SetPhotoConfirmationCallback(&self, pnotificationcallback: windows_core::Ref<super::IMFAsyncCallback>) -> windows_core::Result<()>;
     fn SetPixelFormat(&self, subtype: &windows_core::GUID) -> windows_core::Result<()>;
-    fn GetPixelFormat(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetPixelFormat(&self, subtype: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFCapturePhotoConfirmation_Vtbl {
@@ -2141,13 +1799,7 @@ impl IMFCapturePhotoConfirmation_Vtbl {
         unsafe extern "system" fn GetPixelFormat<Identity: IMFCapturePhotoConfirmation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subtype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFCapturePhotoConfirmation_Impl::GetPixelFormat(this) {
-                    Ok(ok__) => {
-                        subtype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFCapturePhotoConfirmation_Impl::GetPixelFormat(this, core::mem::transmute_copy(&subtype)).into()
             }
         }
         Self {
@@ -2167,29 +1819,20 @@ windows_core::imp::define_interface!(IMFClock, IMFClock_Vtbl, 0x2eb1e945_18b8_41
 windows_core::imp::interface_hierarchy!(IMFClock, windows_core::IUnknown);
 impl IMFClock {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetClockCharacteristics(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClockCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClockCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClockCharacteristics)(windows_core::Interface::as_raw(self), pdwcharacteristics as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCorrelatedTime(&self, dwreserved: super::DWORD, pllclocktime: *mut super::LONGLONG, phnssystemtime: *mut MFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCorrelatedTime)(windows_core::Interface::as_raw(self), dwreserved, pllclocktime as _, phnssystemtime as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetContinuityKey(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContinuityKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetContinuityKey(&self, pdwcontinuitykey: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContinuityKey)(windows_core::Interface::as_raw(self), pdwcontinuitykey as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetState(&self, dwreserved: super::DWORD) -> windows_core::Result<MFCLOCK_STATE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetState(&self, dwreserved: super::DWORD, peclockstate: *mut MFCLOCK_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), dwreserved, peclockstate as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetProperties(&self, pclockproperties: *mut MFCLOCK_PROPERTIES) -> windows_core::HRESULT {
@@ -2223,10 +1866,10 @@ pub struct IMFClock_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFClock_Impl: windows_core::IUnknownImpl {
-    fn GetClockCharacteristics(&self) -> windows_core::Result<super::DWORD>;
+    fn GetClockCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetCorrelatedTime(&self, dwreserved: super::DWORD, pllclocktime: *mut super::LONGLONG, phnssystemtime: *mut MFTIME) -> windows_core::Result<()>;
-    fn GetContinuityKey(&self) -> windows_core::Result<super::DWORD>;
-    fn GetState(&self, dwreserved: super::DWORD) -> windows_core::Result<MFCLOCK_STATE>;
+    fn GetContinuityKey(&self, pdwcontinuitykey: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetState(&self, dwreserved: super::DWORD, peclockstate: *mut MFCLOCK_STATE) -> windows_core::Result<()>;
     fn GetProperties(&self, pclockproperties: *mut MFCLOCK_PROPERTIES) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -2235,13 +1878,7 @@ impl IMFClock_Vtbl {
         unsafe extern "system" fn GetClockCharacteristics<Identity: IMFClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFClock_Impl::GetClockCharacteristics(this) {
-                    Ok(ok__) => {
-                        pdwcharacteristics.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFClock_Impl::GetClockCharacteristics(this, core::mem::transmute_copy(&pdwcharacteristics)).into()
             }
         }
         unsafe extern "system" fn GetCorrelatedTime<Identity: IMFClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD, pllclocktime: *mut super::LONGLONG, phnssystemtime: *mut MFTIME) -> windows_core::HRESULT {
@@ -2253,25 +1890,13 @@ impl IMFClock_Vtbl {
         unsafe extern "system" fn GetContinuityKey<Identity: IMFClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcontinuitykey: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFClock_Impl::GetContinuityKey(this) {
-                    Ok(ok__) => {
-                        pdwcontinuitykey.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFClock_Impl::GetContinuityKey(this, core::mem::transmute_copy(&pdwcontinuitykey)).into()
             }
         }
         unsafe extern "system" fn GetState<Identity: IMFClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD, peclockstate: *mut MFCLOCK_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFClock_Impl::GetState(this, core::mem::transmute_copy(&dwreserved)) {
-                    Ok(ok__) => {
-                        peclockstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFClock_Impl::GetState(this, core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&peclockstate)).into()
             }
         }
         unsafe extern "system" fn GetProperties<Identity: IMFClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclockproperties: *mut MFCLOCK_PROPERTIES) -> windows_core::HRESULT {
@@ -2304,11 +1929,8 @@ impl IMFClockConsumer {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPresentationClock)(windows_core::Interface::as_raw(self), ppresentationclock.param().abi()) }
     }
-    pub unsafe fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPresentationClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetPresentationClock(&self, pppresentationclock: *mut Option<IMFPresentationClock>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPresentationClock)(windows_core::Interface::as_raw(self), core::mem::transmute(pppresentationclock)) }
     }
 }
 #[repr(C)]
@@ -2320,7 +1942,7 @@ pub struct IMFClockConsumer_Vtbl {
 }
 pub trait IMFClockConsumer_Impl: windows_core::IUnknownImpl {
     fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
-    fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock>;
+    fn GetPresentationClock(&self, pppresentationclock: windows_core::OutRef<IMFPresentationClock>) -> windows_core::Result<()>;
 }
 impl IMFClockConsumer_Vtbl {
     pub const fn new<Identity: IMFClockConsumer_Impl, const OFFSET: isize>() -> Self {
@@ -2333,13 +1955,7 @@ impl IMFClockConsumer_Vtbl {
         unsafe extern "system" fn GetPresentationClock<Identity: IMFClockConsumer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppresentationclock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFClockConsumer_Impl::GetPresentationClock(this) {
-                    Ok(ok__) => {
-                        pppresentationclock.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFClockConsumer_Impl::GetPresentationClock(this, core::mem::transmute_copy(&pppresentationclock)).into()
             }
         }
         Self {
@@ -2446,11 +2062,8 @@ windows_core::imp::define_interface!(IMFContentDecryptorContext, IMFContentDecry
 windows_core::imp::interface_hierarchy!(IMFContentDecryptorContext, windows_core::IUnknown);
 impl IMFContentDecryptorContext {
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeHardwareKey(&self, inputprivatedata: Option<&[u8]>) -> windows_core::Result<super::UINT64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(inputprivatedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InitializeHardwareKey(&self, inputprivatedata: Option<&[u8]>, outputprivatedata: *mut super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(inputprivatedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), outputprivatedata as _) }
     }
 }
 #[repr(C)]
@@ -2464,7 +2077,7 @@ pub struct IMFContentDecryptorContext_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFContentDecryptorContext_Impl: windows_core::IUnknownImpl {
-    fn InitializeHardwareKey(&self, inputprivatedatabytecount: super::UINT, inputprivatedata: *const core::ffi::c_void) -> windows_core::Result<super::UINT64>;
+    fn InitializeHardwareKey(&self, inputprivatedatabytecount: super::UINT, inputprivatedata: *const core::ffi::c_void, outputprivatedata: *mut super::UINT64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFContentDecryptorContext_Vtbl {
@@ -2472,13 +2085,7 @@ impl IMFContentDecryptorContext_Vtbl {
         unsafe extern "system" fn InitializeHardwareKey<Identity: IMFContentDecryptorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprivatedatabytecount: super::UINT, inputprivatedata: *const core::ffi::c_void, outputprivatedata: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFContentDecryptorContext_Impl::InitializeHardwareKey(this, core::mem::transmute_copy(&inputprivatedatabytecount), core::mem::transmute_copy(&inputprivatedata)) {
-                    Ok(ok__) => {
-                        outputprivatedata.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFContentDecryptorContext_Impl::InitializeHardwareKey(this, core::mem::transmute_copy(&inputprivatedatabytecount), core::mem::transmute_copy(&inputprivatedata), core::mem::transmute_copy(&outputprivatedata)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InitializeHardwareKey: InitializeHardwareKey::<Identity, OFFSET> }
@@ -2492,11 +2099,8 @@ impl windows_core::RuntimeName for IMFContentDecryptorContext {}
 windows_core::imp::define_interface!(IMFContentEnabler, IMFContentEnabler_Vtbl, 0xd3c4ef59_49ce_4381_9071_d5bcd044c770);
 windows_core::imp::interface_hierarchy!(IMFContentEnabler, windows_core::IUnknown);
 impl IMFContentEnabler {
-    pub unsafe fn GetEnableType(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnableType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEnableType(&self, ptype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnableType)(windows_core::Interface::as_raw(self), ptype as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetEnableURL(&self, ppwszurl: *mut windows_core::PWSTR, pcchurl: *mut super::DWORD, ptruststatus: Option<*mut MF_URL_TRUST_STATUS>) -> windows_core::HRESULT {
@@ -2506,11 +2110,8 @@ impl IMFContentEnabler {
     pub unsafe fn GetEnableData(&self, ppbdata: *mut *mut super::BYTE, pcbdata: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEnableData)(windows_core::Interface::as_raw(self), ppbdata as _, pcbdata as _) }
     }
-    pub unsafe fn IsAutomaticSupported(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsAutomaticSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsAutomaticSupported(&self, pfautomatic: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsAutomaticSupported)(windows_core::Interface::as_raw(self), pfautomatic as _) }
     }
     pub unsafe fn AutomaticEnable(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AutomaticEnable)(windows_core::Interface::as_raw(self)) }
@@ -2542,10 +2143,10 @@ pub struct IMFContentEnabler_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFContentEnabler_Impl: windows_core::IUnknownImpl {
-    fn GetEnableType(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetEnableType(&self, ptype: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetEnableURL(&self, ppwszurl: *mut windows_core::PWSTR, pcchurl: *mut super::DWORD, ptruststatus: *mut MF_URL_TRUST_STATUS) -> windows_core::Result<()>;
     fn GetEnableData(&self, ppbdata: *mut *mut super::BYTE, pcbdata: *mut super::DWORD) -> windows_core::Result<()>;
-    fn IsAutomaticSupported(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsAutomaticSupported(&self, pfautomatic: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn AutomaticEnable(&self) -> windows_core::Result<()>;
     fn MonitorEnable(&self) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
@@ -2556,13 +2157,7 @@ impl IMFContentEnabler_Vtbl {
         unsafe extern "system" fn GetEnableType<Identity: IMFContentEnabler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFContentEnabler_Impl::GetEnableType(this) {
-                    Ok(ok__) => {
-                        ptype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFContentEnabler_Impl::GetEnableType(this, core::mem::transmute_copy(&ptype)).into()
             }
         }
         unsafe extern "system" fn GetEnableURL<Identity: IMFContentEnabler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszurl: *mut windows_core::PWSTR, pcchurl: *mut super::DWORD, ptruststatus: *mut MF_URL_TRUST_STATUS) -> windows_core::HRESULT {
@@ -2580,13 +2175,7 @@ impl IMFContentEnabler_Vtbl {
         unsafe extern "system" fn IsAutomaticSupported<Identity: IMFContentEnabler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfautomatic: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFContentEnabler_Impl::IsAutomaticSupported(this) {
-                    Ok(ok__) => {
-                        pfautomatic.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFContentEnabler_Impl::IsAutomaticSupported(this, core::mem::transmute_copy(&pfautomatic)).into()
             }
         }
         unsafe extern "system" fn AutomaticEnable<Identity: IMFContentEnabler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2751,11 +2340,8 @@ windows_core::imp::define_interface!(IMFDXGIDeviceManagerSource, IMFDXGIDeviceMa
 windows_core::imp::interface_hierarchy!(IMFDXGIDeviceManagerSource, windows_core::IUnknown);
 impl IMFDXGIDeviceManagerSource {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetManager(&self) -> windows_core::Result<super::IMFDXGIDeviceManager> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetManager(&self, ppmanager: *mut Option<super::IMFDXGIDeviceManager>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetManager)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmanager)) }
     }
 }
 #[repr(C)]
@@ -2769,7 +2355,7 @@ pub struct IMFDXGIDeviceManagerSource_Vtbl {
 }
 #[cfg(feature = "mfobjects")]
 pub trait IMFDXGIDeviceManagerSource_Impl: windows_core::IUnknownImpl {
-    fn GetManager(&self) -> windows_core::Result<super::IMFDXGIDeviceManager>;
+    fn GetManager(&self, ppmanager: windows_core::OutRef<super::IMFDXGIDeviceManager>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFDXGIDeviceManagerSource_Vtbl {
@@ -2777,13 +2363,7 @@ impl IMFDXGIDeviceManagerSource_Vtbl {
         unsafe extern "system" fn GetManager<Identity: IMFDXGIDeviceManagerSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFDXGIDeviceManagerSource_Impl::GetManager(this) {
-                    Ok(ok__) => {
-                        ppmanager.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFDXGIDeviceManagerSource_Impl::GetManager(this, core::mem::transmute_copy(&ppmanager)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetManager: GetManager::<Identity, OFFSET> }
@@ -2911,11 +2491,8 @@ windows_core::imp::define_interface!(IMFExtendedCameraController, IMFExtendedCam
 windows_core::imp::interface_hierarchy!(IMFExtendedCameraController, windows_core::IUnknown);
 impl IMFExtendedCameraController {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetExtendedCameraControl(&self, dwstreamindex: super::DWORD, ulpropertyid: super::ULONG) -> windows_core::Result<IMFExtendedCameraControl> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExtendedCameraControl)(windows_core::Interface::as_raw(self), dwstreamindex, ulpropertyid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetExtendedCameraControl(&self, dwstreamindex: super::DWORD, ulpropertyid: super::ULONG, ppcontrol: *mut Option<IMFExtendedCameraControl>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExtendedCameraControl)(windows_core::Interface::as_raw(self), dwstreamindex, ulpropertyid, core::mem::transmute(ppcontrol)) }
     }
 }
 #[repr(C)]
@@ -2929,7 +2506,7 @@ pub struct IMFExtendedCameraController_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFExtendedCameraController_Impl: windows_core::IUnknownImpl {
-    fn GetExtendedCameraControl(&self, dwstreamindex: super::DWORD, ulpropertyid: super::ULONG) -> windows_core::Result<IMFExtendedCameraControl>;
+    fn GetExtendedCameraControl(&self, dwstreamindex: super::DWORD, ulpropertyid: super::ULONG, ppcontrol: windows_core::OutRef<IMFExtendedCameraControl>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFExtendedCameraController_Vtbl {
@@ -2937,16 +2514,7 @@ impl IMFExtendedCameraController_Vtbl {
         unsafe extern "system" fn GetExtendedCameraControl<Identity: IMFExtendedCameraController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, ulpropertyid: super::ULONG, ppcontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFExtendedCameraController_Impl::GetExtendedCameraControl(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&ulpropertyid)) {
-                    Ok(ok__) => {
-                        ppcontrol.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppcontrol.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFExtendedCameraController_Impl::GetExtendedCameraControl(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&ulpropertyid), core::mem::transmute_copy(&ppcontrol)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetExtendedCameraControl: GetExtendedCameraControl::<Identity, OFFSET> }
@@ -2968,11 +2536,8 @@ impl IMFExtendedCameraIntrinsicModel {
     pub unsafe fn SetModel(&self, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModel)(windows_core::Interface::as_raw(self), pintrinsicmodel) }
     }
-    pub unsafe fn GetDistortionModelType(&self) -> windows_core::Result<MFCameraIntrinsic_DistortionModelType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDistortionModelType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDistortionModelType(&self, pdistortionmodeltype: *mut MFCameraIntrinsic_DistortionModelType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDistortionModelType)(windows_core::Interface::as_raw(self), pdistortionmodeltype as _) }
     }
 }
 #[repr(C)]
@@ -2993,7 +2558,7 @@ pub struct IMFExtendedCameraIntrinsicModel_Vtbl {
 pub trait IMFExtendedCameraIntrinsicModel_Impl: windows_core::IUnknownImpl {
     fn GetModel(&self, pintrinsicmodel: *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> windows_core::Result<()>;
     fn SetModel(&self, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> windows_core::Result<()>;
-    fn GetDistortionModelType(&self) -> windows_core::Result<MFCameraIntrinsic_DistortionModelType>;
+    fn GetDistortionModelType(&self, pdistortionmodeltype: *mut MFCameraIntrinsic_DistortionModelType) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IMFExtendedCameraIntrinsicModel_Vtbl {
@@ -3013,13 +2578,7 @@ impl IMFExtendedCameraIntrinsicModel_Vtbl {
         unsafe extern "system" fn GetDistortionModelType<Identity: IMFExtendedCameraIntrinsicModel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdistortionmodeltype: *mut MFCameraIntrinsic_DistortionModelType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFExtendedCameraIntrinsicModel_Impl::GetDistortionModelType(this) {
-                    Ok(ok__) => {
-                        pdistortionmodeltype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFExtendedCameraIntrinsicModel_Impl::GetDistortionModelType(this, core::mem::transmute_copy(&pdistortionmodeltype)).into()
             }
         }
         Self {
@@ -3043,29 +2602,20 @@ impl IMFExtendedCameraIntrinsics {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetBufferSize(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBufferSize(&self, pdwbuffersize: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self), pdwbuffersize as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SerializeToBuffer(&self, pbbuffer: *mut super::BYTE, pdwbuffersize: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SerializeToBuffer)(windows_core::Interface::as_raw(self), pbbuffer as _, pdwbuffersize as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIntrinsicModelCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIntrinsicModelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIntrinsicModelCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIntrinsicModelCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIntrinsicModelByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFExtendedCameraIntrinsicModel> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIntrinsicModelByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetIntrinsicModelByIndex(&self, dwindex: super::DWORD, ppintrinsicmodel: *mut Option<IMFExtendedCameraIntrinsicModel>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIntrinsicModelByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppintrinsicmodel)) }
     }
     pub unsafe fn AddIntrinsicModel<P0>(&self, pintrinsicmodel: P0) -> windows_core::HRESULT
     where
@@ -3103,10 +2653,10 @@ pub struct IMFExtendedCameraIntrinsics_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFExtendedCameraIntrinsics_Impl: windows_core::IUnknownImpl {
     fn InitializeFromBuffer(&self, pbbuffer: *const super::BYTE, dwbuffersize: super::DWORD) -> windows_core::Result<()>;
-    fn GetBufferSize(&self) -> windows_core::Result<super::DWORD>;
+    fn GetBufferSize(&self, pdwbuffersize: *mut super::DWORD) -> windows_core::Result<()>;
     fn SerializeToBuffer(&self, pbbuffer: *mut super::BYTE, pdwbuffersize: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetIntrinsicModelCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetIntrinsicModelByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFExtendedCameraIntrinsicModel>;
+    fn GetIntrinsicModelCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetIntrinsicModelByIndex(&self, dwindex: super::DWORD, ppintrinsicmodel: windows_core::OutRef<IMFExtendedCameraIntrinsicModel>) -> windows_core::Result<()>;
     fn AddIntrinsicModel(&self, pintrinsicmodel: windows_core::Ref<IMFExtendedCameraIntrinsicModel>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3121,13 +2671,7 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
         unsafe extern "system" fn GetBufferSize<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwbuffersize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFExtendedCameraIntrinsics_Impl::GetBufferSize(this) {
-                    Ok(ok__) => {
-                        pdwbuffersize.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFExtendedCameraIntrinsics_Impl::GetBufferSize(this, core::mem::transmute_copy(&pdwbuffersize)).into()
             }
         }
         unsafe extern "system" fn SerializeToBuffer<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbbuffer: *mut super::BYTE, pdwbuffersize: *mut super::DWORD) -> windows_core::HRESULT {
@@ -3139,28 +2683,13 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
         unsafe extern "system" fn GetIntrinsicModelCount<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFExtendedCameraIntrinsics_Impl::GetIntrinsicModelCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFExtendedCameraIntrinsics_Impl::GetIntrinsicModelCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetIntrinsicModelByIndex<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppintrinsicmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFExtendedCameraIntrinsics_Impl::GetIntrinsicModelByIndex(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppintrinsicmodel.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppintrinsicmodel.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFExtendedCameraIntrinsics_Impl::GetIntrinsicModelByIndex(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppintrinsicmodel)).into()
             }
         }
         unsafe extern "system" fn AddIntrinsicModel<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pintrinsicmodel: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3589,57 +3118,36 @@ impl IMFHttpDownloadRequest {
         unsafe { (windows_core::Interface::vtable(self).EndReadPayload)(windows_core::Interface::as_raw(self), presult.param().abi(), pqwoffset as _, pcbread as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryHeader<P0>(&self, szheadername: P0, dwindex: super::DWORD) -> windows_core::Result<windows_core::PWSTR>
+    pub unsafe fn QueryHeader<P0>(&self, szheadername: P0, dwindex: super::DWORD, ppszheadervalue: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHeader)(windows_core::Interface::as_raw(self), szheadername.param().abi(), dwindex, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).QueryHeader)(windows_core::Interface::as_raw(self), szheadername.param().abi(), dwindex, ppszheadervalue as _) }
     }
-    pub unsafe fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), ppszurl as _) }
     }
-    pub unsafe fn HasNullSourceOrigin(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HasNullSourceOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn HasNullSourceOrigin(&self, pfnullsourceorigin: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).HasNullSourceOrigin)(windows_core::Interface::as_raw(self), pfnullsourceorigin as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetTimeSeekResult(&self, pqwstarttime: *mut super::QWORD, pqwstoptime: *mut super::QWORD, pqwduration: *mut super::QWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTimeSeekResult)(windows_core::Interface::as_raw(self), pqwstarttime as _, pqwstoptime as _, pqwduration as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetHttpStatus(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHttpStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHttpStatus(&self, pdwhttpstatus: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHttpStatus)(windows_core::Interface::as_raw(self), pdwhttpstatus as _) }
     }
-    pub unsafe fn GetAtEndOfPayload(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAtEndOfPayload)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAtEndOfPayload(&self, pfatendofpayload: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAtEndOfPayload)(windows_core::Interface::as_raw(self), pfatendofpayload as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTotalLength(&self) -> windows_core::Result<super::QWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTotalLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTotalLength(&self, pqwtotallength: *mut super::QWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTotalLength)(windows_core::Interface::as_raw(self), pqwtotallength as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRangeEndOffset(&self) -> windows_core::Result<super::QWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeEndOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRangeEndOffset(&self, pqwrangeend: *mut super::QWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRangeEndOffset)(windows_core::Interface::as_raw(self), pqwrangeend as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -3708,14 +3216,14 @@ pub trait IMFHttpDownloadRequest_Impl: windows_core::IUnknownImpl {
     fn EndReceiveResponse(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<()>;
     fn BeginReadPayload(&self, pb: *mut super::BYTE, cb: super::ULONG, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndReadPayload(&self, presult: windows_core::Ref<super::IMFAsyncResult>, pqwoffset: *mut super::QWORD, pcbread: *mut super::ULONG) -> windows_core::Result<()>;
-    fn QueryHeader(&self, szheadername: &windows_core::PCWSTR, dwindex: super::DWORD) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn HasNullSourceOrigin(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn QueryHeader(&self, szheadername: &windows_core::PCWSTR, dwindex: super::DWORD, ppszheadervalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn HasNullSourceOrigin(&self, pfnullsourceorigin: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetTimeSeekResult(&self, pqwstarttime: *mut super::QWORD, pqwstoptime: *mut super::QWORD, pqwduration: *mut super::QWORD) -> windows_core::Result<()>;
-    fn GetHttpStatus(&self) -> windows_core::Result<super::DWORD>;
-    fn GetAtEndOfPayload(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetTotalLength(&self) -> windows_core::Result<super::QWORD>;
-    fn GetRangeEndOffset(&self) -> windows_core::Result<super::QWORD>;
+    fn GetHttpStatus(&self, pdwhttpstatus: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetAtEndOfPayload(&self, pfatendofpayload: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetTotalLength(&self, pqwtotallength: *mut super::QWORD) -> windows_core::Result<()>;
+    fn GetRangeEndOffset(&self, pqwrangeend: *mut super::QWORD) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -3766,37 +3274,19 @@ impl IMFHttpDownloadRequest_Vtbl {
         unsafe extern "system" fn QueryHeader<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szheadername: windows_core::PCWSTR, dwindex: super::DWORD, ppszheadervalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::QueryHeader(this, core::mem::transmute(&szheadername), core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppszheadervalue.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::QueryHeader(this, core::mem::transmute(&szheadername), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppszheadervalue)).into()
             }
         }
         unsafe extern "system" fn GetURL<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::GetURL(this) {
-                    Ok(ok__) => {
-                        ppszurl.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl)).into()
             }
         }
         unsafe extern "system" fn HasNullSourceOrigin<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfnullsourceorigin: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::HasNullSourceOrigin(this) {
-                    Ok(ok__) => {
-                        pfnullsourceorigin.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::HasNullSourceOrigin(this, core::mem::transmute_copy(&pfnullsourceorigin)).into()
             }
         }
         unsafe extern "system" fn GetTimeSeekResult<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwstarttime: *mut super::QWORD, pqwstoptime: *mut super::QWORD, pqwduration: *mut super::QWORD) -> windows_core::HRESULT {
@@ -3808,49 +3298,25 @@ impl IMFHttpDownloadRequest_Vtbl {
         unsafe extern "system" fn GetHttpStatus<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhttpstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::GetHttpStatus(this) {
-                    Ok(ok__) => {
-                        pdwhttpstatus.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::GetHttpStatus(this, core::mem::transmute_copy(&pdwhttpstatus)).into()
             }
         }
         unsafe extern "system" fn GetAtEndOfPayload<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfatendofpayload: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::GetAtEndOfPayload(this) {
-                    Ok(ok__) => {
-                        pfatendofpayload.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::GetAtEndOfPayload(this, core::mem::transmute_copy(&pfatendofpayload)).into()
             }
         }
         unsafe extern "system" fn GetTotalLength<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwtotallength: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::GetTotalLength(this) {
-                    Ok(ok__) => {
-                        pqwtotallength.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::GetTotalLength(this, core::mem::transmute_copy(&pqwtotallength)).into()
             }
         }
         unsafe extern "system" fn GetRangeEndOffset<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwrangeend: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadRequest_Impl::GetRangeEndOffset(this) {
-                    Ok(ok__) => {
-                        pqwrangeend.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFHttpDownloadRequest_Impl::GetRangeEndOffset(this, core::mem::transmute_copy(&pqwrangeend)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IMFHttpDownloadRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3895,16 +3361,13 @@ impl IMFHttpDownloadSession {
     {
         unsafe { (windows_core::Interface::vtable(self).SetServer)(windows_core::Interface::as_raw(self), szservername.param().abi(), nport) }
     }
-    pub unsafe fn CreateRequest<P0, P3, P4>(&self, szobjectname: P0, fbypassproxycache: bool, fsecure: bool, szverb: P3, szreferrer: P4) -> windows_core::Result<IMFHttpDownloadRequest>
+    pub unsafe fn CreateRequest<P0, P3, P4>(&self, szobjectname: P0, fbypassproxycache: bool, fsecure: bool, szverb: P3, szreferrer: P4, pprequest: *mut Option<IMFHttpDownloadRequest>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRequest)(windows_core::Interface::as_raw(self), szobjectname.param().abi(), fbypassproxycache.into(), fsecure.into(), szverb.param().abi(), szreferrer.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateRequest)(windows_core::Interface::as_raw(self), szobjectname.param().abi(), fbypassproxycache.into(), fsecure.into(), szverb.param().abi(), szreferrer.param().abi(), core::mem::transmute(pprequest)) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -3924,7 +3387,7 @@ pub struct IMFHttpDownloadSession_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFHttpDownloadSession_Impl: windows_core::IUnknownImpl {
     fn SetServer(&self, szservername: &windows_core::PCWSTR, nport: super::DWORD) -> windows_core::Result<()>;
-    fn CreateRequest(&self, szobjectname: &windows_core::PCWSTR, fbypassproxycache: windows_core::BOOL, fsecure: windows_core::BOOL, szverb: &windows_core::PCWSTR, szreferrer: &windows_core::PCWSTR) -> windows_core::Result<IMFHttpDownloadRequest>;
+    fn CreateRequest(&self, szobjectname: &windows_core::PCWSTR, fbypassproxycache: windows_core::BOOL, fsecure: windows_core::BOOL, szverb: &windows_core::PCWSTR, szreferrer: &windows_core::PCWSTR, pprequest: windows_core::OutRef<IMFHttpDownloadRequest>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3939,16 +3402,7 @@ impl IMFHttpDownloadSession_Vtbl {
         unsafe extern "system" fn CreateRequest<Identity: IMFHttpDownloadSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szobjectname: windows_core::PCWSTR, fbypassproxycache: windows_core::BOOL, fsecure: windows_core::BOOL, szverb: windows_core::PCWSTR, szreferrer: windows_core::PCWSTR, pprequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadSession_Impl::CreateRequest(this, core::mem::transmute(&szobjectname), core::mem::transmute_copy(&fbypassproxycache), core::mem::transmute_copy(&fsecure), core::mem::transmute(&szverb), core::mem::transmute(&szreferrer)) {
-                    Ok(ok__) => {
-                        pprequest.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        pprequest.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFHttpDownloadSession_Impl::CreateRequest(this, core::mem::transmute(&szobjectname), core::mem::transmute_copy(&fbypassproxycache), core::mem::transmute_copy(&fsecure), core::mem::transmute(&szverb), core::mem::transmute(&szreferrer), core::mem::transmute_copy(&pprequest)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IMFHttpDownloadSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3973,14 +3427,11 @@ impl windows_core::RuntimeName for IMFHttpDownloadSession {}
 windows_core::imp::define_interface!(IMFHttpDownloadSessionProvider, IMFHttpDownloadSessionProvider_Vtbl, 0x1b4cf4b9_3a16_4115_839d_03cc5c99df01);
 windows_core::imp::interface_hierarchy!(IMFHttpDownloadSessionProvider, windows_core::IUnknown);
 impl IMFHttpDownloadSessionProvider {
-    pub unsafe fn CreateHttpDownloadSession<P0>(&self, wszscheme: P0) -> windows_core::Result<IMFHttpDownloadSession>
+    pub unsafe fn CreateHttpDownloadSession<P0>(&self, wszscheme: P0, ppdownloadsession: *mut Option<IMFHttpDownloadSession>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateHttpDownloadSession)(windows_core::Interface::as_raw(self), wszscheme.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateHttpDownloadSession)(windows_core::Interface::as_raw(self), wszscheme.param().abi(), core::mem::transmute(ppdownloadsession)) }
     }
 }
 #[repr(C)]
@@ -3990,23 +3441,14 @@ pub struct IMFHttpDownloadSessionProvider_Vtbl {
     pub CreateHttpDownloadSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFHttpDownloadSessionProvider_Impl: windows_core::IUnknownImpl {
-    fn CreateHttpDownloadSession(&self, wszscheme: &windows_core::PCWSTR) -> windows_core::Result<IMFHttpDownloadSession>;
+    fn CreateHttpDownloadSession(&self, wszscheme: &windows_core::PCWSTR, ppdownloadsession: windows_core::OutRef<IMFHttpDownloadSession>) -> windows_core::Result<()>;
 }
 impl IMFHttpDownloadSessionProvider_Vtbl {
     pub const fn new<Identity: IMFHttpDownloadSessionProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateHttpDownloadSession<Identity: IMFHttpDownloadSessionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszscheme: windows_core::PCWSTR, ppdownloadsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFHttpDownloadSessionProvider_Impl::CreateHttpDownloadSession(this, core::mem::transmute(&wszscheme)) {
-                    Ok(ok__) => {
-                        ppdownloadsession.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppdownloadsession.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFHttpDownloadSessionProvider_Impl::CreateHttpDownloadSession(this, core::mem::transmute(&wszscheme), core::mem::transmute_copy(&ppdownloadsession)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateHttpDownloadSession: CreateHttpDownloadSession::<Identity, OFFSET> }
@@ -4028,18 +3470,12 @@ impl IMFInputTrustAuthority {
         unsafe { (windows_core::Interface::vtable(self).GetDecrypter)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn RequestAccess(&self, action: MFPOLICYMANAGER_ACTION) -> windows_core::Result<super::IMFActivate> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestAccess)(windows_core::Interface::as_raw(self), action, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn RequestAccess(&self, action: MFPOLICYMANAGER_ACTION, ppcontentenableractivate: *mut Option<super::IMFActivate>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestAccess)(windows_core::Interface::as_raw(self), action, core::mem::transmute(ppcontentenableractivate)) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetPolicy(&self, action: MFPOLICYMANAGER_ACTION) -> windows_core::Result<IMFOutputPolicy> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), action, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetPolicy(&self, action: MFPOLICYMANAGER_ACTION, pppolicy: *mut Option<IMFOutputPolicy>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), action, core::mem::transmute(pppolicy)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn BindAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> windows_core::HRESULT {
@@ -4082,8 +3518,8 @@ pub struct IMFInputTrustAuthority_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 pub trait IMFInputTrustAuthority_Impl: windows_core::IUnknownImpl {
     fn GetDecrypter(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RequestAccess(&self, action: MFPOLICYMANAGER_ACTION) -> windows_core::Result<super::IMFActivate>;
-    fn GetPolicy(&self, action: MFPOLICYMANAGER_ACTION) -> windows_core::Result<IMFOutputPolicy>;
+    fn RequestAccess(&self, action: MFPOLICYMANAGER_ACTION, ppcontentenableractivate: windows_core::OutRef<super::IMFActivate>) -> windows_core::Result<()>;
+    fn GetPolicy(&self, action: MFPOLICYMANAGER_ACTION, pppolicy: windows_core::OutRef<IMFOutputPolicy>) -> windows_core::Result<()>;
     fn BindAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> windows_core::Result<()>;
     fn UpdateAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -4100,25 +3536,13 @@ impl IMFInputTrustAuthority_Vtbl {
         unsafe extern "system" fn RequestAccess<Identity: IMFInputTrustAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: MFPOLICYMANAGER_ACTION, ppcontentenableractivate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFInputTrustAuthority_Impl::RequestAccess(this, core::mem::transmute_copy(&action)) {
-                    Ok(ok__) => {
-                        ppcontentenableractivate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFInputTrustAuthority_Impl::RequestAccess(this, core::mem::transmute_copy(&action), core::mem::transmute_copy(&ppcontentenableractivate)).into()
             }
         }
         unsafe extern "system" fn GetPolicy<Identity: IMFInputTrustAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: MFPOLICYMANAGER_ACTION, pppolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFInputTrustAuthority_Impl::GetPolicy(this, core::mem::transmute_copy(&action)) {
-                    Ok(ok__) => {
-                        pppolicy.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFInputTrustAuthority_Impl::GetPolicy(this, core::mem::transmute_copy(&action), core::mem::transmute_copy(&pppolicy)).into()
             }
         }
         unsafe extern "system" fn BindAccess<Identity: IMFInputTrustAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> windows_core::HRESULT {
@@ -4232,25 +3656,16 @@ impl IMFMediaSession {
     pub unsafe fn Shutdown(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetClock(&self) -> windows_core::Result<IMFClock> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetClock(&self, ppclock: *mut Option<IMFClock>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClock)(windows_core::Interface::as_raw(self), core::mem::transmute(ppclock)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSessionCapabilities(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSessionCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSessionCapabilities(&self, pdwcaps: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSessionCapabilities)(windows_core::Interface::as_raw(self), pdwcaps as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetFullTopology(&self, dwgetfulltopologyflags: super::DWORD, topoid: TOPOID) -> windows_core::Result<IMFTopology> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFullTopology)(windows_core::Interface::as_raw(self), dwgetfulltopologyflags, topoid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetFullTopology(&self, dwgetfulltopologyflags: super::DWORD, topoid: TOPOID, ppfulltopology: *mut Option<IMFTopology>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFullTopology)(windows_core::Interface::as_raw(self), dwgetfulltopologyflags, topoid, core::mem::transmute(ppfulltopology)) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -4290,9 +3705,9 @@ pub trait IMFMediaSession_Impl: super::IMFMediaEventGenerator_Impl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
-    fn GetClock(&self) -> windows_core::Result<IMFClock>;
-    fn GetSessionCapabilities(&self) -> windows_core::Result<super::DWORD>;
-    fn GetFullTopology(&self, dwgetfulltopologyflags: super::DWORD, topoid: TOPOID) -> windows_core::Result<IMFTopology>;
+    fn GetClock(&self, ppclock: windows_core::OutRef<IMFClock>) -> windows_core::Result<()>;
+    fn GetSessionCapabilities(&self, pdwcaps: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetFullTopology(&self, dwgetfulltopologyflags: super::DWORD, topoid: TOPOID, ppfulltopology: windows_core::OutRef<IMFTopology>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaSession_Vtbl {
@@ -4342,37 +3757,19 @@ impl IMFMediaSession_Vtbl {
         unsafe extern "system" fn GetClock<Identity: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSession_Impl::GetClock(this) {
-                    Ok(ok__) => {
-                        ppclock.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSession_Impl::GetClock(this, core::mem::transmute_copy(&ppclock)).into()
             }
         }
         unsafe extern "system" fn GetSessionCapabilities<Identity: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcaps: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSession_Impl::GetSessionCapabilities(this) {
-                    Ok(ok__) => {
-                        pdwcaps.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSession_Impl::GetSessionCapabilities(this, core::mem::transmute_copy(&pdwcaps)).into()
             }
         }
         unsafe extern "system" fn GetFullTopology<Identity: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwgetfulltopologyflags: super::DWORD, topoid: TOPOID, ppfulltopology: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSession_Impl::GetFullTopology(this, core::mem::transmute_copy(&dwgetfulltopologyflags), core::mem::transmute_copy(&topoid)) {
-                    Ok(ok__) => {
-                        ppfulltopology.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSession_Impl::GetFullTopology(this, core::mem::transmute_copy(&dwgetfulltopologyflags), core::mem::transmute_copy(&topoid), core::mem::transmute_copy(&ppfulltopology)).into()
             }
         }
         Self {
@@ -4399,46 +3796,31 @@ windows_core::imp::define_interface!(IMFMediaSink, IMFMediaSink_Vtbl, 0x6ef2a660
 windows_core::imp::interface_hierarchy!(IMFMediaSink, windows_core::IUnknown);
 impl IMFMediaSink {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), pdwcharacteristics as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn AddStreamSink<P1>(&self, dwstreamsinkidentifier: super::DWORD, pmediatype: P1) -> windows_core::Result<IMFStreamSink>
+    pub unsafe fn AddStreamSink<P1>(&self, dwstreamsinkidentifier: super::DWORD, pmediatype: P1, ppstreamsink: *mut Option<IMFStreamSink>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IMFMediaType>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddStreamSink)(windows_core::Interface::as_raw(self), dwstreamsinkidentifier, pmediatype.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).AddStreamSink)(windows_core::Interface::as_raw(self), dwstreamsinkidentifier, pmediatype.param().abi(), core::mem::transmute(ppstreamsink)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveStreamSink(&self, dwstreamsinkidentifier: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveStreamSink)(windows_core::Interface::as_raw(self), dwstreamsinkidentifier) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamSinkCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamSinkCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamSinkCount(&self, pcstreamsinkcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamSinkCount)(windows_core::Interface::as_raw(self), pcstreamsinkcount as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetStreamSinkByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFStreamSink> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamSinkByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStreamSinkByIndex(&self, dwindex: super::DWORD, ppstreamsink: *mut Option<IMFStreamSink>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamSinkByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppstreamsink)) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetStreamSinkById(&self, dwstreamsinkidentifier: super::DWORD) -> windows_core::Result<IMFStreamSink> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamSinkById)(windows_core::Interface::as_raw(self), dwstreamsinkidentifier, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStreamSinkById(&self, dwstreamsinkidentifier: super::DWORD, ppstreamsink: *mut Option<IMFStreamSink>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamSinkById)(windows_core::Interface::as_raw(self), dwstreamsinkidentifier, core::mem::transmute(ppstreamsink)) }
     }
     pub unsafe fn SetPresentationClock<P0>(&self, ppresentationclock: P0) -> windows_core::HRESULT
     where
@@ -4446,11 +3828,8 @@ impl IMFMediaSink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPresentationClock)(windows_core::Interface::as_raw(self), ppresentationclock.param().abi()) }
     }
-    pub unsafe fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPresentationClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetPresentationClock(&self, pppresentationclock: *mut Option<IMFPresentationClock>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPresentationClock)(windows_core::Interface::as_raw(self), core::mem::transmute(pppresentationclock)) }
     }
     pub unsafe fn Shutdown(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
@@ -4490,14 +3869,14 @@ pub struct IMFMediaSink_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFMediaSink_Impl: windows_core::IUnknownImpl {
-    fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD>;
-    fn AddStreamSink(&self, dwstreamsinkidentifier: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<IMFStreamSink>;
+    fn GetCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::Result<()>;
+    fn AddStreamSink(&self, dwstreamsinkidentifier: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>, ppstreamsink: windows_core::OutRef<IMFStreamSink>) -> windows_core::Result<()>;
     fn RemoveStreamSink(&self, dwstreamsinkidentifier: super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamSinkCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetStreamSinkByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFStreamSink>;
-    fn GetStreamSinkById(&self, dwstreamsinkidentifier: super::DWORD) -> windows_core::Result<IMFStreamSink>;
+    fn GetStreamSinkCount(&self, pcstreamsinkcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetStreamSinkByIndex(&self, dwindex: super::DWORD, ppstreamsink: windows_core::OutRef<IMFStreamSink>) -> windows_core::Result<()>;
+    fn GetStreamSinkById(&self, dwstreamsinkidentifier: super::DWORD, ppstreamsink: windows_core::OutRef<IMFStreamSink>) -> windows_core::Result<()>;
     fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
-    fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock>;
+    fn GetPresentationClock(&self, pppresentationclock: windows_core::OutRef<IMFPresentationClock>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -4506,25 +3885,13 @@ impl IMFMediaSink_Vtbl {
         unsafe extern "system" fn GetCharacteristics<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::GetCharacteristics(this) {
-                    Ok(ok__) => {
-                        pdwcharacteristics.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::GetCharacteristics(this, core::mem::transmute_copy(&pdwcharacteristics)).into()
             }
         }
         unsafe extern "system" fn AddStreamSink<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamsinkidentifier: super::DWORD, pmediatype: *mut core::ffi::c_void, ppstreamsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::AddStreamSink(this, core::mem::transmute_copy(&dwstreamsinkidentifier), core::mem::transmute_copy(&pmediatype)) {
-                    Ok(ok__) => {
-                        ppstreamsink.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::AddStreamSink(this, core::mem::transmute_copy(&dwstreamsinkidentifier), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&ppstreamsink)).into()
             }
         }
         unsafe extern "system" fn RemoveStreamSink<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamsinkidentifier: super::DWORD) -> windows_core::HRESULT {
@@ -4536,37 +3903,19 @@ impl IMFMediaSink_Vtbl {
         unsafe extern "system" fn GetStreamSinkCount<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcstreamsinkcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::GetStreamSinkCount(this) {
-                    Ok(ok__) => {
-                        pcstreamsinkcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::GetStreamSinkCount(this, core::mem::transmute_copy(&pcstreamsinkcount)).into()
             }
         }
         unsafe extern "system" fn GetStreamSinkByIndex<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppstreamsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::GetStreamSinkByIndex(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppstreamsink.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::GetStreamSinkByIndex(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppstreamsink)).into()
             }
         }
         unsafe extern "system" fn GetStreamSinkById<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamsinkidentifier: super::DWORD, ppstreamsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::GetStreamSinkById(this, core::mem::transmute_copy(&dwstreamsinkidentifier)) {
-                    Ok(ok__) => {
-                        ppstreamsink.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::GetStreamSinkById(this, core::mem::transmute_copy(&dwstreamsinkidentifier), core::mem::transmute_copy(&ppstreamsink)).into()
             }
         }
         unsafe extern "system" fn SetPresentationClock<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationclock: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4578,13 +3927,7 @@ impl IMFMediaSink_Vtbl {
         unsafe extern "system" fn GetPresentationClock<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppresentationclock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSink_Impl::GetPresentationClock(this) {
-                    Ok(ok__) => {
-                        pppresentationclock.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSink_Impl::GetPresentationClock(this, core::mem::transmute_copy(&pppresentationclock)).into()
             }
         }
         unsafe extern "system" fn Shutdown<Identity: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4657,17 +4000,11 @@ windows_core::imp::interface_hierarchy!(IMFMediaSource, windows_core::IUnknown, 
 #[cfg(feature = "mfobjects")]
 impl IMFMediaSource {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), pdwcharacteristics as _) }
     }
-    pub unsafe fn CreatePresentationDescriptor(&self) -> windows_core::Result<IMFPresentationDescriptor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePresentationDescriptor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreatePresentationDescriptor(&self, pppresentationdescriptor: *mut Option<IMFPresentationDescriptor>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreatePresentationDescriptor)(windows_core::Interface::as_raw(self), core::mem::transmute(pppresentationdescriptor)) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: Option<*const windows_core::GUID>, pvarstartposition: Option<*const super::PROPVARIANT>) -> windows_core::HRESULT
@@ -4706,8 +4043,8 @@ pub struct IMFMediaSource_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaSource_Impl: super::IMFMediaEventGenerator_Impl {
-    fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD>;
-    fn CreatePresentationDescriptor(&self) -> windows_core::Result<IMFPresentationDescriptor>;
+    fn GetCharacteristics(&self, pdwcharacteristics: *mut super::DWORD) -> windows_core::Result<()>;
+    fn CreatePresentationDescriptor(&self, pppresentationdescriptor: windows_core::OutRef<IMFPresentationDescriptor>) -> windows_core::Result<()>;
     fn Start(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -4719,25 +4056,13 @@ impl IMFMediaSource_Vtbl {
         unsafe extern "system" fn GetCharacteristics<Identity: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSource_Impl::GetCharacteristics(this) {
-                    Ok(ok__) => {
-                        pdwcharacteristics.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSource_Impl::GetCharacteristics(this, core::mem::transmute_copy(&pdwcharacteristics)).into()
             }
         }
         unsafe extern "system" fn CreatePresentationDescriptor<Identity: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppresentationdescriptor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSource_Impl::CreatePresentationDescriptor(this) {
-                    Ok(ok__) => {
-                        pppresentationdescriptor.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSource_Impl::CreatePresentationDescriptor(this, core::mem::transmute_copy(&pppresentationdescriptor)).into()
             }
         }
         unsafe extern "system" fn Start<Identity: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationdescriptor: *mut core::ffi::c_void, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::PROPVARIANT) -> windows_core::HRESULT {
@@ -4845,18 +4170,12 @@ impl core::ops::Deref for IMFMediaSourceEx {
 windows_core::imp::interface_hierarchy!(IMFMediaSourceEx, windows_core::IUnknown, super::IMFMediaEventGenerator, IMFMediaSource);
 #[cfg(feature = "mfobjects")]
 impl IMFMediaSourceEx {
-    pub unsafe fn GetSourceAttributes(&self) -> windows_core::Result<super::IMFAttributes> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSourceAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSourceAttributes(&self, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattributes)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamAttributes(&self, dwstreamidentifier: super::DWORD) -> windows_core::Result<super::IMFAttributes> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamAttributes)(windows_core::Interface::as_raw(self), dwstreamidentifier, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStreamAttributes(&self, dwstreamidentifier: super::DWORD, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamAttributes)(windows_core::Interface::as_raw(self), dwstreamidentifier, core::mem::transmute(ppattributes)) }
     }
     pub unsafe fn SetD3DManager<P0>(&self, pmanager: P0) -> windows_core::HRESULT
     where
@@ -4879,8 +4198,8 @@ pub struct IMFMediaSourceEx_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaSourceEx_Impl: IMFMediaSource_Impl {
-    fn GetSourceAttributes(&self) -> windows_core::Result<super::IMFAttributes>;
-    fn GetStreamAttributes(&self, dwstreamidentifier: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
+    fn GetSourceAttributes(&self, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
+    fn GetStreamAttributes(&self, dwstreamidentifier: super::DWORD, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
     fn SetD3DManager(&self, pmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4889,25 +4208,13 @@ impl IMFMediaSourceEx_Vtbl {
         unsafe extern "system" fn GetSourceAttributes<Identity: IMFMediaSourceEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSourceEx_Impl::GetSourceAttributes(this) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSourceEx_Impl::GetSourceAttributes(this, core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn GetStreamAttributes<Identity: IMFMediaSourceEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamidentifier: super::DWORD, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSourceEx_Impl::GetStreamAttributes(this, core::mem::transmute_copy(&dwstreamidentifier)) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSourceEx_Impl::GetStreamAttributes(this, core::mem::transmute_copy(&dwstreamidentifier), core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn SetD3DManager<Identity: IMFMediaSourceEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4974,14 +4281,11 @@ windows_core::imp::define_interface!(IMFMediaSourceTopologyProvider, IMFMediaSou
 windows_core::imp::interface_hierarchy!(IMFMediaSourceTopologyProvider, windows_core::IUnknown);
 impl IMFMediaSourceTopologyProvider {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetMediaSourceTopology<P0>(&self, ppresentationdescriptor: P0) -> windows_core::Result<IMFTopology>
+    pub unsafe fn GetMediaSourceTopology<P0>(&self, ppresentationdescriptor: P0, pptopology: *mut Option<IMFTopology>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMFPresentationDescriptor>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaSourceTopology)(windows_core::Interface::as_raw(self), ppresentationdescriptor.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetMediaSourceTopology)(windows_core::Interface::as_raw(self), ppresentationdescriptor.param().abi(), core::mem::transmute(pptopology)) }
     }
 }
 #[repr(C)]
@@ -4995,7 +4299,7 @@ pub struct IMFMediaSourceTopologyProvider_Vtbl {
 }
 #[cfg(feature = "mfobjects")]
 pub trait IMFMediaSourceTopologyProvider_Impl: windows_core::IUnknownImpl {
-    fn GetMediaSourceTopology(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>) -> windows_core::Result<IMFTopology>;
+    fn GetMediaSourceTopology(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, pptopology: windows_core::OutRef<IMFTopology>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFMediaSourceTopologyProvider_Vtbl {
@@ -5003,13 +4307,7 @@ impl IMFMediaSourceTopologyProvider_Vtbl {
         unsafe extern "system" fn GetMediaSourceTopology<Identity: IMFMediaSourceTopologyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationdescriptor: *mut core::ffi::c_void, pptopology: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaSourceTopologyProvider_Impl::GetMediaSourceTopology(this, core::mem::transmute_copy(&ppresentationdescriptor)) {
-                    Ok(ok__) => {
-                        pptopology.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaSourceTopologyProvider_Impl::GetMediaSourceTopology(this, core::mem::transmute_copy(&ppresentationdescriptor), core::mem::transmute_copy(&pptopology)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMediaSourceTopology: GetMediaSourceTopology::<Identity, OFFSET> }
@@ -5033,17 +4331,11 @@ impl core::ops::Deref for IMFMediaStream {
 windows_core::imp::interface_hierarchy!(IMFMediaStream, windows_core::IUnknown, super::IMFMediaEventGenerator);
 #[cfg(feature = "mfobjects")]
 impl IMFMediaStream {
-    pub unsafe fn GetMediaSource(&self) -> windows_core::Result<IMFMediaSource> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaSource(&self, ppmediasource: *mut Option<IMFMediaSource>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediasource)) }
     }
-    pub unsafe fn GetStreamDescriptor(&self) -> windows_core::Result<IMFStreamDescriptor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamDescriptor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStreamDescriptor(&self, ppstreamdescriptor: *mut Option<IMFStreamDescriptor>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamDescriptor)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstreamdescriptor)) }
     }
     pub unsafe fn RequestSample<P0>(&self, ptoken: P0) -> windows_core::HRESULT
     where
@@ -5063,8 +4355,8 @@ pub struct IMFMediaStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaStream_Impl: super::IMFMediaEventGenerator_Impl {
-    fn GetMediaSource(&self) -> windows_core::Result<IMFMediaSource>;
-    fn GetStreamDescriptor(&self) -> windows_core::Result<IMFStreamDescriptor>;
+    fn GetMediaSource(&self, ppmediasource: windows_core::OutRef<IMFMediaSource>) -> windows_core::Result<()>;
+    fn GetStreamDescriptor(&self, ppstreamdescriptor: windows_core::OutRef<IMFStreamDescriptor>) -> windows_core::Result<()>;
     fn RequestSample(&self, ptoken: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5073,25 +4365,13 @@ impl IMFMediaStream_Vtbl {
         unsafe extern "system" fn GetMediaSource<Identity: IMFMediaStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaStream_Impl::GetMediaSource(this) {
-                    Ok(ok__) => {
-                        ppmediasource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaStream_Impl::GetMediaSource(this, core::mem::transmute_copy(&ppmediasource)).into()
             }
         }
         unsafe extern "system" fn GetStreamDescriptor<Identity: IMFMediaStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstreamdescriptor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaStream_Impl::GetStreamDescriptor(this) {
-                    Ok(ok__) => {
-                        ppstreamdescriptor.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaStream_Impl::GetStreamDescriptor(this, core::mem::transmute_copy(&ppstreamdescriptor)).into()
             }
         }
         unsafe extern "system" fn RequestSample<Identity: IMFMediaStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoken: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5129,11 +4409,8 @@ impl IMFMediaStream2 {
     pub unsafe fn SetStreamState(&self, value: super::MF_STREAM_STATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamState)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn GetStreamState(&self) -> windows_core::Result<super::MF_STREAM_STATE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamState(&self, value: *mut super::MF_STREAM_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamState)(windows_core::Interface::as_raw(self), value as _) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -5147,7 +4424,7 @@ pub struct IMFMediaStream2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaStream2_Impl: IMFMediaStream_Impl {
     fn SetStreamState(&self, value: super::MF_STREAM_STATE) -> windows_core::Result<()>;
-    fn GetStreamState(&self) -> windows_core::Result<super::MF_STREAM_STATE>;
+    fn GetStreamState(&self, value: *mut super::MF_STREAM_STATE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaStream2_Vtbl {
@@ -5161,13 +4438,7 @@ impl IMFMediaStream2_Vtbl {
         unsafe extern "system" fn GetStreamState<Identity: IMFMediaStream2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::MF_STREAM_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaStream2_Impl::GetStreamState(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaStream2_Impl::GetStreamState(this, core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -5234,18 +4505,12 @@ impl IMFMediaTypeHandler {
         unsafe { (windows_core::Interface::vtable(self).IsMediaTypeSupported)(windows_core::Interface::as_raw(self), pmediatype.param().abi(), ppmediatype.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMediaTypeCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaTypeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMediaTypeCount(&self, pdwtypecount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaTypeCount)(windows_core::Interface::as_raw(self), pdwtypecount as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetMediaTypeByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaTypeByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaTypeByIndex(&self, dwindex: super::DWORD, pptype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaTypeByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pptype)) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SetCurrentMediaType<P0>(&self, pmediatype: P0) -> windows_core::HRESULT
@@ -5255,17 +4520,11 @@ impl IMFMediaTypeHandler {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), pmediatype.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetCurrentMediaType(&self, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediatype)) }
     }
-    pub unsafe fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMajorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMajorType(&self, pguidmajortype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMajorType)(windows_core::Interface::as_raw(self), pguidmajortype as _) }
     }
 }
 #[repr(C)]
@@ -5297,11 +4556,11 @@ pub struct IMFMediaTypeHandler_Vtbl {
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFMediaTypeHandler_Impl: windows_core::IUnknownImpl {
     fn IsMediaTypeSupported(&self, pmediatype: windows_core::Ref<super::IMFMediaType>, ppmediatype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn GetMediaTypeCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetMediaTypeByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
+    fn GetMediaTypeCount(&self, pdwtypecount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetMediaTypeByIndex(&self, dwindex: super::DWORD, pptype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
     fn SetCurrentMediaType(&self, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFMediaType>;
-    fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetCurrentMediaType(&self, ppmediatype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
+    fn GetMajorType(&self, pguidmajortype: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFMediaTypeHandler_Vtbl {
@@ -5315,25 +4574,13 @@ impl IMFMediaTypeHandler_Vtbl {
         unsafe extern "system" fn GetMediaTypeCount<Identity: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtypecount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaTypeHandler_Impl::GetMediaTypeCount(this) {
-                    Ok(ok__) => {
-                        pdwtypecount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaTypeHandler_Impl::GetMediaTypeCount(this, core::mem::transmute_copy(&pdwtypecount)).into()
             }
         }
         unsafe extern "system" fn GetMediaTypeByIndex<Identity: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaTypeHandler_Impl::GetMediaTypeByIndex(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        pptype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaTypeHandler_Impl::GetMediaTypeByIndex(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pptype)).into()
             }
         }
         unsafe extern "system" fn SetCurrentMediaType<Identity: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatype: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5345,25 +4592,13 @@ impl IMFMediaTypeHandler_Vtbl {
         unsafe extern "system" fn GetCurrentMediaType<Identity: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaTypeHandler_Impl::GetCurrentMediaType(this) {
-                    Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaTypeHandler_Impl::GetCurrentMediaType(this, core::mem::transmute_copy(&ppmediatype)).into()
             }
         }
         unsafe extern "system" fn GetMajorType<Identity: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmajortype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMediaTypeHandler_Impl::GetMajorType(this) {
-                    Ok(ok__) => {
-                        pguidmajortype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMediaTypeHandler_Impl::GetMajorType(this, core::mem::transmute_copy(&pguidmajortype)).into()
             }
         }
         Self {
@@ -5391,18 +4626,12 @@ impl IMFMetadata {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLanguage)(windows_core::Interface::as_raw(self), pwszrfc1766.param().abi()) }
     }
-    pub unsafe fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLanguage(&self, ppwszrfc1766: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), ppwszrfc1766 as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetAllLanguages(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAllLanguages)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetAllLanguages(&self, ppvlanguages: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAllLanguages)(windows_core::Interface::as_raw(self), ppvlanguages) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperty<P0>(&self, pwszname: P0, ppvvalue: *const super::PROPVARIANT) -> windows_core::HRESULT
@@ -5412,14 +4641,11 @@ impl IMFMetadata {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), ppvvalue) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetProperty<P0>(&self, pwszname: P0) -> windows_core::Result<super::PROPVARIANT>
+    pub unsafe fn GetProperty<P0>(&self, pwszname: P0, ppvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), ppvvalue) }
     }
     pub unsafe fn DeleteProperty<P0>(&self, pwszname: P0) -> windows_core::HRESULT
     where
@@ -5428,11 +4654,8 @@ impl IMFMetadata {
         unsafe { (windows_core::Interface::vtable(self).DeleteProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi()) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetAllPropertyNames(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAllPropertyNames)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetAllPropertyNames(&self, ppvnames: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAllPropertyNames)(windows_core::Interface::as_raw(self), ppvnames) }
     }
 }
 #[repr(C)]
@@ -5462,12 +4685,12 @@ pub struct IMFMetadata_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMetadata_Impl: windows_core::IUnknownImpl {
     fn SetLanguage(&self, pwszrfc1766: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetAllLanguages(&self) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetLanguage(&self, ppwszrfc1766: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetAllLanguages(&self, ppvlanguages: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn SetProperty(&self, pwszname: &windows_core::PCWSTR, ppvvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetProperty(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetProperty(&self, pwszname: &windows_core::PCWSTR, ppvvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn DeleteProperty(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetAllPropertyNames(&self) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetAllPropertyNames(&self, ppvnames: *mut super::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMetadata_Vtbl {
@@ -5481,25 +4704,13 @@ impl IMFMetadata_Vtbl {
         unsafe extern "system" fn GetLanguage<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszrfc1766: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMetadata_Impl::GetLanguage(this) {
-                    Ok(ok__) => {
-                        ppwszrfc1766.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMetadata_Impl::GetLanguage(this, core::mem::transmute_copy(&ppwszrfc1766)).into()
             }
         }
         unsafe extern "system" fn GetAllLanguages<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvlanguages: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMetadata_Impl::GetAllLanguages(this) {
-                    Ok(ok__) => {
-                        ppvlanguages.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMetadata_Impl::GetAllLanguages(this, core::mem::transmute_copy(&ppvlanguages)).into()
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, ppvvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
@@ -5511,13 +4722,7 @@ impl IMFMetadata_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, ppvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMetadata_Impl::GetProperty(this, core::mem::transmute(&pwszname)) {
-                    Ok(ok__) => {
-                        ppvvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMetadata_Impl::GetProperty(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&ppvvalue)).into()
             }
         }
         unsafe extern "system" fn DeleteProperty<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -5529,13 +4734,7 @@ impl IMFMetadata_Vtbl {
         unsafe extern "system" fn GetAllPropertyNames<Identity: IMFMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvnames: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMetadata_Impl::GetAllPropertyNames(this) {
-                    Ok(ok__) => {
-                        ppvnames.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMetadata_Impl::GetAllPropertyNames(this, core::mem::transmute_copy(&ppvnames)).into()
             }
         }
         Self {
@@ -5559,14 +4758,11 @@ windows_core::imp::define_interface!(IMFMetadataProvider, IMFMetadataProvider_Vt
 windows_core::imp::interface_hierarchy!(IMFMetadataProvider, windows_core::IUnknown);
 impl IMFMetadataProvider {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetMFMetadata<P0>(&self, ppresentationdescriptor: P0, dwstreamidentifier: super::DWORD, dwflags: super::DWORD) -> windows_core::Result<IMFMetadata>
+    pub unsafe fn GetMFMetadata<P0>(&self, ppresentationdescriptor: P0, dwstreamidentifier: super::DWORD, dwflags: super::DWORD, ppmfmetadata: *mut Option<IMFMetadata>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMFPresentationDescriptor>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMFMetadata)(windows_core::Interface::as_raw(self), ppresentationdescriptor.param().abi(), dwstreamidentifier, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetMFMetadata)(windows_core::Interface::as_raw(self), ppresentationdescriptor.param().abi(), dwstreamidentifier, dwflags, core::mem::transmute(ppmfmetadata)) }
     }
 }
 #[repr(C)]
@@ -5580,7 +4776,7 @@ pub struct IMFMetadataProvider_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFMetadataProvider_Impl: windows_core::IUnknownImpl {
-    fn GetMFMetadata(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, dwstreamidentifier: super::DWORD, dwflags: super::DWORD) -> windows_core::Result<IMFMetadata>;
+    fn GetMFMetadata(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, dwstreamidentifier: super::DWORD, dwflags: super::DWORD, ppmfmetadata: windows_core::OutRef<IMFMetadata>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFMetadataProvider_Vtbl {
@@ -5588,13 +4784,7 @@ impl IMFMetadataProvider_Vtbl {
         unsafe extern "system" fn GetMFMetadata<Identity: IMFMetadataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationdescriptor: *mut core::ffi::c_void, dwstreamidentifier: super::DWORD, dwflags: super::DWORD, ppmfmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFMetadataProvider_Impl::GetMFMetadata(this, core::mem::transmute_copy(&ppresentationdescriptor), core::mem::transmute_copy(&dwstreamidentifier), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        ppmfmetadata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFMetadataProvider_Impl::GetMFMetadata(this, core::mem::transmute_copy(&ppresentationdescriptor), core::mem::transmute_copy(&dwstreamidentifier), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppmfmetadata)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMFMetadata: GetMFMetadata::<Identity, OFFSET> }
@@ -5624,11 +4814,8 @@ impl IMFNetCredential {
     pub unsafe fn GetPassword(&self, pbdata: Option<*mut super::BYTE>, pcbdata: *mut super::DWORD, fencryptdata: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPassword)(windows_core::Interface::as_raw(self), pbdata.unwrap_or(core::mem::zeroed()) as _, pcbdata as _, fencryptdata.into()) }
     }
-    pub unsafe fn LoggedOnUser(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoggedOnUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn LoggedOnUser(&self, pfloggedonuser: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).LoggedOnUser)(windows_core::Interface::as_raw(self), pfloggedonuser as _) }
     }
 }
 #[repr(C)]
@@ -5659,7 +4846,7 @@ pub trait IMFNetCredential_Impl: windows_core::IUnknownImpl {
     fn SetPassword(&self, pbdata: *const super::BYTE, cbdata: super::DWORD, fdataisencrypted: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetUser(&self, pbdata: *mut super::BYTE, pcbdata: *mut super::DWORD, fencryptdata: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPassword(&self, pbdata: *mut super::BYTE, pcbdata: *mut super::DWORD, fencryptdata: windows_core::BOOL) -> windows_core::Result<()>;
-    fn LoggedOnUser(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn LoggedOnUser(&self, pfloggedonuser: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFNetCredential_Vtbl {
@@ -5691,13 +4878,7 @@ impl IMFNetCredential_Vtbl {
         unsafe extern "system" fn LoggedOnUser<Identity: IMFNetCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfloggedonuser: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetCredential_Impl::LoggedOnUser(this) {
-                    Ok(ok__) => {
-                        pfloggedonuser.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetCredential_Impl::LoggedOnUser(this, core::mem::transmute_copy(&pfloggedonuser)).into()
             }
         }
         Self {
@@ -5806,14 +4987,11 @@ impl IMFNetCredentialManager {
         unsafe { (windows_core::Interface::vtable(self).BeginGetCredentials)(windows_core::Interface::as_raw(self), pparam, pcallback.param().abi(), pstate.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn EndGetCredentials<P0>(&self, presult: P0) -> windows_core::Result<IMFNetCredential>
+    pub unsafe fn EndGetCredentials<P0>(&self, presult: P0, ppcred: *mut Option<IMFNetCredential>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndGetCredentials)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).EndGetCredentials)(windows_core::Interface::as_raw(self), presult.param().abi(), core::mem::transmute(ppcred)) }
     }
     pub unsafe fn SetGood<P0>(&self, pcred: P0, fgood: bool) -> windows_core::HRESULT
     where
@@ -5839,7 +5017,7 @@ pub struct IMFNetCredentialManager_Vtbl {
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFNetCredentialManager_Impl: windows_core::IUnknownImpl {
     fn BeginGetCredentials(&self, pparam: *const MFNetCredentialManagerGetParam, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetCredentials(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<IMFNetCredential>;
+    fn EndGetCredentials(&self, presult: windows_core::Ref<super::IMFAsyncResult>, ppcred: windows_core::OutRef<IMFNetCredential>) -> windows_core::Result<()>;
     fn SetGood(&self, pcred: windows_core::Ref<IMFNetCredential>, fgood: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -5854,13 +5032,7 @@ impl IMFNetCredentialManager_Vtbl {
         unsafe extern "system" fn EndGetCredentials<Identity: IMFNetCredentialManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, ppcred: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetCredentialManager_Impl::EndGetCredentials(this, core::mem::transmute_copy(&presult)) {
-                    Ok(ok__) => {
-                        ppcred.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetCredentialManager_Impl::EndGetCredentials(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&ppcred)).into()
             }
         }
         unsafe extern "system" fn SetGood<Identity: IMFNetCredentialManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcred: *mut core::ffi::c_void, fgood: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5885,26 +5057,17 @@ impl windows_core::RuntimeName for IMFNetCredentialManager {}
 windows_core::imp::define_interface!(IMFNetCrossOriginSupport, IMFNetCrossOriginSupport_Vtbl, 0xbc2b7d44_a72d_49d5_8376_1480dee58b22);
 windows_core::imp::interface_hierarchy!(IMFNetCrossOriginSupport, windows_core::IUnknown);
 impl IMFNetCrossOriginSupport {
-    pub unsafe fn GetCrossOriginPolicy(&self) -> windows_core::Result<MF_CROSS_ORIGIN_POLICY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCrossOriginPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCrossOriginPolicy(&self, ppolicy: *mut MF_CROSS_ORIGIN_POLICY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCrossOriginPolicy)(windows_core::Interface::as_raw(self), ppolicy as _) }
     }
-    pub unsafe fn GetSourceOrigin(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSourceOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSourceOrigin(&self, wszsourceorigin: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceOrigin)(windows_core::Interface::as_raw(self), wszsourceorigin as _) }
     }
-    pub unsafe fn IsSameOrigin<P0>(&self, wszurl: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn IsSameOrigin<P0>(&self, wszurl: P0, pfissameorigin: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsSameOrigin)(windows_core::Interface::as_raw(self), wszurl.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).IsSameOrigin)(windows_core::Interface::as_raw(self), wszurl.param().abi(), pfissameorigin as _) }
     }
 }
 #[repr(C)]
@@ -5916,46 +5079,28 @@ pub struct IMFNetCrossOriginSupport_Vtbl {
     pub IsSameOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMFNetCrossOriginSupport_Impl: windows_core::IUnknownImpl {
-    fn GetCrossOriginPolicy(&self) -> windows_core::Result<MF_CROSS_ORIGIN_POLICY>;
-    fn GetSourceOrigin(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsSameOrigin(&self, wszurl: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
+    fn GetCrossOriginPolicy(&self, ppolicy: *mut MF_CROSS_ORIGIN_POLICY) -> windows_core::Result<()>;
+    fn GetSourceOrigin(&self, wszsourceorigin: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn IsSameOrigin(&self, wszurl: &windows_core::PCWSTR, pfissameorigin: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IMFNetCrossOriginSupport_Vtbl {
     pub const fn new<Identity: IMFNetCrossOriginSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCrossOriginPolicy<Identity: IMFNetCrossOriginSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppolicy: *mut MF_CROSS_ORIGIN_POLICY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetCrossOriginSupport_Impl::GetCrossOriginPolicy(this) {
-                    Ok(ok__) => {
-                        ppolicy.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetCrossOriginSupport_Impl::GetCrossOriginPolicy(this, core::mem::transmute_copy(&ppolicy)).into()
             }
         }
         unsafe extern "system" fn GetSourceOrigin<Identity: IMFNetCrossOriginSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszsourceorigin: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetCrossOriginSupport_Impl::GetSourceOrigin(this) {
-                    Ok(ok__) => {
-                        wszsourceorigin.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetCrossOriginSupport_Impl::GetSourceOrigin(this, core::mem::transmute_copy(&wszsourceorigin)).into()
             }
         }
         unsafe extern "system" fn IsSameOrigin<Identity: IMFNetCrossOriginSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszurl: windows_core::PCWSTR, pfissameorigin: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetCrossOriginSupport_Impl::IsSameOrigin(this, core::mem::transmute(&wszurl)) {
-                    Ok(ok__) => {
-                        pfissameorigin.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetCrossOriginSupport_Impl::IsSameOrigin(this, core::mem::transmute(&wszurl), core::mem::transmute_copy(&pfissameorigin)).into()
             }
         }
         Self {
@@ -5990,11 +5135,8 @@ impl IMFNetProxyLocator {
     pub unsafe fn GetCurrentProxy(&self, pszstr: Option<windows_core::PWSTR>, pcchstr: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentProxy)(windows_core::Interface::as_raw(self), pszstr.unwrap_or(core::mem::zeroed()) as _, pcchstr as _) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppproxylocator: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppproxylocator)) }
     }
 }
 #[repr(C)]
@@ -6016,7 +5158,7 @@ pub trait IMFNetProxyLocator_Impl: windows_core::IUnknownImpl {
     fn FindNextProxy(&self) -> windows_core::Result<()>;
     fn RegisterProxyResult(&self, hrop: windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetCurrentProxy(&self, pszstr: windows_core::PWSTR, pcchstr: *mut super::DWORD) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IMFNetProxyLocator>;
+    fn Clone(&self, ppproxylocator: windows_core::OutRef<IMFNetProxyLocator>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFNetProxyLocator_Vtbl {
@@ -6048,13 +5190,7 @@ impl IMFNetProxyLocator_Vtbl {
         unsafe extern "system" fn Clone<Identity: IMFNetProxyLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproxylocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetProxyLocator_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppproxylocator.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetProxyLocator_Impl::Clone(this, core::mem::transmute_copy(&ppproxylocator)).into()
             }
         }
         Self {
@@ -6075,14 +5211,11 @@ impl windows_core::RuntimeName for IMFNetProxyLocator {}
 windows_core::imp::define_interface!(IMFNetProxyLocatorFactory, IMFNetProxyLocatorFactory_Vtbl, 0xe9cd0384_a268_4bb4_82de_658d53574d41);
 windows_core::imp::interface_hierarchy!(IMFNetProxyLocatorFactory, windows_core::IUnknown);
 impl IMFNetProxyLocatorFactory {
-    pub unsafe fn CreateProxyLocator<P0>(&self, pszprotocol: P0) -> windows_core::Result<IMFNetProxyLocator>
+    pub unsafe fn CreateProxyLocator<P0>(&self, pszprotocol: P0, ppproxylocator: *mut Option<IMFNetProxyLocator>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateProxyLocator)(windows_core::Interface::as_raw(self), pszprotocol.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateProxyLocator)(windows_core::Interface::as_raw(self), pszprotocol.param().abi(), core::mem::transmute(ppproxylocator)) }
     }
 }
 #[repr(C)]
@@ -6092,20 +5225,14 @@ pub struct IMFNetProxyLocatorFactory_Vtbl {
     pub CreateProxyLocator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFNetProxyLocatorFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateProxyLocator(&self, pszprotocol: &windows_core::PCWSTR) -> windows_core::Result<IMFNetProxyLocator>;
+    fn CreateProxyLocator(&self, pszprotocol: &windows_core::PCWSTR, ppproxylocator: windows_core::OutRef<IMFNetProxyLocator>) -> windows_core::Result<()>;
 }
 impl IMFNetProxyLocatorFactory_Vtbl {
     pub const fn new<Identity: IMFNetProxyLocatorFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateProxyLocator<Identity: IMFNetProxyLocatorFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszprotocol: windows_core::PCWSTR, ppproxylocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetProxyLocatorFactory_Impl::CreateProxyLocator(this, core::mem::transmute(&pszprotocol)) {
-                    Ok(ok__) => {
-                        ppproxylocator.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetProxyLocatorFactory_Impl::CreateProxyLocator(this, core::mem::transmute(&pszprotocol), core::mem::transmute_copy(&ppproxylocator)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProxyLocator: CreateProxyLocator::<Identity, OFFSET> }
@@ -6119,14 +5246,11 @@ windows_core::imp::define_interface!(IMFNetResourceFilter, IMFNetResourceFilter_
 windows_core::imp::interface_hierarchy!(IMFNetResourceFilter, windows_core::IUnknown);
 impl IMFNetResourceFilter {
     #[cfg(feature = "wtypes")]
-    pub unsafe fn OnRedirect<P0>(&self, pszurl: P0) -> windows_core::Result<super::VARIANT_BOOL>
+    pub unsafe fn OnRedirect<P0>(&self, pszurl: P0, pvbcancel: *mut super::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnRedirect)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OnRedirect)(windows_core::Interface::as_raw(self), pszurl.param().abi(), pvbcancel as _) }
     }
     pub unsafe fn OnSendingRequest<P0>(&self, pszurl: P0) -> windows_core::HRESULT
     where
@@ -6147,7 +5271,7 @@ pub struct IMFNetResourceFilter_Vtbl {
 }
 #[cfg(feature = "wtypes")]
 pub trait IMFNetResourceFilter_Impl: windows_core::IUnknownImpl {
-    fn OnRedirect(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn OnRedirect(&self, pszurl: &windows_core::PCWSTR, pvbcancel: *mut super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn OnSendingRequest(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "wtypes")]
@@ -6156,13 +5280,7 @@ impl IMFNetResourceFilter_Vtbl {
         unsafe extern "system" fn OnRedirect<Identity: IMFNetResourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR, pvbcancel: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetResourceFilter_Impl::OnRedirect(this, core::mem::transmute(&pszurl)) {
-                    Ok(ok__) => {
-                        pvbcancel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetResourceFilter_Impl::OnRedirect(this, core::mem::transmute(&pszurl), core::mem::transmute_copy(&pvbcancel)).into()
             }
         }
         unsafe extern "system" fn OnSendingRequest<Identity: IMFNetResourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -6187,18 +5305,12 @@ windows_core::imp::define_interface!(IMFNetSchemeHandlerConfig, IMFNetSchemeHand
 windows_core::imp::interface_hierarchy!(IMFNetSchemeHandlerConfig, windows_core::IUnknown);
 impl IMFNetSchemeHandlerConfig {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNumberOfSupportedProtocols(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumberOfSupportedProtocols)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNumberOfSupportedProtocols(&self, pcprotocols: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNumberOfSupportedProtocols)(windows_core::Interface::as_raw(self), pcprotocols as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSupportedProtocolType(&self, nprotocolindex: super::ULONG) -> windows_core::Result<MFNETSOURCE_PROTOCOL_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSupportedProtocolType)(windows_core::Interface::as_raw(self), nprotocolindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSupportedProtocolType(&self, nprotocolindex: super::ULONG, pnprotocoltype: *mut MFNETSOURCE_PROTOCOL_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProtocolType)(windows_core::Interface::as_raw(self), nprotocolindex, pnprotocoltype as _) }
     }
     pub unsafe fn ResetProtocolRolloverSettings(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetProtocolRolloverSettings)(windows_core::Interface::as_raw(self)) }
@@ -6220,8 +5332,8 @@ pub struct IMFNetSchemeHandlerConfig_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFNetSchemeHandlerConfig_Impl: windows_core::IUnknownImpl {
-    fn GetNumberOfSupportedProtocols(&self) -> windows_core::Result<super::ULONG>;
-    fn GetSupportedProtocolType(&self, nprotocolindex: super::ULONG) -> windows_core::Result<MFNETSOURCE_PROTOCOL_TYPE>;
+    fn GetNumberOfSupportedProtocols(&self, pcprotocols: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetSupportedProtocolType(&self, nprotocolindex: super::ULONG, pnprotocoltype: *mut MFNETSOURCE_PROTOCOL_TYPE) -> windows_core::Result<()>;
     fn ResetProtocolRolloverSettings(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -6230,25 +5342,13 @@ impl IMFNetSchemeHandlerConfig_Vtbl {
         unsafe extern "system" fn GetNumberOfSupportedProtocols<Identity: IMFNetSchemeHandlerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcprotocols: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetSchemeHandlerConfig_Impl::GetNumberOfSupportedProtocols(this) {
-                    Ok(ok__) => {
-                        pcprotocols.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetSchemeHandlerConfig_Impl::GetNumberOfSupportedProtocols(this, core::mem::transmute_copy(&pcprotocols)).into()
             }
         }
         unsafe extern "system" fn GetSupportedProtocolType<Identity: IMFNetSchemeHandlerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nprotocolindex: super::ULONG, pnprotocoltype: *mut MFNETSOURCE_PROTOCOL_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFNetSchemeHandlerConfig_Impl::GetSupportedProtocolType(this, core::mem::transmute_copy(&nprotocolindex)) {
-                    Ok(ok__) => {
-                        pnprotocoltype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFNetSchemeHandlerConfig_Impl::GetSupportedProtocolType(this, core::mem::transmute_copy(&nprotocolindex), core::mem::transmute_copy(&pnprotocoltype)).into()
             }
         }
         unsafe extern "system" fn ResetProtocolRolloverSettings<Identity: IMFNetSchemeHandlerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6344,24 +5444,15 @@ windows_core::imp::interface_hierarchy!(IMFOutputPolicy, windows_core::IUnknown,
 #[cfg(feature = "mfobjects")]
 impl IMFOutputPolicy {
     #[cfg(feature = "shared")]
-    pub unsafe fn GenerateRequiredSchemas(&self, dwattributes: super::DWORD, guidoutputsubtype: windows_core::GUID, rgguidprotectionschemassupported: *const windows_core::GUID, cprotectionschemassupported: super::DWORD) -> windows_core::Result<super::IMFCollection> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GenerateRequiredSchemas)(windows_core::Interface::as_raw(self), dwattributes, guidoutputsubtype, rgguidprotectionschemassupported, cprotectionschemassupported, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GenerateRequiredSchemas(&self, dwattributes: super::DWORD, guidoutputsubtype: windows_core::GUID, rgguidprotectionschemassupported: *const windows_core::GUID, cprotectionschemassupported: super::DWORD, pprequiredprotectionschemas: *mut Option<super::IMFCollection>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GenerateRequiredSchemas)(windows_core::Interface::as_raw(self), dwattributes, guidoutputsubtype, rgguidprotectionschemassupported, cprotectionschemassupported, core::mem::transmute(pprequiredprotectionschemas)) }
     }
-    pub unsafe fn GetOriginatorID(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOriginatorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOriginatorID(&self, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOriginatorID)(windows_core::Interface::as_raw(self), pguidoriginatorid as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMinimumGRLVersion(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMinimumGRLVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMinimumGRLVersion(&self, pdwminimumgrlversion: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMinimumGRLVersion)(windows_core::Interface::as_raw(self), pdwminimumgrlversion as _) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -6381,9 +5472,9 @@ pub struct IMFOutputPolicy_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFOutputPolicy_Impl: super::IMFAttributes_Impl {
-    fn GenerateRequiredSchemas(&self, dwattributes: super::DWORD, guidoutputsubtype: &windows_core::GUID, rgguidprotectionschemassupported: *const windows_core::GUID, cprotectionschemassupported: super::DWORD) -> windows_core::Result<super::IMFCollection>;
-    fn GetOriginatorID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetMinimumGRLVersion(&self) -> windows_core::Result<super::DWORD>;
+    fn GenerateRequiredSchemas(&self, dwattributes: super::DWORD, guidoutputsubtype: &windows_core::GUID, rgguidprotectionschemassupported: *const windows_core::GUID, cprotectionschemassupported: super::DWORD, pprequiredprotectionschemas: windows_core::OutRef<super::IMFCollection>) -> windows_core::Result<()>;
+    fn GetOriginatorID(&self, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetMinimumGRLVersion(&self, pdwminimumgrlversion: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFOutputPolicy_Vtbl {
@@ -6391,37 +5482,19 @@ impl IMFOutputPolicy_Vtbl {
         unsafe extern "system" fn GenerateRequiredSchemas<Identity: IMFOutputPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: super::DWORD, guidoutputsubtype: windows_core::GUID, rgguidprotectionschemassupported: *const windows_core::GUID, cprotectionschemassupported: super::DWORD, pprequiredprotectionschemas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputPolicy_Impl::GenerateRequiredSchemas(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&guidoutputsubtype), core::mem::transmute_copy(&rgguidprotectionschemassupported), core::mem::transmute_copy(&cprotectionschemassupported)) {
-                    Ok(ok__) => {
-                        pprequiredprotectionschemas.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputPolicy_Impl::GenerateRequiredSchemas(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&guidoutputsubtype), core::mem::transmute_copy(&rgguidprotectionschemassupported), core::mem::transmute_copy(&cprotectionschemassupported), core::mem::transmute_copy(&pprequiredprotectionschemas)).into()
             }
         }
         unsafe extern "system" fn GetOriginatorID<Identity: IMFOutputPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputPolicy_Impl::GetOriginatorID(this) {
-                    Ok(ok__) => {
-                        pguidoriginatorid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputPolicy_Impl::GetOriginatorID(this, core::mem::transmute_copy(&pguidoriginatorid)).into()
             }
         }
         unsafe extern "system" fn GetMinimumGRLVersion<Identity: IMFOutputPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwminimumgrlversion: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputPolicy_Impl::GetMinimumGRLVersion(this) {
-                    Ok(ok__) => {
-                        pdwminimumgrlversion.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputPolicy_Impl::GetMinimumGRLVersion(this, core::mem::transmute_copy(&pdwminimumgrlversion)).into()
             }
         }
         Self {
@@ -6450,24 +5523,15 @@ impl core::ops::Deref for IMFOutputSchema {
 windows_core::imp::interface_hierarchy!(IMFOutputSchema, windows_core::IUnknown, super::IMFAttributes);
 #[cfg(feature = "mfobjects")]
 impl IMFOutputSchema {
-    pub unsafe fn GetSchemaType(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSchemaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSchemaType(&self, pguidschematype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSchemaType)(windows_core::Interface::as_raw(self), pguidschematype as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetConfigurationData(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConfigurationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetConfigurationData(&self, pdwval: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetConfigurationData)(windows_core::Interface::as_raw(self), pdwval as _) }
     }
-    pub unsafe fn GetOriginatorID(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOriginatorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOriginatorID(&self, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOriginatorID)(windows_core::Interface::as_raw(self), pguidoriginatorid as _) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -6484,9 +5548,9 @@ pub struct IMFOutputSchema_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFOutputSchema_Impl: super::IMFAttributes_Impl {
-    fn GetSchemaType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetConfigurationData(&self) -> windows_core::Result<super::DWORD>;
-    fn GetOriginatorID(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetSchemaType(&self, pguidschematype: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetConfigurationData(&self, pdwval: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOriginatorID(&self, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFOutputSchema_Vtbl {
@@ -6494,37 +5558,19 @@ impl IMFOutputSchema_Vtbl {
         unsafe extern "system" fn GetSchemaType<Identity: IMFOutputSchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidschematype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputSchema_Impl::GetSchemaType(this) {
-                    Ok(ok__) => {
-                        pguidschematype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputSchema_Impl::GetSchemaType(this, core::mem::transmute_copy(&pguidschematype)).into()
             }
         }
         unsafe extern "system" fn GetConfigurationData<Identity: IMFOutputSchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwval: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputSchema_Impl::GetConfigurationData(this) {
-                    Ok(ok__) => {
-                        pdwval.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputSchema_Impl::GetConfigurationData(this, core::mem::transmute_copy(&pdwval)).into()
             }
         }
         unsafe extern "system" fn GetOriginatorID<Identity: IMFOutputSchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidoriginatorid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputSchema_Impl::GetOriginatorID(this) {
-                    Ok(ok__) => {
-                        pguidoriginatorid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputSchema_Impl::GetOriginatorID(this, core::mem::transmute_copy(&pguidoriginatorid)).into()
             }
         }
         Self {
@@ -6543,11 +5589,8 @@ impl windows_core::RuntimeName for IMFOutputSchema {}
 windows_core::imp::define_interface!(IMFOutputTrustAuthority, IMFOutputTrustAuthority_Vtbl, 0xd19f8e94_b126_4446_890c_5dcb7ad71453);
 windows_core::imp::interface_hierarchy!(IMFOutputTrustAuthority, windows_core::IUnknown);
 impl IMFOutputTrustAuthority {
-    pub unsafe fn GetAction(&self) -> windows_core::Result<MFPOLICYMANAGER_ACTION> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAction(&self, paction: *mut MFPOLICYMANAGER_ACTION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAction)(windows_core::Interface::as_raw(self), paction as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn SetPolicy(&self, pppolicy: Option<&[Option<IMFOutputPolicy>]>, ppbticket: Option<*mut *mut super::BYTE>, pcbticket: Option<*mut super::DWORD>) -> windows_core::HRESULT {
@@ -6566,7 +5609,7 @@ pub struct IMFOutputTrustAuthority_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFOutputTrustAuthority_Impl: windows_core::IUnknownImpl {
-    fn GetAction(&self) -> windows_core::Result<MFPOLICYMANAGER_ACTION>;
+    fn GetAction(&self, paction: *mut MFPOLICYMANAGER_ACTION) -> windows_core::Result<()>;
     fn SetPolicy(&self, pppolicy: *const Option<IMFOutputPolicy>, npolicy: super::DWORD, ppbticket: *mut *mut super::BYTE, pcbticket: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -6575,13 +5618,7 @@ impl IMFOutputTrustAuthority_Vtbl {
         unsafe extern "system" fn GetAction<Identity: IMFOutputTrustAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paction: *mut MFPOLICYMANAGER_ACTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFOutputTrustAuthority_Impl::GetAction(this) {
-                    Ok(ok__) => {
-                        paction.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFOutputTrustAuthority_Impl::GetAction(this, core::mem::transmute_copy(&paction)).into()
             }
         }
         unsafe extern "system" fn SetPolicy<Identity: IMFOutputTrustAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicy: *const *mut core::ffi::c_void, npolicy: super::DWORD, ppbticket: *mut *mut super::BYTE, pcbticket: *mut super::DWORD) -> windows_core::HRESULT {
@@ -6895,17 +5932,11 @@ impl IMFPresentationClock {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTimeSource)(windows_core::Interface::as_raw(self), ptimesource.param().abi()) }
     }
-    pub unsafe fn GetTimeSource(&self) -> windows_core::Result<IMFPresentationTimeSource> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTimeSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetTimeSource(&self, pptimesource: *mut Option<IMFPresentationTimeSource>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTimeSource)(windows_core::Interface::as_raw(self), core::mem::transmute(pptimesource)) }
     }
-    pub unsafe fn GetTime(&self) -> windows_core::Result<MFTIME> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTime(&self, phnsclocktime: *mut MFTIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), phnsclocktime as _) }
     }
     pub unsafe fn AddClockStateSink<P0>(&self, pstatesink: P0) -> windows_core::HRESULT
     where
@@ -6949,8 +5980,8 @@ pub struct IMFPresentationClock_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFPresentationClock_Impl: IMFClock_Impl {
     fn SetTimeSource(&self, ptimesource: windows_core::Ref<IMFPresentationTimeSource>) -> windows_core::Result<()>;
-    fn GetTimeSource(&self) -> windows_core::Result<IMFPresentationTimeSource>;
-    fn GetTime(&self) -> windows_core::Result<MFTIME>;
+    fn GetTimeSource(&self, pptimesource: windows_core::OutRef<IMFPresentationTimeSource>) -> windows_core::Result<()>;
+    fn GetTime(&self, phnsclocktime: *mut MFTIME) -> windows_core::Result<()>;
     fn AddClockStateSink(&self, pstatesink: windows_core::Ref<IMFClockStateSink>) -> windows_core::Result<()>;
     fn RemoveClockStateSink(&self, pstatesink: windows_core::Ref<IMFClockStateSink>) -> windows_core::Result<()>;
     fn Start(&self, llclockstartoffset: super::LONGLONG) -> windows_core::Result<()>;
@@ -6969,25 +6000,13 @@ impl IMFPresentationClock_Vtbl {
         unsafe extern "system" fn GetTimeSource<Identity: IMFPresentationClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptimesource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFPresentationClock_Impl::GetTimeSource(this) {
-                    Ok(ok__) => {
-                        pptimesource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFPresentationClock_Impl::GetTimeSource(this, core::mem::transmute_copy(&pptimesource)).into()
             }
         }
         unsafe extern "system" fn GetTime<Identity: IMFPresentationClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phnsclocktime: *mut MFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFPresentationClock_Impl::GetTime(this) {
-                    Ok(ok__) => {
-                        phnsclocktime.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFPresentationClock_Impl::GetTime(this, core::mem::transmute_copy(&phnsclocktime)).into()
             }
         }
         unsafe extern "system" fn AddClockStateSink<Identity: IMFPresentationClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatesink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7052,11 +6071,8 @@ windows_core::imp::interface_hierarchy!(IMFPresentationDescriptor, windows_core:
 #[cfg(feature = "mfobjects")]
 impl IMFPresentationDescriptor {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamDescriptorCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamDescriptorCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamDescriptorCount(&self, pdwdescriptorcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamDescriptorCount)(windows_core::Interface::as_raw(self), pdwdescriptorcount as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStreamDescriptorByIndex(&self, dwindex: super::DWORD, pfselected: *mut windows_core::BOOL, ppdescriptor: *mut Option<IMFStreamDescriptor>) -> windows_core::HRESULT {
@@ -7070,11 +6086,8 @@ impl IMFPresentationDescriptor {
     pub unsafe fn DeselectStream(&self, dwdescriptorindex: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeselectStream)(windows_core::Interface::as_raw(self), dwdescriptorindex) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, pppresentationdescriptor: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(pppresentationdescriptor)) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -7102,11 +6115,11 @@ pub struct IMFPresentationDescriptor_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFPresentationDescriptor_Impl: super::IMFAttributes_Impl {
-    fn GetStreamDescriptorCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetStreamDescriptorCount(&self, pdwdescriptorcount: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetStreamDescriptorByIndex(&self, dwindex: super::DWORD, pfselected: *mut windows_core::BOOL, ppdescriptor: windows_core::OutRef<IMFStreamDescriptor>) -> windows_core::Result<()>;
     fn SelectStream(&self, dwdescriptorindex: super::DWORD) -> windows_core::Result<()>;
     fn DeselectStream(&self, dwdescriptorindex: super::DWORD) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IMFPresentationDescriptor>;
+    fn Clone(&self, pppresentationdescriptor: windows_core::OutRef<IMFPresentationDescriptor>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFPresentationDescriptor_Vtbl {
@@ -7114,13 +6127,7 @@ impl IMFPresentationDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamDescriptorCount<Identity: IMFPresentationDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdescriptorcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFPresentationDescriptor_Impl::GetStreamDescriptorCount(this) {
-                    Ok(ok__) => {
-                        pdwdescriptorcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFPresentationDescriptor_Impl::GetStreamDescriptorCount(this, core::mem::transmute_copy(&pdwdescriptorcount)).into()
             }
         }
         unsafe extern "system" fn GetStreamDescriptorByIndex<Identity: IMFPresentationDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, pfselected: *mut windows_core::BOOL, ppdescriptor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7144,13 +6151,7 @@ impl IMFPresentationDescriptor_Vtbl {
         unsafe extern "system" fn Clone<Identity: IMFPresentationDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppresentationdescriptor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFPresentationDescriptor_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        pppresentationdescriptor.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFPresentationDescriptor_Impl::Clone(this, core::mem::transmute_copy(&pppresentationdescriptor)).into()
             }
         }
         Self {
@@ -7177,11 +6178,8 @@ impl core::ops::Deref for IMFPresentationTimeSource {
 }
 windows_core::imp::interface_hierarchy!(IMFPresentationTimeSource, windows_core::IUnknown, IMFClock);
 impl IMFPresentationTimeSource {
-    pub unsafe fn GetUnderlyingClock(&self) -> windows_core::Result<IMFClock> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUnderlyingClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetUnderlyingClock(&self, ppclock: *mut Option<IMFClock>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUnderlyingClock)(windows_core::Interface::as_raw(self), core::mem::transmute(ppclock)) }
     }
 }
 #[repr(C)]
@@ -7192,7 +6190,7 @@ pub struct IMFPresentationTimeSource_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFPresentationTimeSource_Impl: IMFClock_Impl {
-    fn GetUnderlyingClock(&self) -> windows_core::Result<IMFClock>;
+    fn GetUnderlyingClock(&self, ppclock: windows_core::OutRef<IMFClock>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFPresentationTimeSource_Vtbl {
@@ -7200,13 +6198,7 @@ impl IMFPresentationTimeSource_Vtbl {
         unsafe extern "system" fn GetUnderlyingClock<Identity: IMFPresentationTimeSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFPresentationTimeSource_Impl::GetUnderlyingClock(this) {
-                    Ok(ok__) => {
-                        ppclock.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFPresentationTimeSource_Impl::GetUnderlyingClock(this, core::mem::transmute_copy(&ppclock)).into()
             }
         }
         Self { base__: IMFClock_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingClock: GetUnderlyingClock::<Identity, OFFSET> }
@@ -7279,17 +6271,11 @@ impl IMFQualityAdvise {
     pub unsafe fn SetQualityLevel(&self, equalitylevel: MF_QUALITY_LEVEL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQualityLevel)(windows_core::Interface::as_raw(self), equalitylevel) }
     }
-    pub unsafe fn GetDropMode(&self) -> windows_core::Result<MF_QUALITY_DROP_MODE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDropMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDropMode(&self, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDropMode)(windows_core::Interface::as_raw(self), pedropmode as _) }
     }
-    pub unsafe fn GetQualityLevel(&self) -> windows_core::Result<MF_QUALITY_LEVEL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetQualityLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetQualityLevel(&self, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQualityLevel)(windows_core::Interface::as_raw(self), pequalitylevel as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn DropTime(&self, hnsamounttodrop: super::LONGLONG) -> windows_core::HRESULT {
@@ -7313,8 +6299,8 @@ pub struct IMFQualityAdvise_Vtbl {
 pub trait IMFQualityAdvise_Impl: windows_core::IUnknownImpl {
     fn SetDropMode(&self, edropmode: MF_QUALITY_DROP_MODE) -> windows_core::Result<()>;
     fn SetQualityLevel(&self, equalitylevel: MF_QUALITY_LEVEL) -> windows_core::Result<()>;
-    fn GetDropMode(&self) -> windows_core::Result<MF_QUALITY_DROP_MODE>;
-    fn GetQualityLevel(&self) -> windows_core::Result<MF_QUALITY_LEVEL>;
+    fn GetDropMode(&self, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::Result<()>;
+    fn GetQualityLevel(&self, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::Result<()>;
     fn DropTime(&self, hnsamounttodrop: super::LONGLONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -7335,25 +6321,13 @@ impl IMFQualityAdvise_Vtbl {
         unsafe extern "system" fn GetDropMode<Identity: IMFQualityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFQualityAdvise_Impl::GetDropMode(this) {
-                    Ok(ok__) => {
-                        pedropmode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFQualityAdvise_Impl::GetDropMode(this, core::mem::transmute_copy(&pedropmode)).into()
             }
         }
         unsafe extern "system" fn GetQualityLevel<Identity: IMFQualityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFQualityAdvise_Impl::GetQualityLevel(this) {
-                    Ok(ok__) => {
-                        pequalitylevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFQualityAdvise_Impl::GetQualityLevel(this, core::mem::transmute_copy(&pequalitylevel)).into()
             }
         }
         unsafe extern "system" fn DropTime<Identity: IMFQualityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hnsamounttodrop: super::LONGLONG) -> windows_core::HRESULT {
@@ -7387,14 +6361,11 @@ impl core::ops::Deref for IMFQualityAdvise2 {
 windows_core::imp::interface_hierarchy!(IMFQualityAdvise2, windows_core::IUnknown, IMFQualityAdvise);
 impl IMFQualityAdvise2 {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn NotifyQualityEvent<P0>(&self, pevent: P0) -> windows_core::Result<super::DWORD>
+    pub unsafe fn NotifyQualityEvent<P0>(&self, pevent: P0, pdwflags: *mut super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFMediaEvent>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NotifyQualityEvent)(windows_core::Interface::as_raw(self), pevent.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).NotifyQualityEvent)(windows_core::Interface::as_raw(self), pevent.param().abi(), pdwflags as _) }
     }
 }
 #[repr(C)]
@@ -7408,7 +6379,7 @@ pub struct IMFQualityAdvise2_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFQualityAdvise2_Impl: IMFQualityAdvise_Impl {
-    fn NotifyQualityEvent(&self, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::Result<super::DWORD>;
+    fn NotifyQualityEvent(&self, pevent: windows_core::Ref<super::IMFMediaEvent>, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFQualityAdvise2_Vtbl {
@@ -7416,13 +6387,7 @@ impl IMFQualityAdvise2_Vtbl {
         unsafe extern "system" fn NotifyQualityEvent<Identity: IMFQualityAdvise2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevent: *mut core::ffi::c_void, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFQualityAdvise2_Impl::NotifyQualityEvent(this, core::mem::transmute_copy(&pevent)) {
-                    Ok(ok__) => {
-                        pdwflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFQualityAdvise2_Impl::NotifyQualityEvent(this, core::mem::transmute_copy(&pevent), core::mem::transmute_copy(&pdwflags)).into()
             }
         }
         Self { base__: IMFQualityAdvise_Vtbl::new::<Identity, OFFSET>(), NotifyQualityEvent: NotifyQualityEvent::<Identity, OFFSET> }
@@ -7436,17 +6401,11 @@ impl windows_core::RuntimeName for IMFQualityAdvise2 {}
 windows_core::imp::define_interface!(IMFQualityAdviseLimits, IMFQualityAdviseLimits_Vtbl, 0xdfcd8e4d_30b5_4567_acaa_8eb5b7853dc9);
 windows_core::imp::interface_hierarchy!(IMFQualityAdviseLimits, windows_core::IUnknown);
 impl IMFQualityAdviseLimits {
-    pub unsafe fn GetMaximumDropMode(&self) -> windows_core::Result<MF_QUALITY_DROP_MODE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaximumDropMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaximumDropMode(&self, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaximumDropMode)(windows_core::Interface::as_raw(self), pedropmode as _) }
     }
-    pub unsafe fn GetMinimumQualityLevel(&self) -> windows_core::Result<MF_QUALITY_LEVEL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMinimumQualityLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMinimumQualityLevel(&self, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMinimumQualityLevel)(windows_core::Interface::as_raw(self), pequalitylevel as _) }
     }
 }
 #[repr(C)]
@@ -7457,33 +6416,21 @@ pub struct IMFQualityAdviseLimits_Vtbl {
     pub GetMinimumQualityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT,
 }
 pub trait IMFQualityAdviseLimits_Impl: windows_core::IUnknownImpl {
-    fn GetMaximumDropMode(&self) -> windows_core::Result<MF_QUALITY_DROP_MODE>;
-    fn GetMinimumQualityLevel(&self) -> windows_core::Result<MF_QUALITY_LEVEL>;
+    fn GetMaximumDropMode(&self, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::Result<()>;
+    fn GetMinimumQualityLevel(&self, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::Result<()>;
 }
 impl IMFQualityAdviseLimits_Vtbl {
     pub const fn new<Identity: IMFQualityAdviseLimits_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMaximumDropMode<Identity: IMFQualityAdviseLimits_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pedropmode: *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFQualityAdviseLimits_Impl::GetMaximumDropMode(this) {
-                    Ok(ok__) => {
-                        pedropmode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFQualityAdviseLimits_Impl::GetMaximumDropMode(this, core::mem::transmute_copy(&pedropmode)).into()
             }
         }
         unsafe extern "system" fn GetMinimumQualityLevel<Identity: IMFQualityAdviseLimits_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pequalitylevel: *mut MF_QUALITY_LEVEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFQualityAdviseLimits_Impl::GetMinimumQualityLevel(this) {
-                    Ok(ok__) => {
-                        pequalitylevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFQualityAdviseLimits_Impl::GetMinimumQualityLevel(this, core::mem::transmute_copy(&pequalitylevel)).into()
             }
         }
         Self {
@@ -7673,17 +6620,11 @@ impl windows_core::RuntimeName for IMFRateControl {}
 windows_core::imp::define_interface!(IMFRateSupport, IMFRateSupport_Vtbl, 0x0a9ccdbc_d797_4563_9667_94ec5d79292d);
 windows_core::imp::interface_hierarchy!(IMFRateSupport, windows_core::IUnknown);
 impl IMFRateSupport {
-    pub unsafe fn GetSlowestRate(&self, edirection: MFRATE_DIRECTION, fthin: bool) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSlowestRate)(windows_core::Interface::as_raw(self), edirection, fthin.into(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSlowestRate(&self, edirection: MFRATE_DIRECTION, fthin: bool, pflrate: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSlowestRate)(windows_core::Interface::as_raw(self), edirection, fthin.into(), pflrate as _) }
     }
-    pub unsafe fn GetFastestRate(&self, edirection: MFRATE_DIRECTION, fthin: bool) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFastestRate)(windows_core::Interface::as_raw(self), edirection, fthin.into(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFastestRate(&self, edirection: MFRATE_DIRECTION, fthin: bool, pflrate: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFastestRate)(windows_core::Interface::as_raw(self), edirection, fthin.into(), pflrate as _) }
     }
     pub unsafe fn IsRateSupported(&self, fthin: bool, flrate: f32, pflnearestsupportedrate: Option<*mut f32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsRateSupported)(windows_core::Interface::as_raw(self), fthin.into(), flrate, pflnearestsupportedrate.unwrap_or(core::mem::zeroed()) as _) }
@@ -7698,8 +6639,8 @@ pub struct IMFRateSupport_Vtbl {
     pub IsRateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, f32, *mut f32) -> windows_core::HRESULT,
 }
 pub trait IMFRateSupport_Impl: windows_core::IUnknownImpl {
-    fn GetSlowestRate(&self, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL) -> windows_core::Result<f32>;
-    fn GetFastestRate(&self, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL) -> windows_core::Result<f32>;
+    fn GetSlowestRate(&self, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL, pflrate: *mut f32) -> windows_core::Result<()>;
+    fn GetFastestRate(&self, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL, pflrate: *mut f32) -> windows_core::Result<()>;
     fn IsRateSupported(&self, fthin: windows_core::BOOL, flrate: f32, pflnearestsupportedrate: *mut f32) -> windows_core::Result<()>;
 }
 impl IMFRateSupport_Vtbl {
@@ -7707,25 +6648,13 @@ impl IMFRateSupport_Vtbl {
         unsafe extern "system" fn GetSlowestRate<Identity: IMFRateSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL, pflrate: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFRateSupport_Impl::GetSlowestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin)) {
-                    Ok(ok__) => {
-                        pflrate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFRateSupport_Impl::GetSlowestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin), core::mem::transmute_copy(&pflrate)).into()
             }
         }
         unsafe extern "system" fn GetFastestRate<Identity: IMFRateSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edirection: MFRATE_DIRECTION, fthin: windows_core::BOOL, pflrate: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFRateSupport_Impl::GetFastestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin)) {
-                    Ok(ok__) => {
-                        pflrate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFRateSupport_Impl::GetFastestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin), core::mem::transmute_copy(&pflrate)).into()
             }
         }
         unsafe extern "system" fn IsRateSupported<Identity: IMFRateSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fthin: windows_core::BOOL, flrate: f32, pflnearestsupportedrate: *mut f32) -> windows_core::HRESULT {
@@ -7894,11 +6823,8 @@ windows_core::imp::define_interface!(IMFRelativePanelReport, IMFRelativePanelRep
 windows_core::imp::interface_hierarchy!(IMFRelativePanelReport, windows_core::IUnknown);
 impl IMFRelativePanelReport {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRelativePanel(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRelativePanel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRelativePanel(&self, panel: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRelativePanel)(windows_core::Interface::as_raw(self), panel as _) }
     }
 }
 #[repr(C)]
@@ -7912,7 +6838,7 @@ pub struct IMFRelativePanelReport_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFRelativePanelReport_Impl: windows_core::IUnknownImpl {
-    fn GetRelativePanel(&self) -> windows_core::Result<super::ULONG>;
+    fn GetRelativePanel(&self, panel: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFRelativePanelReport_Vtbl {
@@ -7920,13 +6846,7 @@ impl IMFRelativePanelReport_Vtbl {
         unsafe extern "system" fn GetRelativePanel<Identity: IMFRelativePanelReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, panel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFRelativePanelReport_Impl::GetRelativePanel(this) {
-                    Ok(ok__) => {
-                        panel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFRelativePanelReport_Impl::GetRelativePanel(this, core::mem::transmute_copy(&panel)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRelativePanel: GetRelativePanel::<Identity, OFFSET> }
@@ -7955,20 +6875,14 @@ impl IMFRelativePanelWatcher {
         unsafe { (windows_core::Interface::vtable(self).BeginGetReport)(windows_core::Interface::as_raw(self), pcallback.param().abi(), pstate.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn EndGetReport<P0>(&self, presult: P0) -> windows_core::Result<IMFRelativePanelReport>
+    pub unsafe fn EndGetReport<P0>(&self, presult: P0, pprelativepanelreport: *mut Option<IMFRelativePanelReport>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndGetReport)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).EndGetReport)(windows_core::Interface::as_raw(self), presult.param().abi(), core::mem::transmute(pprelativepanelreport)) }
     }
-    pub unsafe fn GetReport(&self) -> windows_core::Result<IMFRelativePanelReport> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetReport(&self, pprelativepanelreport: *mut Option<IMFRelativePanelReport>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), core::mem::transmute(pprelativepanelreport)) }
     }
 }
 #[repr(C)]
@@ -7988,8 +6902,8 @@ pub struct IMFRelativePanelWatcher_Vtbl {
 #[cfg(feature = "mfobjects")]
 pub trait IMFRelativePanelWatcher_Impl: IMFShutdown_Impl {
     fn BeginGetReport(&self, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetReport(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<IMFRelativePanelReport>;
-    fn GetReport(&self) -> windows_core::Result<IMFRelativePanelReport>;
+    fn EndGetReport(&self, presult: windows_core::Ref<super::IMFAsyncResult>, pprelativepanelreport: windows_core::OutRef<IMFRelativePanelReport>) -> windows_core::Result<()>;
+    fn GetReport(&self, pprelativepanelreport: windows_core::OutRef<IMFRelativePanelReport>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFRelativePanelWatcher_Vtbl {
@@ -8003,31 +6917,13 @@ impl IMFRelativePanelWatcher_Vtbl {
         unsafe extern "system" fn EndGetReport<Identity: IMFRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, pprelativepanelreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFRelativePanelWatcher_Impl::EndGetReport(this, core::mem::transmute_copy(&presult)) {
-                    Ok(ok__) => {
-                        pprelativepanelreport.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        pprelativepanelreport.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFRelativePanelWatcher_Impl::EndGetReport(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&pprelativepanelreport)).into()
             }
         }
         unsafe extern "system" fn GetReport<Identity: IMFRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprelativepanelreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFRelativePanelWatcher_Impl::GetReport(this) {
-                    Ok(ok__) => {
-                        pprelativepanelreport.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        pprelativepanelreport.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFRelativePanelWatcher_Impl::GetReport(this, core::mem::transmute_copy(&pprelativepanelreport)).into()
             }
         }
         Self {
@@ -8153,18 +7049,12 @@ windows_core::imp::define_interface!(IMFSAMIStyle, IMFSAMIStyle_Vtbl, 0xa7e025dd
 windows_core::imp::interface_hierarchy!(IMFSAMIStyle, windows_core::IUnknown);
 impl IMFSAMIStyle {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStyleCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStyleCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStyleCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStyleCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetStyles(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStyles)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetStyles(&self, ppropvarstylearray: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStyles)(windows_core::Interface::as_raw(self), ppropvarstylearray) }
     }
     pub unsafe fn SetSelectedStyle<P0>(&self, pwszstyle: P0) -> windows_core::HRESULT
     where
@@ -8172,11 +7062,8 @@ impl IMFSAMIStyle {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelectedStyle)(windows_core::Interface::as_raw(self), pwszstyle.param().abi()) }
     }
-    pub unsafe fn GetSelectedStyle(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSelectedStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSelectedStyle(&self, ppwszstyle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSelectedStyle)(windows_core::Interface::as_raw(self), ppwszstyle as _) }
     }
 }
 #[repr(C)]
@@ -8196,10 +7083,10 @@ pub struct IMFSAMIStyle_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSAMIStyle_Impl: windows_core::IUnknownImpl {
-    fn GetStyleCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetStyles(&self) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetStyleCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetStyles(&self, ppropvarstylearray: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn SetSelectedStyle(&self, pwszstyle: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetSelectedStyle(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetSelectedStyle(&self, ppwszstyle: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSAMIStyle_Vtbl {
@@ -8207,25 +7094,13 @@ impl IMFSAMIStyle_Vtbl {
         unsafe extern "system" fn GetStyleCount<Identity: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSAMIStyle_Impl::GetStyleCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSAMIStyle_Impl::GetStyleCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetStyles<Identity: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvarstylearray: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSAMIStyle_Impl::GetStyles(this) {
-                    Ok(ok__) => {
-                        ppropvarstylearray.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSAMIStyle_Impl::GetStyles(this, core::mem::transmute_copy(&ppropvarstylearray)).into()
             }
         }
         unsafe extern "system" fn SetSelectedStyle<Identity: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszstyle: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -8237,13 +7112,7 @@ impl IMFSAMIStyle_Vtbl {
         unsafe extern "system" fn GetSelectedStyle<Identity: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszstyle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSAMIStyle_Impl::GetSelectedStyle(this) {
-                    Ok(ok__) => {
-                        ppwszstyle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSAMIStyle_Impl::GetSelectedStyle(this, core::mem::transmute_copy(&ppwszstyle)).into()
             }
         }
         Self {
@@ -8293,14 +7162,11 @@ impl IMFSSLCertificateManager {
         unsafe { (windows_core::Interface::vtable(self).GetCertificatePolicy)(windows_core::Interface::as_raw(self), pszurl.param().abi(), pfoverrideautomaticcheck as _, pfclientcertificateavailable as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OnServerCertificate<P0>(&self, pszurl: P0, pbdata: &[u8]) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn OnServerCertificate<P0>(&self, pszurl: P0, pbdata: &[u8], pfisgood: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnServerCertificate)(windows_core::Interface::as_raw(self), pszurl.param().abi(), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OnServerCertificate)(windows_core::Interface::as_raw(self), pszurl.param().abi(), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pfisgood as _) }
     }
 }
 #[repr(C)]
@@ -8331,7 +7197,7 @@ pub trait IMFSSLCertificateManager_Impl: windows_core::IUnknownImpl {
     fn BeginGetClientCertificate(&self, pszurl: &windows_core::PCWSTR, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndGetClientCertificate(&self, presult: windows_core::Ref<super::IMFAsyncResult>, ppbdata: *mut *mut super::BYTE, pcbdata: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetCertificatePolicy(&self, pszurl: &windows_core::PCWSTR, pfoverrideautomaticcheck: *mut windows_core::BOOL, pfclientcertificateavailable: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnServerCertificate(&self, pszurl: &windows_core::PCWSTR, pbdata: *const super::BYTE, cbdata: super::DWORD) -> windows_core::Result<windows_core::BOOL>;
+    fn OnServerCertificate(&self, pszurl: &windows_core::PCWSTR, pbdata: *const super::BYTE, cbdata: super::DWORD, pfisgood: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFSSLCertificateManager_Vtbl {
@@ -8363,13 +7229,7 @@ impl IMFSSLCertificateManager_Vtbl {
         unsafe extern "system" fn OnServerCertificate<Identity: IMFSSLCertificateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR, pbdata: *const super::BYTE, cbdata: super::DWORD, pfisgood: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSSLCertificateManager_Impl::OnServerCertificate(this, core::mem::transmute(&pszurl), core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&cbdata)) {
-                    Ok(ok__) => {
-                        pfisgood.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSSLCertificateManager_Impl::OnServerCertificate(this, core::mem::transmute(&pszurl), core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pfisgood)).into()
             }
         }
         Self {
@@ -8572,18 +7432,12 @@ windows_core::imp::define_interface!(IMFSampleProtection, IMFSampleProtection_Vt
 windows_core::imp::interface_hierarchy!(IMFSampleProtection, windows_core::IUnknown);
 impl IMFSampleProtection {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetInputProtectionVersion(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputProtectionVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetInputProtectionVersion(&self, pdwversion: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputProtectionVersion)(windows_core::Interface::as_raw(self), pdwversion as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOutputProtectionVersion(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputProtectionVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOutputProtectionVersion(&self, pdwversion: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputProtectionVersion)(windows_core::Interface::as_raw(self), pdwversion as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetProtectionCertificate(&self, dwversion: super::DWORD, ppcert: *mut *mut super::BYTE, pcbcert: *mut super::DWORD) -> windows_core::HRESULT {
@@ -8625,8 +7479,8 @@ pub struct IMFSampleProtection_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFSampleProtection_Impl: windows_core::IUnknownImpl {
-    fn GetInputProtectionVersion(&self) -> windows_core::Result<super::DWORD>;
-    fn GetOutputProtectionVersion(&self) -> windows_core::Result<super::DWORD>;
+    fn GetInputProtectionVersion(&self, pdwversion: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOutputProtectionVersion(&self, pdwversion: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetProtectionCertificate(&self, dwversion: super::DWORD, ppcert: *mut *mut super::BYTE, pcbcert: *mut super::DWORD) -> windows_core::Result<()>;
     fn InitOutputProtection(&self, dwversion: super::DWORD, dwoutputid: super::DWORD, pbcert: *const super::BYTE, cbcert: super::DWORD, ppbseed: *mut *mut super::BYTE, pcbseed: *mut super::DWORD) -> windows_core::Result<()>;
     fn InitInputProtection(&self, dwversion: super::DWORD, dwinputid: super::DWORD, pbseed: *const super::BYTE, cbseed: super::DWORD) -> windows_core::Result<()>;
@@ -8637,25 +7491,13 @@ impl IMFSampleProtection_Vtbl {
         unsafe extern "system" fn GetInputProtectionVersion<Identity: IMFSampleProtection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSampleProtection_Impl::GetInputProtectionVersion(this) {
-                    Ok(ok__) => {
-                        pdwversion.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSampleProtection_Impl::GetInputProtectionVersion(this, core::mem::transmute_copy(&pdwversion)).into()
             }
         }
         unsafe extern "system" fn GetOutputProtectionVersion<Identity: IMFSampleProtection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSampleProtection_Impl::GetOutputProtectionVersion(this) {
-                    Ok(ok__) => {
-                        pdwversion.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSampleProtection_Impl::GetOutputProtectionVersion(this, core::mem::transmute_copy(&pdwversion)).into()
             }
         }
         unsafe extern "system" fn GetProtectionCertificate<Identity: IMFSampleProtection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwversion: super::DWORD, ppcert: *mut *mut super::BYTE, pcbcert: *mut super::DWORD) -> windows_core::HRESULT {
@@ -8714,11 +7556,8 @@ impl IMFSaveJob {
         unsafe { (windows_core::Interface::vtable(self).CancelSave)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProgress(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetProgress(&self, pdwpercentcomplete: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), pdwpercentcomplete as _) }
     }
 }
 #[repr(C)]
@@ -8744,7 +7583,7 @@ pub trait IMFSaveJob_Impl: windows_core::IUnknownImpl {
     fn BeginSave(&self, pstream: windows_core::Ref<super::IMFByteStream>, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndSave(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<()>;
     fn CancelSave(&self) -> windows_core::Result<()>;
-    fn GetProgress(&self) -> windows_core::Result<super::DWORD>;
+    fn GetProgress(&self, pdwpercentcomplete: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFSaveJob_Vtbl {
@@ -8770,13 +7609,7 @@ impl IMFSaveJob_Vtbl {
         unsafe extern "system" fn GetProgress<Identity: IMFSaveJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpercentcomplete: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSaveJob_Impl::GetProgress(this) {
-                    Ok(ok__) => {
-                        pdwpercentcomplete.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSaveJob_Impl::GetProgress(this, core::mem::transmute_copy(&pdwpercentcomplete)).into()
             }
         }
         Self {
@@ -8973,27 +7806,18 @@ windows_core::imp::define_interface!(IMFSensorActivitiesReport, IMFSensorActivit
 windows_core::imp::interface_hierarchy!(IMFSensorActivitiesReport, windows_core::IUnknown);
 impl IMFSensorActivitiesReport {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pccount: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pccount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetActivityReport(&self, index: super::ULONG) -> windows_core::Result<IMFSensorActivityReport> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActivityReport)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetActivityReport(&self, index: super::ULONG, sensoractivityreport: *mut Option<IMFSensorActivityReport>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetActivityReport)(windows_core::Interface::as_raw(self), index, core::mem::transmute(sensoractivityreport)) }
     }
-    pub unsafe fn GetActivityReportByDeviceName<P0>(&self, symbolicname: P0) -> windows_core::Result<IMFSensorActivityReport>
+    pub unsafe fn GetActivityReportByDeviceName<P0>(&self, symbolicname: P0, sensoractivityreport: *mut Option<IMFSensorActivityReport>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActivityReportByDeviceName)(windows_core::Interface::as_raw(self), symbolicname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetActivityReportByDeviceName)(windows_core::Interface::as_raw(self), symbolicname.param().abi(), core::mem::transmute(sensoractivityreport)) }
     }
 }
 #[repr(C)]
@@ -9012,9 +7836,9 @@ pub struct IMFSensorActivitiesReport_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFSensorActivitiesReport_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
-    fn GetActivityReport(&self, index: super::ULONG) -> windows_core::Result<IMFSensorActivityReport>;
-    fn GetActivityReportByDeviceName(&self, symbolicname: &windows_core::PCWSTR) -> windows_core::Result<IMFSensorActivityReport>;
+    fn GetCount(&self, pccount: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetActivityReport(&self, index: super::ULONG, sensoractivityreport: windows_core::OutRef<IMFSensorActivityReport>) -> windows_core::Result<()>;
+    fn GetActivityReportByDeviceName(&self, symbolicname: &windows_core::PCWSTR, sensoractivityreport: windows_core::OutRef<IMFSensorActivityReport>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFSensorActivitiesReport_Vtbl {
@@ -9022,43 +7846,19 @@ impl IMFSensorActivitiesReport_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IMFSensorActivitiesReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorActivitiesReport_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pccount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorActivitiesReport_Impl::GetCount(this, core::mem::transmute_copy(&pccount)).into()
             }
         }
         unsafe extern "system" fn GetActivityReport<Identity: IMFSensorActivitiesReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, sensoractivityreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorActivitiesReport_Impl::GetActivityReport(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        sensoractivityreport.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        sensoractivityreport.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorActivitiesReport_Impl::GetActivityReport(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&sensoractivityreport)).into()
             }
         }
         unsafe extern "system" fn GetActivityReportByDeviceName<Identity: IMFSensorActivitiesReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symbolicname: windows_core::PCWSTR, sensoractivityreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorActivitiesReport_Impl::GetActivityReportByDeviceName(this, core::mem::transmute(&symbolicname)) {
-                    Ok(ok__) => {
-                        sensoractivityreport.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        sensoractivityreport.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorActivitiesReport_Impl::GetActivityReportByDeviceName(this, core::mem::transmute(&symbolicname), core::mem::transmute_copy(&sensoractivityreport)).into()
             }
         }
         Self {
@@ -9162,18 +7962,12 @@ impl IMFSensorActivityReport {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProcessCount(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProcessCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetProcessCount(&self, pccount: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProcessCount)(windows_core::Interface::as_raw(self), pccount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProcessActivity(&self, index: super::ULONG) -> windows_core::Result<IMFSensorProcessActivity> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProcessActivity)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetProcessActivity(&self, index: super::ULONG, ppprocessactivity: *mut Option<IMFSensorProcessActivity>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProcessActivity)(windows_core::Interface::as_raw(self), index, core::mem::transmute(ppprocessactivity)) }
     }
 }
 #[repr(C)]
@@ -9201,8 +7995,8 @@ pub struct IMFSensorActivityReport_Vtbl {
 pub trait IMFSensorActivityReport_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyName(&self, friendlyname: windows_core::PWSTR, cchfriendlyname: super::ULONG, pcchwritten: *mut super::ULONG) -> windows_core::Result<()>;
     fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: super::ULONG, pcchwritten: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetProcessCount(&self) -> windows_core::Result<super::ULONG>;
-    fn GetProcessActivity(&self, index: super::ULONG) -> windows_core::Result<IMFSensorProcessActivity>;
+    fn GetProcessCount(&self, pccount: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetProcessActivity(&self, index: super::ULONG, ppprocessactivity: windows_core::OutRef<IMFSensorProcessActivity>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFSensorActivityReport_Vtbl {
@@ -9222,28 +8016,13 @@ impl IMFSensorActivityReport_Vtbl {
         unsafe extern "system" fn GetProcessCount<Identity: IMFSensorActivityReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorActivityReport_Impl::GetProcessCount(this) {
-                    Ok(ok__) => {
-                        pccount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorActivityReport_Impl::GetProcessCount(this, core::mem::transmute_copy(&pccount)).into()
             }
         }
         unsafe extern "system" fn GetProcessActivity<Identity: IMFSensorActivityReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, ppprocessactivity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorActivityReport_Impl::GetProcessActivity(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        ppprocessactivity.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppprocessactivity.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorActivityReport_Impl::GetProcessActivity(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppprocessactivity)).into()
             }
         }
         Self {
@@ -9264,58 +8043,37 @@ windows_core::imp::define_interface!(IMFSensorDevice, IMFSensorDevice_Vtbl, 0xfb
 windows_core::imp::interface_hierarchy!(IMFSensorDevice, windows_core::IUnknown);
 impl IMFSensorDevice {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDeviceId(&self) -> windows_core::Result<super::ULONGLONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDeviceId(&self, pdeviceid: *mut super::ULONGLONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceId)(windows_core::Interface::as_raw(self), pdeviceid as _) }
     }
-    pub unsafe fn GetDeviceType(&self) -> windows_core::Result<MFSensorDeviceType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDeviceType(&self, ptype: *mut MFSensorDeviceType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceType)(windows_core::Interface::as_raw(self), ptype as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<super::ULONGLONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFlags(&self, pflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pflags as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: super::LONG, pcchwritten: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetDeviceAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+    pub unsafe fn GetDeviceAttributes(&self, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattributes)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamAttributesCount(&self, etype: MFSensorStreamType) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamAttributesCount)(windows_core::Interface::as_raw(self), etype, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamAttributesCount(&self, etype: MFSensorStreamType, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamAttributesCount)(windows_core::Interface::as_raw(self), etype, pdwcount as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetStreamAttributes(&self, etype: MFSensorStreamType, dwindex: super::DWORD) -> windows_core::Result<super::IMFAttributes> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamAttributes)(windows_core::Interface::as_raw(self), etype, dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStreamAttributes(&self, etype: MFSensorStreamType, dwindex: super::DWORD, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamAttributes)(windows_core::Interface::as_raw(self), etype, dwindex, core::mem::transmute(ppattributes)) }
     }
     pub unsafe fn SetSensorDeviceMode(&self, emode: MFSensorDeviceMode) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSensorDeviceMode)(windows_core::Interface::as_raw(self), emode) }
     }
-    pub unsafe fn GetSensorDeviceMode(&self) -> windows_core::Result<MFSensorDeviceMode> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSensorDeviceMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSensorDeviceMode(&self, pemode: *mut MFSensorDeviceMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSensorDeviceMode)(windows_core::Interface::as_raw(self), pemode as _) }
     }
 }
 #[repr(C)]
@@ -9352,15 +8110,15 @@ pub struct IMFSensorDevice_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFSensorDevice_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceId(&self) -> windows_core::Result<super::ULONGLONG>;
-    fn GetDeviceType(&self) -> windows_core::Result<MFSensorDeviceType>;
-    fn GetFlags(&self) -> windows_core::Result<super::ULONGLONG>;
+    fn GetDeviceId(&self, pdeviceid: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn GetDeviceType(&self, ptype: *mut MFSensorDeviceType) -> windows_core::Result<()>;
+    fn GetFlags(&self, pflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
     fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: super::LONG, pcchwritten: *mut super::LONG) -> windows_core::Result<()>;
-    fn GetDeviceAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>>;
-    fn GetStreamAttributesCount(&self, etype: MFSensorStreamType) -> windows_core::Result<super::DWORD>;
-    fn GetStreamAttributes(&self, etype: MFSensorStreamType, dwindex: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
+    fn GetDeviceAttributes(&self, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
+    fn GetStreamAttributesCount(&self, etype: MFSensorStreamType, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetStreamAttributes(&self, etype: MFSensorStreamType, dwindex: super::DWORD, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
     fn SetSensorDeviceMode(&self, emode: MFSensorDeviceMode) -> windows_core::Result<()>;
-    fn GetSensorDeviceMode(&self) -> windows_core::Result<MFSensorDeviceMode>;
+    fn GetSensorDeviceMode(&self, pemode: *mut MFSensorDeviceMode) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFSensorDevice_Vtbl {
@@ -9368,37 +8126,19 @@ impl IMFSensorDevice_Vtbl {
         unsafe extern "system" fn GetDeviceId<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdeviceid: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetDeviceId(this) {
-                    Ok(ok__) => {
-                        pdeviceid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorDevice_Impl::GetDeviceId(this, core::mem::transmute_copy(&pdeviceid)).into()
             }
         }
         unsafe extern "system" fn GetDeviceType<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut MFSensorDeviceType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetDeviceType(this) {
-                    Ok(ok__) => {
-                        ptype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorDevice_Impl::GetDeviceType(this, core::mem::transmute_copy(&ptype)).into()
             }
         }
         unsafe extern "system" fn GetFlags<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetFlags(this) {
-                    Ok(ok__) => {
-                        pflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorDevice_Impl::GetFlags(this, core::mem::transmute_copy(&pflags)).into()
             }
         }
         unsafe extern "system" fn GetSymbolicLink<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, symboliclink: windows_core::PWSTR, cchsymboliclink: super::LONG, pcchwritten: *mut super::LONG) -> windows_core::HRESULT {
@@ -9410,43 +8150,19 @@ impl IMFSensorDevice_Vtbl {
         unsafe extern "system" fn GetDeviceAttributes<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetDeviceAttributes(this) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorDevice_Impl::GetDeviceAttributes(this, core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn GetStreamAttributesCount<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: MFSensorStreamType, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetStreamAttributesCount(this, core::mem::transmute_copy(&etype)) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorDevice_Impl::GetStreamAttributesCount(this, core::mem::transmute_copy(&etype), core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetStreamAttributes<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: MFSensorStreamType, dwindex: super::DWORD, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetStreamAttributes(this, core::mem::transmute_copy(&etype), core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorDevice_Impl::GetStreamAttributes(this, core::mem::transmute_copy(&etype), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn SetSensorDeviceMode<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emode: MFSensorDeviceMode) -> windows_core::HRESULT {
@@ -9458,13 +8174,7 @@ impl IMFSensorDevice_Vtbl {
         unsafe extern "system" fn GetSensorDeviceMode<Identity: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pemode: *mut MFSensorDeviceMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorDevice_Impl::GetSensorDeviceMode(this) {
-                    Ok(ok__) => {
-                        pemode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorDevice_Impl::GetSensorDeviceMode(this, core::mem::transmute_copy(&pemode)).into()
             }
         }
         Self {
@@ -9494,50 +8204,32 @@ impl IMFSensorGroup {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<super::ULONGLONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFlags(&self, pflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pflags as _) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetSensorGroupAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSensorGroupAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+    pub unsafe fn GetSensorGroupAttributes(&self, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSensorGroupAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattributes)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSensorDeviceCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSensorDeviceCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSensorDeviceCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSensorDeviceCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSensorDevice(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSensorDevice> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSensorDevice)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSensorDevice(&self, dwindex: super::DWORD, ppdevice: *mut Option<IMFSensorDevice>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSensorDevice)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppdevice)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetDefaultSensorDeviceIndex(&self, dwindex: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultSensorDeviceIndex)(windows_core::Interface::as_raw(self), dwindex) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDefaultSensorDeviceIndex(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultSensorDeviceIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDefaultSensorDeviceIndex(&self, pdwindex: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultSensorDeviceIndex)(windows_core::Interface::as_raw(self), pdwindex as _) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn CreateMediaSource(&self) -> windows_core::Result<IMFMediaSource> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMediaSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMediaSource(&self, ppsource: *mut Option<IMFMediaSource>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMediaSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsource)) }
     }
 }
 #[repr(C)]
@@ -9580,13 +8272,13 @@ pub struct IMFSensorGroup_Vtbl {
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFSensorGroup_Impl: windows_core::IUnknownImpl {
     fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: super::LONG, pcchwritten: *mut super::LONG) -> windows_core::Result<()>;
-    fn GetFlags(&self) -> windows_core::Result<super::ULONGLONG>;
-    fn GetSensorGroupAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>>;
-    fn GetSensorDeviceCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetSensorDevice(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSensorDevice>;
+    fn GetFlags(&self, pflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn GetSensorGroupAttributes(&self, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
+    fn GetSensorDeviceCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetSensorDevice(&self, dwindex: super::DWORD, ppdevice: windows_core::OutRef<IMFSensorDevice>) -> windows_core::Result<()>;
     fn SetDefaultSensorDeviceIndex(&self, dwindex: super::DWORD) -> windows_core::Result<()>;
-    fn GetDefaultSensorDeviceIndex(&self) -> windows_core::Result<super::DWORD>;
-    fn CreateMediaSource(&self) -> windows_core::Result<IMFMediaSource>;
+    fn GetDefaultSensorDeviceIndex(&self, pdwindex: *mut super::DWORD) -> windows_core::Result<()>;
+    fn CreateMediaSource(&self, ppsource: windows_core::OutRef<IMFMediaSource>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFSensorGroup_Vtbl {
@@ -9600,55 +8292,25 @@ impl IMFSensorGroup_Vtbl {
         unsafe extern "system" fn GetFlags<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::GetFlags(this) {
-                    Ok(ok__) => {
-                        pflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorGroup_Impl::GetFlags(this, core::mem::transmute_copy(&pflags)).into()
             }
         }
         unsafe extern "system" fn GetSensorGroupAttributes<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::GetSensorGroupAttributes(this) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorGroup_Impl::GetSensorGroupAttributes(this, core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn GetSensorDeviceCount<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::GetSensorDeviceCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorGroup_Impl::GetSensorDeviceCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetSensorDevice<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::GetSensorDevice(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppdevice.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppdevice.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorGroup_Impl::GetSensorDevice(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppdevice)).into()
             }
         }
         unsafe extern "system" fn SetDefaultSensorDeviceIndex<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD) -> windows_core::HRESULT {
@@ -9660,28 +8322,13 @@ impl IMFSensorGroup_Vtbl {
         unsafe extern "system" fn GetDefaultSensorDeviceIndex<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwindex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::GetDefaultSensorDeviceIndex(this) {
-                    Ok(ok__) => {
-                        pdwindex.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorGroup_Impl::GetDefaultSensorDeviceIndex(this, core::mem::transmute_copy(&pdwindex)).into()
             }
         }
         unsafe extern "system" fn CreateMediaSource<Identity: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorGroup_Impl::CreateMediaSource(this) {
-                    Ok(ok__) => {
-                        ppsource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppsource.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorGroup_Impl::CreateMediaSource(this, core::mem::transmute_copy(&ppsource)).into()
             }
         }
         Self {
@@ -9706,30 +8353,18 @@ windows_core::imp::define_interface!(IMFSensorProcessActivity, IMFSensorProcessA
 windows_core::imp::interface_hierarchy!(IMFSensorProcessActivity, windows_core::IUnknown);
 impl IMFSensorProcessActivity {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProcessId(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetProcessId(&self, ppid: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProcessId)(windows_core::Interface::as_raw(self), ppid as _) }
     }
-    pub unsafe fn GetStreamingState(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamingState(&self, pfstreaming: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamingState)(windows_core::Interface::as_raw(self), pfstreaming as _) }
     }
-    pub unsafe fn GetStreamingMode(&self) -> windows_core::Result<MFSensorDeviceMode> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamingMode(&self, pmode: *mut MFSensorDeviceMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamingMode)(windows_core::Interface::as_raw(self), pmode as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn GetReportTime(&self) -> windows_core::Result<super::FILETIME> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReportTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetReportTime(&self, pft: *mut super::FILETIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReportTime)(windows_core::Interface::as_raw(self), pft as _) }
     }
 }
 #[repr(C)]
@@ -9749,10 +8384,10 @@ pub struct IMFSensorProcessActivity_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait IMFSensorProcessActivity_Impl: windows_core::IUnknownImpl {
-    fn GetProcessId(&self) -> windows_core::Result<super::ULONG>;
-    fn GetStreamingState(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetStreamingMode(&self) -> windows_core::Result<MFSensorDeviceMode>;
-    fn GetReportTime(&self) -> windows_core::Result<super::FILETIME>;
+    fn GetProcessId(&self, ppid: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetStreamingState(&self, pfstreaming: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetStreamingMode(&self, pmode: *mut MFSensorDeviceMode) -> windows_core::Result<()>;
+    fn GetReportTime(&self, pft: *mut super::FILETIME) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IMFSensorProcessActivity_Vtbl {
@@ -9760,49 +8395,25 @@ impl IMFSensorProcessActivity_Vtbl {
         unsafe extern "system" fn GetProcessId<Identity: IMFSensorProcessActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppid: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProcessActivity_Impl::GetProcessId(this) {
-                    Ok(ok__) => {
-                        ppid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorProcessActivity_Impl::GetProcessId(this, core::mem::transmute_copy(&ppid)).into()
             }
         }
         unsafe extern "system" fn GetStreamingState<Identity: IMFSensorProcessActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfstreaming: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProcessActivity_Impl::GetStreamingState(this) {
-                    Ok(ok__) => {
-                        pfstreaming.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorProcessActivity_Impl::GetStreamingState(this, core::mem::transmute_copy(&pfstreaming)).into()
             }
         }
         unsafe extern "system" fn GetStreamingMode<Identity: IMFSensorProcessActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut MFSensorDeviceMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProcessActivity_Impl::GetStreamingMode(this) {
-                    Ok(ok__) => {
-                        pmode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorProcessActivity_Impl::GetStreamingMode(this, core::mem::transmute_copy(&pmode)).into()
             }
         }
         unsafe extern "system" fn GetReportTime<Identity: IMFSensorProcessActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pft: *mut super::FILETIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProcessActivity_Impl::GetReportTime(this) {
-                    Ok(ok__) => {
-                        pft.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorProcessActivity_Impl::GetReportTime(this, core::mem::transmute_copy(&pft)).into()
             }
         }
         Self {
@@ -9834,14 +8445,11 @@ impl IMFSensorProfile {
         unsafe { (windows_core::Interface::vtable(self).AddProfileFilter)(windows_core::Interface::as_raw(self), streamid, wzfiltersetstring.param().abi()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn IsMediaTypeSupported<P1>(&self, streamid: super::UINT32, pmediatype: P1) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn IsMediaTypeSupported<P1>(&self, streamid: super::UINT32, pmediatype: P1, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IMFMediaType>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsMediaTypeSupported)(windows_core::Interface::as_raw(self), streamid, pmediatype.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).IsMediaTypeSupported)(windows_core::Interface::as_raw(self), streamid, pmediatype.param().abi(), pfsupported as _) }
     }
     pub unsafe fn AddBlockedControl<P0>(&self, wzblockedcontrol: P0) -> windows_core::HRESULT
     where
@@ -9872,7 +8480,7 @@ pub struct IMFSensorProfile_Vtbl {
 pub trait IMFSensorProfile_Impl: windows_core::IUnknownImpl {
     fn GetProfileId(&self, pid: *mut SENSORPROFILEID) -> windows_core::Result<()>;
     fn AddProfileFilter(&self, streamid: super::UINT32, wzfiltersetstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsMediaTypeSupported(&self, streamid: super::UINT32, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<windows_core::BOOL>;
+    fn IsMediaTypeSupported(&self, streamid: super::UINT32, pmediatype: windows_core::Ref<super::IMFMediaType>, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn AddBlockedControl(&self, wzblockedcontrol: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -9893,13 +8501,7 @@ impl IMFSensorProfile_Vtbl {
         unsafe extern "system" fn IsMediaTypeSupported<Identity: IMFSensorProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamid: super::UINT32, pmediatype: *mut core::ffi::c_void, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProfile_Impl::IsMediaTypeSupported(this, core::mem::transmute_copy(&streamid), core::mem::transmute_copy(&pmediatype)) {
-                    Ok(ok__) => {
-                        pfsupported.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorProfile_Impl::IsMediaTypeSupported(this, core::mem::transmute_copy(&streamid), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&pfsupported)).into()
             }
         }
         unsafe extern "system" fn AddBlockedControl<Identity: IMFSensorProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzblockedcontrol: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -9930,11 +8532,8 @@ impl IMFSensorProfileCollection {
         unsafe { (windows_core::Interface::vtable(self).GetProfileCount)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProfile(&self, index: super::DWORD) -> windows_core::Result<IMFSensorProfile> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetProfile(&self, index: super::DWORD, ppprofile: *mut Option<IMFSensorProfile>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(ppprofile)) }
     }
     pub unsafe fn AddProfile<P0>(&self, pprofile: P0) -> windows_core::HRESULT
     where
@@ -9943,11 +8542,8 @@ impl IMFSensorProfileCollection {
         unsafe { (windows_core::Interface::vtable(self).AddProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FindProfile(&self, profileid: *const SENSORPROFILEID) -> windows_core::Result<IMFSensorProfile> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindProfile)(windows_core::Interface::as_raw(self), profileid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn FindProfile(&self, profileid: *const SENSORPROFILEID, ppprofile: *mut Option<IMFSensorProfile>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindProfile)(windows_core::Interface::as_raw(self), profileid, core::mem::transmute(ppprofile)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveProfileByIndex(&self, index: super::DWORD) {
@@ -9991,9 +8587,9 @@ pub struct IMFSensorProfileCollection_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFSensorProfileCollection_Impl: windows_core::IUnknownImpl {
     fn GetProfileCount(&self) -> super::DWORD;
-    fn GetProfile(&self, index: super::DWORD) -> windows_core::Result<IMFSensorProfile>;
+    fn GetProfile(&self, index: super::DWORD, ppprofile: windows_core::OutRef<IMFSensorProfile>) -> windows_core::Result<()>;
     fn AddProfile(&self, pprofile: windows_core::Ref<IMFSensorProfile>) -> windows_core::Result<()>;
-    fn FindProfile(&self, profileid: *const SENSORPROFILEID) -> windows_core::Result<IMFSensorProfile>;
+    fn FindProfile(&self, profileid: *const SENSORPROFILEID, ppprofile: windows_core::OutRef<IMFSensorProfile>) -> windows_core::Result<()>;
     fn RemoveProfileByIndex(&self, index: super::DWORD);
     fn RemoveProfile(&self, profileid: *const SENSORPROFILEID);
 }
@@ -10009,16 +8605,7 @@ impl IMFSensorProfileCollection_Vtbl {
         unsafe extern "system" fn GetProfile<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::DWORD, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProfileCollection_Impl::GetProfile(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        ppprofile.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppprofile.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorProfileCollection_Impl::GetProfile(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppprofile)).into()
             }
         }
         unsafe extern "system" fn AddProfile<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10030,16 +8617,7 @@ impl IMFSensorProfileCollection_Vtbl {
         unsafe extern "system" fn FindProfile<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profileid: *const SENSORPROFILEID, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorProfileCollection_Impl::FindProfile(this, core::mem::transmute_copy(&profileid)) {
-                    Ok(ok__) => {
-                        ppprofile.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppprofile.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorProfileCollection_Impl::FindProfile(this, core::mem::transmute_copy(&profileid), core::mem::transmute_copy(&ppprofile)).into()
             }
         }
         unsafe extern "system" fn RemoveProfileByIndex<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::DWORD) {
@@ -10084,24 +8662,15 @@ windows_core::imp::interface_hierarchy!(IMFSensorStream, windows_core::IUnknown,
 #[cfg(feature = "mfobjects")]
 impl IMFSensorStream {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMediaTypeCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaTypeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMediaTypeCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaTypeCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMediaType(&self, dwindex: super::DWORD) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaType(&self, dwindex: super::DWORD, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppmediatype)) }
     }
-    pub unsafe fn CloneSensorStream(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CloneSensorStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CloneSensorStream(&self, ppstream: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloneSensorStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream)) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -10121,9 +8690,9 @@ pub struct IMFSensorStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSensorStream_Impl: super::IMFAttributes_Impl {
-    fn GetMediaTypeCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetMediaType(&self, dwindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
-    fn CloneSensorStream(&self) -> windows_core::Result<IMFSensorStream>;
+    fn GetMediaTypeCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetMediaType(&self, dwindex: super::DWORD, ppmediatype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
+    fn CloneSensorStream(&self, ppstream: windows_core::OutRef<IMFSensorStream>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSensorStream_Vtbl {
@@ -10131,43 +8700,19 @@ impl IMFSensorStream_Vtbl {
         unsafe extern "system" fn GetMediaTypeCount<Identity: IMFSensorStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorStream_Impl::GetMediaTypeCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorStream_Impl::GetMediaTypeCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetMediaType<Identity: IMFSensorStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorStream_Impl::GetMediaType(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppmediatype.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorStream_Impl::GetMediaType(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppmediatype)).into()
             }
         }
         unsafe extern "system" fn CloneSensorStream<Identity: IMFSensorStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorStream_Impl::CloneSensorStream(this) {
-                    Ok(ok__) => {
-                        ppstream.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppstream.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorStream_Impl::CloneSensorStream(this, core::mem::transmute_copy(&ppstream)).into()
             }
         }
         Self {
@@ -10187,11 +8732,8 @@ windows_core::imp::define_interface!(IMFSensorTransformFactory, IMFSensorTransfo
 windows_core::imp::interface_hierarchy!(IMFSensorTransformFactory, windows_core::IUnknown);
 impl IMFSensorTransformFactory {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetFactoryAttributes(&self) -> windows_core::Result<super::IMFAttributes> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFactoryAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetFactoryAttributes(&self, ppattributes: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFactoryAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattributes)) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn InitializeFactory<P1, P2>(&self, dwmaxtransformcount: super::DWORD, psensordevices: P1, pattributes: P2) -> windows_core::HRESULT
@@ -10202,25 +8744,19 @@ impl IMFSensorTransformFactory {
         unsafe { (windows_core::Interface::vtable(self).InitializeFactory)(windows_core::Interface::as_raw(self), dwmaxtransformcount, psensordevices.param().abi(), pattributes.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTransformCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTransformCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTransformCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTransformCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn GetTransformInformation(&self, transformindex: super::DWORD, pguidtransformid: *mut windows_core::GUID, ppattributes: *mut Option<super::IMFAttributes>, ppstreaminformation: *mut Option<super::IMFCollection>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransformInformation)(windows_core::Interface::as_raw(self), transformindex, pguidtransformid as _, core::mem::transmute(ppattributes), core::mem::transmute(ppstreaminformation)) }
     }
     #[cfg(all(feature = "mfobjects", feature = "mftransform"))]
-    pub unsafe fn CreateTransform<P1>(&self, guidsensortransformid: *const windows_core::GUID, pattributes: P1) -> windows_core::Result<super::IMFDeviceTransform>
+    pub unsafe fn CreateTransform<P1>(&self, guidsensortransformid: *const windows_core::GUID, pattributes: P1, ppdevicemft: *mut Option<super::IMFDeviceTransform>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IMFAttributes>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform)(windows_core::Interface::as_raw(self), guidsensortransformid, pattributes.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateTransform)(windows_core::Interface::as_raw(self), guidsensortransformid, pattributes.param().abi(), core::mem::transmute(ppdevicemft)) }
     }
 }
 #[repr(C)]
@@ -10250,11 +8786,11 @@ pub struct IMFSensorTransformFactory_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "shared"))]
 pub trait IMFSensorTransformFactory_Impl: windows_core::IUnknownImpl {
-    fn GetFactoryAttributes(&self) -> windows_core::Result<super::IMFAttributes>;
+    fn GetFactoryAttributes(&self, ppattributes: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
     fn InitializeFactory(&self, dwmaxtransformcount: super::DWORD, psensordevices: windows_core::Ref<super::IMFCollection>, pattributes: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<()>;
-    fn GetTransformCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetTransformCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetTransformInformation(&self, transformindex: super::DWORD, pguidtransformid: *mut windows_core::GUID, ppattributes: windows_core::OutRef<super::IMFAttributes>, ppstreaminformation: windows_core::OutRef<super::IMFCollection>) -> windows_core::Result<()>;
-    fn CreateTransform(&self, guidsensortransformid: *const windows_core::GUID, pattributes: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<super::IMFDeviceTransform>;
+    fn CreateTransform(&self, guidsensortransformid: *const windows_core::GUID, pattributes: windows_core::Ref<super::IMFAttributes>, ppdevicemft: windows_core::OutRef<super::IMFDeviceTransform>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "shared"))]
 impl IMFSensorTransformFactory_Vtbl {
@@ -10262,16 +8798,7 @@ impl IMFSensorTransformFactory_Vtbl {
         unsafe extern "system" fn GetFactoryAttributes<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorTransformFactory_Impl::GetFactoryAttributes(this) {
-                    Ok(ok__) => {
-                        ppattributes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorTransformFactory_Impl::GetFactoryAttributes(this, core::mem::transmute_copy(&ppattributes)).into()
             }
         }
         unsafe extern "system" fn InitializeFactory<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxtransformcount: super::DWORD, psensordevices: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10283,13 +8810,7 @@ impl IMFSensorTransformFactory_Vtbl {
         unsafe extern "system" fn GetTransformCount<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorTransformFactory_Impl::GetTransformCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSensorTransformFactory_Impl::GetTransformCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetTransformInformation<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transformindex: super::DWORD, pguidtransformid: *mut windows_core::GUID, ppattributes: *mut *mut core::ffi::c_void, ppstreaminformation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10301,16 +8822,7 @@ impl IMFSensorTransformFactory_Vtbl {
         unsafe extern "system" fn CreateTransform<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidsensortransformid: *const windows_core::GUID, pattributes: *mut core::ffi::c_void, ppdevicemft: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSensorTransformFactory_Impl::CreateTransform(this, core::mem::transmute_copy(&guidsensortransformid), core::mem::transmute_copy(&pattributes)) {
-                    Ok(ok__) => {
-                        ppdevicemft.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        ppdevicemft.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                IMFSensorTransformFactory_Impl::CreateTransform(this, core::mem::transmute_copy(&guidsensortransformid), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&ppdevicemft)).into()
             }
         }
         Self {
@@ -10332,14 +8844,11 @@ windows_core::imp::define_interface!(IMFSequencerSource, IMFSequencerSource_Vtbl
 windows_core::imp::interface_hierarchy!(IMFSequencerSource, windows_core::IUnknown);
 impl IMFSequencerSource {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn AppendTopology<P0>(&self, ptopology: P0, dwflags: super::DWORD) -> windows_core::Result<MFSequencerElementId>
+    pub unsafe fn AppendTopology<P0>(&self, ptopology: P0, dwflags: super::DWORD, pdwid: *mut MFSequencerElementId) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMFTopology>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AppendTopology)(windows_core::Interface::as_raw(self), ptopology.param().abi(), dwflags, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).AppendTopology)(windows_core::Interface::as_raw(self), ptopology.param().abi(), dwflags, pdwid as _) }
     }
     pub unsafe fn DeleteTopology(&self, dwid: MFSequencerElementId) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteTopology)(windows_core::Interface::as_raw(self), dwid) }
@@ -10387,7 +8896,7 @@ pub struct IMFSequencerSource_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFSequencerSource_Impl: windows_core::IUnknownImpl {
-    fn AppendTopology(&self, ptopology: windows_core::Ref<IMFTopology>, dwflags: super::DWORD) -> windows_core::Result<MFSequencerElementId>;
+    fn AppendTopology(&self, ptopology: windows_core::Ref<IMFTopology>, dwflags: super::DWORD, pdwid: *mut MFSequencerElementId) -> windows_core::Result<()>;
     fn DeleteTopology(&self, dwid: MFSequencerElementId) -> windows_core::Result<()>;
     fn GetPresentationContext(&self, ppd: windows_core::Ref<IMFPresentationDescriptor>, pid: *mut MFSequencerElementId, pptopology: windows_core::OutRef<IMFTopology>) -> windows_core::Result<()>;
     fn UpdateTopology(&self, dwid: MFSequencerElementId, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
@@ -10399,13 +8908,7 @@ impl IMFSequencerSource_Vtbl {
         unsafe extern "system" fn AppendTopology<Identity: IMFSequencerSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptopology: *mut core::ffi::c_void, dwflags: super::DWORD, pdwid: *mut MFSequencerElementId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSequencerSource_Impl::AppendTopology(this, core::mem::transmute_copy(&ptopology), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        pdwid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSequencerSource_Impl::AppendTopology(this, core::mem::transmute_copy(&ptopology), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwid)).into()
             }
         }
         unsafe extern "system" fn DeleteTopology<Identity: IMFSequencerSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: MFSequencerElementId) -> windows_core::HRESULT {
@@ -10453,11 +8956,8 @@ impl IMFShutdown {
     pub unsafe fn Shutdown(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetShutdownStatus(&self) -> windows_core::Result<MFSHUTDOWN_STATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetShutdownStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetShutdownStatus(&self, pstatus: *mut MFSHUTDOWN_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetShutdownStatus)(windows_core::Interface::as_raw(self), pstatus as _) }
     }
 }
 #[repr(C)]
@@ -10469,7 +8969,7 @@ pub struct IMFShutdown_Vtbl {
 }
 pub trait IMFShutdown_Impl: windows_core::IUnknownImpl {
     fn Shutdown(&self) -> windows_core::Result<()>;
-    fn GetShutdownStatus(&self) -> windows_core::Result<MFSHUTDOWN_STATUS>;
+    fn GetShutdownStatus(&self, pstatus: *mut MFSHUTDOWN_STATUS) -> windows_core::Result<()>;
 }
 impl IMFShutdown_Vtbl {
     pub const fn new<Identity: IMFShutdown_Impl, const OFFSET: isize>() -> Self {
@@ -10482,13 +8982,7 @@ impl IMFShutdown_Vtbl {
         unsafe extern "system" fn GetShutdownStatus<Identity: IMFShutdown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut MFSHUTDOWN_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFShutdown_Impl::GetShutdownStatus(this) {
-                    Ok(ok__) => {
-                        pstatus.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFShutdown_Impl::GetShutdownStatus(this, core::mem::transmute_copy(&pstatus)).into()
             }
         }
         Self {
@@ -10549,20 +9043,14 @@ impl IMFSimpleAudioVolume {
     pub unsafe fn SetMasterVolume(&self, flevel: f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMasterVolume)(windows_core::Interface::as_raw(self), flevel) }
     }
-    pub unsafe fn GetMasterVolume(&self) -> windows_core::Result<f32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMasterVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMasterVolume(&self, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMasterVolume)(windows_core::Interface::as_raw(self), pflevel as _) }
     }
     pub unsafe fn SetMute(&self, bmute: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into()) }
     }
-    pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMute(&self, pbmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), pbmute as _) }
     }
 }
 #[repr(C)]
@@ -10576,9 +9064,9 @@ pub struct IMFSimpleAudioVolume_Vtbl {
 }
 pub trait IMFSimpleAudioVolume_Impl: windows_core::IUnknownImpl {
     fn SetMasterVolume(&self, flevel: f32) -> windows_core::Result<()>;
-    fn GetMasterVolume(&self) -> windows_core::Result<f32>;
+    fn GetMasterVolume(&self, pflevel: *mut f32) -> windows_core::Result<()>;
     fn SetMute(&self, bmute: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetMute(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetMute(&self, pbmute: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IMFSimpleAudioVolume_Vtbl {
     pub const fn new<Identity: IMFSimpleAudioVolume_Impl, const OFFSET: isize>() -> Self {
@@ -10591,13 +9079,7 @@ impl IMFSimpleAudioVolume_Vtbl {
         unsafe extern "system" fn GetMasterVolume<Identity: IMFSimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSimpleAudioVolume_Impl::GetMasterVolume(this) {
-                    Ok(ok__) => {
-                        pflevel.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSimpleAudioVolume_Impl::GetMasterVolume(this, core::mem::transmute_copy(&pflevel)).into()
             }
         }
         unsafe extern "system" fn SetMute<Identity: IMFSimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL) -> windows_core::HRESULT {
@@ -10609,13 +9091,7 @@ impl IMFSimpleAudioVolume_Vtbl {
         unsafe extern "system" fn GetMute<Identity: IMFSimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFSimpleAudioVolume_Impl::GetMute(this) {
-                    Ok(ok__) => {
-                        pbmute.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFSimpleAudioVolume_Impl::GetMute(this, core::mem::transmute_copy(&pbmute)).into()
             }
         }
         Self {
@@ -10850,17 +9326,11 @@ windows_core::imp::interface_hierarchy!(IMFStreamDescriptor, windows_core::IUnkn
 #[cfg(feature = "mfobjects")]
 impl IMFStreamDescriptor {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamIdentifier(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamIdentifier(&self, pdwstreamidentifier: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamIdentifier)(windows_core::Interface::as_raw(self), pdwstreamidentifier as _) }
     }
-    pub unsafe fn GetMediaTypeHandler(&self) -> windows_core::Result<IMFMediaTypeHandler> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaTypeHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaTypeHandler(&self, ppmediatypehandler: *mut Option<IMFMediaTypeHandler>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaTypeHandler)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediatypehandler)) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -10876,8 +9346,8 @@ pub struct IMFStreamDescriptor_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFStreamDescriptor_Impl: super::IMFAttributes_Impl {
-    fn GetStreamIdentifier(&self) -> windows_core::Result<super::DWORD>;
-    fn GetMediaTypeHandler(&self) -> windows_core::Result<IMFMediaTypeHandler>;
+    fn GetStreamIdentifier(&self, pdwstreamidentifier: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetMediaTypeHandler(&self, ppmediatypehandler: windows_core::OutRef<IMFMediaTypeHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFStreamDescriptor_Vtbl {
@@ -10885,25 +9355,13 @@ impl IMFStreamDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamIdentifier<Identity: IMFStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstreamidentifier: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFStreamDescriptor_Impl::GetStreamIdentifier(this) {
-                    Ok(ok__) => {
-                        pdwstreamidentifier.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFStreamDescriptor_Impl::GetStreamIdentifier(this, core::mem::transmute_copy(&pdwstreamidentifier)).into()
             }
         }
         unsafe extern "system" fn GetMediaTypeHandler<Identity: IMFStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediatypehandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFStreamDescriptor_Impl::GetMediaTypeHandler(this) {
-                    Ok(ok__) => {
-                        ppmediatypehandler.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFStreamDescriptor_Impl::GetMediaTypeHandler(this, core::mem::transmute_copy(&ppmediatypehandler)).into()
             }
         }
         Self {
@@ -10931,24 +9389,15 @@ impl core::ops::Deref for IMFStreamSink {
 windows_core::imp::interface_hierarchy!(IMFStreamSink, windows_core::IUnknown, super::IMFMediaEventGenerator);
 #[cfg(feature = "mfobjects")]
 impl IMFStreamSink {
-    pub unsafe fn GetMediaSink(&self) -> windows_core::Result<IMFMediaSink> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaSink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaSink(&self, ppmediasink: *mut Option<IMFMediaSink>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaSink)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediasink)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIdentifier(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIdentifier(&self, pdwidentifier: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), pdwidentifier as _) }
     }
-    pub unsafe fn GetMediaTypeHandler(&self) -> windows_core::Result<IMFMediaTypeHandler> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMediaTypeHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMediaTypeHandler(&self, pphandler: *mut Option<IMFMediaTypeHandler>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMediaTypeHandler)(windows_core::Interface::as_raw(self), core::mem::transmute(pphandler)) }
     }
     pub unsafe fn ProcessSample<P0>(&self, psample: P0) -> windows_core::HRESULT
     where
@@ -10984,9 +9433,9 @@ pub struct IMFStreamSink_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFStreamSink_Impl: super::IMFMediaEventGenerator_Impl {
-    fn GetMediaSink(&self) -> windows_core::Result<IMFMediaSink>;
-    fn GetIdentifier(&self) -> windows_core::Result<super::DWORD>;
-    fn GetMediaTypeHandler(&self) -> windows_core::Result<IMFMediaTypeHandler>;
+    fn GetMediaSink(&self, ppmediasink: windows_core::OutRef<IMFMediaSink>) -> windows_core::Result<()>;
+    fn GetIdentifier(&self, pdwidentifier: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetMediaTypeHandler(&self, pphandler: windows_core::OutRef<IMFMediaTypeHandler>) -> windows_core::Result<()>;
     fn ProcessSample(&self, psample: windows_core::Ref<super::IMFSample>) -> windows_core::Result<()>;
     fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::PROPVARIANT, pvarcontextvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
@@ -10997,37 +9446,19 @@ impl IMFStreamSink_Vtbl {
         unsafe extern "system" fn GetMediaSink<Identity: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediasink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFStreamSink_Impl::GetMediaSink(this) {
-                    Ok(ok__) => {
-                        ppmediasink.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFStreamSink_Impl::GetMediaSink(this, core::mem::transmute_copy(&ppmediasink)).into()
             }
         }
         unsafe extern "system" fn GetIdentifier<Identity: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwidentifier: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFStreamSink_Impl::GetIdentifier(this) {
-                    Ok(ok__) => {
-                        pdwidentifier.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFStreamSink_Impl::GetIdentifier(this, core::mem::transmute_copy(&pdwidentifier)).into()
             }
         }
         unsafe extern "system" fn GetMediaTypeHandler<Identity: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFStreamSink_Impl::GetMediaTypeHandler(this) {
-                    Ok(ok__) => {
-                        pphandler.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFStreamSink_Impl::GetMediaTypeHandler(this, core::mem::transmute_copy(&pphandler)).into()
             }
         }
         unsafe extern "system" fn ProcessSample<Identity: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psample: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11167,14 +9598,11 @@ impl IMFTimecodeTranslate {
         unsafe { (windows_core::Interface::vtable(self).BeginConvertTimecodeToHNS)(windows_core::Interface::as_raw(self), ppropvartimecode, pcallback.param().abi(), punkstate.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn EndConvertTimecodeToHNS<P0>(&self, presult: P0) -> windows_core::Result<MFTIME>
+    pub unsafe fn EndConvertTimecodeToHNS<P0>(&self, presult: P0, phnstime: *mut MFTIME) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndConvertTimecodeToHNS)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).EndConvertTimecodeToHNS)(windows_core::Interface::as_raw(self), presult.param().abi(), phnstime as _) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn BeginConvertHNSToTimecode<P1, P2>(&self, hnstime: MFTIME, pcallback: P1, punkstate: P2) -> windows_core::HRESULT
@@ -11185,14 +9613,11 @@ impl IMFTimecodeTranslate {
         unsafe { (windows_core::Interface::vtable(self).BeginConvertHNSToTimecode)(windows_core::Interface::as_raw(self), hnstime, pcallback.param().abi(), punkstate.param().abi()) }
     }
     #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn EndConvertHNSToTimecode<P0>(&self, presult: P0) -> windows_core::Result<super::PROPVARIANT>
+    pub unsafe fn EndConvertHNSToTimecode<P0>(&self, presult: P0, ppropvartimecode: *mut super::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndConvertHNSToTimecode)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).EndConvertHNSToTimecode)(windows_core::Interface::as_raw(self), presult.param().abi(), ppropvartimecode) }
     }
 }
 #[repr(C)]
@@ -11219,9 +9644,9 @@ pub struct IMFTimecodeTranslate_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFTimecodeTranslate_Impl: windows_core::IUnknownImpl {
     fn BeginConvertTimecodeToHNS(&self, ppropvartimecode: *const super::PROPVARIANT, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndConvertTimecodeToHNS(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<MFTIME>;
+    fn EndConvertTimecodeToHNS(&self, presult: windows_core::Ref<super::IMFAsyncResult>, phnstime: *mut MFTIME) -> windows_core::Result<()>;
     fn BeginConvertHNSToTimecode(&self, hnstime: MFTIME, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndConvertHNSToTimecode(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<super::PROPVARIANT>;
+    fn EndConvertHNSToTimecode(&self, presult: windows_core::Ref<super::IMFAsyncResult>, ppropvartimecode: *mut super::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFTimecodeTranslate_Vtbl {
@@ -11235,13 +9660,7 @@ impl IMFTimecodeTranslate_Vtbl {
         unsafe extern "system" fn EndConvertTimecodeToHNS<Identity: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, phnstime: *mut MFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTimecodeTranslate_Impl::EndConvertTimecodeToHNS(this, core::mem::transmute_copy(&presult)) {
-                    Ok(ok__) => {
-                        phnstime.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTimecodeTranslate_Impl::EndConvertTimecodeToHNS(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&phnstime)).into()
             }
         }
         unsafe extern "system" fn BeginConvertHNSToTimecode<Identity: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hnstime: MFTIME, pcallback: *mut core::ffi::c_void, punkstate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11253,13 +9672,7 @@ impl IMFTimecodeTranslate_Vtbl {
         unsafe extern "system" fn EndConvertHNSToTimecode<Identity: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, ppropvartimecode: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTimecodeTranslate_Impl::EndConvertHNSToTimecode(this, core::mem::transmute_copy(&presult)) {
-                    Ok(ok__) => {
-                        ppropvartimecode.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTimecodeTranslate_Impl::EndConvertHNSToTimecode(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&ppropvartimecode)).into()
             }
         }
         Self {
@@ -11280,15 +9693,12 @@ windows_core::imp::define_interface!(IMFTimer, IMFTimer_Vtbl, 0xe56e4cbd_8f70_49
 windows_core::imp::interface_hierarchy!(IMFTimer, windows_core::IUnknown);
 impl IMFTimer {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn SetTimer<P2, P3>(&self, dwflags: super::DWORD, llclocktime: super::LONGLONG, pcallback: P2, punkstate: P3) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn SetTimer<P2, P3>(&self, dwflags: super::DWORD, llclocktime: super::LONGLONG, pcallback: P2, punkstate: P3, ppunkkey: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetTimer)(windows_core::Interface::as_raw(self), dwflags, llclocktime, pcallback.param().abi(), punkstate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).SetTimer)(windows_core::Interface::as_raw(self), dwflags, llclocktime, pcallback.param().abi(), punkstate.param().abi(), core::mem::transmute(ppunkkey)) }
     }
     pub unsafe fn CancelTimer<P0>(&self, punkkey: P0) -> windows_core::HRESULT
     where
@@ -11309,7 +9719,7 @@ pub struct IMFTimer_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFTimer_Impl: windows_core::IUnknownImpl {
-    fn SetTimer(&self, dwflags: super::DWORD, llclocktime: super::LONGLONG, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn SetTimer(&self, dwflags: super::DWORD, llclocktime: super::LONGLONG, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>, ppunkkey: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CancelTimer(&self, punkkey: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -11318,13 +9728,7 @@ impl IMFTimer_Vtbl {
         unsafe extern "system" fn SetTimer<Identity: IMFTimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, llclocktime: super::LONGLONG, pcallback: *mut core::ffi::c_void, punkstate: *mut core::ffi::c_void, ppunkkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTimer_Impl::SetTimer(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&llclocktime), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&punkstate)) {
-                    Ok(ok__) => {
-                        ppunkkey.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTimer_Impl::SetTimer(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&llclocktime), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&punkstate), core::mem::transmute_copy(&ppunkkey)).into()
             }
         }
         unsafe extern "system" fn CancelTimer<Identity: IMFTimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11400,11 +9804,8 @@ impl core::ops::Deref for IMFTopology {
 windows_core::imp::interface_hierarchy!(IMFTopology, windows_core::IUnknown, super::IMFAttributes);
 #[cfg(feature = "mfobjects")]
 impl IMFTopology {
-    pub unsafe fn GetTopologyID(&self) -> windows_core::Result<TOPOID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTopologyID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTopologyID(&self, pid: *mut TOPOID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTopologyID)(windows_core::Interface::as_raw(self), pid as _) }
     }
     pub unsafe fn AddNode<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
@@ -11419,18 +9820,12 @@ impl IMFTopology {
         unsafe { (windows_core::Interface::vtable(self).RemoveNode)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNodeCount(&self) -> windows_core::Result<super::WORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNodeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNodeCount(&self, pwnodes: *mut super::WORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeCount)(windows_core::Interface::as_raw(self), pwnodes as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNode(&self, windex: super::WORD) -> windows_core::Result<IMFTopologyNode> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNode)(windows_core::Interface::as_raw(self), windex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetNode(&self, windex: super::WORD, ppnode: *mut Option<IMFTopologyNode>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNode)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(ppnode)) }
     }
     pub unsafe fn Clear(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
@@ -11441,23 +9836,14 @@ impl IMFTopology {
     {
         unsafe { (windows_core::Interface::vtable(self).CloneFrom)(windows_core::Interface::as_raw(self), ptopology.param().abi()) }
     }
-    pub unsafe fn GetNodeByID(&self, qwtoponodeid: TOPOID) -> windows_core::Result<IMFTopologyNode> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNodeByID)(windows_core::Interface::as_raw(self), qwtoponodeid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetNodeByID(&self, qwtoponodeid: TOPOID, ppnode: *mut Option<IMFTopologyNode>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeByID)(windows_core::Interface::as_raw(self), qwtoponodeid, core::mem::transmute(ppnode)) }
     }
-    pub unsafe fn GetSourceNodeCollection(&self) -> windows_core::Result<super::IMFCollection> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSourceNodeCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSourceNodeCollection(&self, ppcollection: *mut Option<super::IMFCollection>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceNodeCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcollection)) }
     }
-    pub unsafe fn GetOutputNodeCollection(&self) -> windows_core::Result<super::IMFCollection> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputNodeCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetOutputNodeCollection(&self, ppcollection: *mut Option<super::IMFCollection>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputNodeCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcollection)) }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -11484,16 +9870,16 @@ pub struct IMFTopology_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFTopology_Impl: super::IMFAttributes_Impl {
-    fn GetTopologyID(&self) -> windows_core::Result<TOPOID>;
+    fn GetTopologyID(&self, pid: *mut TOPOID) -> windows_core::Result<()>;
     fn AddNode(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
     fn RemoveNode(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
-    fn GetNodeCount(&self) -> windows_core::Result<super::WORD>;
-    fn GetNode(&self, windex: super::WORD) -> windows_core::Result<IMFTopologyNode>;
+    fn GetNodeCount(&self, pwnodes: *mut super::WORD) -> windows_core::Result<()>;
+    fn GetNode(&self, windex: super::WORD, ppnode: windows_core::OutRef<IMFTopologyNode>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn CloneFrom(&self, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
-    fn GetNodeByID(&self, qwtoponodeid: TOPOID) -> windows_core::Result<IMFTopologyNode>;
-    fn GetSourceNodeCollection(&self) -> windows_core::Result<super::IMFCollection>;
-    fn GetOutputNodeCollection(&self) -> windows_core::Result<super::IMFCollection>;
+    fn GetNodeByID(&self, qwtoponodeid: TOPOID, ppnode: windows_core::OutRef<IMFTopologyNode>) -> windows_core::Result<()>;
+    fn GetSourceNodeCollection(&self, ppcollection: windows_core::OutRef<super::IMFCollection>) -> windows_core::Result<()>;
+    fn GetOutputNodeCollection(&self, ppcollection: windows_core::OutRef<super::IMFCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFTopology_Vtbl {
@@ -11501,13 +9887,7 @@ impl IMFTopology_Vtbl {
         unsafe extern "system" fn GetTopologyID<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut TOPOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetTopologyID(this) {
-                    Ok(ok__) => {
-                        pid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetTopologyID(this, core::mem::transmute_copy(&pid)).into()
             }
         }
         unsafe extern "system" fn AddNode<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11525,25 +9905,13 @@ impl IMFTopology_Vtbl {
         unsafe extern "system" fn GetNodeCount<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwnodes: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetNodeCount(this) {
-                    Ok(ok__) => {
-                        pwnodes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetNodeCount(this, core::mem::transmute_copy(&pwnodes)).into()
             }
         }
         unsafe extern "system" fn GetNode<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windex: super::WORD, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetNode(this, core::mem::transmute_copy(&windex)) {
-                    Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetNode(this, core::mem::transmute_copy(&windex), core::mem::transmute_copy(&ppnode)).into()
             }
         }
         unsafe extern "system" fn Clear<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11561,37 +9929,19 @@ impl IMFTopology_Vtbl {
         unsafe extern "system" fn GetNodeByID<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwtoponodeid: TOPOID, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetNodeByID(this, core::mem::transmute_copy(&qwtoponodeid)) {
-                    Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetNodeByID(this, core::mem::transmute_copy(&qwtoponodeid), core::mem::transmute_copy(&ppnode)).into()
             }
         }
         unsafe extern "system" fn GetSourceNodeCollection<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetSourceNodeCollection(this) {
-                    Ok(ok__) => {
-                        ppcollection.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetSourceNodeCollection(this, core::mem::transmute_copy(&ppcollection)).into()
             }
         }
         unsafe extern "system" fn GetOutputNodeCollection<Identity: IMFTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopology_Impl::GetOutputNodeCollection(this) {
-                    Ok(ok__) => {
-                        ppcollection.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopology_Impl::GetOutputNodeCollection(this, core::mem::transmute_copy(&ppcollection)).into()
             }
         }
         Self {
@@ -11633,40 +9983,25 @@ impl IMFTopologyNode {
     {
         unsafe { (windows_core::Interface::vtable(self).SetObject)(windows_core::Interface::as_raw(self), pobject.param().abi()) }
     }
-    pub unsafe fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetObject(&self, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppobject)) }
     }
-    pub unsafe fn GetNodeType(&self) -> windows_core::Result<MF_TOPOLOGY_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNodeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNodeType(&self, ptype: *mut MF_TOPOLOGY_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeType)(windows_core::Interface::as_raw(self), ptype as _) }
     }
-    pub unsafe fn GetTopoNodeID(&self) -> windows_core::Result<TOPOID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTopoNodeID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTopoNodeID(&self, pid: *mut TOPOID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTopoNodeID)(windows_core::Interface::as_raw(self), pid as _) }
     }
     pub unsafe fn SetTopoNodeID(&self, ulltopoid: TOPOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTopoNodeID)(windows_core::Interface::as_raw(self), ulltopoid) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetInputCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetInputCount(&self, pcinputs: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self), pcinputs as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOutputCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOutputCount(&self, pcoutputs: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputCount)(windows_core::Interface::as_raw(self), pcoutputs as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ConnectOutput<P1>(&self, dwoutputindex: super::DWORD, pdownstreamnode: P1, dwinputindexondownstreamnode: super::DWORD) -> windows_core::HRESULT
@@ -11695,11 +10030,8 @@ impl IMFTopologyNode {
         unsafe { (windows_core::Interface::vtable(self).SetOutputPrefType)(windows_core::Interface::as_raw(self), dwoutputindex, ptype.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOutputPrefType(&self, dwoutputindex: super::DWORD) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputPrefType)(windows_core::Interface::as_raw(self), dwoutputindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetOutputPrefType(&self, dwoutputindex: super::DWORD, pptype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputPrefType)(windows_core::Interface::as_raw(self), dwoutputindex, core::mem::transmute(pptype)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetInputPrefType<P1>(&self, dwinputindex: super::DWORD, ptype: P1) -> windows_core::HRESULT
@@ -11709,11 +10041,8 @@ impl IMFTopologyNode {
         unsafe { (windows_core::Interface::vtable(self).SetInputPrefType)(windows_core::Interface::as_raw(self), dwinputindex, ptype.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetInputPrefType(&self, dwinputindex: super::DWORD) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputPrefType)(windows_core::Interface::as_raw(self), dwinputindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetInputPrefType(&self, dwinputindex: super::DWORD, pptype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputPrefType)(windows_core::Interface::as_raw(self), dwinputindex, core::mem::transmute(pptype)) }
     }
     pub unsafe fn CloneFrom<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
@@ -11777,20 +10106,20 @@ pub struct IMFTopologyNode_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFTopologyNode_Impl: super::IMFAttributes_Impl {
     fn SetObject(&self, pobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetNodeType(&self) -> windows_core::Result<MF_TOPOLOGY_TYPE>;
-    fn GetTopoNodeID(&self) -> windows_core::Result<TOPOID>;
+    fn GetObject(&self, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetNodeType(&self, ptype: *mut MF_TOPOLOGY_TYPE) -> windows_core::Result<()>;
+    fn GetTopoNodeID(&self, pid: *mut TOPOID) -> windows_core::Result<()>;
     fn SetTopoNodeID(&self, ulltopoid: TOPOID) -> windows_core::Result<()>;
-    fn GetInputCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetOutputCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetInputCount(&self, pcinputs: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOutputCount(&self, pcoutputs: *mut super::DWORD) -> windows_core::Result<()>;
     fn ConnectOutput(&self, dwoutputindex: super::DWORD, pdownstreamnode: windows_core::Ref<IMFTopologyNode>, dwinputindexondownstreamnode: super::DWORD) -> windows_core::Result<()>;
     fn DisconnectOutput(&self, dwoutputindex: super::DWORD) -> windows_core::Result<()>;
     fn GetInput(&self, dwinputindex: super::DWORD, ppupstreamnode: windows_core::OutRef<IMFTopologyNode>, pdwoutputindexonupstreamnode: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetOutput(&self, dwoutputindex: super::DWORD, ppdownstreamnode: windows_core::OutRef<IMFTopologyNode>, pdwinputindexondownstreamnode: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetOutputPrefType(&self, dwoutputindex: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn GetOutputPrefType(&self, dwoutputindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
+    fn GetOutputPrefType(&self, dwoutputindex: super::DWORD, pptype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
     fn SetInputPrefType(&self, dwinputindex: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn GetInputPrefType(&self, dwinputindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
+    fn GetInputPrefType(&self, dwinputindex: super::DWORD, pptype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
     fn CloneFrom(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11805,37 +10134,19 @@ impl IMFTopologyNode_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetObject(this) {
-                    Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetObject(this, core::mem::transmute_copy(&ppobject)).into()
             }
         }
         unsafe extern "system" fn GetNodeType<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut MF_TOPOLOGY_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetNodeType(this) {
-                    Ok(ok__) => {
-                        ptype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetNodeType(this, core::mem::transmute_copy(&ptype)).into()
             }
         }
         unsafe extern "system" fn GetTopoNodeID<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut TOPOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetTopoNodeID(this) {
-                    Ok(ok__) => {
-                        pid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetTopoNodeID(this, core::mem::transmute_copy(&pid)).into()
             }
         }
         unsafe extern "system" fn SetTopoNodeID<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulltopoid: TOPOID) -> windows_core::HRESULT {
@@ -11847,25 +10158,13 @@ impl IMFTopologyNode_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcinputs: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetInputCount(this) {
-                    Ok(ok__) => {
-                        pcinputs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetInputCount(this, core::mem::transmute_copy(&pcinputs)).into()
             }
         }
         unsafe extern "system" fn GetOutputCount<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoutputs: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetOutputCount(this) {
-                    Ok(ok__) => {
-                        pcoutputs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetOutputCount(this, core::mem::transmute_copy(&pcoutputs)).into()
             }
         }
         unsafe extern "system" fn ConnectOutput<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputindex: super::DWORD, pdownstreamnode: *mut core::ffi::c_void, dwinputindexondownstreamnode: super::DWORD) -> windows_core::HRESULT {
@@ -11901,13 +10200,7 @@ impl IMFTopologyNode_Vtbl {
         unsafe extern "system" fn GetOutputPrefType<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputindex: super::DWORD, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetOutputPrefType(this, core::mem::transmute_copy(&dwoutputindex)) {
-                    Ok(ok__) => {
-                        pptype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetOutputPrefType(this, core::mem::transmute_copy(&dwoutputindex), core::mem::transmute_copy(&pptype)).into()
             }
         }
         unsafe extern "system" fn SetInputPrefType<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputindex: super::DWORD, ptype: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11919,13 +10212,7 @@ impl IMFTopologyNode_Vtbl {
         unsafe extern "system" fn GetInputPrefType<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputindex: super::DWORD, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTopologyNode_Impl::GetInputPrefType(this, core::mem::transmute_copy(&dwinputindex)) {
-                    Ok(ok__) => {
-                        pptype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTopologyNode_Impl::GetInputPrefType(this, core::mem::transmute_copy(&dwinputindex), core::mem::transmute_copy(&pptype)).into()
             }
         }
         unsafe extern "system" fn CloneFrom<Identity: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12051,11 +10338,8 @@ impl IMFTranscodeProfile {
         unsafe { (windows_core::Interface::vtable(self).SetAudioAttributes)(windows_core::Interface::as_raw(self), pattrs.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetAudioAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAudioAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+    pub unsafe fn GetAudioAttributes(&self, ppattrs: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAudioAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattrs)) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SetVideoAttributes<P0>(&self, pattrs: P0) -> windows_core::HRESULT
@@ -12065,11 +10349,8 @@ impl IMFTranscodeProfile {
         unsafe { (windows_core::Interface::vtable(self).SetVideoAttributes)(windows_core::Interface::as_raw(self), pattrs.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetVideoAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+    pub unsafe fn GetVideoAttributes(&self, ppattrs: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattrs)) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SetContainerAttributes<P0>(&self, pattrs: P0) -> windows_core::HRESULT
@@ -12079,11 +10360,8 @@ impl IMFTranscodeProfile {
         unsafe { (windows_core::Interface::vtable(self).SetContainerAttributes)(windows_core::Interface::as_raw(self), pattrs.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetContainerAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContainerAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+    pub unsafe fn GetContainerAttributes(&self, ppattrs: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainerAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppattrs)) }
     }
 }
 #[repr(C)]
@@ -12118,11 +10396,11 @@ pub struct IMFTranscodeProfile_Vtbl {
 #[cfg(feature = "mfobjects")]
 pub trait IMFTranscodeProfile_Impl: windows_core::IUnknownImpl {
     fn SetAudioAttributes(&self, pattrs: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<()>;
-    fn GetAudioAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>>;
+    fn GetAudioAttributes(&self, ppattrs: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
     fn SetVideoAttributes(&self, pattrs: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<()>;
-    fn GetVideoAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>>;
+    fn GetVideoAttributes(&self, ppattrs: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
     fn SetContainerAttributes(&self, pattrs: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<()>;
-    fn GetContainerAttributes(&self) -> windows_core::Result<Option<super::IMFAttributes>>;
+    fn GetContainerAttributes(&self, ppattrs: windows_core::OutRef<super::IMFAttributes>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFTranscodeProfile_Vtbl {
@@ -12136,13 +10414,7 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetAudioAttributes<Identity: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTranscodeProfile_Impl::GetAudioAttributes(this) {
-                    Ok(ok__) => {
-                        ppattrs.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTranscodeProfile_Impl::GetAudioAttributes(this, core::mem::transmute_copy(&ppattrs)).into()
             }
         }
         unsafe extern "system" fn SetVideoAttributes<Identity: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12154,13 +10426,7 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetVideoAttributes<Identity: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTranscodeProfile_Impl::GetVideoAttributes(this) {
-                    Ok(ok__) => {
-                        ppattrs.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTranscodeProfile_Impl::GetVideoAttributes(this, core::mem::transmute_copy(&ppattrs)).into()
             }
         }
         unsafe extern "system" fn SetContainerAttributes<Identity: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12172,13 +10438,7 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetContainerAttributes<Identity: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTranscodeProfile_Impl::GetContainerAttributes(this) {
-                    Ok(ok__) => {
-                        ppattrs.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTranscodeProfile_Impl::GetContainerAttributes(this, core::mem::transmute_copy(&ppattrs)).into()
             }
         }
         Self {
@@ -12220,11 +10480,8 @@ impl IMFTranscodeSinkInfoProvider {
         unsafe { (windows_core::Interface::vtable(self).SetProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn GetSinkInfo(&self) -> windows_core::Result<MF_TRANSCODE_SINK_INFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSinkInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetSinkInfo(&self, psinkinfo: *mut MF_TRANSCODE_SINK_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSinkInfo)(windows_core::Interface::as_raw(self), psinkinfo) }
     }
 }
 #[repr(C)]
@@ -12247,7 +10504,7 @@ pub trait IMFTranscodeSinkInfoProvider_Impl: windows_core::IUnknownImpl {
     fn SetOutputFile(&self, pwszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetOutputByteStream(&self, pbytestreamactivate: windows_core::Ref<super::IMFActivate>) -> windows_core::Result<()>;
     fn SetProfile(&self, pprofile: windows_core::Ref<IMFTranscodeProfile>) -> windows_core::Result<()>;
-    fn GetSinkInfo(&self) -> windows_core::Result<MF_TRANSCODE_SINK_INFO>;
+    fn GetSinkInfo(&self, psinkinfo: *mut MF_TRANSCODE_SINK_INFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFTranscodeSinkInfoProvider_Vtbl {
@@ -12273,13 +10530,7 @@ impl IMFTranscodeSinkInfoProvider_Vtbl {
         unsafe extern "system" fn GetSinkInfo<Identity: IMFTranscodeSinkInfoProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psinkinfo: *mut MF_TRANSCODE_SINK_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTranscodeSinkInfoProvider_Impl::GetSinkInfo(this) {
-                    Ok(ok__) => {
-                        psinkinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTranscodeSinkInfoProvider_Impl::GetSinkInfo(this, core::mem::transmute_copy(&psinkinfo)).into()
             }
         }
         Self {
@@ -12300,11 +10551,8 @@ windows_core::imp::define_interface!(IMFTrustedInput, IMFTrustedInput_Vtbl, 0x54
 windows_core::imp::interface_hierarchy!(IMFTrustedInput, windows_core::IUnknown);
 impl IMFTrustedInput {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetInputTrustAuthority(&self, dwstreamid: super::DWORD, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputTrustAuthority)(windows_core::Interface::as_raw(self), dwstreamid, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetInputTrustAuthority(&self, dwstreamid: super::DWORD, riid: *const super::IID, ppunkobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputTrustAuthority)(windows_core::Interface::as_raw(self), dwstreamid, riid, core::mem::transmute(ppunkobject)) }
     }
 }
 #[repr(C)]
@@ -12318,7 +10566,7 @@ pub struct IMFTrustedInput_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IMFTrustedInput_Impl: windows_core::IUnknownImpl {
-    fn GetInputTrustAuthority(&self, dwstreamid: super::DWORD, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetInputTrustAuthority(&self, dwstreamid: super::DWORD, riid: *const super::IID, ppunkobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IMFTrustedInput_Vtbl {
@@ -12326,13 +10574,7 @@ impl IMFTrustedInput_Vtbl {
         unsafe extern "system" fn GetInputTrustAuthority<Identity: IMFTrustedInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, riid: *const super::IID, ppunkobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTrustedInput_Impl::GetInputTrustAuthority(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppunkobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTrustedInput_Impl::GetInputTrustAuthority(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunkobject)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputTrustAuthority: GetInputTrustAuthority::<Identity, OFFSET> }
@@ -12347,24 +10589,15 @@ windows_core::imp::define_interface!(IMFTrustedOutput, IMFTrustedOutput_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IMFTrustedOutput, windows_core::IUnknown);
 impl IMFTrustedOutput {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOutputTrustAuthorityCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputTrustAuthorityCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOutputTrustAuthorityCount(&self, pcoutputtrustauthorities: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputTrustAuthorityCount)(windows_core::Interface::as_raw(self), pcoutputtrustauthorities as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetOutputTrustAuthorityByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFOutputTrustAuthority> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputTrustAuthorityByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetOutputTrustAuthorityByIndex(&self, dwindex: super::DWORD, ppauthority: *mut Option<IMFOutputTrustAuthority>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputTrustAuthorityByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppauthority)) }
     }
-    pub unsafe fn IsFinal(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsFinal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsFinal(&self, pfisfinal: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsFinal)(windows_core::Interface::as_raw(self), pfisfinal as _) }
     }
 }
 #[repr(C)]
@@ -12383,9 +10616,9 @@ pub struct IMFTrustedOutput_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMFTrustedOutput_Impl: windows_core::IUnknownImpl {
-    fn GetOutputTrustAuthorityCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetOutputTrustAuthorityByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFOutputTrustAuthority>;
-    fn IsFinal(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetOutputTrustAuthorityCount(&self, pcoutputtrustauthorities: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOutputTrustAuthorityByIndex(&self, dwindex: super::DWORD, ppauthority: windows_core::OutRef<IMFOutputTrustAuthority>) -> windows_core::Result<()>;
+    fn IsFinal(&self, pfisfinal: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFTrustedOutput_Vtbl {
@@ -12393,37 +10626,19 @@ impl IMFTrustedOutput_Vtbl {
         unsafe extern "system" fn GetOutputTrustAuthorityCount<Identity: IMFTrustedOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoutputtrustauthorities: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTrustedOutput_Impl::GetOutputTrustAuthorityCount(this) {
-                    Ok(ok__) => {
-                        pcoutputtrustauthorities.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTrustedOutput_Impl::GetOutputTrustAuthorityCount(this, core::mem::transmute_copy(&pcoutputtrustauthorities)).into()
             }
         }
         unsafe extern "system" fn GetOutputTrustAuthorityByIndex<Identity: IMFTrustedOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppauthority: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTrustedOutput_Impl::GetOutputTrustAuthorityByIndex(this, core::mem::transmute_copy(&dwindex)) {
-                    Ok(ok__) => {
-                        ppauthority.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTrustedOutput_Impl::GetOutputTrustAuthorityByIndex(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppauthority)).into()
             }
         }
         unsafe extern "system" fn IsFinal<Identity: IMFTrustedOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisfinal: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFTrustedOutput_Impl::IsFinal(this) {
-                    Ok(ok__) => {
-                        pfisfinal.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFTrustedOutput_Impl::IsFinal(this, core::mem::transmute_copy(&pfisfinal)).into()
             }
         }
         Self {
@@ -12697,11 +10912,8 @@ impl core::ops::Deref for IMFVideoProcessorControl3 {
 windows_core::imp::interface_hierarchy!(IMFVideoProcessorControl3, windows_core::IUnknown, IMFVideoProcessorControl, IMFVideoProcessorControl2);
 impl IMFVideoProcessorControl3 {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetNaturalOutputType(&self) -> windows_core::Result<super::IMFMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNaturalOutputType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetNaturalOutputType(&self, pptype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNaturalOutputType)(windows_core::Interface::as_raw(self), core::mem::transmute(pptype)) }
     }
     pub unsafe fn EnableSphericalVideoProcessing(&self, fenable: bool, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableSphericalVideoProcessing)(windows_core::Interface::as_raw(self), fenable.into(), eformat, eprojectionmode) }
@@ -12730,7 +10942,7 @@ pub struct IMFVideoProcessorControl3_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "windef"))]
 pub trait IMFVideoProcessorControl3_Impl: IMFVideoProcessorControl2_Impl {
-    fn GetNaturalOutputType(&self) -> windows_core::Result<super::IMFMediaType>;
+    fn GetNaturalOutputType(&self, pptype: windows_core::OutRef<super::IMFMediaType>) -> windows_core::Result<()>;
     fn EnableSphericalVideoProcessing(&self, fenable: windows_core::BOOL, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> windows_core::Result<()>;
     fn SetSphericalVideoProperties(&self, x: f32, y: f32, z: f32, w: f32, fieldofview: f32) -> windows_core::Result<()>;
     fn SetOutputDevice(&self, poutputdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -12741,13 +10953,7 @@ impl IMFVideoProcessorControl3_Vtbl {
         unsafe extern "system" fn GetNaturalOutputType<Identity: IMFVideoProcessorControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoProcessorControl3_Impl::GetNaturalOutputType(this) {
-                    Ok(ok__) => {
-                        pptype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoProcessorControl3_Impl::GetNaturalOutputType(this, core::mem::transmute_copy(&pptype)).into()
             }
         }
         unsafe extern "system" fn EnableSphericalVideoProcessing<Identity: IMFVideoProcessorControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> windows_core::HRESULT {
@@ -12839,11 +11045,8 @@ impl IMFVideoSampleAllocator {
         unsafe { (windows_core::Interface::vtable(self).InitializeSampleAllocator)(windows_core::Interface::as_raw(self), crequestedframes, pmediatype.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn AllocateSample(&self) -> windows_core::Result<super::IMFSample> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn AllocateSample(&self, ppsample: *mut Option<super::IMFSample>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsample)) }
     }
 }
 #[repr(C)]
@@ -12866,7 +11069,7 @@ pub trait IMFVideoSampleAllocator_Impl: windows_core::IUnknownImpl {
     fn SetDirectXManager(&self, pmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UninitializeSampleAllocator(&self) -> windows_core::Result<()>;
     fn InitializeSampleAllocator(&self, crequestedframes: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
-    fn AllocateSample(&self) -> windows_core::Result<super::IMFSample>;
+    fn AllocateSample(&self, ppsample: windows_core::OutRef<super::IMFSample>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFVideoSampleAllocator_Vtbl {
@@ -12892,13 +11095,7 @@ impl IMFVideoSampleAllocator_Vtbl {
         unsafe extern "system" fn AllocateSample<Identity: IMFVideoSampleAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsample: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoSampleAllocator_Impl::AllocateSample(this) {
-                    Ok(ok__) => {
-                        ppsample.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoSampleAllocator_Impl::AllocateSample(this, core::mem::transmute_copy(&ppsample)).into()
             }
         }
         Self {
@@ -12925,11 +11122,8 @@ impl IMFVideoSampleAllocatorCallback {
         unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pnotify.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetFreeSampleCount(&self) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFreeSampleCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFreeSampleCount(&self, plsamples: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFreeSampleCount)(windows_core::Interface::as_raw(self), plsamples as _) }
     }
 }
 #[repr(C)]
@@ -12945,7 +11139,7 @@ pub struct IMFVideoSampleAllocatorCallback_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFVideoSampleAllocatorCallback_Impl: windows_core::IUnknownImpl {
     fn SetCallback(&self, pnotify: windows_core::Ref<IMFVideoSampleAllocatorNotify>) -> windows_core::Result<()>;
-    fn GetFreeSampleCount(&self) -> windows_core::Result<super::LONG>;
+    fn GetFreeSampleCount(&self, plsamples: *mut super::LONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IMFVideoSampleAllocatorCallback_Vtbl {
@@ -12959,13 +11153,7 @@ impl IMFVideoSampleAllocatorCallback_Vtbl {
         unsafe extern "system" fn GetFreeSampleCount<Identity: IMFVideoSampleAllocatorCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsamples: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoSampleAllocatorCallback_Impl::GetFreeSampleCount(this) {
-                    Ok(ok__) => {
-                        plsamples.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoSampleAllocatorCallback_Impl::GetFreeSampleCount(this, core::mem::transmute_copy(&plsamples)).into()
             }
         }
         Self {
@@ -13144,11 +11332,8 @@ impl IMFWorkQueueServices {
         unsafe { (windows_core::Interface::vtable(self).GetTopologyWorkQueueMMCSSClass)(windows_core::Interface::as_raw(self), dwtopologyworkqueueid, pwszclass, pcchclass as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: super::DWORD) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTopologyWorkQueueMMCSSTaskId)(windows_core::Interface::as_raw(self), dwtopologyworkqueueid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTopologyWorkQueueMMCSSTaskId)(windows_core::Interface::as_raw(self), dwtopologyworkqueueid, pdwtaskid as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn BeginRegisterPlatformWorkQueueWithMMCSS<P1, P3, P4>(&self, dwplatformworkqueue: super::DWORD, wszclass: P1, dwtaskid: super::DWORD, pcallback: P3, pstate: P4) -> windows_core::HRESULT
@@ -13160,14 +11345,11 @@ impl IMFWorkQueueServices {
         unsafe { (windows_core::Interface::vtable(self).BeginRegisterPlatformWorkQueueWithMMCSS)(windows_core::Interface::as_raw(self), dwplatformworkqueue, wszclass.param().abi(), dwtaskid, pcallback.param().abi(), pstate.param().abi()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn EndRegisterPlatformWorkQueueWithMMCSS<P0>(&self, presult: P0) -> windows_core::Result<super::DWORD>
+    pub unsafe fn EndRegisterPlatformWorkQueueWithMMCSS<P0>(&self, presult: P0, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndRegisterPlatformWorkQueueWithMMCSS)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).EndRegisterPlatformWorkQueueWithMMCSS)(windows_core::Interface::as_raw(self), presult.param().abi(), pdwtaskid as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn BeginUnregisterPlatformWorkQueueWithMMCSS<P1, P2>(&self, dwplatformworkqueue: super::DWORD, pcallback: P1, pstate: P2) -> windows_core::HRESULT
@@ -13189,11 +11371,8 @@ impl IMFWorkQueueServices {
         unsafe { (windows_core::Interface::vtable(self).GetPlaftormWorkQueueMMCSSClass)(windows_core::Interface::as_raw(self), dwplatformworkqueueid, pwszclass, pcchclass as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: super::DWORD) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPlatformWorkQueueMMCSSTaskId)(windows_core::Interface::as_raw(self), dwplatformworkqueueid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPlatformWorkQueueMMCSSTaskId)(windows_core::Interface::as_raw(self), dwplatformworkqueueid, pdwtaskid as _) }
     }
 }
 #[repr(C)]
@@ -13256,13 +11435,13 @@ pub trait IMFWorkQueueServices_Impl: windows_core::IUnknownImpl {
     fn BeginUnregisterTopologyWorkQueuesWithMMCSS(&self, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndUnregisterTopologyWorkQueuesWithMMCSS(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetTopologyWorkQueueMMCSSClass(&self, dwtopologyworkqueueid: super::DWORD, pwszclass: windows_core::PWSTR, pcchclass: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: super::DWORD) -> windows_core::Result<super::DWORD>;
+    fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::Result<()>;
     fn BeginRegisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: super::DWORD, wszclass: &windows_core::PCWSTR, dwtaskid: super::DWORD, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndRegisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<super::DWORD>;
+    fn EndRegisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<super::IMFAsyncResult>, pdwtaskid: *mut super::DWORD) -> windows_core::Result<()>;
     fn BeginUnregisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: super::DWORD, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndUnregisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetPlaftormWorkQueueMMCSSClass(&self, dwplatformworkqueueid: super::DWORD, pwszclass: windows_core::PWSTR, pcchclass: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: super::DWORD) -> windows_core::Result<super::DWORD>;
+    fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFWorkQueueServices_Vtbl {
@@ -13300,13 +11479,7 @@ impl IMFWorkQueueServices_Vtbl {
         unsafe extern "system" fn GetTopologyWorkQueueMMCSSTaskId<Identity: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtopologyworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFWorkQueueServices_Impl::GetTopologyWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwtopologyworkqueueid)) {
-                    Ok(ok__) => {
-                        pdwtaskid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFWorkQueueServices_Impl::GetTopologyWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwtopologyworkqueueid), core::mem::transmute_copy(&pdwtaskid)).into()
             }
         }
         unsafe extern "system" fn BeginRegisterPlatformWorkQueueWithMMCSS<Identity: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwplatformworkqueue: super::DWORD, wszclass: windows_core::PCWSTR, dwtaskid: super::DWORD, pcallback: *mut core::ffi::c_void, pstate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13318,13 +11491,7 @@ impl IMFWorkQueueServices_Vtbl {
         unsafe extern "system" fn EndRegisterPlatformWorkQueueWithMMCSS<Identity: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFWorkQueueServices_Impl::EndRegisterPlatformWorkQueueWithMMCSS(this, core::mem::transmute_copy(&presult)) {
-                    Ok(ok__) => {
-                        pdwtaskid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFWorkQueueServices_Impl::EndRegisterPlatformWorkQueueWithMMCSS(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&pdwtaskid)).into()
             }
         }
         unsafe extern "system" fn BeginUnregisterPlatformWorkQueueWithMMCSS<Identity: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwplatformworkqueue: super::DWORD, pcallback: *mut core::ffi::c_void, pstate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13348,13 +11515,7 @@ impl IMFWorkQueueServices_Vtbl {
         unsafe extern "system" fn GetPlatformWorkQueueMMCSSTaskId<Identity: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwplatformworkqueueid: super::DWORD, pdwtaskid: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFWorkQueueServices_Impl::GetPlatformWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwplatformworkqueueid)) {
-                    Ok(ok__) => {
-                        pdwtaskid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFWorkQueueServices_Impl::GetPlatformWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwplatformworkqueueid), core::mem::transmute_copy(&pdwtaskid)).into()
             }
         }
         Self {
@@ -13389,11 +11550,8 @@ impl core::ops::Deref for IMFWorkQueueServicesEx {
 windows_core::imp::interface_hierarchy!(IMFWorkQueueServicesEx, windows_core::IUnknown, IMFWorkQueueServices);
 impl IMFWorkQueueServicesEx {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTopologyWorkQueueMMCSSPriority(&self, dwtopologyworkqueueid: super::DWORD) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTopologyWorkQueueMMCSSPriority)(windows_core::Interface::as_raw(self), dwtopologyworkqueueid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTopologyWorkQueueMMCSSPriority(&self, dwtopologyworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTopologyWorkQueueMMCSSPriority)(windows_core::Interface::as_raw(self), dwtopologyworkqueueid, plpriority as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn BeginRegisterPlatformWorkQueueWithMMCSSEx<P1, P4, P5>(&self, dwplatformworkqueue: super::DWORD, wszclass: P1, dwtaskid: super::DWORD, lpriority: super::LONG, pcallback: P4, pstate: P5) -> windows_core::HRESULT
@@ -13405,11 +11563,8 @@ impl IMFWorkQueueServicesEx {
         unsafe { (windows_core::Interface::vtable(self).BeginRegisterPlatformWorkQueueWithMMCSSEx)(windows_core::Interface::as_raw(self), dwplatformworkqueue, wszclass.param().abi(), dwtaskid, lpriority, pcallback.param().abi(), pstate.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: super::DWORD) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPlatformWorkQueueMMCSSPriority)(windows_core::Interface::as_raw(self), dwplatformworkqueueid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPlatformWorkQueueMMCSSPriority)(windows_core::Interface::as_raw(self), dwplatformworkqueueid, plpriority as _) }
     }
 }
 #[repr(C)]
@@ -13431,9 +11586,9 @@ pub struct IMFWorkQueueServicesEx_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFWorkQueueServicesEx_Impl: IMFWorkQueueServices_Impl {
-    fn GetTopologyWorkQueueMMCSSPriority(&self, dwtopologyworkqueueid: super::DWORD) -> windows_core::Result<super::LONG>;
+    fn GetTopologyWorkQueueMMCSSPriority(&self, dwtopologyworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::Result<()>;
     fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwplatformworkqueue: super::DWORD, wszclass: &windows_core::PCWSTR, dwtaskid: super::DWORD, lpriority: super::LONG, pcallback: windows_core::Ref<super::IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: super::DWORD) -> windows_core::Result<super::LONG>;
+    fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFWorkQueueServicesEx_Vtbl {
@@ -13441,13 +11596,7 @@ impl IMFWorkQueueServicesEx_Vtbl {
         unsafe extern "system" fn GetTopologyWorkQueueMMCSSPriority<Identity: IMFWorkQueueServicesEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtopologyworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFWorkQueueServicesEx_Impl::GetTopologyWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwtopologyworkqueueid)) {
-                    Ok(ok__) => {
-                        plpriority.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFWorkQueueServicesEx_Impl::GetTopologyWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwtopologyworkqueueid), core::mem::transmute_copy(&plpriority)).into()
             }
         }
         unsafe extern "system" fn BeginRegisterPlatformWorkQueueWithMMCSSEx<Identity: IMFWorkQueueServicesEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwplatformworkqueue: super::DWORD, wszclass: windows_core::PCWSTR, dwtaskid: super::DWORD, lpriority: super::LONG, pcallback: *mut core::ffi::c_void, pstate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13459,13 +11608,7 @@ impl IMFWorkQueueServicesEx_Vtbl {
         unsafe extern "system" fn GetPlatformWorkQueueMMCSSPriority<Identity: IMFWorkQueueServicesEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwplatformworkqueueid: super::DWORD, plpriority: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFWorkQueueServicesEx_Impl::GetPlatformWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwplatformworkqueueid)) {
-                    Ok(ok__) => {
-                        plpriority.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFWorkQueueServicesEx_Impl::GetPlatformWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwplatformworkqueueid), core::mem::transmute_copy(&plpriority)).into()
             }
         }
         Self {

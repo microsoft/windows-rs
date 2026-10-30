@@ -111,11 +111,8 @@ windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomA
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, windows_core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMode(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMode(&self, fileaccessmode: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMode)(windows_core::Interface::as_raw(self), fileaccessmode as _) }
     }
 }
 #[repr(C)]
@@ -129,7 +126,7 @@ pub struct IRandomAccessStreamFileAccessMode_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRandomAccessStreamFileAccessMode_Impl: windows_core::IUnknownImpl {
-    fn GetMode(&self) -> windows_core::Result<super::DWORD>;
+    fn GetMode(&self, fileaccessmode: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IRandomAccessStreamFileAccessMode_Vtbl {
@@ -137,13 +134,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         unsafe extern "system" fn GetMode<Identity: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileaccessmode: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
-                    Ok(ok__) => {
-                        fileaccessmode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRandomAccessStreamFileAccessMode_Impl::GetMode(this, core::mem::transmute_copy(&fileaccessmode)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMode: GetMode::<Identity, OFFSET> }

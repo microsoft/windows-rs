@@ -98,14 +98,12 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Scalar(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Scalar(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Scalar)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                value as _,
             )
-            .map(|| result__)
         }
     }
     pub unsafe fn Query<T>(&self) -> windows_core::Result<T>
@@ -405,7 +403,7 @@ pub trait Buffers_Impl {
     fn Residual(&self, count: u32, values: *mut u32) -> windows_core::Result<()>;
     fn ResidualInput(&self, count: u32, values: *const u32);
     fn ResidualCount(&self, count: u32, values: *const u32);
-    fn Scalar(&self) -> windows_core::Result<u32>;
+    fn Scalar(&self, value: *mut u32) -> windows_core::Result<()>;
     fn Query(
         &self,
         riid: *const windows_core::GUID,
@@ -638,13 +636,7 @@ impl Buffers_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                match Buffers_Impl::Scalar(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                Buffers_Impl::Scalar(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn Query<Identity: Buffers_Impl>(

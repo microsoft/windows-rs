@@ -12,11 +12,8 @@ impl IEnumTravelLogEntry {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
     }
 }
 #[repr(C)]
@@ -39,7 +36,7 @@ pub trait IEnumTravelLogEntry_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<ITravelLogEntry>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumTravelLogEntry>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumTravelLogEntry>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IEnumTravelLogEntry_Vtbl {
@@ -65,13 +62,7 @@ impl IEnumTravelLogEntry_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumTravelLogEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumTravelLogEntry_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumTravelLogEntry_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
             }
         }
         Self {
@@ -92,11 +83,8 @@ windows_core::imp::define_interface!(ITravelLogClient, ITravelLogClient_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ITravelLogClient, windows_core::IUnknown);
 impl ITravelLogClient {
     #[cfg(feature = "shared")]
-    pub unsafe fn FindWindowByIndex(&self, dwid: super::DWORD) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindWindowByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn FindWindowByIndex(&self, dwid: super::DWORD, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindWindowByIndex)(windows_core::Interface::as_raw(self), dwid, core::mem::transmute(ppunk)) }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared", feature = "shtypes"))]
     pub unsafe fn GetWindowData<P0>(&self, pstream: P0, pwindata: LPWINDOWDATA) -> windows_core::HRESULT
@@ -132,7 +120,7 @@ pub struct ITravelLogClient_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "shtypes"))]
 pub trait ITravelLogClient_Impl: windows_core::IUnknownImpl {
-    fn FindWindowByIndex(&self, dwid: super::DWORD) -> windows_core::Result<windows_core::IUnknown>;
+    fn FindWindowByIndex(&self, dwid: super::DWORD, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetWindowData(&self, pstream: windows_core::Ref<super::IStream>, pwindata: LPWINDOWDATA) -> windows_core::Result<()>;
     fn LoadHistoryPosition(&self, pszurllocation: &windows_core::PCWSTR, dwposition: super::DWORD) -> windows_core::Result<()>;
 }
@@ -142,13 +130,7 @@ impl ITravelLogClient_Vtbl {
         unsafe extern "system" fn FindWindowByIndex<Identity: ITravelLogClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: super::DWORD, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogClient_Impl::FindWindowByIndex(this, core::mem::transmute_copy(&dwid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogClient_Impl::FindWindowByIndex(this, core::mem::transmute_copy(&dwid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn GetWindowData<Identity: ITravelLogClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pwindata: LPWINDOWDATA) -> windows_core::HRESULT {
@@ -179,17 +161,11 @@ impl windows_core::RuntimeName for ITravelLogClient {}
 windows_core::imp::define_interface!(ITravelLogEntry, ITravelLogEntry_Vtbl, 0x7ebfdd87_ad18_11d3_a4c5_00c04f72d6b8);
 windows_core::imp::interface_hierarchy!(ITravelLogEntry, windows_core::IUnknown);
 impl ITravelLogEntry {
-    pub unsafe fn GetTitle(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTitle(&self, ppsztitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), ppsztitle as _) }
     }
-    pub unsafe fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), ppszurl as _) }
     }
 }
 #[repr(C)]
@@ -200,33 +176,21 @@ pub struct ITravelLogEntry_Vtbl {
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait ITravelLogEntry_Impl: windows_core::IUnknownImpl {
-    fn GetTitle(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetTitle(&self, ppsztitle: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl ITravelLogEntry_Vtbl {
     pub const fn new<Identity: ITravelLogEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTitle<Identity: ITravelLogEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsztitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogEntry_Impl::GetTitle(this) {
-                    Ok(ok__) => {
-                        ppsztitle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogEntry_Impl::GetTitle(this, core::mem::transmute_copy(&ppsztitle)).into()
             }
         }
         unsafe extern "system" fn GetURL<Identity: ITravelLogEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogEntry_Impl::GetURL(this) {
-                    Ok(ok__) => {
-                        ppszurl.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogEntry_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTitle: GetTitle::<Identity, OFFSET>, GetURL: GetURL::<Identity, OFFSET> }
@@ -239,16 +203,13 @@ impl windows_core::RuntimeName for ITravelLogEntry {}
 windows_core::imp::define_interface!(ITravelLogStg, ITravelLogStg_Vtbl, 0x7ebfdd80_ad18_11d3_a4c5_00c04f72d6b8);
 windows_core::imp::interface_hierarchy!(ITravelLogStg, windows_core::IUnknown);
 impl ITravelLogStg {
-    pub unsafe fn CreateEntry<P0, P1, P2>(&self, pszurl: P0, psztitle: P1, ptlerelativeto: P2, fprepend: bool) -> windows_core::Result<ITravelLogEntry>
+    pub unsafe fn CreateEntry<P0, P1, P2>(&self, pszurl: P0, psztitle: P1, ptlerelativeto: P2, fprepend: bool, pptle: *mut Option<ITravelLogEntry>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<ITravelLogEntry>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEntry)(windows_core::Interface::as_raw(self), pszurl.param().abi(), psztitle.param().abi(), ptlerelativeto.param().abi(), fprepend.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateEntry)(windows_core::Interface::as_raw(self), pszurl.param().abi(), psztitle.param().abi(), ptlerelativeto.param().abi(), fprepend.into(), core::mem::transmute(pptle)) }
     }
     pub unsafe fn TravelTo<P0>(&self, ptle: P0) -> windows_core::HRESULT
     where
@@ -256,27 +217,18 @@ impl ITravelLogStg {
     {
         unsafe { (windows_core::Interface::vtable(self).TravelTo)(windows_core::Interface::as_raw(self), ptle.param().abi()) }
     }
-    pub unsafe fn EnumEntries(&self, flags: TLENUMF) -> windows_core::Result<IEnumTravelLogEntry> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumEntries)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn EnumEntries(&self, flags: TLENUMF, ppenum: *mut Option<IEnumTravelLogEntry>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumEntries)(windows_core::Interface::as_raw(self), flags, core::mem::transmute(ppenum)) }
     }
-    pub unsafe fn FindEntries<P1>(&self, flags: TLENUMF, pszurl: P1) -> windows_core::Result<IEnumTravelLogEntry>
+    pub unsafe fn FindEntries<P1>(&self, flags: TLENUMF, pszurl: P1, ppenum: *mut Option<IEnumTravelLogEntry>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindEntries)(windows_core::Interface::as_raw(self), flags, pszurl.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).FindEntries)(windows_core::Interface::as_raw(self), flags, pszurl.param().abi(), core::mem::transmute(ppenum)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self, flags: TLENUMF) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), flags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, flags: TLENUMF, pcentries: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), flags, pcentries as _) }
     }
     pub unsafe fn RemoveEntry<P0>(&self, ptle: P0) -> windows_core::HRESULT
     where
@@ -284,11 +236,8 @@ impl ITravelLogStg {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntry)(windows_core::Interface::as_raw(self), ptle.param().abi()) }
     }
-    pub unsafe fn GetRelativeEntry(&self, ioffset: i32) -> windows_core::Result<ITravelLogEntry> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRelativeEntry)(windows_core::Interface::as_raw(self), ioffset, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetRelativeEntry(&self, ioffset: i32, ptle: *mut Option<ITravelLogEntry>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRelativeEntry)(windows_core::Interface::as_raw(self), ioffset, core::mem::transmute(ptle)) }
     }
 }
 #[repr(C)]
@@ -308,13 +257,13 @@ pub struct ITravelLogStg_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITravelLogStg_Impl: windows_core::IUnknownImpl {
-    fn CreateEntry(&self, pszurl: &windows_core::PCWSTR, psztitle: &windows_core::PCWSTR, ptlerelativeto: windows_core::Ref<ITravelLogEntry>, fprepend: windows_core::BOOL) -> windows_core::Result<ITravelLogEntry>;
+    fn CreateEntry(&self, pszurl: &windows_core::PCWSTR, psztitle: &windows_core::PCWSTR, ptlerelativeto: windows_core::Ref<ITravelLogEntry>, fprepend: windows_core::BOOL, pptle: windows_core::OutRef<ITravelLogEntry>) -> windows_core::Result<()>;
     fn TravelTo(&self, ptle: windows_core::Ref<ITravelLogEntry>) -> windows_core::Result<()>;
-    fn EnumEntries(&self, flags: TLENUMF) -> windows_core::Result<IEnumTravelLogEntry>;
-    fn FindEntries(&self, flags: TLENUMF, pszurl: &windows_core::PCWSTR) -> windows_core::Result<IEnumTravelLogEntry>;
-    fn GetCount(&self, flags: TLENUMF) -> windows_core::Result<super::DWORD>;
+    fn EnumEntries(&self, flags: TLENUMF, ppenum: windows_core::OutRef<IEnumTravelLogEntry>) -> windows_core::Result<()>;
+    fn FindEntries(&self, flags: TLENUMF, pszurl: &windows_core::PCWSTR, ppenum: windows_core::OutRef<IEnumTravelLogEntry>) -> windows_core::Result<()>;
+    fn GetCount(&self, flags: TLENUMF, pcentries: *mut super::DWORD) -> windows_core::Result<()>;
     fn RemoveEntry(&self, ptle: windows_core::Ref<ITravelLogEntry>) -> windows_core::Result<()>;
-    fn GetRelativeEntry(&self, ioffset: i32) -> windows_core::Result<ITravelLogEntry>;
+    fn GetRelativeEntry(&self, ioffset: i32, ptle: windows_core::OutRef<ITravelLogEntry>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl ITravelLogStg_Vtbl {
@@ -322,13 +271,7 @@ impl ITravelLogStg_Vtbl {
         unsafe extern "system" fn CreateEntry<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR, psztitle: windows_core::PCWSTR, ptlerelativeto: *mut core::ffi::c_void, fprepend: windows_core::BOOL, pptle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogStg_Impl::CreateEntry(this, core::mem::transmute(&pszurl), core::mem::transmute(&psztitle), core::mem::transmute_copy(&ptlerelativeto), core::mem::transmute_copy(&fprepend)) {
-                    Ok(ok__) => {
-                        pptle.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogStg_Impl::CreateEntry(this, core::mem::transmute(&pszurl), core::mem::transmute(&psztitle), core::mem::transmute_copy(&ptlerelativeto), core::mem::transmute_copy(&fprepend), core::mem::transmute_copy(&pptle)).into()
             }
         }
         unsafe extern "system" fn TravelTo<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptle: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -340,37 +283,19 @@ impl ITravelLogStg_Vtbl {
         unsafe extern "system" fn EnumEntries<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: TLENUMF, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogStg_Impl::EnumEntries(this, core::mem::transmute_copy(&flags)) {
-                    Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogStg_Impl::EnumEntries(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&ppenum)).into()
             }
         }
         unsafe extern "system" fn FindEntries<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: TLENUMF, pszurl: windows_core::PCWSTR, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogStg_Impl::FindEntries(this, core::mem::transmute_copy(&flags), core::mem::transmute(&pszurl)) {
-                    Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogStg_Impl::FindEntries(this, core::mem::transmute_copy(&flags), core::mem::transmute(&pszurl), core::mem::transmute_copy(&ppenum)).into()
             }
         }
         unsafe extern "system" fn GetCount<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: TLENUMF, pcentries: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogStg_Impl::GetCount(this, core::mem::transmute_copy(&flags)) {
-                    Ok(ok__) => {
-                        pcentries.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogStg_Impl::GetCount(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pcentries)).into()
             }
         }
         unsafe extern "system" fn RemoveEntry<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptle: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -382,13 +307,7 @@ impl ITravelLogStg_Vtbl {
         unsafe extern "system" fn GetRelativeEntry<Identity: ITravelLogStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ioffset: i32, ptle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITravelLogStg_Impl::GetRelativeEntry(this, core::mem::transmute_copy(&ioffset)) {
-                    Ok(ok__) => {
-                        ptle.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITravelLogStg_Impl::GetRelativeEntry(this, core::mem::transmute_copy(&ioffset), core::mem::transmute_copy(&ptle)).into()
             }
         }
         Self {

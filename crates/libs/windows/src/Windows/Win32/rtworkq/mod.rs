@@ -9,21 +9,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: super::DWORD) -> windows_core::Result<super::DWORD> {
+pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: super::DWORD, workqueueidout: *mut super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : super::DWORD, workqueueidout : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqAllocateSerialWorkQueue(workqueueidin, workqueueidout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE) -> windows_core::Result<super::DWORD> {
+pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE, workqueueid: *mut super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqAllocateWorkQueue(workqueuetype, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqAllocateWorkQueue(workqueuetype, workqueueid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -58,29 +52,23 @@ pub unsafe fn RtwqCancelWorkItem(key: RTWQWORKITEM_KEY) -> windows_core::HRESULT
     unsafe { RtwqCancelWorkItem(key) }
 }
 #[inline]
-pub unsafe fn RtwqCreateAsyncResult<P0, P1, P2>(appobject: P0, callback: P1, appstate: P2) -> windows_core::Result<IRtwqAsyncResult>
+pub unsafe fn RtwqCreateAsyncResult<P0, P1, P2>(appobject: P0, callback: P1, appstate: P2, asyncresult: *mut Option<IRtwqAsyncResult>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<IRtwqAsyncCallback>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : *mut core::ffi::c_void, callback : *mut core::ffi::c_void, appstate : *mut core::ffi::c_void, asyncresult : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), core::mem::transmute(asyncresult)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtwqEndRegisterWorkQueueWithMMCSS<P0>(result: P0) -> windows_core::Result<super::DWORD>
+pub unsafe fn RtwqEndRegisterWorkQueueWithMMCSS<P0>(result: P0, taskid: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IRtwqAsyncResult>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : *mut core::ffi::c_void, taskid : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqEndRegisterWorkQueueWithMMCSS(result.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { RtwqEndRegisterWorkQueueWithMMCSS(result.param().abi(), taskid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -90,21 +78,15 @@ pub unsafe fn RtwqGetWorkQueueMMCSSClass(workqueueid: super::DWORD, usageclass: 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: super::DWORD) -> windows_core::Result<super::LONG> {
+pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: super::DWORD, priority: *mut super::LONG) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : super::DWORD, priority : *mut super::LONG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqGetWorkQueueMMCSSPriority(workqueueid, priority as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: super::DWORD) -> windows_core::Result<super::DWORD> {
+pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: super::DWORD, taskid: *mut super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : super::DWORD, taskid : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqGetWorkQueueMMCSSTaskId(workqueueid, taskid as _) }
 }
 #[inline]
 pub unsafe fn RtwqInvokeCallback<P0>(result: P0) -> windows_core::HRESULT
@@ -307,11 +289,8 @@ impl windows_core::RuntimeName for IRtwqAsyncCallback {}
 windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
 windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, windows_core::IUnknown);
 impl IRtwqAsyncResult {
-    pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetState(&self, ppunkstate: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunkstate)) }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self)) }
@@ -319,11 +298,8 @@ impl IRtwqAsyncResult {
     pub unsafe fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), hrstatus) }
     }
-    pub unsafe fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetObject(&self, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppobject)) }
     }
     pub unsafe fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown> {
         unsafe { (windows_core::Interface::vtable(self).GetStateNoAddRef)(windows_core::Interface::as_raw(self)) }
@@ -340,10 +316,10 @@ pub struct IRtwqAsyncResult_Vtbl {
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
 pub trait IRtwqAsyncResult_Impl: windows_core::IUnknownImpl {
-    fn GetState(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetState(&self, ppunkstate: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetStatus(&self) -> windows_core::Result<()>;
     fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetObject(&self, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown>;
 }
 impl IRtwqAsyncResult_Vtbl {
@@ -351,13 +327,7 @@ impl IRtwqAsyncResult_Vtbl {
         unsafe extern "system" fn GetState<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRtwqAsyncResult_Impl::GetState(this) {
-                    Ok(ok__) => {
-                        ppunkstate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRtwqAsyncResult_Impl::GetState(this, core::mem::transmute_copy(&ppunkstate)).into()
             }
         }
         unsafe extern "system" fn GetStatus<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -375,13 +345,7 @@ impl IRtwqAsyncResult_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRtwqAsyncResult_Impl::GetObject(this) {
-                    Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRtwqAsyncResult_Impl::GetObject(this, core::mem::transmute_copy(&ppobject)).into()
             }
         }
         unsafe extern "system" fn GetStateNoAddRef<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<windows_core::IUnknown> {

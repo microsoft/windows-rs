@@ -10,21 +10,14 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetTime() -> SYSTEMTIME {
+pub unsafe fn GetTime(result: LPSYSTEMTIME) {
     windows_core::link!("test.dll" "system" fn GetTime(result : LPSYSTEMTIME));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetTime(&mut result__);
-        result__
-    }
+    unsafe { GetTime(result as _) }
 }
 #[inline]
-pub unsafe fn GetValue() -> windows_core::Result<DWORD> {
+pub unsafe fn GetValue(result: LPDWORD) -> windows_core::HRESULT {
     windows_core::link!("test.dll" "system" fn GetValue(result : LPDWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetValue(&mut result__).map(|| result__)
-    }
+    unsafe { GetValue(result as _) }
 }
 pub type DWORD = u32;
 pub type IID = windows_core::GUID;

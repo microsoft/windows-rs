@@ -60,21 +60,15 @@ where
     unsafe { SLFireEvent(hslc, pwszeventid.param().abi(), papplicationid) }
 }
 #[inline]
-pub unsafe fn SLGenerateOfflineInstallationId(hslc: HSLC, pproductskuid: *const SLID) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn SLGenerateOfflineInstallationId(hslc: HSLC, pproductskuid: *const SLID, ppwszinstallationid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLGenerateOfflineInstallationId(hslc : HSLC, pproductskuid : *const SLID, ppwszinstallationid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGenerateOfflineInstallationId(hslc, pproductskuid, &mut result__).map(|| result__)
-    }
+    unsafe { SLGenerateOfflineInstallationId(hslc, pproductskuid, ppwszinstallationid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: HSLC, pproductskuid: Option<*const SLID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: HSLC, pproductskuid: Option<*const SLID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, ppwszinstallationid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLGenerateOfflineInstallationIdEx(hslc : HSLC, pproductskuid : *const SLID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGenerateOfflineInstallationIdEx(hslc, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pactivationinfo.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { SLGenerateOfflineInstallationIdEx(hslc, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pactivationinfo.unwrap_or(core::mem::zeroed()) as _, ppwszinstallationid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -108,12 +102,9 @@ pub unsafe fn SLGetLicense(hslc: HSLC, plicensefileid: *const SLID, pcblicensefi
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8]) -> windows_core::Result<SLID> {
+pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8], plicensefileid: *mut SLID) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
-    }
+    unsafe { SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), plicensefileid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -135,16 +126,13 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetPKeyId<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<SLID>
+pub unsafe fn SLGetPKeyId<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>, ppkeyid: *mut SLID) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : *const super::BYTE, ppkeyid : *mut SLID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
-    }
+    unsafe { SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppkeyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -166,15 +154,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetPolicyInformationDWORD<P1>(hslc: HSLC, pwszvaluename: P1) -> windows_core::Result<super::DWORD>
+pub unsafe fn SLGetPolicyInformationDWORD<P1>(hslc: HSLC, pwszvaluename: P1, pdwvalue: *mut super::DWORD) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLGetPolicyInformationDWORD(hslc : HSLC, pwszvaluename : windows_core::PCWSTR, pdwvalue : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetPolicyInformationDWORD(hslc, pwszvaluename.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SLGetPolicyInformationDWORD(hslc, pwszvaluename.param().abi(), pdwvalue as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -186,15 +171,12 @@ where
     unsafe { SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _) }
 }
 #[inline]
-pub unsafe fn SLGetReferralInformation<P3>(hslc: HSLC, ereferraltype: SLREFERRALTYPE, pskuorappid: *const SLID, pwszvaluename: P3) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SLGetReferralInformation<P3>(hslc: HSLC, ereferraltype: SLREFERRALTYPE, pskuorappid: *const SLID, pwszvaluename: P3, ppwszvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slcext.dll" "system" fn SLGetReferralInformation(hslc : HSLC, ereferraltype : SLREFERRALTYPE, pskuorappid : *const SLID, pwszvaluename : windows_core::PCWSTR, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetReferralInformation(hslc, ereferraltype, pskuorappid, pwszvaluename.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SLGetReferralInformation(hslc, ereferraltype, pskuorappid, pwszvaluename.param().abi(), ppwszvalue as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -204,17 +186,14 @@ pub unsafe fn SLGetSLIDList(hslc: HSLC, equeryidtype: SLIDTYPE, pqueryid: Option
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetServerStatus<P0, P1, P2>(pwszserverurl: P0, pwszacquisitiontype: P1, pwszproxyserver: P2, wproxyport: Option<super::WORD>) -> windows_core::Result<windows_core::HRESULT>
+pub unsafe fn SLGetServerStatus<P0, P1, P2>(pwszserverurl: P0, pwszacquisitiontype: P1, pwszproxyserver: P2, wproxyport: Option<super::WORD>, phrstatus: *mut windows_core::HRESULT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slcext.dll" "system" fn SLGetServerStatus(pwszserverurl : windows_core::PCWSTR, pwszacquisitiontype : windows_core::PCWSTR, pwszproxyserver : windows_core::PCWSTR, wproxyport : super::WORD, phrstatus : *mut windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetServerStatus(pwszserverurl.param().abi(), pwszacquisitiontype.param().abi(), pwszproxyserver.param().abi(), wproxyport.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { SLGetServerStatus(pwszserverurl.param().abi(), pwszacquisitiontype.param().abi(), pwszproxyserver.param().abi(), wproxyport.unwrap_or(core::mem::zeroed()) as _, phrstatus as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -236,37 +215,28 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0) -> windows_core::Result<super::DWORD>
+pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0, pdwvalue: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLGetWindowsInformationDWORD(pwszvaluename : windows_core::PCWSTR, pdwvalue : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLGetWindowsInformationDWORD(pwszvaluename.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SLGetWindowsInformationDWORD(pwszvaluename.param().abi(), pdwvalue as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8]) -> windows_core::Result<SLID> {
+pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8], plicensefileid: *mut SLID) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
-    }
+    unsafe { SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), plicensefileid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<SLID>
+pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>, ppkeyid: *mut SLID) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
-    }
+    unsafe { SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppkeyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

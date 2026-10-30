@@ -1,14 +1,11 @@
 #[cfg(feature = "dxgi")]
 #[inline]
-pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> windows_core::Result<IPdfRendererNative>
+pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0, pprenderer: *mut Option<IPdfRendererNative>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IDXGIDevice>,
 {
     windows_core::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : *mut core::ffi::c_void, pprenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PdfCreateRenderer(pdevice.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { PdfCreateRenderer(pdevice.param().abi(), core::mem::transmute(pprenderer)) }
 }
 windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);

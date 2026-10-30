@@ -30,12 +30,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ADsEncodeBinaryData(pbsrcdata: super::PBYTE, dwsrclen: super::DWORD) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn ADsEncodeBinaryData(pbsrcdata: super::PBYTE, dwsrclen: super::DWORD, ppszdestdata: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : super::PBYTE, dwsrclen : super::DWORD, ppszdestdata : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ADsEncodeBinaryData(pbsrcdata as _, dwsrclen, &mut result__).map(|| result__)
-    }
+    unsafe { ADsEncodeBinaryData(pbsrcdata as _, dwsrclen, ppszdestdata as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

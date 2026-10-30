@@ -246,15 +246,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SHGetDriveMedia<P0>(pszdrive: P0) -> windows_core::Result<super::DWORD>
+pub unsafe fn SHGetDriveMedia<P0>(pszdrive: P0, pdwmediacontent: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : windows_core::PCWSTR, pdwmediacontent : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHGetDriveMedia(pszdrive.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SHGetDriveMedia(pszdrive.param().abi(), pdwmediacontent as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -383,12 +380,9 @@ where
     unsafe { SHQueryRecycleBinW(pszrootpath.param().abi(), pshqueryrbinfo as _) }
 }
 #[inline]
-pub unsafe fn SHQueryUserNotificationState() -> windows_core::Result<QUERY_USER_NOTIFICATION_STATE> {
+pub unsafe fn SHQueryUserNotificationState(pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns : *mut QUERY_USER_NOTIFICATION_STATE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHQueryUserNotificationState(&mut result__).map(|| result__)
-    }
+    unsafe { SHQueryUserNotificationState(pquns as _) }
 }
 #[inline]
 pub unsafe fn SHRemoveLocalizedName<P0>(pszpath: P0) -> windows_core::HRESULT
@@ -487,12 +481,9 @@ pub unsafe fn Shell_NotifyIconA(dwmessage: super::DWORD, lpdata: PNOTIFYICONDATA
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -> windows_core::Result<super::RECT> {
+pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER, iconlocation: *mut super::RECT) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::RECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        Shell_NotifyIconGetRect(identifier, &mut result__).map(|| result__)
-    }
+    unsafe { Shell_NotifyIconGetRect(identifier, iconlocation as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]

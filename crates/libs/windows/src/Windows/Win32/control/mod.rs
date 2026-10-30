@@ -20,11 +20,8 @@ impl IAMCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), litem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Item(&self, litem: i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), litem, core::mem::transmute(ppunk)) }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -48,7 +45,7 @@ pub struct IAMCollection_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAMCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<super::LONG>;
-    fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown>;
+    fn Item(&self, litem: i32, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -69,13 +66,7 @@ impl IAMCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, litem: i32, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMCollection_Impl::Item(this, core::mem::transmute_copy(&litem)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAMCollection_Impl::Item(this, core::mem::transmute_copy(&litem), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -132,11 +123,8 @@ impl IAMStats {
     pub unsafe fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(szname), lindex as _, lcount as _, dlast as _, daverage as _, dstddev as _, dmin as _, dmax as _) }
     }
-    pub unsafe fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIndex)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(szname), lcreate, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIndex)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(szname), lcreate, plindex as _) }
     }
     pub unsafe fn AddValue(&self, lindex: i32, dvalue: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddValue)(windows_core::Interface::as_raw(self), lindex, dvalue) }
@@ -163,7 +151,7 @@ pub trait IAMStats_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<super::LONG>;
     fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
     fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
-    fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32) -> windows_core::Result<i32>;
+    fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32, plindex: *mut i32) -> windows_core::Result<()>;
     fn AddValue(&self, lindex: i32, dvalue: f64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -202,13 +190,7 @@ impl IAMStats_Vtbl {
         unsafe extern "system" fn GetIndex<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: *mut core::ffi::c_void, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate)) {
-                    Ok(ok__) => {
-                        plindex.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate), core::mem::transmute_copy(&plindex)).into()
             }
         }
         unsafe extern "system" fn AddValue<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, dvalue: f64) -> windows_core::HRESULT {
@@ -928,21 +910,15 @@ impl IDeferredCommand {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Confidence(&self) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn Confidence(&self, pconfidence: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), pconfidence as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Postpone(&self, newtime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Postpone)(windows_core::Interface::as_raw(self), newtime) }
     }
-    pub unsafe fn GetHResult(&self) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHResult(&self, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHResult)(windows_core::Interface::as_raw(self), phrresult as _) }
     }
 }
 #[repr(C)]
@@ -963,9 +939,9 @@ pub struct IDeferredCommand_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IDeferredCommand_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn Confidence(&self) -> windows_core::Result<super::LONG>;
+    fn Confidence(&self, pconfidence: *mut super::LONG) -> windows_core::Result<()>;
     fn Postpone(&self, newtime: super::REFTIME) -> windows_core::Result<()>;
-    fn GetHResult(&self) -> windows_core::Result<windows_core::HRESULT>;
+    fn GetHResult(&self, phrresult: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IDeferredCommand_Vtbl {
@@ -979,13 +955,7 @@ impl IDeferredCommand_Vtbl {
         unsafe extern "system" fn Confidence<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconfidence: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDeferredCommand_Impl::Confidence(this) {
-                    Ok(ok__) => {
-                        pconfidence.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDeferredCommand_Impl::Confidence(this, core::mem::transmute_copy(&pconfidence)).into()
             }
         }
         unsafe extern "system" fn Postpone<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtime: super::REFTIME) -> windows_core::HRESULT {
@@ -997,13 +967,7 @@ impl IDeferredCommand_Vtbl {
         unsafe extern "system" fn GetHResult<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDeferredCommand_Impl::GetHResult(this) {
-                    Ok(ok__) => {
-                        phrresult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDeferredCommand_Impl::GetHResult(this, core::mem::transmute_copy(&phrresult)).into()
             }
         }
         Self {
@@ -1033,11 +997,8 @@ impl core::ops::Deref for IFilterInfo {
 windows_core::imp::interface_hierarchy!(IFilterInfo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IFilterInfo {
-    pub unsafe fn FindPin(&self, strpinid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpinid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn FindPin(&self, strpinid: &windows_core::BSTR, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpinid), core::mem::transmute(ppunk)) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1099,7 +1060,7 @@ pub struct IFilterInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFilterInfo_Impl: super::IDispatch_Impl {
-    fn FindPin(&self, strpinid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
+    fn FindPin(&self, strpinid: &windows_core::BSTR, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VendorInfo(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Filter(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -1114,13 +1075,7 @@ impl IFilterInfo_Vtbl {
         unsafe extern "system" fn FindPin<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn Name<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1258,20 +1213,14 @@ impl IMediaControl {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetState(&self, mstimeout: super::LONG) -> windows_core::Result<OAFilterState> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), mstimeout, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetState(&self, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), mstimeout, pfs as _) }
     }
     pub unsafe fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RenderFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename)) }
     }
-    pub unsafe fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddSourceFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn AddSourceFilter(&self, strfilename: &windows_core::BSTR, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddSourceFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename), core::mem::transmute(ppunk)) }
     }
     pub unsafe fn FilterCollection(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
@@ -1312,9 +1261,9 @@ pub trait IMediaControl_Impl: super::IDispatch_Impl {
     fn Run(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
-    fn GetState(&self, mstimeout: super::LONG) -> windows_core::Result<OAFilterState>;
+    fn GetState(&self, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::Result<()>;
     fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
+    fn AddSourceFilter(&self, strfilename: &windows_core::BSTR, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
     fn FilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn RegFilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn StopWhenReady(&self) -> windows_core::Result<()>;
@@ -1343,13 +1292,7 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn GetState<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaControl_Impl::GetState(this, core::mem::transmute_copy(&mstimeout)) {
-                    Ok(ok__) => {
-                        pfs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMediaControl_Impl::GetState(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pfs)).into()
             }
         }
         unsafe extern "system" fn RenderFile<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1361,13 +1304,7 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn AddSourceFilter<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn FilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1432,21 +1369,15 @@ impl core::ops::Deref for IMediaEvent {
 windows_core::imp::interface_hierarchy!(IMediaEvent, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IMediaEvent {
-    pub unsafe fn GetEventHandle(&self) -> windows_core::Result<OAEVENT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEventHandle(&self, hevent: *mut OAEVENT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEventHandle)(windows_core::Interface::as_raw(self), hevent as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), leventcode as _, lparam1 as _, lparam2 as _, mstimeout) }
     }
-    pub unsafe fn WaitForCompletion(&self, mstimeout: i32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), mstimeout, &mut result__).map(|| result__)
-        }
+    pub unsafe fn WaitForCompletion(&self, mstimeout: i32, pevcode: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), mstimeout, pevcode as _) }
     }
     pub unsafe fn CancelDefaultHandling(&self, levcode: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CancelDefaultHandling)(windows_core::Interface::as_raw(self), levcode) }
@@ -1479,9 +1410,9 @@ pub struct IMediaEvent_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaEvent_Impl: super::IDispatch_Impl {
-    fn GetEventHandle(&self) -> windows_core::Result<OAEVENT>;
+    fn GetEventHandle(&self, hevent: *mut OAEVENT) -> windows_core::Result<()>;
     fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::Result<()>;
-    fn WaitForCompletion(&self, mstimeout: i32) -> windows_core::Result<i32>;
+    fn WaitForCompletion(&self, mstimeout: i32, pevcode: *mut i32) -> windows_core::Result<()>;
     fn CancelDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
     fn RestoreDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
     fn FreeEventParams(&self, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::Result<()>;
@@ -1492,13 +1423,7 @@ impl IMediaEvent_Vtbl {
         unsafe extern "system" fn GetEventHandle<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: *mut OAEVENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaEvent_Impl::GetEventHandle(this) {
-                    Ok(ok__) => {
-                        hevent.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMediaEvent_Impl::GetEventHandle(this, core::mem::transmute_copy(&hevent)).into()
             }
         }
         unsafe extern "system" fn GetEvent<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT {
@@ -1510,13 +1435,7 @@ impl IMediaEvent_Vtbl {
         unsafe extern "system" fn WaitForCompletion<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: i32, pevcode: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaEvent_Impl::WaitForCompletion(this, core::mem::transmute_copy(&mstimeout)) {
-                    Ok(ok__) => {
-                        pevcode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMediaEvent_Impl::WaitForCompletion(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pevcode)).into()
             }
         }
         unsafe extern "system" fn CancelDefaultHandling<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32) -> windows_core::HRESULT {
@@ -1573,11 +1492,8 @@ impl IMediaEventEx {
     pub unsafe fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyFlags)(windows_core::Interface::as_raw(self), lnonotifyflags) }
     }
-    pub unsafe fn GetNotifyFlags(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNotifyFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNotifyFlags(&self, lplnonotifyflags: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNotifyFlags)(windows_core::Interface::as_raw(self), lplnonotifyflags as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -1596,7 +1512,7 @@ pub struct IMediaEventEx_Vtbl {
 pub trait IMediaEventEx_Impl: IMediaEvent_Impl {
     fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::Result<()>;
     fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::Result<()>;
-    fn GetNotifyFlags(&self) -> windows_core::Result<i32>;
+    fn GetNotifyFlags(&self, lplnonotifyflags: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaEventEx_Vtbl {
@@ -1616,13 +1532,7 @@ impl IMediaEventEx_Vtbl {
         unsafe extern "system" fn GetNotifyFlags<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplnonotifyflags: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaEventEx_Impl::GetNotifyFlags(this) {
-                    Ok(ok__) => {
-                        lplnonotifyflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMediaEventEx_Impl::GetNotifyFlags(this, core::mem::transmute_copy(&lplnonotifyflags)).into()
             }
         }
         Self {
@@ -2333,11 +2243,8 @@ impl IRegFilterInfo {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Filter(&self) -> windows_core::Result<super::IDispatch> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Filter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Filter(&self, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Filter)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -2351,7 +2258,7 @@ pub struct IRegFilterInfo_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRegFilterInfo_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Filter(&self) -> windows_core::Result<super::IDispatch>;
+    fn Filter(&self, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRegFilterInfo_Vtbl {
@@ -2371,13 +2278,7 @@ impl IRegFilterInfo_Vtbl {
         unsafe extern "system" fn Filter<Identity: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRegFilterInfo_Impl::Filter(this) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRegFilterInfo_Impl::Filter(this, core::mem::transmute_copy(&ppunk)).into()
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Filter: Filter::<Identity, OFFSET> }
@@ -2561,11 +2462,8 @@ impl IVideoWindow {
     pub unsafe fn HideCursor(&self, hidecursor: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HideCursor)(windows_core::Interface::as_raw(self), hidecursor) }
     }
-    pub unsafe fn IsCursorHidden(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsCursorHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsCursorHidden(&self, cursorhidden: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsCursorHidden)(windows_core::Interface::as_raw(self), cursorhidden as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -2656,7 +2554,7 @@ pub trait IVideoWindow_Impl: super::IDispatch_Impl {
     fn GetMaxIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
     fn GetRestorePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
     fn HideCursor(&self, hidecursor: i32) -> windows_core::Result<()>;
-    fn IsCursorHidden(&self) -> windows_core::Result<i32>;
+    fn IsCursorHidden(&self, cursorhidden: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IVideoWindow_Vtbl {
@@ -2982,13 +2880,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn IsCursorHidden<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursorhidden: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::IsCursorHidden(this) {
-                    Ok(ok__) => {
-                        cursorhidden.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVideoWindow_Impl::IsCursorHidden(this, core::mem::transmute_copy(&cursorhidden)).into()
             }
         }
         Self {

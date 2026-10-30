@@ -38,21 +38,15 @@ pub unsafe fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncon
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> windows_core::Result<WEB_SOCKET_HANDLE> {
+pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY], phwebsocket: *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : super::ULONG, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
-    }
+    unsafe { WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), phwebsocket as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> windows_core::Result<WEB_SOCKET_HANDLE> {
+pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY], phwebsocket: *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : super::ULONG, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
-    }
+    unsafe { WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), phwebsocket as _) }
 }
 #[inline]
 pub unsafe fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE) {

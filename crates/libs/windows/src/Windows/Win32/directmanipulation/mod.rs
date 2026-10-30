@@ -271,11 +271,8 @@ windows_core::imp::define_interface!(IDirectManipulationContent, IDirectManipula
 windows_core::imp::interface_hierarchy!(IDirectManipulationContent, windows_core::IUnknown);
 impl IDirectManipulationContent {
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetContentRect(&self) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContentRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetContentRect(&self, contentsize: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContentRect)(windows_core::Interface::as_raw(self), contentsize as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetContentRect(&self, contentsize: *const super::RECT) -> windows_core::HRESULT {
@@ -355,7 +352,7 @@ pub struct IDirectManipulationContent_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IDirectManipulationContent_Impl: windows_core::IUnknownImpl {
-    fn GetContentRect(&self) -> windows_core::Result<super::RECT>;
+    fn GetContentRect(&self, contentsize: *mut super::RECT) -> windows_core::Result<()>;
     fn SetContentRect(&self, contentsize: *const super::RECT) -> windows_core::Result<()>;
     fn GetViewport(&self, riid: *const super::IID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetTag(&self, riid: *const super::IID, object: *mut *mut core::ffi::c_void, id: *mut super::UINT32) -> windows_core::Result<()>;
@@ -370,13 +367,7 @@ impl IDirectManipulationContent_Vtbl {
         unsafe extern "system" fn GetContentRect<Identity: IDirectManipulationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentsize: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectManipulationContent_Impl::GetContentRect(this) {
-                    Ok(ok__) => {
-                        contentsize.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectManipulationContent_Impl::GetContentRect(this, core::mem::transmute_copy(&contentsize)).into()
             }
         }
         unsafe extern "system" fn SetContentRect<Identity: IDirectManipulationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentsize: *const super::RECT) -> windows_core::HRESULT {
@@ -1129,14 +1120,11 @@ windows_core::imp::define_interface!(IDirectManipulationUpdateManager, IDirectMa
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateManager, windows_core::IUnknown);
 impl IDirectManipulationUpdateManager {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::HANDLE, eventhandler: P1) -> windows_core::Result<super::DWORD>
+    pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::HANDLE, eventhandler: P1, cookie: *mut super::DWORD) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDirectManipulationUpdateHandler>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), handle, eventhandler.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), handle, eventhandler.param().abi(), cookie as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: super::DWORD) -> windows_core::HRESULT {
@@ -1165,7 +1153,7 @@ pub struct IDirectManipulationUpdateManager_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDirectManipulationUpdateManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterWaitHandleCallback(&self, handle: super::HANDLE, eventhandler: windows_core::Ref<IDirectManipulationUpdateHandler>) -> windows_core::Result<super::DWORD>;
+    fn RegisterWaitHandleCallback(&self, handle: super::HANDLE, eventhandler: windows_core::Ref<IDirectManipulationUpdateHandler>, cookie: *mut super::DWORD) -> windows_core::Result<()>;
     fn UnregisterWaitHandleCallback(&self, cookie: super::DWORD) -> windows_core::Result<()>;
     fn Update(&self, frameinfo: windows_core::Ref<IDirectManipulationFrameInfoProvider>) -> windows_core::Result<()>;
 }
@@ -1175,13 +1163,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         unsafe extern "system" fn RegisterWaitHandleCallback<Identity: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: super::HANDLE, eventhandler: *mut core::ffi::c_void, cookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectManipulationUpdateManager_Impl::RegisterWaitHandleCallback(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&eventhandler)) {
-                    Ok(ok__) => {
-                        cookie.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectManipulationUpdateManager_Impl::RegisterWaitHandleCallback(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&eventhandler), core::mem::transmute_copy(&cookie)).into()
             }
         }
         unsafe extern "system" fn UnregisterWaitHandleCallback<Identity: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: super::DWORD) -> windows_core::HRESULT {

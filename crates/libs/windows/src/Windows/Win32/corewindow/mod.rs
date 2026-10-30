@@ -315,11 +315,8 @@ impl ICoreWindowComponentInterop {
         unsafe { (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost, inputsourcevisual.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetViewInstanceId(&self) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetViewInstanceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetViewInstanceId(&self, componentviewinstanceid: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetViewInstanceId)(windows_core::Interface::as_raw(self), componentviewinstanceid as _) }
     }
 }
 #[repr(C)]
@@ -338,7 +335,7 @@ pub struct ICoreWindowComponentInterop_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
     fn ConfigureComponentInput(&self, hostviewinstanceid: super::UINT32, hwndhost: super::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetViewInstanceId(&self) -> windows_core::Result<super::UINT32>;
+    fn GetViewInstanceId(&self, componentviewinstanceid: *mut super::UINT32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl ICoreWindowComponentInterop_Vtbl {
@@ -352,13 +349,7 @@ impl ICoreWindowComponentInterop_Vtbl {
         unsafe extern "system" fn GetViewInstanceId<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componentviewinstanceid: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWindowComponentInterop_Impl::GetViewInstanceId(this) {
-                    Ok(ok__) => {
-                        componentviewinstanceid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICoreWindowComponentInterop_Impl::GetViewInstanceId(this, core::mem::transmute_copy(&componentviewinstanceid)).into()
             }
         }
         Self {

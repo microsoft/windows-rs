@@ -106,7 +106,7 @@ impl TypeMap {
 
     /// Returns the architectures whose selected items reach `ty`; unrecorded types are unrestricted.
     pub fn reached_arches(&self, ty: &Type) -> i32 {
-        self.2.get(ty).copied().unwrap_or(7)
+        self.2.get(ty).copied().unwrap_or(ALL_ARCHES)
     }
 
     pub fn combine_references(&mut self, other: &Self, references: &References) {

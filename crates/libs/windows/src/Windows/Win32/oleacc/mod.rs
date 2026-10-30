@@ -1012,11 +1012,8 @@ windows_core::imp::define_interface!(IAccessibleHandler, IAccessibleHandler_Vtbl
 windows_core::imp::interface_hierarchy!(IAccessibleHandler, windows_core::IUnknown);
 impl IAccessibleHandler {
     #[cfg(feature = "oaidl")]
-    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<LPACCESSIBLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32, piaccessible: *mut Option<LPACCESSIBLE>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, core::mem::transmute(piaccessible)) }
     }
 }
 #[repr(C)]
@@ -1030,7 +1027,7 @@ pub struct IAccessibleHandler_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IAccessibleHandler_Impl: windows_core::IUnknownImpl {
-    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<LPACCESSIBLE>;
+    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32, piaccessible: windows_core::OutRef<LPACCESSIBLE>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "oaidl")]
 impl IAccessibleHandler_Vtbl {
@@ -1038,13 +1035,7 @@ impl IAccessibleHandler_Vtbl {
         unsafe extern "system" fn AccessibleObjectFromID<Identity: IAccessibleHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleHandler_Impl::AccessibleObjectFromID(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid)) {
-                    Ok(ok__) => {
-                        piaccessible.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleHandler_Impl::AccessibleObjectFromID(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid), core::mem::transmute_copy(&piaccessible)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessibleObjectFromID: AccessibleObjectFromID::<Identity, OFFSET> }
@@ -1058,14 +1049,11 @@ impl windows_core::RuntimeName for IAccessibleHandler {}
 windows_core::imp::define_interface!(IAccessibleWindowlessSite, IAccessibleWindowlessSite_Vtbl, 0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
 windows_core::imp::interface_hierarchy!(IAccessibleWindowlessSite, windows_core::IUnknown);
 impl IAccessibleWindowlessSite {
-    pub unsafe fn AcquireObjectIdRange<P1>(&self, rangesize: i32, prangeowner: P1) -> windows_core::Result<i32>
+    pub unsafe fn AcquireObjectIdRange<P1>(&self, rangesize: i32, prangeowner: P1, prangebase: *mut i32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IAccessibleHandler>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.param().abi(), prangebase as _) }
     }
     pub unsafe fn ReleaseObjectIdRange<P1>(&self, rangebase: i32, prangeowner: P1) -> windows_core::HRESULT
     where
@@ -1074,21 +1062,15 @@ impl IAccessibleWindowlessSite {
         unsafe { (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, prangeowner.param().abi()) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
-    pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> windows_core::Result<*mut super::SAFEARRAY>
+    pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAccessibleHandler>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), prangesowner.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), prangesowner.param().abi(), psaranges as _) }
     }
     #[cfg(feature = "oaidl")]
-    pub unsafe fn GetParentAccessible(&self) -> windows_core::Result<IAccessible> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetParentAccessible(&self, ppparent: *mut Option<IAccessible>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetParentAccessible)(windows_core::Interface::as_raw(self), core::mem::transmute(ppparent)) }
     }
 }
 #[repr(C)]
@@ -1108,10 +1090,10 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IAccessibleWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<i32>;
+    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>, prangebase: *mut i32) -> windows_core::Result<()>;
     fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<()>;
-    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn GetParentAccessible(&self) -> windows_core::Result<IAccessible>;
+    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
+    fn GetParentAccessible(&self, ppparent: windows_core::OutRef<IAccessible>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IAccessibleWindowlessSite_Vtbl {
@@ -1119,13 +1101,7 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn AcquireObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangesize: i32, prangeowner: *mut core::ffi::c_void, prangebase: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner)) {
-                    Ok(ok__) => {
-                        prangebase.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner), core::mem::transmute_copy(&prangebase)).into()
             }
         }
         unsafe extern "system" fn ReleaseObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangebase: i32, prangeowner: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1137,25 +1113,13 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn QueryObjectIdRanges<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangesowner: *mut core::ffi::c_void, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner)) {
-                    Ok(ok__) => {
-                        psaranges.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner), core::mem::transmute_copy(&psaranges)).into()
             }
         }
         unsafe extern "system" fn GetParentAccessible<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleWindowlessSite_Impl::GetParentAccessible(this) {
-                    Ok(ok__) => {
-                        ppparent.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleWindowlessSite_Impl::GetParentAccessible(this, core::mem::transmute_copy(&ppparent)).into()
             }
         }
         Self {

@@ -65,15 +65,12 @@ pub unsafe fn AppPolicyGetWindowingModel(processtoken: super::HANDLE, policy: *m
     unsafe { AppPolicyGetWindowingModel(processtoken, policy as _) }
 }
 #[inline]
-pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> windows_core::Result<windows_core::BOOL>
+pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0, ismsixpackage: *mut windows_core::BOOL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-4.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { CheckIsMSIXPackage(packagefullname.param().abi(), ismsixpackage as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -175,12 +172,9 @@ pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlengt
     unsafe { GetCurrentPackagePath2(packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT, packagedependencyid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).map(|| result__)
-    }
+    unsafe { GetIdForPackageDependencyContext(packagedependencycontext, packagedependencyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -288,26 +282,20 @@ where
     unsafe { GetProcessesUsingPackageDependency(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, scopeissystem.into(), processidscount as _, processids as _) }
 }
 #[inline]
-pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), packagefullname as _) }
 }
 #[inline]
-pub unsafe fn GetResolvedPackageFullNameForPackageDependency2<P0>(packagedependencyid: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn GetResolvedPackageFullNameForPackageDependency2<P0>(packagedependencyid: P0, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetResolvedPackageFullNameForPackageDependency2(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetResolvedPackageFullNameForPackageDependency2(packagedependencyid.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { GetResolvedPackageFullNameForPackageDependency2(packagedependencyid.param().abi(), packagefullname as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -319,15 +307,12 @@ where
     unsafe { GetStagedPackageOrigin(packagefullname.param().abi(), origin as _) }
 }
 #[inline]
-pub unsafe fn GetStagedPackageOrigin2<P0>(packagefullname: P0) -> windows_core::Result<PackageOrigin2>
+pub unsafe fn GetStagedPackageOrigin2<P0>(packagefullname: P0, origin: *mut PackageOrigin2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetStagedPackageOrigin2(packagefullname : windows_core::PCWSTR, origin : *mut PackageOrigin2) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetStagedPackageOrigin2(packagefullname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { GetStagedPackageOrigin2(packagefullname.param().abi(), origin as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -425,29 +410,23 @@ pub unsafe fn RemovePackageDependency(packagedependencycontext: PACKAGEDEPENDENC
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TryCreatePackageDependency<P1, P5>(user: super::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn TryCreatePackageDependency<P1, P5>(user: super::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions, packagedependencyid: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : super::PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency(user as _, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
-    }
+    unsafe { TryCreatePackageDependency(user as _, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, packagedependencyid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TryCreatePackageDependency2<P1, P5>(user: super::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions, lifetimeexpiration: *const super::FILETIME) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn TryCreatePackageDependency2<P1, P5>(user: super::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions, lifetimeexpiration: *const super::FILETIME, packagedependencyid: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn TryCreatePackageDependency2(user : super::PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, lifetimeexpiration : *const super::FILETIME, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency2(user as _, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, &mut result__).map(|| result__)
-    }
+    unsafe { TryCreatePackageDependency2(user as _, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, packagedependencyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
