@@ -303,12 +303,12 @@ impl NativeEvent {
 }
 
 pub struct NativeEventDispatch {
-    event: Option<EventDispatch>,
+    event: Option<EventCall>,
     active: Rc<Cell<bool>>,
 }
 
 impl NativeEventDispatch {
-    fn new(event: EventDispatch, active: Rc<Cell<bool>>) -> Self {
+    fn new(event: EventCall, active: Rc<Cell<bool>>) -> Self {
         Self {
             event: Some(event),
             active,
@@ -317,7 +317,7 @@ impl NativeEventDispatch {
 
     pub fn invoke(&mut self) {
         if let Some(event) = self.event.take() {
-            event.invoke();
+            event.call();
         }
     }
 }

@@ -4,7 +4,6 @@ pub(super) struct QueuedEvent {
     pub(super) object: ObjectId,
     pub(super) event: EventId,
     pub(super) handler: QueuedHandler,
-    pub(super) payload: EventPayload,
 }
 
 pub(super) enum QueuedHandler {
@@ -13,12 +12,13 @@ pub(super) enum QueuedHandler {
     /// is cleared when the subscription ends, so removing or re-adding the event, or replacing
     /// the control, drops the occurrence.
     Callback {
-        callback: EventValue,
+        call: EventCall,
         live: Rc<Cell<bool>>,
     },
-    /// The menu or command bar flyout presentation that raised the click. Callback-only updates
-    /// keep the presentation, so the click resolves to the current `on_click`.
-    Presentation(u64),
+    /// The menu or command bar flyout presentation revision that raised a click on the item with
+    /// this key. Callback-only updates keep the presentation, so the click resolves to the current
+    /// `on_click`.
+    Presentation { revision: u64, key: Key },
 }
 
 pub(super) struct QueuedNativeEvent {

@@ -518,8 +518,7 @@ fn realize_pending_applies_only_leading_realizations() {
     host.runtime.adapter_mut().queue_event(EventDispatch::new(
         ObjectId::test(10_000),
         EventId::Click,
-        EventValue::Unit(Callback::new(|()| {})),
-        EventPayload::Unit,
+        EventCall::Unit(Callback::new(|()| {})),
     ));
     host.runtime.adapter_mut().queue_realization(realize(2));
 

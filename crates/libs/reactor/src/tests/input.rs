@@ -26,8 +26,7 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,
         EventId::PointerReleased,
-        EventValue::PointerEventInfo(callback),
-        EventPayload::PointerEventInfo(payload),
+        EventCall::PointerEventInfo(callback, payload),
     ));
 
     assert_eq!(runtime.dispatch_native_events(), 1);
@@ -113,14 +112,12 @@ fn routed_keyboard_payloads_preserve_the_handled_result() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,
         EventId::PreviewKeyDown,
-        EventValue::KeyEventInfo(key_callback),
-        EventPayload::KeyEventInfo(key),
+        EventCall::KeyEventInfo(key_callback, key),
     ));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,
         EventId::CharacterReceived,
-        EventValue::CharacterEventInfo(character_callback),
-        EventPayload::CharacterEventInfo(character),
+        EventCall::CharacterEventInfo(character_callback, character),
     ));
     assert_eq!(runtime.dispatch_native_events(), 2);
 }
@@ -151,8 +148,7 @@ fn focus_payloads_round_trip_through_recording_protocol() {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             border,
             event,
-            EventValue::FocusEventInfo(callback.clone()),
-            EventPayload::FocusEventInfo(value),
+            EventCall::FocusEventInfo(callback.clone(), value),
         ));
     }
     assert_eq!(runtime.dispatch_native_events(), 2);
@@ -200,16 +196,14 @@ fn drag_drop_policy_and_payloads_round_trip_through_recording_protocol() {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             border,
             event,
-            EventValue::DragKind(drag_callback.clone()),
-            EventPayload::DragKind(value),
+            EventCall::DragKind(drag_callback.clone(), value),
         ));
     }
     let dropped = DroppedData::Text("value".to_string());
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,
         EventId::Drop,
-        EventValue::DroppedData(drop_callback),
-        EventPayload::DroppedData(dropped.clone()),
+        EventCall::DroppedData(drop_callback, dropped.clone()),
     ));
 
     assert_eq!(runtime.dispatch_native_events(), 3);
@@ -255,8 +249,7 @@ fn pointer_motion_events_use_the_shared_typed_payload() {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             border,
             event,
-            EventValue::PointerEventInfo(callback),
-            EventPayload::PointerEventInfo(PointerEventInfo::default()),
+            EventCall::PointerEventInfo(callback, PointerEventInfo::default()),
         ));
     }
 

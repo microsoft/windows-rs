@@ -136,8 +136,7 @@ fn queued_callbacks_do_not_reclaim_a_removed_property() {
             Some(EventDispatch::new(
                 object,
                 EventId::ValueChanged,
-                EventValue::OptionalF64(callback.clone()),
-                EventPayload::OptionalF64(value),
+                EventCall::OptionalF64(callback.clone(), value),
             )),
         );
     };
@@ -326,8 +325,7 @@ fn native_queue_invalid_callback_observation_panics_before_dispatch() {
         Some(EventDispatch::new(
             object,
             EventId::TextChanged,
-            EventValue::String(callback),
-            EventPayload::String(Rc::from("Invalid")),
+            EventCall::String(callback, Rc::from("Invalid")),
         )),
     );
     while runtime.next_native_work().is_some() {}
@@ -348,8 +346,7 @@ fn native_queue_callback_boundary_rejects_later_invalid_observations() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::TextChanged,
-        EventValue::String(callback),
-        EventPayload::String(Rc::from("First")),
+        EventCall::String(callback, Rc::from("First")),
     ));
     for property in [
         Property {
@@ -400,8 +397,7 @@ fn native_queue_callback_boundary_precedes_later_realization_validation() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         button,
         EventId::Click,
-        EventValue::Unit(callback),
-        EventPayload::Unit,
+        EventCall::Unit(callback),
     ));
     for (container, index) in [(1, 0), (2, 1)] {
         runtime
@@ -464,8 +460,7 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
             Some(EventDispatch::new(
                 *object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
     }
@@ -528,8 +523,7 @@ fn callback_reconciliation_completes_before_the_next_native_occurrence() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
     };
@@ -573,8 +567,7 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::TextChanged,
-        EventValue::String(panic_callback),
-        EventPayload::String(Rc::from("A")),
+        EventCall::String(panic_callback, Rc::from("A")),
     ));
     runtime.adapter_mut().observe(Observation::SetProperty {
         object,
@@ -601,8 +594,7 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::TextChanged,
-        EventValue::String(next_callback),
-        EventPayload::String(Rc::from("C")),
+        EventCall::String(next_callback, Rc::from("C")),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(calls.get(), 1);
@@ -636,8 +628,7 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::Toggled,
-        EventValue::Bool(boolean_callback),
-        EventPayload::Bool(true),
+        EventCall::Bool(boolean_callback, true),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert!(boolean.get());
@@ -653,8 +644,7 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::PasswordChanged,
-        EventValue::String(text_callback),
-        EventPayload::String(Rc::from("secret")),
+        EventCall::String(text_callback, Rc::from("secret")),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(*text.borrow(), Some(Rc::from("secret")));
@@ -670,8 +660,7 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::ValueChanged,
-        EventValue::OptionalF64(number_callback),
-        EventPayload::OptionalF64(Some(4.0)),
+        EventCall::OptionalF64(number_callback, Some(4.0)),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(number.get(), Some(4.0));
@@ -688,14 +677,12 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::DateChanged,
-        EventValue::OptionalDateTime(date_callback.clone()),
-        EventPayload::OptionalDateTime(Some(date)),
+        EventCall::OptionalDateTime(date_callback.clone(), Some(date)),
     ));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::DateChanged,
-        EventValue::OptionalDateTime(date_callback),
-        EventPayload::OptionalDateTime(None),
+        EventCall::OptionalDateTime(date_callback, None),
     ));
     assert_eq!(runtime.dispatch_native_events(), 2);
     assert_eq!(&*dates.borrow(), &[Some(date), None]);
@@ -711,8 +698,7 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::SelectionChanged,
-        EventValue::SelectionIndex(index_callback),
-        EventPayload::SelectionIndex(Some(2)),
+        EventCall::SelectionIndex(index_callback, Some(2)),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(index.get(), Some(2));
@@ -780,8 +766,7 @@ fn queue_text_changes(
             Some(EventDispatch::new(
                 root,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(*value)),
+                EventCall::String(callback.clone(), Rc::from(*value)),
             )),
         );
     }

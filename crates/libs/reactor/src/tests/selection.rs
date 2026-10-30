@@ -27,11 +27,13 @@ fn selection_observations_preserve_declaration_ownership() {
         Some(EventDispatch::new(
             owner,
             EventId::SelectionChanged,
-            EventValue::Selection(callback.clone()),
-            EventPayload::Selection(SelectionChange {
-                item: Some(item),
-                value: Some(Rc::from("item")),
-            }),
+            EventCall::Selection(
+                callback.clone(),
+                SelectionChange {
+                    item: Some(item),
+                    value: Some(Rc::from("item")),
+                },
+            ),
         )),
     );
     assert_eq!(runtime.dispatch_native_events(), 1);
@@ -84,11 +86,13 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         Some(EventDispatch::new(
             owner,
             EventId::SelectionChanged,
-            EventValue::Selection(callback.clone()),
-            EventPayload::Selection(SelectionChange {
-                item: Some(before[1]),
-                value: Some(Rc::from("second")),
-            }),
+            EventCall::Selection(
+                callback.clone(),
+                SelectionChange {
+                    item: Some(before[1]),
+                    value: Some(Rc::from("second")),
+                },
+            ),
         )),
     );
 
@@ -168,11 +172,13 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         Some(EventDispatch::new(
             owner,
             EventId::SelectionChanged,
-            EventValue::Selection(callback.clone()),
-            EventPayload::Selection(SelectionChange {
-                item: Some(before[1]),
-                value: Some(Rc::from("stale")),
-            }),
+            EventCall::Selection(
+                callback.clone(),
+                SelectionChange {
+                    item: Some(before[1]),
+                    value: Some(Rc::from("stale")),
+                },
+            ),
         )),
     );
     assert_eq!(runtime.dispatch_native_events(), 0);
@@ -242,14 +248,16 @@ fn selection_matching_declared_flags_is_not_dispatched() {
             Some(EventDispatch::new(
                 owner,
                 EventId::SelectionChanged,
-                EventValue::Selection(callback.clone()),
-                EventPayload::Selection(SelectionChange {
-                    item: match selected {
-                        ObservedSelection::Item(item) => Some(item),
-                        _ => None,
+                EventCall::Selection(
+                    callback.clone(),
+                    SelectionChange {
+                        item: match selected {
+                            ObservedSelection::Item(item) => Some(item),
+                            _ => None,
+                        },
+                        value: None,
                     },
-                    value: None,
-                }),
+                ),
             )),
         );
         runtime.dispatch_native_events()
@@ -570,8 +578,7 @@ fn tree_view_selection_mode_and_item_invocation_replace_and_remove() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
         EventId::ItemInvoked,
-        EventValue::String(first_callback.clone()),
-        EventPayload::String(Rc::from("Root")),
+        EventCall::String(first_callback.clone(), Rc::from("Root")),
     ));
     assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*first.borrow(), &[Rc::from("Root")]);
@@ -586,14 +593,12 @@ fn tree_view_selection_mode_and_item_invocation_replace_and_remove() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
         EventId::ItemInvoked,
-        EventValue::String(first_callback),
-        EventPayload::String(Rc::from("Queued")),
+        EventCall::String(first_callback, Rc::from("Queued")),
     ));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
         EventId::ItemInvoked,
-        EventValue::String(second_callback.clone()),
-        EventPayload::String(Rc::from("Current")),
+        EventCall::String(second_callback.clone(), Rc::from("Current")),
     ));
     assert_eq!(runtime.dispatch_native_events(), 2);
     assert_eq!(&*first.borrow(), &[Rc::from("Root"), Rc::from("Queued")]);
@@ -608,8 +613,7 @@ fn tree_view_selection_mode_and_item_invocation_replace_and_remove() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
         EventId::ItemInvoked,
-        EventValue::String(second_callback),
-        EventPayload::String(Rc::from("Removed")),
+        EventCall::String(second_callback, Rc::from("Removed")),
     ));
     assert_eq!(runtime.dispatch_native_events(), 0);
 }
@@ -631,8 +635,7 @@ fn inspectable_string_item_events_deliver_typed_values() {
     breadcrumb.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::ItemClicked,
-        EventValue::String(breadcrumb_callback),
-        EventPayload::String(Rc::from("Current")),
+        EventCall::String(breadcrumb_callback, Rc::from("Current")),
     ));
     assert_eq!(breadcrumb.dispatch_native_events(), 1);
     assert_eq!(&*breadcrumb_values.borrow(), &[Rc::from("Current")]);
@@ -652,8 +655,7 @@ fn inspectable_string_item_events_deliver_typed_values() {
     suggestions.adapter_mut().queue_event(EventDispatch::new(
         object,
         EventId::SuggestionChosen,
-        EventValue::String(suggestion_callback),
-        EventPayload::String(Rc::from("Second")),
+        EventCall::String(suggestion_callback, Rc::from("Second")),
     ));
     assert_eq!(suggestions.dispatch_native_events(), 1);
     assert_eq!(&*suggestion_values.borrow(), &[Rc::from("Second")]);
@@ -698,8 +700,7 @@ fn queue_reorder(
         Some(EventDispatch::new(
             object,
             event,
-            EventValue::Keys(callback.clone()),
-            EventPayload::Items(children),
+            EventCall::Items(callback.clone(), children),
         )),
     );
 }
@@ -860,8 +861,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         list,
         EventId::DragItemsCompleted,
-        EventValue::Keys(first.clone()),
-        EventPayload::Items(vec![items[2], items[1], items[0]]),
+        EventCall::Items(first.clone(), vec![items[2], items[1], items[0]]),
     ));
     assert_eq!(runtime.dispatch_native_events(), 0);
 
@@ -957,9 +957,12 @@ fn queued_reorder_after_a_restoring_render_reports_the_current_native_order() {
         .children(list, RelationId::Items)
         .unwrap()
         .to_vec();
-    let callback = host.runtime().graph().events(list).unwrap()[0]
+    let EventValue::Keys(callback) = host.runtime().graph().events(list).unwrap()[0]
         .value
-        .clone();
+        .clone()
+    else {
+        panic!("expected a reorder event");
+    };
     let dragged = vec![items[2], items[0], items[1]];
     host.test_adapter_mut()
         .move_children(list, RelationId::Items, &dragged);
@@ -976,8 +979,7 @@ fn queued_reorder_after_a_restoring_render_reports_the_current_native_order() {
             Some(EventDispatch::new(
                 list,
                 EventId::DragItemsCompleted,
-                callback.clone(),
-                EventPayload::Items(dragged.clone()),
+                EventCall::Items(callback.clone(), dragged.clone()),
             )),
         );
     }
@@ -1037,8 +1039,7 @@ fn list_view_selection_callbacks_replace_and_remove() {
         Some(EventDispatch::new(
             list,
             EventId::SelectionChanged,
-            EventValue::SelectionIndex(first.clone()),
-            EventPayload::SelectionIndex(Some(1)),
+            EventCall::SelectionIndex(first.clone(), Some(1)),
         )),
     );
     assert_eq!(runtime.dispatch_native_events(), 1);
@@ -1054,8 +1055,7 @@ fn list_view_selection_callbacks_replace_and_remove() {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             list,
             EventId::SelectionChanged,
-            EventValue::SelectionIndex(callback.clone()),
-            EventPayload::SelectionIndex(None),
+            EventCall::SelectionIndex(callback.clone(), None),
         ));
     }
     assert_eq!(runtime.dispatch_native_events(), 2);
@@ -1066,8 +1066,7 @@ fn list_view_selection_callbacks_replace_and_remove() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         list,
         EventId::SelectionChanged,
-        EventValue::SelectionIndex(second),
-        EventPayload::SelectionIndex(Some(2)),
+        EventCall::SelectionIndex(second, Some(2)),
     ));
     assert_eq!(runtime.dispatch_native_events(), 0);
 }
@@ -1097,8 +1096,7 @@ fn tab_view_events_deliver_item_keys() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tabs,
         EventId::TabCloseRequested,
-        EventValue::Key(closed.clone()),
-        EventPayload::Item(items[1]),
+        EventCall::Item(closed.clone(), items[1]),
     ));
     drag(
         &mut runtime,
@@ -1120,8 +1118,7 @@ fn tab_view_events_deliver_item_keys() {
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tabs,
         EventId::TabCloseRequested,
-        EventValue::Key(closed),
-        EventPayload::Item(items[1]),
+        EventCall::Item(closed, items[1]),
     ));
     assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(closed_values.borrow().len(), 1);

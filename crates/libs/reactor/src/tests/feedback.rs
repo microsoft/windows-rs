@@ -45,8 +45,7 @@ fn rich_edit_text_is_canonical_and_reports_native_edits() {
         Some(EventDispatch::new(
             object,
             EventId::TextChanged,
-            EventValue::String(callback),
-            EventPayload::String(Rc::from("native\ntext")),
+            EventCall::String(callback, Rc::from("native\ntext")),
         )),
     );
     assert_eq!(runtime.dispatch_native_events(), 1);
@@ -111,8 +110,7 @@ fn observation_matching_declared_state_is_not_dispatched() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
         runtime.dispatch_native_events()
@@ -157,8 +155,7 @@ fn recorded_value_of_an_omitted_property_is_not_dispatched() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
         runtime.dispatch_native_events()
@@ -196,8 +193,7 @@ fn callback_free_notification_does_not_set_a_baseline() {
         Some(EventDispatch::new(
             object,
             EventId::TextChanged,
-            EventValue::String(callback),
-            EventPayload::String(Rc::from("Typed")),
+            EventCall::String(callback, Rc::from("Typed")),
         )),
     );
     assert_eq!(runtime.dispatch_native_events(), 1);
@@ -231,8 +227,7 @@ fn action_observing_settled_state_is_dispatched() {
             Some(EventDispatch::new(
                 object,
                 EventId::Click,
-                EventValue::Unit(callback.clone()),
-                EventPayload::Unit,
+                EventCall::Unit(callback.clone()),
             )),
         );
     }
@@ -267,8 +262,7 @@ fn repeated_state_reports_dispatch_where_the_state_settled() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
         // A callback-free observation between reports does not stop them coalescing.
@@ -307,8 +301,7 @@ fn accepted_departure_does_not_settle_a_later_edit() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventCall::String(callback.clone(), Rc::from(value)),
             )),
         );
         runtime.dispatch_native_events()

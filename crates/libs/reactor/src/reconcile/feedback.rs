@@ -85,83 +85,81 @@ impl FeedbackState {
 pub struct EventDispatch {
     pub object: ObjectId,
     pub event: EventId,
-    callback: EventValue,
-    pub(super) payload: EventPayload,
+    pub(crate) call: EventCall,
 }
 
 impl EventDispatch {
-    pub fn new(
-        object: ObjectId,
-        event: EventId,
-        callback: EventValue,
-        payload: EventPayload,
-    ) -> Self {
+    pub fn new(object: ObjectId, event: EventId, call: EventCall) -> Self {
         Self {
             object,
             event,
-            callback,
-            payload,
-        }
-    }
-
-    pub fn invoke(self) {
-        match (self.callback, self.payload) {
-            (EventValue::Bool(callback), EventPayload::Bool(value)) => callback.call(value),
-            (EventValue::Color(callback), EventPayload::Color(value)) => callback.call(value),
-            #[cfg(any(test, feature = "test"))]
-            (EventValue::CharacterEventInfo(callback), EventPayload::CharacterEventInfo(value)) => {
-                callback.call(value);
-            }
-            (
-                EventValue::ContentDialogResult(callback),
-                EventPayload::ContentDialogResult(value),
-            ) => callback.call(value),
-            (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
-            (EventValue::F64(callback), EventPayload::F64(value)) => callback.call(value),
-            (EventValue::FocusEventInfo(callback), EventPayload::FocusEventInfo(value)) => {
-                callback.call(value);
-            }
-            (EventValue::DragKind(callback), EventPayload::DragKind(value)) => callback.call(value),
-            (EventValue::DroppedData(callback), EventPayload::DroppedData(value)) => {
-                callback.call(value);
-            }
-            (EventValue::OptionalBool(callback), EventPayload::OptionalBool(value)) => {
-                callback.call(value);
-            }
-            (EventValue::OptionalDateTime(callback), EventPayload::OptionalDateTime(value)) => {
-                callback.call(value);
-            }
-            (EventValue::OptionalF64(callback), EventPayload::OptionalF64(value)) => {
-                callback.call(value);
-            }
-            (EventValue::OptionalTimeSpan(callback), EventPayload::OptionalTimeSpan(value)) => {
-                callback.call(value);
-            }
-            (
-                EventValue::NavigationViewDisplayMode(callback),
-                EventPayload::NavigationViewDisplayMode(value),
-            ) => callback.call(value),
-            (EventValue::Selection(callback), EventPayload::Selection(value)) => {
-                callback.call(value.value);
-            }
-            (EventValue::PointerEventInfo(callback), EventPayload::PointerEventInfo(value)) => {
-                callback.call(value);
-            }
-            #[cfg(any(test, feature = "test"))]
-            (EventValue::KeyEventInfo(callback), EventPayload::KeyEventInfo(value)) => {
-                callback.call(value);
-            }
-            (EventValue::Key(callback), EventPayload::Key(value)) => callback.call(value),
-            (EventValue::Keys(callback), EventPayload::Keys(value)) => callback.call(value),
-            (EventValue::SelectionIndex(callback), EventPayload::SelectionIndex(value)) => {
-                callback.call(value);
-            }
-            (EventValue::Unit(callback), EventPayload::Unit) => callback.call(()),
-            _ => unreachable!(),
+            call,
         }
     }
 }
 
+impl EventCall {
+    /// The event contract value type of a call. Menu and command bar keys have no event contract,
+    /// and `Keys` is only produced by validation.
+    fn value_type(&self) -> Option<ValueType> {
+        Some(match self {
+            Self::Bool(..) => ValueType::Bool,
+            Self::Color(..) => ValueType::Color,
+            Self::ContentDialogResult(..) => ValueType::ContentDialogResult,
+            #[cfg(any(test, feature = "test"))]
+            Self::CharacterEventInfo(..) => ValueType::CharacterEventInfo,
+            Self::String(..) => ValueType::String,
+            Self::F64(..) => ValueType::F64,
+            Self::FocusEventInfo(..) => ValueType::FocusEventInfo,
+            Self::DragKind(..) => ValueType::DragKind,
+            Self::DroppedData(..) => ValueType::DroppedData,
+            Self::OptionalBool(..) => ValueType::OptionalBool,
+            Self::OptionalDateTime(..) => ValueType::OptionalDateTime,
+            Self::OptionalF64(..) => ValueType::OptionalF64,
+            Self::OptionalTimeSpan(..) => ValueType::OptionalTimeSpan,
+            Self::NavigationViewDisplayMode(..) => ValueType::NavigationViewDisplayMode,
+            Self::PointerEventInfo(..) => ValueType::PointerEventInfo,
+            #[cfg(any(test, feature = "test"))]
+            Self::KeyEventInfo(..) => ValueType::KeyEventInfo,
+            Self::Item(..) => ValueType::Key,
+            Self::Items(..) => ValueType::Keys,
+            Self::Selection(..) => ValueType::Selection,
+            Self::SelectionIndex(..) => ValueType::SelectionIndex,
+            Self::Unit(..) => ValueType::Unit,
+            Self::Key(..) | Self::Keys(..) => return None,
+        })
+    }
+
+    /// Calls the callback. Validation resolves native items to keys first.
+    pub(super) fn call(self) {
+        match self {
+            Self::Bool(callback, value) => callback.call(value),
+            Self::Color(callback, value) => callback.call(value),
+            Self::ContentDialogResult(callback, value) => callback.call(value),
+            #[cfg(any(test, feature = "test"))]
+            Self::CharacterEventInfo(callback, value) => _ = callback.call(value),
+            Self::String(callback, value) => callback.call(value),
+            Self::F64(callback, value) => callback.call(value),
+            Self::FocusEventInfo(callback, value) => callback.call(value),
+            Self::DragKind(callback, value) => callback.call(value),
+            Self::DroppedData(callback, value) => callback.call(value),
+            Self::OptionalBool(callback, value) => callback.call(value),
+            Self::OptionalDateTime(callback, value) => callback.call(value),
+            Self::OptionalF64(callback, value) => callback.call(value),
+            Self::OptionalTimeSpan(callback, value) => callback.call(value),
+            Self::NavigationViewDisplayMode(callback, value) => callback.call(value),
+            Self::PointerEventInfo(callback, value) => callback.call(value),
+            #[cfg(any(test, feature = "test"))]
+            Self::KeyEventInfo(callback, value) => _ = callback.call(value),
+            Self::Key(callback, value) => callback.call(value),
+            Self::Keys(callback, value) => callback.call(value),
+            Self::Selection(callback, value) => callback.call(value.value),
+            Self::SelectionIndex(callback, value) => callback.call(value),
+            Self::Unit(callback) => callback.call(()),
+            Self::Item(..) | Self::Items(..) => unreachable!("native items resolve to keys"),
+        }
+    }
+}
 impl RetainedGraph {
     fn validate_observation(&self, observation: &Observation) -> bool {
         match observation {
@@ -348,160 +346,93 @@ impl RetainedGraph {
         true
     }
 
-    /// Validates a native event dispatch and resolves native item payloads to keys.
-    pub(super) fn validate_event_dispatch(&self, dispatch: &mut EventDispatch) -> bool {
-        let Some(object) = self.get(dispatch.object) else {
-            return false;
+    /// Validates a native event dispatch and resolves native items to keys. Returns `None` when
+    /// the occurrence no longer applies.
+    pub(super) fn validate_event_dispatch(&self, dispatch: EventDispatch) -> Option<EventCall> {
+        let EventDispatch {
+            object: id,
+            event,
+            call,
+        } = dispatch;
+        let object = self.get(id)?;
+        let attachments = object.attachments.as_ref();
+        let current = match event {
+            EventId::MenuItemInvoked => Some(
+                &attachments
+                    .and_then(|attachments| attachments.menu.as_ref())?
+                    .menu
+                    .on_click,
+            ),
+            EventId::CommandInvoked => Some(
+                &attachments
+                    .and_then(|attachments| attachments.command_bar_flyout.as_ref())?
+                    .flyout
+                    .on_click,
+            ),
+            _ => None,
         };
-        if dispatch.event == EventId::MenuItemInvoked {
-            let Some(menu) = object
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.menu.as_ref())
-            else {
-                return false;
+        if let Some(current) = current {
+            let EventCall::Key(callback, _) = &call else {
+                panic!("invalid payload for event {event:?}");
             };
-            return matches!(
-                (&dispatch.callback, &dispatch.payload),
-                (EventValue::Key(callback), EventPayload::Key(_))
-                    if callback == &menu.menu.on_click
-            );
-        }
-        if dispatch.event == EventId::CommandInvoked {
-            let Some(flyout) = object
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.command_bar_flyout.as_ref())
-            else {
-                return false;
-            };
-            return matches!(
-                (&dispatch.callback, &dispatch.payload),
-                (EventValue::Key(callback), EventPayload::Key(_))
-                    if callback == &flyout.flyout.on_click
-            );
+            return (callback == current).then_some(call);
         }
         let Some(contract) = event_contracts(object.kind)
             .iter()
-            .find(|contract| contract.id == dispatch.event)
+            .find(|contract| contract.id == event)
         else {
-            panic!("invalid event {:?} for {:?}", dispatch.event, object.kind);
+            panic!("invalid event {event:?} for {:?}", object.kind);
         };
-        let valid = match (contract.value, &dispatch.callback, &dispatch.payload) {
-            #[cfg(any(test, feature = "test"))]
-            (
-                ValueType::CharacterEventInfo,
-                EventValue::CharacterEventInfo(_),
-                EventPayload::CharacterEventInfo(_),
-            )
-            | (
-                ValueType::KeyEventInfo,
-                EventValue::KeyEventInfo(_),
-                EventPayload::KeyEventInfo(_),
-            ) => true,
-            (ValueType::Bool, EventValue::Bool(_), EventPayload::Bool(_))
-            | (ValueType::Color, EventValue::Color(_), EventPayload::Color(_))
-            | (
-                ValueType::ContentDialogResult,
-                EventValue::ContentDialogResult(_),
-                EventPayload::ContentDialogResult(_),
-            )
-            | (ValueType::String, EventValue::String(_), EventPayload::String(_))
-            | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
-            | (
-                ValueType::FocusEventInfo,
-                EventValue::FocusEventInfo(_),
-                EventPayload::FocusEventInfo(_),
-            )
-            | (ValueType::DragKind, EventValue::DragKind(_), EventPayload::DragKind(_))
-            | (ValueType::DroppedData, EventValue::DroppedData(_), EventPayload::DroppedData(_))
-            | (
-                ValueType::OptionalBool,
-                EventValue::OptionalBool(_),
-                EventPayload::OptionalBool(_),
-            )
-            | (
-                ValueType::OptionalDateTime,
-                EventValue::OptionalDateTime(_),
-                EventPayload::OptionalDateTime(_),
-            )
-            | (ValueType::OptionalF64, EventValue::OptionalF64(_), EventPayload::OptionalF64(_))
-            | (
-                ValueType::OptionalTimeSpan,
-                EventValue::OptionalTimeSpan(_),
-                EventPayload::OptionalTimeSpan(_),
-            )
-            | (
-                ValueType::NavigationViewDisplayMode,
-                EventValue::NavigationViewDisplayMode(_),
-                EventPayload::NavigationViewDisplayMode(_),
-            )
-            | (ValueType::Selection, EventValue::Selection(_), EventPayload::Selection(_))
-            | (
-                ValueType::PointerEventInfo,
-                EventValue::PointerEventInfo(_),
-                EventPayload::PointerEventInfo(_),
-            )
-            | (
-                ValueType::SelectionIndex,
-                EventValue::SelectionIndex(_),
-                EventPayload::SelectionIndex(_),
-            )
-            | (ValueType::Key, EventValue::Key(_), EventPayload::Item(_))
-            | (ValueType::Keys, EventValue::Keys(_), EventPayload::Items(_))
-            | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit) => true,
-            _ => false,
-        };
-        assert!(valid, "invalid payload for event {:?}", dispatch.event);
-        if let EventPayload::Selection(selection) = &dispatch.payload
-            && let Some(item) = selection.item
-        {
-            let Some(contract) = selection_contract(object.kind) else {
-                panic!("{:?} does not support selection", object.kind);
-            };
-            if !contract.relations.iter().any(|relation| {
-                self.children(dispatch.object, *relation)
-                    .is_some_and(|children| children.contains(&item))
-            }) {
-                return false;
-            }
-        }
-        let resolved = match &dispatch.payload {
-            EventPayload::Item(item) => {
+        assert!(
+            call.value_type() == Some(contract.value),
+            "invalid payload for event {event:?}"
+        );
+        let call = match call {
+            EventCall::Item(callback, item) => {
                 let child = object.relations.iter().any(|relation| {
-                    matches!(&relation.value, RetainedRelationValue::Many(children) if children.contains(item))
+                    matches!(&relation.value, RetainedRelationValue::Many(children) if children.contains(&item))
                 });
-                let Some(key) = child.then(|| self.get(*item)?.key.clone()).flatten() else {
-                    return false;
-                };
-                Some(EventPayload::Key(key))
+                if !child {
+                    return None;
+                }
+                EventCall::Key(callback, self.get(item)?.key.clone()?)
             }
-            EventPayload::Items(items) => {
+            EventCall::Items(callback, items) => {
                 let Some(contract) = reorder_contracts(object.kind)
                     .iter()
-                    .find(|contract| contract.event == dispatch.event)
+                    .find(|contract| contract.event == event)
                 else {
-                    panic!("invalid payload for event {:?}", dispatch.event);
+                    panic!("invalid payload for event {event:?}");
                 };
                 // A stale payload no longer describes the retained order.
-                let retained = self
-                    .children(dispatch.object, contract.relation)
-                    .unwrap_or_default();
-                let Some(keys) = self
-                    .reordered_children(dispatch.object, contract.relation, items)
-                    .filter(|children| children == retained)
-                    .and_then(|children| {
-                        children
-                            .iter()
-                            .map(|child| self.get(*child)?.key.clone())
-                            .collect::<Option<Vec<_>>>()
-                    })
-                else {
-                    return false;
-                };
-                Some(EventPayload::Keys(keys))
+                let retained = self.children(id, contract.relation).unwrap_or_default();
+                let keys = self
+                    .reordered_children(id, contract.relation, &items)
+                    .filter(|children| children == retained)?
+                    .iter()
+                    .map(|child| self.get(*child)?.key.clone())
+                    .collect::<Option<Vec<_>>>()?;
+                EventCall::Keys(callback, keys)
             }
-            _ => None,
+            EventCall::Selection(
+                _,
+                SelectionChange {
+                    item: Some(item), ..
+                },
+            ) => {
+                let Some(contract) = selection_contract(object.kind) else {
+                    panic!("{:?} does not support selection", object.kind);
+                };
+                let current = contract.relations.iter().any(|relation| {
+                    self.children(id, *relation)
+                        .is_some_and(|children| children.contains(&item))
+                });
+                if !current {
+                    return None;
+                }
+                call
+            }
+            call => call,
         };
         // An occurrence reaches the callback subscribed when it fired, even if a render has since
         // replaced that callback. Removing the subscription drops occurrences still queued.
@@ -510,10 +441,7 @@ impl RetainedGraph {
             .as_deref()
             .into_iter()
             .flatten()
-            .any(|event| event.id == dispatch.event);
-        if subscribed && let Some(resolved) = resolved {
-            dispatch.payload = resolved;
-        }
-        subscribed
+            .any(|retained| retained.id == event);
+        subscribed.then_some(call)
     }
 }

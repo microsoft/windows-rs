@@ -21,7 +21,6 @@ use automation::*;
 use content_dialog::*;
 use dependency::*;
 use event_queue::*;
-use events::*;
 use images::*;
 use objects::set_properties;
 use relations::*;
@@ -59,6 +58,25 @@ struct NativeSubscription<T> {
     live: Rc<Cell<bool>>,
 }
 
+impl<T> Clone for NativeSubscription<T> {
+    fn clone(&self) -> Self {
+        Self {
+            callback: self.callback.clone(),
+            live: Rc::clone(&self.live),
+        }
+    }
+}
+
+impl<T: EventArg> NativeSubscription<T> {
+    /// The handler for an occurrence under this subscription.
+    fn handler(self, value: T::Native) -> QueuedHandler {
+        QueuedHandler::Callback {
+            call: T::bind(self.callback, value),
+            live: self.live,
+        }
+    }
+}
+
 impl<T> Default for NativeValueEvent<T> {
     fn default() -> Self {
         Self { subscription: None }
@@ -82,16 +100,13 @@ impl<T> NativeValueEvent<T> {
     }
 
     /// The handler for an occurrence firing now under the current subscription.
-    fn handler(&self) -> Option<QueuedHandler>
+    fn handler(&self, value: T::Native) -> Option<QueuedHandler>
     where
-        Callback<T>: IntoEventValue,
+        T: EventArg,
     {
         self.subscription
-            .as_ref()
-            .map(|subscription| QueuedHandler::Callback {
-                callback: subscription.callback.clone().into_event_value(),
-                live: Rc::clone(&subscription.live),
-            })
+            .clone()
+            .map(|subscription| subscription.handler(value))
     }
 }
 

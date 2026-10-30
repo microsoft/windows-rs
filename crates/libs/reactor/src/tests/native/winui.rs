@@ -148,8 +148,10 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(QueuedEvent {
             object,
             event: EventId::MenuItemInvoked,
-            handler: QueuedHandler::Presentation(0),
-            payload: EventPayload::Key("stale".into()),
+            handler: QueuedHandler::Presentation {
+                revision: 0,
+                key: "stale".into(),
+            },
         }),
     );
     adapter.event_queue.queue(Some(observation.clone()), None);
@@ -158,8 +160,10 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(QueuedEvent {
             object,
             event: EventId::MenuItemInvoked,
-            handler: QueuedHandler::Presentation(1),
-            payload: EventPayload::Key("current".into()),
+            handler: QueuedHandler::Presentation {
+                revision: 1,
+                key: "current".into(),
+            },
         }),
     );
     adapter.event_queue.queue(Some(observation.clone()), None);
@@ -180,8 +184,7 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(EventDispatch::new(
             object,
             EventId::MenuItemInvoked,
-            EventValue::Key(second),
-            EventPayload::Key("current".into()),
+            EventCall::Key(second, "current".into()),
         )),
     ));
     assert_eq!(adapter.peek_native_event(), current);
@@ -199,9 +202,9 @@ fn native_queue_expired_report_keeps_only_its_observation() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {
         let values = Rc::clone(&values);
-        EventValue::String(Callback::new(move |value: Rc<str>| {
+        Callback::new(move |value: Rc<str>| {
             values.borrow_mut().push(value);
-        }))
+        })
     };
     let report = |value: &str, live: bool| QueuedNativeEvent {
         observation: Some(Observation::SetProperty {
@@ -215,10 +218,9 @@ fn native_queue_expired_report_keeps_only_its_observation() {
             object,
             event: EventId::TextChanged,
             handler: QueuedHandler::Callback {
-                callback: callback.clone(),
+                call: EventCall::String(callback.clone(), Rc::from(value)),
                 live: Rc::new(Cell::new(live)),
             },
-            payload: EventPayload::String(Rc::from(value)),
         }),
         record: false,
         retirement: None,
@@ -236,8 +238,7 @@ fn native_queue_expired_report_keeps_only_its_observation() {
         Some(EventDispatch::new(
             object,
             EventId::TextChanged,
-            callback.clone(),
-            EventPayload::String(Rc::from("Live")),
+            EventCall::String(callback.clone(), Rc::from("Live")),
         )),
     ));
     let expired = Some(NativeEvent::new(report("Expired", false).observation, None));
@@ -257,10 +258,9 @@ fn image_source_change_discards_only_queued_load_results() {
         object,
         event,
         handler: QueuedHandler::Callback {
-            callback: EventValue::Unit(Callback::new(|()| {})),
+            call: EventCall::Unit(Callback::new(|()| {})),
             live: Rc::new(Cell::new(true)),
         },
-        payload: EventPayload::Unit,
     };
     queue.queue(None, Some(event(image, EventId::ImageOpened)));
     queue.queue(None, Some(event(image, EventId::ImageFailed)));
@@ -663,11 +663,10 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     assert!(matches!(
         &event.handler,
         QueuedHandler::Callback {
-            callback: EventValue::PointerEventInfo(queued),
+            call: EventCall::PointerEventInfo(queued, value),
             ..
-        } if *queued == callback
+        } if *queued == callback && *value == payload
     ));
-    assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
 }
 
 #[test]
@@ -694,8 +693,7 @@ fn queued_occurrences_follow_their_subscription() {
             Some(EventDispatch::new(
                 object,
                 EventId::Click,
-                EventValue::Unit(callback.clone()),
-                EventPayload::Unit,
+                EventCall::Unit(callback.clone()),
             )),
         ))
     };
@@ -720,7 +718,7 @@ fn queued_occurrences_follow_their_subscription() {
     assert_eq!(adapter.pop_native_event(), delivered(&third));
 
     // An occurrence completing asynchronously captures its handler when the event fires.
-    let pending = event.borrow().handler().unwrap();
+    let pending = event.borrow().handler(()).unwrap();
     event.borrow_mut().set(None);
     assert!(matches!(pending, QueuedHandler::Callback { live, .. } if !live.get()));
 }
