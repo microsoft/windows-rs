@@ -24,7 +24,7 @@ fn named_extents_roundtrip() {
             extern fn Unknown(#[readable(success, unknown(), indirect)] data: *mut *mut u8);
             extern fn UnknownBytes(#[writable(entry, bytes(unknown()))] data: *mut u8);
             extern fn Path(#[readable(success, return + 1)] data: *mut u16) -> u32;
-            extern fn Lock(#[writable(success, bytes(*size), indirect, nullable)] data: *mut *mut u8, size: *mut u32);
+            extern fn Lock(#[out] #[writable(success, bytes(*size), indirect)] #[nullable] data: *mut *mut u8, size: *mut u32);
             extern fn Optional(
                 #[writable(success, bytes(if_present(*capacity)), indirect)]
                 #[readable(success, bytes(if_present(*length)), indirect)]
@@ -53,7 +53,7 @@ fn named_extents_roundtrip() {
             struct Packet {
                 used: u32,
                 #[writable(126)] #[readable(used)] data: [u8; 126],
-                #[writable(used, nullable)] extra: *mut u8,
+                #[writable(used)] #[nullable] extra: *mut u8,
             }
         }
     "#;
@@ -351,7 +351,7 @@ fn unrecognized_extent_payloads_keep_full_spelling() {
         ),
         full(
             "Success",
-            "CountParamIndex = 1u16, Dereference = true, Offset = 1u64, CountOptional = true, CountOnEntry = true, Indirect = true, Nullable = true"
+            "CountParamIndex = 1u16, Dereference = true, Offset = 1u64, CountOptional = true, CountOnEntry = true, Indirect = true"
         ),
     );
     let out = std::path::Path::new(env!("OUT_DIR")).join("unknown-buffer-extents");
@@ -433,7 +433,6 @@ fn extent_encoding_is_checked() {
     }
     let mut indirect = extent;
     indirect.indirect = true;
-    indirect.nullable = true;
     assert_eq!(
         BufferExtent::from_values(&indirect.to_values()),
         Some(indirect.clone())

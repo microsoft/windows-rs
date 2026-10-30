@@ -257,7 +257,8 @@ mod Windows {
             DimensionCount: UINT,
             #[writable(DimensionCount)]
             Sizes: *const UINT,
-            #[writable(DimensionCount, nullable)]
+            #[nullable]
+            #[writable(DimensionCount)]
             Strides: *const UINT,
             TotalTensorSizeInBytes: UINT64,
             GuaranteedBaseOffsetAlignment: UINT,
@@ -843,13 +844,15 @@ mod Windows {
             #[writable(NodeCount)]
             Nodes: *const DML_GRAPH_NODE_DESC,
             InputEdgeCount: UINT,
-            #[writable(InputEdgeCount, nullable)]
+            #[nullable]
+            #[writable(InputEdgeCount)]
             InputEdges: *const DML_GRAPH_EDGE_DESC,
             OutputEdgeCount: UINT,
             #[writable(OutputEdgeCount)]
             OutputEdges: *const DML_GRAPH_EDGE_DESC,
             IntermediateEdgeCount: UINT,
-            #[writable(IntermediateEdgeCount, nullable)]
+            #[nullable]
+            #[writable(IntermediateEdgeCount)]
             IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
         }
         struct DML_GRAPH_EDGE_DESC {

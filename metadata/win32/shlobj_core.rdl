@@ -769,7 +769,7 @@ mod Windows {
             fn SetClipboard(&self, bMove: BOOL) -> HRESULT;
             fn SetPoints(&self, #[in] pDataObject: IDataObject) -> HRESULT;
             fn GetItemSpacing(&self, #[out] pSpacing: *mut ITEMSPACING) -> HRESULT;
-            fn SetCallback(&self, #[in] #[opt] pNewCB: IShellFolderViewCB, #[out] #[out_ptr(nullable)] ppOldCB: *mut IShellFolderViewCB) -> HRESULT;
+            fn SetCallback(&self, #[in] #[opt] pNewCB: IShellFolderViewCB, #[nullable] #[out] #[out_ptr] ppOldCB: *mut IShellFolderViewCB) -> HRESULT;
             fn Select(&self, dwFlags: UINT) -> HRESULT;
             fn QuerySupport(&self, #[in] #[out] pdwSupport: *mut UINT) -> HRESULT;
             fn SetAutomationObject(&self, #[in] #[opt] pdisp: IDispatch) -> HRESULT;

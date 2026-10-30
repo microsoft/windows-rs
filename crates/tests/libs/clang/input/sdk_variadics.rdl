@@ -184,7 +184,7 @@ mod Fixture {
         fn GetBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[in] riid: &IID) -> HRESULT;
         fn SendReceive(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[opt] #[out] pStatus: *mut ULONG) -> HRESULT;
         fn FreeBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE) -> HRESULT;
-        fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[out] #[out_ptr(nullable)] ppvDestContext: *mut *mut void) -> HRESULT;
+        fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[nullable] #[out] #[out_ptr] ppvDestContext: *mut *mut void) -> HRESULT;
         fn IsConnected(&self) -> HRESULT;
     }
     type RPCOLEDATAREP = u32;

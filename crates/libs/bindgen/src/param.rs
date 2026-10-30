@@ -124,8 +124,7 @@ impl Param {
             !(extent.access == BufferAccess::Read
                 && extent.phase == BufferPhase::Success
                 && extent.indirect
-                && extent.count == BufferCount::Unknown
-                && extent.nullable == self.result_may_be_null())
+                && extent.count == BufferCount::Unknown)
         })
     }
 
@@ -147,8 +146,9 @@ impl Param {
         })
     }
 
+    /// Whether `NullableAttribute` permits a null returned pointer.
     pub fn result_may_be_null(&self) -> bool {
-        self.returned_pointer_flag("MayBeNull")
+        self.has_attribute("NullableAttribute")
     }
 
     pub fn result_null_on_failure(&self) -> bool {

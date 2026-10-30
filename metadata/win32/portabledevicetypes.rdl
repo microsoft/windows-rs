@@ -48,7 +48,7 @@ mod Windows {
             fn SetGuidValue(&self, #[in] key: &PROPERTYKEY, #[in] Value: &GUID) -> HRESULT;
             fn GetGuidValue(&self, #[in] key: &PROPERTYKEY, #[out] pValue: *mut GUID) -> HRESULT;
             fn SetBufferValue(&self, #[in] key: &PROPERTYKEY, #[in] #[readable(entry, cbValue)] pValue: *mut BYTE, #[in] cbValue: DWORD) -> HRESULT;
-            fn GetBufferValue(&self, #[in] key: &PROPERTYKEY, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbValue, indirect, nullable)] #[writable(success, *pcbValue, indirect, nullable)] ppValue: *mut *mut BYTE, #[out] pcbValue: *mut DWORD) -> HRESULT;
+            fn GetBufferValue(&self, #[in] key: &PROPERTYKEY, #[nullable] #[out] #[readable(success, *pcbValue, indirect)] #[writable(success, *pcbValue, indirect)] ppValue: *mut *mut BYTE, #[out] pcbValue: *mut DWORD) -> HRESULT;
             fn SetIPortableDeviceValuesValue(&self, #[in] key: &PROPERTYKEY, #[in] #[opt] pValue: IPortableDeviceValues) -> HRESULT;
             fn GetIPortableDeviceValuesValue(&self, #[in] key: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppValue: *mut IPortableDeviceValues) -> HRESULT;
             fn SetIPortableDevicePropVariantCollectionValue(&self, #[in] key: &PROPERTYKEY, #[in] #[opt] pValue: IPortableDevicePropVariantCollection) -> HRESULT;
@@ -74,7 +74,7 @@ mod Windows {
         interface IWpdSerializer: IUnknown {
             fn GetIPortableDeviceValuesFromBuffer(&self, #[in] #[readable(entry, dwInputBufferLength)] pBuffer: *mut BYTE, #[in] dwInputBufferLength: DWORD, #[out] #[out_ptr] #[retval] ppParams: *mut IPortableDeviceValues) -> HRESULT;
             fn WriteIPortableDeviceValuesToBuffer(&self, #[in] dwOutputBufferLength: DWORD, #[in] #[opt] pResults: IPortableDeviceValues, #[out] #[readable(success, *pdwBytesWritten)] #[writable(entry, dwOutputBufferLength)] #[writable(success, dwOutputBufferLength)] pBuffer: *mut BYTE, #[out] pdwBytesWritten: *mut DWORD) -> HRESULT;
-            fn GetBufferFromIPortableDeviceValues(&self, #[in] #[opt] pSource: IPortableDeviceValues, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwBufferSize, indirect, nullable)] #[writable(success, *pdwBufferSize, indirect, nullable)] ppBuffer: *mut *mut BYTE, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
+            fn GetBufferFromIPortableDeviceValues(&self, #[in] #[opt] pSource: IPortableDeviceValues, #[nullable] #[out] #[readable(success, *pdwBufferSize, indirect)] #[writable(success, *pdwBufferSize, indirect)] ppBuffer: *mut *mut BYTE, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn GetSerializedSize(&self, #[in] #[opt] pSource: IPortableDeviceValues, #[out] pdwSize: *mut DWORD) -> HRESULT;
         }
         const PortableDeviceKeyCollection: GUID = 0xde2d022d_2480_43be_97f0_d1fa2cf98f4f;

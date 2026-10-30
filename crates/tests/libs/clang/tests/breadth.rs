@@ -805,7 +805,6 @@ fn returned_buffer_flags() {
                             count,
                         );
                         extent.indirect = true;
-                        extent.nullable = name.contains("_maybenull");
                         extent
                     });
                     assert_eq!(
@@ -815,6 +814,13 @@ fn returned_buffer_flags() {
                     );
                     assert!(buffer_extent(parameter, access, BufferPhase::Entry).is_none());
                 }
+                assert_eq!(
+                    parameter
+                        .find_attribute("NullableAttribute")
+                        .map(|attribute| attribute.value()),
+                    name.contains("_maybenull").then(Vec::new),
+                    "{name}"
+                );
             }
         };
         if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
@@ -853,21 +859,17 @@ fn pointer_parameter_flags() {
                             .find_attribute("NativeReturnedPointerAttribute")
                             .unwrap()
                             .value(),
-                        [
-                            (
-                                "MayBeNull".into(),
-                                windows_metadata::Value::Bool(
-                                    name.contains("maybenull")
-                                        || (version == "1" && name.ends_with("_opt")),
-                                ),
+                        [(
+                            "NullOnFailure".into(),
+                            windows_metadata::Value::Bool(
+                                name.starts_with("_COM_") || name.contains("nullonfailure"),
                             ),
-                            (
-                                "NullOnFailure".into(),
-                                windows_metadata::Value::Bool(
-                                    name.starts_with("_COM_") || name.contains("nullonfailure"),
-                                ),
-                            ),
-                        ]
+                        )]
+                    );
+                    assert_eq!(
+                        parameter.find_attribute("NullableAttribute").is_some(),
+                        name.contains("maybenull") || (version == "1" && name.ends_with("_opt")),
+                        "{name}"
                     );
                 } else {
                     let evidence = parameter
@@ -5788,7 +5790,10 @@ fn field_buffers() {
                     BufferUnits::Elements
                 }
             );
-            assert_eq!(extent.nullable, optional);
+            assert_eq!(
+                field.find_attribute("NullableAttribute").is_some(),
+                optional
+            );
             let readable = buffer_extent(field, BufferAccess::Read, BufferPhase::Value);
             assert_eq!(readable.is_some(), full || partial);
             if full || partial {
@@ -5798,7 +5803,6 @@ fn field_buffers() {
                     BufferCount::Field(if full { "capacity" } else { "readable" }.into())
                 );
                 assert_eq!(readable.units, extent.units);
-                assert_eq!(readable.nullable, optional);
             }
         };
         if case == 0 {

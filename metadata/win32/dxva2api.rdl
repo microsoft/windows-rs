@@ -397,9 +397,9 @@ mod Windows {
         }
         #[guid(0xfc51a551_d5e7_11d9_af55_00054e43ff02)]
         interface IDirectXVideoDecoderService: IDirectXVideoAccelerationService {
-            fn GetDecoderDeviceGuids(&self, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] pGuids: *mut *mut GUID) -> HRESULT;
-            fn GetDecoderRenderTargets(&self, #[in] Guid: &GUID, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
-            fn GetDecoderConfigurations(&self, #[in] Guid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] #[reserved] pReserved: *mut void, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] ppConfigs: *mut *mut DXVA2_ConfigPictureDecode) -> HRESULT;
+            fn GetDecoderDeviceGuids(&self, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] pGuids: *mut *mut GUID) -> HRESULT;
+            fn GetDecoderRenderTargets(&self, #[in] Guid: &GUID, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
+            fn GetDecoderConfigurations(&self, #[in] Guid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] #[reserved] pReserved: *mut void, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] ppConfigs: *mut *mut DXVA2_ConfigPictureDecode) -> HRESULT;
             fn CreateVideoDecoder(&self, #[in] Guid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] pConfig: *const DXVA2_ConfigPictureDecode, #[in] #[readable(entry, NumRenderTargets)] ppDecoderRenderTargets: *mut IDirect3DSurface9, #[in] NumRenderTargets: UINT, #[out] #[out_ptr] #[retval] ppDecode: *mut IDirectXVideoDecoder) -> HRESULT;
         }
         #[guid(0xb7f916dd_db3b_49c1_84d7_e45ef99ec726)]
@@ -419,9 +419,9 @@ mod Windows {
         #[guid(0xfc51a552_d5e7_11d9_af55_00054e43ff02)]
         interface IDirectXVideoProcessorService: IDirectXVideoAccelerationService {
             fn RegisterVideoProcessorSoftwareDevice(&self, #[in] pCallbacks: *mut void) -> HRESULT;
-            fn GetVideoProcessorDeviceGuids(&self, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] pGuids: *mut *mut GUID) -> HRESULT;
-            fn GetVideoProcessorRenderTargets(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
-            fn GetVideoProcessorSubStreamFormats(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] RenderTargetFormat: D3DFORMAT, #[out] pCount: *mut UINT, #[out] #[writable(success, *pCount, indirect, nullable)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
+            fn GetVideoProcessorDeviceGuids(&self, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] pGuids: *mut *mut GUID) -> HRESULT;
+            fn GetVideoProcessorRenderTargets(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
+            fn GetVideoProcessorSubStreamFormats(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] RenderTargetFormat: D3DFORMAT, #[out] pCount: *mut UINT, #[nullable] #[out] #[writable(success, *pCount, indirect)] pFormats: *mut *mut D3DFORMAT) -> HRESULT;
             fn GetVideoProcessorCaps(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] RenderTargetFormat: D3DFORMAT, #[out] pCaps: *mut DXVA2_VideoProcessorCaps) -> HRESULT;
             fn GetProcAmpRange(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] RenderTargetFormat: D3DFORMAT, #[in] ProcAmpCap: UINT, #[out] pRange: *mut DXVA2_ValueRange) -> HRESULT;
             fn GetFilterPropertyRange(&self, #[in] VideoProcDeviceGuid: &GUID, #[in] pVideoDesc: *const DXVA2_VideoDesc, #[in] RenderTargetFormat: D3DFORMAT, #[in] FilterSetting: UINT, #[out] pRange: *mut DXVA2_ValueRange) -> HRESULT;

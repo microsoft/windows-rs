@@ -305,7 +305,7 @@ mod Windows {
         const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
         #[library("CRYPTXML.dll")]
         #[success(return == 0)]
-        extern fn CryptXmlAddObject(#[in] hSignatureOrObject: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] #[readable(entry, cProperty)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[out] #[out_ptr(nullable)] ppObject: *mut *const CRYPT_XML_OBJECT) -> HRESULT;
+        extern fn CryptXmlAddObject(#[in] hSignatureOrObject: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] #[readable(entry, cProperty)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[nullable] #[out] #[out_ptr] ppObject: *mut *const CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]
         #[success(return == 0)]
         extern fn CryptXmlClose(#[in] hCryptXml: HCRYPTXML) -> HRESULT;

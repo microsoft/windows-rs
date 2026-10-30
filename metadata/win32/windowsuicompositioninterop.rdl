@@ -25,7 +25,7 @@ mod Windows {
         }
         #[guid(0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4)]
         interface ICompositionTextureInterop: IUnknown {
-            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] iid: &IID, #[out] #[out_ptr(nullable)] availableFence: *mut *mut void) -> HRESULT;
+            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] iid: &IID, #[nullable] #[out] #[out_ptr] availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0x29e691fa_4567_4dca_b319_d0f207eb6807)]
         interface ICompositorDesktopInterop: IUnknown {

@@ -890,13 +890,7 @@ fn write_custom_attributes_with_names<'a>(
                 )
             {
                 let termination = attr.name() == "NativeNullTerminatedAttribute";
-                if !termination
-                    && values.is_empty()
-                    && matches!(
-                        extent_owner,
-                        Some(ExtentOwner::Return(_) | ExtentOwner::Field)
-                    )
-                {
+                if !termination && values.is_empty() && extent_owner.is_some() {
                     return Ok(quote! { #[nullable] });
                 }
                 let flag = |key| {
@@ -913,18 +907,14 @@ fn write_custom_attributes_with_names<'a>(
                         == 2 + usize::from(double_entry)
                             + usize::from(double_success)
                             + usize::from(indirect)
+                        && termination
                         && (entry || success)
                         && (!double_entry || entry)
                         && (!double_success || success)
-                        && (termination || !double_entry && !double_success)
                         && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty))
-                            if !termination || buffer_extent::is_buffer_storage(
+                            if buffer_extent::is_buffer_storage(
                                 ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
                     {
-                        if !termination {
-                            return Ok(write_nullable(entry, success, indirect));
-                        }
-
                         return Ok(write_null_terminated(
                             entry.then_some(double_entry),
                             success.then_some(double_success),
@@ -936,16 +926,10 @@ fn write_custom_attributes_with_names<'a>(
 
             if attr_ns == METADATA_NAMESPACE
                 && attr.name() == "NativeReturnedPointerAttribute"
-                && let [
-                    (first, metadata::Value::Bool(a)),
-                    (second, metadata::Value::Bool(b)),
-                ] = values.as_slice()
+                && let [(name, metadata::Value::Bool(null_on_failure))] = values.as_slice()
+                && name == "NullOnFailure"
             {
-                match (first.as_str(), second.as_str()) {
-                    ("MayBeNull", "NullOnFailure") => return Ok(write_returned_pointer(*a, *b)),
-                    ("NullOnFailure", "MayBeNull") => return Ok(write_returned_pointer(*b, *a)),
-                    _ => {}
-                }
+                return Ok(write_returned_pointer(*null_on_failure));
             }
 
             if attr_ns == METADATA_NAMESPACE

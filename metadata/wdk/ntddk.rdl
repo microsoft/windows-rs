@@ -4922,14 +4922,14 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[opt] #[out] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[nullable] #[opt] #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Maybe_raises_SEH_exception_", "x", "x")]
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[opt] #[out] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[nullable] #[opt] #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn RtlRunOnceInitialize(#[out] RunOnce: PRTL_RUN_ONCE);

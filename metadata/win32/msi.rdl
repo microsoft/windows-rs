@@ -419,9 +419,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiGetFileVersionW(#[in] szFilePath: LPCWSTR, #[opt] #[out] #[writable(entry, if_present(*pcchVersionBuf))] lpVersionBuf: LPWSTR, #[in] #[opt] #[out] pcchVersionBuf: LPDWORD, #[opt] #[out] #[writable(entry, if_present(*pcchLangBuf))] lpLangBuf: LPWSTR, #[in] #[opt] #[out] pcchLangBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListA(#[in] szProductCode: LPCSTR, #[in] szPatchPackages: LPCSTR, #[out] pcFiles: LPDWORD, #[out] #[writable(success, *pcFiles, indirect, nullable)] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
+        extern fn MsiGetPatchFileListA(#[in] szProductCode: LPCSTR, #[in] szPatchPackages: LPCSTR, #[out] pcFiles: LPDWORD, #[nullable] #[out] #[writable(success, *pcFiles, indirect)] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListW(#[in] szProductCode: LPCWSTR, #[in] szPatchPackages: LPCWSTR, #[out] pcFiles: LPDWORD, #[out] #[writable(success, *pcFiles, indirect, nullable)] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
+        extern fn MsiGetPatchFileListW(#[in] szProductCode: LPCWSTR, #[in] szPatchPackages: LPCWSTR, #[out] pcFiles: LPDWORD, #[nullable] #[out] #[writable(success, *pcFiles, indirect)] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
         extern fn MsiGetPatchInfoA(#[in] szPatch: LPCSTR, #[in] szAttribute: LPCSTR, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] lpValueBuf: LPSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]

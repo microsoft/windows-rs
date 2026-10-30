@@ -165,7 +165,7 @@ mod Windows {
         #[guid(0x85fc5cca_2da6_494c_86b6_4a775c049b8a)]
         interface IDCompositionDevice4: IDCompositionDevice3 {
             fn CheckCompositionTextureSupport(&self, #[in] renderingDevice: IUnknown, #[out] supportsCompositionTextures: *mut BOOL) -> HRESULT;
-            fn CreateCompositionTexture(&self, #[in] d3dTexture: IUnknown, #[out] #[out_ptr(nullable)] compositionTexture: *mut IDCompositionTexture) -> HRESULT;
+            fn CreateCompositionTexture(&self, #[in] d3dTexture: IUnknown, #[nullable] #[out] #[out_ptr] compositionTexture: *mut IDCompositionTexture) -> HRESULT;
         }
         #[guid(0x2c6bebfe_a603_472f_af34_d2443356e61b)]
         interface IDCompositionDevice5: IDCompositionDevice4 {
@@ -396,7 +396,7 @@ mod Windows {
             fn SetSourceRect(&self, #[in] sourceRect: &D2D_RECT_U) -> HRESULT;
             fn SetColorSpace(&self, #[in] colorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
             fn SetAlphaMode(&self, #[in] alphaMode: DXGI_ALPHA_MODE) -> HRESULT;
-            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] iid: &IID, #[out] #[out_ptr(nullable)] availableFence: *mut *mut void) -> HRESULT;
+            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] iid: &IID, #[nullable] #[out] #[out_ptr] availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55)]
         interface IDCompositionTransform: IDCompositionTransform3D {}

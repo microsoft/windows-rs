@@ -6,17 +6,17 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsCompareStringOrdinal(#[in] #[opt] string1: HSTRING, #[in] #[opt] string2: HSTRING, #[out] result: *mut INT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsConcatString(#[in] #[opt] string1: HSTRING, #[in] #[opt] string2: HSTRING, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsConcatString(#[in] #[opt] string1: HSTRING, #[in] #[opt] string2: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateString(#[in] #[opt] #[readable(entry, length)] sourceString: PCNZWCH, length: UINT32, #[out] #[out_ptr(nullable, null_on_failure)] string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateString(#[in] #[opt] #[readable(entry, length)] sourceString: PCNZWCH, length: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateStringReference(#[in] #[opt] #[readable(entry, length + 1)] sourceString: PCWSTR, length: UINT32, #[out] hstringHeader: *mut HSTRING_HEADER, #[out] #[out_ptr(nullable, null_on_failure)] string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateStringReference(#[in] #[opt] #[readable(entry, length + 1)] sourceString: PCWSTR, length: UINT32, #[out] hstringHeader: *mut HSTRING_HEADER, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsDeleteString(#[in] #[opt] string: HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsDeleteStringBuffer(#[in] #[opt] bufferHandle: HSTRING_BUFFER) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsDuplicateString(#[in] #[opt] string: HSTRING, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsDuplicateString(#[in] #[opt] string: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsGetStringLen(#[in] #[opt] string: HSTRING) -> UINT32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
@@ -30,18 +30,18 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsPreallocateStringBuffer(length: UINT32, #[out] #[writable(success, length + 1, indirect)] charBuffer: *mut *mut WCHAR, #[out] #[out_ptr(null_on_failure)] bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsPromoteStringBuffer(#[in] bufferHandle: HSTRING_BUFFER, #[out] #[out_ptr(nullable, null_on_failure)] string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsPromoteStringBuffer(#[in] bufferHandle: HSTRING_BUFFER, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsReplaceString(#[in] #[opt] string: HSTRING, #[in] #[opt] stringReplaced: HSTRING, #[in] #[opt] stringReplaceWith: HSTRING, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsReplaceString(#[in] #[opt] string: HSTRING, #[in] #[opt] stringReplaced: HSTRING, #[in] #[opt] stringReplaceWith: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsStringHasEmbeddedNull(#[in] #[opt] string: HSTRING, #[out] hasEmbedNull: *mut BOOL) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsSubstring(#[in] #[opt] string: HSTRING, startIndex: UINT32, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsSubstring(#[in] #[opt] string: HSTRING, startIndex: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsSubstringWithSpecifiedLength(#[in] #[opt] string: HSTRING, startIndex: UINT32, length: UINT32, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsSubstringWithSpecifiedLength(#[in] #[opt] string: HSTRING, startIndex: UINT32, length: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsTrimStringEnd(#[in] #[opt] string: HSTRING, #[in] #[opt] trimString: HSTRING, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsTrimStringEnd(#[in] #[opt] string: HSTRING, #[in] #[opt] trimString: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsTrimStringStart(#[in] #[opt] string: HSTRING, #[in] #[opt] trimString: HSTRING, #[out] #[out_ptr(nullable, null_on_failure)] newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsTrimStringStart(#[in] #[opt] string: HSTRING, #[in] #[opt] trimString: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
     }
 }

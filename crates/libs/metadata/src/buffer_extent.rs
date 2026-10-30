@@ -62,7 +62,6 @@ pub struct BufferExtent {
     pub null_fallback: Option<u16>,
     /// Selects initialized pointer storage at the contract phase, including returned storage.
     pub indirect: bool,
-    pub nullable: bool,
 }
 
 impl BufferExtent {
@@ -82,7 +81,6 @@ impl BufferExtent {
             offset: 0,
             null_fallback: None,
             indirect: false,
-            nullable: false,
         }
     }
 
@@ -100,7 +98,6 @@ impl BufferExtent {
                 || matches!(self.count, BufferCount::Dereference(_))
                     && self.null_fallback.is_none())
             && (!self.indirect || self.phase != BufferPhase::Value)
-            && (!self.nullable || self.indirect || self.phase == BufferPhase::Value)
             && match &self.count {
                 BufferCount::Unknown => self.offset == 0,
                 BufferCount::Field(name) => {
@@ -172,9 +169,6 @@ impl BufferExtent {
         if self.indirect {
             result.push(("Indirect".into(), Value::Bool(true)));
         }
-        if self.nullable {
-            result.push(("Nullable".into(), Value::Bool(true)));
-        }
         result
     }
 
@@ -241,10 +235,6 @@ impl BufferExtent {
                 }
                 ("Indirect", Value::Bool(true)) => {
                     result.indirect = true;
-                    None
-                }
-                ("Nullable", Value::Bool(true)) => {
-                    result.nullable = true;
                     None
                 }
                 _ => return None,

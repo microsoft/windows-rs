@@ -243,7 +243,7 @@ mod Windows {
         const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: i32 = 1048576;
         const CRYPTUI_WIZ_NO_UI: i32 = 1;
         #[library("CRYPTUI.dll")]
-        extern fn CertSelectionGetSerializedBlob(#[in] pcsi: PCERT_SELECTUI_INPUT, #[out] #[out_ptr(nullable)] ppOutBuffer: *mut *mut void, #[out] pulOutBufferSize: *mut ULONG) -> HRESULT;
+        extern fn CertSelectionGetSerializedBlob(#[in] pcsi: PCERT_SELECTUI_INPUT, #[nullable] #[out] #[out_ptr] ppOutBuffer: *mut *mut void, #[out] pulOutBufferSize: *mut ULONG) -> HRESULT;
         #[library("CRYPTUI.dll")]
         #[success(return == 1)]
         extern fn CryptUIDlgCertMgr(#[in] pCryptUICertMgr: PCCRYPTUI_CERT_MGR_STRUCT) -> BOOL;

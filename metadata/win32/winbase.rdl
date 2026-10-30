@@ -1066,7 +1066,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetActiveProcessorGroupCount() -> WORD;
         #[library("KERNEL32.dll")]
-        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[opt] #[out] #[out_ptr(nullable)] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
+        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[nullable] #[opt] #[out] #[out_ptr] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetApplicationRestartSettings(#[in] hProcess: HANDLE, #[opt] #[out] #[writable(entry, *pcchSize)] pwzCommandline: PWSTR, #[in] #[out] pcchSize: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]

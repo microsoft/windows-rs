@@ -173,7 +173,7 @@ mod Windows {
         interface IAudioEffectsManager: IUnknown {
             fn RegisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
             fn UnregisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
-            fn GetAudioEffects(&self, #[out] #[writable(success, *numEffects, indirect, nullable)] effects: *mut *mut AUDIO_EFFECT, #[out] numEffects: *mut UINT32) -> HRESULT;
+            fn GetAudioEffects(&self, #[nullable] #[out] #[writable(success, *numEffects, indirect)] effects: *mut *mut AUDIO_EFFECT, #[out] numEffects: *mut UINT32) -> HRESULT;
             fn SetAudioEffectState(&self, #[in] effectId: GUID, #[in] state: AUDIO_EFFECT_STATE) -> HRESULT;
         }
         #[guid(0xf294acfc_3146_4483_a7bf_addca7c260e2)]

@@ -7,7 +7,7 @@ mod Windows {
         }
         #[guid(0xbef54196_2d02_4a26_b6e5_d65af295d0f1)]
         interface IWPCProviderConfig: IUnknown {
-            fn GetUserSummary(&self, #[in] bstrSID: BSTR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] pbstrUserSummary: *mut BSTR) -> HRESULT;
+            fn GetUserSummary(&self, #[in] bstrSID: BSTR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] pbstrUserSummary: *mut BSTR) -> HRESULT;
             fn Configure(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrSID: BSTR) -> HRESULT;
             fn RequestOverride(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrPath: BSTR, #[in] dwFlags: DWORD) -> HRESULT;
         }

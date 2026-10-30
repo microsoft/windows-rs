@@ -1088,7 +1088,7 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpAddSubnetElementV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAuditLogGetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[out] #[out_ptr(nullable)] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
+        extern fn DhcpAuditLogGetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[nullable] #[out] #[out_ptr] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpAuditLogSetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] AuditLogDir: LPWSTR, DiskCheckInterval: DWORD, MaxLogFilesSize: DWORD, MinSpaceOnDisk: DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]

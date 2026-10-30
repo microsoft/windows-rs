@@ -4,7 +4,6 @@ const SCHEMA: &str = r#"
 #[win32] mod Windows { mod Win32 { mod Metadata {
     attribute NativeReturnedPointerAttribute {
         fn();
-        MayBeNull: bool,
         NullOnFailure: bool,
         Future: bool,
     }
@@ -15,14 +14,10 @@ const SCHEMA: &str = r#"
 fn returned_pointer_spelling_preserves_properties() {
     let mut explicit = format!("{SCHEMA} #[win32] mod Test {{");
     let mut compact = explicit.clone();
-    for (index, (nullable, null_on_failure)) in
-        [(false, false), (true, false), (false, true), (true, true)]
-            .into_iter()
-            .enumerate()
-    {
-        let short = windows_rdl::emit::write_returned_pointer(nullable, null_on_failure);
+    for (index, null_on_failure) in [false, true].into_iter().enumerate() {
+        let short = windows_rdl::emit::write_returned_pointer(null_on_failure);
         explicit.push_str(&format!(
-            "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = {nullable}, NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
+            "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
         ));
         compact.push_str(&format!(
             "extern fn Callback{index}(#[out] #[opt] {short} value: *mut *mut u8);"
@@ -31,8 +26,8 @@ fn returned_pointer_spelling_preserves_properties() {
     for source in [&mut explicit, &mut compact] {
         source.push_str(
             r#"
-            extern fn Missing(#[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false)] value: *mut *mut u8);
-            extern fn Future(#[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true, Future = true)] value: *mut *mut u8);
+            extern fn Missing(#[Windows::Win32::Metadata::NativeReturnedPointer()] value: *mut *mut u8);
+            extern fn Future(#[Windows::Win32::Metadata::NativeReturnedPointer(NullOnFailure = true, Future = true)] value: *mut *mut u8);
             }"#,
         );
     }
@@ -47,11 +42,7 @@ fn returned_pointer_spelling_preserves_properties() {
             .write()
             .unwrap();
         let metadata = reader::Index::read(&winmd).unwrap();
-        for (index, (nullable, null_on_failure)) in
-            [(false, false), (true, false), (false, true), (true, true)]
-                .into_iter()
-                .enumerate()
-        {
+        for (index, null_on_failure) in [false, true].into_iter().enumerate() {
             let method = metadata
                 .expect("Test", &format!("Callback{index}"))
                 .methods()
@@ -65,10 +56,7 @@ fn returned_pointer_spelling_preserves_properties() {
                     .find_attribute("NativeReturnedPointerAttribute")
                     .unwrap()
                     .value(),
-                vec![
-                    ("MayBeNull".into(), Value::Bool(nullable)),
-                    ("NullOnFailure".into(), Value::Bool(null_on_failure)),
-                ]
+                vec![("NullOnFailure".into(), Value::Bool(null_on_failure))]
             );
         }
         windows_rdl::writer()
@@ -77,7 +65,7 @@ fn returned_pointer_spelling_preserves_properties() {
             .write()
             .unwrap();
         let text = std::fs::read_to_string(&rdl).unwrap();
-        assert_eq!(text.matches("#[out_ptr").count(), 4);
+        assert_eq!(text.matches("#[out_ptr").count(), 2);
         assert_eq!(
             text.matches("#[Windows::Win32::Metadata::NativeReturnedPointer")
                 .count(),
@@ -94,10 +82,10 @@ fn returned_pointer_spelling_preserves_properties() {
 fn returned_pointer_flags_are_checked() {
     for attr in [
         "out_ptr(unknown)",
-        "out_ptr(nullable, nullable)",
+        "out_ptr(nullable)",
         "out_ptr(null_on_failure, null_on_failure)",
         "out_ptr = true",
-        "out_ptr(nullable = true)",
+        "out_ptr(null_on_failure = true)",
     ] {
         assert!(windows_rdl::reader()
             .input_text(&format!(

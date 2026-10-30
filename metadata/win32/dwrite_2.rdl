@@ -55,7 +55,7 @@ mod Windows {
         }
         #[guid(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff)]
         interface IDWriteFontFallback: IUnknown {
-            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const u16, baseWeight: DWRITE_FONT_WEIGHT, baseStyle: DWRITE_FONT_STYLE, baseStretch: DWRITE_FONT_STRETCH, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,textLength", "0,textLength")] mappedLength: *mut UINT32, #[out] #[out_ptr(nullable, null_on_failure)] mappedFont: *mut IDWriteFont, #[out] scale: *mut FLOAT) -> HRESULT;
+            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const u16, baseWeight: DWRITE_FONT_WEIGHT, baseStyle: DWRITE_FONT_STYLE, baseStretch: DWRITE_FONT_STRETCH, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,textLength", "0,textLength")] mappedLength: *mut UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] mappedFont: *mut IDWriteFont, #[out] scale: *mut FLOAT) -> HRESULT;
         }
         #[guid(0xfd882d06_8aba_4fb8_b849_8be8b73e14de)]
         interface IDWriteFontFallbackBuilder: IUnknown {

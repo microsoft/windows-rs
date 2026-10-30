@@ -811,19 +811,19 @@ mod Windows {
         extern fn BCryptEnumAlgorithms(#[in] dwAlgOperations: ULONG, #[out] pAlgCount: *mut ULONG, #[out] ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumContextFunctionProviders(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctionProviders(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumContextFunctions(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctions(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
+        extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptEnumProviders(#[in] #[null_terminated(entry)] pszAlgId: LPCWSTR, #[out] pImplCount: *mut ULONG, #[out] ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
+        extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptExportKey(#[in] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] hExportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated(entry)] pszBlobType: LPCWSTR, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
@@ -871,16 +871,16 @@ mod Windows {
         extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] operationType: BCRYPT_MULTI_OPERATION_TYPE, #[in] #[readable(entry, bytes(cbOperations))] pOperations: PVOID, #[in] cbOperations: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextFunctionConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptQueryContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[opt] #[out] ppbValue: *mut PUCHAR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryProviderRegistration(#[in] #[null_terminated(entry)] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
+        extern fn BCryptQueryProviderRegistration(#[in] #[null_terminated(entry)] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptRegisterConfigChangeNotify(#[out] phEvent: *mut HANDLE) -> NTSTATUS;
@@ -889,7 +889,7 @@ mod Windows {
         extern fn BCryptRemoveContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptResolveProviders(#[in] #[null_terminated(entry)] #[opt] pszContext: LPCWSTR, #[in] #[opt] dwInterface: ULONG, #[in] #[null_terminated(entry)] #[opt] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwFlags: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
+        extern fn BCryptResolveProviders(#[in] #[null_terminated(entry)] #[opt] pszContext: LPCWSTR, #[in] #[opt] dwInterface: ULONG, #[in] #[null_terminated(entry)] #[opt] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwFlags: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptSecretAgreement(#[in] hPrivKey: BCRYPT_KEY_HANDLE, #[in] hPubKey: BCRYPT_KEY_HANDLE, #[out] phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, #[in] dwFlags: ULONG) -> NTSTATUS;

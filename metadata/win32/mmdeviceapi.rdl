@@ -65,7 +65,7 @@ mod Windows {
         const HDMI: EndpointFormFactor = 9;
         #[guid(0x72a22d78_cde4_431d_b8cc_843a71199b6d)]
         interface IActivateAudioInterfaceAsyncOperation: IUnknown {
-            fn GetActivateResult(&self, #[out] activateResult: *mut HRESULT, #[out] #[out_ptr(nullable)] activatedInterface: *mut IUnknown) -> HRESULT;
+            fn GetActivateResult(&self, #[out] activateResult: *mut HRESULT, #[nullable] #[out] #[out_ptr] activatedInterface: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x41d949ab_9862_444a_80f6_c261334da5eb)]
         interface IActivateAudioInterfaceCompletionHandler: IUnknown {

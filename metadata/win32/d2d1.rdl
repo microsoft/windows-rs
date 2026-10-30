@@ -360,7 +360,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetBitmap(&self, #[out] #[out_ptr(nullable)] bitmap: *mut ID2D1Bitmap);
+            fn GetBitmap(&self, #[nullable] #[out] #[out_ptr] bitmap: *mut ID2D1Bitmap);
         }
         #[guid(0x2cd90695_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1BitmapRenderTarget: ID2D1RenderTarget {
@@ -386,7 +386,7 @@ mod Windows {
             fn SetDescription(&self, #[in] stateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
             fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetTextRenderingParams(&self, #[out] #[out_ptr(nullable)] textRenderingParams: *mut IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, #[nullable] #[out] #[out_ptr] textRenderingParams: *mut IDWriteRenderingParams);
         }
         #[guid(0x2cd906a4_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1EllipseGeometry: ID2D1Geometry {
@@ -573,7 +573,7 @@ mod Windows {
             fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE;
             fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetTextRenderingParams(&self, #[out] #[out_ptr(nullable)] textRenderingParams: *mut IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, #[nullable] #[out] #[out_ptr] textRenderingParams: *mut IDWriteRenderingParams);
             fn SetTags(&self, tag1: D2D1_TAG, tag2: D2D1_TAG);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTags(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG);

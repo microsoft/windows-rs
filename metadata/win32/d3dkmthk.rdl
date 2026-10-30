@@ -2094,7 +2094,8 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             Flags: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS,
             BufferSize: SIZE_T,
-            #[writable(bytes(BufferSize), nullable)]
+            #[nullable]
+            #[writable(bytes(BufferSize))]
             pBuffer: PVOID,
         }
         struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
@@ -2771,7 +2772,8 @@ mod Windows {
             Duration: UINT,
             #[writable(BroadcastContextCount)]
             BroadcastSrcAllocation: *mut D3DKMT_HANDLE,
-            #[writable(BroadcastContextCount, nullable)]
+            #[nullable]
+            #[writable(BroadcastContextCount)]
             BroadcastDstAllocation: *mut D3DKMT_HANDLE,
             PrivateDriverDataSize: UINT,
             #[writable(bytes(PrivateDriverDataSize))]

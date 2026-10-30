@@ -87,7 +87,6 @@ pub(crate) fn parse_buffer_extent(
                 let flag: syn::Ident = input.parse()?;
                 match flag.to_string().as_str() {
                     "indirect" if !extent.indirect => extent.indirect = true,
-                    "nullable" if !extent.nullable => extent.nullable = true,
                     _ => return Err(input.error("unknown or repeated extent flag")),
                 }
             }
@@ -322,8 +321,7 @@ pub fn write_buffer_extent(extent: &BufferExtent, names: &[&str]) -> Option<Toke
         count = quote! { bytes(#count) };
     }
     let indirect = extent.indirect.then(|| quote! { , indirect });
-    let nullable = extent.nullable.then(|| quote! { , nullable });
-    Some(quote! { #[#name(#phase #count #indirect #nullable)] })
+    Some(quote! { #[#name(#phase #count #indirect)] })
 }
 
 pub(crate) fn extent_ident(name: &str) -> Option<TokenStream> {

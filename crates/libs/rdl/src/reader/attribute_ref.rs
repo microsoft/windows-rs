@@ -682,7 +682,7 @@ impl Encoder<'_> {
                 continue;
             }
             if attr.path().is_ident("null_terminated") {
-                let (_, _, indirect) = self.pointer_contract_flags(attr, true)?;
+                let (_, _, indirect) = self.null_terminated_flags(attr)?;
                 if field {
                     return self.err(attr, "termination phases require a parameter owner");
                 }
@@ -690,12 +690,10 @@ impl Encoder<'_> {
                 continue;
             }
             if attr.path().is_ident("nullable") {
-                if field {
-                    self.emit_value_nullable(target, attr, types.subject)?;
-                    continue;
+                if !field && !attrs.iter().any(|attr| attr.path().is_ident("out")) {
+                    return self.err(attr, "parameter nullability requires `out`");
                 }
-                let (_, _, indirect) = self.pointer_contract_flags(attr, false)?;
-                self.validate_nullable_subject(attr, types.subject, indirect)?;
+                self.emit_value_nullable(target, attr, types.subject, !field)?;
                 continue;
             }
             if !attr.path().is_ident("readable") && !attr.path().is_ident("writable") {
@@ -837,14 +835,12 @@ impl Encoder<'_> {
         target: metadata::writer::HasAttribute,
         attr: &syn::Attribute,
         ty: &metadata::Type,
+        indirect: bool,
     ) -> Result<(), Error> {
         if !matches!(attr.meta, syn::Meta::Path(_)) {
-            return self.err(
-                attr,
-                "field and return nullability do not accept phase flags",
-            );
+            return self.err(attr, "nullable does not accept arguments");
         }
-        self.validate_nullable_subject(attr, ty, false)?;
+        self.validate_nullable_subject(attr, ty, indirect)?;
         let expanded = syn::parse_quote! { #[Windows::Win32::Metadata::Nullable] };
         self.encode_attrs(target, &[expanded], &[])
     }
@@ -979,8 +975,8 @@ impl Encoder<'_> {
                 );
                 continue;
             }
-            if path.is_ident("null_terminated") || path.is_ident("nullable") {
-                self.emit_pointer_contract(has_attribute, attr, path.is_ident("null_terminated"))?;
+            if path.is_ident("null_terminated") {
+                self.emit_null_terminated(has_attribute, attr)?;
                 continue;
             }
 
@@ -1018,33 +1014,29 @@ impl Encoder<'_> {
                 return self.err(attr, "out_ptr requires optional flag names");
             }
         };
-        let (mut nullable, mut null_on_failure) = (false, false);
+        let mut null_on_failure = false;
         for flag in flags {
             match flag.to_string().as_str() {
-                "nullable" if !nullable => nullable = true,
                 "null_on_failure" if !null_on_failure => null_on_failure = true,
                 _ => return self.err(flag, "unknown or duplicate out_ptr flag"),
             }
         }
         let expanded = syn::parse_quote! {
-            #[Windows::Win32::Metadata::NativeReturnedPointer(
-                MayBeNull = #nullable, NullOnFailure = #null_on_failure
-            )]
+            #[Windows::Win32::Metadata::NativeReturnedPointer(NullOnFailure = #null_on_failure)]
         };
         let attr_ref = self.resolve_attribute_ref(&expanded)?;
         self.encode_named_attribute(target, &attr_ref);
         Ok(())
     }
 
-    fn emit_pointer_contract(
+    fn emit_null_terminated(
         &mut self,
         target: metadata::writer::HasAttribute,
         attr: &syn::Attribute,
-        termination: bool,
     ) -> Result<(), Error> {
-        let (entry, success, indirect) = self.pointer_contract_flags(attr, termination)?;
+        let (entry, success, indirect) = self.null_terminated_flags(attr)?;
         if !matches!(target, metadata::writer::HasAttribute::Param(_)) {
-            return self.err(attr, "pointer contract requires a parameter owner");
+            return self.err(attr, "termination phases require a parameter owner");
         }
         let on_entry = entry.is_some();
         let on_success = success.is_some();
@@ -1052,13 +1044,8 @@ impl Encoder<'_> {
         let double_success =
             (success == Some(true)).then(|| quote! { , DoubleNullOnSuccess = true });
         let indirect = indirect.then(|| quote! { , Indirect = true });
-        let name = if termination {
-            quote! { Windows::Win32::Metadata::NativeNullTerminated }
-        } else {
-            quote! { Windows::Win32::Metadata::Nullable }
-        };
         let expanded = syn::parse_quote! {
-            #[#name(
+            #[Windows::Win32::Metadata::NativeNullTerminated(
                 OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success #indirect
             )]
         };
@@ -1067,10 +1054,9 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub(super) fn pointer_contract_flags(
+    pub(super) fn null_terminated_flags(
         &self,
         attr: &syn::Attribute,
-        termination: bool,
     ) -> Result<(Option<bool>, Option<bool>, bool), Error> {
         let flags = attr
             .parse_args_with(
@@ -1082,15 +1068,15 @@ impl Encoder<'_> {
         for flag in flags {
             match flag.to_string().as_str() {
                 "entry" if entry.is_none() => entry = Some(false),
-                "double_entry" if termination && entry.is_none() => entry = Some(true),
+                "double_entry" if entry.is_none() => entry = Some(true),
                 "success" if success.is_none() => success = Some(false),
-                "double_success" if termination && success.is_none() => success = Some(true),
+                "double_success" if success.is_none() => success = Some(true),
                 "indirect" if !indirect => indirect = true,
-                _ => return self.err(flag, "unknown or duplicate pointer contract flag"),
+                _ => return self.err(flag, "unknown or duplicate null_terminated flag"),
             }
         }
         if entry.is_none() && success.is_none() {
-            return self.err(attr, "pointer contract requires an entry or success phase");
+            return self.err(attr, "null_terminated requires an entry or success phase");
         }
         Ok((entry, success, indirect))
     }

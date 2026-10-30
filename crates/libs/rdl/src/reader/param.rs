@@ -127,6 +127,7 @@ impl Encoder<'_> {
                         metadata::writer::HasAttribute::Param(param_id),
                         attr,
                         result,
+                        false,
                     )?;
                 } else if attr.path().is_ident("null_terminated") {
                     return self.err(attr, "termination phases require a parameter owner");
@@ -180,7 +181,9 @@ impl Encoder<'_> {
                     result: Some(result),
                 },
             )?;
-            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "readable", "writable", "range"];
+            let mut skip: Vec<&str> = vec![
+                "r#in", "out", "opt", "readable", "writable", "nullable", "range",
+            ];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),

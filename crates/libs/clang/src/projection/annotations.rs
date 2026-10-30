@@ -352,7 +352,12 @@ pub(super) fn field(
             sal::FieldAnnotation::Contract(_) => None,
         }),
     )?;
-    if nullable {
+    // Inline array storage cannot be null, so `_opt_` only applies to pointer fields.
+    let optional = data_pointer(snapshot, field.canonical)
+        && normalized.iter().any(
+            |value| matches!(value, sal::FieldAnnotation::Contract(contract) if contract.optional),
+        );
+    if nullable || optional {
         result.extend(quote! { #[nullable] });
     }
     for value in resolve::sal(&field.attributes) {
@@ -403,14 +408,13 @@ pub(super) fn field(
                     .map(|count| (windows_metadata::BufferAccess::Read, count)),
             )
         {
-            let mut extent = windows_metadata::BufferExtent::new(
+            let extent = windows_metadata::BufferExtent::new(
                 access,
                 windows_metadata::BufferPhase::Value,
                 extent_units(contract.units),
                 field_count(count, fields, snapshot)
                     .ok_or_else(|| Error("unsupported field buffer count".into()))?,
             );
-            extent.nullable = contract.optional;
             result.extend(windows_rdl::write_buffer_extent(&extent, &[]).unwrap());
         }
     }
@@ -723,14 +727,8 @@ pub(super) fn parameter(
         let sal::ParameterAnnotation::Contract(contract) = value else {
             return None;
         };
-        let sal::ReturnedPointer {
-            may_be_null,
-            null_on_failure,
-            ..
-        } = contract.returned_pointer?;
         Some(windows_rdl::emit::write_returned_pointer(
-            may_be_null,
-            null_on_failure,
+            contract.returned_pointer?.null_on_failure,
         ))
     });
     // A required non-null returned pointer (`_COM_Outptr_`, or `_Outptr_` to an interface) on the
@@ -780,17 +778,21 @@ pub(super) fn buffer(
             attributes.extend(write_extent(&extent, names)?);
         }
     }
+    let mut nullable = false;
     for value in sal::parameters(&parameters[index].attributes, parameters) {
         let sal::ParameterAnnotation::Contract(contract) = value else {
             continue;
         };
+        let may_be_null = contract
+            .returned_pointer
+            .is_some_and(|pointer| pointer.may_be_null);
+        nullable |= may_be_null;
         if !count_expressions_supported(snapshot, function, &contract) {
             continue;
         }
-        if contract.returned_nullable_on_entry {
-            attributes.extend(windows_rdl::emit::write_nullable(true, false, true));
-        }
+        nullable |= contract.returned_nullable_on_entry;
         if let Some(buffer) = &contract.returned_buffer {
+            nullable |= buffer.nullable;
             attributes.extend(returned_buffer(
                 snapshot,
                 function,
@@ -813,7 +815,6 @@ pub(super) fn buffer(
                     windows_metadata::BufferCount::Constant(1),
                 );
                 extent.indirect = true;
-                extent.nullable = contract.returned_pointer.unwrap().may_be_null;
                 attributes.extend(write_extent(&extent, names)?);
             }
             attributes.extend(windows_rdl::emit::write_null_terminated(
@@ -822,6 +823,9 @@ pub(super) fn buffer(
                 true,
             ));
         }
+    }
+    if nullable {
+        attributes.extend(quote! { #[nullable] });
     }
     let midl = resolve::midl_parameter(&parameters[index]);
     let (input, output, _) =
@@ -1233,7 +1237,6 @@ fn returned_buffer(
         )?;
         let mut extent = buffer_extent(count, access, windows_metadata::BufferPhase::Success)?;
         extent.indirect = true;
-        extent.nullable = buffer.nullable;
         count_optional(snapshot, function, parameters, &mut extent)?;
         result.extend(write_extent(&extent, names)?);
     }

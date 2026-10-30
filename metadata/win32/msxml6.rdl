@@ -642,9 +642,9 @@ mod Windows {
             fn SetCustomResponseStream(&self, #[in] #[opt] pSequentialStream: ISequentialStream) -> HRESULT;
             fn SetProperty(&self, #[in] eProperty: XHR_PROPERTY, #[in] ullValue: ULONGLONG) -> HRESULT;
             fn SetRequestHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszValue: *const WCHAR) -> HRESULT;
-            fn GetAllResponseHeaders(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
-            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *pcCookies, indirect, nullable)] #[writable(success, *pcCookies, indirect, nullable)] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
-            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppwszValue: *mut *mut WCHAR) -> HRESULT;
+            fn GetAllResponseHeaders(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
+            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[nullable] #[out] #[readable(success, *pcCookies, indirect)] #[writable(success, *pcCookies, indirect)] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
+            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszValue: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xa44a9299_e321_40de_8866_341b41669162)]
         interface IXMLHTTPRequest2Callback: IUnknown {

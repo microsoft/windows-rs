@@ -820,9 +820,9 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_openW(#[in] HostName: PWSTR, PortNumber: ULONG) -> *mut LDAP;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_extended_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[opt] #[out] #[out_ptr(nullable)] ResultOID: *mut PSTR, ResultData: *mut *mut berval, Freeit: BOOLEAN) -> ULONG;
+        extern "C" fn ldap_parse_extended_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[nullable] #[opt] #[out] #[out_ptr] ResultOID: *mut PSTR, ResultData: *mut *mut berval, Freeit: BOOLEAN) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_extended_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[opt] #[out] #[out_ptr(nullable)] ResultOID: *mut PWSTR, ResultData: *mut *mut berval, Freeit: BOOLEAN) -> ULONG;
+        extern "C" fn ldap_parse_extended_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[nullable] #[opt] #[out] #[out_ptr] ResultOID: *mut PWSTR, ResultData: *mut *mut berval, Freeit: BOOLEAN) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_page_control(ExternalHandle: PLDAP, ServerControls: *mut PLDAPControlA, TotalCount: *mut ULONG, Cookie: *mut *mut berval) -> ULONG;
         #[library("WLDAP32.dll")]
@@ -836,17 +836,17 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_referenceW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[out] #[out_ptr] Referrals: *mut *mut PWCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] MatchedDNs: *mut PSTR, #[opt] #[out] #[out_ptr(nullable)] ErrorMessage: *mut PSTR, #[opt] #[out] #[out_ptr(nullable)] Referrals: *mut *mut PSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> ULONG;
+        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] MatchedDNs: *mut PSTR, #[nullable] #[opt] #[out] #[out_ptr] ErrorMessage: *mut PSTR, #[nullable] #[opt] #[out] #[out_ptr] Referrals: *mut *mut PSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] MatchedDNs: *mut PSTR, #[opt] #[out] #[out_ptr(nullable)] ErrorMessage: *mut PSTR, #[opt] #[out] #[out_ptr(nullable)] Referrals: *mut PZPSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> ULONG;
+        extern "C" fn ldap_parse_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] MatchedDNs: *mut PSTR, #[nullable] #[opt] #[out] #[out_ptr] ErrorMessage: *mut PSTR, #[nullable] #[opt] #[out] #[out_ptr] Referrals: *mut PZPSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] MatchedDNs: *mut PWSTR, #[opt] #[out] #[out_ptr(nullable)] ErrorMessage: *mut PWSTR, #[opt] #[out] #[out_ptr(nullable)] Referrals: *mut PZPWSTR, ServerControls: *mut *mut PLDAPControlW, Freeit: BOOLEAN) -> ULONG;
+        extern "C" fn ldap_parse_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] MatchedDNs: *mut PWSTR, #[nullable] #[opt] #[out] #[out_ptr] ErrorMessage: *mut PWSTR, #[nullable] #[opt] #[out] #[out_ptr] Referrals: *mut PZPWSTR, ServerControls: *mut *mut PLDAPControlW, Freeit: BOOLEAN) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_sort_control(ExternalHandle: PLDAP, Control: *mut PLDAPControlA, Result: *mut ULONG, Attribute: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_sort_controlA(ExternalHandle: PLDAP, Control: *mut PLDAPControlA, Result: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] Attribute: *mut PCHAR) -> ULONG;
+        extern "C" fn ldap_parse_sort_controlA(ExternalHandle: PLDAP, Control: *mut PLDAPControlA, Result: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] Attribute: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_sort_controlW(ExternalHandle: PLDAP, Control: *mut PLDAPControlW, Result: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] Attribute: *mut PWCHAR) -> ULONG;
+        extern "C" fn ldap_parse_sort_controlW(ExternalHandle: PLDAP, Control: *mut PLDAPControlW, Result: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] Attribute: *mut PWCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_vlv_controlA(ExternalHandle: PLDAP, Control: *mut PLDAPControlA, TargetPos: PULONG, ListCount: PULONG, Context: *mut PBERVAL, ErrCode: PINT) -> INT;
         #[library("WLDAP32.dll")]
@@ -866,7 +866,7 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_rename_ext_sW(ld: *mut LDAP, #[in] dn: PWSTR, #[in] NewRDN: PWSTR, #[in] #[opt] NewParent: PWSTR, DeleteOldRdn: INT, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_result(ld: *mut LDAP, msgid: ULONG, all: ULONG, #[in] #[opt] timeout: PLDAP_TIMEVAL, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_result(ld: *mut LDAP, msgid: ULONG, all: ULONG, #[in] #[opt] timeout: PLDAP_TIMEVAL, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_result2error(ld: *mut LDAP, res: *mut LDAPMessage, freeit: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
@@ -892,11 +892,11 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_search_extW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlW, #[in] #[opt] ClientControls: *mut PLDAPControlW, TimeLimit: ULONG, SizeLimit: ULONG, MessageNumber: *mut ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_ext_s(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlA, #[in] #[opt] ClientControls: *mut PLDAPControlA, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_ext_s(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlA, #[in] #[opt] ClientControls: *mut PLDAPControlA, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_ext_sA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlA, #[in] #[opt] ClientControls: *mut PLDAPControlA, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_ext_sA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlA, #[in] #[opt] ClientControls: *mut PLDAPControlA, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_ext_sW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlW, #[in] #[opt] ClientControls: *mut PLDAPControlW, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_ext_sW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, #[in] #[opt] ServerControls: *mut PLDAPControlW, #[in] #[opt] ClientControls: *mut PLDAPControlW, timeout: *mut LDAP_TIMEVAL, SizeLimit: ULONG, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_search_init_page(ExternalHandle: PLDAP, DistinguishedName: PSTR, ScopeOfSearch: ULONG, SearchFilter: PSTR, AttributeList: PZPSTR, AttributesOnly: ULONG, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, PageTimeLimit: ULONG, TotalSizeLimit: ULONG, SortKeys: *mut PLDAPSortKeyA) -> PLDAPSearch;
         #[library("WLDAP32.dll")]
@@ -904,17 +904,17 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_search_init_pageW(ExternalHandle: PLDAP, #[in] DistinguishedName: PWSTR, ScopeOfSearch: ULONG, #[in] SearchFilter: PWSTR, #[in] AttributeList: PZPWSTR, AttributesOnly: ULONG, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW, PageTimeLimit: ULONG, TotalSizeLimit: ULONG, SortKeys: *mut PLDAPSortKeyW) -> PLDAPSearch;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_s(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_s(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_sA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[out] #[out_ptr(nullable)] res: *mut *mut LDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_sA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, #[nullable] #[out] #[out_ptr] res: *mut *mut LDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_sW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, #[out] #[out_ptr(nullable)] res: *mut *mut LDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_sW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, #[nullable] #[out] #[out_ptr] res: *mut *mut LDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_st(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_st(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_stA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_stA(ld: *mut LDAP, #[in] #[opt] base: PSTR, scope: ULONG, #[in] filter: PSTR, #[in] attrs: PZPSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_search_stW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[out] #[out_ptr(nullable)] res: *mut PLDAPMessage) -> ULONG;
+        extern "C" fn ldap_search_stW(ld: *mut LDAP, #[in] #[opt] base: PWSTR, scope: ULONG, #[in] filter: PWSTR, #[in] attrs: PZPWSTR, attrsonly: ULONG, timeout: *mut LDAP_TIMEVAL, #[nullable] #[out] #[out_ptr] res: *mut PLDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_set_dbg_flags(NewFlags: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]

@@ -1295,7 +1295,7 @@ mod Windows {
         #[success(return != 0)]
         extern fn WinHttpCreateUrl(#[in] lpUrlComponents: LPURL_COMPONENTS, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, *pdwUrlLength)] #[writable(entry, *pdwUrlLength)] pwszUrl: LPWSTR, #[in] #[out] pdwUrlLength: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpDetectAutoProxyConfigUrl(dwAutoDetectFlags: DWORD, #[out] #[out_ptr(nullable)] ppwstrAutoConfigUrl: *mut LPWSTR) -> BOOL;
+        extern fn WinHttpDetectAutoProxyConfigUrl(dwAutoDetectFlags: DWORD, #[nullable] #[out] #[out_ptr] ppwstrAutoConfigUrl: *mut LPWSTR) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpFreeProxyResult(#[in] #[out] pProxyResult: *mut WINHTTP_PROXY_RESULT);
         #[library("WINHTTP.dll")]

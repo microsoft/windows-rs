@@ -149,7 +149,7 @@ mod Windows {
         }
         #[guid(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889)]
         interface IAppxBlockMapBlock: IUnknown {
-            fn GetHash(&self, #[out] bufferSize: *mut UINT32, #[nullable(entry, indirect)] #[out] #[readable(success, *bufferSize, indirect, nullable)] #[retval] #[writable(success, *bufferSize, indirect, nullable)] buffer: *mut *mut BYTE) -> HRESULT;
+            fn GetHash(&self, #[out] bufferSize: *mut UINT32, #[nullable] #[out] #[readable(success, *bufferSize, indirect)] #[retval] #[writable(success, *bufferSize, indirect)] buffer: *mut *mut BYTE) -> HRESULT;
             fn GetCompressedSize(&self, #[out] #[retval] size: *mut UINT32) -> HRESULT;
         }
         #[guid(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16)]
@@ -162,7 +162,7 @@ mod Windows {
         interface IAppxBlockMapFile: IUnknown {
             fn GetBlocks(&self, #[out] #[out_ptr] #[retval] blocks: *mut IAppxBlockMapBlocksEnumerator) -> HRESULT;
             fn GetLocalFileHeaderSize(&self, #[out] #[retval] lfhSize: *mut UINT32) -> HRESULT;
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn GetUncompressedSize(&self, #[out] #[retval] size: *mut UINT64) -> HRESULT;
             fn ValidateFileHash(&self, #[in] #[opt] fileStream: IStream, #[out] #[retval] isValid: *mut BOOL) -> HRESULT;
         }
@@ -200,7 +200,7 @@ mod Windows {
         #[guid(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12)]
         interface IAppxBundleManifestOptionalBundleInfo: IUnknown {
             fn GetPackageId(&self, #[out] #[out_ptr] #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
-            fn GetFileName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
+            fn GetFileName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
             fn GetPackageInfoItems(&self, #[out] #[out_ptr] #[retval] packageInfoItems: *mut IAppxBundleManifestPackageInfoEnumerator) -> HRESULT;
         }
         #[guid(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8)]
@@ -213,7 +213,7 @@ mod Windows {
         interface IAppxBundleManifestPackageInfo: IUnknown {
             fn GetPackageType(&self, #[out] #[retval] packageType: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> HRESULT;
             fn GetPackageId(&self, #[out] #[out_ptr] #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
-            fn GetFileName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
+            fn GetFileName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
             fn GetOffset(&self, #[out] #[retval] offset: *mut UINT64) -> HRESULT;
             fn GetSize(&self, #[out] #[retval] size: *mut UINT64) -> HRESULT;
             fn GetResources(&self, #[out] #[out_ptr] #[retval] resources: *mut IAppxManifestQualifiedResourcesEnumerator) -> HRESULT;
@@ -282,7 +282,7 @@ mod Windows {
         }
         #[guid(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a)]
         interface IAppxContentGroup: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] groupName: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] groupName: *mut LPWSTR) -> HRESULT;
             fn GetFiles(&self, #[out] #[out_ptr] #[retval] enumerator: *mut IAppxContentGroupFilesEnumerator) -> HRESULT;
         }
         #[guid(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc)]
@@ -393,8 +393,8 @@ mod Windows {
         #[guid(0x91df827b_94fd_468f_827b_57f41b2f6f2e)]
         interface IAppxFile: IUnknown {
             fn GetCompressionOption(&self, #[out] #[retval] compressionOption: *mut APPX_COMPRESSION_OPTION) -> HRESULT;
-            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
+            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] fileName: *mut LPWSTR) -> HRESULT;
             fn GetSize(&self, #[out] #[retval] size: *mut UINT64) -> HRESULT;
             fn GetStream(&self, #[out] #[out_ptr] #[retval] stream: *mut IStream) -> HRESULT;
         }
@@ -410,8 +410,8 @@ mod Windows {
         }
         #[guid(0x5da89bf4_3773_46be_b650_7e744863b7e8)]
         interface IAppxManifestApplication: IUnknown {
-            fn GetStringValue(&self, #[in] #[null_terminated(entry)] name: LPCWSTR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] value: *mut LPWSTR) -> HRESULT;
-            fn GetAppUserModelId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] appUserModelId: *mut LPWSTR) -> HRESULT;
+            fn GetStringValue(&self, #[in] #[null_terminated(entry)] name: LPCWSTR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn GetAppUserModelId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] appUserModelId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x9eb8a55a_f04b_4d0d_808d_686185d4847a)]
         interface IAppxManifestApplicationsEnumerator: IUnknown {
@@ -421,21 +421,21 @@ mod Windows {
         }
         #[guid(0x11d22258_f470_42c1_b291_8361c5437e41)]
         interface IAppxManifestCapabilitiesEnumerator: IUnknown {
-            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] capability: *mut LPWSTR) -> HRESULT;
+            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] capability: *mut LPWSTR) -> HRESULT;
             fn GetHasCurrent(&self, #[out] #[retval] hasCurrent: *mut BOOL) -> HRESULT;
             fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
         }
         #[guid(0x30204541_427b_4a1c_bacf_655bf463a540)]
         interface IAppxManifestDeviceCapabilitiesEnumerator: IUnknown {
-            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] deviceCapability: *mut LPWSTR) -> HRESULT;
+            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] deviceCapability: *mut LPWSTR) -> HRESULT;
             fn GetHasCurrent(&self, #[out] #[retval] hasCurrent: *mut BOOL) -> HRESULT;
             fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
         }
         #[guid(0xc031bee4_bbcc_48ea_a237_c34045c80a07)]
         interface IAppxManifestDriverConstraint: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn GetMinVersion(&self, #[out] #[retval] minVersion: *mut UINT64) -> HRESULT;
-            fn GetMinDate(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] minDate: *mut LPWSTR) -> HRESULT;
+            fn GetMinDate(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] minDate: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xd402b2d1_f600_49e0_95e6_975d8da13d89)]
         interface IAppxManifestDriverConstraintsEnumerator: IUnknown {
@@ -461,13 +461,13 @@ mod Windows {
         }
         #[guid(0x3455d234_8414_410d_95c7_7b35255b8391)]
         interface IAppxManifestHostRuntimeDependency: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
-            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
             fn GetMinVersion(&self, #[out] #[retval] minVersion: *mut UINT64) -> HRESULT;
         }
         #[guid(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a)]
         interface IAppxManifestHostRuntimeDependency2: IUnknown {
-            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
+            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff)]
         interface IAppxManifestMainPackageDependenciesEnumerator: IUnknown {
@@ -477,9 +477,9 @@ mod Windows {
         }
         #[guid(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae)]
         interface IAppxManifestMainPackageDependency: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
-            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
-            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
+            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea)]
         interface IAppxManifestOSPackageDependenciesEnumerator: IUnknown {
@@ -489,13 +489,13 @@ mod Windows {
         }
         #[guid(0x154995ee_54a6_4f14_ac97_d8cf0519644b)]
         interface IAppxManifestOSPackageDependency: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn GetVersion(&self, #[out] #[retval] version: *mut UINT64) -> HRESULT;
         }
         #[guid(0x2634847d_5b5d_4fe5_a243_002ff95edc7e)]
         interface IAppxManifestOptionalPackageInfo: IUnknown {
             fn GetIsOptionalPackage(&self, #[out] #[retval] isOptionalPackage: *mut BOOL) -> HRESULT;
-            fn GetMainPackageName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] mainPackageName: *mut LPWSTR) -> HRESULT;
+            fn GetMainPackageName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] mainPackageName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4)]
         interface IAppxManifestPackageDependenciesEnumerator: IUnknown {
@@ -505,8 +505,8 @@ mod Windows {
         }
         #[guid(0xe4946b59_733e_43f0_a724_3bde4c1285a0)]
         interface IAppxManifestPackageDependency: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
-            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
             fn GetMinVersion(&self, #[out] #[retval] minVersion: *mut UINT64) -> HRESULT;
         }
         #[guid(0xdda0b713_f3ff_49d3_898a_2786780c5d98)]
@@ -519,14 +519,14 @@ mod Windows {
         }
         #[guid(0x283ce2d7_7153_4a91_9649_7a0f7240945f)]
         interface IAppxManifestPackageId: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn GetArchitecture(&self, #[out] #[retval] architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> HRESULT;
-            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] publisher: *mut LPWSTR) -> HRESULT;
             fn GetVersion(&self, #[out] #[retval] packageVersion: *mut UINT64) -> HRESULT;
-            fn GetResourceId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] resourceId: *mut LPWSTR) -> HRESULT;
+            fn GetResourceId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] resourceId: *mut LPWSTR) -> HRESULT;
             fn ComparePublisher(&self, #[in] #[null_terminated(entry)] other: LPCWSTR, #[out] #[retval] isSame: *mut BOOL) -> HRESULT;
-            fn GetPackageFullName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] packageFullName: *mut LPWSTR) -> HRESULT;
-            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
+            fn GetPackageFullName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] packageFullName: *mut LPWSTR) -> HRESULT;
+            fn GetPackageFamilyName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] packageFamilyName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x2256999d_d617_42f1_880e_0ba4542319d5)]
         interface IAppxManifestPackageId2: IAppxManifestPackageId {
@@ -535,11 +535,11 @@ mod Windows {
         #[guid(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca)]
         interface IAppxManifestProperties: IUnknown {
             fn GetBoolValue(&self, #[in] #[null_terminated(entry)] name: LPCWSTR, #[out] #[retval] value: *mut BOOL) -> HRESULT;
-            fn GetStringValue(&self, #[in] #[null_terminated(entry)] name: LPCWSTR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn GetStringValue(&self, #[in] #[null_terminated(entry)] name: LPCWSTR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] value: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4)]
         interface IAppxManifestQualifiedResource: IUnknown {
-            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] language: *mut LPWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] language: *mut LPWSTR) -> HRESULT;
             fn GetScale(&self, #[out] #[retval] scale: *mut UINT32) -> HRESULT;
             fn GetDXFeatureLevel(&self, #[out] #[retval] dxFeatureLevel: *mut DX_FEATURE_LEVEL) -> HRESULT;
         }
@@ -590,7 +590,7 @@ mod Windows {
         }
         #[guid(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed)]
         interface IAppxManifestResourcesEnumerator: IUnknown {
-            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] resource: *mut LPWSTR) -> HRESULT;
+            fn GetCurrent(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] resource: *mut LPWSTR) -> HRESULT;
             fn GetHasCurrent(&self, #[out] #[retval] hasCurrent: *mut BOOL) -> HRESULT;
             fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
         }
@@ -602,7 +602,7 @@ mod Windows {
         }
         #[guid(0x9091b09b_c8d5_4f31_8687_a338259faefb)]
         interface IAppxManifestTargetDeviceFamily: IUnknown {
-            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] name: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] name: *mut LPWSTR) -> HRESULT;
             fn GetMinVersion(&self, #[out] #[retval] minVersion: *mut UINT64) -> HRESULT;
             fn GetMaxVersionTested(&self, #[out] #[retval] maxVersionTested: *mut UINT64) -> HRESULT;
         }

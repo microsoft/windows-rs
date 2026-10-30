@@ -30,7 +30,7 @@ mod Windows {
         interface ICondition: IPersistStream {
             fn GetConditionType(&self, #[out] #[retval] pNodeType: *mut CONDITION_TYPE) -> HRESULT;
             fn GetSubConditions(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppv: *mut *mut void) -> HRESULT;
-            fn GetComparisonInfo(&self, #[opt] #[out] #[out_ptr(nullable)] ppszPropertyName: *mut LPWSTR, #[opt] #[out] pcop: *mut CONDITION_OPERATION, #[opt] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetComparisonInfo(&self, #[nullable] #[opt] #[out] #[out_ptr] ppszPropertyName: *mut LPWSTR, #[opt] #[out] pcop: *mut CONDITION_OPERATION, #[opt] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
             fn GetValueType(&self, #[out] #[out_ptr] #[retval] ppszValueTypeName: *mut LPWSTR) -> HRESULT;
             fn GetValueNormalization(&self, #[out] #[out_ptr] #[retval] ppszNormalization: *mut LPWSTR) -> HRESULT;
             fn GetInputTerms(&self, #[opt] #[out] ppPropertyTerm: *mut IRichChunk, #[opt] #[out] ppOperationTerm: *mut IRichChunk, #[opt] #[out] ppValueTerm: *mut IRichChunk) -> HRESULT;
@@ -43,7 +43,7 @@ mod Windows {
         }
         #[guid(0x4fdef69c_dbc9_454e_9910_b34f3c64b510)]
         interface IRichChunk: IUnknown {
-            fn GetData(&self, #[opt] #[out] pFirstPos: *mut ULONG, #[opt] #[out] pLength: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] ppsz: *mut LPWSTR, #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetData(&self, #[opt] #[out] pFirstPos: *mut ULONG, #[opt] #[out] pLength: *mut ULONG, #[nullable] #[opt] #[out] #[out_ptr] ppsz: *mut LPWSTR, #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
         }
     }
 }

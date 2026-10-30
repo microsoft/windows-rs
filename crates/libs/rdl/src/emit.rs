@@ -119,12 +119,11 @@ pub fn write_bitfield_member(
 }
 
 /// Renders result-pointer guarantees independently of the output storage's optionality.
-pub fn write_returned_pointer(may_be_null: bool, null_on_failure: bool) -> TokenStream {
-    match (may_be_null, null_on_failure) {
-        (false, false) => quote! { #[out_ptr] },
-        (true, false) => quote! { #[out_ptr(nullable)] },
-        (false, true) => quote! { #[out_ptr(null_on_failure)] },
-        (true, true) => quote! { #[out_ptr(nullable, null_on_failure)] },
+pub fn write_returned_pointer(null_on_failure: bool) -> TokenStream {
+    if null_on_failure {
+        quote! { #[out_ptr(null_on_failure)] }
+    } else {
+        quote! { #[out_ptr] }
     }
 }
 
@@ -135,16 +134,6 @@ pub fn write_null_terminated(
     indirect: bool,
 ) -> TokenStream {
     write_phase_contract(quote! { null_terminated }, entry, success, indirect)
-}
-
-/// Renders permission for null without implying initialized or accessible storage.
-pub fn write_nullable(entry: bool, success: bool, indirect: bool) -> TokenStream {
-    write_phase_contract(
-        quote! { nullable },
-        entry.then_some(false),
-        success.then_some(false),
-        indirect,
-    )
 }
 
 fn write_phase_contract(

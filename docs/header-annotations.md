@@ -74,13 +74,16 @@ without changing the Rust signature.
 | Optional argument | SAL `_opt_` forms; MIDL `[optional]` | `opt` | Param flag `Optional` | `Option` for pointer parameters |
 | Reserved argument | `_Reserved_` | `reserved` | `Reserved` | Handled like an optional argument; the value is not enforced |
 | Result parameter | MIDL `[retval]`; trailing `_COM_Outptr_`, or `_Outptr_` to an interface, when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result, subject to eligibility checks |
-| Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(nullable, null_on_failure)` | `NativeReturnedPointer` | Result and query eligibility; nullable COM results |
+| Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(null_on_failure)` | `NativeReturnedPointer` | Result and query eligibility |
 | COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection when eligible |
-| Nullable storage | `_Ret_maybenull_`; `_Maybenull_` on fields; `_maybenull_` buffer forms | `nullable(entry, success, indirect)` | `Nullable` | - |
+| Nullable pointer | `_maybenull_` and `_opt_` returned-pointer forms; `__RPC__deref_opt_*`; `_Ret_maybenull_`; `_Maybenull_` on fields | `nullable` | `Nullable` | `Option<T>` for COM query results |
 | Integer range | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `_Ret_range_`, `_Field_range_`; `__RPC__in_range` | `range(entry, 0..=15)` | `IntegerRange` | - |
 
-`opt` describes the argument; `nullable` describes pointer storage at a phase. `out_ptr` promises
-one readable element on success; it does not imply an allocator or ownership transfer.
+`opt` lets the caller pass a null argument. `nullable` records that the API may produce null: the
+pointer stored through an `out` parameter, a return value, or a field. Absence does not promise
+non-null; only an `out_ptr` or indirect extent without `nullable` does. Consumers should still
+handle null where the header makes no promise. `out_ptr` promises one readable element on success;
+it does not imply an allocator or ownership transfer.
 
 ## Buffers and strings
 
@@ -113,7 +116,7 @@ initialized length are separate extents of the same family.
 | `_Out_writes_bytes_to_opt_(*size, *size)` | `#[opt] #[out] #[readable(success, bytes(*size))] #[writable(entry, bytes(*size))]` |
 | `_Out_writes_all_(count)` | `#[out] #[writable(entry, count)] #[readable(success, count)]` |
 | `_Outptr_result_buffer_(*count)` | `#[out] #[writable(success, *count, indirect)]` |
-| `_Outptr_result_maybenull_z_` | `#[out] #[out_ptr(nullable)] #[null_terminated(success, indirect)]` |
+| `_Outptr_result_maybenull_z_` | `#[out] #[out_ptr] #[nullable] #[null_terminated(success, indirect)]` |
 | `_Field_size_(capacity)` on a field | `#[writable(capacity)]` |
 
 Counts outside this grammar, such as casts or unresolved names, remain `NativeSal`. Conflicting
@@ -205,7 +208,7 @@ Metadata never authorizes a projection on its own. Bindgen applies these rules:
 | --- | --- |
 | `BufferExtent` with a direct entry count, matching direction and type | Slice, with the count parameter hidden |
 | Any other `BufferExtent` | Raw pointer, except interface inputs; excluded from scalar-result inference |
-| `readable(success, unknown(), indirect)` matching `out_ptr` nullability | Query projection still allowed |
+| `readable(success, unknown(), indirect)` | Query projection still allowed |
 | `NativeSal` | Raw pointer, except interface inputs; no slice, scalar-result or query inference |
 | `opt` or `reserved` | `Option` for pointers, independently of any buffer contract |
 
@@ -273,7 +276,6 @@ without a dedicated spelling, and bindgen ignores names it does not know.
 | `#define` constants reach `annotate` as integer literals without their names | Read the macro expansion location, or require enum constants |
 | `AssociatedEnum` may name an enum declared later | Require a visible declaration, or resolve a checked name after merging |
 | `Release` needs several invalid values | Array arguments in RDL, or one attribute per value |
-| `NativeReturnedPointer` nullability overlaps `nullable(success, indirect)` | Require agreement, or drop one |
 | `ComOutPtr` does not name its IID parameter | Add the index, or keep the positional convention |
 | `Retained`, `InteriorPointers`, `AlsoUsableFor` have no bindgen consumer | Publish for other consumers, or defer |
 | `PreserveSig` projection | Return the native `HRESULT`, or keep it as metadata only |

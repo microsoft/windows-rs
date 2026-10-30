@@ -284,7 +284,7 @@ mod Windows {
             fn EnsureCached(&self, #[in] #[opt] rectangleToFill: *const D2D1_RECT_U) -> HRESULT;
             fn TrimCache(&self, #[in] #[opt] rectangleToPreserve: *const D2D1_RECT_U) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetSource(&self, #[out] #[out_ptr(nullable)] wicBitmapSource: *mut IWICBitmapSource);
+            fn GetSource(&self, #[nullable] #[out] #[out_ptr] wicBitmapSource: *mut IWICBitmapSource);
         }
         #[guid(0xb499923b_7029_478f_a8b3_432c7c5f5312)]
         interface ID2D1Ink: ID2D1Resource {
@@ -328,15 +328,15 @@ mod Windows {
         #[guid(0xaf671749_d241_4db8_8e41_dcc2e5c1a438)]
         interface ID2D1SvgGlyphStyle: ID2D1Resource {
             fn SetFill(&self, #[in] #[opt] brush: ID2D1Brush) -> HRESULT;
-            fn GetFill(&self, #[out] #[out_ptr(nullable)] brush: *mut ID2D1Brush);
+            fn GetFill(&self, #[nullable] #[out] #[out_ptr] brush: *mut ID2D1Brush);
             fn SetStroke(&self, #[in] #[opt] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, dashOffset: FLOAT) -> HRESULT;
             fn GetStrokeDashesCount(&self) -> UINT32;
-            fn GetStroke(&self, #[opt] #[out] #[out_ptr(nullable)] brush: *mut ID2D1Brush, #[opt] #[out] strokeWidth: *mut FLOAT, #[opt] #[out] #[writable(entry, dashesCount)] dashes: *mut FLOAT, dashesCount: UINT32, #[opt] #[out] dashOffset: *mut FLOAT);
+            fn GetStroke(&self, #[nullable] #[opt] #[out] #[out_ptr] brush: *mut ID2D1Brush, #[opt] #[out] strokeWidth: *mut FLOAT, #[opt] #[out] #[writable(entry, dashesCount)] dashes: *mut FLOAT, dashesCount: UINT32, #[opt] #[out] dashOffset: *mut FLOAT);
         }
         #[guid(0x7f1f79e5_2796_416c_8f55_700f911445e5)]
         interface ID2D1TransformedImageSource: ID2D1Image {
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetSource(&self, #[out] #[out_ptr(nullable)] imageSource: *mut ID2D1ImageSource);
+            fn GetSource(&self, #[nullable] #[out] #[out_ptr] imageSource: *mut ID2D1ImageSource);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetProperties(&self, #[out] properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
         }

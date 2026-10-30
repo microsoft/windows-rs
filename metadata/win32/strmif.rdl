@@ -1523,7 +1523,7 @@ mod Windows {
             fn Run(&self, tStart: REFERENCE_TIME) -> HRESULT;
             fn GetState(&self, #[in] dwMilliSecsTimeout: DWORD, #[out] State: *mut FILTER_STATE) -> HRESULT;
             fn SetSyncSource(&self, #[in] #[opt] pClock: IReferenceClock) -> HRESULT;
-            fn GetSyncSource(&self, #[out] #[out_ptr(nullable)] pClock: *mut IReferenceClock) -> HRESULT;
+            fn GetSyncSource(&self, #[nullable] #[out] #[out_ptr] pClock: *mut IReferenceClock) -> HRESULT;
         }
         #[guid(0x6025a880_c0d5_11d0_bd4e_00a0c911ce86)]
         interface IMediaPropertyBag: IPropertyBag {

@@ -23,10 +23,12 @@ mod Windows {
             BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
             DataOffset: UINT,
             DataSize: UINT,
-            #[writable(IVSize, nullable)]
+            #[nullable]
+            #[writable(IVSize)]
             pIV: *mut void,
             IVSize: UINT,
-            #[writable(SubSampleMappingCount, nullable)]
+            #[nullable]
+            #[writable(SubSampleMappingCount)]
             pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
             SubSampleMappingCount: UINT,
             cBlocksStripeEncrypted: UINT,

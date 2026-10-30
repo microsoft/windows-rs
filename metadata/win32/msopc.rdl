@@ -16,15 +16,15 @@ mod Windows {
         }
         #[guid(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4)]
         interface IOpcDigitalSignature: IUnknown {
-            fn GetNamespaces(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] prefixes: *mut *mut LPWSTR, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] namespaces: *mut *mut LPWSTR, #[out] count: *mut UINT32) -> HRESULT;
-            fn GetSignatureId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
+            fn GetNamespaces(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] prefixes: *mut *mut LPWSTR, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] namespaces: *mut *mut LPWSTR, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetSignatureId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
             fn GetSignaturePartName(&self, #[out] #[retval] signaturePartName: *mut IOpcPartUri) -> HRESULT;
-            fn GetSignatureMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
+            fn GetSignatureMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
             fn GetCanonicalizationMethod(&self, #[out] #[retval] canonicalizationMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
-            fn GetSignatureValue(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] signatureValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetSignatureValue(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] signatureValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
             fn GetSignaturePartReferenceEnumerator(&self, #[out] #[retval] partReferenceEnumerator: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
             fn GetSignatureRelationshipReferenceEnumerator(&self, #[out] #[retval] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
-            fn GetSigningTime(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] signingTime: *mut LPWSTR) -> HRESULT;
+            fn GetSigningTime(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] signingTime: *mut LPWSTR) -> HRESULT;
             fn GetTimeFormat(&self, #[out] #[retval] timeFormat: *mut OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
             fn GetPackageObjectReference(&self, #[out] #[retval] packageObjectReference: *mut IOpcSignatureReference) -> HRESULT;
             fn GetCertificateEnumerator(&self, #[out] #[retval] certificateEnumerator: *mut IOpcCertificateEnumerator) -> HRESULT;
@@ -70,7 +70,7 @@ mod Windows {
             fn GetRelationshipSet(&self, #[out] #[out_ptr] #[retval] relationshipSet: *mut IOpcRelationshipSet) -> HRESULT;
             fn GetContentStream(&self, #[out] #[out_ptr] #[retval] stream: *mut IStream) -> HRESULT;
             fn GetName(&self, #[out] #[out_ptr] #[retval] name: *mut IOpcPartUri) -> HRESULT;
-            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
+            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
             fn GetCompressionOptions(&self, #[out] #[retval] compressionOptions: *mut OPC_COMPRESSION_OPTIONS) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee75)]
@@ -96,8 +96,8 @@ mod Windows {
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee72)]
         interface IOpcRelationship: IUnknown {
-            fn GetId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] relationshipIdentifier: *mut LPWSTR) -> HRESULT;
-            fn GetRelationshipType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] relationshipType: *mut LPWSTR) -> HRESULT;
+            fn GetId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] relationshipIdentifier: *mut LPWSTR) -> HRESULT;
+            fn GetRelationshipType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] relationshipType: *mut LPWSTR) -> HRESULT;
             fn GetSourceUri(&self, #[out] #[out_ptr] #[retval] sourceUri: *mut IOpcUri) -> HRESULT;
             fn GetTargetUri(&self, #[out] #[out_ptr] #[retval] targetUri: *mut IUri) -> HRESULT;
             fn GetTargetMode(&self, #[out] #[retval] targetMode: *mut OPC_URI_TARGET_MODE) -> HRESULT;
@@ -112,7 +112,7 @@ mod Windows {
         #[guid(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f)]
         interface IOpcRelationshipSelector: IUnknown {
             fn GetSelectorType(&self, #[out] #[retval] selector: *mut OPC_RELATIONSHIP_SELECTOR) -> HRESULT;
-            fn GetSelectionCriterion(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] selectionCriterion: *mut LPWSTR) -> HRESULT;
+            fn GetSelectionCriterion(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] selectionCriterion: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1)]
         interface IOpcRelationshipSelectorEnumerator: IUnknown {
@@ -139,7 +139,7 @@ mod Windows {
         }
         #[guid(0x5d77a19e_62c1_44e7_becd_45da5ae51a56)]
         interface IOpcSignatureCustomObject: IUnknown {
-            fn GetXml(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] xmlMarkup: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetXml(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] xmlMarkup: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
         }
         #[guid(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c)]
         interface IOpcSignatureCustomObjectEnumerator: IUnknown {
@@ -157,9 +157,9 @@ mod Windows {
         #[guid(0xe24231ca_59f4_484e_b64b_36eeda36072c)]
         interface IOpcSignaturePartReference: IUnknown {
             fn GetPartName(&self, #[out] #[out_ptr] #[retval] partName: *mut IOpcPartUri) -> HRESULT;
-            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
-            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetContentType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] contentType: *mut LPWSTR) -> HRESULT;
+            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
+            fn GetDigestValue(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
             fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
         }
         #[guid(0x80eb1561_8c77_49cf_8266_459b356ee99a)]
@@ -177,12 +177,12 @@ mod Windows {
         }
         #[guid(0x1b47005e_3011_4edc_be6f_0f65e5ab0342)]
         interface IOpcSignatureReference: IUnknown {
-            fn GetId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] referenceId: *mut LPWSTR) -> HRESULT;
+            fn GetId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] referenceId: *mut LPWSTR) -> HRESULT;
             fn GetUri(&self, #[out] #[out_ptr] #[retval] referenceUri: *mut IUri) -> HRESULT;
-            fn GetType(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] r#type: *mut LPWSTR) -> HRESULT;
+            fn GetType(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] r#type: *mut LPWSTR) -> HRESULT;
             fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
-            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
+            fn GetDigestValue(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
         }
         #[guid(0xcfa59a45_28b1_4868_969e_fa8097fdc12a)]
         interface IOpcSignatureReferenceEnumerator: IUnknown {
@@ -200,8 +200,8 @@ mod Windows {
         #[guid(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c)]
         interface IOpcSignatureRelationshipReference: IUnknown {
             fn GetSourceUri(&self, #[out] #[out_ptr] #[retval] sourceUri: *mut IOpcUri) -> HRESULT;
-            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
+            fn GetDigestValue(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
             fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
             fn GetRelationshipSigningOption(&self, #[out] #[retval] relationshipSigningOption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> HRESULT;
             fn GetRelationshipSelectorEnumerator(&self, #[out] #[out_ptr] #[retval] selectorEnumerator: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
@@ -222,11 +222,11 @@ mod Windows {
         }
         #[guid(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e)]
         interface IOpcSigningOptions: IUnknown {
-            fn GetSignatureId(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
+            fn GetSignatureId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
             fn SetSignatureId(&self, #[in] signatureId: LPCWSTR) -> HRESULT;
-            fn GetSignatureMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
+            fn GetSignatureMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
             fn SetSignatureMethod(&self, #[in] signatureMethod: LPCWSTR) -> HRESULT;
-            fn GetDefaultDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
+            fn GetDefaultDigestMethod(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
             fn SetDefaultDigestMethod(&self, #[in] digestMethod: LPCWSTR) -> HRESULT;
             fn GetCertificateEmbeddingOption(&self, #[out] #[retval] embeddingOption: *mut OPC_CERTIFICATE_EMBEDDING_OPTION) -> HRESULT;
             fn SetCertificateEmbeddingOption(&self, #[in] embeddingOption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> HRESULT;

@@ -399,10 +399,10 @@ mod Windows {
         extern fn WerStoreClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[opt] hReportStore: HREPORTSTORE);
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("wer.dll")]
-        extern fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
+        extern fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("wer.dll")]
-        extern fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] ppszReportKey: *mut PCWSTR) -> HRESULT;
+        extern fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("wer.dll")]
         extern fn WerStoreGetReportCount(#[in] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;

@@ -633,7 +633,6 @@ direction, optionality, termination, or a success condition.
 | `#[readable(success, unknown(), indirect)]` | The returned pointee has a readable extent whose size is not expressible. |
 | `#[readable(success, return + 1)]` | Successful readable elements include one after the result. |
 | `#[writable(success, bytes(*size), indirect)]` | The extent describes `*buffer`, not pointer storage. |
-| `#[writable(capacity, nullable)]` | A struct's pointer field may be null; otherwise its sibling field gives capacity. |
 | `#[readable(length)]` | A struct's buffer field contains the number of readable elements given by its sibling field. |
 
 Unwrapped counts are elements; `bytes(...)` changes the unit. A count can be a nonnegative integer
@@ -683,22 +682,22 @@ For buffer extents, `indirect` requires pointer-to-pointer storage and selects t
 at the specified phase. `entry` describes the incoming pointer; `success` describes the returned
 pointer. When argument storage is supplied, the pointer must be initialized at that phase even
 when an `if_present` count is unavailable.
-`nullable` describes the selected buffer, not its count pointer, and is allowed on indirect
-parameter buffers or record fields. Optional argument storage still uses `opt`.
-Without `nullable`, an indirect buffer is non-null at that phase. An extent of zero does not promise
-one accessible element. No `out_ptr` attribute is needed to describe a returned buffer.
+An indirect extent promises a non-null pointer at its phase unless `nullable` is present.
+An extent of zero does not promise one accessible element. No `out_ptr` attribute is needed to
+describe a returned buffer.
 
-`#[nullable(entry, indirect)]` separately permits a null incoming pointer without requiring
-initialized/readable storage. `nullable` accepts `entry`, `success`, or both, and optional
-`indirect`; without `indirect` it describes the parameter itself. It does not infer `in`, `out`,
-optional argument storage, ownership, or validity. An absent nullability contract remains
-unspecified. These phase-specific forms apply to pointer parameters, not return values or fields.
+`nullable` permits the API to give the caller a null pointer. It takes no arguments:
 
-On a callable return value, `-> #[nullable] T` permits a null result without a phase qualifier.
-It applies to the returned value independently of the callable's success condition. On a field,
-`#[nullable]` permits null when the containing value is valid. Neither form promises initialized
-or readable storage. These spellings encode `NullableAttribute` on their parameter, return or
-field rows.
+| Owner | Permits null for |
+| --- | --- |
+| `#[out] #[nullable] value: *mut *mut T` | The pointer stored through the parameter, at any phase it describes |
+| `-> #[nullable] T` | The returned value, independently of the success condition |
+| `#[nullable]` on a field | The field when the containing value is valid |
+
+A parameter needs `out` and pointer-to-pointer storage. `opt` separately permits the caller to pass
+a null argument. `nullable` does not imply ownership or initialized storage. Without it, a pointer
+is unspecified unless an extent or `out_ptr` promises non-null. All forms encode the parameterless
+`NullableAttribute`.
 
 The extent forms encode `BufferExtentAttribute`. Unknown properties, unsupported owners and
 unrenderable counts retain full attribute spelling. Short forms currently apply to parameters and
@@ -709,18 +708,12 @@ the new attribute before relying on these contracts.
 it to a non-null pointer to one readable element. It does not specify an allocator, transfer
 ownership, or turn the parameter into a COM return value.
 
-| Spelling | Additional guarantee or permission |
-| --- | --- |
-| `#[out_ptr]` | The returned pointer is non-null on success. |
-| `#[out_ptr(nullable)]` | The returned pointer may be null on success. |
-| `#[out_ptr(null_on_failure)]` | Failure sets the returned pointer to null. |
-| `#[out_ptr(nullable, null_on_failure)]` | Both the success-nullability permission and failure guarantee. |
-
-Success and failure follow the callable's contract. Outer `#[opt]` separately permits omitting the
-output storage itself; `#[out]` is still needed to establish output direction.
-These forms encode both Boolean properties of `NativeReturnedPointerAttribute`. Unknown and
-duplicate flags are errors. Full attributes with missing or additional properties retain their
-explicit spelling rather than silently acquiring defaults.
+`#[out_ptr(null_on_failure)]` adds that failure sets the returned pointer to null. These forms
+encode the `NullOnFailure` property of `NativeReturnedPointerAttribute`. Unknown and duplicate flags
+are errors. Full attributes with missing or additional properties retain their explicit spelling
+rather than silently acquiring defaults. `#[nullable]` separately permits a null returned pointer,
+and outer `#[opt]` permits omitting the output storage itself; `#[out]` is still needed to
+establish output direction.
 
 `#[must_use]` marks a callable result that callers should use rather than accidentally discard.
 It applies to imports, interface methods and named callbacks and encodes the parameterless

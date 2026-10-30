@@ -13,9 +13,6 @@ const SCHEMA: &str = r#"
     }
     attribute NullableAttribute {
         fn();
-        OnEntry: bool,
-        OnSuccess: bool,
-        Indirect: bool,
     }
 }}}
 "#;
@@ -326,12 +323,6 @@ fn termination_requires_unambiguous_phases() {
         "null_terminated(indirect)",
         "null_terminated(success, indirect, indirect)",
         "null_terminated(success, indirect)",
-        "nullable",
-        "nullable()",
-        "nullable(double_entry)",
-        "nullable(entry, entry)",
-        "nullable(success, indirect, indirect)",
-        "nullable(entry, indirect)",
     ] {
         assert!(
             windows_rdl::reader()
@@ -363,12 +354,17 @@ fn pointer_contract_owners_are_checked() {
         "#[null_terminated(entry)] struct Value { value: u32, }",
         "struct Value { #[null_terminated(entry)] value: *mut u16, }",
         "struct Value { #[null_terminated(double_success)] value: [u16; 8], }",
-        "extern fn F(#[nullable(entry)] value: u32);",
+        "extern fn F(#[out] #[nullable(success, indirect)] value: *mut *mut u8);",
+        "extern fn F(#[out] #[nullable()] value: *mut *mut u8);",
+        "extern fn F(#[nullable] value: *mut *mut u8);",
+        "extern fn F(#[out] #[nullable] value: *mut u8);",
+        "extern fn F(#[out] #[nullable] value: u32);",
         "extern fn F() -> #[nullable] u32;",
-        "extern fn F() -> #[nullable(entry)] *mut u8;",
+        "extern fn F() -> #[nullable(success)] *mut u8;",
         "extern fn F() -> #[null_terminated(success, indirect)] *mut *mut u8;",
-        "#[nullable(entry)] extern fn F();",
+        "#[nullable] extern fn F();",
         "struct Value { #[nullable(entry)] value: *mut u8, }",
+        "struct Value { #[nullable] value: u32, }",
     ] {
         assert!(
             windows_rdl::reader()

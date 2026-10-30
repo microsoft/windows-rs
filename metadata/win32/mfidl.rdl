@@ -77,7 +77,7 @@ mod Windows {
         }
         #[guid(0x71ce469c_f34b_49ea_a56b_2d2a10e51149)]
         interface IMFByteStreamCacheControl2: IMFByteStreamCacheControl {
-            fn GetByteRanges(&self, #[out] pcRanges: *mut DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pcRanges, indirect, nullable)] #[writable(success, *pcRanges, indirect, nullable)] ppRanges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> HRESULT;
+            fn GetByteRanges(&self, #[out] pcRanges: *mut DWORD, #[nullable] #[out] #[readable(success, *pcRanges, indirect)] #[writable(success, *pcRanges, indirect)] ppRanges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> HRESULT;
             fn SetCacheLimit(&self, #[in] qwBytes: QWORD) -> HRESULT;
             fn IsBackgroundTransferActive(&self, #[out] pfActive: *mut BOOL) -> HRESULT;
         }
@@ -177,8 +177,8 @@ mod Windows {
         #[guid(0xd3c4ef59_49ce_4381_9071_d5bcd044c770)]
         interface IMFContentEnabler: IUnknown {
             fn GetEnableType(&self, #[out] pType: *mut GUID) -> HRESULT;
-            fn GetEnableURL(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pcchURL, indirect, nullable)] #[writable(success, *pcchURL, indirect, nullable)] ppwszURL: *mut LPWSTR, #[out] pcchURL: *mut DWORD, #[in] #[opt] #[out] pTrustStatus: *mut MF_URL_TRUST_STATUS) -> HRESULT;
-            fn GetEnableData(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbData, indirect, nullable)] #[writable(success, *pcbData, indirect, nullable)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD) -> HRESULT;
+            fn GetEnableURL(&self, #[nullable] #[out] #[readable(success, *pcchURL, indirect)] #[writable(success, *pcchURL, indirect)] ppwszURL: *mut LPWSTR, #[out] pcchURL: *mut DWORD, #[in] #[opt] #[out] pTrustStatus: *mut MF_URL_TRUST_STATUS) -> HRESULT;
+            fn GetEnableData(&self, #[nullable] #[out] #[readable(success, *pcbData, indirect)] #[writable(success, *pcbData, indirect)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD) -> HRESULT;
             fn IsAutomaticSupported(&self, #[out] pfAutomatic: *mut BOOL) -> HRESULT;
             fn AutomaticEnable(&self) -> HRESULT;
             fn MonitorEnable(&self) -> HRESULT;
@@ -373,7 +373,7 @@ mod Windows {
         }
         #[guid(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5)]
         interface IMFMediaTypeHandler: IUnknown {
-            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[opt] #[out] #[out_ptr(nullable)] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[nullable] #[opt] #[out] #[out_ptr] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetMediaTypeCount(&self, #[out] pdwTypeCount: *mut DWORD) -> HRESULT;
             fn GetMediaTypeByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn SetCurrentMediaType(&self, #[in] pMediaType: IMFMediaType) -> HRESULT;
@@ -675,7 +675,7 @@ mod Windows {
             fn GetDeviceType(&self, #[out] pType: *mut MFSensorDeviceType) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
             fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
-            fn GetDeviceAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetDeviceAttributes(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamAttributesCount(&self, #[in] eType: MFSensorStreamType, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn SetSensorDeviceMode(&self, #[in] eMode: MFSensorDeviceMode) -> HRESULT;
@@ -685,7 +685,7 @@ mod Windows {
         interface IMFSensorGroup: IUnknown {
             fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
-            fn GetSensorGroupAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetSensorGroupAttributes(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetSensorDeviceCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetSensorDevice(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppDevice: *mut IMFSensorDevice) -> HRESULT;
             fn SetDefaultSensorDeviceIndex(&self, #[in] dwIndex: DWORD) -> HRESULT;
@@ -726,7 +726,7 @@ mod Windows {
             fn GetFactoryAttributes(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn InitializeFactory(&self, #[in] dwMaxTransformCount: DWORD, #[in] pSensorDevices: IMFCollection, #[in] #[opt] pAttributes: IMFAttributes) -> HRESULT;
             fn GetTransformCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamInformation: *mut IMFCollection) -> HRESULT;
+            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamInformation: *mut IMFCollection) -> HRESULT;
             fn CreateTransform(&self, #[in] guidSensorTransformID: &GUID, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
         }
         #[guid(0x197cd219_19cb_4de1_a64c_acf2edcbe59e)]
@@ -849,11 +849,11 @@ mod Windows {
         #[guid(0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e)]
         interface IMFTranscodeProfile: IUnknown {
             fn SetAudioAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetAudioAttributes(&self, #[out] #[out_ptr(nullable)] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetAudioAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
             fn SetVideoAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetVideoAttributes(&self, #[out] #[out_ptr(nullable)] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetVideoAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
             fn SetContainerAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetContainerAttributes(&self, #[out] #[out_ptr(nullable)] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetContainerAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e)]
         interface IMFTranscodeSinkInfoProvider: IUnknown {

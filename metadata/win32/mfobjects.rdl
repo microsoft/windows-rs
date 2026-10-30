@@ -53,10 +53,10 @@ mod Windows {
             fn GetGUID(&self, #[in] guidKey: &GUID, #[out] pguidValue: *mut GUID) -> HRESULT;
             fn GetStringLength(&self, #[in] guidKey: &GUID, #[out] pcchLength: *mut UINT32) -> HRESULT;
             fn GetString(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cchBufSize)] #[writable(entry, cchBufSize)] #[writable(success, cchBufSize)] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[opt] #[out] pcchLength: *mut UINT32) -> HRESULT;
-            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcchLength + 1, indirect, nullable)] #[writable(success, *pcchLength + 1, indirect, nullable)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[nullable] #[out] #[readable(success, *pcchLength + 1, indirect)] #[writable(success, *pcchLength + 1, indirect)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
             fn GetBlobSize(&self, #[in] guidKey: &GUID, #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
             fn GetBlob(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cbBufSize)] #[writable(entry, cbBufSize)] #[writable(success, cbBufSize)] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
-            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbSize, indirect, nullable)] #[writable(success, *pcbSize, indirect, nullable)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
+            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[nullable] #[out] #[readable(success, *pcbSize, indirect)] #[writable(success, *pcbSize, indirect)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
             fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
             fn SetItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT) -> HRESULT;
             fn DeleteItem(&self, #[in] guidKey: &GUID) -> HRESULT;
