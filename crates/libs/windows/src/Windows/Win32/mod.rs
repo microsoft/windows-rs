@@ -463,6 +463,10 @@ pub use dwmapi::*;
 pub mod dwrite;
 #[cfg(feature = "dwrite")]
 pub use dwrite::*;
+#[cfg(feature = "dxcapi")]
+pub mod dxcapi;
+#[cfg(feature = "dxcapi")]
+pub use dxcapi::*;
 #[cfg(feature = "dxcore")]
 pub mod dxcore;
 #[cfg(feature = "dxcore")]

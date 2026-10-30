@@ -113,6 +113,7 @@ pub const HEADERS: &[&str] = &[
     "werapi.h",
     "expandedresources.h",
     "d3dcompiler.h",
+    "dxcapi.h",
     "sensorsapi.h",
     "rpcdce.h",
     "avrt.h",
