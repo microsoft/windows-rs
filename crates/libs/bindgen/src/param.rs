@@ -100,12 +100,8 @@ impl Param {
     fn buffer_attributes(
         &self,
     ) -> impl Iterator<Item = windows_metadata::reader::Attribute<'static>> + '_ {
-        self.attributes().filter(|attribute| {
-            matches!(
-                attribute.name(),
-                "BufferExtentAttribute" | "NativeArrayInfoAttribute" | "MemorySizeAttribute"
-            )
-        })
+        self.attributes()
+            .filter(|attribute| attribute.name() == "BufferExtentAttribute")
     }
 
     pub fn has_query_buffer_attributes(&self) -> bool {

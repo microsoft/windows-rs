@@ -705,10 +705,6 @@ unrenderable counts retain full attribute spelling. Short forms currently apply 
 record fields, not return rows or containing records. Existing metadata consumers must interpret
 the new attribute before relying on these contracts.
 
-The legacy `#[len_param(N)]` and `#[size_param(N)]` record a raw zero-based parameter position.
-They do not refer to a parameter by name. Reordering parameters requires updating the positions.
-`#[len_const(N)]` records a constant element count and has no parameter relationship.
-
 `#[out_ptr]` describes storage for a returned pointer. When storage is supplied, success initializes
 it to a non-null pointer to one readable element. It does not specify an allocator, transfer
 ownership, or turn the parameter into a COM return value.

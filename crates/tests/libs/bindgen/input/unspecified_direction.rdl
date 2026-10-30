@@ -7,7 +7,7 @@ mod Test {
         fn Scalar(&self, value: u32) -> HRESULT;
         fn Raw(&self, value: *mut u32) -> HRESULT;
         fn Alias(&self, value: Pointer) -> HRESULT;
-        fn Buffer(&self, #[in] count: u32, #[len_param(0)] value: *mut u32) -> HRESULT;
+        fn Buffer(&self, #[in] count: u32, #[readable(entry, count)] value: *mut u32) -> HRESULT;
         fn Query(&self, #[in] riid: *const GUID, #[iid_is] value: *mut *mut void) -> HRESULT;
         fn Interface(&self, value: *mut Unknown) -> HRESULT;
         fn Input(&self, #[in] value: *mut u32) -> HRESULT;
@@ -19,11 +19,16 @@ mod Test {
 mod Windows {
     mod Win32 {
         mod Metadata {
-            attribute NativeArrayInfoAttribute {
-                fn();
-                CountParamIndex: i16,
-                CountConst: i32,
-                CountFieldName: String,
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
             }
         }
     }

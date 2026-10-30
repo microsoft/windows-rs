@@ -233,13 +233,6 @@ fn marker(name: &str) -> AttributeSpec {
     }
 }
 
-fn property(name: &str, property: &str, value: metadata::Value) -> AttributeSpec {
-    AttributeSpec {
-        name: name.to_string(),
-        values: vec![(property.to_string(), value)],
-    }
-}
-
 fn positional(name: &str, value: metadata::Value) -> AttributeSpec {
     AttributeSpec {
         name: name.to_string(),
@@ -368,21 +361,6 @@ fn write_attribute_definitions(path: &Path) {
     let mut file = metadata::writer::File::new("attributes");
     define_attribute(&mut file, "RetValAttribute", &[], &[]);
     define_attribute(&mut file, "ComOutPtrAttribute", &[], &[]);
-    define_attribute(
-        &mut file,
-        "NativeArrayInfoAttribute",
-        &[],
-        &[
-            ("CountParamIndex", metadata::Type::I16),
-            ("CountConst", metadata::Type::I32),
-        ],
-    );
-    define_attribute(
-        &mut file,
-        "MemorySizeAttribute",
-        &[],
-        &[("BytesParamIndex", metadata::Type::I16)],
-    );
     define_attribute(&mut file, "ReservedAttribute", &[], &[]);
     define_attribute(&mut file, "DoesNotReturnAttribute", &[], &[]);
     define_attribute(&mut file, "ScopedEnumAttribute", &[], &[]);
@@ -498,7 +476,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     let rows = vec![
         ParamSpec {
             name: "decorated".to_string(),
-            sequence: 11,
+            sequence: 8,
             flags: metadata::ParamAttributes::In,
             attributes: vec![
                 marker("ReservedAttribute"),
@@ -554,36 +532,6 @@ fn all_supported_param_attributes_and_directions_round_trip() {
             flags: metadata::ParamAttributes::Out,
             attributes: vec![],
         },
-        ParamSpec {
-            name: "counted".to_string(),
-            sequence: 8,
-            flags: metadata::ParamAttributes::In,
-            attributes: vec![property(
-                "NativeArrayInfoAttribute",
-                "CountParamIndex",
-                metadata::Value::I16(2),
-            )],
-        },
-        ParamSpec {
-            name: "fixed".to_string(),
-            sequence: 9,
-            flags: metadata::ParamAttributes::In,
-            attributes: vec![property(
-                "NativeArrayInfoAttribute",
-                "CountConst",
-                metadata::Value::I32(4),
-            )],
-        },
-        ParamSpec {
-            name: "bytes".to_string(),
-            sequence: 10,
-            flags: metadata::ParamAttributes::Out,
-            attributes: vec![property(
-                "MemorySizeAttribute",
-                "BytesParamIndex",
-                metadata::Value::I16(0),
-            )],
-        },
     ];
 
     write_method_winmd(
@@ -597,9 +545,6 @@ fn all_supported_param_attributes_and_directions_round_trip() {
             metadata::Type::PtrMut(Box::new(metadata::Type::I32), 1),
             metadata::Type::PtrConst(Box::new(metadata::Type::I32), 1),
             metadata::Type::PtrMut(Box::new(metadata::Type::I32), 2),
-            metadata::Type::PtrConst(Box::new(metadata::Type::I32), 1),
-            metadata::Type::PtrConst(Box::new(metadata::Type::I32), 1),
-            metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1),
             metadata::Type::I32,
         ],
         &rows,
@@ -625,9 +570,6 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert!(
         method.contains("#[iid_is] #[in] #[opt] #[out] #[retval] inout_optional: *mut *mut i32")
     );
-    assert!(method.contains("#[in] #[len_param(2)] counted: *const i32"));
-    assert!(method.contains("#[in] #[len_const(4)] fixed: *const i32"));
-    assert!(method.contains("#[out] #[size_param(0)] bytes: *mut u8"));
     assert!(method.contains(
         "#[encoding(\"utf-16\")] #[in] #[noreturn] #[reserved] #[scoped] decorated: i32"
     ));
@@ -642,7 +584,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
 
     let index = metadata::reader::Index::read(&roundtrip).unwrap();
     let method = index.expect("Test", "I").methods().next().unwrap();
-    let params = method.params_by_sequence(11).unwrap();
+    let params = method.params_by_sequence(8).unwrap();
 
     let p0 = params.params()[0].unwrap();
     assert_eq!(p0.name(), "p0");
@@ -674,31 +616,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert_attribute(inout_optional, "RetValAttribute", &[]);
     assert_attribute(inout_optional, "ComOutPtrAttribute", &[]);
 
-    let counted = params.params()[7].unwrap();
-    assert_eq!(counted.flags(), metadata::ParamAttributes::In);
-    assert_attribute(
-        counted,
-        "NativeArrayInfoAttribute",
-        &[("CountParamIndex".to_string(), metadata::Value::I16(2))],
-    );
-
-    let fixed = params.params()[8].unwrap();
-    assert_eq!(fixed.flags(), metadata::ParamAttributes::In);
-    assert_attribute(
-        fixed,
-        "NativeArrayInfoAttribute",
-        &[("CountConst".to_string(), metadata::Value::I32(4))],
-    );
-
-    let bytes = params.params()[9].unwrap();
-    assert_eq!(bytes.flags(), metadata::ParamAttributes::Out);
-    assert_attribute(
-        bytes,
-        "MemorySizeAttribute",
-        &[("BytesParamIndex".to_string(), metadata::Value::I16(0))],
-    );
-
-    let decorated = params.params()[10].unwrap();
+    let decorated = params.params()[7].unwrap();
     assert_eq!(decorated.flags(), metadata::ParamAttributes::In);
     assert_attribute(decorated, "ReservedAttribute", &[]);
     assert_attribute(decorated, "DoesNotReturnAttribute", &[]);

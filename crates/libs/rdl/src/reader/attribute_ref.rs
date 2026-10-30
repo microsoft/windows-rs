@@ -553,15 +553,7 @@ impl Encoder<'_> {
         };
 
         let split = self.split_args(&raw_args)?;
-        let args = if let Some(prop) = pseudo.prop {
-            if split.positional.len() != 1 || !split.named.is_empty() {
-                return self.err(attr, &format!("`{}` takes a single value", pseudo.short));
-            }
-            let named = [(prop.to_string(), split.positional[0])];
-            self.resolve_attribute_args(attr, &info, &[], &named)?
-        } else {
-            self.resolve_attribute_args(attr, &info, &split.positional, &split.named)?
-        };
+        let args = self.resolve_attribute_args(attr, &info, &split.positional, &split.named)?;
 
         Ok(AttributeRef {
             type_name: info.type_name,

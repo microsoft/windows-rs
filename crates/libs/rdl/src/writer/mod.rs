@@ -959,8 +959,7 @@ fn write_custom_attributes_with_names<'a>(
 
             // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {
-                let arg_names: Vec<String> = values.iter().map(|(n, _)| n.clone()).collect();
-                pseudo_for_metadata(attr.name(), &arg_names)
+                pseudo_for_metadata(attr.name())
             } else {
                 None
             };
@@ -986,8 +985,6 @@ fn write_custom_attributes_with_names<'a>(
                 }
             };
 
-            // Property-bound pseudos emit their single property value positionally.
-            let drop_names = pseudo.and_then(|p| p.prop).is_some();
             let args: Vec<TokenStream> = values
                 .into_iter()
                 .map(|(name, v)| {
@@ -997,7 +994,7 @@ fn write_custom_attributes_with_names<'a>(
                         }
                         _ => write_value(item_namespace, &v),
                     };
-                    let ts = if name.is_empty() || drop_names {
+                    let ts = if name.is_empty() {
                         value_ts
                     } else {
                         let name_ident = write_ident(&name);

@@ -5,12 +5,12 @@ mod Test {
 
     #[guid(auto)]
     interface Factory {
-        fn Reference(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[in] riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn BufferAfterId(&self, #[in] riid: *const GUID, #[in] count: u32, #[in] #[len_param(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn BufferOnly(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn ByteBuffer(&self, #[in] count: u32, #[in] #[size_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn FixedBuffer(&self, #[in] #[len_const(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[len_param(1)] #[iid_is] results: *mut *mut void) -> HRESULT;
+        fn Reference(&self, #[in] count: u32, #[in] #[readable(entry, count)] filters: *const GUID, #[in] riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferAfterId(&self, #[in] riid: *const GUID, #[in] count: u32, #[in] #[readable(entry, count)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferOnly(&self, #[in] count: u32, #[in] #[readable(entry, count)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn ByteBuffer(&self, #[in] count: u32, #[in] #[readable(entry, bytes(count))] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn FixedBuffer(&self, #[in] #[readable(entry, 1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[writable(entry, count)] #[iid_is] results: *mut *mut void) -> HRESULT;
     }
 }
 
@@ -18,15 +18,16 @@ mod Test {
 mod Windows {
     mod Win32 {
         mod Metadata {
-            attribute NativeArrayInfoAttribute {
-                fn();
-                CountParamIndex: i16,
-                CountConst: i32,
-                CountFieldName: String,
-            }
-            attribute MemorySizeAttribute {
-                fn();
-                BytesParamIndex: i16,
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
             }
         }
     }
