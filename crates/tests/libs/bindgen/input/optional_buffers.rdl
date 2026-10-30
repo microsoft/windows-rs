@@ -6,14 +6,14 @@ mod Test {
 
     #[guid(auto)]
     interface Buffers {
-        fn ElementsAfter(&self, #[in] #[out] #[opt] #[len_param(1)] values: *mut u32, #[in] count: u32) -> u32;
-        fn ElementsBefore(&self, #[in] count: u32, #[in] #[out] #[opt] #[len_param(0)] values: *mut u32) -> u32;
-        fn Bytes(&self, #[in] #[out] #[opt] #[size_param(1)] values: PSCHAR, #[in] count: u32) -> u32;
-        fn Fixed(&self, #[in] #[out] #[opt] #[len_const(4)] values: *mut u32) -> u32;
+        fn ElementsAfter(&self, #[in] #[out] #[opt] #[writable(entry, count)] values: *mut u32, #[in] count: u32) -> u32;
+        fn ElementsBefore(&self, #[in] count: u32, #[in] #[out] #[opt] #[writable(entry, count)] values: *mut u32) -> u32;
+        fn Bytes(&self, #[in] #[out] #[opt] #[writable(entry, bytes(count))] values: PSCHAR, #[in] count: u32) -> u32;
+        fn Fixed(&self, #[in] #[out] #[opt] #[writable(entry, 4)] values: *mut u32) -> u32;
         fn Modern(&self, #[in] #[out] #[opt] #[writable(entry, count)] values: *mut u32, #[in] count: u32) -> u32;
-        fn Input(&self, #[in] #[opt] #[len_param(1)] values: *const u32, #[in] count: u32) -> u32;
-        fn Output(&self, #[out] #[opt] #[len_param(1)] values: *mut u32, #[in] count: u32) -> u32;
-        fn Required(&self, #[in] #[out] #[len_param(1)] values: *mut u32, #[in] count: u32) -> u32;
+        fn Input(&self, #[in] #[opt] #[readable(entry, count)] values: *const u32, #[in] count: u32) -> u32;
+        fn Output(&self, #[out] #[opt] #[writable(entry, count)] values: *mut u32, #[in] count: u32) -> u32;
+        fn Required(&self, #[in] #[out] #[writable(entry, count)] values: *mut u32, #[in] count: u32) -> u32;
     }
 
     #[guid(auto)]
@@ -22,28 +22,19 @@ mod Test {
     }
 
     #[library("test.dll")]
-    extern fn OptionalElementsAfter(#[in] #[out] #[opt] #[len_param(1)] values: *mut u32, #[in] count: u32) -> u32;
+    extern fn OptionalElementsAfter(#[in] #[out] #[opt] #[writable(entry, count)] values: *mut u32, #[in] count: u32) -> u32;
     #[library("test.dll")]
-    extern fn OptionalElementsBefore(#[in] count: u32, #[in] #[out] #[opt] #[len_param(0)] values: *mut u32) -> u32;
+    extern fn OptionalElementsBefore(#[in] count: u32, #[in] #[out] #[opt] #[writable(entry, count)] values: *mut u32) -> u32;
     #[library("test.dll")]
-    extern fn OptionalBytes(#[in] #[out] #[opt] #[size_param(1)] values: PSCHAR, #[in] count: u32) -> u32;
+    extern fn OptionalBytes(#[in] #[out] #[opt] #[writable(entry, bytes(count))] values: PSCHAR, #[in] count: u32) -> u32;
     #[library("test.dll")]
-    extern fn OptionalFixed(#[in] #[out] #[opt] #[len_const(4)] values: *mut u32) -> u32;
+    extern fn OptionalFixed(#[in] #[out] #[opt] #[writable(entry, 4)] values: *mut u32) -> u32;
 }
 
 #[win32]
 mod Windows {
     mod Win32 {
         mod Metadata {
-            attribute NativeArrayInfoAttribute {
-                fn();
-                CountParamIndex: i16,
-                CountConst: i32,
-            }
-            attribute MemorySizeAttribute {
-                fn();
-                BytesParamIndex: i16,
-            }
             #[repr(i32)]
             enum BufferAccess { Read = 0, Write = 1 }
             #[repr(i32)]

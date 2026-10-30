@@ -60,7 +60,7 @@ impl MethodParam<'_> {
         self.has_attribute("RetValAttribute")
     }
 
-    /// Returns the raw count or byte-size relationship encoded by Win32 metadata attributes.
+    /// Returns the entry count or byte-size relationship encoded by `BufferExtentAttribute`.
     ///
     /// This only decodes the attribute. Consumers remain responsible for validating signed values,
     /// parameter positions, element sizes, and whether a public slice or span is appropriate.
@@ -94,27 +94,6 @@ impl MethodParam<'_> {
                     return None;
                 }
                 result = Some(relationship);
-                continue;
-            }
-            for (name, value) in attribute.value() {
-                let relationship = match (attribute.name(), name.as_str(), value) {
-                    ("NativeArrayInfoAttribute", "CountParamIndex", Value::I16(value)) => {
-                        BufferRelationship::ElementsParam(value)
-                    }
-                    ("NativeArrayInfoAttribute", "CountConst", Value::I32(value)) => {
-                        BufferRelationship::ElementsConst(value)
-                    }
-                    ("MemorySizeAttribute", "BytesParamIndex", Value::I16(value)) => {
-                        BufferRelationship::BytesParam(value)
-                    }
-                    ("NativeArrayInfoAttribute", "CountParamIndex" | "CountConst", _)
-                    | ("MemorySizeAttribute", "BytesParamIndex", _) => return None,
-                    _ => continue,
-                };
-
-                if result.replace(relationship).is_some() {
-                    return None;
-                }
             }
         }
 

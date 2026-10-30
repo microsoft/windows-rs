@@ -37,8 +37,6 @@ pub(crate) const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 pub(crate) struct PseudoAttr {
     pub short: &'static str,
     pub metadata: &'static str,
-    /// Named property receiving a short-form positional argument, if any.
-    pub prop: Option<&'static str>,
 }
 
 /// Pseudo-attribute table; order is metadata-significant for parameters.
@@ -46,67 +44,42 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "anonymous",
         metadata: "NativeAnonymousAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "retval",
         metadata: "RetValAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "iid_is",
         metadata: "ComOutPtrAttribute",
-        prop: None,
-    },
-    PseudoAttr {
-        short: "len_param",
-        metadata: "NativeArrayInfoAttribute",
-        prop: Some("CountParamIndex"),
-    },
-    PseudoAttr {
-        short: "len_const",
-        metadata: "NativeArrayInfoAttribute",
-        prop: Some("CountConst"),
-    },
-    PseudoAttr {
-        short: "size_param",
-        metadata: "MemorySizeAttribute",
-        prop: Some("BytesParamIndex"),
     },
     PseudoAttr {
         short: "reserved",
         metadata: "ReservedAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "noreturn",
         metadata: "DoesNotReturnAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "must_use",
         metadata: "MustUseAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "scoped",
         metadata: "ScopedEnumAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "encoding",
         metadata: "NativeEncodingAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "override_slot",
         metadata: "NativeOverrideSlotAttribute",
-        prop: None,
     },
     PseudoAttr {
         short: "align",
         metadata: "AlignmentAttribute",
-        prop: None,
     },
 ];
 
@@ -114,18 +87,9 @@ pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
     PSEUDO_ATTRS.iter().find(|p| p.short == short)
 }
 
-/// Finds the short spelling for a metadata attribute, using property names to distinguish shared
-/// attribute types such as `NativeArrayInfoAttribute`.
-pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'static PseudoAttr> {
-    let mut fallback = None;
-    for pseudo in PSEUDO_ATTRS.iter().filter(|p| p.metadata == name) {
-        match pseudo.prop {
-            Some(prop) if arg_names.len() == 1 && arg_names[0] == prop => return Some(pseudo),
-            None => fallback = Some(pseudo),
-            _ => {}
-        }
-    }
-    fallback
+/// Finds the short spelling for a metadata attribute.
+pub(crate) fn pseudo_for_metadata(name: &str) -> Option<&'static PseudoAttr> {
+    PSEUDO_ATTRS.iter().find(|p| p.metadata == name)
 }
 
 /// Finds type definitions by `/`-separated nested name, such as `Outer/Inner`.
@@ -364,29 +328,3 @@ macro_rules! writer_err {
 }
 
 use writer_err;
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn prop_bound_pseudo_requires_sole_argument() {
-        let sole = ["CountParamIndex".to_string()];
-        let pseudo = pseudo_for_metadata("NativeArrayInfoAttribute", &sole)
-            .expect("single-property NativeArrayInfo should map to a short pseudo");
-        assert_eq!(pseudo.short, "len_param");
-
-        let extra = ["CountParamIndex".to_string(), "CountConst".to_string()];
-        assert!(
-            pseudo_for_metadata("NativeArrayInfoAttribute", &extra).is_none(),
-            "a multi-valued property-bound attribute must fall back to the fully-qualified spelling"
-        );
-    }
-
-    #[test]
-    fn property_less_pseudo_matches_by_name() {
-        let pseudo = pseudo_for_metadata("RetValAttribute", &[])
-            .expect("RetValAttribute should map to a pseudo");
-        assert_eq!(pseudo.short, "retval");
-    }
-}

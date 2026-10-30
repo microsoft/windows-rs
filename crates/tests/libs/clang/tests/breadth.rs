@@ -695,7 +695,7 @@ fn buffer_full() {
         let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
         assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
-        assert!(!rdl.contains("size_param") && !rdl.contains("NativeInitializedLength"));
+        assert!(!rdl.contains("NativeInitializedLength"));
         roundtrip_metadata("buffer_full_residual", rdl, |index, _| {
             for name in ["Apis", "Buffer", "IBuffer"] {
                 let method = index.expect("Fixture", name).methods().next().unwrap();
@@ -771,12 +771,7 @@ fn returned_buffer_flags() {
         );
         assert!(!rdl.contains("NativeSal("), "{name}: {rdl}");
         assert!(!rdl.contains("out_ptr"), "{name}: {rdl}");
-        assert!(
-            !rdl.contains("size_param")
-                && !rdl.contains("len_param")
-                && !rdl.contains("NativeInitializedLength"),
-            "{rdl}"
-        );
+        assert!(!rdl.contains("NativeInitializedLength"), "{rdl}");
         let check = |index: &reader::Index, _| {
             for owner in ["Apis", "Buffer", "IBuffer"] {
                 let method = index.expect("Fixture", owner).methods().next().unwrap();
@@ -1061,11 +1056,6 @@ fn input_contracts() {
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), optional);
                     assert!(parameter.find_attribute("NativeInputAttribute").is_none());
-                    assert!(
-                        parameter
-                            .find_attribute("NativeArrayInfoAttribute")
-                            .is_none()
-                    );
                 }
             }
         };
@@ -1885,7 +1875,6 @@ fn rpc_buffer_residuals() {
     helpers::ensure_libclang();
     let output = project(&[rpc_buffer_input("__RPC__out_ecount_full", "*written", true)]);
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(!text.contains("len_param("), "{text}");
     assert!(text.contains("#[readable(success, *written)]"), "{text}");
     roundtrip_metadata("rpc_buffer_indirect_full", text, |index, _| {
         let parameter = index
@@ -1939,13 +1928,7 @@ fn rpc_buffer_residuals() {
             let output = project(&[input]);
             let text = &output.partitions.values().next().unwrap().rdl;
             assert!(text.contains("NativeSal("), "{text}");
-            for flag in [
-                "#[in]",
-                "#[out]",
-                "#[opt]",
-                "len_param(",
-                "NativeInitializedLength(",
-            ] {
+            for flag in ["#[in]", "#[out]", "#[opt]", "NativeInitializedLength("] {
                 assert!(!text.contains(flag), "{text}");
             }
         }

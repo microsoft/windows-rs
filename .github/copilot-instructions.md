@@ -227,9 +227,9 @@ These rules were established while cleaning up the docs and code comments and ap
 
 ## Clang and Metadata
 
-Use the [attribute reference](../docs/clang-attributes.md) for publication contracts and the
-[RDL reference](../crates/libs/rdl/rdl.md) for syntax and encoding. Dependency pins, native builds,
-and update commands are documented beside the tools that own them.
+Use the [header annotation reference](../docs/header-annotations.md) for publication contracts and
+the [RDL reference](../crates/libs/rdl/rdl.md) for syntax and encoding. Dependency pins, native
+builds, and update commands are documented beside the tools that own them.
 
 ### Capture and reconciliation
 

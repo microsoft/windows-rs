@@ -31,7 +31,7 @@ mod Test {
         ) -> HRESULT;
         fn RetvalOptional(&self, #[out] #[opt] #[retval] result: *mut Struct) -> HRESULT;
         fn RetvalReserved(&self, #[out] #[reserved] #[retval] result: *mut Struct) -> HRESULT;
-        fn RetvalArray(&self, #[out] #[len_const(1)] #[retval] result: *mut Struct) -> HRESULT;
+        fn RetvalArray(&self, #[out] #[writable(entry, 1)] #[retval] result: *mut Struct) -> HRESULT;
         fn ExplicitLarge(&self, #[out] #[retval] result: *mut Large) -> HRESULT;
         fn ExplicitVoidPointer(
             &self,
@@ -53,9 +53,16 @@ mod Windows {
                 fn();
             }
 
-            attribute NativeArrayInfoAttribute {
-                fn();
-                CountConst: i32,
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
             }
         }
     }

@@ -3,51 +3,41 @@
 mod Test {
     #[guid(auto)]
     interface Interface {
-        fn ValidElements(&self, #[in] count: u32, #[in] #[len_param(0)] values: *const u32);
-        fn NegativeElements(&self, #[in] count: u32, #[in] #[len_param(-1)] values: *const u32);
-        fn OutOfRangeElements(&self, #[in] count: u32, #[in] #[len_param(2)] values: *const u32);
-        fn SelfElements(&self, #[in] #[len_param(0)] values: *const u32);
+        fn ValidElements(&self, #[in] count: u32, #[in] #[readable(entry, count)] values: *const u32);
         fn SharedCount(
             &self,
             #[in] count: u32,
-            #[in] #[len_param(0)] left: *const u32,
-            #[in] #[len_param(0)] right: *const u32,
+            #[in] #[readable(entry, count)] left: *const u32,
+            #[in] #[readable(entry, count)] right: *const u32,
         );
 
-        fn ValidBytes(&self, #[in] count: u32, #[in] #[size_param(0)] values: *const u8);
-        fn NegativeBytes(&self, #[in] count: u32, #[in] #[size_param(-1)] values: *const u8);
-        fn OutOfRangeBytes(&self, #[in] count: u32, #[in] #[size_param(2)] values: *const u8);
-        fn SelfBytes(&self, #[in] #[size_param(0)] values: *const u8);
+        fn ValidBytes(&self, #[in] count: u32, #[in] #[readable(entry, bytes(count))] values: *const u8);
 
-        fn ValidConstant(&self, #[in] #[len_const(4)] values: *const u32);
-        fn NegativeConstant(&self, #[in] #[len_const(-1)] values: *const u32);
+        fn ValidConstant(&self, #[in] #[readable(entry, 4)] values: *const u32);
         fn OutOfRangeConstant(
             &self,
-            #[in] #[len_const(2147483647)] values: *const u32,
+            #[in] #[readable(entry, 2147483647)] values: *const u32,
         );
     }
 
     #[library("test.dll")]
-    extern fn ValidFunction(#[in] count: u32, #[in] #[len_param(0)] values: *const u32);
-
-    #[library("test.dll")]
-    extern fn InvalidFunction(#[in] count: u32, #[in] #[len_param(2)] values: *const u32);
+    extern fn ValidFunction(#[in] count: u32, #[in] #[readable(entry, count)] values: *const u32);
 }
 
 #[win32]
 mod Windows {
     mod Win32 {
         mod Metadata {
-            attribute NativeArrayInfoAttribute {
-                fn();
-                CountParamIndex: i16,
-                CountConst: i32,
-                CountFieldName: String,
-            }
-
-            attribute MemorySizeAttribute {
-                fn();
-                BytesParamIndex: i16,
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
             }
         }
     }
