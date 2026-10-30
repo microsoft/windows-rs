@@ -74,6 +74,7 @@ pub const IMPORT_LIBS: &[&str] = &[
     "virtdisk.lib",
     "wer.lib",
     "d3dcompiler.lib",
+    "dxcompiler.lib",
     "sensorsapi.lib",
     "avrt.lib",
     "winbio.lib",
