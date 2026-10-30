@@ -1,11 +1,8 @@
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CryptXmlAddObject(hsignatureorobject: HCRYPTXML, dwflags: super::DWORD, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> windows_core::Result<*const CRYPT_XML_OBJECT> {
+pub unsafe fn CryptXmlAddObject(hsignatureorobject: HCRYPTXML, dwflags: super::DWORD, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, ppobject: *mut *const CRYPT_XML_OBJECT) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : super::DWORD, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : super::ULONG, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *const CRYPT_XML_OBJECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlAddObject(hsignatureorobject, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlAddObject(hsignatureorobject, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, ppobject as _) }
 }
 #[inline]
 pub unsafe fn CryptXmlClose(hcryptxml: HCRYPTXML) -> windows_core::HRESULT {
@@ -49,57 +46,39 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: super::DWORD, pvfindby: *c
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: super::DWORD) -> windows_core::Result<*mut CRYPT_XML_ALGORITHM_INFO> {
+pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: super::DWORD, ppalginfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : super::DWORD, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, ppalginfo as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CryptXmlGetDocContext(hcryptxml: HCRYPTXML) -> windows_core::Result<*const CRYPT_XML_DOC_CTXT> {
+pub unsafe fn CryptXmlGetDocContext(hcryptxml: HCRYPTXML, ppstruct: *mut *const CRYPT_XML_DOC_CTXT) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : HCRYPTXML, ppstruct : *mut *const CRYPT_XML_DOC_CTXT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetDocContext(hcryptxml, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetDocContext(hcryptxml, ppstruct as _) }
 }
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CryptXmlGetReference(hcryptxml: HCRYPTXML) -> windows_core::Result<*const CRYPT_XML_REFERENCE> {
+pub unsafe fn CryptXmlGetReference(hcryptxml: HCRYPTXML, ppstruct: *mut *const CRYPT_XML_REFERENCE) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : HCRYPTXML, ppstruct : *mut *const CRYPT_XML_REFERENCE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetReference(hcryptxml, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetReference(hcryptxml, ppstruct as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CryptXmlGetSignature(hcryptxml: HCRYPTXML) -> windows_core::Result<*const CRYPT_XML_SIGNATURE> {
+pub unsafe fn CryptXmlGetSignature(hcryptxml: HCRYPTXML, ppstruct: *mut *const CRYPT_XML_SIGNATURE) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : HCRYPTXML, ppstruct : *mut *const CRYPT_XML_SIGNATURE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetSignature(hcryptxml, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetSignature(hcryptxml, ppstruct as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlGetStatus(hcryptxml: HCRYPTXML) -> windows_core::Result<CRYPT_XML_STATUS> {
+pub unsafe fn CryptXmlGetStatus(hcryptxml: HCRYPTXML, pstatus: *mut CRYPT_XML_STATUS) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : HCRYPTXML, pstatus : *mut CRYPT_XML_STATUS) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetStatus(hcryptxml, &mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetStatus(hcryptxml, pstatus as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlGetTransforms() -> windows_core::Result<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
+pub unsafe fn CryptXmlGetTransforms(ppconfig: *mut *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CryptXmlGetTransforms(&mut result__).map(|| result__)
-    }
+    unsafe { CryptXmlGetTransforms(ppconfig as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "shared"))]
 #[inline]

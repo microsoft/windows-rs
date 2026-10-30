@@ -13000,11 +13000,8 @@ impl IXMLHTTPRequest2 {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), pcookie, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), pcookie, pdwcookiestate as _) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn SetCustomResponseStream<P0>(&self, psequentialstream: P0) -> windows_core::HRESULT
@@ -13081,7 +13078,7 @@ pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pwszmethod: *const super::WCHAR, pwszurl: *const super::WCHAR, pstatuscallback: windows_core::Ref<IXMLHTTPRequest2Callback>, pwszusername: *const super::WCHAR, pwszpassword: *const super::WCHAR, pwszproxyusername: *const super::WCHAR, pwszproxypassword: *const super::WCHAR) -> windows_core::Result<()>;
     fn Send(&self, pbody: windows_core::Ref<super::ISequentialStream>, cbbody: super::ULONGLONG) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
-    fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<super::DWORD>;
+    fn SetCookie(&self, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetCustomResponseStream(&self, psequentialstream: windows_core::Ref<super::ISequentialStream>) -> windows_core::Result<()>;
     fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: super::ULONGLONG) -> windows_core::Result<()>;
     fn SetRequestHeader(&self, pwszheader: *const super::WCHAR, pwszvalue: *const super::WCHAR) -> windows_core::Result<()>;
@@ -13113,13 +13110,7 @@ impl IXMLHTTPRequest2_Vtbl {
         unsafe extern "system" fn SetCookie<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie)) {
-                    Ok(ok__) => {
-                        pdwcookiestate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&pdwcookiestate)).into()
             }
         }
         unsafe extern "system" fn SetCustomResponseStream<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psequentialstream: *mut core::ffi::c_void) -> windows_core::HRESULT {

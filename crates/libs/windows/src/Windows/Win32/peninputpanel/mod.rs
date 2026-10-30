@@ -1353,11 +1353,8 @@ impl windows_core::RuntimeName for ITextInputPanelEventSink {}
 windows_core::imp::define_interface!(ITextInputPanelRunInfo, ITextInputPanelRunInfo_Vtbl, 0x9f424568_1920_48cc_9811_a993cbf5adba);
 windows_core::imp::interface_hierarchy!(ITextInputPanelRunInfo, windows_core::IUnknown);
 impl ITextInputPanelRunInfo {
-    pub unsafe fn IsTipRunning(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsTipRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsTipRunning(&self, pfrunning: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsTipRunning)(windows_core::Interface::as_raw(self), pfrunning as _) }
     }
 }
 #[repr(C)]
@@ -1367,20 +1364,14 @@ pub struct ITextInputPanelRunInfo_Vtbl {
     pub IsTipRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITextInputPanelRunInfo_Impl: windows_core::IUnknownImpl {
-    fn IsTipRunning(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsTipRunning(&self, pfrunning: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ITextInputPanelRunInfo_Vtbl {
     pub const fn new<Identity: ITextInputPanelRunInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsTipRunning<Identity: ITextInputPanelRunInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrunning: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextInputPanelRunInfo_Impl::IsTipRunning(this) {
-                    Ok(ok__) => {
-                        pfrunning.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextInputPanelRunInfo_Impl::IsTipRunning(this, core::mem::transmute_copy(&pfrunning)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTipRunning: IsTipRunning::<Identity, OFFSET> }

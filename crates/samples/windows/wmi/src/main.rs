@@ -30,22 +30,32 @@ fn main() -> windows::core::Result<()> {
         let locator: IWbemLocator =
             CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER as u32)?;
 
-        let server = locator.ConnectServer(
-            &BSTR::from("root\\cimv2"),
-            &BSTR::new(),
-            &BSTR::new(),
-            &BSTR::new(),
-            0,
-            &BSTR::new(),
-            None,
-        )?;
+        let mut server = None;
+        locator
+            .ConnectServer(
+                &BSTR::from("root\\cimv2"),
+                &BSTR::new(),
+                &BSTR::new(),
+                &BSTR::new(),
+                0,
+                &BSTR::new(),
+                None,
+                &mut server,
+            )
+            .ok()?;
+        let server = server.unwrap();
 
-        let query = server.ExecQuery(
-            &BSTR::from("WQL"),
-            &BSTR::from("select Caption from Win32_LogicalDisk"),
-            WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY,
-            None,
-        )?;
+        let mut query = None;
+        server
+            .ExecQuery(
+                &BSTR::from("WQL"),
+                &BSTR::from("select Caption from Win32_LogicalDisk"),
+                WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY,
+                None,
+                &mut query,
+            )
+            .ok()?;
+        let query = query.unwrap();
 
         loop {
             let mut row = [None; 1];

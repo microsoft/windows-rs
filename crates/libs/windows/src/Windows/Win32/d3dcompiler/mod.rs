@@ -36,39 +36,27 @@ where
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: super::UINT) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: super::UINT, ppcompresseddata: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : super::UINT, pshaderdata : *const D3D_SHADER_DATA, uflags : super::UINT, ppcompresseddata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DCompressShaders(pshaderdata.len().try_into().unwrap(), pshaderdata.as_ptr(), uflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DCompressShaders(pshaderdata.len().try_into().unwrap(), pshaderdata.as_ptr(), uflags, core::mem::transmute(ppcompresseddata)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DCreateBlob(size: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DCreateBlob(size: super::SIZE_T, ppblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCreateBlob(size : super::SIZE_T, ppblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DCreateBlob(size, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DCreateBlob(size, core::mem::transmute(ppblob)) }
 }
 #[cfg(all(feature = "d3d11", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: super::UINT) -> windows_core::Result<super::ID3D11FunctionLinkingGraph> {
+pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: super::UINT, ppfunctionlinkinggraph: *mut Option<super::ID3D11FunctionLinkingGraph>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCreateFunctionLinkingGraph(uflags : super::UINT, ppfunctionlinkinggraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DCreateFunctionLinkingGraph(uflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DCreateFunctionLinkingGraph(uflags, core::mem::transmute(ppfunctionlinkinggraph)) }
 }
 #[cfg(feature = "d3d11")]
 #[inline]
-pub unsafe fn D3DCreateLinker() -> windows_core::Result<super::ID3D11Linker> {
+pub unsafe fn D3DCreateLinker(pplinker: *mut Option<super::ID3D11Linker>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCreateLinker(pplinker : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DCreateLinker(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DCreateLinker(core::mem::transmute(pplinker)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
@@ -78,27 +66,21 @@ pub unsafe fn D3DDecompressShaders(psrcdata: super::LPCVOID, srcdatasize: super:
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DDisassemble<P3>(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, flags: super::UINT, szcomments: P3) -> windows_core::Result<super::ID3D10Blob>
+pub unsafe fn D3DDisassemble<P3>(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, flags: super::UINT, szcomments: P3, ppdisassembly: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, flags : super::UINT, szcomments : windows_core::PCSTR, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DDisassemble(psrcdata, srcdatasize, flags, szcomments.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DDisassemble(psrcdata, srcdatasize, flags, szcomments.param().abi(), core::mem::transmute(ppdisassembly)) }
 }
 #[cfg(all(feature = "d3d10", feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: super::UINT) -> windows_core::Result<super::ID3D10Blob>
+pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: super::UINT, ppdisassembly: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::ID3D10Effect>,
 {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble10Effect(peffect : *mut core::ffi::c_void, flags : super::UINT, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DDisassemble10Effect(peffect.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DDisassemble10Effect(peffect.param().abi(), flags, core::mem::transmute(ppdisassembly)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
@@ -111,48 +93,33 @@ where
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DGetBlobPart(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, part: D3D_BLOB_PART, flags: super::UINT) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DGetBlobPart(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, part: D3D_BLOB_PART, flags: super::UINT, pppart: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetBlobPart(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, part : D3D_BLOB_PART, flags : super::UINT, pppart : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DGetBlobPart(psrcdata, srcdatasize, part, flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DGetBlobPart(psrcdata, srcdatasize, part, flags, core::mem::transmute(pppart)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DGetDebugInfo(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DGetDebugInfo(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ppdebuginfo: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetDebugInfo(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ppdebuginfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DGetDebugInfo(psrcdata, srcdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DGetDebugInfo(psrcdata, srcdatasize, core::mem::transmute(ppdebuginfo)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ppsignatureblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetInputAndOutputSignatureBlob(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ppsignatureblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DGetInputAndOutputSignatureBlob(psrcdata, srcdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DGetInputAndOutputSignatureBlob(psrcdata, srcdatasize, core::mem::transmute(ppsignatureblob)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DGetInputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DGetInputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ppsignatureblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetInputSignatureBlob(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ppsignatureblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DGetInputSignatureBlob(psrcdata, srcdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DGetInputSignatureBlob(psrcdata, srcdatasize, core::mem::transmute(ppsignatureblob)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ppsignatureblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetOutputSignatureBlob(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ppsignatureblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DGetOutputSignatureBlob(psrcdata, srcdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DGetOutputSignatureBlob(psrcdata, srcdatasize, core::mem::transmute(ppsignatureblob)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -162,12 +129,9 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: super::LPCVOID, srcdatasiz
 }
 #[cfg(all(feature = "d3d11", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DLoadModule(psrcdata: super::LPCVOID, cbsrcdatasize: super::SIZE_T) -> windows_core::Result<super::ID3D11Module> {
+pub unsafe fn D3DLoadModule(psrcdata: super::LPCVOID, cbsrcdatasize: super::SIZE_T, ppmodule: *mut Option<super::ID3D11Module>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DLoadModule(psrcdata : super::LPCVOID, cbsrcdatasize : super::SIZE_T, ppmodule : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DLoadModule(psrcdata, cbsrcdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DLoadModule(psrcdata, cbsrcdatasize, core::mem::transmute(ppmodule)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
@@ -181,15 +145,12 @@ where
 }
 #[cfg(feature = "d3dcommon")]
 #[inline]
-pub unsafe fn D3DReadFileToBlob<P0>(pfilename: P0) -> windows_core::Result<super::ID3D10Blob>
+pub unsafe fn D3DReadFileToBlob<P0>(pfilename: P0, ppcontents: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DReadFileToBlob(pfilename : windows_core::PCWSTR, ppcontents : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DReadFileToBlob(pfilename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DReadFileToBlob(pfilename.param().abi(), core::mem::transmute(ppcontents)) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -205,21 +166,15 @@ pub unsafe fn D3DReflectLibrary(psrcdata: super::LPCVOID, srcdatasize: super::SI
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DSetBlobPart(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, part: D3D_BLOB_PART, flags: super::UINT, ppart: super::LPCVOID, partsize: super::SIZE_T) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DSetBlobPart(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, part: D3D_BLOB_PART, flags: super::UINT, ppart: super::LPCVOID, partsize: super::SIZE_T, ppnewshader: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DSetBlobPart(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, part : D3D_BLOB_PART, flags : super::UINT, ppart : super::LPCVOID, partsize : super::SIZE_T, ppnewshader : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DSetBlobPart(psrcdata, srcdatasize, part, flags, ppart, partsize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DSetBlobPart(psrcdata, srcdatasize, part, flags, ppart, partsize, core::mem::transmute(ppnewshader)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DStripShader(pshaderbytecode: super::LPCVOID, bytecodelength: super::SIZE_T, ustripflags: super::UINT) -> windows_core::Result<super::ID3D10Blob> {
+pub unsafe fn D3DStripShader(pshaderbytecode: super::LPCVOID, bytecodelength: super::SIZE_T, ustripflags: super::UINT, ppstrippedblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DStripShader(pshaderbytecode : super::LPCVOID, bytecodelength : super::SIZE_T, ustripflags : super::UINT, ppstrippedblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        D3DStripShader(pshaderbytecode, bytecodelength, ustripflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { D3DStripShader(pshaderbytecode, bytecodelength, ustripflags, core::mem::transmute(ppstrippedblob)) }
 }
 #[cfg(feature = "d3dcommon")]
 #[inline]

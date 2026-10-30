@@ -1,28 +1,19 @@
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING) -> windows_core::Result<super::INT32> {
+pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING, result: *mut super::INT32) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCompareStringOrdinal(string1 : *mut core::ffi::c_void, string2 : *mut core::ffi::c_void, result : *mut super::INT32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsCompareStringOrdinal(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), &mut result__).map(|| result__)
-    }
+    unsafe { WindowsCompareStringOrdinal(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), result as _) }
 }
 #[inline]
-pub unsafe fn WindowsConcatString(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsConcatString(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsConcatString(string1 : *mut core::ffi::c_void, string2 : *mut core::ffi::c_void, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsConcatString(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsConcatString(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), core::mem::transmute(newstring)) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>, string: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : super::PCNZWCH, length : super::UINT32, string : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsCreateString(core::mem::transmute(sourcestring.map_or(core::ptr::null(), |slice| slice.as_ptr())), sourcestring.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsCreateString(core::mem::transmute(sourcestring.map_or(core::ptr::null(), |slice| slice.as_ptr())), sourcestring.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(string)) }
 }
 #[cfg(all(feature = "hstring", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -42,12 +33,9 @@ pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: Option<super::HSTRING_BUFF
     unsafe { WindowsDeleteStringBuffer(bufferhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WindowsDuplicateString(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsDuplicateString(string: &windows_core::HSTRING, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDuplicateString(string : *mut core::ffi::c_void, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsDuplicateString(core::mem::transmute_copy(string), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsDuplicateString(core::mem::transmute_copy(string), core::mem::transmute(newstring)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -86,62 +74,41 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: super::UINT32, charbuffer: 
 }
 #[cfg(feature = "hstring")]
 #[inline]
-pub unsafe fn WindowsPromoteStringBuffer(bufferhandle: super::HSTRING_BUFFER) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsPromoteStringBuffer(bufferhandle: super::HSTRING_BUFFER, string: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPromoteStringBuffer(bufferhandle : super::HSTRING_BUFFER, string : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsPromoteStringBuffer(bufferhandle, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsPromoteStringBuffer(bufferhandle, core::mem::transmute(string)) }
 }
 #[inline]
-pub unsafe fn WindowsReplaceString(string: &windows_core::HSTRING, stringreplaced: &windows_core::HSTRING, stringreplacewith: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsReplaceString(string: &windows_core::HSTRING, stringreplaced: &windows_core::HSTRING, stringreplacewith: &windows_core::HSTRING, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsReplaceString(string : *mut core::ffi::c_void, stringreplaced : *mut core::ffi::c_void, stringreplacewith : *mut core::ffi::c_void, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsReplaceString(core::mem::transmute_copy(string), core::mem::transmute_copy(stringreplaced), core::mem::transmute_copy(stringreplacewith), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsReplaceString(core::mem::transmute_copy(string), core::mem::transmute_copy(stringreplaced), core::mem::transmute_copy(stringreplacewith), core::mem::transmute(newstring)) }
 }
 #[inline]
-pub unsafe fn WindowsStringHasEmbeddedNull(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn WindowsStringHasEmbeddedNull(string: &windows_core::HSTRING, hasembednull: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : *mut core::ffi::c_void, hasembednull : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), &mut result__).map(|| result__)
-    }
+    unsafe { WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), hasembednull as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WindowsSubstring(string: &windows_core::HSTRING, startindex: super::UINT32) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsSubstring(string: &windows_core::HSTRING, startindex: super::UINT32, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsSubstring(string : *mut core::ffi::c_void, startindex : super::UINT32, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsSubstring(core::mem::transmute_copy(string), startindex, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsSubstring(core::mem::transmute_copy(string), startindex, core::mem::transmute(newstring)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &windows_core::HSTRING, startindex: super::UINT32, length: super::UINT32) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &windows_core::HSTRING, startindex: super::UINT32, length: super::UINT32, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsSubstringWithSpecifiedLength(string : *mut core::ffi::c_void, startindex : super::UINT32, length : super::UINT32, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsSubstringWithSpecifiedLength(core::mem::transmute_copy(string), startindex, length, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsSubstringWithSpecifiedLength(core::mem::transmute_copy(string), startindex, length, core::mem::transmute(newstring)) }
 }
 #[inline]
-pub unsafe fn WindowsTrimStringEnd(string: &windows_core::HSTRING, trimstring: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsTrimStringEnd(string: &windows_core::HSTRING, trimstring: &windows_core::HSTRING, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsTrimStringEnd(string : *mut core::ffi::c_void, trimstring : *mut core::ffi::c_void, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsTrimStringEnd(core::mem::transmute_copy(string), core::mem::transmute_copy(trimstring), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsTrimStringEnd(core::mem::transmute_copy(string), core::mem::transmute_copy(trimstring), core::mem::transmute(newstring)) }
 }
 #[inline]
-pub unsafe fn WindowsTrimStringStart(string: &windows_core::HSTRING, trimstring: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+pub unsafe fn WindowsTrimStringStart(string: &windows_core::HSTRING, trimstring: &windows_core::HSTRING, newstring: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsTrimStringStart(string : *mut core::ffi::c_void, trimstring : *mut core::ffi::c_void, newstring : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WindowsTrimStringStart(core::mem::transmute_copy(string), core::mem::transmute_copy(trimstring), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WindowsTrimStringStart(core::mem::transmute_copy(string), core::mem::transmute_copy(trimstring), core::mem::transmute(newstring)) }
 }
 #[cfg(feature = "shared")]
 pub type PINSPECT_HSTRING_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: super::UINT_PTR, length: super::UINT32, buffer: *mut super::BYTE) -> windows_core::HRESULT>;

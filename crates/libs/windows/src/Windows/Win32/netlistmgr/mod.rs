@@ -812,11 +812,8 @@ windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionC
 windows_core::imp::interface_hierarchy!(INetworkConnectionCost, windows_core::IUnknown);
 impl INetworkConnectionCost {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCost(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCost(&self, pcost: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), pcost as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT {
@@ -838,7 +835,7 @@ pub struct INetworkConnectionCost_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait INetworkConnectionCost_Impl: windows_core::IUnknownImpl {
-    fn GetCost(&self) -> windows_core::Result<super::DWORD>;
+    fn GetCost(&self, pcost: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -847,13 +844,7 @@ impl INetworkConnectionCost_Vtbl {
         unsafe extern "system" fn GetCost<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INetworkConnectionCost_Impl::GetCost(this) {
-                    Ok(ok__) => {
-                        pcost.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                INetworkConnectionCost_Impl::GetCost(this, core::mem::transmute_copy(&pcost)).into()
             }
         }
         unsafe extern "system" fn GetDataPlanStatus<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT {

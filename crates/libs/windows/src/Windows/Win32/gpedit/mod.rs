@@ -552,11 +552,8 @@ impl IRSOPInformation {
         unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pdwflags as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn GetEventLogEntryText(&self, pszeventsource: super::LPOLESTR, pszeventlogname: super::LPOLESTR, pszeventtime: super::LPOLESTR, dweventid: super::DWORD) -> windows_core::Result<super::LPOLESTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventLogEntryText)(windows_core::Interface::as_raw(self), pszeventsource, pszeventlogname, pszeventtime, dweventid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEventLogEntryText(&self, pszeventsource: super::LPOLESTR, pszeventlogname: super::LPOLESTR, pszeventtime: super::LPOLESTR, dweventid: super::DWORD, ppsztext: *mut super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEventLogEntryText)(windows_core::Interface::as_raw(self), pszeventsource, pszeventlogname, pszeventtime, dweventid, ppsztext as _) }
     }
 }
 #[repr(C)]
@@ -580,7 +577,7 @@ pub struct IRSOPInformation_Vtbl {
 pub trait IRSOPInformation_Impl: windows_core::IUnknownImpl {
     fn GetNamespace(&self, dwsection: super::DWORD, pszname: super::LPOLESTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetFlags(&self, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetEventLogEntryText(&self, pszeventsource: super::LPOLESTR, pszeventlogname: super::LPOLESTR, pszeventtime: super::LPOLESTR, dweventid: super::DWORD) -> windows_core::Result<super::LPOLESTR>;
+    fn GetEventLogEntryText(&self, pszeventsource: super::LPOLESTR, pszeventlogname: super::LPOLESTR, pszeventtime: super::LPOLESTR, dweventid: super::DWORD, ppsztext: *mut super::LPOLESTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IRSOPInformation_Vtbl {
@@ -600,13 +597,7 @@ impl IRSOPInformation_Vtbl {
         unsafe extern "system" fn GetEventLogEntryText<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszeventsource: super::LPOLESTR, pszeventlogname: super::LPOLESTR, pszeventtime: super::LPOLESTR, dweventid: super::DWORD, ppsztext: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRSOPInformation_Impl::GetEventLogEntryText(this, core::mem::transmute_copy(&pszeventsource), core::mem::transmute_copy(&pszeventlogname), core::mem::transmute_copy(&pszeventtime), core::mem::transmute_copy(&dweventid)) {
-                    Ok(ok__) => {
-                        ppsztext.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRSOPInformation_Impl::GetEventLogEntryText(this, core::mem::transmute_copy(&pszeventsource), core::mem::transmute_copy(&pszeventlogname), core::mem::transmute_copy(&pszeventtime), core::mem::transmute_copy(&dweventid), core::mem::transmute_copy(&ppsztext)).into()
             }
         }
         Self {

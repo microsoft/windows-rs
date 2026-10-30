@@ -200,11 +200,8 @@ impl core::ops::Deref for ICondition2 {
 windows_core::imp::interface_hierarchy!(ICondition2, windows_core::IUnknown, super::IPersist, super::IPersistStream, ICondition);
 #[cfg(feature = "objidl")]
 impl ICondition2 {
-    pub unsafe fn GetLocale(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLocale(&self, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), ppszlocalename as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetLeafConditionInfo(&self, ppropkey: Option<*mut super::PROPERTYKEY>, pcop: Option<*mut CONDITION_OPERATION>, ppropvar: Option<*mut super::PROPVARIANT>) -> windows_core::HRESULT {
@@ -224,7 +221,7 @@ pub struct ICondition2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICondition2_Impl: ICondition_Impl {
-    fn GetLocale(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetLocale(&self, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetLeafConditionInfo(&self, ppropkey: *mut super::PROPERTYKEY, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -233,13 +230,7 @@ impl ICondition2_Vtbl {
         unsafe extern "system" fn GetLocale<Identity: ICondition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICondition2_Impl::GetLocale(this) {
-                    Ok(ok__) => {
-                        ppszlocalename.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICondition2_Impl::GetLocale(this, core::mem::transmute_copy(&ppszlocalename)).into()
             }
         }
         unsafe extern "system" fn GetLeafConditionInfo<Identity: ICondition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropkey: *mut super::PROPERTYKEY, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {

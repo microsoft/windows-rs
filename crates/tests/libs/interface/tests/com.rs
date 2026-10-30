@@ -124,7 +124,9 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 fn test_custom_interface() -> Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
-        let a: IUri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let mut a = None;
+        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut a).ok()?;
+        let a: IUri = a.unwrap();
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;
@@ -142,11 +144,12 @@ fn test_custom_interface() -> Result<()> {
         let p: ICustomPersistMemory = Persist::new().into();
         // This works because `ICustomPersistMemory` and `IPersistMemory` share the same guid
         let p: IPersistMemory = p.cast()?;
-        assert_eq!(
-            p.GetClassID()?,
-            "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into()?,
-        );
-        assert_eq!(p.GetSizeMax()?, 10);
+        let mut class_id = GUID::default();
+        p.GetClassID(&mut class_id).ok()?;
+        assert_eq!(class_id, "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into()?);
+        let mut size = 0;
+        p.GetSizeMax(&mut size).ok()?;
+        assert_eq!(size, 10);
         assert_eq!(p.IsDirty(), S_FALSE);
         p.Load([0xAAu8, 0xBB, 0xCC].as_ptr() as _, 3).ok()?;
         assert_eq!(p.IsDirty(), S_OK);

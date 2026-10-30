@@ -4,7 +4,8 @@ use windows::{Win32::*, core::*};
 #[test]
 fn const_path() -> Result<()> {
     unsafe {
-        let extension: PCWSTR = PathCchFindExtension(w!("A:\\file.txt"), 12)?;
+        let mut extension = PCWSTR::null();
+        PathCchFindExtension(w!("A:\\file.txt"), 12, &mut extension).ok()?;
         assert_eq!(extension.to_string()?, ".txt");
         Ok(())
     }
@@ -22,8 +23,11 @@ fn const_hstring() -> Result<()> {
 #[test]
 fn const_uri() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
-        let builder = CreateIUriBuilder(&uri, 0, 0)?;
+        let mut uri = None;
+        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
+        let mut builder = None;
+        CreateIUriBuilder(uri.as_ref(), 0, 0, &mut builder).ok()?;
+        let builder = builder.unwrap();
 
         let mut host_len = 0u32;
         let mut host = PCWSTR::null();
@@ -49,8 +53,10 @@ fn const_ptr_path() {
 #[test]
 fn const_ptr_variant() -> Result<()> {
     unsafe {
-        let variant = InitPropVariantFromStringVector(Some(&[w!("first"), w!("second")]))?;
-        let result = PropVariantToBSTR(&variant)?;
+        let mut variant = PROPVARIANT::default();
+        InitPropVariantFromStringVector(Some(&[w!("first"), w!("second")]), &mut variant).ok()?;
+        let mut result = BSTR::default();
+        PropVariantToBSTR(&variant, &mut result).ok()?;
         assert_eq!(result, "first; second");
         Ok(())
     }

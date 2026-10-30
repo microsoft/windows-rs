@@ -78,33 +78,24 @@ pub unsafe fn PSFormatForDisplay(propkey: *const super::PROPERTYKEY, propvar: *c
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSFormatForDisplayAlloc(key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn PSFormatForDisplayAlloc(key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSFormatForDisplayAlloc(key, propvar, pdff, &mut result__).map(|| result__)
-    }
+    unsafe { PSFormatForDisplayAlloc(key, propvar, pdff, ppszdisplay as _) }
 }
 #[inline]
-pub unsafe fn PSFormatPropertyValue<P0, P1>(pps: P0, ppd: P1, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PSFormatPropertyValue<P0, P1>(pps: P0, ppd: P1, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IPropertyStore>,
     P1: windows_core::Param<IPropertyDescription>,
 {
     windows_core::link!("propsys.dll" "system" fn PSFormatPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSFormatPropertyValue(pps.param().abi(), ppd.param().abi(), pdff, &mut result__).map(|| result__)
-    }
+    unsafe { PSFormatPropertyValue(pps.param().abi(), ppd.param().abi(), pdff, ppszdisplay as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, ppszimageres : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSGetImageReferenceForValue(propkey, propvar, &mut result__).map(|| result__)
-    }
+    unsafe { PSGetImageReferenceForValue(propkey, propvar, ppszimageres as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -127,12 +118,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]
-pub unsafe fn PSGetNameFromPropertyKey(propkey: *const super::PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn PSGetNameFromPropertyKey(propkey: *const super::PROPERTYKEY, ppszcanonicalname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSGetNameFromPropertyKey(propkey : *const super::PROPERTYKEY, ppszcanonicalname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSGetNameFromPropertyKey(propkey, &mut result__).map(|| result__)
-    }
+    unsafe { PSGetNameFromPropertyKey(propkey, ppszcanonicalname as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
 #[inline]
@@ -175,28 +163,22 @@ pub unsafe fn PSGetPropertySystem(riid: *const super::IID, ppv: *mut *mut core::
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSGetPropertyValue<P0, P1>(pps: P0, ppd: P1) -> windows_core::Result<super::PROPVARIANT>
+pub unsafe fn PSGetPropertyValue<P0, P1>(pps: P0, ppd: P1, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IPropertyStore>,
     P1: windows_core::Param<IPropertyDescription>,
 {
     windows_core::link!("propsys.dll" "system" fn PSGetPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSGetPropertyValue(pps.param().abi(), ppd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { PSGetPropertyValue(pps.param().abi(), ppd.param().abi(), ppropvar) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn PSLookupPropertyHandlerCLSID<P0>(pszfilepath: P0) -> windows_core::Result<super::CLSID>
+pub unsafe fn PSLookupPropertyHandlerCLSID<P0>(pszfilepath: P0, pclsid: *mut super::CLSID) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSLookupPropertyHandlerCLSID(pszfilepath : windows_core::PCWSTR, pclsid : *mut super::CLSID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSLookupPropertyHandlerCLSID(pszfilepath.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSLookupPropertyHandlerCLSID(pszfilepath.param().abi(), pclsid as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -210,107 +192,83 @@ where
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadBOOL<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<windows_core::BOOL>
+pub unsafe fn PSPropertyBag_ReadBOOL<P0, P1>(propbag: P0, propname: P1, value: *mut windows_core::BOOL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadBOOL(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadBOOL(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadBOOL(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadBSTR<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<windows_core::BSTR>
+pub unsafe fn PSPropertyBag_ReadBSTR<P0, P1>(propbag: P0, propname: P1, value: *mut windows_core::BSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadBSTR(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadBSTR(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { PSPropertyBag_ReadBSTR(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value)) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadDWORD<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::DWORD>
+pub unsafe fn PSPropertyBag_ReadDWORD<P0, P1>(propbag: P0, propname: P1, value: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadDWORD(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadDWORD(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadDWORD(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadGUID<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn PSPropertyBag_ReadGUID<P0, P1>(propbag: P0, propname: P1, value: *mut windows_core::GUID) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadGUID(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut windows_core::GUID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadGUID(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadGUID(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadInt<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::INT>
+pub unsafe fn PSPropertyBag_ReadInt<P0, P1>(propbag: P0, propname: P1, value: *mut super::INT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadInt(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::INT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadInt(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadInt(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadLONG<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::LONG>
+pub unsafe fn PSPropertyBag_ReadLONG<P0, P1>(propbag: P0, propname: P1, value: *mut super::LONG) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadLONG(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::LONG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadLONG(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadLONG(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadPOINTL<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::POINTL>
+pub unsafe fn PSPropertyBag_ReadPOINTL<P0, P1>(propbag: P0, propname: P1, value: *mut super::POINTL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadPOINTL(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::POINTL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadPOINTL(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadPOINTL(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadPOINTS<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::POINTS>
+pub unsafe fn PSPropertyBag_ReadPOINTS<P0, P1>(propbag: P0, propname: P1, value: *mut super::POINTS) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadPOINTS(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::POINTS) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadPOINTS(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadPOINTS(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypes"))]
 #[inline]
@@ -324,29 +282,23 @@ where
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadRECTL<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::RECTL>
+pub unsafe fn PSPropertyBag_ReadRECTL<P0, P1>(propbag: P0, propname: P1, value: *mut super::RECTL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadRECTL(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::RECTL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadRECTL(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadRECTL(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadSHORT<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::SHORT>
+pub unsafe fn PSPropertyBag_ReadSHORT<P0, P1>(propbag: P0, propname: P1, value: *mut super::SHORT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadSHORT(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::SHORT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadSHORT(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadSHORT(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -360,29 +312,23 @@ where
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadStrAlloc<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PSPropertyBag_ReadStrAlloc<P0, P1>(propbag: P0, propname: P1, value: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadStrAlloc(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadStrAlloc(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadStrAlloc(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "objidlbase"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadStream<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::IStream>
+pub unsafe fn PSPropertyBag_ReadStream<P0, P1>(propbag: P0, propname: P1, value: *mut Option<super::IStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadStream(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadStream(propbag.param().abi(), propname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { PSPropertyBag_ReadStream(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -396,16 +342,13 @@ where
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadULONGLONG<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::ULONGLONG>
+pub unsafe fn PSPropertyBag_ReadULONGLONG<P0, P1>(propbag: P0, propname: P1, value: *mut super::ULONGLONG) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadULONGLONG(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::ULONGLONG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PSPropertyBag_ReadULONGLONG(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { PSPropertyBag_ReadULONGLONG(propbag.param().abi(), propname.param().abi(), value as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl"))]
 #[inline]
@@ -628,15 +571,12 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn WinRTPropertyValueToPropVariant<P0>(punkpropertyvalue: P0) -> windows_core::Result<super::PROPVARIANT>
+pub unsafe fn WinRTPropertyValueToPropVariant<P0>(punkpropertyvalue: P0, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : *mut core::ffi::c_void, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), ppropvar) }
 }
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0;
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1;
@@ -835,14 +775,11 @@ windows_core::imp::define_interface!(INamedPropertyStore, INamedPropertyStore_Vt
 windows_core::imp::interface_hierarchy!(INamedPropertyStore, windows_core::IUnknown);
 impl INamedPropertyStore {
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetNamedValue<P0>(&self, pszname: P0) -> windows_core::Result<super::PROPVARIANT>
+    pub unsafe fn GetNamedValue<P0>(&self, pszname: P0, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), ppropvar) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetNamedValue<P0>(&self, pszname: P0, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT
@@ -852,18 +789,12 @@ impl INamedPropertyStore {
         unsafe { (windows_core::Interface::vtable(self).SetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), propvar) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNameCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNameCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNameCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNameCount)(windows_core::Interface::as_raw(self), pdwcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNameAt(&self, iprop: super::DWORD) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNameAt)(windows_core::Interface::as_raw(self), iprop, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetNameAt(&self, iprop: super::DWORD, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNameAt)(windows_core::Interface::as_raw(self), iprop, core::mem::transmute(pbstrname)) }
     }
 }
 #[repr(C)]
@@ -889,10 +820,10 @@ pub struct INamedPropertyStore_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INamedPropertyStore_Impl: windows_core::IUnknownImpl {
-    fn GetNamedValue(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetNamedValue(&self, pszname: &windows_core::PCWSTR, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn SetNamedValue(&self, pszname: &windows_core::PCWSTR, propvar: *const super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetNameCount(&self) -> windows_core::Result<super::DWORD>;
-    fn GetNameAt(&self, iprop: super::DWORD) -> windows_core::Result<windows_core::BSTR>;
+    fn GetNameCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetNameAt(&self, iprop: super::DWORD, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INamedPropertyStore_Vtbl {
@@ -900,13 +831,7 @@ impl INamedPropertyStore_Vtbl {
         unsafe extern "system" fn GetNamedValue<Identity: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INamedPropertyStore_Impl::GetNamedValue(this, core::mem::transmute(&pszname)) {
-                    Ok(ok__) => {
-                        ppropvar.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                INamedPropertyStore_Impl::GetNamedValue(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&ppropvar)).into()
             }
         }
         unsafe extern "system" fn SetNamedValue<Identity: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
@@ -918,25 +843,13 @@ impl INamedPropertyStore_Vtbl {
         unsafe extern "system" fn GetNameCount<Identity: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INamedPropertyStore_Impl::GetNameCount(this) {
-                    Ok(ok__) => {
-                        pdwcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                INamedPropertyStore_Impl::GetNameCount(this, core::mem::transmute_copy(&pdwcount)).into()
             }
         }
         unsafe extern "system" fn GetNameAt<Identity: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: super::DWORD, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INamedPropertyStore_Impl::GetNameAt(this, core::mem::transmute_copy(&iprop)) {
-                    Ok(ok__) => {
-                        pbstrname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                INamedPropertyStore_Impl::GetNameAt(this, core::mem::transmute_copy(&iprop), core::mem::transmute_copy(&pbstrname)).into()
             }
         }
         Self {
@@ -1020,11 +933,8 @@ impl core::ops::Deref for IPropertyChange {
 windows_core::imp::interface_hierarchy!(IPropertyChange, windows_core::IUnknown, IObjectWithPropertyKey);
 impl IPropertyChange {
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplyToPropVariant)(windows_core::Interface::as_raw(self), propvarin, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT, ppropvarout: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ApplyToPropVariant)(windows_core::Interface::as_raw(self), propvarin, ppropvarout) }
     }
 }
 #[repr(C)]
@@ -1038,7 +948,7 @@ pub struct IPropertyChange_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyChange_Impl: IObjectWithPropertyKey_Impl {
-    fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT) -> windows_core::Result<super::PROPVARIANT>;
+    fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT, ppropvarout: *mut super::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyChange_Vtbl {
@@ -1046,13 +956,7 @@ impl IPropertyChange_Vtbl {
         unsafe extern "system" fn ApplyToPropVariant<Identity: IPropertyChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvarin: *const super::PROPVARIANT, ppropvarout: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyChange_Impl::ApplyToPropVariant(this, core::mem::transmute_copy(&propvarin)) {
-                    Ok(ok__) => {
-                        ppropvarout.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyChange_Impl::ApplyToPropVariant(this, core::mem::transmute_copy(&propvarin), core::mem::transmute_copy(&ppropvarout)).into()
             }
         }
         Self { base__: IObjectWithPropertyKey_Vtbl::new::<Identity, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, OFFSET> }
@@ -1067,11 +971,8 @@ windows_core::imp::define_interface!(IPropertyChangeArray, IPropertyChangeArray_
 windows_core::imp::interface_hierarchy!(IPropertyChangeArray, windows_core::IUnknown);
 impl IPropertyChangeArray {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pcoperations: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcoperations as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetAt<T>(&self, iindex: super::UINT) -> windows_core::Result<T>
@@ -1138,7 +1039,7 @@ pub struct IPropertyChangeArray_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
 pub trait IPropertyChangeArray_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetCount(&self, pcoperations: *mut super::UINT) -> windows_core::Result<()>;
     fn GetAt(&self, iindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn InsertAt(&self, iindex: super::UINT, ppropchange: windows_core::Ref<IPropertyChange>) -> windows_core::Result<()>;
     fn Append(&self, ppropchange: windows_core::Ref<IPropertyChange>) -> windows_core::Result<()>;
@@ -1152,13 +1053,7 @@ impl IPropertyChangeArray_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoperations: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyChangeArray_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pcoperations.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyChangeArray_Impl::GetCount(this, core::mem::transmute_copy(&pcoperations)).into()
             }
         }
         unsafe extern "system" fn GetAt<Identity: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1225,11 +1120,8 @@ impl IPropertyDescription {
         unsafe { (windows_core::Interface::vtable(self).GetCanonicalName)(windows_core::Interface::as_raw(self), ppszname as _) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn GetPropertyType(&self) -> windows_core::Result<super::VARTYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropertyType(&self, pvartype: *mut super::VARTYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyType)(windows_core::Interface::as_raw(self), pvartype as _) }
     }
     pub unsafe fn GetDisplayName(&self, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), ppszname as _) }
@@ -1237,68 +1129,41 @@ impl IPropertyDescription {
     pub unsafe fn GetEditInvitation(&self, ppszinvite: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEditInvitation)(windows_core::Interface::as_raw(self), ppszinvite as _) }
     }
-    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> windows_core::Result<PROPDESC_TYPE_FLAGS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTypeFlags)(windows_core::Interface::as_raw(self), mask, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS, ppdtflags: *mut PROPDESC_TYPE_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTypeFlags)(windows_core::Interface::as_raw(self), mask, ppdtflags as _) }
     }
-    pub unsafe fn GetViewFlags(&self) -> windows_core::Result<PROPDESC_VIEW_FLAGS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetViewFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetViewFlags(&self, ppdvflags: *mut PROPDESC_VIEW_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetViewFlags)(windows_core::Interface::as_raw(self), ppdvflags as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDefaultColumnWidth(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultColumnWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDefaultColumnWidth(&self, pcxchars: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultColumnWidth)(windows_core::Interface::as_raw(self), pcxchars as _) }
     }
-    pub unsafe fn GetDisplayType(&self) -> windows_core::Result<PROPDESC_DISPLAYTYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDisplayType(&self, pdisplaytype: *mut PROPDESC_DISPLAYTYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayType)(windows_core::Interface::as_raw(self), pdisplaytype as _) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn GetColumnState(&self) -> windows_core::Result<super::SHCOLSTATEF> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnState(&self, pcsflags: *mut super::SHCOLSTATEF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnState)(windows_core::Interface::as_raw(self), pcsflags as _) }
     }
-    pub unsafe fn GetGroupingRange(&self) -> windows_core::Result<PROPDESC_GROUPING_RANGE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGroupingRange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetGroupingRange(&self, pgr: *mut PROPDESC_GROUPING_RANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGroupingRange)(windows_core::Interface::as_raw(self), pgr as _) }
     }
-    pub unsafe fn GetRelativeDescriptionType(&self) -> windows_core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRelativeDescriptionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRelativeDescriptionType(&self, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRelativeDescriptionType)(windows_core::Interface::as_raw(self), prdt as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: *const super::PROPVARIANT, propvar2: *const super::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRelativeDescription)(windows_core::Interface::as_raw(self), propvar1, propvar2, ppszdesc1 as _, ppszdesc2 as _) }
     }
-    pub unsafe fn GetSortDescription(&self) -> windows_core::Result<PROPDESC_SORTDESCRIPTION> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSortDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSortDescription(&self, psd: *mut PROPDESC_SORTDESCRIPTION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSortDescription)(windows_core::Interface::as_raw(self), psd as _) }
     }
     pub unsafe fn GetSortDescriptionLabel(&self, fdescending: bool, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSortDescriptionLabel)(windows_core::Interface::as_raw(self), fdescending.into(), ppszdescription as _) }
     }
-    pub unsafe fn GetAggregationType(&self) -> windows_core::Result<PROPDESC_AGGREGATION_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAggregationType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAggregationType(&self, paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAggregationType)(windows_core::Interface::as_raw(self), paggtype as _) }
     }
     #[cfg(feature = "structuredquerycondition")]
     pub unsafe fn GetConditionType(&self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::CONDITION_OPERATION) -> windows_core::HRESULT {
@@ -1385,20 +1250,20 @@ pub struct IPropertyDescription_Vtbl {
 pub trait IPropertyDescription_Impl: windows_core::IUnknownImpl {
     fn GetPropertyKey(&self, pkey: *mut super::PROPERTYKEY) -> windows_core::Result<()>;
     fn GetCanonicalName(&self, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetPropertyType(&self) -> windows_core::Result<super::VARTYPE>;
+    fn GetPropertyType(&self, pvartype: *mut super::VARTYPE) -> windows_core::Result<()>;
     fn GetDisplayName(&self, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetEditInvitation(&self, ppszinvite: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> windows_core::Result<PROPDESC_TYPE_FLAGS>;
-    fn GetViewFlags(&self) -> windows_core::Result<PROPDESC_VIEW_FLAGS>;
-    fn GetDefaultColumnWidth(&self) -> windows_core::Result<super::UINT>;
-    fn GetDisplayType(&self) -> windows_core::Result<PROPDESC_DISPLAYTYPE>;
-    fn GetColumnState(&self) -> windows_core::Result<super::SHCOLSTATEF>;
-    fn GetGroupingRange(&self) -> windows_core::Result<PROPDESC_GROUPING_RANGE>;
-    fn GetRelativeDescriptionType(&self) -> windows_core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE>;
+    fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS, ppdtflags: *mut PROPDESC_TYPE_FLAGS) -> windows_core::Result<()>;
+    fn GetViewFlags(&self, ppdvflags: *mut PROPDESC_VIEW_FLAGS) -> windows_core::Result<()>;
+    fn GetDefaultColumnWidth(&self, pcxchars: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetDisplayType(&self, pdisplaytype: *mut PROPDESC_DISPLAYTYPE) -> windows_core::Result<()>;
+    fn GetColumnState(&self, pcsflags: *mut super::SHCOLSTATEF) -> windows_core::Result<()>;
+    fn GetGroupingRange(&self, pgr: *mut PROPDESC_GROUPING_RANGE) -> windows_core::Result<()>;
+    fn GetRelativeDescriptionType(&self, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> windows_core::Result<()>;
     fn GetRelativeDescription(&self, propvar1: *const super::PROPVARIANT, propvar2: *const super::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetSortDescription(&self) -> windows_core::Result<PROPDESC_SORTDESCRIPTION>;
+    fn GetSortDescription(&self, psd: *mut PROPDESC_SORTDESCRIPTION) -> windows_core::Result<()>;
     fn GetSortDescriptionLabel(&self, fdescending: windows_core::BOOL, ppszdescription: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetAggregationType(&self) -> windows_core::Result<PROPDESC_AGGREGATION_TYPE>;
+    fn GetAggregationType(&self, paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> windows_core::Result<()>;
     fn GetConditionType(&self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::CONDITION_OPERATION) -> windows_core::Result<()>;
     fn GetEnumTypeList(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CoerceToCanonicalValue(&self, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
@@ -1423,13 +1288,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetPropertyType<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvartype: *mut super::VARTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetPropertyType(this) {
-                    Ok(ok__) => {
-                        pvartype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetPropertyType(this, core::mem::transmute_copy(&pvartype)).into()
             }
         }
         unsafe extern "system" fn GetDisplayName<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1447,85 +1306,43 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetTypeFlags<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: PROPDESC_TYPE_FLAGS, ppdtflags: *mut PROPDESC_TYPE_FLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetTypeFlags(this, core::mem::transmute_copy(&mask)) {
-                    Ok(ok__) => {
-                        ppdtflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetTypeFlags(this, core::mem::transmute_copy(&mask), core::mem::transmute_copy(&ppdtflags)).into()
             }
         }
         unsafe extern "system" fn GetViewFlags<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdvflags: *mut PROPDESC_VIEW_FLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetViewFlags(this) {
-                    Ok(ok__) => {
-                        ppdvflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetViewFlags(this, core::mem::transmute_copy(&ppdvflags)).into()
             }
         }
         unsafe extern "system" fn GetDefaultColumnWidth<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcxchars: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetDefaultColumnWidth(this) {
-                    Ok(ok__) => {
-                        pcxchars.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetDefaultColumnWidth(this, core::mem::transmute_copy(&pcxchars)).into()
             }
         }
         unsafe extern "system" fn GetDisplayType<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisplaytype: *mut PROPDESC_DISPLAYTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetDisplayType(this) {
-                    Ok(ok__) => {
-                        pdisplaytype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetDisplayType(this, core::mem::transmute_copy(&pdisplaytype)).into()
             }
         }
         unsafe extern "system" fn GetColumnState<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsflags: *mut super::SHCOLSTATEF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetColumnState(this) {
-                    Ok(ok__) => {
-                        pcsflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetColumnState(this, core::mem::transmute_copy(&pcsflags)).into()
             }
         }
         unsafe extern "system" fn GetGroupingRange<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgr: *mut PROPDESC_GROUPING_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetGroupingRange(this) {
-                    Ok(ok__) => {
-                        pgr.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetGroupingRange(this, core::mem::transmute_copy(&pgr)).into()
             }
         }
         unsafe extern "system" fn GetRelativeDescriptionType<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetRelativeDescriptionType(this) {
-                    Ok(ok__) => {
-                        prdt.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetRelativeDescriptionType(this, core::mem::transmute_copy(&prdt)).into()
             }
         }
         unsafe extern "system" fn GetRelativeDescription<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar1: *const super::PROPVARIANT, propvar2: *const super::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1537,13 +1354,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetSortDescription<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psd: *mut PROPDESC_SORTDESCRIPTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetSortDescription(this) {
-                    Ok(ok__) => {
-                        psd.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetSortDescription(this, core::mem::transmute_copy(&psd)).into()
             }
         }
         unsafe extern "system" fn GetSortDescriptionLabel<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdescending: windows_core::BOOL, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1555,13 +1366,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetAggregationType<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescription_Impl::GetAggregationType(this) {
-                    Ok(ok__) => {
-                        paggtype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescription_Impl::GetAggregationType(this, core::mem::transmute_copy(&paggtype)).into()
             }
         }
         unsafe extern "system" fn GetConditionType<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::CONDITION_OPERATION) -> windows_core::HRESULT {
@@ -1744,11 +1549,8 @@ windows_core::imp::define_interface!(IPropertyDescriptionList, IPropertyDescript
 windows_core::imp::interface_hierarchy!(IPropertyDescriptionList, windows_core::IUnknown);
 impl IPropertyDescriptionList {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pcelem: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelem as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetAt<T>(&self, ielem: super::UINT) -> windows_core::Result<T>
@@ -1774,7 +1576,7 @@ pub struct IPropertyDescriptionList_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IPropertyDescriptionList_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetCount(&self, pcelem: *mut super::UINT) -> windows_core::Result<()>;
     fn GetAt(&self, ielem: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -1783,13 +1585,7 @@ impl IPropertyDescriptionList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IPropertyDescriptionList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelem: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescriptionList_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pcelem.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescriptionList_Impl::GetCount(this, core::mem::transmute_copy(&pcelem)).into()
             }
         }
         unsafe extern "system" fn GetAt<Identity: IPropertyDescriptionList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ielem: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1864,30 +1660,18 @@ impl core::ops::Deref for IPropertyDescriptionSearchInfo {
 }
 windows_core::imp::interface_hierarchy!(IPropertyDescriptionSearchInfo, windows_core::IUnknown, IPropertyDescription);
 impl IPropertyDescriptionSearchInfo {
-    pub unsafe fn GetSearchInfoFlags(&self) -> windows_core::Result<PROPDESC_SEARCHINFO_FLAGS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSearchInfoFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSearchInfoFlags(&self, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSearchInfoFlags)(windows_core::Interface::as_raw(self), ppdsiflags as _) }
     }
-    pub unsafe fn GetColumnIndexType(&self) -> windows_core::Result<PROPDESC_COLUMNINDEX_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnIndexType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnIndexType(&self, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnIndexType)(windows_core::Interface::as_raw(self), ppdcitype as _) }
     }
-    pub unsafe fn GetProjectionString(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProjectionString)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetProjectionString(&self, ppszprojection: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProjectionString)(windows_core::Interface::as_raw(self), ppszprojection as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMaxSize(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaxSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaxSize(&self, pcbmaxsize: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxSize)(windows_core::Interface::as_raw(self), pcbmaxsize as _) }
     }
 }
 #[repr(C)]
@@ -1904,10 +1688,10 @@ pub struct IPropertyDescriptionSearchInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescriptionSearchInfo_Impl: IPropertyDescription_Impl {
-    fn GetSearchInfoFlags(&self) -> windows_core::Result<PROPDESC_SEARCHINFO_FLAGS>;
-    fn GetColumnIndexType(&self) -> windows_core::Result<PROPDESC_COLUMNINDEX_TYPE>;
-    fn GetProjectionString(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetMaxSize(&self) -> windows_core::Result<super::UINT>;
+    fn GetSearchInfoFlags(&self, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> windows_core::Result<()>;
+    fn GetColumnIndexType(&self, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> windows_core::Result<()>;
+    fn GetProjectionString(&self, ppszprojection: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetMaxSize(&self, pcbmaxsize: *mut super::UINT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescriptionSearchInfo_Vtbl {
@@ -1915,49 +1699,25 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetSearchInfoFlags<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescriptionSearchInfo_Impl::GetSearchInfoFlags(this) {
-                    Ok(ok__) => {
-                        ppdsiflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescriptionSearchInfo_Impl::GetSearchInfoFlags(this, core::mem::transmute_copy(&ppdsiflags)).into()
             }
         }
         unsafe extern "system" fn GetColumnIndexType<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescriptionSearchInfo_Impl::GetColumnIndexType(this) {
-                    Ok(ok__) => {
-                        ppdcitype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescriptionSearchInfo_Impl::GetColumnIndexType(this, core::mem::transmute_copy(&ppdcitype)).into()
             }
         }
         unsafe extern "system" fn GetProjectionString<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszprojection: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescriptionSearchInfo_Impl::GetProjectionString(this) {
-                    Ok(ok__) => {
-                        ppszprojection.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescriptionSearchInfo_Impl::GetProjectionString(this, core::mem::transmute_copy(&ppszprojection)).into()
             }
         }
         unsafe extern "system" fn GetMaxSize<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbmaxsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyDescriptionSearchInfo_Impl::GetMaxSize(this) {
-                    Ok(ok__) => {
-                        pcbmaxsize.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyDescriptionSearchInfo_Impl::GetMaxSize(this, core::mem::transmute_copy(&pcbmaxsize)).into()
             }
         }
         Self {
@@ -1977,38 +1737,23 @@ impl windows_core::RuntimeName for IPropertyDescriptionSearchInfo {}
 windows_core::imp::define_interface!(IPropertyEnumType, IPropertyEnumType_Vtbl, 0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
 windows_core::imp::interface_hierarchy!(IPropertyEnumType, windows_core::IUnknown);
 impl IPropertyEnumType {
-    pub unsafe fn GetEnumType(&self) -> windows_core::Result<PROPENUMTYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnumType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEnumType(&self, penumtype: *mut PROPENUMTYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnumType)(windows_core::Interface::as_raw(self), penumtype as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetValue(&self, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ppropvar) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRangeMinValue(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeMinValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetRangeMinValue(&self, ppropvarmin: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRangeMinValue)(windows_core::Interface::as_raw(self), ppropvarmin) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRangeSetValue(&self) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeSetValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetRangeSetValue(&self, ppropvarset: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRangeSetValue)(windows_core::Interface::as_raw(self), ppropvarset) }
     }
-    pub unsafe fn GetDisplayText(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDisplayText)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDisplayText(&self, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayText)(windows_core::Interface::as_raw(self), ppszdisplay as _) }
     }
 }
 #[repr(C)]
@@ -2032,11 +1777,11 @@ pub struct IPropertyEnumType_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumType_Impl: windows_core::IUnknownImpl {
-    fn GetEnumType(&self) -> windows_core::Result<PROPENUMTYPE>;
-    fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT>;
-    fn GetRangeMinValue(&self) -> windows_core::Result<super::PROPVARIANT>;
-    fn GetRangeSetValue(&self) -> windows_core::Result<super::PROPVARIANT>;
-    fn GetDisplayText(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetEnumType(&self, penumtype: *mut PROPENUMTYPE) -> windows_core::Result<()>;
+    fn GetValue(&self, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetRangeMinValue(&self, ppropvarmin: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetRangeSetValue(&self, ppropvarset: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetDisplayText(&self, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumType_Vtbl {
@@ -2044,61 +1789,31 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetEnumType<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType_Impl::GetEnumType(this) {
-                    Ok(ok__) => {
-                        penumtype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType_Impl::GetEnumType(this, core::mem::transmute_copy(&penumtype)).into()
             }
         }
         unsafe extern "system" fn GetValue<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType_Impl::GetValue(this) {
-                    Ok(ok__) => {
-                        ppropvar.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType_Impl::GetValue(this, core::mem::transmute_copy(&ppropvar)).into()
             }
         }
         unsafe extern "system" fn GetRangeMinValue<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvarmin: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType_Impl::GetRangeMinValue(this) {
-                    Ok(ok__) => {
-                        ppropvarmin.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType_Impl::GetRangeMinValue(this, core::mem::transmute_copy(&ppropvarmin)).into()
             }
         }
         unsafe extern "system" fn GetRangeSetValue<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvarset: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType_Impl::GetRangeSetValue(this) {
-                    Ok(ok__) => {
-                        ppropvarset.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType_Impl::GetRangeSetValue(this, core::mem::transmute_copy(&ppropvarset)).into()
             }
         }
         unsafe extern "system" fn GetDisplayText<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType_Impl::GetDisplayText(this) {
-                    Ok(ok__) => {
-                        ppszdisplay.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType_Impl::GetDisplayText(this, core::mem::transmute_copy(&ppszdisplay)).into()
             }
         }
         Self {
@@ -2125,11 +1840,8 @@ impl core::ops::Deref for IPropertyEnumType2 {
 }
 windows_core::imp::interface_hierarchy!(IPropertyEnumType2, windows_core::IUnknown, IPropertyEnumType);
 impl IPropertyEnumType2 {
-    pub unsafe fn GetImageReference(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImageReference)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetImageReference(&self, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetImageReference)(windows_core::Interface::as_raw(self), ppszimageres as _) }
     }
 }
 #[repr(C)]
@@ -2140,7 +1852,7 @@ pub struct IPropertyEnumType2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumType2_Impl: IPropertyEnumType_Impl {
-    fn GetImageReference(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetImageReference(&self, ppszimageres: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumType2_Vtbl {
@@ -2148,13 +1860,7 @@ impl IPropertyEnumType2_Vtbl {
         unsafe extern "system" fn GetImageReference<Identity: IPropertyEnumType2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumType2_Impl::GetImageReference(this) {
-                    Ok(ok__) => {
-                        ppszimageres.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumType2_Impl::GetImageReference(this, core::mem::transmute_copy(&ppszimageres)).into()
             }
         }
         Self { base__: IPropertyEnumType_Vtbl::new::<Identity, OFFSET>(), GetImageReference: GetImageReference::<Identity, OFFSET> }
@@ -2169,11 +1875,8 @@ windows_core::imp::define_interface!(IPropertyEnumTypeList, IPropertyEnumTypeLis
 windows_core::imp::interface_hierarchy!(IPropertyEnumTypeList, windows_core::IUnknown);
 impl IPropertyEnumTypeList {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pctypes: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pctypes as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetAt<T>(&self, itype: super::UINT) -> windows_core::Result<T>
@@ -2192,11 +1895,8 @@ impl IPropertyEnumTypeList {
         unsafe { (windows_core::Interface::vtable(self).GetConditionAt)(windows_core::Interface::as_raw(self), nindex, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindMatchingIndex)(windows_core::Interface::as_raw(self), propvarcmp, &mut result__).map(|| result__)
-        }
+    pub unsafe fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT, pnindex: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindMatchingIndex)(windows_core::Interface::as_raw(self), propvarcmp, pnindex as _) }
     }
 }
 #[repr(C)]
@@ -2222,10 +1922,10 @@ pub struct IPropertyEnumTypeList_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumTypeList_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetCount(&self, pctypes: *mut super::UINT) -> windows_core::Result<()>;
     fn GetAt(&self, itype: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetConditionAt(&self, nindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT) -> windows_core::Result<super::UINT>;
+    fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT, pnindex: *mut super::UINT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumTypeList_Vtbl {
@@ -2233,13 +1933,7 @@ impl IPropertyEnumTypeList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctypes: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumTypeList_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pctypes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumTypeList_Impl::GetCount(this, core::mem::transmute_copy(&pctypes)).into()
             }
         }
         unsafe extern "system" fn GetAt<Identity: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itype: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2257,13 +1951,7 @@ impl IPropertyEnumTypeList_Vtbl {
         unsafe extern "system" fn FindMatchingIndex<Identity: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvarcmp: *const super::PROPVARIANT, pnindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyEnumTypeList_Impl::FindMatchingIndex(this, core::mem::transmute_copy(&propvarcmp)) {
-                    Ok(ok__) => {
-                        pnindex.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyEnumTypeList_Impl::FindMatchingIndex(this, core::mem::transmute_copy(&propvarcmp), core::mem::transmute_copy(&pnindex)).into()
             }
         }
         Self {
@@ -2284,22 +1972,16 @@ windows_core::imp::define_interface!(IPropertyStore, IPropertyStore_Vtbl, 0x886d
 windows_core::imp::interface_hierarchy!(IPropertyStore, windows_core::IUnknown);
 impl IPropertyStore {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, cprops: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), cprops as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
     pub unsafe fn GetAt(&self, iprop: super::DWORD, pkey: *mut super::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), iprop, pkey as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetValue(&self, key: *const super::PROPERTYKEY, pv: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, pv) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
@@ -2333,9 +2015,9 @@ pub struct IPropertyStore_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyStore_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetCount(&self, cprops: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetAt(&self, iprop: super::DWORD, pkey: *mut super::PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT>;
+    fn GetValue(&self, key: *const super::PROPERTYKEY, pv: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn SetValue(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
@@ -2345,13 +2027,7 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cprops: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyStore_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        cprops.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyStore_Impl::GetCount(this, core::mem::transmute_copy(&cprops)).into()
             }
         }
         unsafe extern "system" fn GetAt<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: super::DWORD, pkey: *mut super::PROPERTYKEY) -> windows_core::HRESULT {
@@ -2363,13 +2039,7 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn GetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pv: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyStore_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
-                    Ok(ok__) => {
-                        pv.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyStore_Impl::GetValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pv)).into()
             }
         }
         unsafe extern "system" fn SetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
@@ -2409,11 +2079,8 @@ impl core::ops::Deref for IPropertyStoreCache {
 windows_core::imp::interface_hierarchy!(IPropertyStoreCache, windows_core::IUnknown, IPropertyStore);
 impl IPropertyStoreCache {
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn GetState(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<PSC_STATE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetState(&self, key: *const super::PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), key, pstate as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
@@ -2451,7 +2118,7 @@ pub struct IPropertyStoreCache_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyStoreCache_Impl: IPropertyStore_Impl {
-    fn GetState(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<PSC_STATE>;
+    fn GetState(&self, key: *const super::PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::Result<()>;
     fn GetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()>;
     fn SetState(&self, key: *const super::PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()>;
     fn SetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *const super::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()>;
@@ -2462,13 +2129,7 @@ impl IPropertyStoreCache_Vtbl {
         unsafe extern "system" fn GetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertyStoreCache_Impl::GetState(this, core::mem::transmute_copy(&key)) {
-                    Ok(ok__) => {
-                        pstate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPropertyStoreCache_Impl::GetState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pstate)).into()
             }
         }
         unsafe extern "system" fn GetValueAndState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::HRESULT {

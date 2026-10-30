@@ -4,7 +4,9 @@ use windows::{Win32::*, core::*};
 #[test]
 fn linker() -> Result<()> {
     unsafe {
-        D3DCreateLinker()?;
+        let mut linker = None;
+        D3DCreateLinker(&mut linker).ok()?;
+        assert!(linker.is_some());
         Ok(())
     }
 }

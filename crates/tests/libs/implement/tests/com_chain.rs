@@ -6,8 +6,9 @@ use windows::core::*;
 struct Test();
 
 impl IPersist_Impl for Test_Impl {
-    fn GetClassID(&self) -> Result<GUID> {
-        Ok(GUID::zeroed())
+    fn GetClassID(&self, class_id: *mut GUID) -> Result<()> {
+        unsafe { *class_id = GUID::zeroed() };
+        Ok(())
     }
 }
 
@@ -24,8 +25,9 @@ impl IPersistStream_Impl for Test_Impl {
         Ok(())
     }
 
-    fn GetSizeMax(&self) -> Result<ULARGE_INTEGER> {
-        Ok(ULARGE_INTEGER { QuadPart: 0 })
+    fn GetSizeMax(&self, size: *mut ULARGE_INTEGER) -> Result<()> {
+        unsafe { *size = ULARGE_INTEGER { QuadPart: 0 } };
+        Ok(())
     }
 }
 
@@ -33,13 +35,13 @@ impl IPersistStream_Impl for Test_Impl {
 fn test() -> Result<()> {
     unsafe {
         let stream: IPersistStream = Test().into();
-        stream.GetClassID()?; // IPersist
+        stream.GetClassID(&mut GUID::zeroed()).ok()?; // IPersist
         stream.IsDirty().ok()?; // IPersistStream
         stream.cast::<IPersistStream>()?;
         stream.cast::<IPersist>()?;
 
         let persist: &IPersist = &stream.cast()?;
-        persist.GetClassID()?;
+        persist.GetClassID(&mut GUID::zeroed()).ok()?;
         persist.cast::<IPersistStream>()?;
         persist.cast::<IPersist>()?;
 

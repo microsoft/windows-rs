@@ -30,13 +30,9 @@ pub unsafe fn HidD_GetFeature(hiddeviceobject: super::HANDLE, reportbuffer: supe
 }
 #[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
+pub unsafe fn HidD_GetHidGuid(hidguid: super::LPGUID) {
     windows_core::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : super::LPGUID));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        HidD_GetHidGuid(&mut result__);
-        result__
-    }
+    unsafe { HidD_GetHidGuid(hidguid as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

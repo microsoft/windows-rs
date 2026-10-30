@@ -145,15 +145,14 @@ impl IWeakReference {
     pub(crate) unsafe fn Resolve(
         &self,
         riid: *const IID,
-    ) -> windows_core::Result<windows_core::IInspectable> {
+        objectreference: *mut Option<windows_core::IInspectable>,
+    ) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Resolve)(
                 windows_core::Interface::as_raw(self),
                 riid,
-                &mut result__,
+                core::mem::transmute(objectreference),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -167,7 +166,11 @@ pub struct IWeakReference_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
-    fn Resolve(&self, riid: *const IID) -> windows_core::Result<windows_core::IInspectable>;
+    fn Resolve(
+        &self,
+        riid: *const IID,
+        objectreference: windows_core::OutRef<windows_core::IInspectable>,
+    ) -> windows_core::Result<()>;
 }
 impl IWeakReference_Vtbl {
     pub const fn new<Identity: IWeakReference_Impl, const OFFSET: isize>() -> Self {
@@ -179,13 +182,12 @@ impl IWeakReference_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWeakReference_Impl::Resolve(this, core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        objectreference.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWeakReference_Impl::Resolve(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&objectreference),
+                )
+                .into()
             }
         }
         Self {

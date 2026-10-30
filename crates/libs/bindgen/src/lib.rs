@@ -1,5 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
+mod arches;
 mod cli;
 mod config;
 mod derive;
@@ -23,6 +24,7 @@ mod types;
 mod value;
 mod winmd;
 
+use arches::*;
 pub use cli::bindgen;
 use config::*;
 use derive::*;

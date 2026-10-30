@@ -104,13 +104,9 @@ pub unsafe fn GetCurrentProcessorNumber() -> super::DWORD {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetCurrentProcessorNumberEx() -> super::PROCESSOR_NUMBER {
+pub unsafe fn GetCurrentProcessorNumberEx(procnumber: super::PPROCESSOR_NUMBER) {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : super::PPROCESSOR_NUMBER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetCurrentProcessorNumberEx(&mut result__);
-        result__
-    }
+    unsafe { GetCurrentProcessorNumberEx(procnumber as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -144,12 +140,9 @@ pub unsafe fn GetExitCodeThread(hthread: super::HANDLE, lpexitcode: super::LPDWO
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetMachineTypeAttributes(machine: super::USHORT) -> windows_core::Result<MACHINE_ATTRIBUTES> {
+pub unsafe fn GetMachineTypeAttributes(machine: super::USHORT, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : super::USHORT, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetMachineTypeAttributes(machine, &mut result__).map(|| result__)
-    }
+    unsafe { GetMachineTypeAttributes(machine, machinetypeattributes as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -249,12 +242,9 @@ pub unsafe fn GetThreadContext(hthread: super::HANDLE, lpcontext: super::LPCONTE
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetThreadDescription(hthread: super::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn GetThreadDescription(hthread: super::HANDLE, ppszthreaddescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::HANDLE, ppszthreaddescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThreadDescription(hthread, &mut result__).map(|| result__)
-    }
+    unsafe { GetThreadDescription(hthread, ppszthreaddescription as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]

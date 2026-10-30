@@ -228,7 +228,8 @@ impl Controller {
     /// Subscribes to the got-focus event, raised when the browser gains focus.
     pub fn on_got_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRegistration> {
         let handler = handler::FocusChanged::create(handler);
-        let token = unsafe { self.0.add_GotFocus(&handler)? };
+        let mut token = Default::default();
+        unsafe { self.0.add_GotFocus(&handler, &mut token).ok()? };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_GotFocus(token) };
@@ -238,7 +239,8 @@ impl Controller {
     /// Subscribes to the lost-focus event, raised when the browser loses focus.
     pub fn on_lost_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRegistration> {
         let handler = handler::FocusChanged::create(handler);
-        let token = unsafe { self.0.add_LostFocus(&handler)? };
+        let mut token = Default::default();
+        unsafe { self.0.add_LostFocus(&handler, &mut token).ok()? };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_LostFocus(token) };

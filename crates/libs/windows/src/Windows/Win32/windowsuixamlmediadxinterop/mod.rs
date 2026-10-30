@@ -341,22 +341,16 @@ impl IVirtualSurfaceImageSourceNative {
         unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self), updaterect) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetUpdateRectCount(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUpdateRectCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetUpdateRectCount(&self, count: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUpdateRectCount)(windows_core::Interface::as_raw(self), count as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetUpdateRects)(windows_core::Interface::as_raw(self), updates as _, count) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetVisibleBounds(&self) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVisibleBounds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetVisibleBounds(&self, bounds: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVisibleBounds)(windows_core::Interface::as_raw(self), bounds as _) }
     }
     pub unsafe fn RegisterForUpdatesNeeded<P0>(&self, callback: P0) -> windows_core::HRESULT
     where
@@ -398,9 +392,9 @@ pub struct IVirtualSurfaceImageSourceNative_Vtbl {
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 pub trait IVirtualSurfaceImageSourceNative_Impl: ISurfaceImageSourceNative_Impl {
     fn Invalidate(&self, updaterect: &super::RECT) -> windows_core::Result<()>;
-    fn GetUpdateRectCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetUpdateRectCount(&self, count: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::Result<()>;
-    fn GetVisibleBounds(&self) -> windows_core::Result<super::RECT>;
+    fn GetVisibleBounds(&self, bounds: *mut super::RECT) -> windows_core::Result<()>;
     fn RegisterForUpdatesNeeded(&self, callback: windows_core::Ref<IVirtualSurfaceUpdatesCallbackNative>) -> windows_core::Result<()>;
     fn Resize(&self, newwidth: super::INT, newheight: super::INT) -> windows_core::Result<()>;
 }
@@ -416,13 +410,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn GetUpdateRectCount<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVirtualSurfaceImageSourceNative_Impl::GetUpdateRectCount(this) {
-                    Ok(ok__) => {
-                        count.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVirtualSurfaceImageSourceNative_Impl::GetUpdateRectCount(this, core::mem::transmute_copy(&count)).into()
             }
         }
         unsafe extern "system" fn GetUpdateRects<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT {
@@ -434,13 +422,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn GetVisibleBounds<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bounds: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVirtualSurfaceImageSourceNative_Impl::GetVisibleBounds(this) {
-                    Ok(ok__) => {
-                        bounds.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVirtualSurfaceImageSourceNative_Impl::GetVisibleBounds(this, core::mem::transmute_copy(&bounds)).into()
             }
         }
         unsafe extern "system" fn RegisterForUpdatesNeeded<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {

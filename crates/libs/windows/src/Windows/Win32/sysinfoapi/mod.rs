@@ -31,22 +31,15 @@ pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_S
     unsafe { GetDeveloperDriveEnablementState() }
 }
 #[inline]
-pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
+pub unsafe fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetIntegratedDisplaySize(&mut result__).map(|| result__)
-    }
+    unsafe { GetIntegratedDisplaySize(sizeininches as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn GetLocalTime() -> super::SYSTEMTIME {
+pub unsafe fn GetLocalTime(lpsystemtime: super::LPSYSTEMTIME) {
     windows_core::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : super::LPSYSTEMTIME));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetLocalTime(&mut result__);
-        result__
-    }
+    unsafe { GetLocalTime(lpsystemtime as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -134,13 +127,9 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: super::PBOOL, flags: super
 }
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn GetSystemTime() -> super::SYSTEMTIME {
+pub unsafe fn GetSystemTime(lpsystemtime: super::LPSYSTEMTIME) {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : super::LPSYSTEMTIME));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetSystemTime(&mut result__);
-        result__
-    }
+    unsafe { GetSystemTime(lpsystemtime as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -156,23 +145,15 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: super::PDWORD64, 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetSystemTimeAsFileTime() -> super::FILETIME {
+pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: super::LPFILETIME) {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : super::LPFILETIME));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetSystemTimeAsFileTime(&mut result__);
-        result__
-    }
+    unsafe { GetSystemTimeAsFileTime(lpsystemtimeasfiletime as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::FILETIME {
+pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: super::LPFILETIME) {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : super::LPFILETIME));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetSystemTimePreciseAsFileTime(&mut result__);
-        result__
-    }
+    unsafe { GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

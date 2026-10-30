@@ -883,14 +883,11 @@ impl IQueryParser {
         }
     }
     #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
-    pub unsafe fn RestateToString<P0>(&self, pcondition: P0, fuseenglish: bool) -> windows_core::Result<windows_core::PWSTR>
+    pub unsafe fn RestateToString<P0>(&self, pcondition: P0, fuseenglish: bool, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ICondition>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RestateToString)(windows_core::Interface::as_raw(self), pcondition.param().abi(), fuseenglish.into(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).RestateToString)(windows_core::Interface::as_raw(self), pcondition.param().abi(), fuseenglish.into(), ppszquerystring as _) }
     }
     pub unsafe fn ParsePropertyValue<P0, P1>(&self, pszpropertyname: P0, pszinputstring: P1) -> windows_core::Result<IQuerySolution>
     where
@@ -948,7 +945,7 @@ pub trait IQueryParser_Impl: windows_core::IUnknownImpl {
     fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> windows_core::Result<super::PROPVARIANT>;
     fn SetMultiOption(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: &windows_core::PCWSTR, poptionvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn GetSchemaProvider(&self) -> windows_core::Result<ISchemaProvider>;
-    fn RestateToString(&self, pcondition: windows_core::Ref<super::ICondition>, fuseenglish: windows_core::BOOL) -> windows_core::Result<windows_core::PWSTR>;
+    fn RestateToString(&self, pcondition: windows_core::Ref<super::ICondition>, fuseenglish: windows_core::BOOL, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn ParsePropertyValue(&self, pszpropertyname: &windows_core::PCWSTR, pszinputstring: &windows_core::PCWSTR) -> windows_core::Result<IQuerySolution>;
     fn RestatePropertyValueToString(&self, pcondition: windows_core::Ref<super::ICondition>, fuseenglish: windows_core::BOOL, ppszpropertyname: *mut windows_core::PWSTR, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
@@ -1006,13 +1003,7 @@ impl IQueryParser_Vtbl {
         unsafe extern "system" fn RestateToString<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcondition: *mut core::ffi::c_void, fuseenglish: windows_core::BOOL, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQueryParser_Impl::RestateToString(this, core::mem::transmute_copy(&pcondition), core::mem::transmute_copy(&fuseenglish)) {
-                    Ok(ok__) => {
-                        ppszquerystring.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQueryParser_Impl::RestateToString(this, core::mem::transmute_copy(&pcondition), core::mem::transmute_copy(&fuseenglish), core::mem::transmute_copy(&ppszquerystring)).into()
             }
         }
         unsafe extern "system" fn ParsePropertyValue<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, pszinputstring: windows_core::PCWSTR, ppsolution: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

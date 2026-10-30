@@ -24,9 +24,9 @@ impl IWidget_Impl for Widget_Impl {
 struct WidgetFactory;
 
 impl IActivationFactory_Impl for WidgetFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self, instance: OutRef<IInspectable>) -> Result<()> {
         let widget: Constructors::Widget = Widget(0).into();
-        Ok(widget.into())
+        instance.write(Some(widget.into()))
     }
 }
 
@@ -71,7 +71,7 @@ impl IBaseStatics_Impl for BaseFactory_Impl {
 }
 
 impl IActivationFactory_Impl for BaseFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self, _: OutRef<IInspectable>) -> Result<()> {
         Err(E_NOTIMPL.into())
     }
 }

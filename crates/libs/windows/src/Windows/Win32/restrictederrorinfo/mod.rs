@@ -1,11 +1,8 @@
 windows_core::imp::define_interface!(ILanguageExceptionErrorInfo, ILanguageExceptionErrorInfo_Vtbl, 0x04a2dbf3_df83_116c_0946_0812abf6e07d);
 windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo, windows_core::IUnknown);
 impl ILanguageExceptionErrorInfo {
-    pub unsafe fn GetLanguageException(&self) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLanguageException)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetLanguageException(&self, languageexception: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLanguageException)(windows_core::Interface::as_raw(self), core::mem::transmute(languageexception)) }
     }
 }
 #[repr(C)]
@@ -15,20 +12,14 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
     pub GetLanguageException: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ILanguageExceptionErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn GetLanguageException(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetLanguageException(&self, languageexception: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ILanguageExceptionErrorInfo_Vtbl {
     pub const fn new<Identity: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLanguageException<Identity: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageexception: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILanguageExceptionErrorInfo_Impl::GetLanguageException(this) {
-                    Ok(ok__) => {
-                        languageexception.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ILanguageExceptionErrorInfo_Impl::GetLanguageException(this, core::mem::transmute_copy(&languageexception)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLanguageException: GetLanguageException::<Identity, OFFSET> }
@@ -47,11 +38,8 @@ impl core::ops::Deref for ILanguageExceptionErrorInfo2 {
 }
 windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo2, windows_core::IUnknown, ILanguageExceptionErrorInfo);
 impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self, previouslanguageexceptionerrorinfo: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(previouslanguageexceptionerrorinfo)) }
     }
     pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> windows_core::HRESULT
     where
@@ -59,11 +47,8 @@ impl ILanguageExceptionErrorInfo2 {
     {
         unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()) }
     }
-    pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropagationContextHead)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetPropagationContextHead(&self, propagatedlanguageexceptionerrorinfohead: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropagationContextHead)(windows_core::Interface::as_raw(self), core::mem::transmute(propagatedlanguageexceptionerrorinfohead)) }
     }
 }
 #[repr(C)]
@@ -75,22 +60,16 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
     pub GetPropagationContextHead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: ILanguageExceptionErrorInfo_Impl {
-    fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
+    fn GetPreviousLanguageExceptionErrorInfo(&self, previouslanguageexceptionerrorinfo: windows_core::OutRef<ILanguageExceptionErrorInfo2>) -> windows_core::Result<()>;
     fn CapturePropagationContext(&self, languageexception: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
+    fn GetPropagationContextHead(&self, propagatedlanguageexceptionerrorinfohead: windows_core::OutRef<ILanguageExceptionErrorInfo2>) -> windows_core::Result<()>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
     pub const fn new<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPreviousLanguageExceptionErrorInfo<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILanguageExceptionErrorInfo2_Impl::GetPreviousLanguageExceptionErrorInfo(this) {
-                    Ok(ok__) => {
-                        previouslanguageexceptionerrorinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ILanguageExceptionErrorInfo2_Impl::GetPreviousLanguageExceptionErrorInfo(this, core::mem::transmute_copy(&previouslanguageexceptionerrorinfo)).into()
             }
         }
         unsafe extern "system" fn CapturePropagationContext<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageexception: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -102,13 +81,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         unsafe extern "system" fn GetPropagationContextHead<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILanguageExceptionErrorInfo2_Impl::GetPropagationContextHead(this) {
-                    Ok(ok__) => {
-                        propagatedlanguageexceptionerrorinfohead.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ILanguageExceptionErrorInfo2_Impl::GetPropagationContextHead(this, core::mem::transmute_copy(&propagatedlanguageexceptionerrorinfohead)).into()
             }
         }
         Self {
@@ -164,11 +137,8 @@ impl windows_core::RuntimeName for ILanguageExceptionStackBackTrace {}
 windows_core::imp::define_interface!(ILanguageExceptionTransform, ILanguageExceptionTransform_Vtbl, 0xfeb5a271_a6cd_45ce_880a_696706badc65);
 windows_core::imp::interface_hierarchy!(ILanguageExceptionTransform, windows_core::IUnknown);
 impl ILanguageExceptionTransform {
-    pub unsafe fn GetTransformedRestrictedErrorInfo(&self) -> windows_core::Result<IRestrictedErrorInfo> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTransformedRestrictedErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetTransformedRestrictedErrorInfo(&self, restrictederrorinfo: *mut Option<IRestrictedErrorInfo>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTransformedRestrictedErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(restrictederrorinfo)) }
     }
 }
 #[repr(C)]
@@ -178,20 +148,14 @@ pub struct ILanguageExceptionTransform_Vtbl {
     pub GetTransformedRestrictedErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ILanguageExceptionTransform_Impl: windows_core::IUnknownImpl {
-    fn GetTransformedRestrictedErrorInfo(&self) -> windows_core::Result<IRestrictedErrorInfo>;
+    fn GetTransformedRestrictedErrorInfo(&self, restrictederrorinfo: windows_core::OutRef<IRestrictedErrorInfo>) -> windows_core::Result<()>;
 }
 impl ILanguageExceptionTransform_Vtbl {
     pub const fn new<Identity: ILanguageExceptionTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransformedRestrictedErrorInfo<Identity: ILanguageExceptionTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictederrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILanguageExceptionTransform_Impl::GetTransformedRestrictedErrorInfo(this) {
-                    Ok(ok__) => {
-                        restrictederrorinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ILanguageExceptionTransform_Impl::GetTransformedRestrictedErrorInfo(this, core::mem::transmute_copy(&restrictederrorinfo)).into()
             }
         }
         Self {
@@ -210,11 +174,8 @@ impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetErrorDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(description), error as _, core::mem::transmute(restricteddescription), core::mem::transmute(capabilitysid)) }
     }
-    pub unsafe fn GetReference(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReference)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetReference(&self, reference: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReference)(windows_core::Interface::as_raw(self), core::mem::transmute(reference)) }
     }
 }
 #[repr(C)]
@@ -226,7 +187,7 @@ pub struct IRestrictedErrorInfo_Vtbl {
 }
 pub trait IRestrictedErrorInfo_Impl: windows_core::IUnknownImpl {
     fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetReference(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetReference(&self, reference: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IRestrictedErrorInfo_Vtbl {
     pub const fn new<Identity: IRestrictedErrorInfo_Impl, const OFFSET: isize>() -> Self {
@@ -239,13 +200,7 @@ impl IRestrictedErrorInfo_Vtbl {
         unsafe extern "system" fn GetReference<Identity: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRestrictedErrorInfo_Impl::GetReference(this) {
-                    Ok(ok__) => {
-                        reference.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRestrictedErrorInfo_Impl::GetReference(this, core::mem::transmute_copy(&reference)).into()
             }
         }
         Self {

@@ -258,13 +258,9 @@ pub unsafe fn PfxFindPrefix(prefixtable: PPREFIX_TABLE, fullname: super::PSTRING
 }
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn PfxInitialize() -> PREFIX_TABLE {
+pub unsafe fn PfxInitialize(prefixtable: PPREFIX_TABLE) {
     windows_core::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : PPREFIX_TABLE));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        PfxInitialize(&mut result__);
-        result__
-    }
+    unsafe { PfxInitialize(prefixtable as _) }
 }
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -720,23 +716,15 @@ pub unsafe fn RtlReplaceSidInSd(securitydescriptor: super::PSECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: super::ULONG) -> super::LARGE_INTEGER {
+pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: super::ULONG, time: super::PLARGE_INTEGER) {
     windows_core::link!("ntdll.dll" "system" fn RtlSecondsSince1970ToTime(elapsedseconds : super::ULONG, time : super::PLARGE_INTEGER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtlSecondsSince1970ToTime(elapsedseconds, &mut result__);
-        result__
-    }
+    unsafe { RtlSecondsSince1970ToTime(elapsedseconds, time as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: super::ULONG) -> super::LARGE_INTEGER {
+pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: super::ULONG, time: super::PLARGE_INTEGER) {
     windows_core::link!("ntdll.dll" "system" fn RtlSecondsSince1980ToTime(elapsedseconds : super::ULONG, time : super::PLARGE_INTEGER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtlSecondsSince1980ToTime(elapsedseconds, &mut result__);
-        result__
-    }
+    unsafe { RtlSecondsSince1980ToTime(elapsedseconds, time as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

@@ -16,12 +16,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WerGetFlags(hprocess: super::HANDLE) -> windows_core::Result<u32> {
+pub unsafe fn WerGetFlags(hprocess: super::HANDLE, pdwflags: super::PDWORD) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::HANDLE, pdwflags : super::PDWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerGetFlags(hprocess, &mut result__).map(|| result__)
-    }
+    unsafe { WerGetFlags(hprocess, pdwflags as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -149,38 +146,26 @@ pub unsafe fn WerStoreClose(hreportstore: Option<HREPORTSTORE>) {
     unsafe { WerStoreClose(hreportstore.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
+pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetFirstReportKey(hreportstore, &mut result__).map(|| result__)
-    }
+    unsafe { WerStoreGetFirstReportKey(hreportstore, ppszreportkey as _) }
 }
 #[inline]
-pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
+pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetNextReportKey(hreportstore, &mut result__).map(|| result__)
-    }
+    unsafe { WerStoreGetNextReportKey(hreportstore, ppszreportkey as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core::Result<super::DWORD> {
+pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetReportCount(hreportstore, &mut result__).map(|| result__)
-    }
+    unsafe { WerStoreGetReportCount(hreportstore, pdwreportcount as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE) -> windows_core::Result<super::ULONGLONG> {
+pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut super::ULONGLONG) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetSizeOnDisk(hreportstore, &mut result__).map(|| result__)
-    }
+    unsafe { WerStoreGetSizeOnDisk(hreportstore, pqwsizeinbytes as _) }
 }
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: PHREPORTSTORE) -> windows_core::HRESULT {

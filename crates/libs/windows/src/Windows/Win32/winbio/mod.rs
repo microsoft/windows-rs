@@ -145,12 +145,9 @@ pub unsafe fn WinBioFree(address: super::PVOID) -> windows_core::HRESULT {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> windows_core::Result<WINBIO_CREDENTIAL_STATE> {
+pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WinBioGetCredentialState(identity, r#type, &mut result__).map(|| result__)
-    }
+    unsafe { WinBioGetCredentialState(identity, r#type, credentialstate as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -166,12 +163,9 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut super::BOOLEAN, source: PWINBI
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> windows_core::Result<WINBIO_BIOMETRIC_TYPE> {
+pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut WINBIO_BIOMETRIC_TYPE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioGetEnrolledFactors(accountowner : *const WINBIO_IDENTITY, enrolledfactors : *mut WINBIO_BIOMETRIC_TYPE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WinBioGetEnrolledFactors(accountowner, &mut result__).map(|| result__)
-    }
+    unsafe { WinBioGetEnrolledFactors(accountowner, enrolledfactors as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -209,12 +203,9 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: WINBIO_SESSION_HANDLE) -> windows_
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinBioIsESSCapable() -> windows_core::Result<super::BOOLEAN> {
+pub unsafe fn WinBioIsESSCapable(value: *mut super::BOOLEAN) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioIsESSCapable(value : *mut super::BOOLEAN) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WinBioIsESSCapable(&mut result__).map(|| result__)
-    }
+    unsafe { WinBioIsESSCapable(value as _) }
 }
 #[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: WINBIO_SESSION_HANDLE, unitid: Option<*mut WINBIO_UNIT_ID>) -> windows_core::HRESULT {
@@ -244,12 +235,9 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: WINBIO_SESSION_HANDLE, unitid
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinBioOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<&[WINBIO_UNIT_ID]>, databaseid: Option<*const windows_core::GUID>) -> windows_core::Result<WINBIO_SESSION_HANDLE> {
+pub unsafe fn WinBioOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<&[WINBIO_UNIT_ID]>, databaseid: Option<*const windows_core::GUID>, sessionhandle: *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : super::SIZE_T, databaseid : *const windows_core::GUID, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WinBioOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { WinBioOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, sessionhandle as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

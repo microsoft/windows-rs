@@ -40,15 +40,12 @@ pub unsafe fn MFCreateVideoSampleAllocator(riid: *const super::IID, ppsampleallo
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0) -> windows_core::Result<super::IMFSample>
+pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0, ppsample: *mut Option<super::IMFSample>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MFCreateVideoSampleFromSurface(punksurface.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MFCreateVideoSampleFromSurface(punksurface.param().abi(), core::mem::transmute(ppsample)) }
 }
 pub type EVRFilterConfigPrefs = i32;
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = 1;
@@ -61,11 +58,8 @@ impl IEVRFilterConfig {
         unsafe { (windows_core::Interface::vtable(self).SetNumberOfStreams)(windows_core::Interface::as_raw(self), dwmaxstreams) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNumberOfStreams(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumberOfStreams)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNumberOfStreams(&self, pdwmaxstreams: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNumberOfStreams)(windows_core::Interface::as_raw(self), pdwmaxstreams as _) }
     }
 }
 #[repr(C)]
@@ -84,7 +78,7 @@ pub struct IEVRFilterConfig_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IEVRFilterConfig_Impl: windows_core::IUnknownImpl {
     fn SetNumberOfStreams(&self, dwmaxstreams: super::DWORD) -> windows_core::Result<()>;
-    fn GetNumberOfStreams(&self) -> windows_core::Result<super::DWORD>;
+    fn GetNumberOfStreams(&self, pdwmaxstreams: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IEVRFilterConfig_Vtbl {
@@ -98,13 +92,7 @@ impl IEVRFilterConfig_Vtbl {
         unsafe extern "system" fn GetNumberOfStreams<Identity: IEVRFilterConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmaxstreams: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEVRFilterConfig_Impl::GetNumberOfStreams(this) {
-                    Ok(ok__) => {
-                        pdwmaxstreams.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEVRFilterConfig_Impl::GetNumberOfStreams(this, core::mem::transmute_copy(&pdwmaxstreams)).into()
             }
         }
         Self {
@@ -133,11 +121,8 @@ impl IEVRFilterConfigEx {
         unsafe { (windows_core::Interface::vtable(self).SetConfigPrefs)(windows_core::Interface::as_raw(self), dwconfigflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetConfigPrefs(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConfigPrefs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetConfigPrefs(&self, pdwconfigflags: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetConfigPrefs)(windows_core::Interface::as_raw(self), pdwconfigflags as _) }
     }
 }
 #[repr(C)]
@@ -156,7 +141,7 @@ pub struct IEVRFilterConfigEx_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IEVRFilterConfigEx_Impl: IEVRFilterConfig_Impl {
     fn SetConfigPrefs(&self, dwconfigflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetConfigPrefs(&self) -> windows_core::Result<super::DWORD>;
+    fn GetConfigPrefs(&self, pdwconfigflags: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IEVRFilterConfigEx_Vtbl {
@@ -170,13 +155,7 @@ impl IEVRFilterConfigEx_Vtbl {
         unsafe extern "system" fn GetConfigPrefs<Identity: IEVRFilterConfigEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwconfigflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEVRFilterConfigEx_Impl::GetConfigPrefs(this) {
-                    Ok(ok__) => {
-                        pdwconfigflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEVRFilterConfigEx_Impl::GetConfigPrefs(this, core::mem::transmute_copy(&pdwconfigflags)).into()
             }
         }
         Self {
@@ -194,17 +173,11 @@ impl windows_core::RuntimeName for IEVRFilterConfigEx {}
 windows_core::imp::define_interface!(IEVRTrustedVideoPlugin, IEVRTrustedVideoPlugin_Vtbl, 0x83a4ce40_7710_494b_a893_a472049af630);
 windows_core::imp::interface_hierarchy!(IEVRTrustedVideoPlugin, windows_core::IUnknown);
 impl IEVRTrustedVideoPlugin {
-    pub unsafe fn IsInTrustedVideoMode(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInTrustedVideoMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsInTrustedVideoMode(&self, pyes: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsInTrustedVideoMode)(windows_core::Interface::as_raw(self), pyes as _) }
     }
-    pub unsafe fn CanConstrict(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CanConstrict)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CanConstrict(&self, pyes: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CanConstrict)(windows_core::Interface::as_raw(self), pyes as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetConstriction(&self, dwkpix: super::DWORD) -> windows_core::HRESULT {
@@ -228,8 +201,8 @@ pub struct IEVRTrustedVideoPlugin_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEVRTrustedVideoPlugin_Impl: windows_core::IUnknownImpl {
-    fn IsInTrustedVideoMode(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CanConstrict(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsInTrustedVideoMode(&self, pyes: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn CanConstrict(&self, pyes: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetConstriction(&self, dwkpix: super::DWORD) -> windows_core::Result<()>;
     fn DisableImageExport(&self, bdisable: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -239,25 +212,13 @@ impl IEVRTrustedVideoPlugin_Vtbl {
         unsafe extern "system" fn IsInTrustedVideoMode<Identity: IEVRTrustedVideoPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pyes: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEVRTrustedVideoPlugin_Impl::IsInTrustedVideoMode(this) {
-                    Ok(ok__) => {
-                        pyes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEVRTrustedVideoPlugin_Impl::IsInTrustedVideoMode(this, core::mem::transmute_copy(&pyes)).into()
             }
         }
         unsafe extern "system" fn CanConstrict<Identity: IEVRTrustedVideoPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pyes: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEVRTrustedVideoPlugin_Impl::CanConstrict(this) {
-                    Ok(ok__) => {
-                        pyes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEVRTrustedVideoPlugin_Impl::CanConstrict(this, core::mem::transmute_copy(&pyes)).into()
             }
         }
         unsafe extern "system" fn SetConstriction<Identity: IEVRTrustedVideoPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwkpix: super::DWORD) -> windows_core::HRESULT {
@@ -450,11 +411,8 @@ windows_core::imp::define_interface!(IMFVideoDeviceID, IMFVideoDeviceID_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IMFVideoDeviceID, windows_core::IUnknown);
 impl IMFVideoDeviceID {
     #[cfg(feature = "guiddef")]
-    pub unsafe fn GetDeviceID(&self) -> windows_core::Result<super::IID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDeviceID(&self, pdeviceid: *mut super::IID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceID)(windows_core::Interface::as_raw(self), pdeviceid as _) }
     }
 }
 #[repr(C)]
@@ -468,7 +426,7 @@ pub struct IMFVideoDeviceID_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IMFVideoDeviceID_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceID(&self) -> windows_core::Result<super::IID>;
+    fn GetDeviceID(&self, pdeviceid: *mut super::IID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "guiddef")]
 impl IMFVideoDeviceID_Vtbl {
@@ -476,13 +434,7 @@ impl IMFVideoDeviceID_Vtbl {
         unsafe extern "system" fn GetDeviceID<Identity: IMFVideoDeviceID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdeviceid: *mut super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDeviceID_Impl::GetDeviceID(this) {
-                    Ok(ok__) => {
-                        pdeviceid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDeviceID_Impl::GetDeviceID(this, core::mem::transmute_copy(&pdeviceid)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceID: GetDeviceID::<Identity, OFFSET> }
@@ -517,22 +469,16 @@ impl IMFVideoDisplayControl {
         unsafe { (windows_core::Interface::vtable(self).SetAspectRatioMode)(windows_core::Interface::as_raw(self), dwaspectratiomode) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAspectRatioMode(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAspectRatioMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAspectRatioMode(&self, pdwaspectratiomode: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAspectRatioMode)(windows_core::Interface::as_raw(self), pdwaspectratiomode as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetVideoWindow(&self, hwndvideo: super::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoWindow)(windows_core::Interface::as_raw(self), hwndvideo) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetVideoWindow(&self) -> windows_core::Result<super::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetVideoWindow(&self, phwndvideo: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoWindow)(windows_core::Interface::as_raw(self), phwndvideo as _) }
     }
     pub unsafe fn RepaintVideo(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self)) }
@@ -546,31 +492,22 @@ impl IMFVideoDisplayControl {
         unsafe { (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::COLORREF> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBorderColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBorderColor(&self, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBorderColor)(windows_core::Interface::as_raw(self), pclr as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetRenderingPrefs(&self, dwrenderflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRenderingPrefs)(windows_core::Interface::as_raw(self), dwrenderflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetRenderingPrefs(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRenderingPrefs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRenderingPrefs(&self, pdwrenderflags: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRenderingPrefs)(windows_core::Interface::as_raw(self), pdwrenderflags as _) }
     }
     pub unsafe fn SetFullscreen(&self, ffullscreen: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFullscreen)(windows_core::Interface::as_raw(self), ffullscreen.into()) }
     }
-    pub unsafe fn GetFullscreen(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFullscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFullscreen(&self, pffullscreen: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFullscreen)(windows_core::Interface::as_raw(self), pffullscreen as _) }
     }
 }
 #[repr(C)]
@@ -640,17 +577,17 @@ pub trait IMFVideoDisplayControl_Impl: windows_core::IUnknownImpl {
     fn SetVideoPosition(&self, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::Result<()>;
     fn GetVideoPosition(&self, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::Result<()>;
     fn SetAspectRatioMode(&self, dwaspectratiomode: super::DWORD) -> windows_core::Result<()>;
-    fn GetAspectRatioMode(&self) -> windows_core::Result<super::DWORD>;
+    fn GetAspectRatioMode(&self, pdwaspectratiomode: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetVideoWindow(&self, hwndvideo: super::HWND) -> windows_core::Result<()>;
-    fn GetVideoWindow(&self) -> windows_core::Result<super::HWND>;
+    fn GetVideoWindow(&self, phwndvideo: *mut super::HWND) -> windows_core::Result<()>;
     fn RepaintVideo(&self) -> windows_core::Result<()>;
     fn GetCurrentImage(&self, pbih: *mut super::BITMAPINFOHEADER, pdib: *mut *mut super::BYTE, pcbdib: *mut super::DWORD, ptimestamp: *mut super::LONGLONG) -> windows_core::Result<()>;
     fn SetBorderColor(&self, clr: super::COLORREF) -> windows_core::Result<()>;
-    fn GetBorderColor(&self) -> windows_core::Result<super::COLORREF>;
+    fn GetBorderColor(&self, pclr: *mut super::COLORREF) -> windows_core::Result<()>;
     fn SetRenderingPrefs(&self, dwrenderflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetRenderingPrefs(&self) -> windows_core::Result<super::DWORD>;
+    fn GetRenderingPrefs(&self, pdwrenderflags: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetFullscreen(&self, ffullscreen: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetFullscreen(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetFullscreen(&self, pffullscreen: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfidl", feature = "shared", feature = "windef", feature = "wingdi"))]
 impl IMFVideoDisplayControl_Vtbl {
@@ -688,13 +625,7 @@ impl IMFVideoDisplayControl_Vtbl {
         unsafe extern "system" fn GetAspectRatioMode<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwaspectratiomode: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDisplayControl_Impl::GetAspectRatioMode(this) {
-                    Ok(ok__) => {
-                        pdwaspectratiomode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDisplayControl_Impl::GetAspectRatioMode(this, core::mem::transmute_copy(&pdwaspectratiomode)).into()
             }
         }
         unsafe extern "system" fn SetVideoWindow<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndvideo: super::HWND) -> windows_core::HRESULT {
@@ -706,13 +637,7 @@ impl IMFVideoDisplayControl_Vtbl {
         unsafe extern "system" fn GetVideoWindow<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwndvideo: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDisplayControl_Impl::GetVideoWindow(this) {
-                    Ok(ok__) => {
-                        phwndvideo.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDisplayControl_Impl::GetVideoWindow(this, core::mem::transmute_copy(&phwndvideo)).into()
             }
         }
         unsafe extern "system" fn RepaintVideo<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -736,13 +661,7 @@ impl IMFVideoDisplayControl_Vtbl {
         unsafe extern "system" fn GetBorderColor<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDisplayControl_Impl::GetBorderColor(this) {
-                    Ok(ok__) => {
-                        pclr.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDisplayControl_Impl::GetBorderColor(this, core::mem::transmute_copy(&pclr)).into()
             }
         }
         unsafe extern "system" fn SetRenderingPrefs<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrenderflags: super::DWORD) -> windows_core::HRESULT {
@@ -754,13 +673,7 @@ impl IMFVideoDisplayControl_Vtbl {
         unsafe extern "system" fn GetRenderingPrefs<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrenderflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDisplayControl_Impl::GetRenderingPrefs(this) {
-                    Ok(ok__) => {
-                        pdwrenderflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDisplayControl_Impl::GetRenderingPrefs(this, core::mem::transmute_copy(&pdwrenderflags)).into()
             }
         }
         unsafe extern "system" fn SetFullscreen<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: windows_core::BOOL) -> windows_core::HRESULT {
@@ -772,13 +685,7 @@ impl IMFVideoDisplayControl_Vtbl {
         unsafe extern "system" fn GetFullscreen<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffullscreen: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoDisplayControl_Impl::GetFullscreen(this) {
-                    Ok(ok__) => {
-                        pffullscreen.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoDisplayControl_Impl::GetFullscreen(this, core::mem::transmute_copy(&pffullscreen)).into()
             }
         }
         Self {
@@ -815,22 +722,16 @@ impl IMFVideoMixerControl {
         unsafe { (windows_core::Interface::vtable(self).SetStreamZOrder)(windows_core::Interface::as_raw(self), dwstreamid, dwz) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStreamZOrder(&self, dwstreamid: super::DWORD) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamZOrder)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamZOrder(&self, dwstreamid: super::DWORD, pdwz: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamZOrder)(windows_core::Interface::as_raw(self), dwstreamid, pdwz as _) }
     }
     #[cfg(all(feature = "mfidl", feature = "shared"))]
     pub unsafe fn SetStreamOutputRect(&self, dwstreamid: super::DWORD, pnrcoutput: *const super::MFVideoNormalizedRect) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamOutputRect)(windows_core::Interface::as_raw(self), dwstreamid, pnrcoutput) }
     }
     #[cfg(all(feature = "mfidl", feature = "shared"))]
-    pub unsafe fn GetStreamOutputRect(&self, dwstreamid: super::DWORD) -> windows_core::Result<super::MFVideoNormalizedRect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStreamOutputRect)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStreamOutputRect(&self, dwstreamid: super::DWORD, pnrcoutput: *mut super::MFVideoNormalizedRect) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStreamOutputRect)(windows_core::Interface::as_raw(self), dwstreamid, pnrcoutput as _) }
     }
 }
 #[repr(C)]
@@ -857,9 +758,9 @@ pub struct IMFVideoMixerControl_Vtbl {
 #[cfg(all(feature = "mfidl", feature = "shared"))]
 pub trait IMFVideoMixerControl_Impl: windows_core::IUnknownImpl {
     fn SetStreamZOrder(&self, dwstreamid: super::DWORD, dwz: super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamZOrder(&self, dwstreamid: super::DWORD) -> windows_core::Result<super::DWORD>;
+    fn GetStreamZOrder(&self, dwstreamid: super::DWORD, pdwz: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetStreamOutputRect(&self, dwstreamid: super::DWORD, pnrcoutput: *const super::MFVideoNormalizedRect) -> windows_core::Result<()>;
-    fn GetStreamOutputRect(&self, dwstreamid: super::DWORD) -> windows_core::Result<super::MFVideoNormalizedRect>;
+    fn GetStreamOutputRect(&self, dwstreamid: super::DWORD, pnrcoutput: *mut super::MFVideoNormalizedRect) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]
 impl IMFVideoMixerControl_Vtbl {
@@ -873,13 +774,7 @@ impl IMFVideoMixerControl_Vtbl {
         unsafe extern "system" fn GetStreamZOrder<Identity: IMFVideoMixerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, pdwz: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoMixerControl_Impl::GetStreamZOrder(this, core::mem::transmute_copy(&dwstreamid)) {
-                    Ok(ok__) => {
-                        pdwz.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoMixerControl_Impl::GetStreamZOrder(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pdwz)).into()
             }
         }
         unsafe extern "system" fn SetStreamOutputRect<Identity: IMFVideoMixerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, pnrcoutput: *const super::MFVideoNormalizedRect) -> windows_core::HRESULT {
@@ -891,13 +786,7 @@ impl IMFVideoMixerControl_Vtbl {
         unsafe extern "system" fn GetStreamOutputRect<Identity: IMFVideoMixerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, pnrcoutput: *mut super::MFVideoNormalizedRect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoMixerControl_Impl::GetStreamOutputRect(this, core::mem::transmute_copy(&dwstreamid)) {
-                    Ok(ok__) => {
-                        pnrcoutput.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoMixerControl_Impl::GetStreamOutputRect(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pnrcoutput)).into()
             }
         }
         Self {
@@ -928,11 +817,8 @@ impl IMFVideoMixerControl2 {
         unsafe { (windows_core::Interface::vtable(self).SetMixingPrefs)(windows_core::Interface::as_raw(self), dwmixflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMixingPrefs(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMixingPrefs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMixingPrefs(&self, pdwmixflags: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMixingPrefs)(windows_core::Interface::as_raw(self), pdwmixflags as _) }
     }
 }
 #[repr(C)]
@@ -951,7 +837,7 @@ pub struct IMFVideoMixerControl2_Vtbl {
 #[cfg(all(feature = "mfidl", feature = "shared"))]
 pub trait IMFVideoMixerControl2_Impl: IMFVideoMixerControl_Impl {
     fn SetMixingPrefs(&self, dwmixflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetMixingPrefs(&self) -> windows_core::Result<super::DWORD>;
+    fn GetMixingPrefs(&self, pdwmixflags: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]
 impl IMFVideoMixerControl2_Vtbl {
@@ -965,13 +851,7 @@ impl IMFVideoMixerControl2_Vtbl {
         unsafe extern "system" fn GetMixingPrefs<Identity: IMFVideoMixerControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmixflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoMixerControl2_Impl::GetMixingPrefs(this) {
-                    Ok(ok__) => {
-                        pdwmixflags.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoMixerControl2_Impl::GetMixingPrefs(this, core::mem::transmute_copy(&pdwmixflags)).into()
             }
         }
         Self {
@@ -1045,11 +925,8 @@ impl IMFVideoPresenter {
         unsafe { (windows_core::Interface::vtable(self).ProcessMessage)(windows_core::Interface::as_raw(self), emessage, ulparam) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFVideoMediaType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetCurrentMediaType(&self, ppmediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediatype)) }
     }
 }
 #[cfg(feature = "mfidl")]
@@ -1069,7 +946,7 @@ pub struct IMFVideoPresenter_Vtbl {
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared"))]
 pub trait IMFVideoPresenter_Impl: super::IMFClockStateSink_Impl {
     fn ProcessMessage(&self, emessage: MFVP_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::Result<()>;
-    fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFVideoMediaType>;
+    fn GetCurrentMediaType(&self, ppmediatype: windows_core::OutRef<super::IMFVideoMediaType>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared"))]
 impl IMFVideoPresenter_Vtbl {
@@ -1083,13 +960,7 @@ impl IMFVideoPresenter_Vtbl {
         unsafe extern "system" fn GetCurrentMediaType<Identity: IMFVideoPresenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFVideoPresenter_Impl::GetCurrentMediaType(this) {
-                    Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFVideoPresenter_Impl::GetCurrentMediaType(this, core::mem::transmute_copy(&ppmediatype)).into()
             }
         }
         Self {

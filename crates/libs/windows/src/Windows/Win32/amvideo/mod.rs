@@ -39,32 +39,20 @@ impl IBaseVideoMixer {
     pub unsafe fn SetLeadPin(&self, ipin: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLeadPin)(windows_core::Interface::as_raw(self), ipin) }
     }
-    pub unsafe fn GetLeadPin(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLeadPin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLeadPin(&self, pipin: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLeadPin)(windows_core::Interface::as_raw(self), pipin as _) }
     }
-    pub unsafe fn GetInputPinCount(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputPinCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetInputPinCount(&self, pipincount: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputPinCount)(windows_core::Interface::as_raw(self), pipincount as _) }
     }
-    pub unsafe fn IsUsingClock(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUsingClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsUsingClock(&self, pbvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsUsingClock)(windows_core::Interface::as_raw(self), pbvalue as _) }
     }
     pub unsafe fn SetUsingClock(&self, bvalue: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUsingClock)(windows_core::Interface::as_raw(self), bvalue) }
     }
-    pub unsafe fn GetClockPeriod(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClockPeriod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClockPeriod(&self, pbvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClockPeriod)(windows_core::Interface::as_raw(self), pbvalue as _) }
     }
     pub unsafe fn SetClockPeriod(&self, bvalue: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClockPeriod)(windows_core::Interface::as_raw(self), bvalue) }
@@ -84,11 +72,11 @@ pub struct IBaseVideoMixer_Vtbl {
 }
 pub trait IBaseVideoMixer_Impl: windows_core::IUnknownImpl {
     fn SetLeadPin(&self, ipin: i32) -> windows_core::Result<()>;
-    fn GetLeadPin(&self) -> windows_core::Result<i32>;
-    fn GetInputPinCount(&self) -> windows_core::Result<i32>;
-    fn IsUsingClock(&self) -> windows_core::Result<i32>;
+    fn GetLeadPin(&self, pipin: *mut i32) -> windows_core::Result<()>;
+    fn GetInputPinCount(&self, pipincount: *mut i32) -> windows_core::Result<()>;
+    fn IsUsingClock(&self, pbvalue: *mut i32) -> windows_core::Result<()>;
     fn SetUsingClock(&self, bvalue: i32) -> windows_core::Result<()>;
-    fn GetClockPeriod(&self) -> windows_core::Result<i32>;
+    fn GetClockPeriod(&self, pbvalue: *mut i32) -> windows_core::Result<()>;
     fn SetClockPeriod(&self, bvalue: i32) -> windows_core::Result<()>;
 }
 impl IBaseVideoMixer_Vtbl {
@@ -102,37 +90,19 @@ impl IBaseVideoMixer_Vtbl {
         unsafe extern "system" fn GetLeadPin<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipin: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBaseVideoMixer_Impl::GetLeadPin(this) {
-                    Ok(ok__) => {
-                        pipin.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBaseVideoMixer_Impl::GetLeadPin(this, core::mem::transmute_copy(&pipin)).into()
             }
         }
         unsafe extern "system" fn GetInputPinCount<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipincount: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBaseVideoMixer_Impl::GetInputPinCount(this) {
-                    Ok(ok__) => {
-                        pipincount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBaseVideoMixer_Impl::GetInputPinCount(this, core::mem::transmute_copy(&pipincount)).into()
             }
         }
         unsafe extern "system" fn IsUsingClock<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBaseVideoMixer_Impl::IsUsingClock(this) {
-                    Ok(ok__) => {
-                        pbvalue.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBaseVideoMixer_Impl::IsUsingClock(this, core::mem::transmute_copy(&pbvalue)).into()
             }
         }
         unsafe extern "system" fn SetUsingClock<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bvalue: i32) -> windows_core::HRESULT {
@@ -144,13 +114,7 @@ impl IBaseVideoMixer_Vtbl {
         unsafe extern "system" fn GetClockPeriod<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBaseVideoMixer_Impl::GetClockPeriod(this) {
-                    Ok(ok__) => {
-                        pbvalue.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBaseVideoMixer_Impl::GetClockPeriod(this, core::mem::transmute_copy(&pbvalue)).into()
             }
         }
         unsafe extern "system" fn SetClockPeriod<Identity: IBaseVideoMixer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bvalue: i32) -> windows_core::HRESULT {
@@ -179,11 +143,8 @@ windows_core::imp::define_interface!(IDirectDrawVideo, IDirectDrawVideo_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IDirectDrawVideo, windows_core::IUnknown);
 impl IDirectDrawVideo {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSwitches(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSwitches)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSwitches(&self, pswitches: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSwitches)(windows_core::Interface::as_raw(self), pswitches as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetSwitches(&self, switches: super::DWORD) -> windows_core::HRESULT {
@@ -213,18 +174,12 @@ impl IDirectDrawVideo {
         unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), pdirectdraw.param().abi()) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetDirectDraw(&self, ppdirectdraw: *mut Option<super::LPDIRECTDRAW>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdirectdraw)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSurfaceType(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSurfaceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSurfaceType(&self, psurfacetype: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceType)(windows_core::Interface::as_raw(self), psurfacetype as _) }
     }
     pub unsafe fn SetDefault(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self)) }
@@ -232,29 +187,20 @@ impl IDirectDrawVideo {
     pub unsafe fn UseScanLine(&self, usescanline: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UseScanLine)(windows_core::Interface::as_raw(self), usescanline) }
     }
-    pub unsafe fn CanUseScanLine(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CanUseScanLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CanUseScanLine(&self, usescanline: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CanUseScanLine)(windows_core::Interface::as_raw(self), usescanline as _) }
     }
     pub unsafe fn UseOverlayStretch(&self, useoverlaystretch: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UseOverlayStretch)(windows_core::Interface::as_raw(self), useoverlaystretch) }
     }
-    pub unsafe fn CanUseOverlayStretch(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CanUseOverlayStretch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CanUseOverlayStretch(&self, useoverlaystretch: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CanUseOverlayStretch)(windows_core::Interface::as_raw(self), useoverlaystretch as _) }
     }
     pub unsafe fn UseWhenFullScreen(&self, usewhenfullscreen: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UseWhenFullScreen)(windows_core::Interface::as_raw(self), usewhenfullscreen) }
     }
-    pub unsafe fn WillUseFullScreen(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WillUseFullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn WillUseFullScreen(&self, usewhenfullscreen: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WillUseFullScreen)(windows_core::Interface::as_raw(self), usewhenfullscreen as _) }
     }
 }
 #[repr(C)]
@@ -307,22 +253,22 @@ pub struct IDirectDrawVideo_Vtbl {
 }
 #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
-    fn GetSwitches(&self) -> windows_core::Result<super::DWORD>;
+    fn GetSwitches(&self, pswitches: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetSwitches(&self, switches: super::DWORD) -> windows_core::Result<()>;
     fn GetCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetEmulatedCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::Result<()>;
     fn GetFourCCCodes(&self, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
-    fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW>;
-    fn GetSurfaceType(&self) -> windows_core::Result<super::DWORD>;
+    fn GetDirectDraw(&self, ppdirectdraw: windows_core::OutRef<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
+    fn GetSurfaceType(&self, psurfacetype: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetDefault(&self) -> windows_core::Result<()>;
     fn UseScanLine(&self, usescanline: i32) -> windows_core::Result<()>;
-    fn CanUseScanLine(&self) -> windows_core::Result<i32>;
+    fn CanUseScanLine(&self, usescanline: *mut i32) -> windows_core::Result<()>;
     fn UseOverlayStretch(&self, useoverlaystretch: i32) -> windows_core::Result<()>;
-    fn CanUseOverlayStretch(&self) -> windows_core::Result<i32>;
+    fn CanUseOverlayStretch(&self, useoverlaystretch: *mut i32) -> windows_core::Result<()>;
     fn UseWhenFullScreen(&self, usewhenfullscreen: i32) -> windows_core::Result<()>;
-    fn WillUseFullScreen(&self) -> windows_core::Result<i32>;
+    fn WillUseFullScreen(&self, usewhenfullscreen: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl IDirectDrawVideo_Vtbl {
@@ -330,13 +276,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn GetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pswitches: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::GetSwitches(this) {
-                    Ok(ok__) => {
-                        pswitches.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::GetSwitches(this, core::mem::transmute_copy(&pswitches)).into()
             }
         }
         unsafe extern "system" fn SetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, switches: super::DWORD) -> windows_core::HRESULT {
@@ -378,25 +318,13 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn GetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirectdraw: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::GetDirectDraw(this) {
-                    Ok(ok__) => {
-                        ppdirectdraw.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::GetDirectDraw(this, core::mem::transmute_copy(&ppdirectdraw)).into()
             }
         }
         unsafe extern "system" fn GetSurfaceType<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psurfacetype: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::GetSurfaceType(this) {
-                    Ok(ok__) => {
-                        psurfacetype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::GetSurfaceType(this, core::mem::transmute_copy(&psurfacetype)).into()
             }
         }
         unsafe extern "system" fn SetDefault<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -414,13 +342,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn CanUseScanLine<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usescanline: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::CanUseScanLine(this) {
-                    Ok(ok__) => {
-                        usescanline.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::CanUseScanLine(this, core::mem::transmute_copy(&usescanline)).into()
             }
         }
         unsafe extern "system" fn UseOverlayStretch<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useoverlaystretch: i32) -> windows_core::HRESULT {
@@ -432,13 +354,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn CanUseOverlayStretch<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useoverlaystretch: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::CanUseOverlayStretch(this) {
-                    Ok(ok__) => {
-                        useoverlaystretch.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::CanUseOverlayStretch(this, core::mem::transmute_copy(&useoverlaystretch)).into()
             }
         }
         unsafe extern "system" fn UseWhenFullScreen<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usewhenfullscreen: i32) -> windows_core::HRESULT {
@@ -450,13 +366,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn WillUseFullScreen<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usewhenfullscreen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDrawVideo_Impl::WillUseFullScreen(this) {
-                    Ok(ok__) => {
-                        usewhenfullscreen.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectDrawVideo_Impl::WillUseFullScreen(this, core::mem::transmute_copy(&usewhenfullscreen)).into()
             }
         }
         Self {
@@ -488,20 +398,14 @@ impl windows_core::RuntimeName for IDirectDrawVideo {}
 windows_core::imp::define_interface!(IFullScreenVideo, IFullScreenVideo_Vtbl, 0xdd1d7110_7836_11cf_bf47_00aa0055595a);
 windows_core::imp::interface_hierarchy!(IFullScreenVideo, windows_core::IUnknown);
 impl IFullScreenVideo {
-    pub unsafe fn CountModes(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CountModes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CountModes(&self, pmodes: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CountModes)(windows_core::Interface::as_raw(self), pmodes as _) }
     }
     pub unsafe fn GetModeInfo(&self, mode: i32, pwidth: *mut i32, pheight: *mut i32, pdepth: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetModeInfo)(windows_core::Interface::as_raw(self), mode, pwidth as _, pheight as _, pdepth as _) }
     }
-    pub unsafe fn GetCurrentMode(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrentMode(&self, pmode: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentMode)(windows_core::Interface::as_raw(self), pmode as _) }
     }
     pub unsafe fn IsModeAvailable(&self, mode: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsModeAvailable)(windows_core::Interface::as_raw(self), mode) }
@@ -512,11 +416,8 @@ impl IFullScreenVideo {
     pub unsafe fn SetEnabled(&self, mode: i32, benabled: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), mode, benabled) }
     }
-    pub unsafe fn GetClipFactor(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClipFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClipFactor(&self, pclipfactor: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClipFactor)(windows_core::Interface::as_raw(self), pclipfactor as _) }
     }
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipFactor)(windows_core::Interface::as_raw(self), clipfactor) }
@@ -526,20 +427,14 @@ impl IFullScreenVideo {
         unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetMessageDrain(&self) -> windows_core::Result<super::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMessageDrain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMessageDrain(&self, hwnd: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMessageDrain)(windows_core::Interface::as_raw(self), hwnd as _) }
     }
     pub unsafe fn SetMonitor(&self, monitor: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMonitor)(windows_core::Interface::as_raw(self), monitor) }
     }
-    pub unsafe fn GetMonitor(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMonitor(&self, monitor: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), monitor as _) }
     }
     pub unsafe fn HideOnDeactivate(&self, hide: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HideOnDeactivate)(windows_core::Interface::as_raw(self), hide) }
@@ -550,11 +445,8 @@ impl IFullScreenVideo {
     pub unsafe fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCaption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strcaption)) }
     }
-    pub unsafe fn GetCaption(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCaption)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetCaption(&self, pstrcaption: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaption)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrcaption)) }
     }
     pub unsafe fn SetDefault(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self)) }
@@ -590,22 +482,22 @@ pub struct IFullScreenVideo_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IFullScreenVideo_Impl: windows_core::IUnknownImpl {
-    fn CountModes(&self) -> windows_core::Result<i32>;
+    fn CountModes(&self, pmodes: *mut i32) -> windows_core::Result<()>;
     fn GetModeInfo(&self, mode: i32, pwidth: *mut i32, pheight: *mut i32, pdepth: *mut i32) -> windows_core::Result<()>;
-    fn GetCurrentMode(&self) -> windows_core::Result<i32>;
+    fn GetCurrentMode(&self, pmode: *mut i32) -> windows_core::Result<()>;
     fn IsModeAvailable(&self, mode: i32) -> windows_core::Result<()>;
     fn IsModeEnabled(&self, mode: i32) -> windows_core::Result<()>;
     fn SetEnabled(&self, mode: i32, benabled: i32) -> windows_core::Result<()>;
-    fn GetClipFactor(&self) -> windows_core::Result<i32>;
+    fn GetClipFactor(&self, pclipfactor: *mut i32) -> windows_core::Result<()>;
     fn SetClipFactor(&self, clipfactor: i32) -> windows_core::Result<()>;
     fn SetMessageDrain(&self, hwnd: super::HWND) -> windows_core::Result<()>;
-    fn GetMessageDrain(&self) -> windows_core::Result<super::HWND>;
+    fn GetMessageDrain(&self, hwnd: *mut super::HWND) -> windows_core::Result<()>;
     fn SetMonitor(&self, monitor: i32) -> windows_core::Result<()>;
-    fn GetMonitor(&self) -> windows_core::Result<i32>;
+    fn GetMonitor(&self, monitor: *mut i32) -> windows_core::Result<()>;
     fn HideOnDeactivate(&self, hide: i32) -> windows_core::Result<()>;
     fn IsHideOnDeactivate(&self) -> windows_core::Result<()>;
     fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetCaption(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetCaption(&self, pstrcaption: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn SetDefault(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
@@ -614,13 +506,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn CountModes<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmodes: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::CountModes(this) {
-                    Ok(ok__) => {
-                        pmodes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::CountModes(this, core::mem::transmute_copy(&pmodes)).into()
             }
         }
         unsafe extern "system" fn GetModeInfo<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: i32, pwidth: *mut i32, pheight: *mut i32, pdepth: *mut i32) -> windows_core::HRESULT {
@@ -632,13 +518,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn GetCurrentMode<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::GetCurrentMode(this) {
-                    Ok(ok__) => {
-                        pmode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::GetCurrentMode(this, core::mem::transmute_copy(&pmode)).into()
             }
         }
         unsafe extern "system" fn IsModeAvailable<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: i32) -> windows_core::HRESULT {
@@ -662,13 +542,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn GetClipFactor<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipfactor: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::GetClipFactor(this) {
-                    Ok(ok__) => {
-                        pclipfactor.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::GetClipFactor(this, core::mem::transmute_copy(&pclipfactor)).into()
             }
         }
         unsafe extern "system" fn SetClipFactor<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipfactor: i32) -> windows_core::HRESULT {
@@ -686,13 +560,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn GetMessageDrain<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::GetMessageDrain(this) {
-                    Ok(ok__) => {
-                        hwnd.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::GetMessageDrain(this, core::mem::transmute_copy(&hwnd)).into()
             }
         }
         unsafe extern "system" fn SetMonitor<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: i32) -> windows_core::HRESULT {
@@ -704,13 +572,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn GetMonitor<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::GetMonitor(this) {
-                    Ok(ok__) => {
-                        monitor.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
             }
         }
         unsafe extern "system" fn HideOnDeactivate<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hide: i32) -> windows_core::HRESULT {
@@ -734,13 +596,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn GetCaption<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideo_Impl::GetCaption(this) {
-                    Ok(ok__) => {
-                        pstrcaption.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideo_Impl::GetCaption(this, core::mem::transmute_copy(&pstrcaption)).into()
             }
         }
         unsafe extern "system" fn SetDefault<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -796,11 +652,8 @@ impl IFullScreenVideoEx {
     pub unsafe fn KeepPixelAspectRatio(&self, keepaspect: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KeepPixelAspectRatio)(windows_core::Interface::as_raw(self), keepaspect) }
     }
-    pub unsafe fn IsKeepPixelAspectRatio(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsKeepPixelAspectRatio)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsKeepPixelAspectRatio(&self, pkeepaspect: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsKeepPixelAspectRatio)(windows_core::Interface::as_raw(self), pkeepaspect as _) }
     }
 }
 #[repr(C)]
@@ -823,7 +676,7 @@ pub trait IFullScreenVideoEx_Impl: IFullScreenVideo_Impl {
     fn SetAcceleratorTable(&self, hwnd: super::HWND, haccel: super::HACCEL) -> windows_core::Result<()>;
     fn GetAcceleratorTable(&self, phwnd: *mut super::HWND, phaccel: *mut super::HACCEL) -> windows_core::Result<()>;
     fn KeepPixelAspectRatio(&self, keepaspect: i32) -> windows_core::Result<()>;
-    fn IsKeepPixelAspectRatio(&self) -> windows_core::Result<i32>;
+    fn IsKeepPixelAspectRatio(&self, pkeepaspect: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IFullScreenVideoEx_Vtbl {
@@ -849,13 +702,7 @@ impl IFullScreenVideoEx_Vtbl {
         unsafe extern "system" fn IsKeepPixelAspectRatio<Identity: IFullScreenVideoEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkeepaspect: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFullScreenVideoEx_Impl::IsKeepPixelAspectRatio(this) {
-                    Ok(ok__) => {
-                        pkeepaspect.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFullScreenVideoEx_Impl::IsKeepPixelAspectRatio(this, core::mem::transmute_copy(&pkeepaspect)).into()
             }
         }
         Self {
@@ -875,41 +722,23 @@ impl windows_core::RuntimeName for IFullScreenVideoEx {}
 windows_core::imp::define_interface!(IQualProp, IQualProp_Vtbl, 0x1bd0ecb0_f8e2_11ce_aac6_0020af0b99a3);
 windows_core::imp::interface_hierarchy!(IQualProp, windows_core::IUnknown);
 impl IQualProp {
-    pub unsafe fn get_FramesDroppedInRenderer(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_FramesDroppedInRenderer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_FramesDroppedInRenderer(&self, pcframes: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_FramesDroppedInRenderer)(windows_core::Interface::as_raw(self), pcframes as _) }
     }
-    pub unsafe fn get_FramesDrawn(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_FramesDrawn)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_FramesDrawn(&self, pcframesdrawn: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_FramesDrawn)(windows_core::Interface::as_raw(self), pcframesdrawn as _) }
     }
-    pub unsafe fn get_AvgFrameRate(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AvgFrameRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_AvgFrameRate(&self, piavgframerate: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_AvgFrameRate)(windows_core::Interface::as_raw(self), piavgframerate as _) }
     }
-    pub unsafe fn get_Jitter(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Jitter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_Jitter(&self, ijitter: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_Jitter)(windows_core::Interface::as_raw(self), ijitter as _) }
     }
-    pub unsafe fn get_AvgSyncOffset(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AvgSyncOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_AvgSyncOffset(&self, piavg: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_AvgSyncOffset)(windows_core::Interface::as_raw(self), piavg as _) }
     }
-    pub unsafe fn get_DevSyncOffset(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_DevSyncOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_DevSyncOffset(&self, pidev: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_DevSyncOffset)(windows_core::Interface::as_raw(self), pidev as _) }
     }
 }
 #[repr(C)]
@@ -924,85 +753,49 @@ pub struct IQualProp_Vtbl {
     pub get_DevSyncOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IQualProp_Impl: windows_core::IUnknownImpl {
-    fn get_FramesDroppedInRenderer(&self) -> windows_core::Result<i32>;
-    fn get_FramesDrawn(&self) -> windows_core::Result<i32>;
-    fn get_AvgFrameRate(&self) -> windows_core::Result<i32>;
-    fn get_Jitter(&self) -> windows_core::Result<i32>;
-    fn get_AvgSyncOffset(&self) -> windows_core::Result<i32>;
-    fn get_DevSyncOffset(&self) -> windows_core::Result<i32>;
+    fn get_FramesDroppedInRenderer(&self, pcframes: *mut i32) -> windows_core::Result<()>;
+    fn get_FramesDrawn(&self, pcframesdrawn: *mut i32) -> windows_core::Result<()>;
+    fn get_AvgFrameRate(&self, piavgframerate: *mut i32) -> windows_core::Result<()>;
+    fn get_Jitter(&self, ijitter: *mut i32) -> windows_core::Result<()>;
+    fn get_AvgSyncOffset(&self, piavg: *mut i32) -> windows_core::Result<()>;
+    fn get_DevSyncOffset(&self, pidev: *mut i32) -> windows_core::Result<()>;
 }
 impl IQualProp_Vtbl {
     pub const fn new<Identity: IQualProp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_FramesDroppedInRenderer<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcframes: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_FramesDroppedInRenderer(this) {
-                    Ok(ok__) => {
-                        pcframes.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_FramesDroppedInRenderer(this, core::mem::transmute_copy(&pcframes)).into()
             }
         }
         unsafe extern "system" fn get_FramesDrawn<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcframesdrawn: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_FramesDrawn(this) {
-                    Ok(ok__) => {
-                        pcframesdrawn.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_FramesDrawn(this, core::mem::transmute_copy(&pcframesdrawn)).into()
             }
         }
         unsafe extern "system" fn get_AvgFrameRate<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piavgframerate: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_AvgFrameRate(this) {
-                    Ok(ok__) => {
-                        piavgframerate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_AvgFrameRate(this, core::mem::transmute_copy(&piavgframerate)).into()
             }
         }
         unsafe extern "system" fn get_Jitter<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ijitter: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_Jitter(this) {
-                    Ok(ok__) => {
-                        ijitter.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_Jitter(this, core::mem::transmute_copy(&ijitter)).into()
             }
         }
         unsafe extern "system" fn get_AvgSyncOffset<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piavg: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_AvgSyncOffset(this) {
-                    Ok(ok__) => {
-                        piavg.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_AvgSyncOffset(this, core::mem::transmute_copy(&piavg)).into()
             }
         }
         unsafe extern "system" fn get_DevSyncOffset<Identity: IQualProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidev: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQualProp_Impl::get_DevSyncOffset(this) {
-                    Ok(ok__) => {
-                        pidev.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQualProp_Impl::get_DevSyncOffset(this, core::mem::transmute_copy(&pidev)).into()
             }
         }
         Self {

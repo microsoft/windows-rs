@@ -9,12 +9,9 @@ where
 }
 #[cfg(feature = "transact")]
 #[inline]
-pub unsafe fn MQBeginTransaction() -> windows_core::Result<super::ITransaction> {
+pub unsafe fn MQBeginTransaction(pptransaction: *mut Option<super::ITransaction>) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQBeginTransaction(pptransaction : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        MQBeginTransaction(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { MQBeginTransaction(core::mem::transmute(pptransaction)) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -151,12 +151,9 @@ pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: HPAINTBUFFER) -> super::H
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: HPAINTBUFFER) -> windows_core::Result<super::RECT> {
+pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: HPAINTBUFFER, prc: *mut super::RECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : HPAINTBUFFER, prc : *mut super::RECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetBufferedPaintTargetRect(hbufferedpaint, &mut result__).map(|| result__)
-    }
+    unsafe { GetBufferedPaintTargetRect(hbufferedpaint, prc as _) }
 }
 #[inline]
 pub unsafe fn GetCurrentThemeName(pszthemefilename: windows_core::PWSTR, cchmaxnamechars: i32, pszcolorbuff: Option<windows_core::PWSTR>, cchmaxcolorchars: i32, pszsizebuff: Option<windows_core::PWSTR>, cchmaxsizechars: i32) -> windows_core::HRESULT {
@@ -183,57 +180,39 @@ pub unsafe fn GetThemeAppProperties() -> super::DWORD {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundContentRect(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pboundingrect: super::LPCRECT) -> windows_core::Result<super::RECT> {
+pub unsafe fn GetThemeBackgroundContentRect(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pboundingrect: super::LPCRECT, pcontentrect: super::LPRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pboundingrect : super::LPCRECT, pcontentrect : super::LPRECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeBackgroundContentRect(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pboundingrect, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeBackgroundContentRect(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pboundingrect, pcontentrect as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundExtent(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pcontentrect: super::LPCRECT) -> windows_core::Result<super::RECT> {
+pub unsafe fn GetThemeBackgroundExtent(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pcontentrect: super::LPCRECT, pextentrect: super::LPRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pcontentrect : super::LPCRECT, pextentrect : super::LPRECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeBackgroundExtent(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pcontentrect, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeBackgroundExtent(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pcontentrect, pextentrect as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundRegion(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prect: super::LPCRECT) -> windows_core::Result<super::HRGN> {
+pub unsafe fn GetThemeBackgroundRegion(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prect: super::LPCRECT, pregion: *mut super::HRGN) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : super::LPCRECT, pregion : *mut super::HRGN) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeBackgroundRegion(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prect, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeBackgroundRegion(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prect, pregion as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeBitmap(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, dwflags: super::ULONG) -> windows_core::Result<super::HBITMAP> {
+pub unsafe fn GetThemeBitmap(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, dwflags: super::ULONG, phbitmap: *mut super::HBITMAP) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : super::ULONG, phbitmap : *mut super::HBITMAP) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeBitmap(htheme, ipartid, istateid, ipropid, dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeBitmap(htheme, ipartid, istateid, ipropid, dwflags, phbitmap as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemeBool(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn GetThemeBool(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeBool(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeBool(htheme, ipartid, istateid, ipropid, pfval as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeColor(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::COLORREF> {
+pub unsafe fn GetThemeColor(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pcolor: *mut super::COLORREF) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::COLORREF) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeColor(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeColor(htheme, ipartid, istateid, ipropid, pcolor as _) }
 }
 #[inline]
 pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: windows_core::PWSTR, cchmaxvalchars: i32) -> windows_core::HRESULT
@@ -246,12 +225,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemeEnumValue(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<i32> {
+pub unsafe fn GetThemeEnumValue(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeEnumValue(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeEnumValue(htheme, ipartid, istateid, ipropid, pival as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -267,12 +243,9 @@ pub unsafe fn GetThemeFont(htheme: super::HTHEME, hdc: Option<super::HDC>, ipart
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemeInt(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<i32> {
+pub unsafe fn GetThemeInt(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeInt(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeInt(htheme, ipartid, istateid, ipropid, pival as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -282,57 +255,39 @@ pub unsafe fn GetThemeIntList(htheme: super::HTHEME, ipartid: i32, istateid: i32
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeMargins(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32, prc: Option<super::LPCRECT>) -> windows_core::Result<MARGINS> {
+pub unsafe fn GetThemeMargins(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32, prc: Option<super::LPCRECT>, pmargins: *mut MARGINS) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : super::LPCRECT, pmargins : *mut MARGINS) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeMargins(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, ipropid, prc.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeMargins(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, ipropid, prc.unwrap_or(core::mem::zeroed()) as _, pmargins as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeMetric(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<i32> {
+pub unsafe fn GetThemeMetric(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeMetric(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeMetric(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, ipropid, pival as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemePartSize(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prc: Option<super::LPCRECT>, esize: THEMESIZE) -> windows_core::Result<super::SIZE> {
+pub unsafe fn GetThemePartSize(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prc: Option<super::LPCRECT>, esize: THEMESIZE, psz: *mut super::SIZE) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prc : super::LPCRECT, esize : THEMESIZE, psz : *mut super::SIZE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemePartSize(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prc.unwrap_or(core::mem::zeroed()) as _, esize, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemePartSize(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prc.unwrap_or(core::mem::zeroed()) as _, esize, psz as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemePosition(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::POINT> {
+pub unsafe fn GetThemePosition(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, ppoint: *mut super::POINT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::POINT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemePosition(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemePosition(htheme, ipartid, istateid, ipropid, ppoint as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemePropertyOrigin(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<PROPERTYORIGIN> {
+pub unsafe fn GetThemePropertyOrigin(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, porigin: *mut PROPERTYORIGIN) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemePropertyOrigin(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemePropertyOrigin(htheme, ipartid, istateid, ipropid, porigin as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeRect(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::RECT> {
+pub unsafe fn GetThemeRect(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, prect: super::LPRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : super::LPRECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeRect(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeRect(htheme, ipartid, istateid, ipropid, prect as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -372,12 +327,9 @@ pub unsafe fn GetThemeSysFont(htheme: Option<super::HTHEME>, ifontid: i32, plf: 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemeSysInt(htheme: super::HTHEME, iintid: i32) -> windows_core::Result<i32> {
+pub unsafe fn GetThemeSysInt(htheme: super::HTHEME, iintid: i32, pivalue: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : super::HTHEME, iintid : i32, pivalue : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeSysInt(htheme, iintid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeSysInt(htheme, iintid, pivalue as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -393,12 +345,9 @@ pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstring
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::DWORD, pboundingrect: Option<super::LPCRECT>) -> windows_core::Result<super::RECT> {
+pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::DWORD, pboundingrect: Option<super::LPCRECT>, pextentrect: super::LPRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : super::DWORD, pboundingrect : super::LPCRECT, pextentrect : super::LPRECT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeTextExtent(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeTextExtent(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, pextentrect as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
@@ -414,12 +363,9 @@ pub unsafe fn GetThemeTimingFunction(htheme: super::HTHEME, itimingfunctionid: i
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetThemeTransitionDuration(htheme: super::HTHEME, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> windows_core::Result<super::DWORD> {
+pub unsafe fn GetThemeTransitionDuration(htheme: super::HTHEME, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32, pdwduration: *mut super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : super::HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetThemeTransitionDuration(htheme, ipartid, istateidfrom, istateidto, ipropid, &mut result__).map(|| result__)
-    }
+    unsafe { GetThemeTransitionDuration(htheme, ipartid, istateidfrom, istateidto, ipropid, pdwduration as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -429,12 +375,9 @@ pub unsafe fn GetWindowTheme(hwnd: super::HWND) -> super::HTHEME {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn HitTestThemeBackground(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, dwoptions: super::DWORD, prect: super::LPCRECT, hrgn: Option<super::HRGN>, pttest: super::POINT) -> windows_core::Result<super::WORD> {
+pub unsafe fn HitTestThemeBackground(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, dwoptions: super::DWORD, prect: super::LPCRECT, hrgn: Option<super::HRGN>, pttest: super::POINT, pwhittestcode: *mut super::WORD) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, dwoptions : super::DWORD, prect : super::LPCRECT, hrgn : super::HRGN, pttest : super::POINT, pwhittestcode : *mut super::WORD) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, pttest, &mut result__).map(|| result__)
-    }
+    unsafe { HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, pttest, pwhittestcode as _) }
 }
 #[inline]
 pub unsafe fn IsAppThemed() -> windows_core::BOOL {

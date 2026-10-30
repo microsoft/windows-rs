@@ -30,15 +30,17 @@ impl IInitializeWithStream_Impl for Object_Impl {
 }
 
 impl IPropertyStore_Impl for Object_Impl {
-    fn GetCount(&self) -> Result<u32> {
-        Ok(123)
+    fn GetCount(&self, count: *mut u32) -> Result<()> {
+        unsafe { *count = 123 };
+        Ok(())
     }
     fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<()> {
         unimplemented!()
     }
-    fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {
+    fn GetValue(&self, _: *const PROPERTYKEY, value: *mut PROPVARIANT) -> Result<()> {
         let reader = self.0.read().unwrap();
-        Ok(reader.clone())
+        unsafe { value.write(reader.clone()) };
+        Ok(())
     }
     fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> Result<()> {
         let mut writer = self.0.write().unwrap();
@@ -63,10 +65,14 @@ fn test() -> Result<()> {
         a.Initialize(None, 0).ok()?;
 
         let b: IPropertyStore = a.cast()?;
-        assert!(b.GetCount()? == 123);
+        let mut count = 0;
+        b.GetCount(&mut count).ok()?;
+        assert!(count == 123);
 
         b.SetValue(std::ptr::null(), &propvariant(123)).ok()?;
-        assert_eq!(123, propvariant_value(&b.GetValue(std::ptr::null())?));
+        let mut value = PROPVARIANT::default();
+        b.GetValue(std::ptr::null(), &mut value).ok()?;
+        assert_eq!(123, propvariant_value(&value));
 
         let c: IPropertyStoreCapabilities = b.cast()?;
         c.IsPropertyWritable(&PROPERTYKEY::default()).ok()?;

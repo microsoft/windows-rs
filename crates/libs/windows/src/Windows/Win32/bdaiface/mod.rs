@@ -37,11 +37,8 @@ windows_core::imp::define_interface!(IBDA_AUX, IBDA_AUX_Vtbl, 0x7def4c09_6e66_45
 windows_core::imp::interface_hierarchy!(IBDA_AUX, windows_core::IUnknown);
 impl IBDA_AUX {
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryCapabilities(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryCapabilities(&self, pdwnumauxinputsbstr: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryCapabilities)(windows_core::Interface::as_raw(self), pdwnumauxinputsbstr as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn EnumCapability(&self, dwindex: super::DWORD, dwinputid: *mut super::DWORD, pconnectortype: *mut windows_core::GUID, conntypenum: *mut super::DWORD, numvideostds: *mut super::DWORD, analogstds: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -63,7 +60,7 @@ pub struct IBDA_AUX_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IBDA_AUX_Impl: windows_core::IUnknownImpl {
-    fn QueryCapabilities(&self) -> windows_core::Result<super::DWORD>;
+    fn QueryCapabilities(&self, pdwnumauxinputsbstr: *mut super::DWORD) -> windows_core::Result<()>;
     fn EnumCapability(&self, dwindex: super::DWORD, dwinputid: *mut super::DWORD, pconnectortype: *mut windows_core::GUID, conntypenum: *mut super::DWORD, numvideostds: *mut super::DWORD, analogstds: *mut super::ULONGLONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -72,13 +69,7 @@ impl IBDA_AUX_Vtbl {
         unsafe extern "system" fn QueryCapabilities<Identity: IBDA_AUX_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumauxinputsbstr: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_AUX_Impl::QueryCapabilities(this) {
-                    Ok(ok__) => {
-                        pdwnumauxinputsbstr.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_AUX_Impl::QueryCapabilities(this, core::mem::transmute_copy(&pdwnumauxinputsbstr)).into()
             }
         }
         unsafe extern "system" fn EnumCapability<Identity: IBDA_AUX_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, dwinputid: *mut super::DWORD, pconnectortype: *mut windows_core::GUID, conntypenum: *mut super::DWORD, numvideostds: *mut super::DWORD, analogstds: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -225,11 +216,8 @@ impl IBDA_ConditionalAccess {
         unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, rgapplications.len().try_into().unwrap(), rgapplications.as_mut_ptr()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn get_Entitlement(&self, usvirtualchannel: super::USHORT) -> windows_core::Result<EntitlementType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Entitlement)(windows_core::Interface::as_raw(self), usvirtualchannel, &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_Entitlement(&self, usvirtualchannel: super::USHORT, pentitlement: *mut EntitlementType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_Entitlement)(windows_core::Interface::as_raw(self), usvirtualchannel, pentitlement as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn TuneByChannel(&self, usvirtualchannel: super::USHORT) -> windows_core::HRESULT {
@@ -248,11 +236,8 @@ impl IBDA_ConditionalAccess {
         unsafe { (windows_core::Interface::vtable(self).RemoveProgram)(windows_core::Interface::as_raw(self), usprogramnumber) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetModuleUI(&self, bydialognumber: super::BYTE) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetModuleUI)(windows_core::Interface::as_raw(self), bydialognumber, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetModuleUI(&self, bydialognumber: super::BYTE, pbstrurl: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetModuleUI)(windows_core::Interface::as_raw(self), bydialognumber, core::mem::transmute(pbstrurl)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn InformUIClosed(&self, bydialognumber: super::BYTE, closereason: UICloseReasonType) -> windows_core::HRESULT {
@@ -309,12 +294,12 @@ pub trait IBDA_ConditionalAccess_Impl: windows_core::IUnknownImpl {
     fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut windows_core::BSTR, pfooblocked: *mut super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn get_SmartCardInfo(&self, pbstrcardname: *mut windows_core::BSTR, pbstrcardmanufacturer: *mut windows_core::BSTR, pfdaylightsavings: *mut super::VARIANT_BOOL, pbyratingregion: *mut super::BYTE, pltimezoneoffsetminutes: *mut super::LONG, pbstrlanguage: *mut windows_core::BSTR, pealocationcode: *mut EALocationCodeType) -> windows_core::Result<()>;
     fn get_SmartCardApplications(&self, pulcapplications: *mut super::ULONG, ulcapplicationsmax: super::ULONG, rgapplications: *mut SmartCardApplication) -> windows_core::Result<()>;
-    fn get_Entitlement(&self, usvirtualchannel: super::USHORT) -> windows_core::Result<EntitlementType>;
+    fn get_Entitlement(&self, usvirtualchannel: super::USHORT, pentitlement: *mut EntitlementType) -> windows_core::Result<()>;
     fn TuneByChannel(&self, usvirtualchannel: super::USHORT) -> windows_core::Result<()>;
     fn SetProgram(&self, usprogramnumber: super::USHORT) -> windows_core::Result<()>;
     fn AddProgram(&self, usprogramnumber: super::USHORT) -> windows_core::Result<()>;
     fn RemoveProgram(&self, usprogramnumber: super::USHORT) -> windows_core::Result<()>;
-    fn GetModuleUI(&self, bydialognumber: super::BYTE) -> windows_core::Result<windows_core::BSTR>;
+    fn GetModuleUI(&self, bydialognumber: super::BYTE, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn InformUIClosed(&self, bydialognumber: super::BYTE, closereason: UICloseReasonType) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared", feature = "wtypes"))]
@@ -341,13 +326,7 @@ impl IBDA_ConditionalAccess_Vtbl {
         unsafe extern "system" fn get_Entitlement<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usvirtualchannel: super::USHORT, pentitlement: *mut EntitlementType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_ConditionalAccess_Impl::get_Entitlement(this, core::mem::transmute_copy(&usvirtualchannel)) {
-                    Ok(ok__) => {
-                        pentitlement.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_ConditionalAccess_Impl::get_Entitlement(this, core::mem::transmute_copy(&usvirtualchannel), core::mem::transmute_copy(&pentitlement)).into()
             }
         }
         unsafe extern "system" fn TuneByChannel<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usvirtualchannel: super::USHORT) -> windows_core::HRESULT {
@@ -377,13 +356,7 @@ impl IBDA_ConditionalAccess_Vtbl {
         unsafe extern "system" fn GetModuleUI<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bydialognumber: super::BYTE, pbstrurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_ConditionalAccess_Impl::GetModuleUI(this, core::mem::transmute_copy(&bydialognumber)) {
-                    Ok(ok__) => {
-                        pbstrurl.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_ConditionalAccess_Impl::GetModuleUI(this, core::mem::transmute_copy(&bydialognumber), core::mem::transmute_copy(&pbstrurl)).into()
             }
         }
         unsafe extern "system" fn InformUIClosed<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bydialognumber: super::BYTE, closereason: UICloseReasonType) -> windows_core::HRESULT {
@@ -416,11 +389,8 @@ windows_core::imp::define_interface!(IBDA_ConditionalAccessEx, IBDA_ConditionalA
 windows_core::imp::interface_hierarchy!(IBDA_ConditionalAccessEx, windows_core::IUnknown);
 impl IBDA_ConditionalAccessEx {
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, pbentitlementtoken: &[super::BYTE]) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckEntitlementToken)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), requesttype, pbentitlementtoken.len().try_into().unwrap(), pbentitlementtoken.as_ptr(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, pbentitlementtoken: &[super::BYTE], puldescramblestatus: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CheckEntitlementToken)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), requesttype, pbentitlementtoken.len().try_into().unwrap(), pbentitlementtoken.as_ptr(), puldescramblestatus as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetCaptureToken(&self, pbcapturetoken: &[super::BYTE]) -> windows_core::HRESULT {
@@ -431,18 +401,12 @@ impl IBDA_ConditionalAccessEx {
         unsafe { (windows_core::Interface::vtable(self).OpenBroadcastMmi)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), eventid) }
     }
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn CloseMmiDialog(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, uldialognumber: super::ULONG, reasoncode: super::BDA_CONDITIONALACCESS_MMICLOSEREASON) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CloseMmiDialog)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), uldialognumber, reasoncode, &mut result__).map(|| result__)
-        }
+    pub unsafe fn CloseMmiDialog(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, uldialognumber: super::ULONG, reasoncode: super::BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseMmiDialog)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), uldialognumber, reasoncode, pulsessionresult as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateDialogRequestNumber(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDialogRequestNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CreateDialogRequestNumber(&self, puldialogrequestnumber: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateDialogRequestNumber)(windows_core::Interface::as_raw(self), puldialogrequestnumber as _) }
     }
 }
 #[repr(C)]
@@ -472,11 +436,11 @@ pub struct IBDA_ConditionalAccessEx_Vtbl {
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 pub trait IBDA_ConditionalAccessEx_Impl: windows_core::IUnknownImpl {
-    fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: super::ULONG, pbentitlementtoken: *const super::BYTE) -> windows_core::Result<super::ULONG>;
+    fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: super::ULONG, pbentitlementtoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetCaptureToken(&self, ulcbcapturetokenlen: super::ULONG, pbcapturetoken: *const super::BYTE) -> windows_core::Result<()>;
     fn OpenBroadcastMmi(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, eventid: super::ULONG) -> windows_core::Result<()>;
-    fn CloseMmiDialog(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, uldialognumber: super::ULONG, reasoncode: super::BDA_CONDITIONALACCESS_MMICLOSEREASON) -> windows_core::Result<super::ULONG>;
-    fn CreateDialogRequestNumber(&self) -> windows_core::Result<super::ULONG>;
+    fn CloseMmiDialog(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, uldialognumber: super::ULONG, reasoncode: super::BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut super::ULONG) -> windows_core::Result<()>;
+    fn CreateDialogRequestNumber(&self, puldialogrequestnumber: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 impl IBDA_ConditionalAccessEx_Vtbl {
@@ -484,13 +448,7 @@ impl IBDA_ConditionalAccessEx_Vtbl {
         unsafe extern "system" fn CheckEntitlementToken<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: super::ULONG, bstrlanguage: *mut core::ffi::c_void, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: super::ULONG, pbentitlementtoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_ConditionalAccessEx_Impl::CheckEntitlementToken(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&ulcbentitlementtokenlen), core::mem::transmute_copy(&pbentitlementtoken)) {
-                    Ok(ok__) => {
-                        puldescramblestatus.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_ConditionalAccessEx_Impl::CheckEntitlementToken(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&ulcbentitlementtokenlen), core::mem::transmute_copy(&pbentitlementtoken), core::mem::transmute_copy(&puldescramblestatus)).into()
             }
         }
         unsafe extern "system" fn SetCaptureToken<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcbcapturetokenlen: super::ULONG, pbcapturetoken: *const super::BYTE) -> windows_core::HRESULT {
@@ -508,25 +466,13 @@ impl IBDA_ConditionalAccessEx_Vtbl {
         unsafe extern "system" fn CloseMmiDialog<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: super::ULONG, bstrlanguage: *mut core::ffi::c_void, uldialognumber: super::ULONG, reasoncode: super::BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_ConditionalAccessEx_Impl::CloseMmiDialog(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&uldialognumber), core::mem::transmute_copy(&reasoncode)) {
-                    Ok(ok__) => {
-                        pulsessionresult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_ConditionalAccessEx_Impl::CloseMmiDialog(this, core::mem::transmute_copy(&uldialogrequest), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&uldialognumber), core::mem::transmute_copy(&reasoncode), core::mem::transmute_copy(&pulsessionresult)).into()
             }
         }
         unsafe extern "system" fn CreateDialogRequestNumber<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puldialogrequestnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_ConditionalAccessEx_Impl::CreateDialogRequestNumber(this) {
-                    Ok(ok__) => {
-                        puldialogrequestnumber.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_ConditionalAccessEx_Impl::CreateDialogRequestNumber(this, core::mem::transmute_copy(&puldialogrequestnumber)).into()
             }
         }
         Self {
@@ -1767,11 +1713,8 @@ impl IBDA_EthernetFilter {
         unsafe { (windows_core::Interface::vtable(self).PutMulticastMode)(windows_core::Interface::as_raw(self), ulmodemask) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), pulmodemask as _) }
     }
 }
 #[repr(C)]
@@ -1805,7 +1748,7 @@ pub trait IBDA_EthernetFilter_Impl: windows_core::IUnknownImpl {
     fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::Result<()>;
     fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::Result<()>;
     fn PutMulticastMode(&self, ulmodemask: super::ULONG) -> windows_core::Result<()>;
-    fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG>;
+    fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_EthernetFilter_Vtbl {
@@ -1837,13 +1780,7 @@ impl IBDA_EthernetFilter_Vtbl {
         unsafe extern "system" fn GetMulticastMode<Identity: IBDA_EthernetFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_EthernetFilter_Impl::GetMulticastMode(this) {
-                    Ok(ok__) => {
-                        pulmodemask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_EthernetFilter_Impl::GetMulticastMode(this, core::mem::transmute_copy(&pulmodemask)).into()
             }
         }
         Self {
@@ -1910,20 +1847,14 @@ impl IBDA_FDC {
         unsafe { (windows_core::Interface::vtable(self).RequestTables)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tableids)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddPid(&self, pidstoadd: &windows_core::BSTR) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddPid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pidstoadd), &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddPid(&self, pidstoadd: &windows_core::BSTR, remainingfilterentries: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pidstoadd), remainingfilterentries as _) }
     }
     pub unsafe fn RemovePid(&self, pidstoremove: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemovePid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pidstoremove)) }
     }
-    pub unsafe fn AddTid(&self, tidstoadd: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddTid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tidstoadd), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn AddTid(&self, tidstoadd: &windows_core::BSTR, currenttidlist: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tidstoadd), core::mem::transmute(currenttidlist)) }
     }
     pub unsafe fn RemoveTid(&self, tidstoremove: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveTid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tidstoremove)) }
@@ -1958,9 +1889,9 @@ pub struct IBDA_FDC_Vtbl {
 pub trait IBDA_FDC_Impl: windows_core::IUnknownImpl {
     fn GetStatus(&self, currentbitrate: *mut super::DWORD, carrierlock: *mut windows_core::BOOL, currentfrequency: *mut super::DWORD, currentspectruminversion: *mut windows_core::BOOL, currentpidlist: *mut windows_core::BSTR, currenttidlist: *mut windows_core::BSTR, overflow: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn RequestTables(&self, tableids: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddPid(&self, pidstoadd: &windows_core::BSTR) -> windows_core::Result<super::DWORD>;
+    fn AddPid(&self, pidstoadd: &windows_core::BSTR, remainingfilterentries: *mut super::DWORD) -> windows_core::Result<()>;
     fn RemovePid(&self, pidstoremove: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddTid(&self, tidstoadd: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn AddTid(&self, tidstoadd: &windows_core::BSTR, currenttidlist: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn RemoveTid(&self, tidstoremove: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetTableSection(&self, pid: *mut super::DWORD, maxbuffersize: super::DWORD, actualsize: *mut super::DWORD, secbuffer: *mut super::BYTE) -> windows_core::Result<()>;
 }
@@ -1982,13 +1913,7 @@ impl IBDA_FDC_Vtbl {
         unsafe extern "system" fn AddPid<Identity: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoadd: *mut core::ffi::c_void, remainingfilterentries: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_FDC_Impl::AddPid(this, core::mem::transmute(&pidstoadd)) {
-                    Ok(ok__) => {
-                        remainingfilterentries.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_FDC_Impl::AddPid(this, core::mem::transmute(&pidstoadd), core::mem::transmute_copy(&remainingfilterentries)).into()
             }
         }
         unsafe extern "system" fn RemovePid<Identity: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstoremove: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2000,13 +1925,7 @@ impl IBDA_FDC_Vtbl {
         unsafe extern "system" fn AddTid<Identity: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoadd: *mut core::ffi::c_void, currenttidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_FDC_Impl::AddTid(this, core::mem::transmute(&tidstoadd)) {
-                    Ok(ok__) => {
-                        currenttidlist.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_FDC_Impl::AddTid(this, core::mem::transmute(&tidstoadd), core::mem::transmute_copy(&currenttidlist)).into()
             }
         }
         unsafe extern "system" fn RemoveTid<Identity: IBDA_FDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidstoremove: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2258,11 +2177,8 @@ impl windows_core::RuntimeName for IBDA_FrequencyFilter {}
 windows_core::imp::define_interface!(IBDA_GuideDataDeliveryService, IBDA_GuideDataDeliveryService_Vtbl, 0xc0afcb73_23e7_4bc6_bafa_fdc167b4719f);
 windows_core::imp::interface_hierarchy!(IBDA_GuideDataDeliveryService, windows_core::IUnknown);
 impl IBDA_GuideDataDeliveryService {
-    pub unsafe fn GetGuideDataType(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGuideDataType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetGuideDataType(&self, pguiddatatype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGuideDataType)(windows_core::Interface::as_raw(self), pguiddatatype as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetGuideData(&self, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE, pulguidedatapercentageprogress: *mut super::ULONG) -> windows_core::HRESULT {
@@ -2272,21 +2188,15 @@ impl IBDA_GuideDataDeliveryService {
         unsafe { (windows_core::Interface::vtable(self).RequestGuideDataUpdate)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTuneXmlFromServiceIdx(&self, ul64serviceidx: super::ULONG64) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTuneXmlFromServiceIdx)(windows_core::Interface::as_raw(self), ul64serviceidx, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetTuneXmlFromServiceIdx(&self, ul64serviceidx: super::ULONG64, pbstrtunexml: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTuneXmlFromServiceIdx)(windows_core::Interface::as_raw(self), ul64serviceidx, core::mem::transmute(pbstrtunexml)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetServices(&self, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetServices)(windows_core::Interface::as_raw(self), pulcbbufferlen as _, pbbuffer as _) }
     }
-    pub unsafe fn GetServiceInfoFromTuneXml(&self, bstrtunexml: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetServiceInfoFromTuneXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtunexml), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetServiceInfoFromTuneXml(&self, bstrtunexml: &windows_core::BSTR, pbstrservicedescription: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetServiceInfoFromTuneXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtunexml), core::mem::transmute(pbstrservicedescription)) }
     }
 }
 #[repr(C)]
@@ -2311,12 +2221,12 @@ pub struct IBDA_GuideDataDeliveryService_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IBDA_GuideDataDeliveryService_Impl: windows_core::IUnknownImpl {
-    fn GetGuideDataType(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetGuideDataType(&self, pguiddatatype: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetGuideData(&self, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE, pulguidedatapercentageprogress: *mut super::ULONG) -> windows_core::Result<()>;
     fn RequestGuideDataUpdate(&self) -> windows_core::Result<()>;
-    fn GetTuneXmlFromServiceIdx(&self, ul64serviceidx: super::ULONG64) -> windows_core::Result<windows_core::BSTR>;
+    fn GetTuneXmlFromServiceIdx(&self, ul64serviceidx: super::ULONG64, pbstrtunexml: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetServices(&self, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE) -> windows_core::Result<()>;
-    fn GetServiceInfoFromTuneXml(&self, bstrtunexml: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn GetServiceInfoFromTuneXml(&self, bstrtunexml: &windows_core::BSTR, pbstrservicedescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_GuideDataDeliveryService_Vtbl {
@@ -2324,13 +2234,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
         unsafe extern "system" fn GetGuideDataType<Identity: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguiddatatype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_GuideDataDeliveryService_Impl::GetGuideDataType(this) {
-                    Ok(ok__) => {
-                        pguiddatatype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_GuideDataDeliveryService_Impl::GetGuideDataType(this, core::mem::transmute_copy(&pguiddatatype)).into()
             }
         }
         unsafe extern "system" fn GetGuideData<Identity: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE, pulguidedatapercentageprogress: *mut super::ULONG) -> windows_core::HRESULT {
@@ -2348,13 +2252,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
         unsafe extern "system" fn GetTuneXmlFromServiceIdx<Identity: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ul64serviceidx: super::ULONG64, pbstrtunexml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_GuideDataDeliveryService_Impl::GetTuneXmlFromServiceIdx(this, core::mem::transmute_copy(&ul64serviceidx)) {
-                    Ok(ok__) => {
-                        pbstrtunexml.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_GuideDataDeliveryService_Impl::GetTuneXmlFromServiceIdx(this, core::mem::transmute_copy(&ul64serviceidx), core::mem::transmute_copy(&pbstrtunexml)).into()
             }
         }
         unsafe extern "system" fn GetServices<Identity: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcbbufferlen: *mut super::ULONG, pbbuffer: *mut super::BYTE) -> windows_core::HRESULT {
@@ -2366,13 +2264,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
         unsafe extern "system" fn GetServiceInfoFromTuneXml<Identity: IBDA_GuideDataDeliveryService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtunexml: *mut core::ffi::c_void, pbstrservicedescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_GuideDataDeliveryService_Impl::GetServiceInfoFromTuneXml(this, core::mem::transmute(&bstrtunexml)) {
-                    Ok(ok__) => {
-                        pbstrservicedescription.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_GuideDataDeliveryService_Impl::GetServiceInfoFromTuneXml(this, core::mem::transmute(&bstrtunexml), core::mem::transmute_copy(&pbstrservicedescription)).into()
             }
         }
         Self {
@@ -2455,17 +2347,11 @@ impl IBDA_IPSinkInfo {
     pub unsafe fn get_MulticastList(&self, pulcbaddresses: *mut super::ULONG, ppbaddresslist: *mut *mut super::BYTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_MulticastList)(windows_core::Interface::as_raw(self), pulcbaddresses as _, ppbaddresslist as _) }
     }
-    pub unsafe fn get_AdapterIPAddress(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AdapterIPAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn get_AdapterIPAddress(&self, pbstrbuffer: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_AdapterIPAddress)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbuffer)) }
     }
-    pub unsafe fn get_AdapterDescription(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AdapterDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn get_AdapterDescription(&self, pbstrbuffer: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_AdapterDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbuffer)) }
     }
 }
 #[repr(C)]
@@ -2482,8 +2368,8 @@ pub struct IBDA_IPSinkInfo_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IBDA_IPSinkInfo_Impl: windows_core::IUnknownImpl {
     fn get_MulticastList(&self, pulcbaddresses: *mut super::ULONG, ppbaddresslist: *mut *mut super::BYTE) -> windows_core::Result<()>;
-    fn get_AdapterIPAddress(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn get_AdapterDescription(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_AdapterIPAddress(&self, pbstrbuffer: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_AdapterDescription(&self, pbstrbuffer: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_IPSinkInfo_Vtbl {
@@ -2497,25 +2383,13 @@ impl IBDA_IPSinkInfo_Vtbl {
         unsafe extern "system" fn get_AdapterIPAddress<Identity: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_IPSinkInfo_Impl::get_AdapterIPAddress(this) {
-                    Ok(ok__) => {
-                        pbstrbuffer.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_IPSinkInfo_Impl::get_AdapterIPAddress(this, core::mem::transmute_copy(&pbstrbuffer)).into()
             }
         }
         unsafe extern "system" fn get_AdapterDescription<Identity: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_IPSinkInfo_Impl::get_AdapterDescription(this) {
-                    Ok(ok__) => {
-                        pbstrbuffer.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_IPSinkInfo_Impl::get_AdapterDescription(this, core::mem::transmute_copy(&pbstrbuffer)).into()
             }
         }
         Self {
@@ -2551,11 +2425,8 @@ impl IBDA_IPV4Filter {
         unsafe { (windows_core::Interface::vtable(self).PutMulticastMode)(windows_core::Interface::as_raw(self), ulmodemask) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), pulmodemask as _) }
     }
 }
 #[repr(C)]
@@ -2589,7 +2460,7 @@ pub trait IBDA_IPV4Filter_Impl: windows_core::IUnknownImpl {
     fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::Result<()>;
     fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::Result<()>;
     fn PutMulticastMode(&self, ulmodemask: super::ULONG) -> windows_core::Result<()>;
-    fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG>;
+    fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_IPV4Filter_Vtbl {
@@ -2621,13 +2492,7 @@ impl IBDA_IPV4Filter_Vtbl {
         unsafe extern "system" fn GetMulticastMode<Identity: IBDA_IPV4Filter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_IPV4Filter_Impl::GetMulticastMode(this) {
-                    Ok(ok__) => {
-                        pulmodemask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_IPV4Filter_Impl::GetMulticastMode(this, core::mem::transmute_copy(&pulmodemask)).into()
             }
         }
         Self {
@@ -2665,11 +2530,8 @@ impl IBDA_IPV6Filter {
         unsafe { (windows_core::Interface::vtable(self).PutMulticastMode)(windows_core::Interface::as_raw(self), ulmodemask) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMulticastMode)(windows_core::Interface::as_raw(self), pulmodemask as _) }
     }
 }
 #[repr(C)]
@@ -2703,7 +2565,7 @@ pub trait IBDA_IPV6Filter_Impl: windows_core::IUnknownImpl {
     fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::Result<()>;
     fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::Result<()>;
     fn PutMulticastMode(&self, ulmodemask: super::ULONG) -> windows_core::Result<()>;
-    fn GetMulticastMode(&self) -> windows_core::Result<super::ULONG>;
+    fn GetMulticastMode(&self, pulmodemask: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_IPV6Filter_Vtbl {
@@ -2735,13 +2597,7 @@ impl IBDA_IPV6Filter_Vtbl {
         unsafe extern "system" fn GetMulticastMode<Identity: IBDA_IPV6Filter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmodemask: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_IPV6Filter_Impl::GetMulticastMode(this) {
-                    Ok(ok__) => {
-                        pulmodemask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_IPV6Filter_Impl::GetMulticastMode(this, core::mem::transmute_copy(&pulmodemask)).into()
             }
         }
         Self {
@@ -2979,17 +2835,11 @@ windows_core::imp::define_interface!(IBDA_NameValueService, IBDA_NameValueServic
 windows_core::imp::interface_hierarchy!(IBDA_NameValueService, windows_core::IUnknown);
 impl IBDA_NameValueService {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetValueNameByIndex(&self, ulindex: super::ULONG) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValueNameByIndex)(windows_core::Interface::as_raw(self), ulindex, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetValueNameByIndex(&self, ulindex: super::ULONG, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetValueNameByIndex)(windows_core::Interface::as_raw(self), ulindex, core::mem::transmute(pbstrname)) }
     }
-    pub unsafe fn GetValue(&self, bstrname: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrlanguage), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetValue(&self, bstrname: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrlanguage), core::mem::transmute(pbstrvalue)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetValue(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, ulreserved: super::ULONG) -> windows_core::HRESULT {
@@ -3012,8 +2862,8 @@ pub struct IBDA_NameValueService_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IBDA_NameValueService_Impl: windows_core::IUnknownImpl {
-    fn GetValueNameByIndex(&self, ulindex: super::ULONG) -> windows_core::Result<windows_core::BSTR>;
-    fn GetValue(&self, bstrname: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn GetValueNameByIndex(&self, ulindex: super::ULONG, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetValue(&self, bstrname: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn SetValue(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, ulreserved: super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3022,25 +2872,13 @@ impl IBDA_NameValueService_Vtbl {
         unsafe extern "system" fn GetValueNameByIndex<Identity: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulindex: super::ULONG, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_NameValueService_Impl::GetValueNameByIndex(this, core::mem::transmute_copy(&ulindex)) {
-                    Ok(ok__) => {
-                        pbstrname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_NameValueService_Impl::GetValueNameByIndex(this, core::mem::transmute_copy(&ulindex), core::mem::transmute_copy(&pbstrname)).into()
             }
         }
         unsafe extern "system" fn GetValue<Identity: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrlanguage: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_NameValueService_Impl::GetValue(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrlanguage)) {
-                    Ok(ok__) => {
-                        pbstrvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_NameValueService_Impl::GetValue(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrlanguage), core::mem::transmute_copy(&pbstrvalue)).into()
             }
         }
         unsafe extern "system" fn SetValue<Identity: IBDA_NameValueService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: super::ULONG, bstrlanguage: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void, ulreserved: super::ULONG) -> windows_core::HRESULT {
@@ -3800,11 +3638,8 @@ windows_core::imp::define_interface!(IBDA_TransportStreamInfo, IBDA_TransportStr
 windows_core::imp::interface_hierarchy!(IBDA_TransportStreamInfo, windows_core::IUnknown);
 impl IBDA_TransportStreamInfo {
     #[cfg(feature = "shared")]
-    pub unsafe fn get_PatTableTickCount(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_PatTableTickCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_PatTableTickCount(&self, ppattickcount: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_PatTableTickCount)(windows_core::Interface::as_raw(self), ppattickcount as _) }
     }
 }
 #[repr(C)]
@@ -3818,7 +3653,7 @@ pub struct IBDA_TransportStreamInfo_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IBDA_TransportStreamInfo_Impl: windows_core::IUnknownImpl {
-    fn get_PatTableTickCount(&self) -> windows_core::Result<super::ULONG>;
+    fn get_PatTableTickCount(&self, ppattickcount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IBDA_TransportStreamInfo_Vtbl {
@@ -3826,13 +3661,7 @@ impl IBDA_TransportStreamInfo_Vtbl {
         unsafe extern "system" fn get_PatTableTickCount<Identity: IBDA_TransportStreamInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattickcount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_TransportStreamInfo_Impl::get_PatTableTickCount(this) {
-                    Ok(ok__) => {
-                        ppattickcount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_TransportStreamInfo_Impl::get_PatTableTickCount(this, core::mem::transmute_copy(&ppattickcount)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_PatTableTickCount: get_PatTableTickCount::<Identity, OFFSET> }
@@ -3908,11 +3737,8 @@ impl IBDA_UserActivityService {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentTunerUseReason)(windows_core::Interface::as_raw(self), dwusereason) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetUserActivityInterval(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUserActivityInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetUserActivityInterval(&self, pdwactivityinterval: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUserActivityInterval)(windows_core::Interface::as_raw(self), pdwactivityinterval as _) }
     }
     pub unsafe fn UserActivityDetected(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UserActivityDetected)(windows_core::Interface::as_raw(self)) }
@@ -3935,7 +3761,7 @@ pub struct IBDA_UserActivityService_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IBDA_UserActivityService_Impl: windows_core::IUnknownImpl {
     fn SetCurrentTunerUseReason(&self, dwusereason: super::DWORD) -> windows_core::Result<()>;
-    fn GetUserActivityInterval(&self) -> windows_core::Result<super::DWORD>;
+    fn GetUserActivityInterval(&self, pdwactivityinterval: *mut super::DWORD) -> windows_core::Result<()>;
     fn UserActivityDetected(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3950,13 +3776,7 @@ impl IBDA_UserActivityService_Vtbl {
         unsafe extern "system" fn GetUserActivityInterval<Identity: IBDA_UserActivityService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwactivityinterval: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_UserActivityService_Impl::GetUserActivityInterval(this) {
-                    Ok(ok__) => {
-                        pdwactivityinterval.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_UserActivityService_Impl::GetUserActivityInterval(this, core::mem::transmute_copy(&pdwactivityinterval)).into()
             }
         }
         unsafe extern "system" fn UserActivityDetected<Identity: IBDA_UserActivityService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4185,11 +4005,8 @@ impl IBDA_WMDRMTuner {
         unsafe { (windows_core::Interface::vtable(self).SetPidProtection)(windows_core::Interface::as_raw(self), ulpid, uuidkey) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPidProtection(&self, pulpid: super::ULONG) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPidProtection)(windows_core::Interface::as_raw(self), pulpid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPidProtection(&self, pulpid: super::ULONG, uuidkey: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPidProtection)(windows_core::Interface::as_raw(self), pulpid, uuidkey as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetSyncValue(&self, ulsyncvalue: super::ULONG) -> windows_core::HRESULT {
@@ -4234,7 +4051,7 @@ pub trait IBDA_WMDRMTuner_Impl: windows_core::IUnknownImpl {
     fn PurchaseEntitlement(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, ulpurchasetokenlen: super::ULONG, pbpurchasetoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG, pulcapturetokenlen: *mut super::ULONG, pbcapturetoken: *mut super::BYTE) -> windows_core::Result<()>;
     fn CancelCaptureToken(&self, ulcapturetokenlen: super::ULONG, pbcapturetoken: *const super::BYTE) -> windows_core::Result<()>;
     fn SetPidProtection(&self, ulpid: super::ULONG, uuidkey: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetPidProtection(&self, pulpid: super::ULONG) -> windows_core::Result<windows_core::GUID>;
+    fn GetPidProtection(&self, pulpid: super::ULONG, uuidkey: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn SetSyncValue(&self, ulsyncvalue: super::ULONG) -> windows_core::Result<()>;
     fn GetStartCodeProfile(&self, pulstartcodeprofilelen: *mut super::ULONG, pbstartcodeprofile: *mut super::BYTE) -> windows_core::Result<()>;
 }
@@ -4262,13 +4079,7 @@ impl IBDA_WMDRMTuner_Vtbl {
         unsafe extern "system" fn GetPidProtection<Identity: IBDA_WMDRMTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulpid: super::ULONG, uuidkey: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBDA_WMDRMTuner_Impl::GetPidProtection(this, core::mem::transmute_copy(&pulpid)) {
-                    Ok(ok__) => {
-                        uuidkey.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBDA_WMDRMTuner_Impl::GetPidProtection(this, core::mem::transmute_copy(&pulpid), core::mem::transmute_copy(&uuidkey)).into()
             }
         }
         unsafe extern "system" fn SetSyncValue<Identity: IBDA_WMDRMTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulsyncvalue: super::ULONG) -> windows_core::HRESULT {
@@ -4610,11 +4421,8 @@ impl IEnumPIDMap {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppienumpidmap: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppienumpidmap)) }
     }
 }
 #[repr(C)]
@@ -4637,7 +4445,7 @@ pub trait IEnumPIDMap_Impl: windows_core::IUnknownImpl {
     fn Next(&self, crequest: super::ULONG, ppidmap: *mut super::PID_MAP, pcreceived: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, crecords: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumPIDMap>;
+    fn Clone(&self, ppienumpidmap: windows_core::OutRef<IEnumPIDMap>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 impl IEnumPIDMap_Vtbl {
@@ -4663,13 +4471,7 @@ impl IEnumPIDMap_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumPIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienumpidmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEnumPIDMap_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppienumpidmap.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEnumPIDMap_Impl::Clone(this, core::mem::transmute_copy(&ppienumpidmap)).into()
             }
         }
         Self {
@@ -4698,11 +4500,8 @@ impl IFrequencyMap {
         unsafe { (windows_core::Interface::vtable(self).put_FrequencyMapping)(windows_core::Interface::as_raw(self), plist.len().try_into().unwrap(), plist.as_ptr()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn get_CountryCode(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_CountryCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_CountryCode(&self, pulcountrycode: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_CountryCode)(windows_core::Interface::as_raw(self), pulcountrycode as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn put_CountryCode(&self, ulcountrycode: super::ULONG) -> windows_core::HRESULT {
@@ -4750,7 +4549,7 @@ pub struct IFrequencyMap_Vtbl {
 pub trait IFrequencyMap_Impl: windows_core::IUnknownImpl {
     fn get_FrequencyMapping(&self, ulcount: *mut super::ULONG, ppullist: *mut *mut super::ULONG) -> windows_core::Result<()>;
     fn put_FrequencyMapping(&self, ulcount: super::ULONG, plist: *const super::ULONG) -> windows_core::Result<()>;
-    fn get_CountryCode(&self) -> windows_core::Result<super::ULONG>;
+    fn get_CountryCode(&self, pulcountrycode: *mut super::ULONG) -> windows_core::Result<()>;
     fn put_CountryCode(&self, ulcountrycode: super::ULONG) -> windows_core::Result<()>;
     fn get_DefaultFrequencyMapping(&self, ulcountrycode: super::ULONG, pulcount: *mut super::ULONG, ppullist: *mut *mut super::ULONG) -> windows_core::Result<()>;
     fn get_CountryCodeList(&self, pulcount: *mut super::ULONG, ppullist: *mut *mut super::ULONG) -> windows_core::Result<()>;
@@ -4773,13 +4572,7 @@ impl IFrequencyMap_Vtbl {
         unsafe extern "system" fn get_CountryCode<Identity: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcountrycode: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFrequencyMap_Impl::get_CountryCode(this) {
-                    Ok(ok__) => {
-                        pulcountrycode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFrequencyMap_Impl::get_CountryCode(this, core::mem::transmute_copy(&pulcountrycode)).into()
             }
         }
         unsafe extern "system" fn put_CountryCode<Identity: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcountrycode: super::ULONG) -> windows_core::HRESULT {
@@ -4827,11 +4620,8 @@ impl IMPEG2PIDMap {
     pub unsafe fn UnmapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnmapPID)(windows_core::Interface::as_raw(self), culpid, pulpid) }
     }
-    pub unsafe fn EnumPIDMap(&self) -> windows_core::Result<IEnumPIDMap> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumPIDMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn EnumPIDMap(&self, pienumpidmap: *mut Option<IEnumPIDMap>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumPIDMap)(windows_core::Interface::as_raw(self), core::mem::transmute(pienumpidmap)) }
     }
 }
 #[repr(C)]
@@ -4852,7 +4642,7 @@ pub struct IMPEG2PIDMap_Vtbl {
 pub trait IMPEG2PIDMap_Impl: windows_core::IUnknownImpl {
     fn MapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG, mediasamplecontent: super::MEDIA_SAMPLE_CONTENT) -> windows_core::Result<()>;
     fn UnmapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG) -> windows_core::Result<()>;
-    fn EnumPIDMap(&self) -> windows_core::Result<IEnumPIDMap>;
+    fn EnumPIDMap(&self, pienumpidmap: windows_core::OutRef<IEnumPIDMap>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 impl IMPEG2PIDMap_Vtbl {
@@ -4872,13 +4662,7 @@ impl IMPEG2PIDMap_Vtbl {
         unsafe extern "system" fn EnumPIDMap<Identity: IMPEG2PIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pienumpidmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMPEG2PIDMap_Impl::EnumPIDMap(this) {
-                    Ok(ok__) => {
-                        pienumpidmap.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMPEG2PIDMap_Impl::EnumPIDMap(this, core::mem::transmute_copy(&pienumpidmap)).into()
             }
         }
         Self {

@@ -24,18 +24,12 @@ windows_core::imp::define_interface!(IAudioFormatEnumerator, IAudioFormatEnumera
 windows_core::imp::interface_hierarchy!(IAudioFormatEnumerator, windows_core::IUnknown);
 impl IAudioFormatEnumerator {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, count: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), count as _) }
     }
     #[cfg(all(feature = "mmeapi", feature = "shared"))]
-    pub unsafe fn GetFormat(&self, index: super::UINT32) -> windows_core::Result<*mut super::WAVEFORMATEX> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFormat(&self, index: super::UINT32, format: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), index, format as _) }
     }
 }
 #[repr(C)]
@@ -53,8 +47,8 @@ pub struct IAudioFormatEnumerator_Vtbl {
 }
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub trait IAudioFormatEnumerator_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::UINT32>;
-    fn GetFormat(&self, index: super::UINT32) -> windows_core::Result<*mut super::WAVEFORMATEX>;
+    fn GetCount(&self, count: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetFormat(&self, index: super::UINT32, format: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
 impl IAudioFormatEnumerator_Vtbl {
@@ -62,25 +56,13 @@ impl IAudioFormatEnumerator_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IAudioFormatEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioFormatEnumerator_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        count.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioFormatEnumerator_Impl::GetCount(this, core::mem::transmute_copy(&count)).into()
             }
         }
         unsafe extern "system" fn GetFormat<Identity: IAudioFormatEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT32, format: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioFormatEnumerator_Impl::GetFormat(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        format.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioFormatEnumerator_Impl::GetFormat(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&format)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCount: GetCount::<Identity, OFFSET>, GetFormat: GetFormat::<Identity, OFFSET> }
@@ -97,31 +79,19 @@ impl ISpatialAudioClient {
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStaticObjectPosition)(windows_core::Interface::as_raw(self), r#type, x as _, y as _, z as _) }
     }
-    pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> windows_core::Result<AudioObjectType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNativeStaticObjectTypeMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetNativeStaticObjectTypeMask(&self, mask: *mut AudioObjectType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNativeStaticObjectTypeMask)(windows_core::Interface::as_raw(self), mask as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMaxDynamicObjectCount(&self) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaxDynamicObjectCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaxDynamicObjectCount(&self, value: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxDynamicObjectCount)(windows_core::Interface::as_raw(self), value as _) }
     }
-    pub unsafe fn GetSupportedAudioObjectFormatEnumerator(&self) -> windows_core::Result<IAudioFormatEnumerator> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSupportedAudioObjectFormatEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetSupportedAudioObjectFormatEnumerator(&self, enumerator: *mut Option<IAudioFormatEnumerator>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedAudioObjectFormatEnumerator)(windows_core::Interface::as_raw(self), core::mem::transmute(enumerator)) }
     }
     #[cfg(all(feature = "mmeapi", feature = "shared"))]
-    pub unsafe fn GetMaxFrameCount(&self, objectformat: *const super::WAVEFORMATEX) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaxFrameCount)(windows_core::Interface::as_raw(self), objectformat, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaxFrameCount(&self, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxFrameCount)(windows_core::Interface::as_raw(self), objectformat, framecountperbuffer as _) }
     }
     #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -171,10 +141,10 @@ pub struct ISpatialAudioClient_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpatialAudioClient_Impl: windows_core::IUnknownImpl {
     fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::Result<()>;
-    fn GetNativeStaticObjectTypeMask(&self) -> windows_core::Result<AudioObjectType>;
-    fn GetMaxDynamicObjectCount(&self) -> windows_core::Result<super::UINT32>;
-    fn GetSupportedAudioObjectFormatEnumerator(&self) -> windows_core::Result<IAudioFormatEnumerator>;
-    fn GetMaxFrameCount(&self, objectformat: *const super::WAVEFORMATEX) -> windows_core::Result<super::UINT32>;
+    fn GetNativeStaticObjectTypeMask(&self, mask: *mut AudioObjectType) -> windows_core::Result<()>;
+    fn GetMaxDynamicObjectCount(&self, value: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetSupportedAudioObjectFormatEnumerator(&self, enumerator: windows_core::OutRef<IAudioFormatEnumerator>) -> windows_core::Result<()>;
+    fn GetMaxFrameCount(&self, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::Result<()>;
     fn IsAudioObjectFormatSupported(&self, objectformat: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const super::IID, auxiliaryinfo: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn ActivateSpatialAudioStream(&self, activationparams: *const super::PROPVARIANT, riid: *const super::IID, stream: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -191,52 +161,25 @@ impl ISpatialAudioClient_Vtbl {
         unsafe extern "system" fn GetNativeStaticObjectTypeMask<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: *mut AudioObjectType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient_Impl::GetNativeStaticObjectTypeMask(this) {
-                    Ok(ok__) => {
-                        mask.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioClient_Impl::GetNativeStaticObjectTypeMask(this, core::mem::transmute_copy(&mask)).into()
             }
         }
         unsafe extern "system" fn GetMaxDynamicObjectCount<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient_Impl::GetMaxDynamicObjectCount(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioClient_Impl::GetMaxDynamicObjectCount(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn GetSupportedAudioObjectFormatEnumerator<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient_Impl::GetSupportedAudioObjectFormatEnumerator(this) {
-                    Ok(ok__) => {
-                        enumerator.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        enumerator.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                ISpatialAudioClient_Impl::GetSupportedAudioObjectFormatEnumerator(this, core::mem::transmute_copy(&enumerator)).into()
             }
         }
         unsafe extern "system" fn GetMaxFrameCount<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient_Impl::GetMaxFrameCount(this, core::mem::transmute_copy(&objectformat)) {
-                    Ok(ok__) => {
-                        framecountperbuffer.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioClient_Impl::GetMaxFrameCount(this, core::mem::transmute_copy(&objectformat), core::mem::transmute_copy(&framecountperbuffer)).into()
             }
         }
         unsafe extern "system" fn IsAudioObjectFormatSupported<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectformat: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -285,18 +228,12 @@ impl core::ops::Deref for ISpatialAudioClient2 {
 windows_core::imp::interface_hierarchy!(ISpatialAudioClient2, windows_core::IUnknown, ISpatialAudioClient);
 impl ISpatialAudioClient2 {
     #[cfg(feature = "audiosessiontypes")]
-    pub unsafe fn IsOffloadCapable(&self, category: super::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsOffloadCapable(&self, category: super::AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, isoffloadcapable as _) }
     }
     #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared"))]
-    pub unsafe fn GetMaxFrameCountForCategory(&self, category: super::AUDIO_STREAM_CATEGORY, offloadenabled: bool, objectformat: *const super::WAVEFORMATEX) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMaxFrameCountForCategory)(windows_core::Interface::as_raw(self), category, offloadenabled.into(), objectformat, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMaxFrameCountForCategory(&self, category: super::AUDIO_STREAM_CATEGORY, offloadenabled: bool, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxFrameCountForCategory)(windows_core::Interface::as_raw(self), category, offloadenabled.into(), objectformat, framecountperbuffer as _) }
     }
 }
 #[repr(C)]
@@ -314,8 +251,8 @@ pub struct ISpatialAudioClient2_Vtbl {
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpatialAudioClient2_Impl: ISpatialAudioClient_Impl {
-    fn IsOffloadCapable(&self, category: super::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
-    fn GetMaxFrameCountForCategory(&self, category: super::AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const super::WAVEFORMATEX) -> windows_core::Result<super::UINT32>;
+    fn IsOffloadCapable(&self, category: super::AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetMaxFrameCountForCategory(&self, category: super::AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpatialAudioClient2_Vtbl {
@@ -323,25 +260,13 @@ impl ISpatialAudioClient2_Vtbl {
         unsafe extern "system" fn IsOffloadCapable<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient2_Impl::IsOffloadCapable(this, core::mem::transmute_copy(&category)) {
-                    Ok(ok__) => {
-                        isoffloadcapable.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioClient2_Impl::IsOffloadCapable(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&isoffloadcapable)).into()
             }
         }
         unsafe extern "system" fn GetMaxFrameCountForCategory<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const super::WAVEFORMATEX, framecountperbuffer: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioClient2_Impl::GetMaxFrameCountForCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&offloadenabled), core::mem::transmute_copy(&objectformat)) {
-                    Ok(ok__) => {
-                        framecountperbuffer.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioClient2_Impl::GetMaxFrameCountForCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&offloadenabled), core::mem::transmute_copy(&objectformat), core::mem::transmute_copy(&framecountperbuffer)).into()
             }
         }
         Self {
@@ -422,17 +347,11 @@ impl ISpatialAudioObjectBase {
     pub unsafe fn SetEndOfStream(&self, framecount: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEndOfStream)(windows_core::Interface::as_raw(self), framecount) }
     }
-    pub unsafe fn IsActive(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsActive(&self, isactive: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self), isactive as _) }
     }
-    pub unsafe fn GetAudioObjectType(&self) -> windows_core::Result<AudioObjectType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAudioObjectType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAudioObjectType(&self, audioobjecttype: *mut AudioObjectType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAudioObjectType)(windows_core::Interface::as_raw(self), audioobjecttype as _) }
     }
 }
 #[repr(C)]
@@ -454,8 +373,8 @@ pub struct ISpatialAudioObjectBase_Vtbl {
 pub trait ISpatialAudioObjectBase_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, buffer: *mut *mut super::BYTE, bufferlength: *mut super::UINT32) -> windows_core::Result<()>;
     fn SetEndOfStream(&self, framecount: super::UINT32) -> windows_core::Result<()>;
-    fn IsActive(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetAudioObjectType(&self) -> windows_core::Result<AudioObjectType>;
+    fn IsActive(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetAudioObjectType(&self, audioobjecttype: *mut AudioObjectType) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl ISpatialAudioObjectBase_Vtbl {
@@ -475,25 +394,13 @@ impl ISpatialAudioObjectBase_Vtbl {
         unsafe extern "system" fn IsActive<Identity: ISpatialAudioObjectBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioObjectBase_Impl::IsActive(this) {
-                    Ok(ok__) => {
-                        isactive.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioObjectBase_Impl::IsActive(this, core::mem::transmute_copy(&isactive)).into()
             }
         }
         unsafe extern "system" fn GetAudioObjectType<Identity: ISpatialAudioObjectBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioobjecttype: *mut AudioObjectType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioObjectBase_Impl::GetAudioObjectType(this) {
-                    Ok(ok__) => {
-                        audioobjecttype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioObjectBase_Impl::GetAudioObjectType(this, core::mem::transmute_copy(&audioobjecttype)).into()
             }
         }
         Self {
@@ -519,11 +426,8 @@ impl core::ops::Deref for ISpatialAudioObjectRenderStream {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStream, windows_core::IUnknown, ISpatialAudioObjectRenderStreamBase);
 impl ISpatialAudioObjectRenderStream {
-    pub unsafe fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType) -> windows_core::Result<ISpatialAudioObject> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ActivateSpatialAudioObject)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType, audioobject: *mut Option<ISpatialAudioObject>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioObject)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(audioobject)) }
     }
 }
 #[repr(C)]
@@ -534,7 +438,7 @@ pub struct ISpatialAudioObjectRenderStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait ISpatialAudioObjectRenderStream_Impl: ISpatialAudioObjectRenderStreamBase_Impl {
-    fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType) -> windows_core::Result<ISpatialAudioObject>;
+    fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType, audioobject: windows_core::OutRef<ISpatialAudioObject>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl ISpatialAudioObjectRenderStream_Vtbl {
@@ -542,16 +446,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         unsafe extern "system" fn ActivateSpatialAudioObject<Identity: ISpatialAudioObjectRenderStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AudioObjectType, audioobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioObjectRenderStream_Impl::ActivateSpatialAudioObject(this, core::mem::transmute_copy(&r#type)) {
-                    Ok(ok__) => {
-                        audioobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        audioobject.write(core::mem::zeroed());
-                        err.into()
-                    }
-                }
+                ISpatialAudioObjectRenderStream_Impl::ActivateSpatialAudioObject(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&audioobject)).into()
             }
         }
         Self {
@@ -569,11 +464,8 @@ windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamBase, ISpati
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamBase, windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamBase {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAvailableDynamicObjectCount(&self) -> windows_core::Result<super::UINT32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAvailableDynamicObjectCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAvailableDynamicObjectCount(&self, value: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableDynamicObjectCount)(windows_core::Interface::as_raw(self), value as _) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn GetService<T>(&self) -> windows_core::Result<T>
@@ -623,7 +515,7 @@ pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait ISpatialAudioObjectRenderStreamBase_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableDynamicObjectCount(&self) -> windows_core::Result<super::UINT32>;
+    fn GetAvailableDynamicObjectCount(&self, value: *mut super::UINT32) -> windows_core::Result<()>;
     fn GetService(&self, riid: *const super::IID, service: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
@@ -637,13 +529,7 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
         unsafe extern "system" fn GetAvailableDynamicObjectCount<Identity: ISpatialAudioObjectRenderStreamBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpatialAudioObjectRenderStreamBase_Impl::GetAvailableDynamicObjectCount(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpatialAudioObjectRenderStreamBase_Impl::GetAvailableDynamicObjectCount(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn GetService<Identity: ISpatialAudioObjectRenderStreamBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, service: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

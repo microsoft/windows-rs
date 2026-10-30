@@ -58,12 +58,9 @@ pub unsafe fn DwmGetCompositionTimingInfo(hwnd: super::HWND, ptiminginfo: *mut D
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamClient(uindex: super::UINT) -> windows_core::Result<super::UUID> {
+pub unsafe fn DwmGetGraphicsStreamClient(uindex: super::UINT, pclientuuid: *mut super::UUID) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : super::UINT, pclientuuid : *mut super::UUID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DwmGetGraphicsStreamClient(uindex, &mut result__).map(|| result__)
-    }
+    unsafe { DwmGetGraphicsStreamClient(uindex, pclientuuid as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
@@ -79,12 +76,9 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut windows_core::BOOL, p
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::HWND>) -> windows_core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
+pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::HWND>, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, value as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -99,12 +93,9 @@ pub unsafe fn DwmInvalidateIconicBitmaps(hwnd: super::HWND) -> windows_core::HRE
     unsafe { DwmInvalidateIconicBitmaps(hwnd as _) }
 }
 #[inline]
-pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn DwmIsCompositionEnabled(pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DwmIsCompositionEnabled(&mut result__).map(|| result__)
-    }
+    unsafe { DwmIsCompositionEnabled(pfenabled as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -114,12 +105,9 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::HWND, crefreshes: su
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL) -> windows_core::Result<super::SIZE> {
+pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL, psize: super::PSIZE) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : super::PSIZE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DwmQueryThumbnailSourceSize(hthumbnail as _, &mut result__).map(|| result__)
-    }
+    unsafe { DwmQueryThumbnailSourceSize(hthumbnail as _, psize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]

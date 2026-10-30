@@ -1,23 +1,17 @@
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<P1>(hwnd: super::HWND, pwszrpid: P1, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: Option<PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> windows_core::Result<PWEBAUTHN_ASSERTION>
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<P1>(hwnd: super::HWND, pwszrpid: P1, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: Option<PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>, ppwebauthnassertion: *mut PWEBAUTHN_ASSERTION) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::HWND, pwszrpid : windows_core::PCWSTR, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut PWEBAUTHN_ASSERTION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNAuthenticatorGetAssertion(hwnd, pwszrpid.param().abi(), pwebauthnclientdata, pwebauthngetassertionoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNAuthenticatorGetAssertion(hwnd, pwszrpid.param().abi(), pwebauthnclientdata, pwebauthngetassertionoptions.unwrap_or(core::mem::zeroed()) as _, ppwebauthnassertion as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::HWND, prpinformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: Option<PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_ATTESTATION> {
+pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::HWND, prpinformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: Option<PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>, ppwebauthncredentialattestation: *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::HWND, prpinformation : PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions.unwrap_or(core::mem::zeroed()) as _, ppwebauthncredentialattestation as _) }
 }
 #[inline]
 pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -62,20 +56,14 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> super::DWORD {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions: Option<PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS>) -> windows_core::Result<PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST> {
+pub unsafe fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions: Option<PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS>, ppauthenticatordetailslist: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions : PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppauthenticatordetailslist : *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions.unwrap_or(core::mem::zeroed()) as _, ppauthenticatordetailslist as _) }
 }
 #[inline]
-pub unsafe fn WebAuthNGetCancellationId() -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn WebAuthNGetCancellationId(pcancellationid: *mut windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNGetCancellationId(&mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNGetCancellationId(pcancellationid as _) }
 }
 #[inline]
 pub unsafe fn WebAuthNGetErrorName(hr: windows_core::HRESULT) -> windows_core::PCWSTR {
@@ -84,12 +72,9 @@ pub unsafe fn WebAuthNGetErrorName(hr: windows_core::HRESULT) -> windows_core::P
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_DETAILS_LIST> {
+pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist: *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, ppcredentialdetailslist as _) }
 }
 #[inline]
 pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -97,12 +82,9 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> wind
     unsafe { WebAuthNGetW3CExceptionDOMError(hr) }
 }
 #[inline]
-pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: *mut windows_core::BOOL) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).map(|| result__)
-    }
+    unsafe { WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable as _) }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

@@ -1,12 +1,8 @@
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn InitializeSListHead() -> super::SLIST_HEADER {
+pub unsafe fn InitializeSListHead(listhead: super::PSLIST_HEADER) {
     windows_core::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : super::PSLIST_HEADER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        InitializeSListHead(&mut result__);
-        result__
-    }
+    unsafe { InitializeSListHead(listhead as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

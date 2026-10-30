@@ -130,12 +130,9 @@ pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, propertie
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateError(properties: Option<&[WS_ERROR_PROPERTY]>) -> windows_core::Result<*mut WS_ERROR> {
+pub unsafe fn WsCreateError(properties: Option<&[WS_ERROR_PROPERTY]>, error: *mut *mut WS_ERROR) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : super::ULONG, error : *mut *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsCreateError(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
-    }
+    unsafe { WsCreateError(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -366,12 +363,9 @@ pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: super::ULONG) -> windows_core::Result<WS_STRING> {
+pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: super::ULONG, string: *mut WS_STRING) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsGetErrorString(error : *const WS_ERROR, index : super::ULONG, string : *mut WS_STRING) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsGetErrorString(error, index, &mut result__).map(|| result__)
-    }
+    unsafe { WsGetErrorString(error, index, string as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

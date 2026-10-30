@@ -258,29 +258,23 @@ pub unsafe fn ConnectToPrinterDlg(hwnd: super::HWND, flags: super::DWORD) -> sup
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledA<P0, P1>(pszserver: P0, pszenvironment: P1, coredriverguid: windows_core::GUID, ftdriverdate: super::FILETIME, dwldriverversion: super::DWORDLONG) -> windows_core::Result<windows_core::BOOL>
+pub unsafe fn CorePrinterDriverInstalledA<P0, P1>(pszserver: P0, pszenvironment: P1, coredriverguid: windows_core::GUID, ftdriverdate: super::FILETIME, dwldriverversion: super::DWORDLONG, pbdriverinstalled: *mut windows_core::BOOL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn CorePrinterDriverInstalledA(pszserver : windows_core::PCSTR, pszenvironment : windows_core::PCSTR, coredriverguid : windows_core::GUID, ftdriverdate : super::FILETIME, dwldriverversion : super::DWORDLONG, pbdriverinstalled : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CorePrinterDriverInstalledA(pszserver.param().abi(), pszenvironment.param().abi(), coredriverguid, ftdriverdate, dwldriverversion, &mut result__).map(|| result__)
-    }
+    unsafe { CorePrinterDriverInstalledA(pszserver.param().abi(), pszenvironment.param().abi(), coredriverguid, ftdriverdate, dwldriverversion, pbdriverinstalled as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledW<P0, P1>(pszserver: P0, pszenvironment: P1, coredriverguid: windows_core::GUID, ftdriverdate: super::FILETIME, dwldriverversion: super::DWORDLONG) -> windows_core::Result<windows_core::BOOL>
+pub unsafe fn CorePrinterDriverInstalledW<P0, P1>(pszserver: P0, pszenvironment: P1, coredriverguid: windows_core::GUID, ftdriverdate: super::FILETIME, dwldriverversion: super::DWORDLONG, pbdriverinstalled: *mut windows_core::BOOL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn CorePrinterDriverInstalledW(pszserver : windows_core::PCWSTR, pszenvironment : windows_core::PCWSTR, coredriverguid : windows_core::GUID, ftdriverdate : super::FILETIME, dwldriverversion : super::DWORDLONG, pbdriverinstalled : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CorePrinterDriverInstalledW(pszserver.param().abi(), pszenvironment.param().abi(), coredriverguid, ftdriverdate, dwldriverversion, &mut result__).map(|| result__)
-    }
+    unsafe { CorePrinterDriverInstalledW(pszserver.param().abi(), pszenvironment.param().abi(), coredriverguid, ftdriverdate, dwldriverversion, pbdriverinstalled as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -12,12 +12,9 @@ pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecounterv
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn QueryAuxiliaryCounterFrequency() -> windows_core::Result<u64> {
+pub unsafe fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: super::PULONGLONG) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : super::PULONGLONG) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        QueryAuxiliaryCounterFrequency(&mut result__).map(|| result__)
-    }
+    unsafe { QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency as _) }
 }
 #[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
@@ -33,23 +30,15 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: super::USHORT, bufferlength: 
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn QueryInterruptTime() -> u64 {
+pub unsafe fn QueryInterruptTime(lpinterrupttime: super::PULONGLONG) {
     windows_core::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : super::PULONGLONG));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        QueryInterruptTime(&mut result__);
-        result__
-    }
+    unsafe { QueryInterruptTime(lpinterrupttime as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn QueryInterruptTimePrecise() -> u64 {
+pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: super::PULONGLONG) {
     windows_core::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : super::PULONGLONG));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        QueryInterruptTimePrecise(&mut result__);
-        result__
-    }
+    unsafe { QueryInterruptTimePrecise(lpinterrupttimeprecise as _) }
 }
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
@@ -71,11 +60,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: super::PULONGLONG) -> win
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
+pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: super::PULONGLONG) {
     windows_core::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : super::PULONGLONG));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        QueryUnbiasedInterruptTimePrecise(&mut result__);
-        result__
-    }
+    unsafe { QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise as _) }
 }

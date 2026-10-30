@@ -37,8 +37,8 @@ unsafe extern "system" fn DllGetActivationFactory(
 struct Activatable(fn() -> IInspectable);
 
 impl IActivationFactory_Impl for Activatable_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
-        Ok((self.0)())
+    fn ActivateInstance(&self, instance: OutRef<IInspectable>) -> Result<()> {
+        instance.write(Some((self.0)()))
     }
 }
 

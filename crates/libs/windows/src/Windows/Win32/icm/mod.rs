@@ -177,12 +177,9 @@ pub unsafe fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SC
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::LUID, sourceid: super::UINT32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::LUID, sourceid: super::UINT32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::LUID, sourceid : super::UINT32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ColorProfileGetDisplayDefault(scope, targetadapterid, sourceid, profiletype, profilesubtype, &mut result__).map(|| result__)
-    }
+    unsafe { ColorProfileGetDisplayDefault(scope, targetadapterid, sourceid, profiletype, profilesubtype, profilename as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -192,12 +189,9 @@ pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, ta
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::LUID, sourceid: super::UINT32) -> windows_core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
+pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::LUID, sourceid: super::UINT32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::LUID, sourceid : super::UINT32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ColorProfileGetDisplayUserScope(targetadapterid, sourceid, &mut result__).map(|| result__)
-    }
+    unsafe { ColorProfileGetDisplayUserScope(targetadapterid, sourceid, scope as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

@@ -102,14 +102,15 @@ impl IFileDialog {
             )
         }
     }
-    pub(crate) unsafe fn GetOptions(&self) -> windows_core::Result<FILEOPENDIALOGOPTIONS> {
+    pub(crate) unsafe fn GetOptions(
+        &self,
+        pfos: *mut FILEOPENDIALOGOPTIONS,
+    ) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOptions)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                pfos as _,
             )
-            .map(|| result__)
         }
     }
     pub(crate) unsafe fn SetDefaultFolder<P0>(&self, psi: P0) -> windows_core::HRESULT
@@ -167,14 +168,12 @@ impl IFileDialog {
             )
         }
     }
-    pub(crate) unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
+    pub(crate) unsafe fn GetResult(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResult)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                core::mem::transmute(ppsi),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn SetDefaultExtension<P0>(
@@ -284,14 +283,15 @@ windows_core::imp::interface_hierarchy!(
     IFileDialog
 );
 impl IFileOpenDialog {
-    pub(crate) unsafe fn GetResults(&self) -> windows_core::Result<IShellItemArray> {
+    pub(crate) unsafe fn GetResults(
+        &self,
+        ppenum: *mut Option<IShellItemArray>,
+    ) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResults)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                core::mem::transmute(ppenum),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -389,15 +389,14 @@ impl IShellItem {
     pub(crate) unsafe fn GetDisplayName(
         &self,
         sigdnname: SIGDN,
-    ) -> windows_core::Result<windows_core::PWSTR> {
+        ppszname: *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayName)(
                 windows_core::Interface::as_raw(self),
                 sigdnname,
-                &mut result__,
+                ppszname as _,
             )
-            .map(|| result__)
         }
     }
 }
@@ -422,25 +421,25 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IShellItemArray, windows_core::IUnknown);
 impl IShellItemArray {
-    pub(crate) unsafe fn GetCount(&self) -> windows_core::Result<DWORD> {
+    pub(crate) unsafe fn GetCount(&self, pdwnumitems: *mut DWORD) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                pdwnumitems as _,
             )
-            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn GetItemAt(&self, dwindex: DWORD) -> windows_core::Result<IShellItem> {
+    pub(crate) unsafe fn GetItemAt(
+        &self,
+        dwindex: DWORD,
+        ppsi: *mut Option<IShellItem>,
+    ) -> windows_core::HRESULT {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemAt)(
                 windows_core::Interface::as_raw(self),
                 dwindex,
-                &mut result__,
+                core::mem::transmute(ppsi),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

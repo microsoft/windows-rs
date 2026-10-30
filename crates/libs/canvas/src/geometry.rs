@@ -17,16 +17,18 @@ impl Path {
 
     /// Tests whether `point` lies inside the path's fill.
     pub fn fill_contains_point(&self, point: Vector2) -> bool {
+        let mut contains = BOOL::default();
         unsafe {
             self.raw
-                .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE)
-                .unwrap()
-                .as_bool()
+                .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE, &mut contains)
+                .unwrap();
         }
+        contains.as_bool()
     }
 
     /// Tests whether `point` lies within a stroke of the given DIP width.
     pub fn stroke_contains_point(&self, point: Vector2, stroke_width: f32) -> bool {
+        let mut contains = BOOL::default();
         unsafe {
             self.raw
                 .StrokeContainsPoint(
@@ -35,15 +37,17 @@ impl Path {
                     None,
                     None,
                     DEFAULT_FLATTENING_TOLERANCE,
+                    &mut contains,
                 )
-                .unwrap()
-                .as_bool()
+                .unwrap();
         }
+        contains.as_bool()
     }
 
     /// Returns the path bounds in DIPs.
     pub fn compute_bounds(&self) -> Rect {
-        let bounds = unsafe { self.raw.GetBounds(None).unwrap() };
+        let mut bounds = D2D1_RECT_F::default();
+        unsafe { self.raw.GetBounds(None, &mut bounds).unwrap() };
         Rect {
             left: bounds.left,
             top: bounds.top,
@@ -65,9 +69,20 @@ pub struct PathBuilder {
 impl PathBuilder {
     /// Creates an empty path builder.
     pub fn new(device: &GpuDevice) -> Result<Self> {
-        let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
-        let sink = unsafe { geometry.Open()? };
-        Ok(Self { sink, geometry })
+        let mut geometry = None;
+        unsafe {
+            device
+                .d2d_factory()
+                .CreatePathGeometry(&mut geometry)
+                .ok()?;
+        }
+        let geometry = geometry.unwrap();
+        let mut sink = None;
+        unsafe { geometry.Open(&mut sink).ok()? };
+        Ok(Self {
+            sink: sink.unwrap(),
+            geometry,
+        })
     }
 
     /// Starts a filled figure at `start`.

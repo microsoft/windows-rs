@@ -33,15 +33,12 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: Option<PDSREG_JOIN_INFO>) {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> windows_core::Result<PDSREG_JOIN_INFO>
+pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0, ppjoininfo: *mut PDSREG_JOIN_INFO) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : windows_core::PCWSTR, ppjoininfo : *mut PDSREG_JOIN_INFO) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        NetGetAadJoinInformation(pcsztenantid.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { NetGetAadJoinInformation(pcsztenantid.param().abi(), ppjoininfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

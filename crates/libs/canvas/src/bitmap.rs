@@ -25,8 +25,12 @@ impl Bitmap {
                 WICDecodeMetadataCacheOnDemand,
             )?;
 
-            let frame = decoder.GetFrame(0)?;
-            let converter = wic_factory.CreateFormatConverter()?;
+            let mut frame = None;
+            decoder.GetFrame(0, &mut frame).ok()?;
+            let frame = frame.unwrap();
+            let mut converter = None;
+            wic_factory.CreateFormatConverter(&mut converter).ok()?;
+            let converter = converter.unwrap();
 
             converter
                 .Initialize(
@@ -39,8 +43,11 @@ impl Bitmap {
                 )
                 .ok()?;
 
-            let bitmap = context.CreateBitmapFromWicBitmap(&converter, None)?;
-            Ok(Self(bitmap))
+            let mut bitmap = None;
+            context
+                .CreateBitmapFromWicBitmap(&converter, None, &mut bitmap)
+                .ok()?;
+            Ok(Self(bitmap.unwrap()))
         }
     }
 
@@ -78,10 +85,19 @@ impl Bitmap {
         };
         let size = D2D_SIZE_U { width, height };
 
-        let bitmap = unsafe {
-            context.CreateBitmap(size, Some(pixels.as_ptr().cast()), stride, &properties)?
-        };
-        Ok(Self(bitmap))
+        let mut bitmap = None;
+        unsafe {
+            context
+                .CreateBitmap(
+                    size,
+                    Some(pixels.as_ptr().cast()),
+                    stride,
+                    &properties,
+                    &mut bitmap,
+                )
+                .ok()?;
+        }
+        Ok(Self(bitmap.unwrap()))
     }
 
     /// Returns the width of the bitmap, in device-independent pixels.

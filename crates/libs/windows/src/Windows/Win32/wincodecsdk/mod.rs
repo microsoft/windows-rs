@@ -1,26 +1,20 @@
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WICGetMetadataContentSize<P1>(guidcontainerformat: *const windows_core::GUID, piwriter: P1) -> windows_core::Result<super::ULARGE_INTEGER>
+pub unsafe fn WICGetMetadataContentSize<P1>(guidcontainerformat: *const windows_core::GUID, piwriter: P1, pcbsize: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT
 where
     P1: windows_core::Param<IWICMetadataWriter>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICGetMetadataContentSize(guidcontainerformat : *const windows_core::GUID, piwriter : *mut core::ffi::c_void, pcbsize : *mut super::ULARGE_INTEGER) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WICGetMetadataContentSize(guidcontainerformat, piwriter.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { WICGetMetadataContentSize(guidcontainerformat, piwriter.param().abi(), pcbsize as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn WICMatchMetadataContent<P2>(guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, pistream: P2) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn WICMatchMetadataContent<P2>(guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, pistream: P2, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IStream>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_core::GUID, pguidvendor : *const windows_core::GUID, pistream : *mut core::ffi::c_void, pguidmetadataformat : *mut windows_core::GUID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WICMatchMetadataContent(guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, pistream.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { WICMatchMetadataContent(guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, pistream.param().abi(), pguidmetadataformat as _) }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
@@ -179,65 +173,44 @@ windows_core::imp::interface_hierarchy!(IWICComponentFactory, windows_core::IUnk
 #[cfg(feature = "wincodec")]
 impl IWICComponentFactory {
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn CreateMetadataReader<P3>(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
+    pub unsafe fn CreateMetadataReader<P3>(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3, ppireader: *mut Option<IWICMetadataReader>) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::IStream>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataReader)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateMetadataReader)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), core::mem::transmute(ppireader)) }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn CreateMetadataReaderFromContainer<P3>(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
+    pub unsafe fn CreateMetadataReaderFromContainer<P3>(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3, ppireader: *mut Option<IWICMetadataReader>) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::IStream>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataReaderFromContainer)(windows_core::Interface::as_raw(self), guidcontainerformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateMetadataReaderFromContainer)(windows_core::Interface::as_raw(self), guidcontainerformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), core::mem::transmute(ppireader)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwmetadataoptions: super::DWORD) -> windows_core::Result<IWICMetadataWriter> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataWriter)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwmetadataoptions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwmetadataoptions: super::DWORD, ppiwriter: *mut Option<IWICMetadataWriter>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMetadataWriter)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwmetadataoptions, core::mem::transmute(ppiwriter)) }
     }
-    pub unsafe fn CreateMetadataWriterFromReader<P0>(&self, pireader: P0, pguidvendor: Option<*const windows_core::GUID>) -> windows_core::Result<IWICMetadataWriter>
+    pub unsafe fn CreateMetadataWriterFromReader<P0>(&self, pireader: P0, pguidvendor: Option<*const windows_core::GUID>, ppiwriter: *mut Option<IWICMetadataWriter>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWICMetadataReader>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataWriterFromReader)(windows_core::Interface::as_raw(self), pireader.param().abi(), pguidvendor.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateMetadataWriterFromReader)(windows_core::Interface::as_raw(self), pireader.param().abi(), pguidvendor.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppiwriter)) }
     }
-    pub unsafe fn CreateQueryReaderFromBlockReader<P0>(&self, piblockreader: P0) -> windows_core::Result<super::IWICMetadataQueryReader>
+    pub unsafe fn CreateQueryReaderFromBlockReader<P0>(&self, piblockreader: P0, ppiqueryreader: *mut Option<super::IWICMetadataQueryReader>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWICMetadataBlockReader>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateQueryReaderFromBlockReader)(windows_core::Interface::as_raw(self), piblockreader.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateQueryReaderFromBlockReader)(windows_core::Interface::as_raw(self), piblockreader.param().abi(), core::mem::transmute(ppiqueryreader)) }
     }
-    pub unsafe fn CreateQueryWriterFromBlockWriter<P0>(&self, piblockwriter: P0) -> windows_core::Result<super::IWICMetadataQueryWriter>
+    pub unsafe fn CreateQueryWriterFromBlockWriter<P0>(&self, piblockwriter: P0, ppiquerywriter: *mut Option<super::IWICMetadataQueryWriter>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWICMetadataBlockWriter>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(windows_core::Interface::as_raw(self), piblockwriter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(windows_core::Interface::as_raw(self), piblockwriter.param().abi(), core::mem::transmute(ppiquerywriter)) }
     }
     #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: Option<&[super::PROPBAG2]>) -> windows_core::Result<super::IPropertyBag2> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncoderPropertyBag)(windows_core::Interface::as_raw(self), ppropoptions.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropoptions.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: Option<&[super::PROPBAG2]>, ppipropertybag: *mut Option<super::IPropertyBag2>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateEncoderPropertyBag)(windows_core::Interface::as_raw(self), ppropoptions.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropoptions.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppipropertybag)) }
     }
 }
 #[cfg(feature = "wincodec")]
@@ -267,13 +240,13 @@ pub struct IWICComponentFactory_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "ocidl", feature = "shared", feature = "wincodec", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWICComponentFactory_Impl: super::IWICImagingFactory_Impl {
-    fn CreateMetadataReader(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: windows_core::Ref<super::IStream>) -> windows_core::Result<IWICMetadataReader>;
-    fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: windows_core::Ref<super::IStream>) -> windows_core::Result<IWICMetadataReader>;
-    fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwmetadataoptions: super::DWORD) -> windows_core::Result<IWICMetadataWriter>;
-    fn CreateMetadataWriterFromReader(&self, pireader: windows_core::Ref<IWICMetadataReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataWriter>;
-    fn CreateQueryReaderFromBlockReader(&self, piblockreader: windows_core::Ref<IWICMetadataBlockReader>) -> windows_core::Result<super::IWICMetadataQueryReader>;
-    fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: windows_core::Ref<IWICMetadataBlockWriter>) -> windows_core::Result<super::IWICMetadataQueryWriter>;
-    fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::PROPBAG2, ccount: super::UINT) -> windows_core::Result<super::IPropertyBag2>;
+    fn CreateMetadataReader(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: windows_core::Ref<super::IStream>, ppireader: windows_core::OutRef<IWICMetadataReader>) -> windows_core::Result<()>;
+    fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: windows_core::Ref<super::IStream>, ppireader: windows_core::OutRef<IWICMetadataReader>) -> windows_core::Result<()>;
+    fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwmetadataoptions: super::DWORD, ppiwriter: windows_core::OutRef<IWICMetadataWriter>) -> windows_core::Result<()>;
+    fn CreateMetadataWriterFromReader(&self, pireader: windows_core::Ref<IWICMetadataReader>, pguidvendor: *const windows_core::GUID, ppiwriter: windows_core::OutRef<IWICMetadataWriter>) -> windows_core::Result<()>;
+    fn CreateQueryReaderFromBlockReader(&self, piblockreader: windows_core::Ref<IWICMetadataBlockReader>, ppiqueryreader: windows_core::OutRef<super::IWICMetadataQueryReader>) -> windows_core::Result<()>;
+    fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: windows_core::Ref<IWICMetadataBlockWriter>, ppiquerywriter: windows_core::OutRef<super::IWICMetadataQueryWriter>) -> windows_core::Result<()>;
+    fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::PROPBAG2, ccount: super::UINT, ppipropertybag: windows_core::OutRef<super::IPropertyBag2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "ocidl", feature = "shared", feature = "wincodec", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IWICComponentFactory_Vtbl {
@@ -281,85 +254,43 @@ impl IWICComponentFactory_Vtbl {
         unsafe extern "system" fn CreateMetadataReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: *mut core::ffi::c_void, ppireader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateMetadataReader(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
-                    Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateMetadataReader(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&ppireader)).into()
             }
         }
         unsafe extern "system" fn CreateMetadataReaderFromContainer<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: super::DWORD, pistream: *mut core::ffi::c_void, ppireader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateMetadataReaderFromContainer(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
-                    Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateMetadataReaderFromContainer(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&ppireader)).into()
             }
         }
         unsafe extern "system" fn CreateMetadataWriter<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwmetadataoptions: super::DWORD, ppiwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateMetadataWriter(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwmetadataoptions)) {
-                    Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateMetadataWriter(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwmetadataoptions), core::mem::transmute_copy(&ppiwriter)).into()
             }
         }
         unsafe extern "system" fn CreateMetadataWriterFromReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pireader: *mut core::ffi::c_void, pguidvendor: *const windows_core::GUID, ppiwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateMetadataWriterFromReader(this, core::mem::transmute_copy(&pireader), core::mem::transmute_copy(&pguidvendor)) {
-                    Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateMetadataWriterFromReader(this, core::mem::transmute_copy(&pireader), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&ppiwriter)).into()
             }
         }
         unsafe extern "system" fn CreateQueryReaderFromBlockReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piblockreader: *mut core::ffi::c_void, ppiqueryreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateQueryReaderFromBlockReader(this, core::mem::transmute_copy(&piblockreader)) {
-                    Ok(ok__) => {
-                        ppiqueryreader.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateQueryReaderFromBlockReader(this, core::mem::transmute_copy(&piblockreader), core::mem::transmute_copy(&ppiqueryreader)).into()
             }
         }
         unsafe extern "system" fn CreateQueryWriterFromBlockWriter<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piblockwriter: *mut core::ffi::c_void, ppiquerywriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateQueryWriterFromBlockWriter(this, core::mem::transmute_copy(&piblockwriter)) {
-                    Ok(ok__) => {
-                        ppiquerywriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateQueryWriterFromBlockWriter(this, core::mem::transmute_copy(&piblockwriter), core::mem::transmute_copy(&ppiquerywriter)).into()
             }
         }
         unsafe extern "system" fn CreateEncoderPropertyBag<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropoptions: *const super::PROPBAG2, ccount: super::UINT, ppipropertybag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICComponentFactory_Impl::CreateEncoderPropertyBag(this, core::mem::transmute_copy(&ppropoptions), core::mem::transmute_copy(&ccount)) {
-                    Ok(ok__) => {
-                        ppipropertybag.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICComponentFactory_Impl::CreateEncoderPropertyBag(this, core::mem::transmute_copy(&ppropoptions), core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&ppipropertybag)).into()
             }
         }
         Self {
@@ -382,32 +313,20 @@ impl windows_core::RuntimeName for IWICComponentFactory {}
 windows_core::imp::define_interface!(IWICMetadataBlockReader, IWICMetadataBlockReader_Vtbl, 0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
 windows_core::imp::interface_hierarchy!(IWICMetadataBlockReader, windows_core::IUnknown);
 impl IWICMetadataBlockReader {
-    pub unsafe fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContainerFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetContainerFormat(&self, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainerFormat)(windows_core::Interface::as_raw(self), pguidcontainerformat as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pccount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pccount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetReaderByIndex(&self, nindex: super::UINT) -> windows_core::Result<IWICMetadataReader> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReaderByIndex)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetReaderByIndex(&self, nindex: super::UINT, ppimetadatareader: *mut Option<IWICMetadataReader>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReaderByIndex)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(ppimetadatareader)) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::IEnumUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetEnumerator(&self, ppienummetadata: *mut Option<super::IEnumUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnumerator)(windows_core::Interface::as_raw(self), core::mem::transmute(ppienummetadata)) }
     }
 }
 #[repr(C)]
@@ -430,10 +349,10 @@ pub struct IWICMetadataBlockReader_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IWICMetadataBlockReader_Impl: windows_core::IUnknownImpl {
-    fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
-    fn GetReaderByIndex(&self, nindex: super::UINT) -> windows_core::Result<IWICMetadataReader>;
-    fn GetEnumerator(&self) -> windows_core::Result<super::IEnumUnknown>;
+    fn GetContainerFormat(&self, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetCount(&self, pccount: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetReaderByIndex(&self, nindex: super::UINT, ppimetadatareader: windows_core::OutRef<IWICMetadataReader>) -> windows_core::Result<()>;
+    fn GetEnumerator(&self, ppienummetadata: windows_core::OutRef<super::IEnumUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IWICMetadataBlockReader_Vtbl {
@@ -441,49 +360,25 @@ impl IWICMetadataBlockReader_Vtbl {
         unsafe extern "system" fn GetContainerFormat<Identity: IWICMetadataBlockReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataBlockReader_Impl::GetContainerFormat(this) {
-                    Ok(ok__) => {
-                        pguidcontainerformat.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataBlockReader_Impl::GetContainerFormat(this, core::mem::transmute_copy(&pguidcontainerformat)).into()
             }
         }
         unsafe extern "system" fn GetCount<Identity: IWICMetadataBlockReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataBlockReader_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pccount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataBlockReader_Impl::GetCount(this, core::mem::transmute_copy(&pccount)).into()
             }
         }
         unsafe extern "system" fn GetReaderByIndex<Identity: IWICMetadataBlockReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppimetadatareader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataBlockReader_Impl::GetReaderByIndex(this, core::mem::transmute_copy(&nindex)) {
-                    Ok(ok__) => {
-                        ppimetadatareader.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataBlockReader_Impl::GetReaderByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppimetadatareader)).into()
             }
         }
         unsafe extern "system" fn GetEnumerator<Identity: IWICMetadataBlockReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienummetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataBlockReader_Impl::GetEnumerator(this) {
-                    Ok(ok__) => {
-                        ppienummetadata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataBlockReader_Impl::GetEnumerator(this, core::mem::transmute_copy(&ppienummetadata)).into()
             }
         }
         Self {
@@ -516,11 +411,8 @@ impl IWICMetadataBlockWriter {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromBlockReader)(windows_core::Interface::as_raw(self), pimdblockreader.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetWriterByIndex(&self, nindex: super::UINT) -> windows_core::Result<IWICMetadataWriter> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterByIndex)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetWriterByIndex(&self, nindex: super::UINT, ppimetadatawriter: *mut Option<IWICMetadataWriter>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWriterByIndex)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(ppimetadatawriter)) }
     }
     pub unsafe fn AddWriter<P0>(&self, pimetadatawriter: P0) -> windows_core::HRESULT
     where
@@ -562,7 +454,7 @@ pub struct IWICMetadataBlockWriter_Vtbl {
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IWICMetadataBlockWriter_Impl: IWICMetadataBlockReader_Impl {
     fn InitializeFromBlockReader(&self, pimdblockreader: windows_core::Ref<IWICMetadataBlockReader>) -> windows_core::Result<()>;
-    fn GetWriterByIndex(&self, nindex: super::UINT) -> windows_core::Result<IWICMetadataWriter>;
+    fn GetWriterByIndex(&self, nindex: super::UINT, ppimetadatawriter: windows_core::OutRef<IWICMetadataWriter>) -> windows_core::Result<()>;
     fn AddWriter(&self, pimetadatawriter: windows_core::Ref<IWICMetadataWriter>) -> windows_core::Result<()>;
     fn SetWriterByIndex(&self, nindex: super::UINT, pimetadatawriter: windows_core::Ref<IWICMetadataWriter>) -> windows_core::Result<()>;
     fn RemoveWriterByIndex(&self, nindex: super::UINT) -> windows_core::Result<()>;
@@ -579,13 +471,7 @@ impl IWICMetadataBlockWriter_Vtbl {
         unsafe extern "system" fn GetWriterByIndex<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppimetadatawriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataBlockWriter_Impl::GetWriterByIndex(this, core::mem::transmute_copy(&nindex)) {
-                    Ok(ok__) => {
-                        ppimetadatawriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataBlockWriter_Impl::GetWriterByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppimetadatawriter)).into()
             }
         }
         unsafe extern "system" fn AddWriter<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimetadatawriter: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -634,11 +520,8 @@ impl core::ops::Deref for IWICMetadataHandlerInfo {
 windows_core::imp::interface_hierarchy!(IWICMetadataHandlerInfo, windows_core::IUnknown, super::IWICComponentInfo);
 #[cfg(feature = "wincodec")]
 impl IWICMetadataHandlerInfo {
-    pub unsafe fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadataFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMetadataFormat(&self, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataFormat)(windows_core::Interface::as_raw(self), pguidmetadataformat as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetContainerFormats(&self, mut pguidcontainerformats: Option<&mut [windows_core::GUID]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
@@ -652,23 +535,14 @@ impl IWICMetadataHandlerInfo {
     pub unsafe fn GetDeviceModels(&self, mut wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
-    pub unsafe fn DoesRequireFullStream(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoesRequireFullStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DoesRequireFullStream(&self, pfrequiresfullstream: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoesRequireFullStream)(windows_core::Interface::as_raw(self), pfrequiresfullstream as _) }
     }
-    pub unsafe fn DoesSupportPadding(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoesSupportPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DoesSupportPadding(&self, pfsupportspadding: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoesSupportPadding)(windows_core::Interface::as_raw(self), pfsupportspadding as _) }
     }
-    pub unsafe fn DoesRequireFixedSize(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoesRequireFixedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DoesRequireFixedSize(&self, pffixedsize: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoesRequireFixedSize)(windows_core::Interface::as_raw(self), pffixedsize as _) }
     }
 }
 #[cfg(feature = "wincodec")]
@@ -695,13 +569,13 @@ pub struct IWICMetadataHandlerInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
 pub trait IWICMetadataHandlerInfo_Impl: super::IWICComponentInfo_Impl {
-    fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetMetadataFormat(&self, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetContainerFormats(&self, ccontainerformats: super::UINT, pguidcontainerformats: *mut windows_core::GUID, pcchactual: *mut super::UINT) -> windows_core::Result<()>;
     fn GetDeviceManufacturer(&self, cchdevicemanufacturer: super::UINT, wzdevicemanufacturer: *mut super::WCHAR, pcchactual: *mut super::UINT) -> windows_core::Result<()>;
     fn GetDeviceModels(&self, cchdevicemodels: super::UINT, wzdevicemodels: *mut super::WCHAR, pcchactual: *mut super::UINT) -> windows_core::Result<()>;
-    fn DoesRequireFullStream(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn DoesSupportPadding(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn DoesRequireFixedSize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesRequireFullStream(&self, pfrequiresfullstream: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn DoesSupportPadding(&self, pfsupportspadding: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn DoesRequireFixedSize(&self, pffixedsize: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
 impl IWICMetadataHandlerInfo_Vtbl {
@@ -709,13 +583,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
         unsafe extern "system" fn GetMetadataFormat<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataHandlerInfo_Impl::GetMetadataFormat(this) {
-                    Ok(ok__) => {
-                        pguidmetadataformat.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataHandlerInfo_Impl::GetMetadataFormat(this, core::mem::transmute_copy(&pguidmetadataformat)).into()
             }
         }
         unsafe extern "system" fn GetContainerFormats<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccontainerformats: super::UINT, pguidcontainerformats: *mut windows_core::GUID, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
@@ -739,37 +607,19 @@ impl IWICMetadataHandlerInfo_Vtbl {
         unsafe extern "system" fn DoesRequireFullStream<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequiresfullstream: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataHandlerInfo_Impl::DoesRequireFullStream(this) {
-                    Ok(ok__) => {
-                        pfrequiresfullstream.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataHandlerInfo_Impl::DoesRequireFullStream(this, core::mem::transmute_copy(&pfrequiresfullstream)).into()
             }
         }
         unsafe extern "system" fn DoesSupportPadding<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportspadding: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataHandlerInfo_Impl::DoesSupportPadding(this) {
-                    Ok(ok__) => {
-                        pfsupportspadding.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataHandlerInfo_Impl::DoesSupportPadding(this, core::mem::transmute_copy(&pfsupportspadding)).into()
             }
         }
         unsafe extern "system" fn DoesRequireFixedSize<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffixedsize: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataHandlerInfo_Impl::DoesRequireFixedSize(this) {
-                    Ok(ok__) => {
-                        pffixedsize.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataHandlerInfo_Impl::DoesRequireFixedSize(this, core::mem::transmute_copy(&pffixedsize)).into()
             }
         }
         Self {
@@ -792,25 +642,16 @@ impl windows_core::RuntimeName for IWICMetadataHandlerInfo {}
 windows_core::imp::define_interface!(IWICMetadataReader, IWICMetadataReader_Vtbl, 0x9204fe99_d8fc_4fd5_a001_9536b067a899);
 windows_core::imp::interface_hierarchy!(IWICMetadataReader, windows_core::IUnknown);
 impl IWICMetadataReader {
-    pub unsafe fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadataFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMetadataFormat(&self, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataFormat)(windows_core::Interface::as_raw(self), pguidmetadataformat as _) }
     }
     #[cfg(feature = "wincodec")]
-    pub unsafe fn GetMetadataHandlerInfo(&self) -> windows_core::Result<IWICMetadataHandlerInfo> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadataHandlerInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetMetadataHandlerInfo(&self, ppihandler: *mut Option<IWICMetadataHandlerInfo>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataHandlerInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppihandler)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pccount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pccount as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValueByIndex(&self, nindex: super::UINT, pvarschema: Option<*mut super::PROPVARIANT>, pvarid: Option<*mut super::PROPVARIANT>, pvarvalue: Option<*mut super::PROPVARIANT>) -> windows_core::HRESULT {
@@ -821,11 +662,8 @@ impl IWICMetadataReader {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pvarschema.unwrap_or(core::mem::zeroed()) as _, pvarid, pvarvalue.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "wincodec")]
-    pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::IWICEnumMetadataItem> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetEnumerator(&self, ppienummetadata: *mut Option<super::IWICEnumMetadataItem>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnumerator)(windows_core::Interface::as_raw(self), core::mem::transmute(ppienummetadata)) }
     }
 }
 #[repr(C)]
@@ -856,12 +694,12 @@ pub struct IWICMetadataReader_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "wincodec", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWICMetadataReader_Impl: windows_core::IUnknownImpl {
-    fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetMetadataHandlerInfo(&self) -> windows_core::Result<IWICMetadataHandlerInfo>;
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetMetadataFormat(&self, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetMetadataHandlerInfo(&self, ppihandler: windows_core::OutRef<IWICMetadataHandlerInfo>) -> windows_core::Result<()>;
+    fn GetCount(&self, pccount: *mut super::UINT) -> windows_core::Result<()>;
     fn GetValueByIndex(&self, nindex: super::UINT, pvarschema: *mut super::PROPVARIANT, pvarid: *mut super::PROPVARIANT, pvarvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn GetValue(&self, pvarschema: *const super::PROPVARIANT, pvarid: *const super::PROPVARIANT, pvarvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetEnumerator(&self) -> windows_core::Result<super::IWICEnumMetadataItem>;
+    fn GetEnumerator(&self, ppienummetadata: windows_core::OutRef<super::IWICEnumMetadataItem>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "wincodec", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWICMetadataReader_Vtbl {
@@ -869,37 +707,19 @@ impl IWICMetadataReader_Vtbl {
         unsafe extern "system" fn GetMetadataFormat<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReader_Impl::GetMetadataFormat(this) {
-                    Ok(ok__) => {
-                        pguidmetadataformat.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReader_Impl::GetMetadataFormat(this, core::mem::transmute_copy(&pguidmetadataformat)).into()
             }
         }
         unsafe extern "system" fn GetMetadataHandlerInfo<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppihandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReader_Impl::GetMetadataHandlerInfo(this) {
-                    Ok(ok__) => {
-                        ppihandler.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReader_Impl::GetMetadataHandlerInfo(this, core::mem::transmute_copy(&ppihandler)).into()
             }
         }
         unsafe extern "system" fn GetCount<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReader_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pccount.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReader_Impl::GetCount(this, core::mem::transmute_copy(&pccount)).into()
             }
         }
         unsafe extern "system" fn GetValueByIndex<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, pvarschema: *mut super::PROPVARIANT, pvarid: *mut super::PROPVARIANT, pvarvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -917,13 +737,7 @@ impl IWICMetadataReader_Vtbl {
         unsafe extern "system" fn GetEnumerator<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienummetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReader_Impl::GetEnumerator(this) {
-                    Ok(ok__) => {
-                        ppienummetadata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReader_Impl::GetEnumerator(this, core::mem::transmute_copy(&ppienummetadata)).into()
             }
         }
         Self {
@@ -960,20 +774,14 @@ impl IWICMetadataReaderInfo {
         unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, ppattern.unwrap_or(core::mem::zeroed()) as _, pccount.unwrap_or(core::mem::zeroed()) as _, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn MatchesPattern<P1>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P1) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn MatchesPattern<P1>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P1, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IStream>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MatchesPattern)(windows_core::Interface::as_raw(self), guidcontainerformat, pistream.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).MatchesPattern)(windows_core::Interface::as_raw(self), guidcontainerformat, pistream.param().abi(), pfmatches as _) }
     }
-    pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICMetadataReader> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateInstance(&self, ppireader: *mut Option<IWICMetadataReader>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(ppireader)) }
     }
 }
 #[cfg(feature = "wincodec")]
@@ -994,8 +802,8 @@ pub struct IWICMetadataReaderInfo_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wincodec", feature = "winnt"))]
 pub trait IWICMetadataReaderInfo_Impl: IWICMetadataHandlerInfo_Impl {
     fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: super::UINT, ppattern: *mut WICMetadataPattern, pccount: *mut super::UINT, pcbactual: *mut super::UINT) -> windows_core::Result<()>;
-    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: windows_core::Ref<super::IStream>) -> windows_core::Result<windows_core::BOOL>;
-    fn CreateInstance(&self) -> windows_core::Result<IWICMetadataReader>;
+    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: windows_core::Ref<super::IStream>, pfmatches: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateInstance(&self, ppireader: windows_core::OutRef<IWICMetadataReader>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wincodec", feature = "winnt"))]
 impl IWICMetadataReaderInfo_Vtbl {
@@ -1009,25 +817,13 @@ impl IWICMetadataReaderInfo_Vtbl {
         unsafe extern "system" fn MatchesPattern<Identity: IWICMetadataReaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pistream: *mut core::ffi::c_void, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pistream)) {
-                    Ok(ok__) => {
-                        pfmatches.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&pfmatches)).into()
             }
         }
         unsafe extern "system" fn CreateInstance<Identity: IWICMetadataReaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppireader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReaderInfo_Impl::CreateInstance(this) {
-                    Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReaderInfo_Impl::CreateInstance(this, core::mem::transmute_copy(&ppireader)).into()
             }
         }
         Self {
@@ -1155,11 +951,8 @@ impl IWICMetadataWriterInfo {
     pub unsafe fn GetHeader(&self, guidcontainerformat: *const windows_core::GUID, cbsize: super::UINT, pheader: Option<*mut WICMetadataHeader>, pcbactual: Option<*mut super::UINT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, pheader.unwrap_or(core::mem::zeroed()) as _, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICMetadataWriter> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateInstance(&self, ppiwriter: *mut Option<IWICMetadataWriter>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiwriter)) }
     }
 }
 #[cfg(feature = "wincodec")]
@@ -1176,7 +969,7 @@ pub struct IWICMetadataWriterInfo_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
 pub trait IWICMetadataWriterInfo_Impl: IWICMetadataHandlerInfo_Impl {
     fn GetHeader(&self, guidcontainerformat: *const windows_core::GUID, cbsize: super::UINT, pheader: *mut WICMetadataHeader, pcbactual: *mut super::UINT) -> windows_core::Result<()>;
-    fn CreateInstance(&self) -> windows_core::Result<IWICMetadataWriter>;
+    fn CreateInstance(&self, ppiwriter: windows_core::OutRef<IWICMetadataWriter>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
 impl IWICMetadataWriterInfo_Vtbl {
@@ -1190,13 +983,7 @@ impl IWICMetadataWriterInfo_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: IWICMetadataWriterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataWriterInfo_Impl::CreateInstance(this) {
-                    Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataWriterInfo_Impl::CreateInstance(this, core::mem::transmute_copy(&ppiwriter)).into()
             }
         }
         Self {
@@ -1285,24 +1072,15 @@ windows_core::imp::define_interface!(IWICStreamProvider, IWICStreamProvider_Vtbl
 windows_core::imp::interface_hierarchy!(IWICStreamProvider, windows_core::IUnknown);
 impl IWICStreamProvider {
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetStream(&self) -> windows_core::Result<super::IStream> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStream(&self, ppistream: *mut Option<super::IStream>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppistream)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPersistOptions(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPersistOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPersistOptions(&self, pdwpersistoptions: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPersistOptions)(windows_core::Interface::as_raw(self), pdwpersistoptions as _) }
     }
-    pub unsafe fn GetPreferredVendorGUID(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreferredVendorGUID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPreferredVendorGUID(&self, pguidpreferredvendor: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPreferredVendorGUID)(windows_core::Interface::as_raw(self), pguidpreferredvendor as _) }
     }
     pub unsafe fn RefreshStream(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RefreshStream)(windows_core::Interface::as_raw(self)) }
@@ -1325,9 +1103,9 @@ pub struct IWICStreamProvider_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IWICStreamProvider_Impl: windows_core::IUnknownImpl {
-    fn GetStream(&self) -> windows_core::Result<super::IStream>;
-    fn GetPersistOptions(&self) -> windows_core::Result<super::DWORD>;
-    fn GetPreferredVendorGUID(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetStream(&self, ppistream: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
+    fn GetPersistOptions(&self, pdwpersistoptions: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetPreferredVendorGUID(&self, pguidpreferredvendor: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RefreshStream(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -1336,37 +1114,19 @@ impl IWICStreamProvider_Vtbl {
         unsafe extern "system" fn GetStream<Identity: IWICStreamProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppistream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICStreamProvider_Impl::GetStream(this) {
-                    Ok(ok__) => {
-                        ppistream.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICStreamProvider_Impl::GetStream(this, core::mem::transmute_copy(&ppistream)).into()
             }
         }
         unsafe extern "system" fn GetPersistOptions<Identity: IWICStreamProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpersistoptions: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICStreamProvider_Impl::GetPersistOptions(this) {
-                    Ok(ok__) => {
-                        pdwpersistoptions.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICStreamProvider_Impl::GetPersistOptions(this, core::mem::transmute_copy(&pdwpersistoptions)).into()
             }
         }
         unsafe extern "system" fn GetPreferredVendorGUID<Identity: IWICStreamProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidpreferredvendor: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICStreamProvider_Impl::GetPreferredVendorGUID(this) {
-                    Ok(ok__) => {
-                        pguidpreferredvendor.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICStreamProvider_Impl::GetPreferredVendorGUID(this, core::mem::transmute_copy(&pguidpreferredvendor)).into()
             }
         }
         unsafe extern "system" fn RefreshStream<Identity: IWICStreamProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -142,12 +142,9 @@ where
     unsafe { AVIFileWriteData(pfile.param().abi(), ckid, lpdata, cbdata) }
 }
 #[inline]
-pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<PAVIFILE> {
+pub unsafe fn AVIGetFromClipboard(lppf: *mut Option<PAVIFILE>) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AVIGetFromClipboard(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { AVIGetFromClipboard(core::mem::transmute(lppf)) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -165,12 +162,9 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<PAVIFILE>, papstreams: 
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AVIMakeStreamFromClipboard(cfformat: super::UINT, hglobal: super::HANDLE) -> windows_core::Result<PAVISTREAM> {
+pub unsafe fn AVIMakeStreamFromClipboard(cfformat: super::UINT, hglobal: super::HANDLE, ppstream: *mut Option<PAVISTREAM>) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : super::UINT, hglobal : super::HANDLE, ppstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AVIMakeStreamFromClipboard(cfformat, hglobal, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { AVIMakeStreamFromClipboard(cfformat, hglobal, core::mem::transmute(ppstream)) }
 }
 #[inline]
 pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> windows_core::HRESULT
@@ -529,15 +523,12 @@ pub unsafe fn DrawDibTime(hdd: HDRAWDIB, lpddtime: LPDRAWDIBTIME) -> windows_cor
     unsafe { DrawDibTime(hdd, lpddtime as _) }
 }
 #[inline]
-pub unsafe fn EditStreamClone<P0>(pavi: P0) -> windows_core::Result<PAVISTREAM>
+pub unsafe fn EditStreamClone<P0>(pavi: P0, ppresult: *mut Option<PAVISTREAM>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<PAVISTREAM>,
 {
     windows_core::link!("avifil32.dll" "system" fn EditStreamClone(pavi : *mut core::ffi::c_void, ppresult : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        EditStreamClone(pavi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { EditStreamClone(pavi.param().abi(), core::mem::transmute(ppresult)) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1294,11 +1285,8 @@ impl IAVIEditStream {
     {
         unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), plpos as _, pllength as _, pstream.param().abi(), lstart, lend) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<PAVISTREAM> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppresult: *mut Option<PAVISTREAM>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresult)) }
     }
     #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT {
@@ -1332,7 +1320,7 @@ pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
     fn Cut(&self, plstart: *mut super::LONG, pllength: *mut super::LONG, ppresult: windows_core::OutRef<PAVISTREAM>) -> windows_core::Result<()>;
     fn Copy(&self, plstart: *mut super::LONG, pllength: *mut super::LONG, ppresult: windows_core::OutRef<PAVISTREAM>) -> windows_core::Result<()>;
     fn Paste(&self, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: windows_core::Ref<PAVISTREAM>, lstart: super::LONG, lend: super::LONG) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<PAVISTREAM>;
+    fn Clone(&self, ppresult: windows_core::OutRef<PAVISTREAM>) -> windows_core::Result<()>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1359,13 +1347,7 @@ impl IAVIEditStream_Vtbl {
         unsafe extern "system" fn Clone<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAVIEditStream_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAVIEditStream_Impl::Clone(this, core::mem::transmute_copy(&ppresult)).into()
             }
         }
         unsafe extern "system" fn SetInfo<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT {

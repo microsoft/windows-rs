@@ -22,7 +22,9 @@ fn main() -> windows::core::Result<()> {
             let error = error.unwrap();
             unsafe {
                 job.Cancel().ok()?;
-                println!("{}", error.GetErrorDescription(0)?.display());
+                let mut description = PWSTR::null();
+                error.GetErrorDescription(0, &mut description).ok()?;
+                println!("{}", description.display());
             }
             std::process::exit(0);
         }

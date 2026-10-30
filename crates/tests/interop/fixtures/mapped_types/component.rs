@@ -54,9 +54,9 @@ impl IStringable_Impl for Widget_Impl {
 struct WidgetFactory;
 
 impl IActivationFactory_Impl for WidgetFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self, instance: OutRef<IInspectable>) -> Result<()> {
         let widget: MappedTypes::Widget = Widget.into();
-        Ok(widget.into())
+        instance.write(Some(widget.into()))
     }
 }
 

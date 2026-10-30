@@ -32,14 +32,11 @@ impl ICastingController {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Advise<P0>(&self, eventhandler: P0) -> windows_core::Result<super::DWORD>
+    pub unsafe fn Advise<P0>(&self, eventhandler: P0, cookie: *mut super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICastingEventHandler>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), cookie as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn UnAdvise(&self, cookie: super::DWORD) -> windows_core::HRESULT {
@@ -67,7 +64,7 @@ pub trait ICastingController_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, castingengine: windows_core::Ref<windows_core::IUnknown>, castingsource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>) -> windows_core::Result<super::DWORD>;
+    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>, cookie: *mut super::DWORD) -> windows_core::Result<()>;
     fn UnAdvise(&self, cookie: super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -94,13 +91,7 @@ impl ICastingController_Vtbl {
         unsafe extern "system" fn Advise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, cookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler)) {
-                    Ok(ok__) => {
-                        cookie.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler), core::mem::transmute_copy(&cookie)).into()
             }
         }
         unsafe extern "system" fn UnAdvise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: super::DWORD) -> windows_core::HRESULT {
@@ -176,18 +167,12 @@ impl windows_core::RuntimeName for ICastingEventHandler {}
 windows_core::imp::define_interface!(ICastingSourceInfo, ICastingSourceInfo_Vtbl, 0x45101ab7_7c3a_4bce_9500_12c09024b298);
 windows_core::imp::interface_hierarchy!(ICastingSourceInfo, windows_core::IUnknown);
 impl ICastingSourceInfo {
-    pub unsafe fn GetController(&self) -> windows_core::Result<ICastingController> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetController(&self, controller: *mut Option<ICastingController>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), core::mem::transmute(controller)) }
     }
     #[cfg(feature = "propsys")]
-    pub unsafe fn GetProperties(&self) -> windows_core::Result<super::INamedPropertyStore> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetProperties(&self, props: *mut Option<super::INamedPropertyStore>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(props)) }
     }
 }
 #[repr(C)]
@@ -202,8 +187,8 @@ pub struct ICastingSourceInfo_Vtbl {
 }
 #[cfg(feature = "propsys")]
 pub trait ICastingSourceInfo_Impl: windows_core::IUnknownImpl {
-    fn GetController(&self) -> windows_core::Result<ICastingController>;
-    fn GetProperties(&self) -> windows_core::Result<super::INamedPropertyStore>;
+    fn GetController(&self, controller: windows_core::OutRef<ICastingController>) -> windows_core::Result<()>;
+    fn GetProperties(&self, props: windows_core::OutRef<super::INamedPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "propsys")]
 impl ICastingSourceInfo_Vtbl {
@@ -211,25 +196,13 @@ impl ICastingSourceInfo_Vtbl {
         unsafe extern "system" fn GetController<Identity: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, controller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICastingSourceInfo_Impl::GetController(this) {
-                    Ok(ok__) => {
-                        controller.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICastingSourceInfo_Impl::GetController(this, core::mem::transmute_copy(&controller)).into()
             }
         }
         unsafe extern "system" fn GetProperties<Identity: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, props: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICastingSourceInfo_Impl::GetProperties(this) {
-                    Ok(ok__) => {
-                        props.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICastingSourceInfo_Impl::GetProperties(this, core::mem::transmute_copy(&props)).into()
             }
         }
         Self {

@@ -55,12 +55,9 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> windows_core::Result<super::IMoniker> {
+pub unsafe fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHCreateQueryCancelAutoPlayMoniker(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { SHCreateQueryCancelAutoPlayMoniker(core::mem::transmute(ppmoniker)) }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
@@ -336,22 +333,16 @@ impl IBanneredBar {
         unsafe { (windows_core::Interface::vtable(self).SetIconSize)(windows_core::Interface::as_raw(self), iicon) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIconSize(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIconSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetIconSize(&self, piicon: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIconSize)(windows_core::Interface::as_raw(self), piicon as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetBitmap(&self, hbitmap: super::HBITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBitmap)(windows_core::Interface::as_raw(self), hbitmap) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetBitmap(&self) -> windows_core::Result<super::HBITMAP> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBitmap(&self, phbitmap: *mut super::HBITMAP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), phbitmap as _) }
     }
 }
 #[repr(C)]
@@ -378,9 +369,9 @@ pub struct IBanneredBar_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IBanneredBar_Impl: windows_core::IUnknownImpl {
     fn SetIconSize(&self, iicon: super::DWORD) -> windows_core::Result<()>;
-    fn GetIconSize(&self) -> windows_core::Result<super::DWORD>;
+    fn GetIconSize(&self, piicon: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetBitmap(&self, hbitmap: super::HBITMAP) -> windows_core::Result<()>;
-    fn GetBitmap(&self) -> windows_core::Result<super::HBITMAP>;
+    fn GetBitmap(&self, phbitmap: *mut super::HBITMAP) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IBanneredBar_Vtbl {
@@ -394,13 +385,7 @@ impl IBanneredBar_Vtbl {
         unsafe extern "system" fn GetIconSize<Identity: IBanneredBar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piicon: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBanneredBar_Impl::GetIconSize(this) {
-                    Ok(ok__) => {
-                        piicon.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBanneredBar_Impl::GetIconSize(this, core::mem::transmute_copy(&piicon)).into()
             }
         }
         unsafe extern "system" fn SetBitmap<Identity: IBanneredBar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbitmap: super::HBITMAP) -> windows_core::HRESULT {
@@ -412,13 +397,7 @@ impl IBanneredBar_Vtbl {
         unsafe extern "system" fn GetBitmap<Identity: IBanneredBar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phbitmap: *mut super::HBITMAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBanneredBar_Impl::GetBitmap(this) {
-                    Ok(ok__) => {
-                        phbitmap.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBanneredBar_Impl::GetBitmap(this, core::mem::transmute_copy(&phbitmap)).into()
             }
         }
         Self {
@@ -447,11 +426,8 @@ impl IColumnProvider {
         unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), dwindex, psci as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA) -> windows_core::Result<super::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemData)(windows_core::Interface::as_raw(self), pscid, pscd, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvardata: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetItemData)(windows_core::Interface::as_raw(self), pscid, pscd, pvardata) }
     }
 }
 #[repr(C)]
@@ -475,7 +451,7 @@ pub struct IColumnProvider_Vtbl {
 pub trait IColumnProvider_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, psci: LPCSHCOLUMNINIT) -> windows_core::Result<()>;
     fn GetColumnInfo(&self, dwindex: super::DWORD, psci: *mut SHCOLUMNINFO) -> windows_core::Result<()>;
-    fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA) -> windows_core::Result<super::VARIANT>;
+    fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvardata: *mut super::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IColumnProvider_Vtbl {
@@ -495,13 +471,7 @@ impl IColumnProvider_Vtbl {
         unsafe extern "system" fn GetItemData<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvardata: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IColumnProvider_Impl::GetItemData(this, core::mem::transmute_copy(&pscid), core::mem::transmute_copy(&pscd)) {
-                    Ok(ok__) => {
-                        pvardata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IColumnProvider_Impl::GetItemData(this, core::mem::transmute_copy(&pscid), core::mem::transmute_copy(&pscd), core::mem::transmute_copy(&pvardata)).into()
             }
         }
         Self {
@@ -688,11 +658,8 @@ impl IDeskBarClient {
         unsafe { (windows_core::Interface::vtable(self).UIActivateDBC)(windows_core::Interface::as_raw(self), dwstate) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetSize(&self, dwwhich: super::DWORD) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), dwwhich, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSize(&self, dwwhich: super::DWORD, prc: super::LPRECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), dwwhich, prc as _) }
     }
 }
 #[cfg(feature = "oleidl")]
@@ -719,7 +686,7 @@ pub trait IDeskBarClient_Impl: super::IOleWindow_Impl {
     fn SetDeskBarSite(&self, punksite: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetModeDBC(&self, dwmode: super::DWORD) -> windows_core::Result<()>;
     fn UIActivateDBC(&self, dwstate: super::DWORD) -> windows_core::Result<()>;
-    fn GetSize(&self, dwwhich: super::DWORD) -> windows_core::Result<super::RECT>;
+    fn GetSize(&self, dwwhich: super::DWORD, prc: super::LPRECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
 impl IDeskBarClient_Vtbl {
@@ -745,13 +712,7 @@ impl IDeskBarClient_Vtbl {
         unsafe extern "system" fn GetSize<Identity: IDeskBarClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwhich: super::DWORD, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDeskBarClient_Impl::GetSize(this, core::mem::transmute_copy(&dwwhich)) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDeskBarClient_Impl::GetSize(this, core::mem::transmute_copy(&dwwhich), core::mem::transmute_copy(&prc)).into()
             }
         }
         Self {
@@ -1245,14 +1206,11 @@ windows_core::imp::define_interface!(IThumbnailCapture, IThumbnailCapture_Vtbl, 
 windows_core::imp::interface_hierarchy!(IThumbnailCapture, windows_core::IUnknown);
 impl IThumbnailCapture {
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn CaptureThumbnail<P1>(&self, pmaxsize: *const super::SIZE, phtmldoc2: P1) -> windows_core::Result<super::HBITMAP>
+    pub unsafe fn CaptureThumbnail<P1>(&self, pmaxsize: *const super::SIZE, phtmldoc2: P1, phbmthumbnail: *mut super::HBITMAP) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CaptureThumbnail)(windows_core::Interface::as_raw(self), pmaxsize, phtmldoc2.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).CaptureThumbnail)(windows_core::Interface::as_raw(self), pmaxsize, phtmldoc2.param().abi(), phbmthumbnail as _) }
     }
 }
 #[repr(C)]
@@ -1266,7 +1224,7 @@ pub struct IThumbnailCapture_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IThumbnailCapture_Impl: windows_core::IUnknownImpl {
-    fn CaptureThumbnail(&self, pmaxsize: *const super::SIZE, phtmldoc2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::HBITMAP>;
+    fn CaptureThumbnail(&self, pmaxsize: *const super::SIZE, phtmldoc2: windows_core::Ref<windows_core::IUnknown>, phbmthumbnail: *mut super::HBITMAP) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IThumbnailCapture_Vtbl {
@@ -1274,13 +1232,7 @@ impl IThumbnailCapture_Vtbl {
         unsafe extern "system" fn CaptureThumbnail<Identity: IThumbnailCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaxsize: *const super::SIZE, phtmldoc2: *mut core::ffi::c_void, phbmthumbnail: *mut super::HBITMAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IThumbnailCapture_Impl::CaptureThumbnail(this, core::mem::transmute_copy(&pmaxsize), core::mem::transmute_copy(&phtmldoc2)) {
-                    Ok(ok__) => {
-                        phbmthumbnail.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IThumbnailCapture_Impl::CaptureThumbnail(this, core::mem::transmute_copy(&pmaxsize), core::mem::transmute_copy(&phtmldoc2), core::mem::transmute_copy(&phbmthumbnail)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CaptureThumbnail: CaptureThumbnail::<Identity, OFFSET> }

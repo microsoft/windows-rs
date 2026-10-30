@@ -96,30 +96,21 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], p
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CLSIDFromProgIDEx(lpszprogid: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn CLSIDFromProgIDEx(lpszprogid: super::LPCOLESTR, lpclsid: super::LPCLSID) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : super::LPCOLESTR, lpclsid : super::LPCLSID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CLSIDFromProgIDEx(lpszprogid, &mut result__).map(|| result__)
-    }
+    unsafe { CLSIDFromProgIDEx(lpszprogid, lpclsid as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CoFileTimeNow() -> windows_core::Result<super::FILETIME> {
+pub unsafe fn CoFileTimeNow(lpfiletime: *mut super::FILETIME) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoFileTimeNow(lpfiletime : *mut super::FILETIME) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoFileTimeNow(&mut result__).map(|| result__)
-    }
+    unsafe { CoFileTimeNow(lpfiletime as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<super::LPDATAADVISEHOLDER> {
+pub unsafe fn CreateDataAdviseHolder(ppdaholder: *mut Option<super::LPDATAADVISEHOLDER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateDataAdviseHolder(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { CreateDataAdviseHolder(core::mem::transmute(ppdaholder)) }
 }
 #[inline]
 pub unsafe fn DriveType(idrive: i32) -> i32 {

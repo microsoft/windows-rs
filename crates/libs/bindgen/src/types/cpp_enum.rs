@@ -70,14 +70,6 @@ impl CppEnum {
             #flags
         }
     }
-
-    pub fn size(&self, reader: &Reader) -> usize {
-        self.def.underlying_type_ext(reader).size(reader)
-    }
-
-    pub fn align(&self, reader: &Reader) -> usize {
-        self.def.underlying_type_ext(reader).align(reader)
-    }
 }
 
 impl Dependencies for CppEnum {

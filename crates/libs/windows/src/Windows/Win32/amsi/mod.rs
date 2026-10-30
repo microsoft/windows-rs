@@ -4,59 +4,44 @@ pub unsafe fn AmsiCloseSession(amsicontext: HAMSICONTEXT, amsisession: HAMSISESS
     unsafe { AmsiCloseSession(amsicontext, amsisession) }
 }
 #[inline]
-pub unsafe fn AmsiInitialize<P0>(appname: P0) -> windows_core::Result<HAMSICONTEXT>
+pub unsafe fn AmsiInitialize<P0>(appname: P0, amsicontext: *mut HAMSICONTEXT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("amsi.dll" "system" fn AmsiInitialize(appname : windows_core::PCWSTR, amsicontext : *mut HAMSICONTEXT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AmsiInitialize(appname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { AmsiInitialize(appname.param().abi(), amsicontext as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AmsiNotifyOperation<P3>(amsicontext: HAMSICONTEXT, buffer: super::PVOID, length: super::ULONG, contentname: P3) -> windows_core::Result<AMSI_RESULT>
+pub unsafe fn AmsiNotifyOperation<P3>(amsicontext: HAMSICONTEXT, buffer: super::PVOID, length: super::ULONG, contentname: P3, result: *mut AMSI_RESULT) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("amsi.dll" "system" fn AmsiNotifyOperation(amsicontext : HAMSICONTEXT, buffer : super::PVOID, length : super::ULONG, contentname : windows_core::PCWSTR, result : *mut AMSI_RESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AmsiNotifyOperation(amsicontext, buffer, length, contentname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { AmsiNotifyOperation(amsicontext, buffer, length, contentname.param().abi(), result as _) }
 }
 #[inline]
-pub unsafe fn AmsiOpenSession(amsicontext: HAMSICONTEXT) -> windows_core::Result<HAMSISESSION> {
+pub unsafe fn AmsiOpenSession(amsicontext: HAMSICONTEXT, amsisession: *mut HAMSISESSION) -> windows_core::HRESULT {
     windows_core::link!("amsi.dll" "system" fn AmsiOpenSession(amsicontext : HAMSICONTEXT, amsisession : *mut HAMSISESSION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AmsiOpenSession(amsicontext, &mut result__).map(|| result__)
-    }
+    unsafe { AmsiOpenSession(amsicontext, amsisession as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AmsiScanBuffer<P3>(amsicontext: HAMSICONTEXT, buffer: super::PVOID, length: super::ULONG, contentname: P3, amsisession: Option<HAMSISESSION>) -> windows_core::Result<AMSI_RESULT>
+pub unsafe fn AmsiScanBuffer<P3>(amsicontext: HAMSICONTEXT, buffer: super::PVOID, length: super::ULONG, contentname: P3, amsisession: Option<HAMSISESSION>, result: *mut AMSI_RESULT) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("amsi.dll" "system" fn AmsiScanBuffer(amsicontext : HAMSICONTEXT, buffer : super::PVOID, length : super::ULONG, contentname : windows_core::PCWSTR, amsisession : HAMSISESSION, result : *mut AMSI_RESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AmsiScanBuffer(amsicontext, buffer, length, contentname.param().abi(), amsisession.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { AmsiScanBuffer(amsicontext, buffer, length, contentname.param().abi(), amsisession.unwrap_or(core::mem::zeroed()) as _, result as _) }
 }
 #[inline]
-pub unsafe fn AmsiScanString<P1, P2>(amsicontext: HAMSICONTEXT, string: P1, contentname: P2, amsisession: Option<HAMSISESSION>) -> windows_core::Result<AMSI_RESULT>
+pub unsafe fn AmsiScanString<P1, P2>(amsicontext: HAMSICONTEXT, string: P1, contentname: P2, amsisession: Option<HAMSISESSION>, result: *mut AMSI_RESULT) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("amsi.dll" "system" fn AmsiScanString(amsicontext : HAMSICONTEXT, string : windows_core::PCWSTR, contentname : windows_core::PCWSTR, amsisession : HAMSISESSION, result : *mut AMSI_RESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AmsiScanString(amsicontext, string.param().abi(), contentname.param().abi(), amsisession.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
-    }
+    unsafe { AmsiScanString(amsicontext, string.param().abi(), contentname.param().abi(), amsisession.unwrap_or(core::mem::zeroed()) as _, result as _) }
 }
 #[inline]
 pub unsafe fn AmsiUninitialize(amsicontext: HAMSICONTEXT) {
@@ -313,15 +298,12 @@ impl core::ops::Deref for IAntimalware2 {
 windows_core::imp::interface_hierarchy!(IAntimalware2, windows_core::IUnknown, IAntimalware);
 impl IAntimalware2 {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn Notify<P2, P3>(&self, buffer: super::PVOID, length: super::ULONG, contentname: P2, appname: P3) -> windows_core::Result<AMSI_RESULT>
+    pub unsafe fn Notify<P2, P3>(&self, buffer: super::PVOID, length: super::ULONG, contentname: P2, appname: P3, presult: *mut AMSI_RESULT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), buffer, length, contentname.param().abi(), appname.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), buffer, length, contentname.param().abi(), appname.param().abi(), presult as _) }
     }
 }
 #[repr(C)]
@@ -335,7 +317,7 @@ pub struct IAntimalware2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IAntimalware2_Impl: IAntimalware_Impl {
-    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR) -> windows_core::Result<AMSI_RESULT>;
+    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IAntimalware2_Vtbl {
@@ -343,13 +325,7 @@ impl IAntimalware2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalware2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname)) {
-                    Ok(ok__) => {
-                        presult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult)).into()
             }
         }
         Self { base__: IAntimalware_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
@@ -363,14 +339,11 @@ impl windows_core::RuntimeName for IAntimalware2 {}
 windows_core::imp::define_interface!(IAntimalwareProvider, IAntimalwareProvider_Vtbl, 0xb2cabfe3_fe04_42b1_a5df_08d483d4d125);
 windows_core::imp::interface_hierarchy!(IAntimalwareProvider, windows_core::IUnknown);
 impl IAntimalwareProvider {
-    pub unsafe fn Scan<P0>(&self, stream: P0) -> windows_core::Result<AMSI_RESULT>
+    pub unsafe fn Scan<P0>(&self, stream: P0, result: *mut AMSI_RESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAmsiStream>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), stream.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), stream.param().abi(), result as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CloseSession(&self, session: super::ULONGLONG) {
@@ -378,11 +351,8 @@ impl IAntimalwareProvider {
             (windows_core::Interface::vtable(self).CloseSession)(windows_core::Interface::as_raw(self), session);
         }
     }
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), displayname as _) }
     }
 }
 #[repr(C)]
@@ -398,9 +368,9 @@ pub struct IAntimalwareProvider_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAntimalwareProvider_Impl: windows_core::IUnknownImpl {
-    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>) -> windows_core::Result<AMSI_RESULT>;
+    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>, result: *mut AMSI_RESULT) -> windows_core::Result<()>;
     fn CloseSession(&self, session: super::ULONGLONG);
-    fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IAntimalwareProvider_Vtbl {
@@ -408,13 +378,7 @@ impl IAntimalwareProvider_Vtbl {
         unsafe extern "system" fn Scan<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAntimalwareProvider_Impl::Scan(this, core::mem::transmute_copy(&stream)) {
-                    Ok(ok__) => {
-                        result.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAntimalwareProvider_Impl::Scan(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&result)).into()
             }
         }
         unsafe extern "system" fn CloseSession<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: super::ULONGLONG) {
@@ -426,13 +390,7 @@ impl IAntimalwareProvider_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAntimalwareProvider_Impl::DisplayName(this) {
-                    Ok(ok__) => {
-                        displayname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAntimalwareProvider_Impl::DisplayName(this, core::mem::transmute_copy(&displayname)).into()
             }
         }
         Self {
@@ -458,15 +416,12 @@ impl core::ops::Deref for IAntimalwareProvider2 {
 windows_core::imp::interface_hierarchy!(IAntimalwareProvider2, windows_core::IUnknown, IAntimalwareProvider);
 impl IAntimalwareProvider2 {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn Notify<P2, P3>(&self, buffer: super::PVOID, length: super::ULONG, contentname: P2, appname: P3) -> windows_core::Result<AMSI_RESULT>
+    pub unsafe fn Notify<P2, P3>(&self, buffer: super::PVOID, length: super::ULONG, contentname: P2, appname: P3, presult: *mut AMSI_RESULT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), buffer, length, contentname.param().abi(), appname.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), buffer, length, contentname.param().abi(), appname.param().abi(), presult as _) }
     }
 }
 #[repr(C)]
@@ -480,7 +435,7 @@ pub struct IAntimalwareProvider2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IAntimalwareProvider2_Impl: IAntimalwareProvider_Impl {
-    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR) -> windows_core::Result<AMSI_RESULT>;
+    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IAntimalwareProvider2_Vtbl {
@@ -488,13 +443,7 @@ impl IAntimalwareProvider2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalwareProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname)) {
-                    Ok(ok__) => {
-                        presult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult)).into()
             }
         }
         Self { base__: IAntimalwareProvider_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
@@ -509,11 +458,8 @@ windows_core::imp::define_interface!(IAntimalwareUacProvider, IAntimalwareUacPro
 windows_core::imp::interface_hierarchy!(IAntimalwareUacProvider, windows_core::IUnknown);
 impl IAntimalwareUacProvider {
     #[cfg(feature = "shared")]
-    pub unsafe fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UacScan)(windows_core::Interface::as_raw(self), context, &mut result__).map(|| result__)
-        }
+    pub unsafe fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UacScan)(windows_core::Interface::as_raw(self), context, result as _) }
     }
     pub unsafe fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), displayname as _) }
@@ -531,7 +477,7 @@ pub struct IAntimalwareUacProvider_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAntimalwareUacProvider_Impl: windows_core::IUnknownImpl {
-    fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT>;
+    fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::Result<()>;
     fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -540,13 +486,7 @@ impl IAntimalwareUacProvider_Vtbl {
         unsafe extern "system" fn UacScan<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAntimalwareUacProvider_Impl::UacScan(this, core::mem::transmute_copy(&context)) {
-                    Ok(ok__) => {
-                        result.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAntimalwareUacProvider_Impl::UacScan(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&result)).into()
             }
         }
         unsafe extern "system" fn DisplayName<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {

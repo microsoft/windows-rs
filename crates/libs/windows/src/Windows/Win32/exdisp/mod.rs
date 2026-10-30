@@ -3101,21 +3101,15 @@ impl IShellWindows {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Register<P0>(&self, pid: P0, hwnd: i32, swclass: i32) -> windows_core::Result<i32>
+    pub unsafe fn Register<P0>(&self, pid: P0, hwnd: i32, swclass: i32, plcookie: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IDispatch>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), pid.param().abi(), hwnd, swclass, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), pid.param().abi(), hwnd, swclass, plcookie as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::VARIANT, pvarlocroot: *const super::VARIANT, swclass: i32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterPending)(windows_core::Interface::as_raw(self), lthreadid, pvarloc, pvarlocroot, swclass, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::VARIANT, pvarlocroot: *const super::VARIANT, swclass: i32, plcookie: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterPending)(windows_core::Interface::as_raw(self), lthreadid, pvarloc, pvarlocroot, swclass, plcookie as _) }
     }
     pub unsafe fn Revoke(&self, lcookie: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revoke)(windows_core::Interface::as_raw(self), lcookie) }
@@ -3186,8 +3180,8 @@ pub trait IShellWindows_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<super::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Register(&self, pid: windows_core::Ref<super::IDispatch>, hwnd: i32, swclass: i32) -> windows_core::Result<i32>;
-    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::VARIANT, pvarlocroot: *const super::VARIANT, swclass: i32) -> windows_core::Result<i32>;
+    fn Register(&self, pid: windows_core::Ref<super::IDispatch>, hwnd: i32, swclass: i32, plcookie: *mut i32) -> windows_core::Result<()>;
+    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::VARIANT, pvarlocroot: *const super::VARIANT, swclass: i32, plcookie: *mut i32) -> windows_core::Result<()>;
     fn Revoke(&self, lcookie: i32) -> windows_core::Result<()>;
     fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::VARIANT) -> windows_core::Result<()>;
     fn OnActivated(&self, lcookie: i32, factive: super::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -3237,25 +3231,13 @@ impl IShellWindows_Vtbl {
         unsafe extern "system" fn Register<Identity: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut core::ffi::c_void, hwnd: i32, swclass: i32, plcookie: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IShellWindows_Impl::Register(this, core::mem::transmute_copy(&pid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&swclass)) {
-                    Ok(ok__) => {
-                        plcookie.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IShellWindows_Impl::Register(this, core::mem::transmute_copy(&pid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&swclass), core::mem::transmute_copy(&plcookie)).into()
             }
         }
         unsafe extern "system" fn RegisterPending<Identity: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lthreadid: i32, pvarloc: *const super::VARIANT, pvarlocroot: *const super::VARIANT, swclass: i32, plcookie: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IShellWindows_Impl::RegisterPending(this, core::mem::transmute_copy(&lthreadid), core::mem::transmute_copy(&pvarloc), core::mem::transmute_copy(&pvarlocroot), core::mem::transmute_copy(&swclass)) {
-                    Ok(ok__) => {
-                        plcookie.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IShellWindows_Impl::RegisterPending(this, core::mem::transmute_copy(&lthreadid), core::mem::transmute_copy(&pvarloc), core::mem::transmute_copy(&pvarlocroot), core::mem::transmute_copy(&swclass), core::mem::transmute_copy(&plcookie)).into()
             }
         }
         unsafe extern "system" fn Revoke<Identity: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: i32) -> windows_core::HRESULT {

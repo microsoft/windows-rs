@@ -125,7 +125,9 @@ fn bool_as_error() {
 #[test]
 fn com() -> Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
+        let mut stream = None;
+        CreateStreamOnHGlobal(Default::default(), true, &mut stream).ok()?;
+        let stream = stream.unwrap();
         let values = [1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
@@ -178,9 +180,11 @@ fn com_inheritance() {
         assert!(factory.GetCreationFlags() == 0);
 
         // IDXGIFactory7 (default)
+        let mut cookie = 0;
         assert!(
             factory
-                .RegisterAdaptersChangedEvent(HANDLE::default())
+                .RegisterAdaptersChangedEvent(HANDLE::default(), &mut cookie)
+                .ok()
                 .unwrap_err()
                 .code()
                 == DXGI_ERROR_INVALID_CALL
@@ -192,11 +196,15 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> Result<()> {
     unsafe {
-        _ = HasExpandedResources()?;
+        let mut has_expanded_resources = BOOL::default();
+        HasExpandedResources(&mut has_expanded_resources).ok()?;
 
-        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let mut uri = None;
+        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
+        let uri = uri.unwrap();
 
-        let port = uri.GetPort()?;
+        let mut port = 0;
+        uri.GetPort(&mut port).ok()?;
         assert!(port == 80);
 
         MiniDumpWriteDump(
@@ -211,7 +219,10 @@ fn onecore_imports() -> Result<()> {
         .ok()
         .unwrap_err();
 
-        assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
+        let mut disassembly = None;
+        assert!(
+            D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0, &mut disassembly).is_err()
+        );
 
         Ok(())
     }
@@ -220,9 +231,12 @@ fn onecore_imports() -> Result<()> {
 #[test]
 fn interface() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let mut uri = None;
+        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
+        let uri = uri.unwrap();
 
-        let domain = uri.GetDomain()?;
+        let mut domain = BSTR::default();
+        uri.GetDomain(&mut domain).ok()?;
         assert!(domain == "kennykerr.ca");
     }
     Ok(())

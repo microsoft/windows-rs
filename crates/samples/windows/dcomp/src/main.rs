@@ -143,14 +143,23 @@ fn main() -> windows::core::Result<()> {
                 let desktop: IDCompositionDesktopDevice = imp::Type::from_abi(desktop)?;
 
                 self.target = None;
-                let target = desktop.CreateTargetForHwnd(self.handle, true)?;
+                let mut target = None;
+                desktop
+                    .CreateTargetForHwnd(self.handle, true, &mut target)
+                    .ok()?;
+                let target = target.unwrap();
                 let root_visual = create_visual(&desktop)?;
                 target.SetRoot(&root_visual).ok()?;
                 self.target = Some(target);
 
-                let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
+                let mut dc = None;
+                device_2d
+                    .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut dc)
+                    .ok()?;
+                let dc = dc.unwrap();
 
-                let brush = dc.CreateSolidColorBrush(
+                let mut brush = None;
+                dc.CreateSolidColorBrush(
                     &D2D_COLOR_F {
                         r: 0.0,
                         g: 0.0,
@@ -158,9 +167,15 @@ fn main() -> windows::core::Result<()> {
                         a: 1.0,
                     },
                     None,
-                )?;
+                    &mut brush,
+                )
+                .ok()?;
+                let brush = brush.unwrap();
 
-                let bitmap = dc.CreateBitmapFromWicBitmap(&self.image, None)?;
+                let mut bitmap = None;
+                dc.CreateBitmapFromWicBitmap(&self.image, None, &mut bitmap)
+                    .ok()?;
+                let bitmap = bitmap.unwrap();
                 let width = logical_to_physical(CARD_WIDTH, self.dpi.0);
                 let height = logical_to_physical(CARD_HEIGHT, self.dpi.1);
 
@@ -207,7 +222,9 @@ fn main() -> windows::core::Result<()> {
                         back_visual.SetContent(&back_surface).ok()?;
                         draw_card_back(&back_surface, &bitmap, card.offset, self.dpi)?;
 
-                        let rotation = desktop.CreateRotateTransform3D()?;
+                        let mut rotation = None;
+                        desktop.CreateRotateTransform3D(&mut rotation).ok()?;
+                        let rotation = rotation.unwrap();
 
                         if card.status == Status::Selected {
                             rotation.SetAngle2(180.0).ok()?;
@@ -428,18 +445,29 @@ fn main() -> windows::core::Result<()> {
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let factory: IDWriteFactory2 =
-                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
+            let mut factory = None;
+            DWriteCreateFactory(
+                DWRITE_FACTORY_TYPE_SHARED,
+                &IDWriteFactory2::IID,
+                &mut factory,
+            )
+            .ok()?;
+            let factory: IDWriteFactory2 = factory.unwrap().cast()?;
 
-            let format = factory.CreateTextFormat(
-                w!("Candara").as_ptr(),
-                None,
-                DWRITE_FONT_WEIGHT_NORMAL,
-                DWRITE_FONT_STYLE_NORMAL,
-                DWRITE_FONT_STRETCH_NORMAL,
-                CARD_HEIGHT / 2.0,
-                w!("en").as_ptr(),
-            )?;
+            let mut format = None;
+            factory
+                .CreateTextFormat(
+                    w!("Candara").as_ptr(),
+                    None,
+                    DWRITE_FONT_WEIGHT_NORMAL,
+                    DWRITE_FONT_STYLE_NORMAL,
+                    DWRITE_FONT_STRETCH_NORMAL,
+                    CARD_HEIGHT / 2.0,
+                    w!("en").as_ptr(),
+                    &mut format,
+                )
+                .ok()?;
+            let format = format.unwrap();
 
             format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER).ok()?;
             format
@@ -467,8 +495,12 @@ fn main() -> windows::core::Result<()> {
                 WICDecodeMetadataCacheOnDemand,
             )?;
 
-            let source = decoder.GetFrame(0)?;
-            let image = factory.CreateFormatConverter()?;
+            let mut source = None;
+            decoder.GetFrame(0, &mut source).ok()?;
+            let source = source.unwrap();
+            let mut image = None;
+            factory.CreateFormatConverter(&mut image).ok()?;
+            let image = image.unwrap();
 
             image
                 .Initialize(
@@ -506,12 +538,16 @@ fn main() -> windows::core::Result<()> {
 
     fn create_device_2d(device_3d: &ID3D11Device) -> Result<ID2D1Device> {
         let dxgi: IDXGIDevice3 = device_3d.cast()?;
-        unsafe { D2D1CreateDevice(&dxgi, None) }
+        let mut device = None;
+        unsafe { D2D1CreateDevice(&dxgi, None, &mut device) }.ok()?;
+        Ok(device.unwrap())
     }
 
     fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
         unsafe {
-            let visual = device.CreateVisual()?;
+            let mut visual = None;
+            device.CreateVisual(&mut visual).ok()?;
+            let visual = visual.unwrap();
             visual
                 .SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)
                 .ok()?;
@@ -524,14 +560,19 @@ fn main() -> windows::core::Result<()> {
         width: f32,
         height: f32,
     ) -> Result<IDCompositionSurface> {
+        let mut surface = None;
         unsafe {
-            device.CreateSurface(
-                width as u32,
-                height as u32,
-                DXGI_FORMAT_B8G8R8A8_UNORM,
-                DXGI_ALPHA_MODE_PREMULTIPLIED,
-            )
+            device
+                .CreateSurface(
+                    width as u32,
+                    height as u32,
+                    DXGI_FORMAT_B8G8R8A8_UNORM,
+                    DXGI_ALPHA_MODE_PREMULTIPLIED,
+                    &mut surface,
+                )
+                .ok()?;
         }
+        Ok(surface.unwrap())
     }
 
     fn add_show_transition(
@@ -557,7 +598,9 @@ fn main() -> windows::core::Result<()> {
 
     fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<()> {
         unsafe {
-            let animation = device.CreateAnimation()?;
+            let mut animation = None;
+            device.CreateAnimation(&mut animation).ok()?;
+            let animation = animation.unwrap();
             card.variable.copy_curve(&animation)?;
 
             card.rotation
@@ -590,22 +633,32 @@ fn main() -> windows::core::Result<()> {
             let pre_matrix = Matrix4x4::translation(-width / 2.0, -height / 2.0, 0.0)
                 * Matrix4x4::rotation_y(if front { 180.0 } else { 0.0 });
 
-            let pre_transform = device.CreateMatrixTransform3D()?;
+            let mut pre_transform = None;
+            device.CreateMatrixTransform3D(&mut pre_transform).ok()?;
+            let pre_transform = pre_transform.unwrap();
             pre_transform.SetMatrix(&pre_matrix).ok()?;
 
             let post_matrix = Matrix4x4::perspective_projection(width * 2.0)
                 * Matrix4x4::translation(width / 2.0, height / 2.0, 0.0);
 
-            let post_transform = device.CreateMatrixTransform3D()?;
+            let mut post_transform = None;
+            device.CreateMatrixTransform3D(&mut post_transform).ok()?;
+            let post_transform = post_transform.unwrap();
             post_transform.SetMatrix(&post_matrix).ok()?;
 
-            let transform = device.CreateTransform3DGroup(&[
-                pre_transform.cast().ok(),
-                rotation.cast().ok(),
-                post_transform.cast().ok(),
-            ])?;
+            let mut transform = None;
+            device
+                .CreateTransform3DGroup(
+                    &[
+                        pre_transform.cast().ok(),
+                        rotation.cast().ok(),
+                        post_transform.cast().ok(),
+                    ],
+                    &mut transform,
+                )
+                .ok()?;
 
-            visual.SetEffect(&transform).ok()
+            visual.SetEffect(&transform.unwrap()).ok()
         }
     }
 

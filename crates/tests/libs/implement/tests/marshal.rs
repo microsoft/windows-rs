@@ -38,17 +38,21 @@ const CLSID_SAMPLE: GUID = GUID::from_u128(0x58d39529_4975_4440_b7a6_6d71bfb5955
 #[test]
 fn test() {
     unsafe {
-        CoIncrementMTAUsage().unwrap();
+        let mut cookie = core::ptr::null_mut();
+        CoIncrementMTAUsage(&mut cookie).unwrap();
         let factory: IClassFactory = Factory.into();
         factory.cast::<IAgileObject>().expect("IAgileObject");
         factory.cast::<IMarshal>().expect("IMarshal");
 
+        let mut register = 0;
         CoRegisterClassObject(
             &CLSID_SAMPLE,
             &factory,
             CLSCTX_LOCAL_SERVER as u32,
             (REGCLS_AGILE | REGCLS_MULTIPLEUSE) as u32,
+            &mut register,
         )
+        .ok()
         .expect("CoRegisterClassObject");
 
         let stringable: IStringable =
@@ -57,7 +61,9 @@ fn test() {
 
         assert_eq!(stringable.ToString().unwrap(), "Stringable");
 
-        let stream = CoMarshalInterThreadInterfaceInStream(&IStringable::IID, &stringable).unwrap();
+        let mut stream = None;
+        CoMarshalInterThreadInterfaceInStream(&IStringable::IID, &stringable, &mut stream).unwrap();
+        let stream = stream.unwrap();
         let copy: IStringable = CoUnmarshalInterface(&stream).unwrap();
 
         assert_eq!(copy.ToString().unwrap(), "Stringable");

@@ -4940,11 +4940,8 @@ impl ITaskHandler {
     {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), phandlerservices.param().abi(), core::mem::transmute_copy(data)) }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn Stop(&self, pretcode: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), pretcode as _) }
     }
     pub unsafe fn Pause(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)) }
@@ -4964,7 +4961,7 @@ pub struct ITaskHandler_Vtbl {
 }
 pub trait ITaskHandler_Impl: windows_core::IUnknownImpl {
     fn Start(&self, phandlerservices: windows_core::Ref<windows_core::IUnknown>, data: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<windows_core::HRESULT>;
+    fn Stop(&self, pretcode: *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
 }
@@ -4979,13 +4976,7 @@ impl ITaskHandler_Vtbl {
         unsafe extern "system" fn Stop<Identity: ITaskHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretcode: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITaskHandler_Impl::Stop(this) {
-                    Ok(ok__) => {
-                        pretcode.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITaskHandler_Impl::Stop(this, core::mem::transmute_copy(&pretcode)).into()
             }
         }
         unsafe extern "system" fn Pause<Identity: ITaskHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

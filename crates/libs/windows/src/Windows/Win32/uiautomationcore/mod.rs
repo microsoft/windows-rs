@@ -90,14 +90,11 @@ impl IAccessibleEx {
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<Self>
+    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0, ppretvalout: *mut Option<Self>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), core::mem::transmute(ppretvalout)) }
     }
 }
 #[repr(C)]
@@ -120,7 +117,7 @@ pub trait IAccessibleEx_Impl: windows_core::IUnknownImpl {
     fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx>;
     fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<super::IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
+    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>, ppretvalout: windows_core::OutRef<IAccessibleEx>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "oleacc", feature = "shared", feature = "winnt"))]
 impl IAccessibleEx_Vtbl {
@@ -158,13 +155,7 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn ConvertReturnedElement<Identity: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, ppretvalout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin)) {
-                    Ok(ok__) => {
-                        ppretvalout.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&ppretvalout)).into()
             }
         }
         Self {
@@ -191,14 +182,11 @@ impl IAccessibleHostingElementProviders {
             (windows_core::Interface::vtable(self).GetEmbeddedFragmentRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetObjectIdForProvider<P0>(&self, pprovider: P0) -> windows_core::Result<i32>
+    pub unsafe fn GetObjectIdForProvider<P0>(&self, pprovider: P0, pidobject: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), pprovider.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), pprovider.param().abi(), pidobject as _) }
     }
 }
 #[repr(C)]
@@ -214,7 +202,7 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IAccessibleHostingElementProviders_Impl: windows_core::IUnknownImpl {
     fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<i32>;
+    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, pidobject: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IAccessibleHostingElementProviders_Vtbl {
@@ -234,13 +222,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
         unsafe extern "system" fn GetObjectIdForProvider<Identity: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, pidobject: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, core::mem::transmute_copy(&pprovider)) {
-                    Ok(ok__) => {
-                        pidobject.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&pidobject)).into()
             }
         }
         Self {
@@ -4659,14 +4641,11 @@ impl windows_core::RuntimeName for IUIAutomationClientInfo {}
 windows_core::imp::define_interface!(IUIAutomationClientInfoSource, IUIAutomationClientInfoSource_Vtbl, 0xf4b8a2e1_9c3d_4a7e_8f6b_2d5e4c1a9b8f);
 windows_core::imp::interface_hierarchy!(IUIAutomationClientInfoSource, windows_core::IUnknown);
 impl IUIAutomationClientInfoSource {
-    pub unsafe fn RegisterClientConnectionCallback<P0>(&self, callback: P0) -> windows_core::Result<u64>
+    pub unsafe fn RegisterClientConnectionCallback<P0>(&self, callback: P0, handle: *mut u64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationClientConnectionCallback>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterClientConnectionCallback)(windows_core::Interface::as_raw(self), callback.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).RegisterClientConnectionCallback)(windows_core::Interface::as_raw(self), callback.param().abi(), handle as _) }
     }
     pub unsafe fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterClientConnectionCallback)(windows_core::Interface::as_raw(self), handle) }
@@ -4692,7 +4671,7 @@ pub struct IUIAutomationClientInfoSource_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IUIAutomationClientInfoSource_Impl: windows_core::IUnknownImpl {
-    fn RegisterClientConnectionCallback(&self, callback: windows_core::Ref<IUIAutomationClientConnectionCallback>) -> windows_core::Result<u64>;
+    fn RegisterClientConnectionCallback(&self, callback: windows_core::Ref<IUIAutomationClientConnectionCallback>, handle: *mut u64) -> windows_core::Result<()>;
     fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::Result<()>;
     fn GetConnectedClients(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
@@ -4702,13 +4681,7 @@ impl IUIAutomationClientInfoSource_Vtbl {
         unsafe extern "system" fn RegisterClientConnectionCallback<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void, handle: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback)) {
-                    Ok(ok__) => {
-                        handle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback), core::mem::transmute_copy(&handle)).into()
             }
         }
         unsafe extern "system" fn UnregisterClientConnectionCallback<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64) -> windows_core::HRESULT {
@@ -4745,14 +4718,11 @@ impl windows_core::RuntimeName for IUIAutomationClientInfoSource {}
 windows_core::imp::define_interface!(IUIAutomationPatternHandler, IUIAutomationPatternHandler_Vtbl, 0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
 windows_core::imp::interface_hierarchy!(IUIAutomationPatternHandler, windows_core::IUnknown);
 impl IUIAutomationPatternHandler {
-    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0, pclientwrapper: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationPatternInstance>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), core::mem::transmute(pclientwrapper)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::HRESULT
@@ -4774,7 +4744,7 @@ pub struct IUIAutomationPatternHandler_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IUIAutomationPatternHandler_Impl: windows_core::IUnknownImpl {
-    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>, pclientwrapper: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Dispatch(&self, ptarget: windows_core::Ref<windows_core::IUnknown>, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -4783,13 +4753,7 @@ impl IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn CreateClientWrapper<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppatterninstance: *mut core::ffi::c_void, pclientwrapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance)) {
-                    Ok(ok__) => {
-                        pclientwrapper.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance), core::mem::transmute_copy(&pclientwrapper)).into()
             }
         }
         unsafe extern "system" fn Dispatch<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::HRESULT {
@@ -4871,17 +4835,11 @@ windows_core::imp::define_interface!(IUIAutomationRegistrar, IUIAutomationRegist
 windows_core::imp::interface_hierarchy!(IUIAutomationRegistrar, windows_core::IUnknown);
 impl IUIAutomationRegistrar {
     #[cfg(feature = "shared")]
-    pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> windows_core::Result<super::PROPERTYID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterProperty)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo, propertyid: *mut super::PROPERTYID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterProperty)(windows_core::Interface::as_raw(self), property, propertyid as _) }
     }
-    pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> windows_core::Result<EVENTID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterEvent)(windows_core::Interface::as_raw(self), event, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo, eventid: *mut EVENTID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterEvent)(windows_core::Interface::as_raw(self), event, eventid as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut PATTERNID, ppatternavailablepropertyid: *mut super::PROPERTYID, propertyidcount: super::UINT, ppropertyids: *mut super::PROPERTYID, eventidcount: super::UINT, peventids: *mut EVENTID) -> windows_core::HRESULT {
@@ -4904,8 +4862,8 @@ pub struct IUIAutomationRegistrar_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IUIAutomationRegistrar_Impl: windows_core::IUnknownImpl {
-    fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> windows_core::Result<super::PROPERTYID>;
-    fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> windows_core::Result<EVENTID>;
+    fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo, propertyid: *mut super::PROPERTYID) -> windows_core::Result<()>;
+    fn RegisterEvent(&self, event: *const UIAutomationEventInfo, eventid: *mut EVENTID) -> windows_core::Result<()>;
     fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut PATTERNID, ppatternavailablepropertyid: *mut super::PROPERTYID, propertyidcount: super::UINT, ppropertyids: *mut super::PROPERTYID, eventidcount: super::UINT, peventids: *mut EVENTID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -4914,25 +4872,13 @@ impl IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterProperty<Identity: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut super::PROPERTYID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationRegistrar_Impl::RegisterProperty(this, core::mem::transmute_copy(&property)) {
-                    Ok(ok__) => {
-                        propertyid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAutomationRegistrar_Impl::RegisterProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertyid)).into()
             }
         }
         unsafe extern "system" fn RegisterEvent<Identity: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut EVENTID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationRegistrar_Impl::RegisterEvent(this, core::mem::transmute_copy(&event)) {
-                    Ok(ok__) => {
-                        eventid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAutomationRegistrar_Impl::RegisterEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&eventid)).into()
             }
         }
         unsafe extern "system" fn RegisterPattern<Identity: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut PATTERNID, ppatternavailablepropertyid: *mut super::PROPERTYID, propertyidcount: super::UINT, ppropertyids: *mut super::PROPERTYID, eventidcount: super::UINT, peventids: *mut EVENTID) -> windows_core::HRESULT {

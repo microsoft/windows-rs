@@ -5,7 +5,6 @@ pub struct Param {
     pub def: Option<MethodParam>,
     pub name: String,
     pub ty: Type,
-    pub native_reference: bool,
     /// Unspecified native direction whose type passes no caller-writable storage.
     pub implied_input: bool,
 }
@@ -202,25 +201,9 @@ impl Param {
         }
     }
 
-    pub fn is_explicit_retval_candidate(&self, reader: &Reader) -> bool {
-        self.is_retval_candidate(reader, true)
-    }
-
-    pub fn is_heuristic_retval_candidate(&self, reader: &Reader) -> bool {
-        self.is_retval_candidate(reader, false)
-    }
-
-    fn is_retval_candidate(&self, reader: &Reader, explicit: bool) -> bool {
-        if self.native_reference && !explicit {
-            return false;
-        }
-        let ty = self.projection_type(reader);
-
-        if !ty.is_pointer() {
-            return false;
-        }
-
-        if !explicit && ty.is_void() {
+    /// Only an explicit `[retval]` annotation projects the trailing parameter as the result.
+    pub fn is_retval_candidate(&self, reader: &Reader) -> bool {
+        if !self.is_retval_attribute() || !self.projection_type(reader).is_pointer() {
             return false;
         }
 
@@ -235,13 +218,7 @@ impl Param {
             return false;
         }
 
-        if self.has_buffer_attributes() || self.has_unresolved_contracts() {
-            return false;
-        }
-
-        // Void-pointee and size limits are only heuristics for unmarked trailing pointers. An
-        // explicit retval preserves its existing value projection.
-        explicit || ty.deref().size(reader) <= 16
+        !self.has_buffer_attributes() && !self.has_unresolved_contracts()
     }
 
     pub fn write_ident(&self) -> TokenStream {

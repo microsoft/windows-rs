@@ -55,12 +55,9 @@ pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: super::DWORD, secur
     unsafe { DCompositionCreateSurfaceHandle(desiredaccess, securityattributes.unwrap_or(core::mem::zeroed()) as _, surfacehandle as _) }
 }
 #[inline]
-pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> windows_core::Result<COMPOSITION_FRAME_ID> {
+pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut COMPOSITION_FRAME_ID) -> windows_core::HRESULT {
     windows_core::link!("dcomp.dll" "system" fn DCompositionGetFrameId(frameidtype : COMPOSITION_FRAME_ID_TYPE, frameid : *mut COMPOSITION_FRAME_ID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DCompositionGetFrameId(frameidtype, &mut result__).map(|| result__)
-    }
+    unsafe { DCompositionGetFrameId(frameidtype, frameid as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -943,18 +940,12 @@ windows_core::imp::define_interface!(IDCompositionDelegatedInkTrail, IDCompositi
 windows_core::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, windows_core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     #[cfg(feature = "shared")]
-    pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint], generationid: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), generationid as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), predictedinkpoints.as_ptr(), predictedinkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint], generationid: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), predictedinkpoints.as_ptr(), predictedinkpoints.len().try_into().unwrap(), generationid as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveTrailPoints(&self, generationid: super::UINT) -> windows_core::HRESULT {
@@ -988,8 +979,8 @@ pub struct IDCompositionDelegatedInkTrail_Vtbl {
 }
 #[cfg(all(feature = "d2d", feature = "dxgi", feature = "shared"))]
 pub trait IDCompositionDelegatedInkTrail_Impl: windows_core::IUnknownImpl {
-    fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT) -> windows_core::Result<super::UINT>;
-    fn AddTrailPointsWithPrediction(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: super::UINT) -> windows_core::Result<super::UINT>;
+    fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::Result<()>;
+    fn AddTrailPointsWithPrediction(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::Result<()>;
     fn RemoveTrailPoints(&self, generationid: super::UINT) -> windows_core::Result<()>;
     fn StartNewTrail(&self, color: *const super::D2D1_COLOR_F) -> windows_core::Result<()>;
 }
@@ -999,25 +990,13 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
         unsafe extern "system" fn AddTrailPoints<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDelegatedInkTrail_Impl::AddTrailPoints(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount)) {
-                    Ok(ok__) => {
-                        generationid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDelegatedInkTrail_Impl::AddTrailPoints(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount), core::mem::transmute_copy(&generationid)).into()
             }
         }
         unsafe extern "system" fn AddTrailPointsWithPrediction<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDelegatedInkTrail_Impl::AddTrailPointsWithPrediction(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount), core::mem::transmute_copy(&predictedinkpoints), core::mem::transmute_copy(&predictedinkpointscount)) {
-                    Ok(ok__) => {
-                        generationid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDelegatedInkTrail_Impl::AddTrailPointsWithPrediction(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount), core::mem::transmute_copy(&predictedinkpoints), core::mem::transmute_copy(&predictedinkpointscount), core::mem::transmute_copy(&generationid)).into()
             }
         }
         unsafe extern "system" fn RemoveTrailPoints<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, generationid: super::UINT) -> windows_core::HRESULT {
@@ -1056,25 +1035,16 @@ impl core::ops::Deref for IDCompositionDesktopDevice {
 windows_core::imp::interface_hierarchy!(IDCompositionDesktopDevice, windows_core::IUnknown, IDCompositionDevice2);
 impl IDCompositionDesktopDevice {
     #[cfg(feature = "windef")]
-    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: bool) -> windows_core::Result<IDCompositionTarget> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd, topmost.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: bool, target: *mut Option<IDCompositionTarget>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd, topmost.into(), core::mem::transmute(target)) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::HANDLE) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::HANDLE, surface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(surface)) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND, surface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute(surface)) }
     }
 }
 #[repr(C)]
@@ -1096,9 +1066,9 @@ pub struct IDCompositionDesktopDevice_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDCompositionDesktopDevice_Impl: IDCompositionDevice2_Impl {
-    fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: windows_core::BOOL) -> windows_core::Result<IDCompositionTarget>;
-    fn CreateSurfaceFromHandle(&self, handle: super::HANDLE) -> windows_core::Result<windows_core::IUnknown>;
-    fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: windows_core::BOOL, target: windows_core::OutRef<IDCompositionTarget>) -> windows_core::Result<()>;
+    fn CreateSurfaceFromHandle(&self, handle: super::HANDLE, surface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND, surface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDCompositionDesktopDevice_Vtbl {
@@ -1106,37 +1076,19 @@ impl IDCompositionDesktopDevice_Vtbl {
         unsafe extern "system" fn CreateTargetForHwnd<Identity: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, topmost: windows_core::BOOL, target: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDesktopDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
-                    Ok(ok__) => {
-                        target.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDesktopDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost), core::mem::transmute_copy(&target)).into()
             }
         }
         unsafe extern "system" fn CreateSurfaceFromHandle<Identity: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: super::HANDLE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDesktopDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateSurfaceFromHwnd<Identity: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDesktopDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&surface)).into()
             }
         }
         Self {
@@ -1166,137 +1118,74 @@ impl IDCompositionDevice {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), statistics as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: bool) -> windows_core::Result<IDCompositionTarget> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd, topmost.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: bool, target: *mut Option<IDCompositionTarget>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd, topmost.into(), core::mem::transmute(target)) }
     }
-    pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateVisual(&self, visual: *mut Option<IDCompositionVisual>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), core::mem::transmute(visual)) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut Option<IDCompositionSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, core::mem::transmute(surface)) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut Option<IDCompositionVirtualSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, core::mem::transmute(virtualsurface)) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::HANDLE) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::HANDLE, surface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(surface)) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND, surface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute(surface)) }
     }
-    pub unsafe fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTranslateTransform(&self, translatetransform: *mut Option<IDCompositionTranslateTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(translatetransform)) }
     }
-    pub unsafe fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateScaleTransform(&self, scaletransform: *mut Option<IDCompositionScaleTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(scaletransform)) }
     }
-    pub unsafe fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRotateTransform(&self, rotatetransform: *mut Option<IDCompositionRotateTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(rotatetransform)) }
     }
-    pub unsafe fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSkewTransform(&self, skewtransform: *mut Option<IDCompositionSkewTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(skewtransform)) }
     }
-    pub unsafe fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMatrixTransform(&self, matrixtransform: *mut Option<IDCompositionMatrixTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrixtransform)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>], transformgroup: *mut Option<IDCompositionTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), core::mem::transmute(transformgroup)) }
     }
-    pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTranslateTransform3D(&self, translatetransform3d: *mut Option<IDCompositionTranslateTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(translatetransform3d)) }
     }
-    pub unsafe fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateScaleTransform3D(&self, scaletransform3d: *mut Option<IDCompositionScaleTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(scaletransform3d)) }
     }
-    pub unsafe fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRotateTransform3D(&self, rotatetransform3d: *mut Option<IDCompositionRotateTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(rotatetransform3d)) }
     }
-    pub unsafe fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMatrixTransform3D(&self, matrixtransform3d: *mut Option<IDCompositionMatrixTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(matrixtransform3d)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>], transform3dgroup: *mut Option<IDCompositionTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), core::mem::transmute(transform3dgroup)) }
     }
-    pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateEffectGroup(&self, effectgroup: *mut Option<IDCompositionEffectGroup>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(effectgroup)) }
     }
-    pub unsafe fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRectangleClip(&self, clip: *mut Option<IDCompositionRectangleClip>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), core::mem::transmute(clip)) }
     }
-    pub unsafe fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateAnimation(&self, animation: *mut Option<IDCompositionAnimation>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), core::mem::transmute(animation)) }
     }
-    pub unsafe fn CheckDeviceState(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CheckDeviceState(&self, pfvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), pfvalid as _) }
     }
 }
 #[repr(C)]
@@ -1357,27 +1246,27 @@ pub trait IDCompositionDevice_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn WaitForCommitCompletion(&self) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> windows_core::Result<()>;
-    fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: windows_core::BOOL) -> windows_core::Result<IDCompositionTarget>;
-    fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual>;
-    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
-    fn CreateSurfaceFromHandle(&self, handle: super::HANDLE) -> windows_core::Result<windows_core::IUnknown>;
-    fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND) -> windows_core::Result<windows_core::IUnknown>;
-    fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform>;
-    fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform>;
-    fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform>;
-    fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform>;
-    fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform>;
-    fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform>;
-    fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D>;
-    fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D>;
-    fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D>;
-    fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D>;
-    fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D>;
-    fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup>;
-    fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip>;
-    fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation>;
-    fn CheckDeviceState(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CreateTargetForHwnd(&self, hwnd: super::HWND, topmost: windows_core::BOOL, target: windows_core::OutRef<IDCompositionTarget>) -> windows_core::Result<()>;
+    fn CreateVisual(&self, visual: windows_core::OutRef<IDCompositionVisual>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: windows_core::OutRef<IDCompositionSurface>) -> windows_core::Result<()>;
+    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: windows_core::OutRef<IDCompositionVirtualSurface>) -> windows_core::Result<()>;
+    fn CreateSurfaceFromHandle(&self, handle: super::HANDLE, surface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurfaceFromHwnd(&self, hwnd: super::HWND, surface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateTranslateTransform(&self, translatetransform: windows_core::OutRef<IDCompositionTranslateTransform>) -> windows_core::Result<()>;
+    fn CreateScaleTransform(&self, scaletransform: windows_core::OutRef<IDCompositionScaleTransform>) -> windows_core::Result<()>;
+    fn CreateRotateTransform(&self, rotatetransform: windows_core::OutRef<IDCompositionRotateTransform>) -> windows_core::Result<()>;
+    fn CreateSkewTransform(&self, skewtransform: windows_core::OutRef<IDCompositionSkewTransform>) -> windows_core::Result<()>;
+    fn CreateMatrixTransform(&self, matrixtransform: windows_core::OutRef<IDCompositionMatrixTransform>) -> windows_core::Result<()>;
+    fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT, transformgroup: windows_core::OutRef<IDCompositionTransform>) -> windows_core::Result<()>;
+    fn CreateTranslateTransform3D(&self, translatetransform3d: windows_core::OutRef<IDCompositionTranslateTransform3D>) -> windows_core::Result<()>;
+    fn CreateScaleTransform3D(&self, scaletransform3d: windows_core::OutRef<IDCompositionScaleTransform3D>) -> windows_core::Result<()>;
+    fn CreateRotateTransform3D(&self, rotatetransform3d: windows_core::OutRef<IDCompositionRotateTransform3D>) -> windows_core::Result<()>;
+    fn CreateMatrixTransform3D(&self, matrixtransform3d: windows_core::OutRef<IDCompositionMatrixTransform3D>) -> windows_core::Result<()>;
+    fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT, transform3dgroup: windows_core::OutRef<IDCompositionTransform3D>) -> windows_core::Result<()>;
+    fn CreateEffectGroup(&self, effectgroup: windows_core::OutRef<IDCompositionEffectGroup>) -> windows_core::Result<()>;
+    fn CreateRectangleClip(&self, clip: windows_core::OutRef<IDCompositionRectangleClip>) -> windows_core::Result<()>;
+    fn CreateAnimation(&self, animation: windows_core::OutRef<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn CheckDeviceState(&self, pfvalid: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDCompositionDevice_Vtbl {
@@ -1403,253 +1292,127 @@ impl IDCompositionDevice_Vtbl {
         unsafe extern "system" fn CreateTargetForHwnd<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, topmost: windows_core::BOOL, target: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
-                    Ok(ok__) => {
-                        target.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost), core::mem::transmute_copy(&target)).into()
             }
         }
         unsafe extern "system" fn CreateVisual<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateVisual(this) {
-                    Ok(ok__) => {
-                        visual.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateVisual(this, core::mem::transmute_copy(&visual)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&virtualsurface)).into()
             }
         }
         unsafe extern "system" fn CreateSurfaceFromHandle<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: super::HANDLE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateSurfaceFromHwnd<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateTranslateTransform<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, translatetransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateTranslateTransform(this) {
-                    Ok(ok__) => {
-                        translatetransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateTranslateTransform(this, core::mem::transmute_copy(&translatetransform)).into()
             }
         }
         unsafe extern "system" fn CreateScaleTransform<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaletransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateScaleTransform(this) {
-                    Ok(ok__) => {
-                        scaletransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateScaleTransform(this, core::mem::transmute_copy(&scaletransform)).into()
             }
         }
         unsafe extern "system" fn CreateRotateTransform<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rotatetransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateRotateTransform(this) {
-                    Ok(ok__) => {
-                        rotatetransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateRotateTransform(this, core::mem::transmute_copy(&rotatetransform)).into()
             }
         }
         unsafe extern "system" fn CreateSkewTransform<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, skewtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateSkewTransform(this) {
-                    Ok(ok__) => {
-                        skewtransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateSkewTransform(this, core::mem::transmute_copy(&skewtransform)).into()
             }
         }
         unsafe extern "system" fn CreateMatrixTransform<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateMatrixTransform(this) {
-                    Ok(ok__) => {
-                        matrixtransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateMatrixTransform(this, core::mem::transmute_copy(&matrixtransform)).into()
             }
         }
         unsafe extern "system" fn CreateTransformGroup<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transforms: *const *mut core::ffi::c_void, elements: super::UINT, transformgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
-                    Ok(ok__) => {
-                        transformgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&transformgroup)).into()
             }
         }
         unsafe extern "system" fn CreateTranslateTransform3D<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, translatetransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateTranslateTransform3D(this) {
-                    Ok(ok__) => {
-                        translatetransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateTranslateTransform3D(this, core::mem::transmute_copy(&translatetransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateScaleTransform3D<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaletransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateScaleTransform3D(this) {
-                    Ok(ok__) => {
-                        scaletransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateScaleTransform3D(this, core::mem::transmute_copy(&scaletransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateRotateTransform3D<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rotatetransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateRotateTransform3D(this) {
-                    Ok(ok__) => {
-                        rotatetransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateRotateTransform3D(this, core::mem::transmute_copy(&rotatetransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateMatrixTransform3D<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateMatrixTransform3D(this) {
-                    Ok(ok__) => {
-                        matrixtransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateMatrixTransform3D(this, core::mem::transmute_copy(&matrixtransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateTransform3DGroup<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transforms3d: *const *mut core::ffi::c_void, elements: super::UINT, transform3dgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
-                    Ok(ok__) => {
-                        transform3dgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&transform3dgroup)).into()
             }
         }
         unsafe extern "system" fn CreateEffectGroup<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateEffectGroup(this) {
-                    Ok(ok__) => {
-                        effectgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateEffectGroup(this, core::mem::transmute_copy(&effectgroup)).into()
             }
         }
         unsafe extern "system" fn CreateRectangleClip<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clip: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateRectangleClip(this) {
-                    Ok(ok__) => {
-                        clip.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateRectangleClip(this, core::mem::transmute_copy(&clip)).into()
             }
         }
         unsafe extern "system" fn CreateAnimation<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CreateAnimation(this) {
-                    Ok(ok__) => {
-                        animation.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CreateAnimation(this, core::mem::transmute_copy(&animation)).into()
             }
         }
         unsafe extern "system" fn CheckDeviceState<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice_Impl::CheckDeviceState(this) {
-                    Ok(ok__) => {
-                        pfvalid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice_Impl::CheckDeviceState(this, core::mem::transmute_copy(&pfvalid)).into()
             }
         }
         Self {
@@ -1699,120 +1462,66 @@ impl IDCompositionDevice2 {
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), statistics as _) }
     }
-    pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual2> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateVisual(&self, visual: *mut Option<IDCompositionVisual2>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), core::mem::transmute(visual)) }
     }
-    pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> windows_core::Result<IDCompositionSurfaceFactory>
+    pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0, surfacefactory: *mut Option<IDCompositionSurfaceFactory>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurfaceFactory)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurfaceFactory)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), core::mem::transmute(surfacefactory)) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut Option<IDCompositionSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, core::mem::transmute(surface)) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut Option<IDCompositionVirtualSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, core::mem::transmute(virtualsurface)) }
     }
-    pub unsafe fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTranslateTransform(&self, translatetransform: *mut Option<IDCompositionTranslateTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTranslateTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(translatetransform)) }
     }
-    pub unsafe fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateScaleTransform(&self, scaletransform: *mut Option<IDCompositionScaleTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateScaleTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(scaletransform)) }
     }
-    pub unsafe fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRotateTransform(&self, rotatetransform: *mut Option<IDCompositionRotateTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRotateTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(rotatetransform)) }
     }
-    pub unsafe fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSkewTransform(&self, skewtransform: *mut Option<IDCompositionSkewTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSkewTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(skewtransform)) }
     }
-    pub unsafe fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMatrixTransform(&self, matrixtransform: *mut Option<IDCompositionMatrixTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrixtransform)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>], transformgroup: *mut Option<IDCompositionTransform>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), core::mem::transmute(transformgroup)) }
     }
-    pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTranslateTransform3D(&self, translatetransform3d: *mut Option<IDCompositionTranslateTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTranslateTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(translatetransform3d)) }
     }
-    pub unsafe fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateScaleTransform3D(&self, scaletransform3d: *mut Option<IDCompositionScaleTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateScaleTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(scaletransform3d)) }
     }
-    pub unsafe fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRotateTransform3D(&self, rotatetransform3d: *mut Option<IDCompositionRotateTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRotateTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(rotatetransform3d)) }
     }
-    pub unsafe fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateMatrixTransform3D(&self, matrixtransform3d: *mut Option<IDCompositionMatrixTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateMatrixTransform3D)(windows_core::Interface::as_raw(self), core::mem::transmute(matrixtransform3d)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>], transform3dgroup: *mut Option<IDCompositionTransform3D>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), core::mem::transmute(transform3dgroup)) }
     }
-    pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateEffectGroup(&self, effectgroup: *mut Option<IDCompositionEffectGroup>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateEffectGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(effectgroup)) }
     }
-    pub unsafe fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateRectangleClip(&self, clip: *mut Option<IDCompositionRectangleClip>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateRectangleClip)(windows_core::Interface::as_raw(self), core::mem::transmute(clip)) }
     }
-    pub unsafe fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateAnimation(&self, animation: *mut Option<IDCompositionAnimation>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateAnimation)(windows_core::Interface::as_raw(self), core::mem::transmute(animation)) }
     }
 }
 #[repr(C)]
@@ -1861,24 +1570,24 @@ pub trait IDCompositionDevice2_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn WaitForCommitCompletion(&self) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> windows_core::Result<()>;
-    fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual2>;
-    fn CreateSurfaceFactory(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDCompositionSurfaceFactory>;
-    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
-    fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform>;
-    fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform>;
-    fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform>;
-    fn CreateSkewTransform(&self) -> windows_core::Result<IDCompositionSkewTransform>;
-    fn CreateMatrixTransform(&self) -> windows_core::Result<IDCompositionMatrixTransform>;
-    fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform>;
-    fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D>;
-    fn CreateScaleTransform3D(&self) -> windows_core::Result<IDCompositionScaleTransform3D>;
-    fn CreateRotateTransform3D(&self) -> windows_core::Result<IDCompositionRotateTransform3D>;
-    fn CreateMatrixTransform3D(&self) -> windows_core::Result<IDCompositionMatrixTransform3D>;
-    fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D>;
-    fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup>;
-    fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip>;
-    fn CreateAnimation(&self) -> windows_core::Result<IDCompositionAnimation>;
+    fn CreateVisual(&self, visual: windows_core::OutRef<IDCompositionVisual2>) -> windows_core::Result<()>;
+    fn CreateSurfaceFactory(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>, surfacefactory: windows_core::OutRef<IDCompositionSurfaceFactory>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: windows_core::OutRef<IDCompositionSurface>) -> windows_core::Result<()>;
+    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: windows_core::OutRef<IDCompositionVirtualSurface>) -> windows_core::Result<()>;
+    fn CreateTranslateTransform(&self, translatetransform: windows_core::OutRef<IDCompositionTranslateTransform>) -> windows_core::Result<()>;
+    fn CreateScaleTransform(&self, scaletransform: windows_core::OutRef<IDCompositionScaleTransform>) -> windows_core::Result<()>;
+    fn CreateRotateTransform(&self, rotatetransform: windows_core::OutRef<IDCompositionRotateTransform>) -> windows_core::Result<()>;
+    fn CreateSkewTransform(&self, skewtransform: windows_core::OutRef<IDCompositionSkewTransform>) -> windows_core::Result<()>;
+    fn CreateMatrixTransform(&self, matrixtransform: windows_core::OutRef<IDCompositionMatrixTransform>) -> windows_core::Result<()>;
+    fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT, transformgroup: windows_core::OutRef<IDCompositionTransform>) -> windows_core::Result<()>;
+    fn CreateTranslateTransform3D(&self, translatetransform3d: windows_core::OutRef<IDCompositionTranslateTransform3D>) -> windows_core::Result<()>;
+    fn CreateScaleTransform3D(&self, scaletransform3d: windows_core::OutRef<IDCompositionScaleTransform3D>) -> windows_core::Result<()>;
+    fn CreateRotateTransform3D(&self, rotatetransform3d: windows_core::OutRef<IDCompositionRotateTransform3D>) -> windows_core::Result<()>;
+    fn CreateMatrixTransform3D(&self, matrixtransform3d: windows_core::OutRef<IDCompositionMatrixTransform3D>) -> windows_core::Result<()>;
+    fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT, transform3dgroup: windows_core::OutRef<IDCompositionTransform3D>) -> windows_core::Result<()>;
+    fn CreateEffectGroup(&self, effectgroup: windows_core::OutRef<IDCompositionEffectGroup>) -> windows_core::Result<()>;
+    fn CreateRectangleClip(&self, clip: windows_core::OutRef<IDCompositionRectangleClip>) -> windows_core::Result<()>;
+    fn CreateAnimation(&self, animation: windows_core::OutRef<IDCompositionAnimation>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 impl IDCompositionDevice2_Vtbl {
@@ -1904,217 +1613,109 @@ impl IDCompositionDevice2_Vtbl {
         unsafe extern "system" fn CreateVisual<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateVisual(this) {
-                    Ok(ok__) => {
-                        visual.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateVisual(this, core::mem::transmute_copy(&visual)).into()
             }
         }
         unsafe extern "system" fn CreateSurfaceFactory<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, surfacefactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateSurfaceFactory(this, core::mem::transmute_copy(&renderingdevice)) {
-                    Ok(ok__) => {
-                        surfacefactory.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateSurfaceFactory(this, core::mem::transmute_copy(&renderingdevice), core::mem::transmute_copy(&surfacefactory)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&virtualsurface)).into()
             }
         }
         unsafe extern "system" fn CreateTranslateTransform<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, translatetransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateTranslateTransform(this) {
-                    Ok(ok__) => {
-                        translatetransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateTranslateTransform(this, core::mem::transmute_copy(&translatetransform)).into()
             }
         }
         unsafe extern "system" fn CreateScaleTransform<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaletransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateScaleTransform(this) {
-                    Ok(ok__) => {
-                        scaletransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateScaleTransform(this, core::mem::transmute_copy(&scaletransform)).into()
             }
         }
         unsafe extern "system" fn CreateRotateTransform<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rotatetransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateRotateTransform(this) {
-                    Ok(ok__) => {
-                        rotatetransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateRotateTransform(this, core::mem::transmute_copy(&rotatetransform)).into()
             }
         }
         unsafe extern "system" fn CreateSkewTransform<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, skewtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateSkewTransform(this) {
-                    Ok(ok__) => {
-                        skewtransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateSkewTransform(this, core::mem::transmute_copy(&skewtransform)).into()
             }
         }
         unsafe extern "system" fn CreateMatrixTransform<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateMatrixTransform(this) {
-                    Ok(ok__) => {
-                        matrixtransform.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateMatrixTransform(this, core::mem::transmute_copy(&matrixtransform)).into()
             }
         }
         unsafe extern "system" fn CreateTransformGroup<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transforms: *const *mut core::ffi::c_void, elements: super::UINT, transformgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
-                    Ok(ok__) => {
-                        transformgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&transformgroup)).into()
             }
         }
         unsafe extern "system" fn CreateTranslateTransform3D<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, translatetransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateTranslateTransform3D(this) {
-                    Ok(ok__) => {
-                        translatetransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateTranslateTransform3D(this, core::mem::transmute_copy(&translatetransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateScaleTransform3D<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaletransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateScaleTransform3D(this) {
-                    Ok(ok__) => {
-                        scaletransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateScaleTransform3D(this, core::mem::transmute_copy(&scaletransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateRotateTransform3D<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rotatetransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateRotateTransform3D(this) {
-                    Ok(ok__) => {
-                        rotatetransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateRotateTransform3D(this, core::mem::transmute_copy(&rotatetransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateMatrixTransform3D<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateMatrixTransform3D(this) {
-                    Ok(ok__) => {
-                        matrixtransform3d.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateMatrixTransform3D(this, core::mem::transmute_copy(&matrixtransform3d)).into()
             }
         }
         unsafe extern "system" fn CreateTransform3DGroup<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transforms3d: *const *mut core::ffi::c_void, elements: super::UINT, transform3dgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
-                    Ok(ok__) => {
-                        transform3dgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&transform3dgroup)).into()
             }
         }
         unsafe extern "system" fn CreateEffectGroup<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateEffectGroup(this) {
-                    Ok(ok__) => {
-                        effectgroup.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateEffectGroup(this, core::mem::transmute_copy(&effectgroup)).into()
             }
         }
         unsafe extern "system" fn CreateRectangleClip<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clip: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateRectangleClip(this) {
-                    Ok(ok__) => {
-                        clip.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateRectangleClip(this, core::mem::transmute_copy(&clip)).into()
             }
         }
         unsafe extern "system" fn CreateAnimation<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice2_Impl::CreateAnimation(this) {
-                    Ok(ok__) => {
-                        animation.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice2_Impl::CreateAnimation(this, core::mem::transmute_copy(&animation)).into()
             }
         }
         Self {
@@ -2157,83 +1758,44 @@ impl core::ops::Deref for IDCompositionDevice3 {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice3, windows_core::IUnknown, IDCompositionDevice2);
 impl IDCompositionDevice3 {
-    pub unsafe fn CreateGaussianBlurEffect(&self) -> windows_core::Result<IDCompositionGaussianBlurEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGaussianBlurEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateGaussianBlurEffect(&self, gaussianblureffect: *mut Option<IDCompositionGaussianBlurEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateGaussianBlurEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(gaussianblureffect)) }
     }
-    pub unsafe fn CreateBrightnessEffect(&self) -> windows_core::Result<IDCompositionBrightnessEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBrightnessEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateBrightnessEffect(&self, brightnesseffect: *mut Option<IDCompositionBrightnessEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateBrightnessEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(brightnesseffect)) }
     }
-    pub unsafe fn CreateColorMatrixEffect(&self) -> windows_core::Result<IDCompositionColorMatrixEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateColorMatrixEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateColorMatrixEffect(&self, colormatrixeffect: *mut Option<IDCompositionColorMatrixEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateColorMatrixEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(colormatrixeffect)) }
     }
-    pub unsafe fn CreateShadowEffect(&self) -> windows_core::Result<IDCompositionShadowEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateShadowEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateShadowEffect(&self, shadoweffect: *mut Option<IDCompositionShadowEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateShadowEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(shadoweffect)) }
     }
-    pub unsafe fn CreateHueRotationEffect(&self) -> windows_core::Result<IDCompositionHueRotationEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateHueRotationEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateHueRotationEffect(&self, huerotationeffect: *mut Option<IDCompositionHueRotationEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateHueRotationEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(huerotationeffect)) }
     }
-    pub unsafe fn CreateSaturationEffect(&self) -> windows_core::Result<IDCompositionSaturationEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSaturationEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSaturationEffect(&self, saturationeffect: *mut Option<IDCompositionSaturationEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSaturationEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(saturationeffect)) }
     }
-    pub unsafe fn CreateTurbulenceEffect(&self) -> windows_core::Result<IDCompositionTurbulenceEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTurbulenceEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTurbulenceEffect(&self, turbulenceeffect: *mut Option<IDCompositionTurbulenceEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTurbulenceEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(turbulenceeffect)) }
     }
-    pub unsafe fn CreateLinearTransferEffect(&self) -> windows_core::Result<IDCompositionLinearTransferEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateLinearTransferEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateLinearTransferEffect(&self, lineartransfereffect: *mut Option<IDCompositionLinearTransferEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateLinearTransferEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(lineartransfereffect)) }
     }
-    pub unsafe fn CreateTableTransferEffect(&self) -> windows_core::Result<IDCompositionTableTransferEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTableTransferEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateTableTransferEffect(&self, tabletransfereffect: *mut Option<IDCompositionTableTransferEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateTableTransferEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(tabletransfereffect)) }
     }
-    pub unsafe fn CreateCompositeEffect(&self) -> windows_core::Result<IDCompositionCompositeEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCompositeEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateCompositeEffect(&self, compositeeffect: *mut Option<IDCompositionCompositeEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateCompositeEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(compositeeffect)) }
     }
-    pub unsafe fn CreateBlendEffect(&self) -> windows_core::Result<IDCompositionBlendEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBlendEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateBlendEffect(&self, blendeffect: *mut Option<IDCompositionBlendEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateBlendEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(blendeffect)) }
     }
-    pub unsafe fn CreateArithmeticCompositeEffect(&self) -> windows_core::Result<IDCompositionArithmeticCompositeEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateArithmeticCompositeEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateArithmeticCompositeEffect(&self, arithmeticcompositeeffect: *mut Option<IDCompositionArithmeticCompositeEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateArithmeticCompositeEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(arithmeticcompositeeffect)) }
     }
-    pub unsafe fn CreateAffineTransform2DEffect(&self) -> windows_core::Result<IDCompositionAffineTransform2DEffect> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAffineTransform2DEffect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateAffineTransform2DEffect(&self, affinetransform2deffect: *mut Option<IDCompositionAffineTransform2DEffect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateAffineTransform2DEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(affinetransform2deffect)) }
     }
 }
 #[repr(C)]
@@ -2256,19 +1818,19 @@ pub struct IDCompositionDevice3_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 pub trait IDCompositionDevice3_Impl: IDCompositionDevice2_Impl {
-    fn CreateGaussianBlurEffect(&self) -> windows_core::Result<IDCompositionGaussianBlurEffect>;
-    fn CreateBrightnessEffect(&self) -> windows_core::Result<IDCompositionBrightnessEffect>;
-    fn CreateColorMatrixEffect(&self) -> windows_core::Result<IDCompositionColorMatrixEffect>;
-    fn CreateShadowEffect(&self) -> windows_core::Result<IDCompositionShadowEffect>;
-    fn CreateHueRotationEffect(&self) -> windows_core::Result<IDCompositionHueRotationEffect>;
-    fn CreateSaturationEffect(&self) -> windows_core::Result<IDCompositionSaturationEffect>;
-    fn CreateTurbulenceEffect(&self) -> windows_core::Result<IDCompositionTurbulenceEffect>;
-    fn CreateLinearTransferEffect(&self) -> windows_core::Result<IDCompositionLinearTransferEffect>;
-    fn CreateTableTransferEffect(&self) -> windows_core::Result<IDCompositionTableTransferEffect>;
-    fn CreateCompositeEffect(&self) -> windows_core::Result<IDCompositionCompositeEffect>;
-    fn CreateBlendEffect(&self) -> windows_core::Result<IDCompositionBlendEffect>;
-    fn CreateArithmeticCompositeEffect(&self) -> windows_core::Result<IDCompositionArithmeticCompositeEffect>;
-    fn CreateAffineTransform2DEffect(&self) -> windows_core::Result<IDCompositionAffineTransform2DEffect>;
+    fn CreateGaussianBlurEffect(&self, gaussianblureffect: windows_core::OutRef<IDCompositionGaussianBlurEffect>) -> windows_core::Result<()>;
+    fn CreateBrightnessEffect(&self, brightnesseffect: windows_core::OutRef<IDCompositionBrightnessEffect>) -> windows_core::Result<()>;
+    fn CreateColorMatrixEffect(&self, colormatrixeffect: windows_core::OutRef<IDCompositionColorMatrixEffect>) -> windows_core::Result<()>;
+    fn CreateShadowEffect(&self, shadoweffect: windows_core::OutRef<IDCompositionShadowEffect>) -> windows_core::Result<()>;
+    fn CreateHueRotationEffect(&self, huerotationeffect: windows_core::OutRef<IDCompositionHueRotationEffect>) -> windows_core::Result<()>;
+    fn CreateSaturationEffect(&self, saturationeffect: windows_core::OutRef<IDCompositionSaturationEffect>) -> windows_core::Result<()>;
+    fn CreateTurbulenceEffect(&self, turbulenceeffect: windows_core::OutRef<IDCompositionTurbulenceEffect>) -> windows_core::Result<()>;
+    fn CreateLinearTransferEffect(&self, lineartransfereffect: windows_core::OutRef<IDCompositionLinearTransferEffect>) -> windows_core::Result<()>;
+    fn CreateTableTransferEffect(&self, tabletransfereffect: windows_core::OutRef<IDCompositionTableTransferEffect>) -> windows_core::Result<()>;
+    fn CreateCompositeEffect(&self, compositeeffect: windows_core::OutRef<IDCompositionCompositeEffect>) -> windows_core::Result<()>;
+    fn CreateBlendEffect(&self, blendeffect: windows_core::OutRef<IDCompositionBlendEffect>) -> windows_core::Result<()>;
+    fn CreateArithmeticCompositeEffect(&self, arithmeticcompositeeffect: windows_core::OutRef<IDCompositionArithmeticCompositeEffect>) -> windows_core::Result<()>;
+    fn CreateAffineTransform2DEffect(&self, affinetransform2deffect: windows_core::OutRef<IDCompositionAffineTransform2DEffect>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 impl IDCompositionDevice3_Vtbl {
@@ -2276,157 +1838,79 @@ impl IDCompositionDevice3_Vtbl {
         unsafe extern "system" fn CreateGaussianBlurEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gaussianblureffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateGaussianBlurEffect(this) {
-                    Ok(ok__) => {
-                        gaussianblureffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateGaussianBlurEffect(this, core::mem::transmute_copy(&gaussianblureffect)).into()
             }
         }
         unsafe extern "system" fn CreateBrightnessEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brightnesseffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateBrightnessEffect(this) {
-                    Ok(ok__) => {
-                        brightnesseffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateBrightnessEffect(this, core::mem::transmute_copy(&brightnesseffect)).into()
             }
         }
         unsafe extern "system" fn CreateColorMatrixEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colormatrixeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateColorMatrixEffect(this) {
-                    Ok(ok__) => {
-                        colormatrixeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateColorMatrixEffect(this, core::mem::transmute_copy(&colormatrixeffect)).into()
             }
         }
         unsafe extern "system" fn CreateShadowEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shadoweffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateShadowEffect(this) {
-                    Ok(ok__) => {
-                        shadoweffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateShadowEffect(this, core::mem::transmute_copy(&shadoweffect)).into()
             }
         }
         unsafe extern "system" fn CreateHueRotationEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, huerotationeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateHueRotationEffect(this) {
-                    Ok(ok__) => {
-                        huerotationeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateHueRotationEffect(this, core::mem::transmute_copy(&huerotationeffect)).into()
             }
         }
         unsafe extern "system" fn CreateSaturationEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, saturationeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateSaturationEffect(this) {
-                    Ok(ok__) => {
-                        saturationeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateSaturationEffect(this, core::mem::transmute_copy(&saturationeffect)).into()
             }
         }
         unsafe extern "system" fn CreateTurbulenceEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, turbulenceeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateTurbulenceEffect(this) {
-                    Ok(ok__) => {
-                        turbulenceeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateTurbulenceEffect(this, core::mem::transmute_copy(&turbulenceeffect)).into()
             }
         }
         unsafe extern "system" fn CreateLinearTransferEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineartransfereffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateLinearTransferEffect(this) {
-                    Ok(ok__) => {
-                        lineartransfereffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateLinearTransferEffect(this, core::mem::transmute_copy(&lineartransfereffect)).into()
             }
         }
         unsafe extern "system" fn CreateTableTransferEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tabletransfereffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateTableTransferEffect(this) {
-                    Ok(ok__) => {
-                        tabletransfereffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateTableTransferEffect(this, core::mem::transmute_copy(&tabletransfereffect)).into()
             }
         }
         unsafe extern "system" fn CreateCompositeEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compositeeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateCompositeEffect(this) {
-                    Ok(ok__) => {
-                        compositeeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateCompositeEffect(this, core::mem::transmute_copy(&compositeeffect)).into()
             }
         }
         unsafe extern "system" fn CreateBlendEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blendeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateBlendEffect(this) {
-                    Ok(ok__) => {
-                        blendeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateBlendEffect(this, core::mem::transmute_copy(&blendeffect)).into()
             }
         }
         unsafe extern "system" fn CreateArithmeticCompositeEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arithmeticcompositeeffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateArithmeticCompositeEffect(this) {
-                    Ok(ok__) => {
-                        arithmeticcompositeeffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateArithmeticCompositeEffect(this, core::mem::transmute_copy(&arithmeticcompositeeffect)).into()
             }
         }
         unsafe extern "system" fn CreateAffineTransform2DEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, affinetransform2deffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice3_Impl::CreateAffineTransform2DEffect(this) {
-                    Ok(ok__) => {
-                        affinetransform2deffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice3_Impl::CreateAffineTransform2DEffect(this, core::mem::transmute_copy(&affinetransform2deffect)).into()
             }
         }
         Self {
@@ -2461,23 +1945,17 @@ impl core::ops::Deref for IDCompositionDevice4 {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice4, windows_core::IUnknown, IDCompositionDevice2, IDCompositionDevice3);
 impl IDCompositionDevice4 {
-    pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), supportscompositiontextures as _) }
     }
-    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> windows_core::Result<Option<IDCompositionTexture>>
+    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0, compositiontexture: *mut Option<IDCompositionTexture>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), core::mem::transmute(compositiontexture)) }
     }
 }
 #[repr(C)]
@@ -2489,8 +1967,8 @@ pub struct IDCompositionDevice4_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 pub trait IDCompositionDevice4_Impl: IDCompositionDevice3_Impl {
-    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<Option<IDCompositionTexture>>;
+    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>, compositiontexture: windows_core::OutRef<IDCompositionTexture>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 impl IDCompositionDevice4_Vtbl {
@@ -2498,25 +1976,13 @@ impl IDCompositionDevice4_Vtbl {
         unsafe extern "system" fn CheckCompositionTextureSupport<Identity: IDCompositionDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice4_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
-                    Ok(ok__) => {
-                        supportscompositiontextures.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice4_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice), core::mem::transmute_copy(&supportscompositiontextures)).into()
             }
         }
         unsafe extern "system" fn CreateCompositionTexture<Identity: IDCompositionDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, d3dtexture: *mut core::ffi::c_void, compositiontexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice4_Impl::CreateCompositionTexture(this, core::mem::transmute_copy(&d3dtexture)) {
-                    Ok(ok__) => {
-                        compositiontexture.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice4_Impl::CreateCompositionTexture(this, core::mem::transmute_copy(&d3dtexture), core::mem::transmute_copy(&compositiontexture)).into()
             }
         }
         Self {
@@ -2540,11 +2006,8 @@ impl core::ops::Deref for IDCompositionDevice5 {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDevice5, windows_core::IUnknown, IDCompositionDevice2, IDCompositionDevice3, IDCompositionDevice4);
 impl IDCompositionDevice5 {
-    pub unsafe fn CreateDynamicTexture(&self) -> windows_core::Result<IDCompositionDynamicTexture> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDynamicTexture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateDynamicTexture(&self, compositiondynamictexture: *mut Option<IDCompositionDynamicTexture>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateDynamicTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(compositiondynamictexture)) }
     }
 }
 #[repr(C)]
@@ -2555,7 +2018,7 @@ pub struct IDCompositionDevice5_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 pub trait IDCompositionDevice5_Impl: IDCompositionDevice4_Impl {
-    fn CreateDynamicTexture(&self) -> windows_core::Result<IDCompositionDynamicTexture>;
+    fn CreateDynamicTexture(&self, compositiondynamictexture: windows_core::OutRef<IDCompositionDynamicTexture>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
 impl IDCompositionDevice5_Vtbl {
@@ -2563,13 +2026,7 @@ impl IDCompositionDevice5_Vtbl {
         unsafe extern "system" fn CreateDynamicTexture<Identity: IDCompositionDevice5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compositiondynamictexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionDevice5_Impl::CreateDynamicTexture(this) {
-                    Ok(ok__) => {
-                        compositiondynamictexture.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionDevice5_Impl::CreateDynamicTexture(this, core::mem::transmute_copy(&compositiondynamictexture)).into()
             }
         }
         Self { base__: IDCompositionDevice4_Vtbl::new::<Identity, OFFSET>(), CreateDynamicTexture: CreateDynamicTexture::<Identity, OFFSET> }
@@ -2954,20 +2411,14 @@ impl windows_core::RuntimeName for IDCompositionHueRotationEffect {}
 windows_core::imp::define_interface!(IDCompositionInkTrailDevice, IDCompositionInkTrailDevice_Vtbl, 0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
 windows_core::imp::interface_hierarchy!(IDCompositionInkTrailDevice, windows_core::IUnknown);
 impl IDCompositionInkTrailDevice {
-    pub unsafe fn CreateDelegatedInkTrail(&self) -> windows_core::Result<IDCompositionDelegatedInkTrail> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDelegatedInkTrail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateDelegatedInkTrail(&self, inktrail: *mut Option<IDCompositionDelegatedInkTrail>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrail)(windows_core::Interface::as_raw(self), core::mem::transmute(inktrail)) }
     }
-    pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<IDCompositionDelegatedInkTrail>
+    pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0, inktrail: *mut Option<IDCompositionDelegatedInkTrail>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), core::mem::transmute(inktrail)) }
     }
 }
 #[repr(C)]
@@ -2978,33 +2429,21 @@ pub struct IDCompositionInkTrailDevice_Vtbl {
     pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDCompositionInkTrailDevice_Impl: windows_core::IUnknownImpl {
-    fn CreateDelegatedInkTrail(&self) -> windows_core::Result<IDCompositionDelegatedInkTrail>;
-    fn CreateDelegatedInkTrailForSwapChain(&self, swapchain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDCompositionDelegatedInkTrail>;
+    fn CreateDelegatedInkTrail(&self, inktrail: windows_core::OutRef<IDCompositionDelegatedInkTrail>) -> windows_core::Result<()>;
+    fn CreateDelegatedInkTrailForSwapChain(&self, swapchain: windows_core::Ref<windows_core::IUnknown>, inktrail: windows_core::OutRef<IDCompositionDelegatedInkTrail>) -> windows_core::Result<()>;
 }
 impl IDCompositionInkTrailDevice_Vtbl {
     pub const fn new<Identity: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDelegatedInkTrail<Identity: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inktrail: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrail(this) {
-                    Ok(ok__) => {
-                        inktrail.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrail(this, core::mem::transmute_copy(&inktrail)).into()
             }
         }
         unsafe extern "system" fn CreateDelegatedInkTrailForSwapChain<Identity: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void, inktrail: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrailForSwapChain(this, core::mem::transmute_copy(&swapchain)) {
-                    Ok(ok__) => {
-                        inktrail.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrailForSwapChain(this, core::mem::transmute_copy(&swapchain), core::mem::transmute_copy(&inktrail)).into()
             }
         }
         Self {
@@ -4932,18 +4371,12 @@ windows_core::imp::define_interface!(IDCompositionSurfaceFactory, IDCompositionS
 windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, windows_core::IUnknown);
 impl IDCompositionSurfaceFactory {
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut Option<IDCompositionSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, core::mem::transmute(surface)) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut Option<IDCompositionVirtualSurface>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, core::mem::transmute(virtualsurface)) }
     }
 }
 #[repr(C)]
@@ -4961,8 +4394,8 @@ pub struct IDCompositionSurfaceFactory_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait IDCompositionSurfaceFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
+    fn CreateSurface(&self, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: windows_core::OutRef<IDCompositionSurface>) -> windows_core::Result<()>;
+    fn CreateVirtualSurface(&self, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: windows_core::OutRef<IDCompositionVirtualSurface>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 impl IDCompositionSurfaceFactory_Vtbl {
@@ -4970,25 +4403,13 @@ impl IDCompositionSurfaceFactory_Vtbl {
         unsafe extern "system" fn CreateSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionSurfaceFactory_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionSurfaceFactory_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&surface)).into()
             }
         }
         unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: super::UINT, initialheight: super::UINT, pixelformat: super::DXGI_FORMAT, alphamode: super::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCompositionSurfaceFactory_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
-                    Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCompositionSurfaceFactory_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode), core::mem::transmute_copy(&virtualsurface)).into()
             }
         }
         Self {

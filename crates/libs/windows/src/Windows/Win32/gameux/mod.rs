@@ -24,11 +24,8 @@ impl IGameExplorer {
     pub unsafe fn UpdateGame(&self, guidinstanceid: windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateGame)(windows_core::Interface::as_raw(self), guidinstanceid) }
     }
-    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VerifyAccess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgdfbinarypath), &mut result__).map(|| result__)
-        }
+    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR, pfhasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).VerifyAccess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgdfbinarypath), pfhasaccess as _) }
     }
 }
 #[repr(C)]
@@ -44,7 +41,7 @@ pub trait IGameExplorer_Impl: windows_core::IUnknownImpl {
     fn AddGame(&self, bstrgdfbinarypath: &windows_core::BSTR, bstrgameinstalldirectory: &windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RemoveGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
     fn UpdateGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<windows_core::BOOL>;
+    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR, pfhasaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: IGameExplorer_Impl, const OFFSET: isize>() -> Self {
@@ -69,13 +66,7 @@ impl IGameExplorer_Vtbl {
         unsafe extern "system" fn VerifyAccess<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: *mut core::ffi::c_void, pfhasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath)) {
-                    Ok(ok__) => {
-                        pfhasaccess.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute_copy(&pfhasaccess)).into()
             }
         }
         Self {

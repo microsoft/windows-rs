@@ -2,11 +2,8 @@ windows_core::imp::define_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd
 windows_core::imp::interface_hierarchy!(IObjectArray, windows_core::IUnknown);
 impl IObjectArray {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCount(&self) -> windows_core::Result<super::UINT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCount(&self, pcobjects: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcobjects as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetAt<T>(&self, uiindex: super::UINT) -> windows_core::Result<T>
@@ -32,7 +29,7 @@ pub struct IObjectArray_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IObjectArray_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<super::UINT>;
+    fn GetCount(&self, pcobjects: *mut super::UINT) -> windows_core::Result<()>;
     fn GetAt(&self, uiindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -41,13 +38,7 @@ impl IObjectArray_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcobjects: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObjectArray_Impl::GetCount(this) {
-                    Ok(ok__) => {
-                        pcobjects.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IObjectArray_Impl::GetCount(this, core::mem::transmute_copy(&pcobjects)).into()
             }
         }
         unsafe extern "system" fn GetAt<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

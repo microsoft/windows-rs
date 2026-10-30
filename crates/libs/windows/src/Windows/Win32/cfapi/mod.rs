@@ -6,15 +6,12 @@ pub unsafe fn CfCloseHandle(filehandle: super::HANDLE) {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<super::LPCVOID>, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY>
+pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<super::LPCVOID>, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : super::LPCVOID, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
-    }
+    unsafe { CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, connectionkey as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -93,12 +90,9 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::WIN32_FI
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CfGetPlatformInfo() -> windows_core::Result<CF_PLATFORM_INFO> {
+pub unsafe fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlatformInfo(platformversion : *mut CF_PLATFORM_INFO) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfGetPlatformInfo(&mut result__).map(|| result__)
-    }
+    unsafe { CfGetPlatformInfo(platformversion as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -117,12 +111,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CfGetTransferKey(filehandle: super::HANDLE) -> windows_core::Result<CF_TRANSFER_KEY> {
+pub unsafe fn CfGetTransferKey(filehandle: super::HANDLE, transferkey: *mut CF_TRANSFER_KEY) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::HANDLE, transferkey : *mut CF_TRANSFER_KEY) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfGetTransferKey(filehandle, &mut result__).map(|| result__)
-    }
+    unsafe { CfGetTransferKey(filehandle, transferkey as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -147,12 +138,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> windows_core::Result<CF_SYNC_PROVIDER_STATUS> {
+pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfQuerySyncProviderStatus(connectionkey, &mut result__).map(|| result__)
-    }
+    unsafe { CfQuerySyncProviderStatus(connectionkey, providerstatus as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -177,13 +165,9 @@ pub unsafe fn CfReleaseProtectedHandle(protectedhandle: super::HANDLE) {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CfReleaseTransferKey(filehandle: super::HANDLE) -> CF_TRANSFER_KEY {
+pub unsafe fn CfReleaseTransferKey(filehandle: super::HANDLE, transferkey: *mut CF_TRANSFER_KEY) {
     windows_core::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::HANDLE, transferkey : *mut CF_TRANSFER_KEY));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfReleaseTransferKey(filehandle, &mut result__);
-        result__
-    }
+    unsafe { CfReleaseTransferKey(filehandle, transferkey as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

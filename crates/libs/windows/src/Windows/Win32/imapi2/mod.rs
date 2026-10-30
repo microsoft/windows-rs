@@ -5654,11 +5654,8 @@ impl IStreamPseudoRandomBased {
         unsafe { (windows_core::Interface::vtable(self).put_Seed)(windows_core::Interface::as_raw(self), value) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn get_Seed(&self) -> windows_core::Result<super::ULONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Seed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn get_Seed(&self, value: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_Seed)(windows_core::Interface::as_raw(self), value as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn put_ExtendedSeed(&self, values: &[super::ULONG]) -> windows_core::HRESULT {
@@ -5694,7 +5691,7 @@ pub struct IStreamPseudoRandomBased_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamPseudoRandomBased_Impl: super::IStream_Impl {
     fn put_Seed(&self, value: super::ULONG) -> windows_core::Result<()>;
-    fn get_Seed(&self) -> windows_core::Result<super::ULONG>;
+    fn get_Seed(&self, value: *mut super::ULONG) -> windows_core::Result<()>;
     fn put_ExtendedSeed(&self, values: *const super::ULONG, ecount: super::ULONG) -> windows_core::Result<()>;
     fn get_ExtendedSeed(&self, values: *mut *mut super::ULONG, ecount: *mut super::ULONG) -> windows_core::Result<()>;
 }
@@ -5710,13 +5707,7 @@ impl IStreamPseudoRandomBased_Vtbl {
         unsafe extern "system" fn get_Seed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStreamPseudoRandomBased_Impl::get_Seed(this) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IStreamPseudoRandomBased_Impl::get_Seed(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn put_ExtendedSeed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, values: *const super::ULONG, ecount: super::ULONG) -> windows_core::HRESULT {

@@ -9,30 +9,21 @@ impl IAnchor {
     pub unsafe fn SetGravity(&self, gravity: TsGravity) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGravity)(windows_core::Interface::as_raw(self), gravity) }
     }
-    pub unsafe fn GetGravity(&self) -> windows_core::Result<TsGravity> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGravity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetGravity(&self, pgravity: *mut TsGravity) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGravity)(windows_core::Interface::as_raw(self), pgravity as _) }
     }
-    pub unsafe fn IsEqual<P0>(&self, pawith: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn IsEqual<P0>(&self, pawith: P0, pfequal: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pawith.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pawith.param().abi(), pfequal as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Compare<P0>(&self, pawith: P0) -> windows_core::Result<super::LONG>
+    pub unsafe fn Compare<P0>(&self, pawith: P0, plresult: *mut super::LONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), pawith.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), pawith.param().abi(), plresult as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Shift<P3>(&self, dwflags: super::DWORD, cchreq: super::LONG, pcch: *mut super::LONG, pahaltanchor: P3) -> windows_core::HRESULT
@@ -48,31 +39,22 @@ impl IAnchor {
         unsafe { (windows_core::Interface::vtable(self).ShiftTo)(windows_core::Interface::as_raw(self), pasite.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ShiftRegion(&self, dwflags: super::DWORD, dir: TsShiftDir) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShiftRegion)(windows_core::Interface::as_raw(self), dwflags, dir, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ShiftRegion(&self, dwflags: super::DWORD, dir: TsShiftDir, pfnoregion: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ShiftRegion)(windows_core::Interface::as_raw(self), dwflags, dir, pfnoregion as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetChangeHistoryMask(&self, dwmask: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChangeHistoryMask)(windows_core::Interface::as_raw(self), dwmask) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChangeHistory(&self) -> windows_core::Result<super::DWORD> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChangeHistory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetChangeHistory(&self, pdwhistory: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChangeHistory)(windows_core::Interface::as_raw(self), pdwhistory as _) }
     }
     pub unsafe fn ClearChangeHistory(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearChangeHistory)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn Clone(&self, ppaclone: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppaclone)) }
     }
 }
 #[repr(C)]
@@ -109,16 +91,16 @@ pub struct IAnchor_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IAnchor_Impl: windows_core::IUnknownImpl {
     fn SetGravity(&self, gravity: TsGravity) -> windows_core::Result<()>;
-    fn GetGravity(&self) -> windows_core::Result<TsGravity>;
-    fn IsEqual(&self, pawith: windows_core::Ref<IAnchor>) -> windows_core::Result<windows_core::BOOL>;
-    fn Compare(&self, pawith: windows_core::Ref<IAnchor>) -> windows_core::Result<super::LONG>;
+    fn GetGravity(&self, pgravity: *mut TsGravity) -> windows_core::Result<()>;
+    fn IsEqual(&self, pawith: windows_core::Ref<IAnchor>, pfequal: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn Compare(&self, pawith: windows_core::Ref<IAnchor>, plresult: *mut super::LONG) -> windows_core::Result<()>;
     fn Shift(&self, dwflags: super::DWORD, cchreq: super::LONG, pcch: *mut super::LONG, pahaltanchor: windows_core::Ref<IAnchor>) -> windows_core::Result<()>;
     fn ShiftTo(&self, pasite: windows_core::Ref<IAnchor>) -> windows_core::Result<()>;
-    fn ShiftRegion(&self, dwflags: super::DWORD, dir: TsShiftDir) -> windows_core::Result<windows_core::BOOL>;
+    fn ShiftRegion(&self, dwflags: super::DWORD, dir: TsShiftDir, pfnoregion: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetChangeHistoryMask(&self, dwmask: super::DWORD) -> windows_core::Result<()>;
-    fn GetChangeHistory(&self) -> windows_core::Result<super::DWORD>;
+    fn GetChangeHistory(&self, pdwhistory: *mut super::DWORD) -> windows_core::Result<()>;
     fn ClearChangeHistory(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IAnchor>;
+    fn Clone(&self, ppaclone: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
 impl IAnchor_Vtbl {
@@ -132,37 +114,19 @@ impl IAnchor_Vtbl {
         unsafe extern "system" fn GetGravity<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgravity: *mut TsGravity) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::GetGravity(this) {
-                    Ok(ok__) => {
-                        pgravity.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::GetGravity(this, core::mem::transmute_copy(&pgravity)).into()
             }
         }
         unsafe extern "system" fn IsEqual<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pawith: *mut core::ffi::c_void, pfequal: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::IsEqual(this, core::mem::transmute_copy(&pawith)) {
-                    Ok(ok__) => {
-                        pfequal.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::IsEqual(this, core::mem::transmute_copy(&pawith), core::mem::transmute_copy(&pfequal)).into()
             }
         }
         unsafe extern "system" fn Compare<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pawith: *mut core::ffi::c_void, plresult: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::Compare(this, core::mem::transmute_copy(&pawith)) {
-                    Ok(ok__) => {
-                        plresult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::Compare(this, core::mem::transmute_copy(&pawith), core::mem::transmute_copy(&plresult)).into()
             }
         }
         unsafe extern "system" fn Shift<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, cchreq: super::LONG, pcch: *mut super::LONG, pahaltanchor: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -180,13 +144,7 @@ impl IAnchor_Vtbl {
         unsafe extern "system" fn ShiftRegion<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, dir: TsShiftDir, pfnoregion: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::ShiftRegion(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dir)) {
-                    Ok(ok__) => {
-                        pfnoregion.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::ShiftRegion(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dir), core::mem::transmute_copy(&pfnoregion)).into()
             }
         }
         unsafe extern "system" fn SetChangeHistoryMask<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmask: super::DWORD) -> windows_core::HRESULT {
@@ -198,13 +156,7 @@ impl IAnchor_Vtbl {
         unsafe extern "system" fn GetChangeHistory<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhistory: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::GetChangeHistory(this) {
-                    Ok(ok__) => {
-                        pdwhistory.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::GetChangeHistory(this, core::mem::transmute_copy(&pdwhistory)).into()
             }
         }
         unsafe extern "system" fn ClearChangeHistory<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -216,13 +168,7 @@ impl IAnchor_Vtbl {
         unsafe extern "system" fn Clone<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaclone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAnchor_Impl::Clone(this) {
-                    Ok(ok__) => {
-                        ppaclone.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAnchor_Impl::Clone(this, core::mem::transmute_copy(&ppaclone)).into()
             }
         }
         Self {
@@ -263,18 +209,12 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, phrsession as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<TS_STATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pdcs as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryInsert(&self, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::HRESULT {
@@ -293,42 +233,27 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), acpstart, acpend, pchplain as _, cchplainreq, pcchplainret as _, prgruninfo as _, cruninforeq, pcruninforet as _, pacpnext as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR]) -> windows_core::Result<TS_TEXTCHANGE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR], pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), acpstart, acpend, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG, ppdataobject: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), acpstart, acpend, core::mem::transmute(ppdataobject)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, core::mem::transmute(ppunk)) }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
-    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, pfinsertable as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn InsertEmbedded<P3>(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: P3) -> windows_core::Result<TS_TEXTCHANGE>
+    pub unsafe fn InsertEmbedded<P3>(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: P3, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::IDataObject>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), pchange as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
@@ -362,42 +287,27 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetEndACP(&self) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEndACP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEndACP(&self, pacp: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEndACP)(windows_core::Interface::as_raw(self), pacp as _) }
     }
-    pub unsafe fn GetActiveView(&self) -> windows_core::Result<TsViewCookie> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), pvcview as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, pacp as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetTextExt(&self, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, acpstart, acpend, prc as _, pfclipped as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, prc as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWnd(&self, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), vcview, phwnd as _) }
     }
 }
 #[repr(C)]
@@ -507,17 +417,17 @@ pub struct ITextStoreACP_Vtbl {
 pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const super::IID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: super::DWORD) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT>;
-    fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
+    fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::Result<()>;
     fn QueryInsert(&self, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::Result<()>;
     fn GetSelection(&self, ulindex: super::ULONG, ulcount: super::ULONG, pselection: *mut TS_SELECTION_ACP, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ACP) -> windows_core::Result<()>;
     fn GetText(&self, acpstart: super::LONG, acpend: super::LONG, pchplain: *mut super::WCHAR, cchplainreq: super::ULONG, pcchplainret: *mut super::ULONG, prgruninfo: *mut TS_RUNINFO, cruninforeq: super::ULONG, pcruninforet: *mut super::ULONG, pacpnext: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG) -> windows_core::Result<TS_TEXTCHANGE>;
-    fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject>;
-    fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
-    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL>;
-    fn InsertEmbedded(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
+    fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
+    fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG, ppdataobject: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
+    fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn InsertEmbedded(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: windows_core::Ref<super::IDataObject>, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: super::DWORD, pdataobject: windows_core::Ref<super::IDataObject>, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID) -> windows_core::Result<()>;
@@ -525,12 +435,12 @@ pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::Result<()>;
     fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetEndACP(&self) -> windows_core::Result<super::LONG>;
-    fn GetActiveView(&self) -> windows_core::Result<TsViewCookie>;
-    fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<super::LONG>;
+    fn GetEndACP(&self, pacp: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::Result<()>;
+    fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::Result<()>;
     fn GetTextExt(&self, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT>;
-    fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::HWND>;
+    fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::Result<()>;
+    fn GetWnd(&self, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP_Vtbl {
@@ -550,25 +460,13 @@ impl ITextStoreACP_Vtbl {
         unsafe extern "system" fn RequestLock<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags)) {
-                    Ok(ok__) => {
-                        phrsession.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags), core::mem::transmute_copy(&phrsession)).into()
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetStatus(this) {
-                    Ok(ok__) => {
-                        pdcs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetStatus(this, core::mem::transmute_copy(&pdcs)).into()
             }
         }
         unsafe extern "system" fn QueryInsert<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::HRESULT {
@@ -598,61 +496,31 @@ impl ITextStoreACP_Vtbl {
         unsafe extern "system" fn SetText<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::SetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cch)) {
-                    Ok(ok__) => {
-                        pchange.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::SetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&pchange)).into()
             }
         }
         unsafe extern "system" fn GetFormattedText<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpstart: super::LONG, acpend: super::LONG, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend)) {
-                    Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&ppdataobject)).into()
             }
         }
         unsafe extern "system" fn GetEmbedded<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetEmbedded(this, core::mem::transmute_copy(&acppos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetEmbedded(this, core::mem::transmute_copy(&acppos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn QueryInsertEmbedded<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc)) {
-                    Ok(ok__) => {
-                        pfinsertable.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pfinsertable)).into()
             }
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: *mut core::ffi::c_void, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject)) {
-                    Ok(ok__) => {
-                        pchange.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pchange)).into()
             }
         }
         unsafe extern "system" fn InsertTextAtSelection<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
@@ -700,37 +568,19 @@ impl ITextStoreACP_Vtbl {
         unsafe extern "system" fn GetEndACP<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pacp: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetEndACP(this) {
-                    Ok(ok__) => {
-                        pacp.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetEndACP(this, core::mem::transmute_copy(&pacp)).into()
             }
         }
         unsafe extern "system" fn GetActiveView<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetActiveView(this) {
-                    Ok(ok__) => {
-                        pvcview.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetActiveView(this, core::mem::transmute_copy(&pvcview)).into()
             }
         }
         unsafe extern "system" fn GetACPFromPoint<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetACPFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        pacp.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetACPFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pacp)).into()
             }
         }
         unsafe extern "system" fn GetTextExt<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -742,25 +592,13 @@ impl ITextStoreACP_Vtbl {
         unsafe extern "system" fn GetScreenExt<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview)) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn GetWnd<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP_Impl::GetWnd(this, core::mem::transmute_copy(&vcview)) {
-                    Ok(ok__) => {
-                        phwnd.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP_Impl::GetWnd(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&phwnd)).into()
             }
         }
         Self {
@@ -816,18 +654,12 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, phrsession as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<TS_STATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pdcs as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryInsert(&self, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::HRESULT {
@@ -846,42 +678,27 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), acpstart, acpend, pchplain as _, cchplainreq, pcchplainret as _, prgruninfo as _, cruninforeq, pcruninforet as _, pacpnext as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR]) -> windows_core::Result<TS_TEXTCHANGE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR], pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), acpstart, acpend, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG, ppdataobject: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), acpstart, acpend, core::mem::transmute(ppdataobject)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, core::mem::transmute(ppunk)) }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
-    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, pfinsertable as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn InsertEmbedded<P3>(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: P3) -> windows_core::Result<TS_TEXTCHANGE>
+    pub unsafe fn InsertEmbedded<P3>(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: P3, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::IDataObject>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), pchange as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
@@ -915,35 +732,23 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetEndACP(&self) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEndACP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetEndACP(&self, pacp: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEndACP)(windows_core::Interface::as_raw(self), pacp as _) }
     }
-    pub unsafe fn GetActiveView(&self) -> windows_core::Result<TsViewCookie> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), pvcview as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<super::LONG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, pacp as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetTextExt(&self, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, acpstart, acpend, prc as _, pfclipped as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, prc as _) }
     }
 }
 #[repr(C)]
@@ -1049,17 +854,17 @@ pub struct ITextStoreACP2_Vtbl {
 pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const super::IID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: super::DWORD) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT>;
-    fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
+    fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::Result<()>;
     fn QueryInsert(&self, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::Result<()>;
     fn GetSelection(&self, ulindex: super::ULONG, ulcount: super::ULONG, pselection: *mut TS_SELECTION_ACP, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ACP) -> windows_core::Result<()>;
     fn GetText(&self, acpstart: super::LONG, acpend: super::LONG, pchplain: *mut super::WCHAR, cchplainreq: super::ULONG, pcchplainret: *mut super::ULONG, prgruninfo: *mut TS_RUNINFO, cruninforeq: super::ULONG, pcruninforet: *mut super::ULONG, pacpnext: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG) -> windows_core::Result<TS_TEXTCHANGE>;
-    fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject>;
-    fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
-    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL>;
-    fn InsertEmbedded(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
+    fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
+    fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG, ppdataobject: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
+    fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn InsertEmbedded(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: windows_core::Ref<super::IDataObject>, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: super::DWORD, pdataobject: windows_core::Ref<super::IDataObject>, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID) -> windows_core::Result<()>;
@@ -1067,11 +872,11 @@ pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::Result<()>;
     fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetEndACP(&self) -> windows_core::Result<super::LONG>;
-    fn GetActiveView(&self) -> windows_core::Result<TsViewCookie>;
-    fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<super::LONG>;
+    fn GetEndACP(&self, pacp: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::Result<()>;
+    fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::Result<()>;
     fn GetTextExt(&self, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT>;
+    fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP2_Vtbl {
@@ -1091,25 +896,13 @@ impl ITextStoreACP2_Vtbl {
         unsafe extern "system" fn RequestLock<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags)) {
-                    Ok(ok__) => {
-                        phrsession.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags), core::mem::transmute_copy(&phrsession)).into()
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetStatus(this) {
-                    Ok(ok__) => {
-                        pdcs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetStatus(this, core::mem::transmute_copy(&pdcs)).into()
             }
         }
         unsafe extern "system" fn QueryInsert<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpteststart: super::LONG, acptestend: super::LONG, cch: super::ULONG, pacpresultstart: *mut super::LONG, pacpresultend: *mut super::LONG) -> windows_core::HRESULT {
@@ -1139,61 +932,31 @@ impl ITextStoreACP2_Vtbl {
         unsafe extern "system" fn SetText<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::SetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cch)) {
-                    Ok(ok__) => {
-                        pchange.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::SetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&pchange)).into()
             }
         }
         unsafe extern "system" fn GetFormattedText<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpstart: super::LONG, acpend: super::LONG, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend)) {
-                    Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&ppdataobject)).into()
             }
         }
         unsafe extern "system" fn GetEmbedded<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetEmbedded(this, core::mem::transmute_copy(&acppos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetEmbedded(this, core::mem::transmute_copy(&acppos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn QueryInsertEmbedded<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc)) {
-                    Ok(ok__) => {
-                        pfinsertable.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pfinsertable)).into()
             }
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pdataobject: *mut core::ffi::c_void, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject)) {
-                    Ok(ok__) => {
-                        pchange.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pchange)).into()
             }
         }
         unsafe extern "system" fn InsertTextAtSelection<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
@@ -1241,37 +1004,19 @@ impl ITextStoreACP2_Vtbl {
         unsafe extern "system" fn GetEndACP<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pacp: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetEndACP(this) {
-                    Ok(ok__) => {
-                        pacp.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetEndACP(this, core::mem::transmute_copy(&pacp)).into()
             }
         }
         unsafe extern "system" fn GetActiveView<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetActiveView(this) {
-                    Ok(ok__) => {
-                        pvcview.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetActiveView(this, core::mem::transmute_copy(&pvcview)).into()
             }
         }
         unsafe extern "system" fn GetACPFromPoint<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, pacp: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetACPFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        pacp.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetACPFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pacp)).into()
             }
         }
         unsafe extern "system" fn GetTextExt<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, acpstart: super::LONG, acpend: super::LONG, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1283,13 +1028,7 @@ impl ITextStoreACP2_Vtbl {
         unsafe extern "system" fn GetScreenExt<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreACP2_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview)) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreACP2_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&prc)).into()
             }
         }
         Self {
@@ -1481,18 +1220,12 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestLock)(windows_core::Interface::as_raw(self), dwlockflags, phrsession as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<TS_STATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pdcs as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryInsert<P0, P1>(&self, pateststart: P0, patestend: P1, cch: super::ULONG, pparesultstart: *mut Option<IAnchor>, pparesultend: *mut Option<IAnchor>) -> windows_core::HRESULT
@@ -1527,25 +1260,19 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pchtext.as_ptr(), pchtext.len().try_into().unwrap()) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn GetFormattedText<P0, P1>(&self, pastart: P0, paend: P1) -> windows_core::Result<super::IDataObject>
+    pub unsafe fn GetFormattedText<P0, P1>(&self, pastart: P0, paend: P1, ppdataobject: *mut Option<super::IDataObject>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAnchor>,
         P1: windows_core::Param<IAnchor>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), core::mem::transmute(ppdataobject)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetEmbedded<P1>(&self, dwflags: super::DWORD, papos: P1, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn GetEmbedded<P1>(&self, dwflags: super::DWORD, papos: P1, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IAnchor>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, riid, core::mem::transmute(ppunk)) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn InsertEmbedded<P1, P2, P3>(&self, dwflags: super::DWORD, pastart: P1, paend: P2, pdataobject: P3) -> windows_core::HRESULT
@@ -1586,30 +1313,18 @@ impl ITextStoreAnchor {
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
-    pub unsafe fn GetStart(&self) -> windows_core::Result<IAnchor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStart)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetStart(&self, ppastart: *mut Option<IAnchor>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStart)(windows_core::Interface::as_raw(self), core::mem::transmute(ppastart)) }
     }
-    pub unsafe fn GetEnd(&self) -> windows_core::Result<IAnchor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetEnd(&self, ppaend: *mut Option<IAnchor>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(ppaend)) }
     }
-    pub unsafe fn GetActiveView(&self) -> windows_core::Result<TsViewCookie> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), pvcview as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetAnchorFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<IAnchor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAnchorFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    pub unsafe fn GetAnchorFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, ppasite: *mut Option<IAnchor>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAnchorFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, core::mem::transmute(ppasite)) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetTextExt<P1, P2>(&self, vcview: TsViewCookie, pastart: P1, paend: P2, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT
@@ -1620,25 +1335,16 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, pastart.param().abi(), paend.param().abi(), prc as _, pfclipped as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, prc as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWnd(&self, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), vcview, phwnd as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
-    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, &mut result__).map(|| result__)
-        }
+    pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, pfinsertable as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::HRESULT {
@@ -1757,29 +1463,29 @@ pub struct ITextStoreAnchor_Vtbl {
 pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const super::IID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: super::DWORD) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RequestLock(&self, dwlockflags: super::DWORD) -> windows_core::Result<windows_core::HRESULT>;
-    fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
+    fn RequestLock(&self, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn GetStatus(&self, pdcs: *mut TS_STATUS) -> windows_core::Result<()>;
     fn QueryInsert(&self, pateststart: windows_core::Ref<IAnchor>, patestend: windows_core::Ref<IAnchor>, cch: super::ULONG, pparesultstart: windows_core::OutRef<IAnchor>, pparesultend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
     fn GetSelection(&self, ulindex: super::ULONG, ulcount: super::ULONG, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ANCHOR) -> windows_core::Result<()>;
     fn GetText(&self, dwflags: super::DWORD, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>, pchtext: *mut super::WCHAR, cchreq: super::ULONG, pcch: *mut super::ULONG, fupdateanchor: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetText(&self, dwflags: super::DWORD, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>, pchtext: *const super::WCHAR, cch: super::ULONG) -> windows_core::Result<()>;
-    fn GetFormattedText(&self, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>) -> windows_core::Result<super::IDataObject>;
-    fn GetEmbedded(&self, dwflags: super::DWORD, papos: windows_core::Ref<IAnchor>, rguidservice: *const windows_core::GUID, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetFormattedText(&self, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>, ppdataobject: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
+    fn GetEmbedded(&self, dwflags: super::DWORD, papos: windows_core::Ref<IAnchor>, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn InsertEmbedded(&self, dwflags: super::DWORD, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>, pdataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID) -> windows_core::Result<()>;
     fn RequestAttrsAtPosition(&self, papos: windows_core::Ref<IAnchor>, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn RequestAttrsTransitioningAtPosition(&self, papos: windows_core::Ref<IAnchor>, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn FindNextAttrTransition(&self, pastart: windows_core::Ref<IAnchor>, pahalt: windows_core::Ref<IAnchor>, cfilterattrs: super::ULONG, pafilterattrs: *const TS_ATTRID, dwflags: super::DWORD, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::Result<()>;
     fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetStart(&self) -> windows_core::Result<IAnchor>;
-    fn GetEnd(&self) -> windows_core::Result<IAnchor>;
-    fn GetActiveView(&self) -> windows_core::Result<TsViewCookie>;
-    fn GetAnchorFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD) -> windows_core::Result<IAnchor>;
+    fn GetStart(&self, ppastart: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
+    fn GetEnd(&self, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
+    fn GetActiveView(&self, pvcview: *mut TsViewCookie) -> windows_core::Result<()>;
+    fn GetAnchorFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, ppasite: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
     fn GetTextExt(&self, vcview: TsViewCookie, pastart: windows_core::Ref<IAnchor>, paend: windows_core::Ref<IAnchor>, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT>;
-    fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::HWND>;
-    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC) -> windows_core::Result<windows_core::BOOL>;
+    fn GetScreenExt(&self, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::Result<()>;
+    fn GetWnd(&self, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::Result<()>;
+    fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: super::DWORD, pdataobject: windows_core::Ref<super::IDataObject>, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
 }
@@ -1801,25 +1507,13 @@ impl ITextStoreAnchor_Vtbl {
         unsafe extern "system" fn RequestLock<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: super::DWORD, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags)) {
-                    Ok(ok__) => {
-                        phrsession.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::RequestLock(this, core::mem::transmute_copy(&dwlockflags), core::mem::transmute_copy(&phrsession)).into()
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdcs: *mut TS_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetStatus(this) {
-                    Ok(ok__) => {
-                        pdcs.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetStatus(this, core::mem::transmute_copy(&pdcs)).into()
             }
         }
         unsafe extern "system" fn QueryInsert<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pateststart: *mut core::ffi::c_void, patestend: *mut core::ffi::c_void, cch: super::ULONG, pparesultstart: *mut *mut core::ffi::c_void, pparesultend: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1855,25 +1549,13 @@ impl ITextStoreAnchor_Vtbl {
         unsafe extern "system" fn GetFormattedText<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetFormattedText(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend)) {
-                    Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetFormattedText(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute_copy(&ppdataobject)).into()
             }
         }
         unsafe extern "system" fn GetEmbedded<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, papos: *mut core::ffi::c_void, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&papos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&papos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1915,49 +1597,25 @@ impl ITextStoreAnchor_Vtbl {
         unsafe extern "system" fn GetStart<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppastart: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetStart(this) {
-                    Ok(ok__) => {
-                        ppastart.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetStart(this, core::mem::transmute_copy(&ppastart)).into()
             }
         }
         unsafe extern "system" fn GetEnd<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaend: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetEnd(this) {
-                    Ok(ok__) => {
-                        ppaend.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetEnd(this, core::mem::transmute_copy(&ppaend)).into()
             }
         }
         unsafe extern "system" fn GetActiveView<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcview: *mut TsViewCookie) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetActiveView(this) {
-                    Ok(ok__) => {
-                        pvcview.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetActiveView(this, core::mem::transmute_copy(&pvcview)).into()
             }
         }
         unsafe extern "system" fn GetAnchorFromPoint<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, ptscreen: *const super::POINT, dwflags: super::DWORD, ppasite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetAnchorFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        ppasite.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetAnchorFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppasite)).into()
             }
         }
         unsafe extern "system" fn GetTextExt<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1969,37 +1627,19 @@ impl ITextStoreAnchor_Vtbl {
         unsafe extern "system" fn GetScreenExt<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, prc: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview)) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetScreenExt(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn GetWnd<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: TsViewCookie, phwnd: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::GetWnd(this, core::mem::transmute_copy(&vcview)) {
-                    Ok(ok__) => {
-                        phwnd.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::GetWnd(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&phwnd)).into()
             }
         }
         unsafe extern "system" fn QueryInsertEmbedded<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextStoreAnchor_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc)) {
-                    Ok(ok__) => {
-                        pfinsertable.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextStoreAnchor_Impl::QueryInsertEmbedded(this, core::mem::transmute_copy(&pguidservice), core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pfinsertable)).into()
             }
         }
         unsafe extern "system" fn InsertTextAtSelection<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, ppastart: *mut *mut core::ffi::c_void, ppaend: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

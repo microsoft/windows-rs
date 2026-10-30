@@ -5,7 +5,7 @@ use windows::{Win32::*, core::*};
 struct DataObject();
 
 impl IDataObject_Impl for DataObject_Impl {
-    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
+    fn GetData(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
         unimplemented!()
     }
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
@@ -20,19 +20,26 @@ impl IDataObject_Impl for DataObject_Impl {
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
         unimplemented!()
     }
-    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
+    fn EnumFormatEtc(&self, _: u32, _: OutRef<IEnumFORMATETC>) -> Result<()> {
         unimplemented!()
     }
-    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: Ref<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(
+        &self,
+        format: *const FORMATETC,
+        value: u32,
+        sink: Ref<IAdviseSink>,
+        connection: *mut u32,
+    ) -> Result<()> {
         assert!(!format.is_null());
         assert_eq!(value, 789);
         assert!(sink.is_null());
-        Ok(123)
+        unsafe { *connection = 123 };
+        Ok(())
     }
     fn DUnadvise(&self, _: u32) -> Result<()> {
         unimplemented!()
     }
-    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
         unimplemented!()
     }
 }
@@ -49,10 +56,12 @@ impl IDropTarget_Impl for DropTarget_Impl {
         effect: *mut u32,
     ) -> Result<()> {
         unsafe {
-            assert_eq!(
-                object.unwrap().DAdvise(&FORMATETC::default(), 789, None)?,
-                123
-            );
+            let mut connection = 0;
+            object
+                .unwrap()
+                .DAdvise(&FORMATETC::default(), 789, None, &mut connection)
+                .ok()?;
+            assert_eq!(connection, 123);
             assert_eq!(state, MK_MBUTTON as u32);
             assert_eq!(*effect, DROPEFFECT_LINK as u32);
             *effect = DROPEFFECT_MOVE as u32;

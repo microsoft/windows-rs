@@ -116,12 +116,9 @@ pub unsafe fn ApplicationRecoveryFinished(bsuccess: bool) {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ApplicationRecoveryInProgress() -> windows_core::Result<i32> {
+pub unsafe fn ApplicationRecoveryInProgress(pbcancelled: super::PBOOL) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : super::PBOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ApplicationRecoveryInProgress(&mut result__).map(|| result__)
-    }
+    unsafe { ApplicationRecoveryInProgress(pbcancelled as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

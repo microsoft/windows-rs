@@ -26,11 +26,10 @@ impl TypeTree {
         }
 
         fn validate_nested_names(dependencies: &TypeMap, flat: bool) {
-            let arches = |ty: &Type| if ty.arches() == 0 { 7 } else { ty.arches() };
             let mut pending: Vec<_> = dependencies
                 .values()
                 .flatten()
-                .map(|ty| (ty.clone(), arches(ty)))
+                .map(|ty| (ty.clone(), arch_mask(ty.arches())))
                 .collect();
             let mut seen = HashSet::new();
             let mut names: BTreeMap<_, Vec<(windows_metadata::TypeName, i32, bool)>> =

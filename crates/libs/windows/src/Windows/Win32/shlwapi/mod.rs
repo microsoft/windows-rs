@@ -23,29 +23,23 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn AssocQueryKeyA<P2, P3>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P2, pszextra: P3) -> windows_core::Result<super::HKEY>
+pub unsafe fn AssocQueryKeyA<P2, P3>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P2, pszextra: P3, phkeyout: *mut super::HKEY) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn AssocQueryKeyA(flags : ASSOCF, key : ASSOCKEY, pszassoc : windows_core::PCSTR, pszextra : windows_core::PCSTR, phkeyout : *mut super::HKEY) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AssocQueryKeyA(flags, key, pszassoc.param().abi(), pszextra.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { AssocQueryKeyA(flags, key, pszassoc.param().abi(), pszextra.param().abi(), phkeyout as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn AssocQueryKeyW<P2, P3>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P2, pszextra: P3) -> windows_core::Result<super::HKEY>
+pub unsafe fn AssocQueryKeyW<P2, P3>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P2, pszextra: P3, phkeyout: *mut super::HKEY) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn AssocQueryKeyW(flags : ASSOCF, key : ASSOCKEY, pszassoc : windows_core::PCWSTR, pszextra : windows_core::PCWSTR, phkeyout : *mut super::HKEY) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        AssocQueryKeyW(flags, key, pszassoc.param().abi(), pszextra.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { AssocQueryKeyW(flags, key, pszassoc.param().abi(), pszextra.param().abi(), phkeyout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -170,27 +164,21 @@ where
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn IStream_ReadPidl<P0>(pstm: P0) -> windows_core::Result<super::LPITEMIDLIST>
+pub unsafe fn IStream_ReadPidl<P0>(pstm: P0, ppidlout: *mut super::LPITEMIDLIST) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IStream>,
 {
     windows_core::link!("shlwapi.dll" "system" fn IStream_ReadPidl(pstm : *mut core::ffi::c_void, ppidlout : *mut super::LPITEMIDLIST) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IStream_ReadPidl(pstm.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { IStream_ReadPidl(pstm.param().abi(), ppidlout as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn IStream_ReadStr<P0>(pstm: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn IStream_ReadStr<P0>(pstm: P0, ppsz: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IStream>,
 {
     windows_core::link!("shlwapi.dll" "system" fn IStream_ReadStr(pstm : *mut core::ffi::c_void, ppsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IStream_ReadStr(pstm.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { IStream_ReadStr(pstm.param().abi(), ppsz as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -203,15 +191,12 @@ where
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IStream_Size<P0>(pstm: P0) -> windows_core::Result<super::ULARGE_INTEGER>
+pub unsafe fn IStream_Size<P0>(pstm: P0, pui: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IStream>,
 {
     windows_core::link!("shlwapi.dll" "system" fn IStream_Size(pstm : *mut core::ffi::c_void, pui : *mut super::ULARGE_INTEGER) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IStream_Size(pstm.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { IStream_Size(pstm.param().abi(), pui as _) }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
@@ -257,15 +242,12 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn IUnknown_GetWindow<P0>(punk: P0) -> windows_core::Result<super::HWND>
+pub unsafe fn IUnknown_GetWindow<P0>(punk: P0, phwnd: *mut super::HWND) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("shlwapi.dll" "system" fn IUnknown_GetWindow(punk : *mut core::ffi::c_void, phwnd : *mut super::HWND) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IUnknown_GetWindow(punk.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { IUnknown_GetWindow(punk.param().abi(), phwnd as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -1257,40 +1239,31 @@ pub unsafe fn SHCreateShellPalette(hdc: Option<super::HDC>) -> super::HPALETTE {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileA<P0>(pszfile: P0, grfmode: super::DWORD) -> windows_core::Result<super::IStream>
+pub unsafe fn SHCreateStreamOnFileA<P0>(pszfile: P0, grfmode: super::DWORD, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : windows_core::PCSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, core::mem::transmute(ppstm)) }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileEx<P0, P4>(pszfile: P0, grfmode: super::DWORD, dwattributes: super::DWORD, fcreate: bool, pstmtemplate: P4) -> windows_core::Result<super::IStream>
+pub unsafe fn SHCreateStreamOnFileEx<P0, P4>(pszfile: P0, grfmode: super::DWORD, dwattributes: super::DWORD, fcreate: bool, pstmtemplate: P4, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<super::IStream>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, dwattributes : super::DWORD, fcreate : windows_core::BOOL, pstmtemplate : *mut core::ffi::c_void, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), core::mem::transmute(ppstm)) }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileW<P0>(pszfile: P0, grfmode: super::DWORD) -> windows_core::Result<super::IStream>
+pub unsafe fn SHCreateStreamOnFileW<P0>(pszfile: P0, grfmode: super::DWORD, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, core::mem::transmute(ppstm)) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -1403,12 +1376,9 @@ pub unsafe fn SHGetInverseCMAP(pbmap: *mut super::BYTE, cbmap: super::ULONG) -> 
     unsafe { SHGetInverseCMAP(pbmap as _, cbmap) }
 }
 #[inline]
-pub unsafe fn SHGetThreadRef() -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn SHGetThreadRef(ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHGetThreadRef(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { SHGetThreadRef(core::mem::transmute(ppunk)) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
@@ -1917,26 +1887,20 @@ where
     unsafe { SHSkipJunction(pbc.param().abi(), pclsid) }
 }
 #[inline]
-pub unsafe fn SHStrDupA<P0>(psz: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SHStrDupA<P0>(psz: P0, ppwsz: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHStrDupA(psz : windows_core::PCSTR, ppwsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHStrDupA(psz.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SHStrDupA(psz.param().abi(), ppwsz as _) }
 }
 #[inline]
-pub unsafe fn SHStrDupW<P0>(psz: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SHStrDupW<P0>(psz: P0, ppwsz: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHStrDupW(psz : windows_core::PCWSTR, ppwsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SHStrDupW(psz.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { SHStrDupW(psz.param().abi(), ppwsz as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -3097,14 +3061,11 @@ impl IQueryAssociations {
         unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), flags, str, pszextra.param().abi(), pszout.unwrap_or(core::mem::zeroed()) as _, pcchout as _) }
     }
     #[cfg(feature = "minwindef")]
-    pub unsafe fn GetKey<P2>(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: P2) -> windows_core::Result<super::HKEY>
+    pub unsafe fn GetKey<P2>(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: P2, phkeyout: *mut super::HKEY) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), flags, key, pszextra.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), flags, key, pszextra.param().abi(), phkeyout as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetData<P2>(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: P2, pvout: Option<*mut core::ffi::c_void>, pcbout: Option<*mut super::DWORD>) -> windows_core::HRESULT
@@ -3150,7 +3111,7 @@ pub struct IQueryAssociations_Vtbl {
 pub trait IQueryAssociations_Impl: windows_core::IUnknownImpl {
     fn Init(&self, flags: ASSOCF, pszassoc: &windows_core::PCWSTR, hkprogid: super::HKEY, hwnd: super::HWND) -> windows_core::Result<()>;
     fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, pszextra: &windows_core::PCWSTR, pszout: windows_core::PWSTR, pcchout: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: &windows_core::PCWSTR) -> windows_core::Result<super::HKEY>;
+    fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: &windows_core::PCWSTR, phkeyout: *mut super::HKEY) -> windows_core::Result<()>;
     fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: &windows_core::PCWSTR, pvout: *mut core::ffi::c_void, pcbout: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: &windows_core::PCWSTR, riid: *const super::IID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -3172,13 +3133,7 @@ impl IQueryAssociations_Vtbl {
         unsafe extern "system" fn GetKey<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, key: ASSOCKEY, pszextra: windows_core::PCWSTR, phkeyout: *mut super::HKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQueryAssociations_Impl::GetKey(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key), core::mem::transmute(&pszextra)) {
-                    Ok(ok__) => {
-                        phkeyout.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IQueryAssociations_Impl::GetKey(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key), core::mem::transmute(&pszextra), core::mem::transmute_copy(&phkeyout)).into()
             }
         }
         unsafe extern "system" fn GetData<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, data: ASSOCDATA, pszextra: windows_core::PCWSTR, pvout: *mut core::ffi::c_void, pcbout: *mut super::DWORD) -> windows_core::HRESULT {

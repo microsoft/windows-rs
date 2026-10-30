@@ -417,13 +417,9 @@ pub unsafe fn RtlRunOnceExecuteOnce(runonce: super::PRTL_RUN_ONCE, initfn: PRTL_
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlRunOnceInitialize() -> super::RTL_RUN_ONCE {
+pub unsafe fn RtlRunOnceInitialize(runonce: super::PRTL_RUN_ONCE) {
     windows_core::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : super::PRTL_RUN_ONCE));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtlRunOnceInitialize(&mut result__);
-        result__
-    }
+    unsafe { RtlRunOnceInitialize(runonce as _) }
 }
 #[inline]
 pub unsafe fn RtlSplay(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {

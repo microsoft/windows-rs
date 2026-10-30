@@ -6253,16 +6253,13 @@ windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vt
 windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, windows_core::IUnknown);
 impl IXpsOMPackageTarget {
     #[cfg(all(feature = "msopc", feature = "urlmon"))]
-    pub unsafe fn CreateXpsOMPackageWriter<P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreateXpsOMPackageWriter<P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2, packagewriter: *mut Option<IXpsOMPackageWriter>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IOpcPartUri>,
         P1: windows_core::Param<IXpsOMPrintTicketResource>,
         P2: windows_core::Param<super::IOpcPartUri>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateXpsOMPackageWriter)(windows_core::Interface::as_raw(self), documentsequencepartname.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateXpsOMPackageWriter)(windows_core::Interface::as_raw(self), documentsequencepartname.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), core::mem::transmute(packagewriter)) }
     }
 }
 #[repr(C)]
@@ -6276,7 +6273,7 @@ pub struct IXpsOMPackageTarget_Vtbl {
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPackageTarget_Impl: windows_core::IUnknownImpl {
-    fn CreateXpsOMPackageWriter(&self, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreateXpsOMPackageWriter(&self, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>, packagewriter: windows_core::OutRef<IXpsOMPackageWriter>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPackageTarget_Vtbl {
@@ -6284,13 +6281,7 @@ impl IXpsOMPackageTarget_Vtbl {
         unsafe extern "system" fn CreateXpsOMPackageWriter<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname)) {
-                    Ok(ok__) => {
-                        packagewriter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname), core::mem::transmute_copy(&packagewriter)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateXpsOMPackageWriter: CreateXpsOMPackageWriter::<Identity, OFFSET> }

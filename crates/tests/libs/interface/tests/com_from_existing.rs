@@ -13,8 +13,9 @@ unsafe trait ITestPersistMemory: IPersist {
 struct Test;
 
 impl IPersist_Impl for Test_Impl {
-    fn GetClassID(&self) -> Result<GUID> {
-        "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()
+    fn GetClassID(&self, class_id: *mut GUID) -> Result<()> {
+        unsafe { *class_id = "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()? };
+        Ok(())
     }
 }
 
@@ -28,10 +29,9 @@ impl ITestPersistMemory_Impl for Test_Impl {
 fn test() -> Result<()> {
     unsafe {
         let p: IPersist = Test.into();
-        assert_eq!(
-            p.GetClassID()?,
-            "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()?
-        );
+        let mut class_id = GUID::default();
+        p.GetClassID(&mut class_id).ok()?;
+        assert_eq!(class_id, "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()?);
 
         let m: ITestPersistMemory = p.cast()?;
         assert_eq!(m.IsDirty(), S_FALSE);

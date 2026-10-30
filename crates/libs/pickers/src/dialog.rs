@@ -89,7 +89,8 @@ impl PreparedDialog {
             };
         }
 
-        let options = unsafe { dialog.GetOptions()? };
+        let mut options = Default::default();
+        unsafe { dialog.GetOptions(&mut options).ok()? };
         unsafe {
             dialog
                 .SetOptions(merge_options(
@@ -113,8 +114,9 @@ pub fn show_dialog(dialog: &IFileDialog, owner: *mut core::ffi::c_void) -> Resul
         return Ok(None);
     }
 
-    let item = unsafe { dialog.GetResult()? };
-    Ok(Some(item_path(&item)?))
+    let mut item = None;
+    unsafe { dialog.GetResult(&mut item).ok()? };
+    Ok(Some(item_path(&item.unwrap())?))
 }
 
 pub fn show_dialog_multiple(
@@ -125,12 +127,16 @@ pub fn show_dialog_multiple(
         return Ok(Vec::new());
     }
 
-    let items = unsafe { dialog.GetResults()? };
-    let count = unsafe { items.GetCount()? };
+    let mut items = None;
+    unsafe { dialog.GetResults(&mut items).ok()? };
+    let items = items.unwrap();
+    let mut count = 0;
+    unsafe { items.GetCount(&mut count).ok()? };
     (0..count)
         .map(|index| {
-            let item = unsafe { items.GetItemAt(index)? };
-            item_path(&item)
+            let mut item = None;
+            unsafe { items.GetItemAt(index, &mut item).ok()? };
+            item_path(&item.unwrap())
         })
         .collect()
 }
@@ -218,7 +224,8 @@ fn show_modal(dialog: &IFileDialog, owner: *mut core::ffi::c_void) -> Result<boo
 }
 
 fn item_path(item: &IShellItem) -> Result<PathBuf> {
-    let path = unsafe { item.GetDisplayName(SIGDN_FILESYSPATH)? };
+    let mut path = PWSTR::null();
+    unsafe { item.GetDisplayName(SIGDN_FILESYSPATH, &mut path).ok()? };
     Ok(copy_path(path))
 }
 
