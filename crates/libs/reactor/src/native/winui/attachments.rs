@@ -375,7 +375,6 @@ impl WinUiAdapter {
                             },
                         }),
                     );
-                    Self::schedule_event_wake(&clicked_queue);
                 })?);
                 Ok(button.cast()?)
             }
@@ -416,7 +415,6 @@ fn build_menu_items(
                             },
                         }),
                     );
-                    WinUiAdapter::schedule_event_wake(&clicked_queue);
                 })?);
                 item.cast()?
             }
