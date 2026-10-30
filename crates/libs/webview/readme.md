@@ -1,74 +1,89 @@
 # windows-webview
 
-Host Microsoft Edge WebView2 content, run scripts, and exchange messages with JavaScript.
-The Microsoft Edge WebView2 runtime must be available on the user's machine.
+Show web content in a Windows app with Microsoft Edge WebView2, and exchange messages between Rust
+and JavaScript. The WebView2 runtime ships with Windows 11 and is installed on most Windows 10
+machines.
 
 - 📦 [crates.io](https://crates.io/crates/windows-webview)
 - 📖 [docs.rs](https://docs.rs/windows-webview)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/webview)
 
-## Host a page
-
-The crate has no default UI framework. Enable `system` for a complete window host:
+## Open a page
 
 ```toml
 [dependencies]
-windows-webview = { version = "0.100", features = ["system"] }
+windows-webview = "0.100"
 ```
 
 ```rust,no_run
 use windows_webview::*;
 
-# #[cfg(feature = "system")]
 fn main() -> Result<()> {
     WebViewWindow::new("WebView2")
         .size(1000, 700)
-        .run(|host| {
-            host.webview().navigate("https://github.com/microsoft/windows-rs")?;
-            Ok(())
-        })
+        .run(|host| host.webview().navigate("https://github.com/microsoft/windows-rs"))
 }
-# #[cfg(not(feature = "system"))]
-# fn main() {}
 ```
 
-This host owns the UI loop, initializes COM, resizes the browser, and closes it before destroying
-the parent window.
+`run` creates the window and browser, then runs until the window closes.
 
-## Keep callbacks active
+## Showcase
 
-Event methods return an `EventRegistration` that unsubscribes on drop. Retain it in application
-state or use `host.retain` for the host's lifetime.
+Clone the repository and run this sample from its root.
 
-Creation and script operations complete through callbacks on the UI thread. Their immediate
-`Result` reports whether the operation started; the callback reports its result. Keep the message
-loop running and callbacks short. A callback may be dropped if the operation or apartment ends.
+### Browser
 
-| Task | API |
+A small browser built with Reactor and WebView2.
+
+```sh
+cargo run -p webview-reactor
+```
+
+![Browser built with Reactor and WebView2](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/webview-reactor.png)
+
+## Talk to the page
+
+```rust,no_run
+use windows_webview::*;
+
+const PAGE: &str = r#"
+<button onclick="chrome.webview.postMessage('ping')">Send</button>
+<script>
+  chrome.webview.addEventListener('message', e => document.body.append(e.data));
+</script>"#;
+
+fn main() -> Result<()> {
+    WebViewWindow::new("Messages").run(|host| {
+        let webview = host.webview().clone();
+        host.retain(host.webview().on_web_message_received(move |args| {
+            let reply = format!(" host received {}", args.web_message_as_json());
+            webview.post_web_message_as_string(&reply).unwrap();
+        })?);
+        host.webview().navigate_to_string(PAGE)
+    })
+}
+```
+
+Event methods return an `EventRegistration` that unsubscribes when dropped; `host.retain` keeps it
+for the life of the window. Treat page messages as untrusted input.
+
+| To | Use |
 | --- | --- |
-| Observe navigation | `on_navigation_completed` |
-| Handle browser failures | `on_process_failed` |
-| Receive page messages | `on_web_message_received` |
-| Send page messages | `post_web_message_as_json` or `post_web_message_as_string` |
-| Run JavaScript | `execute_script`, with a JSON-encoded result |
+| React to navigation | `on_navigation_completed` |
+| Run JavaScript | `execute_script`, which passes the JSON result to a callback |
 | Serve local files | `set_virtual_host_name_to_folder_mapping` |
+| Recover from a browser crash | `on_process_failed` |
 
-Page code sends messages with `window.chrome.webview.postMessage(value)`. Validate the source and
-payload before allowing a message to trigger native operations.
+## Use another UI framework
 
-## Use an existing UI
+With Reactor, enable the `reactor` feature and add `webview(...)` to a view. Its callback receives
+the `WebView` once it is ready. Self-contained Reactor apps also need
+[windows-reactor-setup](https://docs.rs/windows-reactor-setup).
 
-Use `WebViewHost::builder` when another framework owns the HWND. That framework must provide a
-COM STA, message loop, resize handling, and shutdown. Store the resulting host and close it before
-destroying its parent.
+For a window you create yourself, use `WebViewHost::builder` with its `HWND`. Your code then owns
+the message loop and resizing, and closes the host before destroying the window.
 
-For Reactor, enable `reactor` and use `webview` or `webview_result`; the latter reports
-initialization errors instead of panicking. The host features are additive.
-Self-contained apps also need [windows-reactor-setup](https://docs.rs/windows-reactor-setup), in
-addition to the WebView2 browser runtime.
-
-See the [raw window][raw] and [Reactor][reactor] samples for complete hosting and messaging.
+See the [raw window][raw] sample for a complete HWND host.
 
 [raw]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/raw-window
-[reactor]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/reactor
