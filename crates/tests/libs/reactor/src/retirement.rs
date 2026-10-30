@@ -7,6 +7,7 @@ pub(super) struct RetirementFixture {
     callback: Option<Callback<()>>,
     released: Rc<Cell<bool>>,
     publication: Option<(bool, bool)>,
+    swapped: bool,
     selected: u32,
     calls: u32,
 }
@@ -14,6 +15,7 @@ pub(super) struct RetirementFixture {
 #[derive(Clone, Copy)]
 pub(super) enum Message {
     Remove,
+    Swap,
     Selected(u32),
     Published(bool, bool),
 }
@@ -50,6 +52,7 @@ impl Component for RetirementFixture {
             callback: Some(Callback::new(move |()| click.invoke())),
             released,
             publication: None,
+            swapped: false,
             selected: 0,
             calls: 0,
         }
@@ -58,6 +61,7 @@ impl Component for RetirementFixture {
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
             Message::Remove => self.callback = None,
+            Message::Swap => self.swapped = true,
             Message::Selected(generation) => {
                 self.selected = generation;
                 self.calls += 1;
@@ -75,24 +79,40 @@ impl Component for RetirementFixture {
             assert!(sender.send(Message::Published(released.get(), target.request_focus())));
             None
         });
-        let child = if let Some(callback) = &self.callback {
-            keyed(
-                0u32,
-                Button::new()
-                    .automation_id("old")
-                    .element_ref(&self.target)
-                    .exit_fade(Duration::from_millis(500))
-                    .content("Old action")
-                    .on_click(callback.clone()),
-            )
+        let first = keyed(2u32, TextBlock::new().automation_id("first").text("First"));
+        let second = keyed(
+            3u32,
+            TextBlock::new().automation_id("second").text("Second"),
+        );
+        // Removal retires the fading child in its native slot and appends a replacement. Swap
+        // then moves the active siblings around that slot.
+        let children = if let Some(callback) = &self.callback {
+            vec![
+                first,
+                keyed(
+                    0u32,
+                    Button::new()
+                        .automation_id("old")
+                        .element_ref(&self.target)
+                        .exit_fade(Duration::from_secs(2))
+                        .content("Old action")
+                        .on_click(callback.clone()),
+                ),
+                second,
+            ]
         } else {
-            keyed(
+            let replacement = keyed(
                 1u32,
                 Button::new()
                     .automation_id("replacement")
                     .content("Replacement action")
                     .on_click(context.message(Message::Selected(1))),
-            )
+            );
+            if self.swapped {
+                vec![second, first, replacement]
+            } else {
+                vec![first, second, replacement]
+            }
         };
         let publication = match self.publication {
             Some((released, queued)) => {
@@ -101,16 +121,20 @@ impl Component for RetirementFixture {
             None => "Awaiting publication".to_owned(),
         };
         context.window_title("Reactor UI fixture: retirement");
-        context.window_visuals(WindowVisuals::new().client_size(500.0, 350.0));
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         StackPanel::new()
             .margin(20.0)
             .spacing(12.0)
             .children((
-                StackPanel::new().keyed_children([child]),
+                StackPanel::new().keyed_children(children),
                 Button::new()
                     .automation_id("remove")
                     .content("Remove fading child")
                     .on_click(context.message(Message::Remove)),
+                Button::new()
+                    .automation_id("swap")
+                    .content("Swap siblings")
+                    .on_click(context.message(Message::Swap)),
                 TextBlock::new()
                     .automation_id("publication")
                     .text(publication),

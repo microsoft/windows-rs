@@ -738,10 +738,9 @@ impl RecordingAdapter {
                     {
                         return Err(AdapterError::InvalidTooltip(*child));
                     }
-                    let index = self.active_index(*parent, *relation, *index)?;
                     match self.relation_mut(*parent, *relation)? {
-                        RecordedRelation::Many(children) if index <= children.len() => {
-                            children.insert(index, *child);
+                        RecordedRelation::Many(children) if *index <= children.len() => {
+                            children.insert(*index, *child);
                         }
                         _ => return Err(AdapterError::InvalidMutation(*relation)),
                     }
@@ -752,26 +751,23 @@ impl RecordingAdapter {
                     relation,
                     child,
                     index,
-                } => {
-                    let index = self.active_index(*parent, *relation, *index)?;
-                    match self.relation_mut(*parent, *relation)? {
-                        RecordedRelation::Many(children) => {
-                            if children.get(index) != Some(child) {
-                                return Err(AdapterError::ChildNotFound(*child));
-                            }
-                            children.remove(index);
-                            Rc::make_mut(&mut self.owners).remove(child);
+                } => match self.relation_mut(*parent, *relation)? {
+                    RecordedRelation::Many(children) => {
+                        if children.get(*index) != Some(child) {
+                            return Err(AdapterError::ChildNotFound(*child));
                         }
-                        _ => return Err(AdapterError::InvalidMutation(*relation)),
+                        children.remove(*index);
+                        Rc::make_mut(&mut self.owners).remove(child);
                     }
-                }
+                    _ => return Err(AdapterError::InvalidMutation(*relation)),
+                },
                 Mutation::Reorder {
                     parent,
                     relation,
-                    moves: _,
+                    moves,
                     children,
                 } => {
-                    let retired = self
+                    let retiring = self
                         .retirements
                         .iter()
                         .filter_map(|(root, retirement)| {
@@ -779,35 +775,31 @@ impl RecordingAdapter {
                                 .then_some(*root)
                         })
                         .collect::<Vec<_>>();
-                    match self.relation_mut(*parent, *relation)? {
-                        RecordedRelation::Many(current) => {
-                            let mut expected = current
-                                .iter()
-                                .copied()
-                                .filter(|child| !retired.contains(child))
-                                .collect::<Vec<_>>();
-                            let mut requested = children.clone();
-                            expected.sort_unstable_by_key(|object| {
-                                (object.index(), object.generation())
-                            });
-                            requested.sort_unstable_by_key(|object| {
-                                (object.index(), object.generation())
-                            });
-                            if expected != requested {
-                                return Err(AdapterError::InvalidMutation(*relation));
-                            }
-                            let mut requested = children.iter().copied();
-                            for child in current.iter_mut() {
-                                if !retired.contains(child) {
-                                    let Some(next) = requested.next() else {
-                                        return Err(AdapterError::InvalidMutation(*relation));
-                                    };
-                                    *child = next;
-                                }
-                            }
-                            current.extend(requested);
+                    let RecordedRelation::Many(current) = self.relation_mut(*parent, *relation)?
+                    else {
+                        return Err(AdapterError::InvalidMutation(*relation));
+                    };
+                    // Retiring children keep their native slots, so a move must not name one.
+                    for movement in moves {
+                        if retiring.contains(&movement.child) {
+                            return Err(AdapterError::InvalidMutation(*relation));
                         }
-                        _ => return Err(AdapterError::InvalidMutation(*relation)),
+                        let previous = current
+                            .iter()
+                            .position(|child| *child == movement.child)
+                            .ok_or(AdapterError::ChildNotFound(movement.child))?;
+                        current.remove(previous);
+                        let index = match movement.before {
+                            Some(before) => current
+                                .iter()
+                                .position(|child| *child == before)
+                                .ok_or(AdapterError::ChildNotFound(before))?,
+                            None => current.len(),
+                        };
+                        current.insert(index, movement.child);
+                    }
+                    if current != children {
+                        return Err(AdapterError::InvalidMutation(*relation));
                     }
                 }
                 Mutation::Retire {
@@ -930,42 +922,6 @@ impl RecordingAdapter {
             .contains_key(&object)
             .then_some(())
             .ok_or(AdapterError::MissingObject(object))
-    }
-
-    fn active_index(
-        &self,
-        parent: ObjectId,
-        relation: RelationId,
-        active_index: usize,
-    ) -> Result<usize, AdapterError> {
-        let RecordedRelation::Many(children) = self
-            .objects
-            .get(&parent)
-            .and_then(|object| object.relations.get(&relation))
-            .ok_or(AdapterError::InvalidRelation(parent, relation))?
-        else {
-            return Err(AdapterError::InvalidMutation(relation));
-        };
-        let retired = self
-            .retirements
-            .iter()
-            .filter_map(|(root, retirement)| {
-                (retirement.parent == parent && retirement.relation == relation).then_some(*root)
-            })
-            .collect::<Vec<_>>();
-        let mut active = 0;
-        for (index, child) in children.iter().enumerate() {
-            if retired.contains(child) {
-                continue;
-            }
-            if active == active_index {
-                return Ok(index);
-            }
-            active += 1;
-        }
-        (active == active_index)
-            .then_some(children.len())
-            .ok_or(AdapterError::InvalidMutation(relation))
     }
 
     fn object_mut(&mut self, object: ObjectId) -> Result<&mut RecordedObject, AdapterError> {

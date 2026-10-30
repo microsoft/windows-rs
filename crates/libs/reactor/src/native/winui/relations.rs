@@ -73,50 +73,6 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn has_retirements(&self, parent: ObjectId, relation: RelationId) -> bool {
-        self.retirements
-            .values()
-            .any(|retirement| retirement.parent == parent && retirement.relation == relation)
-    }
-
-    fn active_native_index(
-        &self,
-        parent: ObjectId,
-        relation: RelationId,
-        active_index: usize,
-    ) -> Result<usize, WinUiError> {
-        let retired = self
-            .retirements
-            .iter()
-            .filter_map(|(root, retirement)| {
-                (retirement.parent == parent && retirement.relation == relation).then_some(*root)
-            })
-            .collect::<Vec<_>>();
-        if retired.is_empty() {
-            return Ok(active_index);
-        }
-        let values = self.owned_collection(parent, relation)?;
-        let retired = retired
-            .into_iter()
-            .map(|root| self.ui_element(root))
-            .collect::<Result<Vec<_>, _>>()?;
-        let mut active = 0;
-        for index in 0..values.size()? {
-            if retired.contains(&values.get_at(index)?) {
-                continue;
-            }
-            if active == active_index {
-                return Ok(index as usize);
-            }
-            active += 1;
-        }
-        if active == active_index {
-            Ok(values.size()? as usize)
-        } else {
-            Err(WinUiError::InvalidMutation(relation))
-        }
-    }
-
     pub(super) fn insert(
         &mut self,
         parent: ObjectId,
@@ -133,7 +89,6 @@ impl WinUiAdapter {
         ) {
             return Err(WinUiError::InvalidObject(child));
         }
-        let index = self.active_native_index(parent, relation, index)?;
         let selection = selection_for_relation(self.kind(parent)?, relation);
         let selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
@@ -205,7 +160,6 @@ impl WinUiAdapter {
         if self.owners.get(&child) != Some(&(parent, relation)) {
             return Err(WinUiError::ChildNotFound(child));
         }
-        let index = self.active_native_index(parent, relation, index)?;
         let selection = selection_for_relation(self.kind(parent)?, relation);
         let selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
@@ -273,9 +227,7 @@ impl WinUiAdapter {
         let feedback = self.suppress_selection(parent, relation, selection)?;
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
-                Realization::Owned if !self.has_retirements(parent, relation) => {
-                    // Without retiring children, native order matches active order, so the
-                    // reconciler's moves apply directly and unmoved children stay in place.
+                Realization::Owned => {
                     let values = self.owned_collection(parent, relation)?;
                     for movement in moves {
                         let child = self.ui_element(movement.child)?;
@@ -291,31 +243,6 @@ impl WinUiAdapter {
                             values.size()?
                         };
                         values.insert_at(index, &child)?;
-                    }
-                }
-                Realization::Owned => {
-                    let values = self.owned_collection(parent, relation)?;
-                    let mut current = (0..values.size()?)
-                        .map(|index| {
-                            let value = values.get_at(index)?;
-                            Ok((com_identity(&value)?, value))
-                        })
-                        .collect::<Result<Vec<_>, WinUiError>>()?;
-                    let desired = children
-                        .iter()
-                        .map(|child| {
-                            self.ui_element(*child)
-                                .and_then(|value| com_identity(&value))
-                        })
-                        .collect::<Result<Vec<_>, _>>()?;
-                    let active = desired.iter().copied().collect::<HashSet<_>>();
-                    let swaps = simulate_active_slot_reorder(&mut current, &active, &desired)
-                        .ok_or(WinUiError::InvalidMutation(relation))?;
-                    for (left, right, left_value, right_value) in swaps {
-                        values.remove_at(index32(right)?)?;
-                        values.remove_at(index32(left)?)?;
-                        values.insert_at(index32(left)?, &left_value)?;
-                        values.insert_at(index32(right)?, &right_value)?;
                     }
                 }
                 Realization::Structural => {
@@ -382,13 +309,16 @@ impl WinUiAdapter {
         })();
         self.release_selection(parent, feedback);
         result?;
-        let active = children.iter().copied().collect::<HashSet<_>>();
-        debug_assert_eq!(
-            children.len(),
-            self.owners
+        debug_assert!(
+            children
                 .iter()
-                .filter(|(object, owner)| **owner == (parent, relation) && active.contains(object))
-                .count()
+                .all(|child| self.owners.get(child) == Some(&(parent, relation)))
+                && children.len()
+                    == self
+                        .owners
+                        .values()
+                        .filter(|owner| **owner == (parent, relation))
+                        .count()
         );
         Ok(())
     }

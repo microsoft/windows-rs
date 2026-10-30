@@ -274,18 +274,9 @@ impl Planner<'_> {
         }
         removed.extend(by_key.into_values());
         removed.sort_unstable_by_key(|(_, index)| std::cmp::Reverse(*index));
-        let mut current = previous.clone();
+        let mut native = self.retained.native_children(object, relation_id);
         for (child, index) in removed {
-            if !self.retire_with_transition(object, relation_id, child) {
-                self.mutations.push(Mutation::Remove {
-                    parent: object,
-                    relation: relation_id,
-                    child,
-                    index,
-                });
-                self.retire(child);
-            }
-            current.remove(index);
+            self.remove_child(object, relation_id, &mut native, index, child);
         }
 
         let mut next = Vec::with_capacity(desired.len());
@@ -294,89 +285,31 @@ impl Planner<'_> {
                 self.reconcile_object(previous, desired)
             } else {
                 let child = self.mount(desired);
+                let index = native.insert(index, child);
                 self.mutations.push(Mutation::Insert {
                     parent: object,
                     relation: relation_id,
                     child,
                     index,
                 });
-                current.insert(index, child);
                 child
             };
             next.push(child);
         }
-        let moves = reorder_moves(&current, &next);
+        let moves = native.reorder(&next);
         if !moves.is_empty() {
             self.mutations.push(Mutation::Reorder {
                 parent: object,
                 relation: relation_id,
                 moves,
-                children: next.clone(),
+                children: native.children().to_vec(),
             });
         }
+        self.retained
+            .set_native_children(object, relation_id, native);
         if previous != next {
             self.retained.relation_mut(object, relation_id).value =
                 RetainedRelationValue::Many(next);
-        }
-
-        fn reorder_moves(previous: &[ObjectId], next: &[ObjectId]) -> Vec<Move> {
-            if previous == next {
-                return Vec::new();
-            }
-            let previous_indices = previous
-                .iter()
-                .copied()
-                .enumerate()
-                .map(|(index, child)| (child, index))
-                .collect::<HashMap<_, _>>();
-            let retained = next
-                .iter()
-                .enumerate()
-                .filter_map(|(next_index, child)| {
-                    previous_indices
-                        .get(child)
-                        .map(|previous_index| (next_index, *previous_index))
-                })
-                .collect::<Vec<_>>();
-            let stable = longest_increasing_positions(&retained, next.len());
-            let mut moves = Vec::new();
-
-            for next_index in (0..next.len()).rev() {
-                if stable[next_index] {
-                    continue;
-                }
-                let child = next[next_index];
-                moves.push(Move {
-                    child,
-                    before: next.get(next_index + 1).copied(),
-                });
-            }
-            moves
-        }
-
-        fn longest_increasing_positions(sequence: &[(usize, usize)], len: usize) -> Vec<bool> {
-            let mut tails = Vec::<usize>::new();
-            let mut predecessors = vec![None; sequence.len()];
-
-            for (sequence_index, &(_, value)) in sequence.iter().enumerate() {
-                let position = tails.partition_point(|tail| sequence[*tail].1 < value);
-                if position > 0 {
-                    predecessors[sequence_index] = Some(tails[position - 1]);
-                }
-                if position == tails.len() {
-                    tails.push(sequence_index);
-                } else {
-                    tails[position] = sequence_index;
-                }
-            }
-
-            let mut positions = vec![false; len];
-            let mut cursor = tails.last().copied();
-            while let Some(sequence_index) = cursor {
-                positions[sequence[sequence_index].0] = true;
-                cursor = predecessors[sequence_index];
-            }
-            positions
         }
     }
 
@@ -423,22 +356,16 @@ impl Planner<'_> {
             RetainedRelationValue::Many(children) => children.clone(),
             _ => unreachable!(),
         };
+        let mut native = self.retained.native_children(object, relation_id);
         let mut next = Vec::with_capacity(desired.len());
         for (index, desired) in desired.iter().copied().enumerate() {
             let child = if let Some(previous) = previous.get(index).copied() {
                 if self.retained.get(previous).unwrap().kind == desired.kind {
                     self.reconcile_object(previous, desired)
                 } else {
-                    if !self.retire_with_transition(object, relation_id, previous) {
-                        self.mutations.push(Mutation::Remove {
-                            parent: object,
-                            relation: relation_id,
-                            child: previous,
-                            index,
-                        });
-                        self.retire(previous);
-                    }
+                    self.remove_child(object, relation_id, &mut native, index, previous);
                     let child = self.mount(desired);
+                    let index = native.insert(index, child);
                     self.mutations.push(Mutation::Insert {
                         parent: object,
                         relation: relation_id,
@@ -449,6 +376,7 @@ impl Planner<'_> {
                 }
             } else {
                 let child = self.mount(desired);
+                let index = native.insert(index, child);
                 self.mutations.push(Mutation::Insert {
                     parent: object,
                     relation: relation_id,
@@ -466,19 +394,36 @@ impl Planner<'_> {
             .rev()
             .map(|(index, child)| (index, *child))
         {
-            if !self.retire_with_transition(object, relation_id, child) {
-                self.mutations.push(Mutation::Remove {
-                    parent: object,
-                    relation: relation_id,
-                    child,
-                    index,
-                });
-                self.retire(child);
-            }
+            self.remove_child(object, relation_id, &mut native, index, child);
         }
+        self.retained
+            .set_native_children(object, relation_id, native);
         if previous != next {
             self.retained.relation_mut(object, relation_id).value =
                 RetainedRelationValue::Many(next);
+        }
+    }
+
+    /// Removes the active child at `index`, or keeps it in its native slot while it fades out.
+    pub(super) fn remove_child(
+        &mut self,
+        object: ObjectId,
+        relation: RelationId,
+        native: &mut NativeChildren,
+        index: usize,
+        child: ObjectId,
+    ) {
+        if self.retire_with_transition(object, relation, child) {
+            native.retire(child);
+        } else {
+            let index = native.remove(index, child);
+            self.mutations.push(Mutation::Remove {
+                parent: object,
+                relation,
+                child,
+                index,
+            });
+            self.retire(child);
         }
     }
 }

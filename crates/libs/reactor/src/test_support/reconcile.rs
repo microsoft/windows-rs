@@ -400,15 +400,11 @@ impl<A: Adapter> Runtime<A> {
             references: &mut references,
             virtual_refreshes: None,
         };
-        if !planner.retire_with_transition(parent, relation, child) {
-            planner.mutations.push(Mutation::Remove {
-                parent,
-                relation,
-                child,
-                index,
-            });
-            planner.retire(child);
-        }
+        let mut native = planner.retained.native_children(parent, relation);
+        planner.remove_child(parent, relation, &mut native, index, child);
+        planner
+            .retained
+            .set_native_children(parent, relation, native);
         let RetainedRelationValue::Many(children) =
             &mut self.graph.relation_mut(parent, relation).value
         else {

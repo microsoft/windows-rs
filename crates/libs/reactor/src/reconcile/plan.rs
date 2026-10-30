@@ -84,6 +84,7 @@ impl Planner<'_> {
             });
         }
         let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
+        self.complete_child_retirements(object);
         for relation in previous {
             match relation.value {
                 RetainedRelationValue::One(Some(child)) => {
