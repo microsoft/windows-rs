@@ -13,76 +13,8 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::ClearWindowTitleBar { object });
         }
-        let previous_tooltip = self
-            .retained
-            .get_mut(object)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.tooltip.take());
-        if let Some(tooltip) = &previous_tooltip {
-            self.mutations.push(Mutation::SetTooltip {
-                target: object,
-                tooltip: None,
-                placement: tooltip.placement,
-            });
-        }
-        let previous_flyout = self
-            .retained
-            .get_mut(object)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.flyout.take());
-        if let Some(flyout) = &previous_flyout {
-            self.mutations.push(Mutation::SetFlyout {
-                target: object,
-                content: None,
-                placement: flyout.placement,
-            });
-        }
-        let previous_menu = self
-            .retained
-            .get_mut(object)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.menu.take());
-        if let Some(menu) = &previous_menu {
-            self.mutations.push(Mutation::SetMenu {
-                target: object,
-                menu: None,
-                revision: menu.revision.wrapping_add(1),
-            });
-        }
-        let previous_command_bar_flyout = self
-            .retained
-            .get_mut(object)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.command_bar_flyout.take());
-        if let Some(flyout) = &previous_command_bar_flyout {
-            self.mutations.push(Mutation::SetCommandBarFlyout {
-                target: object,
-                flyout: None,
-                revision: flyout.revision.wrapping_add(1),
-            });
-        }
-        let previous_content_dialog = self
-            .retained
-            .get_mut(object)
-            .attachments
-            .as_mut()
-            .and_then(|attachments| attachments.content_dialog.take());
-        if let Some(dialog) = &previous_content_dialog {
-            if dialog.open {
-                self.mutations.push(Mutation::SetContentDialogOpen {
-                    dialog: dialog.object,
-                    open: false,
-                });
-            }
-            self.mutations.push(Mutation::SetContentDialog {
-                owner: object,
-                dialog: None,
-            });
-        }
+        let previous_attachments = self.take_attachments(object);
+        self.detach_attachments(object, &previous_attachments);
         let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
         self.complete_child_retirements(object);
         for relation in previous {
@@ -188,49 +120,10 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::SetWindowTitleBar { object, height });
         }
-        self.reconcile_tooltip(
+        self.reconcile_attachments(
             object,
-            previous_tooltip,
-            declaration
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.tooltip.as_ref()),
-            true,
-        );
-        self.reconcile_flyout(
-            object,
-            previous_flyout,
-            declaration
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.flyout.as_ref()),
-            true,
-        );
-        self.reconcile_menu(
-            object,
-            previous_menu,
-            declaration
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.menu.as_ref()),
-            true,
-        );
-        self.reconcile_command_bar_flyout(
-            object,
-            previous_command_bar_flyout,
-            declaration
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.command_bar_flyout.as_ref()),
-            true,
-        );
-        self.reconcile_content_dialog(
-            object,
-            previous_content_dialog,
-            declaration
-                .attachments
-                .as_ref()
-                .and_then(|attachments| attachments.content_dialog.as_ref()),
+            previous_attachments,
+            declaration.attachments.as_deref(),
             true,
         );
     }
@@ -302,23 +195,12 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::SetWindowTitleBar { object, height });
         }
-        if let Some(attachments) = &declaration.attachments {
-            if let Some(tooltip) = &attachments.tooltip {
-                self.mount_tooltip(object, tooltip);
-            }
-            if let Some(flyout) = &attachments.flyout {
-                self.mount_flyout(object, flyout);
-            }
-            if let Some(menu) = &attachments.menu {
-                self.mount_menu(object, menu);
-            }
-            if let Some(flyout) = &attachments.command_bar_flyout {
-                self.mount_command_bar_flyout(object, flyout);
-            }
-            if let Some(dialog) = &attachments.content_dialog {
-                self.mount_content_dialog(object, dialog);
-            }
-        }
+        self.reconcile_attachments(
+            object,
+            RetainedAttachments::default(),
+            declaration.attachments.as_deref(),
+            false,
+        );
         object
     }
 
@@ -367,81 +249,8 @@ impl Planner<'_> {
         if self.retained.get(object).unwrap().attachments.is_some()
             || declaration.attachments.is_some()
         {
-            let previous_tooltip = self
-                .retained
-                .get_mut(object)
-                .attachments
-                .as_mut()
-                .and_then(|attachments| attachments.tooltip.take());
-            self.reconcile_tooltip(
-                object,
-                previous_tooltip,
-                declaration
-                    .attachments
-                    .as_ref()
-                    .and_then(|attachments| attachments.tooltip.as_ref()),
-                false,
-            );
-            let previous_flyout = self
-                .retained
-                .get_mut(object)
-                .attachments
-                .as_mut()
-                .and_then(|attachments| attachments.flyout.take());
-            self.reconcile_flyout(
-                object,
-                previous_flyout,
-                declaration
-                    .attachments
-                    .as_ref()
-                    .and_then(|attachments| attachments.flyout.as_ref()),
-                false,
-            );
-            let previous_menu = self
-                .retained
-                .get_mut(object)
-                .attachments
-                .as_mut()
-                .and_then(|attachments| attachments.menu.take());
-            self.reconcile_menu(
-                object,
-                previous_menu,
-                declaration
-                    .attachments
-                    .as_ref()
-                    .and_then(|attachments| attachments.menu.as_ref()),
-                false,
-            );
-            let previous_command_bar_flyout = self
-                .retained
-                .get_mut(object)
-                .attachments
-                .as_mut()
-                .and_then(|attachments| attachments.command_bar_flyout.take());
-            self.reconcile_command_bar_flyout(
-                object,
-                previous_command_bar_flyout,
-                declaration
-                    .attachments
-                    .as_ref()
-                    .and_then(|attachments| attachments.command_bar_flyout.as_ref()),
-                false,
-            );
-            let previous_content_dialog = self
-                .retained
-                .get_mut(object)
-                .attachments
-                .as_mut()
-                .and_then(|attachments| attachments.content_dialog.take());
-            self.reconcile_content_dialog(
-                object,
-                previous_content_dialog,
-                declaration
-                    .attachments
-                    .as_ref()
-                    .and_then(|attachments| attachments.content_dialog.as_ref()),
-                false,
-            );
+            let previous = self.take_attachments(object);
+            self.reconcile_attachments(object, previous, declaration.attachments.as_deref(), false);
         }
         {
             let RetainedObject {
