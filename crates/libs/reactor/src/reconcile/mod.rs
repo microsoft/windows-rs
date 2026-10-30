@@ -254,51 +254,51 @@ pub(crate) enum NativeWork {
     Maintenance,
 }
 
+/// Work reported by the native backend, in the order it occurred. `E` is the event occurrence:
+/// an `EventDispatch` for the reconciler, or the backend's queued form of it.
 #[derive(Clone, Debug, PartialEq)]
-pub struct NativeEvent {
-    observation: Option<Observation>,
-    event: Option<EventDispatch>,
-    record: bool,
-    retirement: Option<RetirementCompletion>,
-    realization: Option<RealizationRequest>,
+pub enum NativeEvent<E = EventDispatch> {
+    /// Native state the user changed.
+    Observation(Observation),
+    /// Native state that Reactor's own write produced. For a property the declaration omits, the
+    /// recorded value becomes the baseline that later notifications compare against.
+    Record(Observation),
+    /// An event occurrence and the native state it reports, if any.
+    Event {
+        observation: Option<Observation>,
+        event: E,
+    },
+    Retirement(RetirementCompletion),
+    Realization(RealizationRequest),
 }
 
-impl NativeEvent {
-    pub fn new(observation: Option<Observation>, event: Option<EventDispatch>) -> Self {
-        Self {
-            observation,
-            event,
-            record: false,
-            retirement: None,
-            realization: None,
-        }
-    }
-
-    /// Records native state that Reactor's own write produced. For a property the declaration
-    /// omits, the recorded value becomes the baseline that later notifications compare against.
-    pub fn record(observation: Observation) -> Self {
-        Self {
-            record: true,
-            ..Self::new(Some(observation), None)
-        }
-    }
-
-    pub fn retirement(completion: RetirementCompletion) -> Self {
-        Self {
-            retirement: Some(completion),
-            ..Self::new(None, None)
-        }
-    }
-
-    pub fn realization(request: RealizationRequest) -> Self {
-        Self {
-            realization: Some(request),
-            ..Self::new(None, None)
+impl<E> NativeEvent<E> {
+    /// An event occurrence with the state it reports, or the state alone.
+    pub fn report(observation: Option<Observation>, event: Option<E>) -> Option<Self> {
+        match (observation, event) {
+            (observation, Some(event)) => Some(Self::Event { observation, event }),
+            (Some(observation), None) => Some(Self::Observation(observation)),
+            (None, None) => None,
         }
     }
 
     pub(crate) fn dispatches(&self) -> bool {
-        self.event.is_some()
+        matches!(self, Self::Event { .. })
+    }
+
+    pub(crate) fn observation(&self) -> Option<&Observation> {
+        match self {
+            Self::Observation(observation) | Self::Record(observation) => Some(observation),
+            Self::Event { observation, .. } => observation.as_ref(),
+            Self::Retirement(_) | Self::Realization(_) => None,
+        }
+    }
+
+    pub(crate) fn event(&self) -> Option<&E> {
+        match self {
+            Self::Event { event, .. } => Some(event),
+            _ => None,
+        }
     }
 }
 

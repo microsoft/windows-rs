@@ -251,16 +251,19 @@ impl RecordingAdapter {
 
     pub fn queue_retirement_completion(&mut self, root: ObjectId) {
         self.native_events
-            .push_back(NativeEvent::retirement(RetirementCompletion { root }));
+            .push_back(NativeEvent::Retirement(RetirementCompletion { root }));
     }
 
     pub fn observe(&mut self, observation: Observation) {
         self.native_events
-            .push_back(NativeEvent::observation(observation));
+            .push_back(NativeEvent::Observation(observation));
     }
 
     pub fn queue_event(&mut self, event: EventDispatch) {
-        self.native_events.push_back(NativeEvent::event(event));
+        self.native_events.push_back(NativeEvent::Event {
+            observation: None,
+            event,
+        });
     }
 
     /// Moves recorded children the way a user drag moves native items, without a mutation.
@@ -282,19 +285,19 @@ impl RecordingAdapter {
         event: Option<EventDispatch>,
     ) {
         self.native_events
-            .push_back(NativeEvent::new(observation, event));
+            .push_back(NativeEvent::report(observation, event).unwrap());
     }
 
     /// Queues the native state Reactor's own write produced, as the WinUI adapter reads it back.
     pub fn queue_record(&mut self, observation: Observation) {
         self.native_events
-            .push_back(NativeEvent::record(observation));
+            .push_back(NativeEvent::Record(observation));
     }
 
     pub fn queue_realization(&mut self, request: RealizationRequest) {
         let request = Self::coalesce_realization(&mut self.native_events, request);
         self.native_events
-            .push_back(NativeEvent::realization(request));
+            .push_back(NativeEvent::Realization(request));
     }
 
     pub fn realized_count(&self, object: ObjectId) -> usize {
@@ -326,12 +329,12 @@ impl RecordingAdapter {
         };
         let pending = events.iter().rposition(|event| {
             matches!(
-                event.realization_request(),
-                Some(RealizationRequest::Realize {
+                event,
+                NativeEvent::Realization(RealizationRequest::Realize {
                     collection: pending_collection,
                     container: pending_container,
                     ..
-                }) if pending_collection == collection && pending_container == container
+                }) if *pending_collection == collection && *pending_container == container
             )
         });
         if let Some(pending) = pending {
@@ -397,8 +400,7 @@ impl RecordingAdapter {
                         return Err(AdapterError::InvalidReplacement(*object));
                     }
                     self.objects.insert(*object, Self::recorded_object(*kind));
-                    self.native_events
-                        .retain(|event| event.object() != Some(*object));
+                    self.native_events.retain(|event| event.object() != *object);
                 }
                 Mutation::SetProperties { object, set, clear } => {
                     let object = self.object_mut(*object)?;
@@ -858,8 +860,7 @@ impl RecordingAdapter {
                         {
                             self.content_dialog_states.remove(object);
                         }
-                        self.native_events
-                            .retain(|event| event.object() != Some(*object));
+                        self.native_events.retain(|event| event.object() != *object);
                     }
                 }
                 Mutation::Destroy { object } => {

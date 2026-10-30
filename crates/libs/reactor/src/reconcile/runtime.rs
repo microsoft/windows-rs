@@ -78,72 +78,80 @@ impl<A: Adapter> Runtime<A> {
     }
 
     pub(super) fn pop_native_work(&mut self) -> Option<NativeWork> {
-        let event = self.adapter.pop_native_event()?;
+        let (observation, event) = match self.adapter.pop_native_event()? {
+            NativeEvent::Observation(observation) => {
+                self.graph.apply_observation(observation, false);
+                return Some(NativeWork::Maintenance);
+            }
+            NativeEvent::Record(observation) => {
+                self.graph.apply_observation(observation, true);
+                return Some(NativeWork::Maintenance);
+            }
+            NativeEvent::Retirement(completion) => {
+                self.apply_retirement_completion(completion);
+                return Some(NativeWork::Maintenance);
+            }
+            NativeEvent::Realization(request) => {
+                if let RealizationRequest::Recycle {
+                    collection,
+                    container,
+                    ..
+                }
+                | RealizationRequest::Cancel {
+                    collection,
+                    container,
+                    ..
+                } = request
+                {
+                    self.virtual_refreshes.retain(|refresh| {
+                        !matches!(
+                            refresh,
+                            RealizationRequest::Realize {
+                                collection: refresh_collection,
+                                container: refresh_container,
+                                ..
+                            } if *refresh_collection == collection
+                                && *refresh_container == container
+                        )
+                    });
+                }
+                return Some(self.realization_work(request));
+            }
+            NativeEvent::Event { observation, event } => (observation, event),
+        };
         // Only a property's controlled event reports its state; an action that also observes the
         // property, such as `Click`, dispatches even when the state is settled.
-        let report = match (&event.observation, &event.event) {
-            (Some(Observation::SetProperty { object, property }), Some(dispatch)) => {
-                Some(self.graph.kind(*object).is_some_and(|kind| {
-                    controlled_event(kind, property.id) == Some(dispatch.event)
-                }))
-            }
+        let report = match &observation {
+            Some(Observation::SetProperty { object, property }) => Some(
+                self.graph
+                    .kind(*object)
+                    .is_some_and(|kind| controlled_event(kind, property.id) == Some(event.event)),
+            ),
             _ => None,
         };
         // A report followed by another report of the same state is skipped, so a control that
         // passes through intermediate states within one interaction reports only where it settled.
-        if report == Some(true) {
-            let current = event.event.as_ref().unwrap();
-            if self.adapter.peek_native_dispatch().is_some_and(|next| {
-                next.observation.is_some()
-                    && next.event.is_some_and(|next| {
-                        next.object == current.object && next.event == current.event
-                    })
-            }) {
-                return Some(NativeWork::Maintenance);
-            }
+        if report == Some(true)
+            && self.adapter.peek_native_dispatch().is_some_and(|next| {
+                matches!(
+                    next,
+                    NativeEvent::Event {
+                        observation: Some(_),
+                        event: next,
+                    } if next.object == event.object && next.event == event.event
+                )
+            })
+        {
+            return Some(NativeWork::Maintenance);
         }
         let action = report == Some(false);
-        let dispatch = event
-            .observation
-            .is_none_or(|observation| self.graph.apply_observation(observation, event.record))
+        let dispatch = observation
+            .is_none_or(|observation| self.graph.apply_observation(observation, false))
             || action;
-        if let Some(completion) = event.retirement {
-            self.apply_retirement_completion(completion);
+        if !dispatch {
+            return Some(NativeWork::Maintenance);
         }
-        if let Some(request) = event.realization {
-            if let RealizationRequest::Recycle {
-                collection,
-                container,
-                ..
-            }
-            | RealizationRequest::Cancel {
-                collection,
-                container,
-                ..
-            } = request
-            {
-                self.virtual_refreshes.retain(|refresh| {
-                    !matches!(
-                        refresh,
-                        RealizationRequest::Realize {
-                            collection: refresh_collection,
-                            container: refresh_container,
-                            ..
-                        } if *refresh_collection == collection && *refresh_container == container
-                    )
-                });
-            }
-            return Some(
-                self.graph
-                    .virtual_work(request)
-                    .map_or(NativeWork::Maintenance, NativeWork::Virtual),
-            );
-        }
-        let Some(dispatch) = event
-            .event
-            .filter(|_| dispatch)
-            .and_then(|dispatch| self.graph.validate_event_dispatch(dispatch))
-        else {
+        let Some(dispatch) = self.graph.validate_event_dispatch(event) else {
             return Some(NativeWork::Maintenance);
         };
         self.native_event_active.set(true);
@@ -162,11 +170,7 @@ impl<A: Adapter> Runtime<A> {
             return Some(work);
         }
         if let Some(request) = self.virtual_refreshes.pop_front() {
-            return Some(
-                self.graph
-                    .virtual_work(request)
-                    .map_or(NativeWork::Maintenance, NativeWork::Virtual),
-            );
+            return Some(self.realization_work(request));
         }
         for _ in 0..64 {
             if !self.dispatch_imperative() {
@@ -175,6 +179,12 @@ impl<A: Adapter> Runtime<A> {
         }
         self.references.wake();
         None
+    }
+
+    fn realization_work(&mut self, request: RealizationRequest) -> NativeWork {
+        self.graph
+            .virtual_work(request)
+            .map_or(NativeWork::Maintenance, NativeWork::Virtual)
     }
 
     /// Applies queued native observations and retirement completions. Returns `false` while a
@@ -187,16 +197,13 @@ impl<A: Adapter> Runtime<A> {
             return false;
         }
         while let Some(next) = self.adapter.peek_native_event() {
-            if next.event.is_some() || next.realization.is_some() {
+            if matches!(
+                next,
+                NativeEvent::Event { .. } | NativeEvent::Realization(_)
+            ) {
                 return false;
             }
-            let event = self.adapter.pop_native_event().unwrap();
-            if let Some(observation) = event.observation {
-                self.graph.apply_observation(observation, event.record);
-            }
-            if let Some(completion) = event.retirement {
-                self.apply_retirement_completion(completion);
-            }
+            self.pop_native_work();
         }
         true
     }
