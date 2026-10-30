@@ -1023,11 +1023,14 @@ impl IClientSecurity {
     {
         unsafe { (windows_core::Interface::vtable(self).SetBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthinfo.unwrap_or(core::mem::zeroed()) as _, dwcapabilities) }
     }
-    pub unsafe fn CopyProxy<P0>(&self, pproxy: P0, ppcopy: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    pub unsafe fn CopyProxy<P0>(&self, pproxy: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyProxy)(windows_core::Interface::as_raw(self), pproxy.param().abi(), core::mem::transmute(ppcopy)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CopyProxy)(windows_core::Interface::as_raw(self), pproxy.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1048,7 +1051,7 @@ pub struct IClientSecurity_Vtbl {
 pub trait IClientSecurity_Impl: windows_core::IUnknownImpl {
     fn QueryBlanket(&self, pproxy: windows_core::Ref<windows_core::IUnknown>, pauthnsvc: *mut super::DWORD, pauthzsvc: *mut super::DWORD, pserverprincname: *mut *mut super::OLECHAR, pauthnlevel: *mut super::DWORD, pimplevel: *mut super::DWORD, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetBlanket(&self, pproxy: windows_core::Ref<windows_core::IUnknown>, dwauthnsvc: super::DWORD, dwauthzsvc: super::DWORD, pserverprincname: *const super::OLECHAR, dwauthnlevel: super::DWORD, dwimplevel: super::DWORD, pauthinfo: *const core::ffi::c_void, dwcapabilities: super::DWORD) -> windows_core::Result<()>;
-    fn CopyProxy(&self, pproxy: windows_core::Ref<windows_core::IUnknown>, ppcopy: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CopyProxy(&self, pproxy: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IClientSecurity_Vtbl {
@@ -1068,7 +1071,13 @@ impl IClientSecurity_Vtbl {
         unsafe extern "system" fn CopyProxy<Identity: IClientSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproxy: *mut core::ffi::c_void, ppcopy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IClientSecurity_Impl::CopyProxy(this, core::mem::transmute_copy(&pproxy), core::mem::transmute_copy(&ppcopy)).into()
+                match IClientSecurity_Impl::CopyProxy(this, core::mem::transmute_copy(&pproxy)) {
+                    Ok(ok__) => {
+                        ppcopy.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1174,8 +1183,11 @@ impl IEnumString {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1198,7 +1210,7 @@ pub trait IEnumString_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut super::LPOLESTR, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumString>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumString>;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IEnumString_Vtbl {
@@ -1224,7 +1236,13 @@ impl IEnumString_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumString_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumString_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1255,8 +1273,11 @@ impl IEnumUnknown {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1279,7 +1300,7 @@ pub trait IEnumUnknown_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<windows_core::IUnknown>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumUnknown>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumUnknown>;
 }
 #[cfg(feature = "shared")]
 impl IEnumUnknown_Vtbl {
@@ -1305,7 +1326,13 @@ impl IEnumUnknown_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumUnknown_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumUnknown_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2023,11 +2050,14 @@ impl IPSFactoryBuffer {
         unsafe { (windows_core::Interface::vtable(self).CreateProxy)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, core::mem::transmute(ppproxy), ppv as _) }
     }
     #[cfg(feature = "guiddef")]
-    pub unsafe fn CreateStub<P1>(&self, riid: *const super::IID, punkserver: P1, ppstub: *mut Option<IRpcStubBuffer>) -> windows_core::HRESULT
+    pub unsafe fn CreateStub<P1>(&self, riid: *const super::IID, punkserver: P1) -> windows_core::Result<IRpcStubBuffer>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateStub)(windows_core::Interface::as_raw(self), riid, punkserver.param().abi(), core::mem::transmute(ppstub)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateStub)(windows_core::Interface::as_raw(self), riid, punkserver.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2046,7 +2076,7 @@ pub struct IPSFactoryBuffer_Vtbl {
 #[cfg(feature = "guiddef")]
 pub trait IPSFactoryBuffer_Impl: windows_core::IUnknownImpl {
     fn CreateProxy(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppproxy: windows_core::OutRef<IRpcProxyBuffer>, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateStub(&self, riid: *const super::IID, punkserver: windows_core::Ref<windows_core::IUnknown>, ppstub: windows_core::OutRef<IRpcStubBuffer>) -> windows_core::Result<()>;
+    fn CreateStub(&self, riid: *const super::IID, punkserver: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IRpcStubBuffer>;
 }
 #[cfg(feature = "guiddef")]
 impl IPSFactoryBuffer_Vtbl {
@@ -2060,7 +2090,13 @@ impl IPSFactoryBuffer_Vtbl {
         unsafe extern "system" fn CreateStub<Identity: IPSFactoryBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, punkserver: *mut core::ffi::c_void, ppstub: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPSFactoryBuffer_Impl::CreateStub(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punkserver), core::mem::transmute_copy(&ppstub)).into()
+                match IPSFactoryBuffer_Impl::CreateStub(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punkserver)) {
+                    Ok(ok__) => {
+                        ppstub.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3185,8 +3221,11 @@ impl IStream {
     pub unsafe fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatstg as _, grfstatflag) }
     }
-    pub unsafe fn Clone(&self, ppstm: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstm)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3234,7 +3273,7 @@ pub trait IStream_Impl: ISequentialStream_Impl {
     fn LockRegion(&self, liboffset: &super::ULARGE_INTEGER, cb: &super::ULARGE_INTEGER, dwlocktype: super::DWORD) -> windows_core::Result<()>;
     fn UnlockRegion(&self, liboffset: &super::ULARGE_INTEGER, cb: &super::ULARGE_INTEGER, dwlocktype: super::DWORD) -> windows_core::Result<()>;
     fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: super::DWORD) -> windows_core::Result<()>;
-    fn Clone(&self, ppstm: windows_core::OutRef<IStream>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IStream>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl IStream_Vtbl {
@@ -3290,7 +3329,13 @@ impl IStream_Vtbl {
         unsafe extern "system" fn Clone<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::Clone(this, core::mem::transmute_copy(&ppstm)).into()
+                match IStream_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppstm.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3576,8 +3621,11 @@ impl ISynchronizeContainer {
         unsafe { (windows_core::Interface::vtable(self).AddSynchronize)(windows_core::Interface::as_raw(self), psync.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn WaitMultiple(&self, dwflags: super::DWORD, dwtimeout: super::DWORD, ppsync: *mut Option<ISynchronize>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WaitMultiple)(windows_core::Interface::as_raw(self), dwflags, dwtimeout, core::mem::transmute(ppsync)) }
+    pub unsafe fn WaitMultiple(&self, dwflags: super::DWORD, dwtimeout: super::DWORD) -> windows_core::Result<ISynchronize> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WaitMultiple)(windows_core::Interface::as_raw(self), dwflags, dwtimeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3593,7 +3641,7 @@ pub struct ISynchronizeContainer_Vtbl {
 #[cfg(feature = "shared")]
 pub trait ISynchronizeContainer_Impl: windows_core::IUnknownImpl {
     fn AddSynchronize(&self, psync: windows_core::Ref<ISynchronize>) -> windows_core::Result<()>;
-    fn WaitMultiple(&self, dwflags: super::DWORD, dwtimeout: super::DWORD, ppsync: windows_core::OutRef<ISynchronize>) -> windows_core::Result<()>;
+    fn WaitMultiple(&self, dwflags: super::DWORD, dwtimeout: super::DWORD) -> windows_core::Result<ISynchronize>;
 }
 #[cfg(feature = "shared")]
 impl ISynchronizeContainer_Vtbl {
@@ -3607,7 +3655,13 @@ impl ISynchronizeContainer_Vtbl {
         unsafe extern "system" fn WaitMultiple<Identity: ISynchronizeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, dwtimeout: super::DWORD, ppsync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISynchronizeContainer_Impl::WaitMultiple(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwtimeout), core::mem::transmute_copy(&ppsync)).into()
+                match ISynchronizeContainer_Impl::WaitMultiple(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwtimeout)) {
+                    Ok(ok__) => {
+                        ppsync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3748,8 +3802,11 @@ windows_core::imp::define_interface!(IWaitMultiple, IWaitMultiple_Vtbl, 0x000000
 windows_core::imp::interface_hierarchy!(IWaitMultiple, windows_core::IUnknown);
 impl IWaitMultiple {
     #[cfg(feature = "shared")]
-    pub unsafe fn WaitMultiple(&self, timeout: super::DWORD, psync: *mut Option<ISynchronize>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WaitMultiple)(windows_core::Interface::as_raw(self), timeout, core::mem::transmute(psync)) }
+    pub unsafe fn WaitMultiple(&self, timeout: super::DWORD) -> windows_core::Result<ISynchronize> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WaitMultiple)(windows_core::Interface::as_raw(self), timeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddSynchronize<P0>(&self, psync: P0) -> windows_core::HRESULT
     where
@@ -3770,7 +3827,7 @@ pub struct IWaitMultiple_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWaitMultiple_Impl: windows_core::IUnknownImpl {
-    fn WaitMultiple(&self, timeout: super::DWORD, psync: windows_core::OutRef<ISynchronize>) -> windows_core::Result<()>;
+    fn WaitMultiple(&self, timeout: super::DWORD) -> windows_core::Result<ISynchronize>;
     fn AddSynchronize(&self, psync: windows_core::Ref<ISynchronize>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3779,7 +3836,13 @@ impl IWaitMultiple_Vtbl {
         unsafe extern "system" fn WaitMultiple<Identity: IWaitMultiple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: super::DWORD, psync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWaitMultiple_Impl::WaitMultiple(this, core::mem::transmute_copy(&timeout), core::mem::transmute_copy(&psync)).into()
+                match IWaitMultiple_Impl::WaitMultiple(this, core::mem::transmute_copy(&timeout)) {
+                    Ok(ok__) => {
+                        psync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddSynchronize<Identity: IWaitMultiple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psync: *mut core::ffi::c_void) -> windows_core::HRESULT {

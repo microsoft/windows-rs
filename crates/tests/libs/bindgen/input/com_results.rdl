@@ -6,6 +6,7 @@ mod Test {
     type ObjectAlias = Tracked;
     type RawObject = *mut void;
     type OutputSlot = *mut RawObject;
+    type TrackedSlot = *mut Tracked;
     #[guid(0x10000000_0000_0000_0000_000000000002)]
     interface Results: Windows::Win32::IUnknown {
         fn Nullable(&self, #[out] #[retval] #[out_ptr(nullable, null_on_failure)] value: *mut ObjectAlias) -> HRESULT;
@@ -18,6 +19,7 @@ mod Test {
         fn InOutQuery(&self, #[in] iid: *const GUID, #[in] #[out] #[iid_is] value: *mut *mut void) -> HRESULT;
         fn Data(&self, #[out] #[retval] #[out_ptr(nullable, null_on_failure)] value: *mut *mut u8) -> HRESULT;
         fn ReadThenFail(&self, #[in] input: *const *mut void, #[out] #[retval] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
+        fn TypedefSlot(&self, #[out] #[retval] #[out_ptr] value: TrackedSlot) -> HRESULT;
     }
     #[library("test.dll")]
     extern fn Nullable(#[out] #[retval] #[out_ptr(nullable)] value: *mut Tracked) -> HRESULT;

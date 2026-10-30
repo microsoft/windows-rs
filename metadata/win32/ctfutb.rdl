@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x583f34d0_de25_11d2_afdd_00105a2799b5)]
         interface IEnumTfLangBarItems: IUnknown {
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
             fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, ulCount)] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppItem: *mut ITfLangBarItem, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
@@ -55,8 +55,8 @@ mod Windows {
         }
         #[guid(0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa)]
         interface ITfLangBarItemMgr: IUnknown {
-            fn EnumItems(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
-            fn GetItem(&self, #[in] rguid: &GUID, #[out] #[out_ptr] ppItem: *mut ITfLangBarItem) -> HRESULT;
+            fn EnumItems(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn GetItem(&self, #[in] rguid: &GUID, #[out] #[out_ptr] #[retval] ppItem: *mut ITfLangBarItem) -> HRESULT;
             fn AddItem(&self, #[in] #[opt] punk: ITfLangBarItem) -> HRESULT;
             fn RemoveItem(&self, #[in] #[opt] punk: ITfLangBarItem) -> HRESULT;
             fn AdviseItemSink(&self, #[in] #[opt] punk: ITfLangBarItemSink, #[out] pdwCookie: *mut DWORD, #[in] rguidItem: &GUID) -> HRESULT;

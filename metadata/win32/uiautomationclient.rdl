@@ -156,7 +156,7 @@ mod Windows {
         }
         #[guid(0xaae072da_29e3_413d_87a7_192dbf81ed10)]
         interface IUIAutomation6: IUIAutomation5 {
-            fn CreateEventHandlerGroup(&self, #[out] #[out_ptr] handlerGroup: *mut IUIAutomationEventHandlerGroup) -> HRESULT;
+            fn CreateEventHandlerGroup(&self, #[out] #[out_ptr] #[retval] handlerGroup: *mut IUIAutomationEventHandlerGroup) -> HRESULT;
             fn AddEventHandlerGroup(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
             fn RemoveEventHandlerGroup(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
             #[special]

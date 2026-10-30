@@ -1555,7 +1555,7 @@ mod Windows {
         }
         #[guid(0x68961e68_832b_41ea_bc91_63593f3e70e3)]
         interface IMediaSample2Config: IUnknown {
-            fn GetSurface(&self, #[out] #[out_ptr] ppDirect3DSurface9: *mut IUnknown) -> HRESULT;
+            fn GetSurface(&self, #[out] #[out_ptr] #[retval] ppDirect3DSurface9: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x36b73880_c2c8_11cf_8b46_00805f6cef60)]
         interface IMediaSeeking: IUnknown {

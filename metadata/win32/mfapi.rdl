@@ -227,23 +227,23 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateDXGICrossAdapterBuffer(#[in] riid: &IID, #[in] punkDevice: IUnknown, #[in] pMediaType: IMFMediaType, #[in] uSubresource: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGIDeviceManager(#[out] resetToken: *mut UINT, #[out] #[out_ptr] ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        extern fn MFCreateDXGIDeviceManager(#[out] resetToken: *mut UINT, #[out] #[out_ptr] #[retval] ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGISurfaceBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[in] uSubresourceIndex: UINT, #[in] fBottomUpWhenLinear: BOOL, #[out] #[out_ptr] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXGISurfaceBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[in] uSubresourceIndex: UINT, #[in] fBottomUpWhenLinear: BOOL, #[out] #[out_ptr] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXSurfaceBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[in] fBottomUpWhenLinear: BOOL, #[out] #[out_ptr] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXSurfaceBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[in] fBottomUpWhenLinear: BOOL, #[out] #[out_ptr] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateEventQueue(#[out] ppMediaEventQueue: *mut IMFMediaEventQueue) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFileURL: LPCWSTR, #[out] ppIByteStream: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateLegacyMediaBufferOnMFMediaBuffer(#[in] #[opt] pSample: IMFSample, #[in] pMFMediaBuffer: IMFMediaBuffer, #[in] cbOffset: DWORD, #[out] #[out_ptr] ppMediaBuffer: *mut IMediaBuffer) -> HRESULT;
+        extern fn MFCreateLegacyMediaBufferOnMFMediaBuffer(#[in] #[opt] pSample: IMFSample, #[in] pMFMediaBuffer: IMFMediaBuffer, #[in] cbOffset: DWORD, #[out] #[out_ptr] #[retval] ppMediaBuffer: *mut IMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMFByteStreamWrapper(#[in] pStream: IMFByteStream, #[out] ppStreamWrapper: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMFVideoFormatFromMFMediaType(#[in] pMFType: IMFMediaType, #[out] ppMFVF: *mut *mut MFVIDEOFORMAT, #[opt] #[out] pcbSize: *mut UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaBufferFromMediaType(#[in] pMediaType: IMFMediaType, #[in] llDuration: LONGLONG, #[in] dwMinLength: DWORD, #[in] dwMinAlignment: DWORD, #[out] #[out_ptr] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateMediaBufferFromMediaType(#[in] pMediaType: IMFMediaType, #[in] llDuration: LONGLONG, #[in] dwMinLength: DWORD, #[in] dwMinAlignment: DWORD, #[out] #[out_ptr] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaBufferWrapper(#[in] pBuffer: IMFMediaBuffer, #[in] cbOffset: DWORD, #[in] dwLength: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -251,7 +251,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaExtensionActivate(#[in] szActivatableClassId: PCWSTR, #[in] #[opt] pConfiguration: IUnknown, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaType(#[out] #[out_ptr] ppMFType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMediaType(#[out] #[out_ptr] #[retval] ppMFType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, #[in] pvRepresentation: LPVOID, #[out] ppIMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -277,7 +277,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateVideoSampleAllocatorEx(#[in] riid: &IID, #[out] #[out_ptr] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateWICBitmapBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[out] #[out_ptr] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateWICBitmapBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[out] #[out_ptr] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateWaveFormatExFromMFMediaType(#[in] pMFType: IMFMediaType, #[out] ppWF: *mut *mut WAVEFORMATEX, #[opt] #[out] pcbSize: *mut UINT32, #[in] Flags: UINT32) -> HRESULT;
         #[repr(i32)]
@@ -367,7 +367,7 @@ mod Windows {
         #[library("EVR.dll")]
         extern fn MFIsFormatYUV(Format: DWORD) -> BOOL;
         #[library("MFPlat.DLL")]
-        extern fn MFLockDXGIDeviceManager(#[opt] #[out] pResetToken: *mut UINT, #[out] #[out_ptr] ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        extern fn MFLockDXGIDeviceManager(#[opt] #[out] pResetToken: *mut UINT, #[out] #[out_ptr] #[retval] ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFLockPlatform() -> HRESULT;
         #[library("MFPlat.DLL")]

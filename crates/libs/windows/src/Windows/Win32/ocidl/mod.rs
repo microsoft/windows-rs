@@ -299,8 +299,11 @@ impl IConnectionPoint {
     pub unsafe fn GetConnectionInterface(&self, piid: *mut super::IID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetConnectionInterface)(windows_core::Interface::as_raw(self), piid as _) }
     }
-    pub unsafe fn GetConnectionPointContainer(&self, ppcpc: *mut Option<IConnectionPointContainer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectionPointContainer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcpc)) }
+    pub unsafe fn GetConnectionPointContainer(&self) -> windows_core::Result<IConnectionPointContainer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetConnectionPointContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Advise<P0>(&self, punksink: P0, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT
@@ -313,8 +316,11 @@ impl IConnectionPoint {
     pub unsafe fn Unadvise(&self, dwcookie: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie) }
     }
-    pub unsafe fn EnumConnections(&self, ppenum: *mut Option<IEnumConnections>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumConnections)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumConnections(&self) -> windows_core::Result<IEnumConnections> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -339,10 +345,10 @@ pub struct IConnectionPoint_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IConnectionPoint_Impl: windows_core::IUnknownImpl {
     fn GetConnectionInterface(&self, piid: *mut super::IID) -> windows_core::Result<()>;
-    fn GetConnectionPointContainer(&self, ppcpc: windows_core::OutRef<IConnectionPointContainer>) -> windows_core::Result<()>;
+    fn GetConnectionPointContainer(&self) -> windows_core::Result<IConnectionPointContainer>;
     fn Advise(&self, punksink: windows_core::Ref<windows_core::IUnknown>, pdwcookie: *mut super::DWORD) -> windows_core::Result<()>;
     fn Unadvise(&self, dwcookie: super::DWORD) -> windows_core::Result<()>;
-    fn EnumConnections(&self, ppenum: windows_core::OutRef<IEnumConnections>) -> windows_core::Result<()>;
+    fn EnumConnections(&self) -> windows_core::Result<IEnumConnections>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IConnectionPoint_Vtbl {
@@ -356,7 +362,13 @@ impl IConnectionPoint_Vtbl {
         unsafe extern "system" fn GetConnectionPointContainer<Identity: IConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcpc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnectionPoint_Impl::GetConnectionPointContainer(this, core::mem::transmute_copy(&ppcpc)).into()
+                match IConnectionPoint_Impl::GetConnectionPointContainer(this) {
+                    Ok(ok__) => {
+                        ppcpc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Advise<Identity: IConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punksink: *mut core::ffi::c_void, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
@@ -374,7 +386,13 @@ impl IConnectionPoint_Vtbl {
         unsafe extern "system" fn EnumConnections<Identity: IConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnectionPoint_Impl::EnumConnections(this, core::mem::transmute_copy(&ppenum)).into()
+                match IConnectionPoint_Impl::EnumConnections(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -395,12 +413,18 @@ impl windows_core::RuntimeName for IConnectionPoint {}
 windows_core::imp::define_interface!(IConnectionPointContainer, IConnectionPointContainer_Vtbl, 0xb196b284_bab4_101a_b69c_00aa00341d07);
 windows_core::imp::interface_hierarchy!(IConnectionPointContainer, windows_core::IUnknown);
 impl IConnectionPointContainer {
-    pub unsafe fn EnumConnectionPoints(&self, ppenum: *mut Option<IEnumConnectionPoints>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumConnectionPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumConnectionPoints(&self) -> windows_core::Result<IEnumConnectionPoints> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumConnectionPoints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "guiddef")]
-    pub unsafe fn FindConnectionPoint(&self, riid: *const super::IID, ppcp: *mut Option<IConnectionPoint>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindConnectionPoint)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppcp)) }
+    pub unsafe fn FindConnectionPoint(&self, riid: *const super::IID) -> windows_core::Result<IConnectionPoint> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindConnectionPoint)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -415,8 +439,8 @@ pub struct IConnectionPointContainer_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IConnectionPointContainer_Impl: windows_core::IUnknownImpl {
-    fn EnumConnectionPoints(&self, ppenum: windows_core::OutRef<IEnumConnectionPoints>) -> windows_core::Result<()>;
-    fn FindConnectionPoint(&self, riid: *const super::IID, ppcp: windows_core::OutRef<IConnectionPoint>) -> windows_core::Result<()>;
+    fn EnumConnectionPoints(&self) -> windows_core::Result<IEnumConnectionPoints>;
+    fn FindConnectionPoint(&self, riid: *const super::IID) -> windows_core::Result<IConnectionPoint>;
 }
 #[cfg(feature = "guiddef")]
 impl IConnectionPointContainer_Vtbl {
@@ -424,13 +448,25 @@ impl IConnectionPointContainer_Vtbl {
         unsafe extern "system" fn EnumConnectionPoints<Identity: IConnectionPointContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnectionPointContainer_Impl::EnumConnectionPoints(this, core::mem::transmute_copy(&ppenum)).into()
+                match IConnectionPointContainer_Impl::EnumConnectionPoints(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn FindConnectionPoint<Identity: IConnectionPointContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppcp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnectionPointContainer_Impl::FindConnectionPoint(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcp)).into()
+                match IConnectionPointContainer_Impl::FindConnectionPoint(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppcp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -459,8 +495,11 @@ impl IEnumConnectionPoints {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -483,7 +522,7 @@ pub trait IEnumConnectionPoints_Impl: windows_core::IUnknownImpl {
     fn Next(&self, cconnections: super::ULONG, ppcp: windows_core::OutRef<LPCONNECTIONPOINT>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, cconnections: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumConnectionPoints>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumConnectionPoints>;
 }
 #[cfg(feature = "shared")]
 impl IEnumConnectionPoints_Vtbl {
@@ -509,7 +548,13 @@ impl IEnumConnectionPoints_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumConnectionPoints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumConnectionPoints_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumConnectionPoints_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -540,8 +585,11 @@ impl IEnumConnections {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -564,7 +612,7 @@ pub trait IEnumConnections_Impl: windows_core::IUnknownImpl {
     fn Next(&self, cconnections: super::ULONG, rgcd: LPCONNECTDATA, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, cconnections: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumConnections>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumConnections>;
 }
 #[cfg(feature = "shared")]
 impl IEnumConnections_Vtbl {
@@ -590,7 +638,13 @@ impl IEnumConnections_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumConnections_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumConnections_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -621,8 +675,11 @@ impl IEnumOleUndoUnits {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -645,7 +702,7 @@ pub trait IEnumOleUndoUnits_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: windows_core::OutRef<IOleUndoUnit>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumOleUndoUnits>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumOleUndoUnits>;
 }
 #[cfg(feature = "shared")]
 impl IEnumOleUndoUnits_Vtbl {
@@ -671,7 +728,13 @@ impl IEnumOleUndoUnits_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumOleUndoUnits_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumOleUndoUnits_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumOleUndoUnits_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -749,8 +812,11 @@ impl IFont {
     pub unsafe fn get_hFont(&self, phfont: *mut super::HFONT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_hFont)(windows_core::Interface::as_raw(self), phfont as _) }
     }
-    pub unsafe fn Clone(&self, ppfont: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppfont)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn IsEqual<P0>(&self, pfontother: P0) -> windows_core::HRESULT
     where
@@ -863,7 +929,7 @@ pub trait IFont_Impl: windows_core::IUnknownImpl {
     fn get_Charset(&self, pcharset: *mut super::SHORT) -> windows_core::Result<()>;
     fn put_Charset(&self, charset: super::SHORT) -> windows_core::Result<()>;
     fn get_hFont(&self, phfont: *mut super::HFONT) -> windows_core::Result<()>;
-    fn Clone(&self, ppfont: windows_core::OutRef<IFont>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IFont>;
     fn IsEqual(&self, pfontother: windows_core::Ref<IFont>) -> windows_core::Result<()>;
     fn SetRatio(&self, cylogical: super::LONG, cyhimetric: super::LONG) -> windows_core::Result<()>;
     fn QueryTextMetrics(&self, ptm: *mut TEXTMETRICOLE) -> windows_core::Result<()>;
@@ -979,7 +1045,13 @@ impl IFont_Vtbl {
         unsafe extern "system" fn Clone<Identity: IFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfont: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFont_Impl::Clone(this, core::mem::transmute_copy(&ppfont)).into()
+                match IFont_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppfont.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn IsEqual<Identity: IFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfontother: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1263,8 +1335,11 @@ impl IOleControlSite {
         unsafe { (windows_core::Interface::vtable(self).LockInPlaceActive)(windows_core::Interface::as_raw(self), flock.into()) }
     }
     #[cfg(feature = "oaidl")]
-    pub unsafe fn GetExtendedControl(&self, ppdisp: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtendedControl)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdisp)) }
+    pub unsafe fn GetExtendedControl(&self) -> windows_core::Result<super::IDispatch> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetExtendedControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
     pub unsafe fn TransformCoords(&self, pptlhimetric: *mut super::POINTL, pptfcontainer: *mut POINTF, dwflags: super::DWORD) -> windows_core::HRESULT {
@@ -1306,7 +1381,7 @@ pub struct IOleControlSite_Vtbl {
 pub trait IOleControlSite_Impl: windows_core::IUnknownImpl {
     fn OnControlInfoChanged(&self) -> windows_core::Result<()>;
     fn LockInPlaceActive(&self, flock: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetExtendedControl(&self, ppdisp: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
+    fn GetExtendedControl(&self) -> windows_core::Result<super::IDispatch>;
     fn TransformCoords(&self, pptlhimetric: *mut super::POINTL, pptfcontainer: *mut POINTF, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn TranslateAccelerator(&self, pmsg: *const super::MSG, grfmodifiers: super::DWORD) -> windows_core::Result<()>;
     fn OnFocus(&self, fgotfocus: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1330,7 +1405,13 @@ impl IOleControlSite_Vtbl {
         unsafe extern "system" fn GetExtendedControl<Identity: IOleControlSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleControlSite_Impl::GetExtendedControl(this, core::mem::transmute_copy(&ppdisp)).into()
+                match IOleControlSite_Impl::GetExtendedControl(this) {
+                    Ok(ok__) => {
+                        ppdisp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn TransformCoords<Identity: IOleControlSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptlhimetric: *mut super::POINTL, pptfcontainer: *mut POINTF, dwflags: super::DWORD) -> windows_core::HRESULT {
@@ -1391,8 +1472,11 @@ impl IOleInPlaceObjectWindowless {
     pub unsafe fn OnWindowMessage(&self, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, plresult: *mut super::LRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnWindowMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, plresult as _) }
     }
-    pub unsafe fn GetDropTarget(&self, ppdroptarget: *mut Option<super::IDropTarget>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDropTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdroptarget)) }
+    pub unsafe fn GetDropTarget(&self) -> windows_core::Result<super::IDropTarget> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDropTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "oleidl")]
@@ -1409,7 +1493,7 @@ pub struct IOleInPlaceObjectWindowless_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "windef"))]
 pub trait IOleInPlaceObjectWindowless_Impl: super::IOleInPlaceObject_Impl {
     fn OnWindowMessage(&self, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, plresult: *mut super::LRESULT) -> windows_core::Result<()>;
-    fn GetDropTarget(&self, ppdroptarget: windows_core::OutRef<super::IDropTarget>) -> windows_core::Result<()>;
+    fn GetDropTarget(&self) -> windows_core::Result<super::IDropTarget>;
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "windef"))]
 impl IOleInPlaceObjectWindowless_Vtbl {
@@ -1423,7 +1507,13 @@ impl IOleInPlaceObjectWindowless_Vtbl {
         unsafe extern "system" fn GetDropTarget<Identity: IOleInPlaceObjectWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdroptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleInPlaceObjectWindowless_Impl::GetDropTarget(this, core::mem::transmute_copy(&ppdroptarget)).into()
+                match IOleInPlaceObjectWindowless_Impl::GetDropTarget(this) {
+                    Ok(ok__) => {
+                        ppdroptarget.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1872,11 +1962,17 @@ impl IOleUndoManager {
     {
         unsafe { (windows_core::Interface::vtable(self).RedoTo)(windows_core::Interface::as_raw(self), puu.param().abi()) }
     }
-    pub unsafe fn EnumUndoable(&self, ppenum: *mut Option<IEnumOleUndoUnits>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumUndoable)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumUndoable(&self) -> windows_core::Result<IEnumOleUndoUnits> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumUndoable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn EnumRedoable(&self, ppenum: *mut Option<IEnumOleUndoUnits>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumRedoable)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumRedoable(&self) -> windows_core::Result<IEnumOleUndoUnits> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumRedoable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetLastUndoDescription(&self, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLastUndoDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstr)) }
@@ -1917,8 +2013,8 @@ pub trait IOleUndoManager_Impl: windows_core::IUnknownImpl {
     fn DiscardFrom(&self, puu: windows_core::Ref<IOleUndoUnit>) -> windows_core::Result<()>;
     fn UndoTo(&self, puu: windows_core::Ref<IOleUndoUnit>) -> windows_core::Result<()>;
     fn RedoTo(&self, puu: windows_core::Ref<IOleUndoUnit>) -> windows_core::Result<()>;
-    fn EnumUndoable(&self, ppenum: windows_core::OutRef<IEnumOleUndoUnits>) -> windows_core::Result<()>;
-    fn EnumRedoable(&self, ppenum: windows_core::OutRef<IEnumOleUndoUnits>) -> windows_core::Result<()>;
+    fn EnumUndoable(&self) -> windows_core::Result<IEnumOleUndoUnits>;
+    fn EnumRedoable(&self) -> windows_core::Result<IEnumOleUndoUnits>;
     fn GetLastUndoDescription(&self, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLastRedoDescription(&self, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1971,13 +2067,25 @@ impl IOleUndoManager_Vtbl {
         unsafe extern "system" fn EnumUndoable<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleUndoManager_Impl::EnumUndoable(this, core::mem::transmute_copy(&ppenum)).into()
+                match IOleUndoManager_Impl::EnumUndoable(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn EnumRedoable<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleUndoManager_Impl::EnumRedoable(this, core::mem::transmute_copy(&ppenum)).into()
+                match IOleUndoManager_Impl::EnumRedoable(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetLastUndoDescription<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3548,8 +3656,11 @@ impl IPropertyPageSite {
     pub unsafe fn GetLocaleID(&self, plocaleid: *mut super::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLocaleID)(windows_core::Interface::as_raw(self), plocaleid as _) }
     }
-    pub unsafe fn GetPageContainer(&self, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPageContainer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
+    pub unsafe fn GetPageContainer(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPageContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::MSG) -> windows_core::HRESULT {
@@ -3578,7 +3689,7 @@ pub struct IPropertyPageSite_Vtbl {
 pub trait IPropertyPageSite_Impl: windows_core::IUnknownImpl {
     fn OnStatusChange(&self, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn GetLocaleID(&self, plocaleid: *mut super::LCID) -> windows_core::Result<()>;
-    fn GetPageContainer(&self, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetPageContainer(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TranslateAccelerator(&self, pmsg: *const super::MSG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3599,7 +3710,13 @@ impl IPropertyPageSite_Vtbl {
         unsafe extern "system" fn GetPageContainer<Identity: IPropertyPageSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyPageSite_Impl::GetPageContainer(this, core::mem::transmute_copy(&ppunk)).into()
+                match IPropertyPageSite_Impl::GetPageContainer(this) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn TranslateAccelerator<Identity: IPropertyPageSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *const super::MSG) -> windows_core::HRESULT {
@@ -3626,8 +3743,11 @@ windows_core::imp::define_interface!(IProvideClassInfo, IProvideClassInfo_Vtbl, 
 windows_core::imp::interface_hierarchy!(IProvideClassInfo, windows_core::IUnknown);
 impl IProvideClassInfo {
     #[cfg(feature = "oaidl")]
-    pub unsafe fn GetClassInfo(&self, ppti: *mut Option<super::ITypeInfo>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetClassInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppti)) }
+    pub unsafe fn GetClassInfo(&self) -> windows_core::Result<super::ITypeInfo> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3641,7 +3761,7 @@ pub struct IProvideClassInfo_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IProvideClassInfo_Impl: windows_core::IUnknownImpl {
-    fn GetClassInfo(&self, ppti: windows_core::OutRef<super::ITypeInfo>) -> windows_core::Result<()>;
+    fn GetClassInfo(&self) -> windows_core::Result<super::ITypeInfo>;
 }
 #[cfg(feature = "oaidl")]
 impl IProvideClassInfo_Vtbl {
@@ -3649,7 +3769,13 @@ impl IProvideClassInfo_Vtbl {
         unsafe extern "system" fn GetClassInfo<Identity: IProvideClassInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppti: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProvideClassInfo_Impl::GetClassInfo(this, core::mem::transmute_copy(&ppti)).into()
+                match IProvideClassInfo_Impl::GetClassInfo(this) {
+                    Ok(ok__) => {
+                        ppti.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClassInfo: GetClassInfo::<Identity, OFFSET> }

@@ -700,7 +700,7 @@ mod Windows {
             fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumApplicationsInProcess, indirect, nullable)] #[writable(success, *NumApplicationsInProcess, indirect, nullable)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
             fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumComponentsInProcess, indirect, nullable)] #[writable(success, *NumComponentsInProcess, indirect, nullable)] Components: *mut *mut ComponentSummary) -> HRESULT;
             fn GetComponentDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Clsid: &IID, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ComponentSummary, #[opt] #[out] Statistics: *mut ComponentStatistics, #[opt] #[out] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
-            fn GetTrackerDataAsCollectionObject(&self, #[out] #[out_ptr] TopLevelCollection: *mut IUnknown) -> HRESULT;
+            fn GetTrackerDataAsCollectionObject(&self, #[out] #[out_ptr] #[retval] TopLevelCollection: *mut IUnknown) -> HRESULT;
             fn GetSuggestedPollingInterval(&self, #[out] PollingIntervalInSeconds: *mut DWORD) -> HRESULT;
         }
         #[guid(0x51372af4_cae7_11cf_be81_00aa00a2fa25)]
@@ -810,7 +810,7 @@ mod Windows {
         interface IMtsGrp: IDispatch {
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] lIndex: i32, #[out] #[out_ptr] ppUnkDispatcher: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] lIndex: i32, #[out] #[out_ptr] #[retval] ppUnkDispatcher: *mut IUnknown) -> HRESULT;
             fn Refresh(&self) -> HRESULT;
         }
         type INSTID = usize;

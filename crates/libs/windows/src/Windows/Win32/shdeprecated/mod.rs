@@ -81,8 +81,11 @@ windows_core::imp::define_interface!(IBrowserService, IBrowserService_Vtbl, 0x02
 windows_core::imp::interface_hierarchy!(IBrowserService, windows_core::IUnknown);
 impl IBrowserService {
     #[cfg(feature = "oleidl")]
-    pub unsafe fn GetParentSite(&self, ppipsite: *mut Option<super::IOleInPlaceSite>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetParentSite)(windows_core::Interface::as_raw(self), core::mem::transmute(ppipsite)) }
+    pub unsafe fn GetParentSite(&self) -> windows_core::Result<super::IOleInPlaceSite> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetParentSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
     pub unsafe fn SetTitle<P0, P1>(&self, psv: P0, pszname: P1) -> windows_core::HRESULT
@@ -100,11 +103,17 @@ impl IBrowserService {
         unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname, cchname) }
     }
     #[cfg(feature = "oleidl")]
-    pub unsafe fn GetOleObject(&self, ppobjv: *mut Option<super::IOleObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOleObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppobjv)) }
+    pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::IOleObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOleObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetTravelLog(&self, pptl: *mut Option<ITravelLog>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTravelLog)(windows_core::Interface::as_raw(self), core::mem::transmute(pptl)) }
+    pub unsafe fn GetTravelLog(&self) -> windows_core::Result<ITravelLog> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTravelLog)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ShowControlWindow(&self, id: super::UINT, fshow: bool) -> windows_core::HRESULT {
@@ -178,12 +187,18 @@ impl IBrowserService {
         unsafe { (windows_core::Interface::vtable(self).GetBrowserIndex)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetBrowserByIndex(&self, dwid: super::DWORD, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, core::mem::transmute(ppunk)) }
+    pub unsafe fn GetBrowserByIndex(&self, dwid: super::DWORD) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "oleidl"))]
-    pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::IOleObject>, pstm: *mut Option<super::IStream>, ppbc: *mut Option<super::IBindCtx>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), core::mem::transmute(ppbc)) }
+    pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::IOleObject>, pstm: *mut Option<super::IStream>) -> windows_core::Result<super::IBindCtx> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn SetHistoryObject<P0>(&self, pole: P0, fislocalanchor: bool) -> windows_core::HRESULT
@@ -321,11 +336,11 @@ pub struct IBrowserService_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
-    fn GetParentSite(&self, ppipsite: windows_core::OutRef<super::IOleInPlaceSite>) -> windows_core::Result<()>;
+    fn GetParentSite(&self) -> windows_core::Result<super::IOleInPlaceSite>;
     fn SetTitle(&self, psv: windows_core::Ref<super::IShellView>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetTitle(&self, psv: windows_core::Ref<super::IShellView>, pszname: windows_core::PWSTR, cchname: super::DWORD) -> windows_core::Result<()>;
-    fn GetOleObject(&self, ppobjv: windows_core::OutRef<super::IOleObject>) -> windows_core::Result<()>;
-    fn GetTravelLog(&self, pptl: windows_core::OutRef<ITravelLog>) -> windows_core::Result<()>;
+    fn GetOleObject(&self) -> windows_core::Result<super::IOleObject>;
+    fn GetTravelLog(&self) -> windows_core::Result<ITravelLog>;
     fn ShowControlWindow(&self, id: super::UINT, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsControlWindowShown(&self, id: super::UINT, pfshown: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn IEGetDisplayName(&self, pidl: super::LPCITEMIDLIST, pwszname: windows_core::PWSTR, uflags: super::UINT) -> windows_core::Result<()>;
@@ -343,8 +358,8 @@ pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetPidl(&self, ppidl: *mut super::LPITEMIDLIST) -> windows_core::Result<()>;
     fn SetReferrer(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
     fn GetBrowserIndex(&self) -> super::DWORD;
-    fn GetBrowserByIndex(&self, dwid: super::DWORD, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetHistoryObject(&self, ppole: windows_core::OutRef<super::IOleObject>, pstm: windows_core::OutRef<super::IStream>, ppbc: windows_core::OutRef<super::IBindCtx>) -> windows_core::Result<()>;
+    fn GetBrowserByIndex(&self, dwid: super::DWORD) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetHistoryObject(&self, ppole: windows_core::OutRef<super::IOleObject>, pstm: windows_core::OutRef<super::IStream>) -> windows_core::Result<super::IBindCtx>;
     fn SetHistoryObject(&self, pole: windows_core::Ref<super::IOleObject>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
     fn CacheOLEServer(&self, pole: windows_core::Ref<super::IOleObject>) -> windows_core::Result<()>;
     fn GetSetCodePage(&self, pvarin: *const super::VARIANT, pvarout: *mut super::VARIANT) -> windows_core::Result<()>;
@@ -358,7 +373,13 @@ impl IBrowserService_Vtbl {
         unsafe extern "system" fn GetParentSite<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppipsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::GetParentSite(this, core::mem::transmute_copy(&ppipsite)).into()
+                match IBrowserService_Impl::GetParentSite(this) {
+                    Ok(ok__) => {
+                        ppipsite.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetTitle<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -376,13 +397,25 @@ impl IBrowserService_Vtbl {
         unsafe extern "system" fn GetOleObject<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobjv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::GetOleObject(this, core::mem::transmute_copy(&ppobjv)).into()
+                match IBrowserService_Impl::GetOleObject(this) {
+                    Ok(ok__) => {
+                        ppobjv.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetTravelLog<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::GetTravelLog(this, core::mem::transmute_copy(&pptl)).into()
+                match IBrowserService_Impl::GetTravelLog(this) {
+                    Ok(ok__) => {
+                        pptl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ShowControlWindow<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::UINT, fshow: windows_core::BOOL) -> windows_core::HRESULT {
@@ -490,13 +523,25 @@ impl IBrowserService_Vtbl {
         unsafe extern "system" fn GetBrowserByIndex<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: super::DWORD, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::GetBrowserByIndex(this, core::mem::transmute_copy(&dwid), core::mem::transmute_copy(&ppunk)).into()
+                match IBrowserService_Impl::GetBrowserByIndex(this, core::mem::transmute_copy(&dwid)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetHistoryObject<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppole: *mut *mut core::ffi::c_void, pstm: *mut *mut core::ffi::c_void, ppbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::GetHistoryObject(this, core::mem::transmute_copy(&ppole), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&ppbc)).into()
+                match IBrowserService_Impl::GetHistoryObject(this, core::mem::transmute_copy(&ppole), core::mem::transmute_copy(&pstm)) {
+                    Ok(ok__) => {
+                        ppbc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetHistoryObject<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pole: *mut core::ffi::c_void, fislocalanchor: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1680,8 +1725,11 @@ windows_core::imp::define_interface!(IExpDispSupport, IExpDispSupport_Vtbl, 0x0d
 windows_core::imp::interface_hierarchy!(IExpDispSupport, windows_core::IUnknown);
 impl IExpDispSupport {
     #[cfg(all(feature = "guiddef", feature = "ocidl"))]
-    pub unsafe fn FindConnectionPoint(&self, riid: *const super::IID, ppccp: *mut Option<super::IConnectionPoint>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindConnectionPoint)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppccp)) }
+    pub unsafe fn FindConnectionPoint(&self, riid: *const super::IID) -> windows_core::Result<super::IConnectionPoint> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindConnectionPoint)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
     pub unsafe fn OnTranslateAccelerator(&self, pmsg: *const super::MSG, grfmodifiers: super::DWORD) -> windows_core::HRESULT {
@@ -1711,7 +1759,7 @@ pub struct IExpDispSupport_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IExpDispSupport_Impl: windows_core::IUnknownImpl {
-    fn FindConnectionPoint(&self, riid: *const super::IID, ppccp: windows_core::OutRef<super::IConnectionPoint>) -> windows_core::Result<()>;
+    fn FindConnectionPoint(&self, riid: *const super::IID) -> windows_core::Result<super::IConnectionPoint>;
     fn OnTranslateAccelerator(&self, pmsg: *const super::MSG, grfmodifiers: super::DWORD) -> windows_core::Result<()>;
     fn OnInvoke(&self, dispidmember: super::DISPID, iid: *const super::IID, lcid: super::LCID, wflags: super::WORD, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::Result<()>;
 }
@@ -1721,7 +1769,13 @@ impl IExpDispSupport_Vtbl {
         unsafe extern "system" fn FindConnectionPoint<Identity: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppccp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExpDispSupport_Impl::FindConnectionPoint(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppccp)).into()
+                match IExpDispSupport_Impl::FindConnectionPoint(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppccp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OnTranslateAccelerator<Identity: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *const super::MSG, grfmodifiers: super::DWORD) -> windows_core::HRESULT {
@@ -1958,11 +2012,14 @@ impl ITravelLog {
         unsafe { (windows_core::Interface::vtable(self).GetTravelEntry)(windows_core::Interface::as_raw(self), punk.param().abi(), ioffset, ppte.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
-    pub unsafe fn FindTravelEntry<P0>(&self, punk: P0, pidl: super::LPCITEMIDLIST, ppte: *mut Option<ITravelEntry>) -> windows_core::HRESULT
+    pub unsafe fn FindTravelEntry<P0>(&self, punk: P0, pidl: super::LPCITEMIDLIST) -> windows_core::Result<ITravelEntry>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindTravelEntry)(windows_core::Interface::as_raw(self), punk.param().abi(), pidl, core::mem::transmute(ppte)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindTravelEntry)(windows_core::Interface::as_raw(self), punk.param().abi(), pidl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetToolTipText<P0>(&self, punk: P0, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: super::DWORD) -> windows_core::HRESULT
@@ -1978,8 +2035,11 @@ impl ITravelLog {
     {
         unsafe { (windows_core::Interface::vtable(self).InsertMenuEntries)(windows_core::Interface::as_raw(self), punk.param().abi(), hmenu, npos, idfirst, idlast, dwflags) }
     }
-    pub unsafe fn Clone(&self, pptl: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(pptl)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CountEntries<P0>(&self, punk: P0) -> super::DWORD
@@ -2027,10 +2087,10 @@ pub trait ITravelLog_Impl: windows_core::IUnknownImpl {
     fn UpdateExternal(&self, punk: windows_core::Ref<windows_core::IUnknown>, punkhlbrowsecontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Travel(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32) -> windows_core::Result<()>;
     fn GetTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32, ppte: windows_core::OutRef<ITravelEntry>) -> windows_core::Result<()>;
-    fn FindTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, pidl: super::LPCITEMIDLIST, ppte: windows_core::OutRef<ITravelEntry>) -> windows_core::Result<()>;
+    fn FindTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, pidl: super::LPCITEMIDLIST) -> windows_core::Result<ITravelEntry>;
     fn GetToolTipText(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: super::DWORD) -> windows_core::Result<()>;
     fn InsertMenuEntries(&self, punk: windows_core::Ref<windows_core::IUnknown>, hmenu: super::HMENU, npos: i32, idfirst: i32, idlast: i32, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn Clone(&self, pptl: windows_core::OutRef<ITravelLog>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<ITravelLog>;
     fn CountEntries(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> super::DWORD;
     fn Revert(&self) -> windows_core::Result<()>;
 }
@@ -2070,7 +2130,13 @@ impl ITravelLog_Vtbl {
         unsafe extern "system" fn FindTravelEntry<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, ppte: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITravelLog_Impl::FindTravelEntry(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&ppte)).into()
+                match ITravelLog_Impl::FindTravelEntry(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&pidl)) {
+                    Ok(ok__) => {
+                        ppte.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetToolTipText<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: super::DWORD) -> windows_core::HRESULT {
@@ -2088,7 +2154,13 @@ impl ITravelLog_Vtbl {
         unsafe extern "system" fn Clone<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITravelLog_Impl::Clone(this, core::mem::transmute_copy(&pptl)).into()
+                match ITravelLog_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        pptl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CountEntries<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> super::DWORD {

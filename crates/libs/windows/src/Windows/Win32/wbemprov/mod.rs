@@ -132,11 +132,14 @@ windows_core::imp::define_interface!(IWbemEventConsumerProvider, IWbemEventConsu
 windows_core::imp::interface_hierarchy!(IWbemEventConsumerProvider, windows_core::IUnknown);
 impl IWbemEventConsumerProvider {
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn FindConsumer<P0>(&self, plogicalconsumer: P0, ppconsumer: *mut Option<IWbemUnboundObjectSink>) -> windows_core::HRESULT
+    pub unsafe fn FindConsumer<P0>(&self, plogicalconsumer: P0) -> windows_core::Result<IWbemUnboundObjectSink>
     where
         P0: windows_core::Param<super::IWbemClassObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindConsumer)(windows_core::Interface::as_raw(self), plogicalconsumer.param().abi(), core::mem::transmute(ppconsumer)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindConsumer)(windows_core::Interface::as_raw(self), plogicalconsumer.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -150,7 +153,7 @@ pub struct IWbemEventConsumerProvider_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemEventConsumerProvider_Impl: windows_core::IUnknownImpl {
-    fn FindConsumer(&self, plogicalconsumer: windows_core::Ref<super::IWbemClassObject>, ppconsumer: windows_core::OutRef<IWbemUnboundObjectSink>) -> windows_core::Result<()>;
+    fn FindConsumer(&self, plogicalconsumer: windows_core::Ref<super::IWbemClassObject>) -> windows_core::Result<IWbemUnboundObjectSink>;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemEventConsumerProvider_Vtbl {
@@ -158,7 +161,13 @@ impl IWbemEventConsumerProvider_Vtbl {
         unsafe extern "system" fn FindConsumer<Identity: IWbemEventConsumerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plogicalconsumer: *mut core::ffi::c_void, ppconsumer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventConsumerProvider_Impl::FindConsumer(this, core::mem::transmute_copy(&plogicalconsumer), core::mem::transmute_copy(&ppconsumer)).into()
+                match IWbemEventConsumerProvider_Impl::FindConsumer(this, core::mem::transmute_copy(&plogicalconsumer)) {
+                    Ok(ok__) => {
+                        ppconsumer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindConsumer: FindConsumer::<Identity, OFFSET> }
@@ -314,11 +323,14 @@ impl IWbemEventSink {
     pub unsafe fn IsActive(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetRestrictedSink<P2>(&self, awszqueries: &[windows_core::PCWSTR], pcallback: P2, ppsink: *mut Option<Self>) -> windows_core::HRESULT
+    pub unsafe fn GetRestrictedSink<P2>(&self, awszqueries: &[windows_core::PCWSTR], pcallback: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRestrictedSink)(windows_core::Interface::as_raw(self), awszqueries.len().try_into().unwrap(), awszqueries.as_ptr(), pcallback.param().abi(), core::mem::transmute(ppsink)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRestrictedSink)(windows_core::Interface::as_raw(self), awszqueries.len().try_into().unwrap(), awszqueries.as_ptr(), pcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetBatchingParameters(&self, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::HRESULT {
@@ -345,7 +357,7 @@ pub struct IWbemEventSink_Vtbl {
 pub trait IWbemEventSink_Impl: super::IWbemObjectSink_Impl {
     fn SetSinkSecurity(&self, lsdlength: i32, psd: *const super::BYTE) -> windows_core::Result<()>;
     fn IsActive(&self) -> windows_core::Result<()>;
-    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: windows_core::Ref<windows_core::IUnknown>, ppsink: windows_core::OutRef<IWbemEventSink>) -> windows_core::Result<()>;
+    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IWbemEventSink>;
     fn SetBatchingParameters(&self, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]
@@ -366,7 +378,13 @@ impl IWbemEventSink_Vtbl {
         unsafe extern "system" fn GetRestrictedSink<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventSink_Impl::GetRestrictedSink(this, core::mem::transmute_copy(&lnumqueries), core::mem::transmute_copy(&awszqueries), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&ppsink)).into()
+                match IWbemEventSink_Impl::GetRestrictedSink(this, core::mem::transmute_copy(&lnumqueries), core::mem::transmute_copy(&awszqueries), core::mem::transmute_copy(&pcallback)) {
+                    Ok(ok__) => {
+                        ppsink.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetBatchingParameters<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::HRESULT {

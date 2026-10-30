@@ -574,15 +574,15 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHCreateShellPalette(#[in] #[opt] hdc: HDC) -> HPALETTE;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileA(#[in] pszFile: LPCSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileA(#[in] pszFile: LPCSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileEx(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[in] dwAttributes: DWORD, #[in] fCreate: BOOL, #[in] #[opt] pstmTemplate: IStream, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileEx(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[in] dwAttributes: DWORD, #[in] fCreate: BOOL, #[in] #[opt] pstmTemplate: IStream, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileW(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileW(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHCreateThread(#[in] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, #[in] flags: SHCT_FLAGS, #[in] #[opt] pfnCallback: LPTHREAD_START_ROUTINE) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut LONG, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut LONG, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHCreateThreadWithHandle(#[in] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, #[in] flags: SHCT_FLAGS, #[in] #[opt] pfnCallback: LPTHREAD_START_ROUTINE, #[opt] #[out] pHandle: *mut HANDLE) -> BOOL;
         #[library("SHLWAPI.dll")]

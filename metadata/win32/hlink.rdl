@@ -199,7 +199,7 @@ mod Windows {
         #[guid(0x79eac9c5_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkFrame: IUnknown {
             fn SetBrowseContext(&self, #[in] #[opt] pihlbc: IHlinkBrowseContext) -> HRESULT;
-            fn GetBrowseContext(&self, #[out] #[out_ptr] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, #[out] #[out_ptr] #[retval] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
             fn Navigate(&self, #[in] grfHLNF: DWORD, #[in] #[opt] pbc: LPBC, #[in] #[opt] pibsc: IBindStatusCallback, #[in] #[opt] pihlNavigate: IHlink) -> HRESULT;
             fn OnNavigate(&self, #[in] grfHLNF: DWORD, #[in] #[opt] pimkTarget: IMoniker, #[in] #[opt] pwzLocation: LPCWSTR, #[in] #[opt] pwzFriendlyName: LPCWSTR, #[in] dwreserved: DWORD) -> HRESULT;
             fn UpdateHlink(&self, #[in] uHLID: ULONG, #[in] #[opt] pimkTarget: IMoniker, #[in] #[opt] pwzLocation: LPCWSTR, #[in] #[opt] pwzFriendlyName: LPCWSTR) -> HRESULT;
@@ -207,16 +207,16 @@ mod Windows {
         #[guid(0x79eac9c2_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkSite: IUnknown {
             fn QueryService(&self, #[in] dwSiteData: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppiunk: *mut IUnknown) -> HRESULT;
-            fn GetMoniker(&self, #[in] dwSiteData: DWORD, #[in] dwAssign: DWORD, #[in] dwWhich: DWORD, #[out] #[out_ptr] ppimk: *mut IMoniker) -> HRESULT;
+            fn GetMoniker(&self, #[in] dwSiteData: DWORD, #[in] dwAssign: DWORD, #[in] dwWhich: DWORD, #[out] #[out_ptr] #[retval] ppimk: *mut IMoniker) -> HRESULT;
             fn ReadyToNavigate(&self, #[in] dwSiteData: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
             fn OnNavigationComplete(&self, #[in] dwSiteData: DWORD, #[in] dwreserved: DWORD, #[in] hrError: HRESULT, #[in] #[opt] pwzError: LPCWSTR) -> HRESULT;
         }
         #[guid(0x79eac9c4_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkTarget: IUnknown {
             fn SetBrowseContext(&self, #[in] #[opt] pihlbc: IHlinkBrowseContext) -> HRESULT;
-            fn GetBrowseContext(&self, #[out] #[out_ptr] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, #[out] #[out_ptr] #[retval] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
             fn Navigate(&self, #[in] grfHLNF: DWORD, #[in] #[opt] pwzJumpLocation: LPCWSTR) -> HRESULT;
-            fn GetMoniker(&self, #[in] #[opt] pwzLocation: LPCWSTR, #[in] dwAssign: DWORD, #[out] #[out_ptr] ppimkLocation: *mut IMoniker) -> HRESULT;
+            fn GetMoniker(&self, #[in] #[opt] pwzLocation: LPCWSTR, #[in] dwAssign: DWORD, #[out] #[out_ptr] #[retval] ppimkLocation: *mut IMoniker) -> HRESULT;
             fn GetFriendlyName(&self, #[in] #[opt] pwzLocation: LPCWSTR, #[out] #[out_ptr] ppwzFriendlyName: *mut LPWSTR) -> HRESULT;
         }
         type LPENUMHLITEM = IEnumHLITEM;

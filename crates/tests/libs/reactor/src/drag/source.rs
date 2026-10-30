@@ -2,7 +2,7 @@ use super::*;
 use std::cell::Cell;
 use std::sync::atomic::AtomicU32;
 use std::time::{Duration, Instant};
-use windows_core::{BOOL, Error, Interface, OutRef, Ref, Result};
+use windows_core::{BOOL, Error, Interface, Ref, Result};
 
 #[allow(
     dead_code,
@@ -291,14 +291,14 @@ impl IDataObject_Impl for TextData_Impl {
         Err(Error::from_hresult(E_NOTIMPL))
     }
 
-    fn EnumFormatEtc(&self, direction: u32, output: OutRef<IEnumFORMATETC>) -> Result<()> {
+    fn EnumFormatEtc(&self, direction: u32) -> Result<IEnumFORMATETC> {
         if direction != DATADIR_GET as u32 {
             return Err(Error::from_hresult(E_NOTIMPL));
         }
         unsafe {
             let mut raw = std::ptr::null_mut();
             SHCreateStdEnumFmtEtc(1, &format(), &mut raw).ok()?;
-            output.write(Some(IEnumFORMATETC::from_raw(raw)))
+            Ok(IEnumFORMATETC::from_raw(raw))
         }
     }
 
@@ -310,7 +310,7 @@ impl IDataObject_Impl for TextData_Impl {
         Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
     }
 
-    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
         Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
     }
 }

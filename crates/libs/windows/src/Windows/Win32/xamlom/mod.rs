@@ -344,8 +344,11 @@ impl IVisualTreeService2 {
     pub unsafe fn ReplaceResource(&self, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReplaceResource)(windows_core::Interface::as_raw(self), resourcedictionary, key, newvalue) }
     }
-    pub unsafe fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut Option<IBitmapData>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RenderTargetBitmap)(windows_core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, core::mem::transmute(ppbitmapdata)) }
+    pub unsafe fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> windows_core::Result<IBitmapData> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RenderTargetBitmap)(windows_core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -362,7 +365,7 @@ pub trait IVisualTreeService2_Impl: IVisualTreeService_Impl {
     fn GetPropertyIndex(&self, object: InstanceHandle, propertyname: &windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::Result<()>;
     fn GetProperty(&self, object: InstanceHandle, propertyindex: u32, pvalue: *mut InstanceHandle) -> windows_core::Result<()>;
     fn ReplaceResource(&self, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::Result<()>;
-    fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: windows_core::OutRef<IBitmapData>) -> windows_core::Result<()>;
+    fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> windows_core::Result<IBitmapData>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService2_Vtbl {
@@ -388,7 +391,13 @@ impl IVisualTreeService2_Vtbl {
         unsafe extern "system" fn RenderTargetBitmap<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService2_Impl::RenderTargetBitmap(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&options), core::mem::transmute_copy(&maxpixelwidth), core::mem::transmute_copy(&maxpixelheight), core::mem::transmute_copy(&ppbitmapdata)).into()
+                match IVisualTreeService2_Impl::RenderTargetBitmap(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&options), core::mem::transmute_copy(&maxpixelwidth), core::mem::transmute_copy(&maxpixelheight)) {
+                    Ok(ok__) => {
+                        ppbitmapdata.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

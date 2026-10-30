@@ -168,12 +168,14 @@ impl IFileDialog {
             )
         }
     }
-    pub(crate) unsafe fn GetResult(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
+    pub(crate) unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResult)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(ppsi),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn SetDefaultExtension<P0>(
@@ -283,15 +285,14 @@ windows_core::imp::interface_hierarchy!(
     IFileDialog
 );
 impl IFileOpenDialog {
-    pub(crate) unsafe fn GetResults(
-        &self,
-        ppenum: *mut Option<IShellItemArray>,
-    ) -> windows_core::HRESULT {
+    pub(crate) unsafe fn GetResults(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResults)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(ppenum),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -429,17 +430,15 @@ impl IShellItemArray {
             )
         }
     }
-    pub(crate) unsafe fn GetItemAt(
-        &self,
-        dwindex: DWORD,
-        ppsi: *mut Option<IShellItem>,
-    ) -> windows_core::HRESULT {
+    pub(crate) unsafe fn GetItemAt(&self, dwindex: DWORD) -> windows_core::Result<IShellItem> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemAt)(
                 windows_core::Interface::as_raw(self),
                 dwindex,
-                core::mem::transmute(ppsi),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

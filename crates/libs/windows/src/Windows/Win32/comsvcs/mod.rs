@@ -5467,8 +5467,11 @@ impl IGetAppTrackerData {
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: super::DWORD, clsid: *const super::IID, flags: super::DWORD, summary: Option<*mut ComponentSummary>, statistics: Option<*mut ComponentStatistics>, hangmonitorinfo: Option<*mut ComponentHangMonitorInfo>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, clsid, flags, summary.unwrap_or(core::mem::zeroed()) as _, statistics.unwrap_or(core::mem::zeroed()) as _, hangmonitorinfo.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetTrackerDataAsCollectionObject(&self, toplevelcollection: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTrackerDataAsCollectionObject)(windows_core::Interface::as_raw(self), core::mem::transmute(toplevelcollection)) }
+    pub unsafe fn GetTrackerDataAsCollectionObject(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTrackerDataAsCollectionObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSuggestedPollingInterval(&self, pollingintervalinseconds: *mut super::DWORD) -> windows_core::HRESULT {
@@ -5512,7 +5515,7 @@ pub trait IGetAppTrackerData_Impl: windows_core::IUnknownImpl {
     fn GetApplicationsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: super::DWORD, partitionid: *const windows_core::GUID, flags: super::DWORD, numapplicationsinprocess: *mut super::ULONG, applications: *mut *mut ApplicationSummary) -> windows_core::Result<()>;
     fn GetComponentsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: super::DWORD, partitionid: *const windows_core::GUID, applicationid: *const windows_core::GUID, flags: super::DWORD, numcomponentsinprocess: *mut super::ULONG, components: *mut *mut ComponentSummary) -> windows_core::Result<()>;
     fn GetComponentDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: super::DWORD, clsid: *const super::IID, flags: super::DWORD, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> windows_core::Result<()>;
-    fn GetTrackerDataAsCollectionObject(&self, toplevelcollection: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetTrackerDataAsCollectionObject(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetSuggestedPollingInterval(&self, pollingintervalinseconds: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
@@ -5551,7 +5554,13 @@ impl IGetAppTrackerData_Vtbl {
         unsafe extern "system" fn GetTrackerDataAsCollectionObject<Identity: IGetAppTrackerData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, toplevelcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetAppTrackerData_Impl::GetTrackerDataAsCollectionObject(this, core::mem::transmute_copy(&toplevelcollection)).into()
+                match IGetAppTrackerData_Impl::GetTrackerDataAsCollectionObject(this) {
+                    Ok(ok__) => {
+                        toplevelcollection.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSuggestedPollingInterval<Identity: IGetAppTrackerData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pollingintervalinseconds: *mut super::DWORD) -> windows_core::HRESULT {
@@ -6728,8 +6737,11 @@ impl IMtsGrp {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Item(&self, lindex: i32, ppunkdispatcher: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute(ppunkdispatcher)) }
+    pub unsafe fn Item(&self, lindex: i32) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
@@ -6747,7 +6759,7 @@ pub struct IMtsGrp_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMtsGrp_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Item(&self, lindex: i32, ppunkdispatcher: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Item(&self, lindex: i32) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6768,7 +6780,13 @@ impl IMtsGrp_Vtbl {
         unsafe extern "system" fn Item<Identity: IMtsGrp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, ppunkdispatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMtsGrp_Impl::Item(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ppunkdispatcher)).into()
+                match IMtsGrp_Impl::Item(this, core::mem::transmute_copy(&lindex)) {
+                    Ok(ok__) => {
+                        ppunkdispatcher.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Refresh<Identity: IMtsGrp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

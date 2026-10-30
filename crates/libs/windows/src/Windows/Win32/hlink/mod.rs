@@ -1061,8 +1061,11 @@ impl IHlinkFrame {
     {
         unsafe { (windows_core::Interface::vtable(self).SetBrowseContext)(windows_core::Interface::as_raw(self), pihlbc.param().abi()) }
     }
-    pub unsafe fn GetBrowseContext(&self, ppihlbc: *mut Option<IHlinkBrowseContext>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), core::mem::transmute(ppihlbc)) }
+    pub unsafe fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "urlmon"))]
     pub unsafe fn Navigate<P1, P2, P3>(&self, grfhlnf: super::DWORD, pbc: P1, pibsc: P2, pihlnavigate: P3) -> windows_core::HRESULT
@@ -1114,7 +1117,7 @@ pub struct IHlinkFrame_Vtbl {
 #[cfg(all(feature = "objidl", feature = "shared", feature = "urlmon"))]
 pub trait IHlinkFrame_Impl: windows_core::IUnknownImpl {
     fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
-    fn GetBrowseContext(&self, ppihlbc: windows_core::OutRef<IHlinkBrowseContext>) -> windows_core::Result<()>;
+    fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
     fn Navigate(&self, grfhlnf: super::DWORD, pbc: windows_core::Ref<super::LPBC>, pibsc: windows_core::Ref<super::IBindStatusCallback>, pihlnavigate: windows_core::Ref<IHlink>) -> windows_core::Result<()>;
     fn OnNavigate(&self, grfhlnf: super::DWORD, pimktarget: windows_core::Ref<super::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR, dwreserved: super::DWORD) -> windows_core::Result<()>;
     fn UpdateHlink(&self, uhlid: super::ULONG, pimktarget: windows_core::Ref<super::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1131,7 +1134,13 @@ impl IHlinkFrame_Vtbl {
         unsafe extern "system" fn GetBrowseContext<Identity: IHlinkFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppihlbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHlinkFrame_Impl::GetBrowseContext(this, core::mem::transmute_copy(&ppihlbc)).into()
+                match IHlinkFrame_Impl::GetBrowseContext(this) {
+                    Ok(ok__) => {
+                        ppihlbc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Navigate<Identity: IHlinkFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfhlnf: super::DWORD, pbc: *mut core::ffi::c_void, pibsc: *mut core::ffi::c_void, pihlnavigate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1175,8 +1184,11 @@ impl IHlinkSite {
         unsafe { (windows_core::Interface::vtable(self).QueryService)(windows_core::Interface::as_raw(self), dwsitedata, guidservice, riid, core::mem::transmute(ppiunk)) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetMoniker(&self, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD, ppimk: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwsitedata, dwassign, dwwhich, core::mem::transmute(ppimk)) }
+    pub unsafe fn GetMoniker(&self, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD) -> windows_core::Result<super::IMoniker> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwsitedata, dwassign, dwwhich, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReadyToNavigate(&self, dwsitedata: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
@@ -1214,7 +1226,7 @@ pub struct IHlinkSite_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
 pub trait IHlinkSite_Impl: windows_core::IUnknownImpl {
     fn QueryService(&self, dwsitedata: super::DWORD, guidservice: *const windows_core::GUID, riid: *const super::IID, ppiunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetMoniker(&self, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD, ppimk: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn GetMoniker(&self, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD) -> windows_core::Result<super::IMoniker>;
     fn ReadyToNavigate(&self, dwsitedata: super::DWORD, dwreserved: super::DWORD) -> windows_core::Result<()>;
     fn OnNavigationComplete(&self, dwsitedata: super::DWORD, dwreserved: super::DWORD, hrerror: windows_core::HRESULT, pwzerror: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -1230,7 +1242,13 @@ impl IHlinkSite_Vtbl {
         unsafe extern "system" fn GetMoniker<Identity: IHlinkSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD, ppimk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHlinkSite_Impl::GetMoniker(this, core::mem::transmute_copy(&dwsitedata), core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhich), core::mem::transmute_copy(&ppimk)).into()
+                match IHlinkSite_Impl::GetMoniker(this, core::mem::transmute_copy(&dwsitedata), core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhich)) {
+                    Ok(ok__) => {
+                        ppimk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadyToNavigate<Identity: IHlinkSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsitedata: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
@@ -1268,8 +1286,11 @@ impl IHlinkTarget {
     {
         unsafe { (windows_core::Interface::vtable(self).SetBrowseContext)(windows_core::Interface::as_raw(self), pihlbc.param().abi()) }
     }
-    pub unsafe fn GetBrowseContext(&self, ppihlbc: *mut Option<IHlinkBrowseContext>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), core::mem::transmute(ppihlbc)) }
+    pub unsafe fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Navigate<P1>(&self, grfhlnf: super::DWORD, pwzjumplocation: P1) -> windows_core::HRESULT
@@ -1279,11 +1300,14 @@ impl IHlinkTarget {
         unsafe { (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), grfhlnf, pwzjumplocation.param().abi()) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetMoniker<P0>(&self, pwzlocation: P0, dwassign: super::DWORD, ppimklocation: *mut Option<super::IMoniker>) -> windows_core::HRESULT
+    pub unsafe fn GetMoniker<P0>(&self, pwzlocation: P0, dwassign: super::DWORD) -> windows_core::Result<super::IMoniker>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), pwzlocation.param().abi(), dwassign, core::mem::transmute(ppimklocation)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), pwzlocation.param().abi(), dwassign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetFriendlyName<P0>(&self, pwzlocation: P0, ppwzfriendlyname: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
@@ -1311,9 +1335,9 @@ pub struct IHlinkTarget_Vtbl {
 #[cfg(all(feature = "objidl", feature = "shared"))]
 pub trait IHlinkTarget_Impl: windows_core::IUnknownImpl {
     fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
-    fn GetBrowseContext(&self, ppihlbc: windows_core::OutRef<IHlinkBrowseContext>) -> windows_core::Result<()>;
+    fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
     fn Navigate(&self, grfhlnf: super::DWORD, pwzjumplocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetMoniker(&self, pwzlocation: &windows_core::PCWSTR, dwassign: super::DWORD, ppimklocation: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn GetMoniker(&self, pwzlocation: &windows_core::PCWSTR, dwassign: super::DWORD) -> windows_core::Result<super::IMoniker>;
     fn GetFriendlyName(&self, pwzlocation: &windows_core::PCWSTR, ppwzfriendlyname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -1328,7 +1352,13 @@ impl IHlinkTarget_Vtbl {
         unsafe extern "system" fn GetBrowseContext<Identity: IHlinkTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppihlbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHlinkTarget_Impl::GetBrowseContext(this, core::mem::transmute_copy(&ppihlbc)).into()
+                match IHlinkTarget_Impl::GetBrowseContext(this) {
+                    Ok(ok__) => {
+                        ppihlbc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Navigate<Identity: IHlinkTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfhlnf: super::DWORD, pwzjumplocation: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1340,7 +1370,13 @@ impl IHlinkTarget_Vtbl {
         unsafe extern "system" fn GetMoniker<Identity: IHlinkTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzlocation: windows_core::PCWSTR, dwassign: super::DWORD, ppimklocation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHlinkTarget_Impl::GetMoniker(this, core::mem::transmute(&pwzlocation), core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&ppimklocation)).into()
+                match IHlinkTarget_Impl::GetMoniker(this, core::mem::transmute(&pwzlocation), core::mem::transmute_copy(&dwassign)) {
+                    Ok(ok__) => {
+                        ppimklocation.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetFriendlyName<Identity: IHlinkTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzlocation: windows_core::PCWSTR, ppwzfriendlyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {

@@ -20,9 +20,7 @@ fn main() -> windows_core::Result<()> {
         dialog.SetFileTypes(&filters).ok()?;
 
         if dialog.Show(None).is_ok() {
-            let mut result = None;
-            dialog.GetResult(&mut result).ok()?;
-            let result = result.unwrap();
+            let result = dialog.GetResult()?;
             let mut path = windows_core::PWSTR::null();
             result.GetDisplayName(SIGDN_FILESYSPATH, &mut path).ok()?;
             println!("user picked: {}", path.display());

@@ -158,7 +158,7 @@ mod Windows {
             fn GetThreadPoolInfo(&self, #[out] pPoolInfo: *mut SPTMTHREADINFO) -> HRESULT;
             fn QueueTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[in] #[out] pdwGroupId: *mut DWORD, #[out] pTaskID: *mut DWORD) -> HRESULT;
             fn CreateReoccurringTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[out] ppTaskCtrl: *mut ISpNotifySink) -> HRESULT;
-            fn CreateThreadControl(&self, #[in] pTask: ISpThreadTask, #[in] pvTaskData: *mut void, #[in] nPriority: i32, #[out] #[out_ptr] ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
+            fn CreateThreadControl(&self, #[in] pTask: ISpThreadTask, #[in] pvTaskData: *mut void, #[in] nPriority: i32, #[out] #[out_ptr] #[retval] ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
             fn TerminateTask(&self, #[in] dwTaskId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
             fn TerminateTaskGroup(&self, #[in] dwGroupId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
         }

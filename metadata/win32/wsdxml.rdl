@@ -58,7 +58,7 @@ mod Windows {
         type PCWSDXML_NAMESPACE = *const _WSDXML_NAMESPACE;
         type PCWSDXML_TYPE = *const _WSDXML_TYPE;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLCreateContext(#[out] #[out_ptr] ppContext: *mut IWSDXMLContext) -> HRESULT;
+        extern fn WSDXMLCreateContext(#[out] #[out_ptr] #[retval] ppContext: *mut IWSDXMLContext) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDXMLGetNameFromBuiltinNamespace(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, #[out] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
         struct WSD_DATETIME {

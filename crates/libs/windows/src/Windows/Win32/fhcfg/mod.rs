@@ -48,8 +48,11 @@ impl IFhConfigMgr {
     pub unsafe fn AddRemoveExcludeRule(&self, add: bool, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.into(), category, core::mem::transmute_copy(item)) }
     }
-    pub unsafe fn GetIncludeExcludeRules(&self, include: bool, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut Option<IFhScopeIterator>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), category, core::mem::transmute(iterator)) }
+    pub unsafe fn GetIncludeExcludeRules(&self, include: bool, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), category, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -65,8 +68,11 @@ impl IFhConfigMgr {
     pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBackupStatus)(windows_core::Interface::as_raw(self), backupstatus) }
     }
-    pub unsafe fn GetDefaultTarget(&self, defaulttarget: *mut Option<IFhTarget>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(defaulttarget)) }
+    pub unsafe fn GetDefaultTarget(&self) -> windows_core::Result<IFhTarget> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDefaultTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ValidateTarget(&self, targeturl: &windows_core::BSTR, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ValidateTarget)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(targeturl), validationresult as _) }
@@ -116,12 +122,12 @@ pub trait IFhConfigMgr_Impl: windows_core::IUnknownImpl {
     fn CreateDefaultConfiguration(&self, overwriteifexists: windows_core::BOOL) -> windows_core::Result<()>;
     fn SaveConfiguration(&self) -> windows_core::Result<()>;
     fn AddRemoveExcludeRule(&self, add: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetIncludeExcludeRules(&self, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: windows_core::OutRef<IFhScopeIterator>) -> windows_core::Result<()>;
+    fn GetIncludeExcludeRules(&self, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator>;
     fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut super::ULONGLONG) -> windows_core::Result<()>;
     fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: super::ULONGLONG) -> windows_core::Result<()>;
     fn GetBackupStatus(&self, backupstatus: *mut FH_BACKUP_STATUS) -> windows_core::Result<()>;
     fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> windows_core::Result<()>;
-    fn GetDefaultTarget(&self, defaulttarget: windows_core::OutRef<IFhTarget>) -> windows_core::Result<()>;
+    fn GetDefaultTarget(&self) -> windows_core::Result<IFhTarget>;
     fn ValidateTarget(&self, targeturl: &windows_core::BSTR, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::Result<()>;
     fn ProvisionAndSetNewTarget(&self, targeturl: &windows_core::BSTR, targetname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ChangeDefaultTargetRecommendation(&self, recommend: windows_core::BOOL) -> windows_core::Result<()>;
@@ -157,7 +163,13 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn GetIncludeExcludeRules<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhConfigMgr_Impl::GetIncludeExcludeRules(this, core::mem::transmute_copy(&include), core::mem::transmute_copy(&category), core::mem::transmute_copy(&iterator)).into()
+                match IFhConfigMgr_Impl::GetIncludeExcludeRules(this, core::mem::transmute_copy(&include), core::mem::transmute_copy(&category)) {
+                    Ok(ok__) => {
+                        iterator.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetLocalPolicy<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -187,7 +199,13 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn GetDefaultTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaulttarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhConfigMgr_Impl::GetDefaultTarget(this, core::mem::transmute_copy(&defaulttarget)).into()
+                match IFhConfigMgr_Impl::GetDefaultTarget(this) {
+                    Ok(ok__) => {
+                        defaulttarget.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ValidateTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {

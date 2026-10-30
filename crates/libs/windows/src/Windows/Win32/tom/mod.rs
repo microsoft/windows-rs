@@ -547,8 +547,11 @@ impl ITextDocument2 {
     pub unsafe fn GetProperty(&self, r#type: i32, pvalue: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, pvalue as _) }
     }
-    pub unsafe fn GetStrings(&self, ppstrs: *mut Option<ITextStrings>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStrings)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstrs)) }
+    pub unsafe fn GetStrings(&self) -> windows_core::Result<ITextStrings> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStrings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Notify(&self, notify: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), notify) }
@@ -706,7 +709,7 @@ pub trait ITextDocument2_Impl: ITextDocument_Impl {
     fn GetImmContext(&self) -> windows_core::Result<i64>;
     fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut windows_core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::Result<()>;
     fn GetProperty(&self, r#type: i32, pvalue: *mut i32) -> windows_core::Result<()>;
-    fn GetStrings(&self, ppstrs: windows_core::OutRef<ITextStrings>) -> windows_core::Result<()>;
+    fn GetStrings(&self) -> windows_core::Result<ITextStrings>;
     fn Notify(&self, notify: i32) -> windows_core::Result<()>;
     fn Range2(&self, cpactive: i32, cpanchor: i32) -> windows_core::Result<ITextRange2>;
     fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> windows_core::Result<ITextRange2>;
@@ -966,7 +969,13 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn GetStrings<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextDocument2_Impl::GetStrings(this, core::mem::transmute_copy(&ppstrs)).into()
+                match ITextDocument2_Impl::GetStrings(this) {
+                    Ok(ok__) => {
+                        ppstrs.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Notify<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notify: i32) -> windows_core::HRESULT {

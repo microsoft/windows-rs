@@ -719,11 +719,14 @@ impl IDirectSound {
     pub unsafe fn GetCaps(&self, pdscaps: LPDSCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), pdscaps as _) }
     }
-    pub unsafe fn DuplicateSoundBuffer<P0>(&self, pdsbufferoriginal: P0, ppdsbufferduplicate: *mut Option<LPDIRECTSOUNDBUFFER>) -> windows_core::HRESULT
+    pub unsafe fn DuplicateSoundBuffer<P0>(&self, pdsbufferoriginal: P0) -> windows_core::Result<LPDIRECTSOUNDBUFFER>
     where
         P0: windows_core::Param<LPDIRECTSOUNDBUFFER>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), core::mem::transmute(ppdsbufferduplicate)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetCooperativeLevel(&self, hwnd: super::HWND, dwlevel: super::DWORD) -> windows_core::HRESULT {
@@ -780,7 +783,7 @@ pub struct IDirectSound_Vtbl {
 pub trait IDirectSound_Impl: windows_core::IUnknownImpl {
     fn CreateSoundBuffer(&self, pcdsbufferdesc: LPCDSBUFFERDESC, ppdsbuffer: windows_core::OutRef<LPDIRECTSOUNDBUFFER>, punkouter: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
     fn GetCaps(&self, pdscaps: LPDSCAPS) -> windows_core::Result<()>;
-    fn DuplicateSoundBuffer(&self, pdsbufferoriginal: windows_core::Ref<LPDIRECTSOUNDBUFFER>, ppdsbufferduplicate: windows_core::OutRef<LPDIRECTSOUNDBUFFER>) -> windows_core::Result<()>;
+    fn DuplicateSoundBuffer(&self, pdsbufferoriginal: windows_core::Ref<LPDIRECTSOUNDBUFFER>) -> windows_core::Result<LPDIRECTSOUNDBUFFER>;
     fn SetCooperativeLevel(&self, hwnd: super::HWND, dwlevel: super::DWORD) -> windows_core::Result<()>;
     fn Compact(&self) -> windows_core::Result<()>;
     fn GetSpeakerConfig(&self, pdwspeakerconfig: super::LPDWORD) -> windows_core::Result<()>;
@@ -805,7 +808,13 @@ impl IDirectSound_Vtbl {
         unsafe extern "system" fn DuplicateSoundBuffer<Identity: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsbufferoriginal: *mut core::ffi::c_void, ppdsbufferduplicate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectSound_Impl::DuplicateSoundBuffer(this, core::mem::transmute_copy(&pdsbufferoriginal), core::mem::transmute_copy(&ppdsbufferduplicate)).into()
+                match IDirectSound_Impl::DuplicateSoundBuffer(this, core::mem::transmute_copy(&pdsbufferoriginal)) {
+                    Ok(ok__) => {
+                        ppdsbufferduplicate.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, dwlevel: super::DWORD) -> windows_core::HRESULT {
@@ -2848,8 +2857,11 @@ windows_core::imp::define_interface!(IDirectSoundFullDuplex, IDirectSoundFullDup
 windows_core::imp::interface_hierarchy!(IDirectSoundFullDuplex, windows_core::IUnknown);
 impl IDirectSoundFullDuplex {
     #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "windef"))]
-    pub unsafe fn Initialize(&self, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, lplpdirectsoundbuffer8: LPLPDIRECTSOUNDBUFFER8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd as _, dwlevel, lplpdirectsoundcapturebuffer8, lplpdirectsoundbuffer8) }
+    pub unsafe fn Initialize(&self, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8) -> windows_core::Result<IDirectSoundBuffer8> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd as _, dwlevel, lplpdirectsoundcapturebuffer8, core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast()).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2863,7 +2875,7 @@ pub struct IDirectSoundFullDuplex_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "windef"))]
 pub trait IDirectSoundFullDuplex_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: windows_core::OutRef<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: windows_core::OutRef<IDirectSoundBuffer8>) -> windows_core::Result<()>;
+    fn Initialize(&self, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: windows_core::OutRef<IDirectSoundCaptureBuffer8>) -> windows_core::Result<IDirectSoundBuffer8>;
 }
 #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "windef"))]
 impl IDirectSoundFullDuplex_Vtbl {
@@ -2871,7 +2883,13 @@ impl IDirectSoundFullDuplex_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectSoundFullDuplex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, lplpdirectsoundbuffer8: LPLPDIRECTSOUNDBUFFER8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectSoundFullDuplex_Impl::Initialize(this, core::mem::transmute_copy(&pcaptureguid), core::mem::transmute_copy(&prenderguid), core::mem::transmute_copy(&lpdscbufferdesc), core::mem::transmute_copy(&lpdsbufferdesc), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lplpdirectsoundcapturebuffer8), core::mem::transmute_copy(&lplpdirectsoundbuffer8)).into()
+                match IDirectSoundFullDuplex_Impl::Initialize(this, core::mem::transmute_copy(&pcaptureguid), core::mem::transmute_copy(&prenderguid), core::mem::transmute_copy(&lpdscbufferdesc), core::mem::transmute_copy(&lpdsbufferdesc), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lplpdirectsoundcapturebuffer8)) {
+                    Ok(ok__) => {
+                        lplpdirectsoundbuffer8.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }

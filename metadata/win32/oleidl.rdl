@@ -59,13 +59,13 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: LPOLEVERB, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumOLEVERB) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumOLEVERB) -> HRESULT;
         }
         #[guid(0x00000111_0000_0000_c000_000000000046)]
         interface IOleAdviseHolder: IUnknown {
             fn Advise(&self, #[in] pAdvise: IAdviseSink, #[out] pdwConnection: *mut DWORD) -> HRESULT;
             fn Unadvise(&self, #[in] dwConnection: DWORD) -> HRESULT;
-            fn EnumAdvise(&self, #[out] #[out_ptr] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+            fn EnumAdvise(&self, #[out] #[out_ptr] #[retval] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
             fn SendOnRename(&self, #[in] pmk: IMoniker) -> HRESULT;
             fn SendOnSave(&self) -> HRESULT;
             fn SendOnClose(&self) -> HRESULT;
@@ -74,7 +74,7 @@ mod Windows {
         interface IOleCache: IUnknown {
             fn Cache(&self, #[in] #[opt] pformatetc: *mut FORMATETC, #[in] advf: DWORD, #[out] pdwConnection: *mut DWORD) -> HRESULT;
             fn Uncache(&self, #[in] dwConnection: DWORD) -> HRESULT;
-            fn EnumCache(&self, #[out] #[out_ptr] ppenumSTATDATA: *mut IEnumSTATDATA) -> HRESULT;
+            fn EnumCache(&self, #[out] #[out_ptr] #[retval] ppenumSTATDATA: *mut IEnumSTATDATA) -> HRESULT;
             fn InitCache(&self, #[in] #[opt] pDataObject: IDataObject) -> HRESULT;
             fn SetData(&self, #[in] #[opt] pformatetc: *mut FORMATETC, #[in] #[opt] pmedium: *mut STGMEDIUM, #[in] fRelease: BOOL) -> HRESULT;
         }
@@ -91,15 +91,15 @@ mod Windows {
         #[guid(0x00000118_0000_0000_c000_000000000046)]
         interface IOleClientSite: IUnknown {
             fn SaveObject(&self) -> HRESULT;
-            fn GetMoniker(&self, #[in] dwAssign: DWORD, #[in] dwWhichMoniker: DWORD, #[out] #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
-            fn GetContainer(&self, #[out] #[out_ptr] ppContainer: *mut IOleContainer) -> HRESULT;
+            fn GetMoniker(&self, #[in] dwAssign: DWORD, #[in] dwWhichMoniker: DWORD, #[out] #[out_ptr] #[retval] ppmk: *mut IMoniker) -> HRESULT;
+            fn GetContainer(&self, #[out] #[out_ptr] #[retval] ppContainer: *mut IOleContainer) -> HRESULT;
             fn ShowObject(&self) -> HRESULT;
             fn OnShowWindow(&self, #[in] fShow: BOOL) -> HRESULT;
             fn RequestNewObjectLayout(&self) -> HRESULT;
         }
         #[guid(0x0000011b_0000_0000_c000_000000000046)]
         interface IOleContainer: IParseDisplayName {
-            fn EnumObjects(&self, #[in] grfFlags: DWORD, #[out] #[out_ptr] ppenum: *mut IEnumUnknown) -> HRESULT;
+            fn EnumObjects(&self, #[in] grfFlags: DWORD, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumUnknown) -> HRESULT;
             fn LockContainer(&self, #[in] fLock: BOOL) -> HRESULT;
         }
         #[guid(0x00000117_0000_0000_c000_000000000046)]
@@ -157,27 +157,27 @@ mod Windows {
             fn SetUpdateOptions(&self, #[in] dwUpdateOpt: DWORD) -> HRESULT;
             fn GetUpdateOptions(&self, #[out] pdwUpdateOpt: *mut DWORD) -> HRESULT;
             fn SetSourceMoniker(&self, #[in] #[opt] pmk: IMoniker, #[in] rclsid: &IID) -> HRESULT;
-            fn GetSourceMoniker(&self, #[out] #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
+            fn GetSourceMoniker(&self, #[out] #[out_ptr] #[retval] ppmk: *mut IMoniker) -> HRESULT;
             fn SetSourceDisplayName(&self, #[in] pszStatusText: LPCOLESTR) -> HRESULT;
             fn GetSourceDisplayName(&self, #[out] #[out_ptr] ppszDisplayName: *mut LPOLESTR) -> HRESULT;
             fn BindToSource(&self, #[in] bindflags: DWORD, #[in] #[opt] pbc: IBindCtx) -> HRESULT;
             fn BindIfRunning(&self) -> HRESULT;
-            fn GetBoundSource(&self, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetBoundSource(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
             fn UnbindSource(&self) -> HRESULT;
             fn Update(&self, #[in] #[opt] pbc: IBindCtx) -> HRESULT;
         }
         #[guid(0x00000112_0000_0000_c000_000000000046)]
         interface IOleObject: IUnknown {
             fn SetClientSite(&self, #[in] #[opt] pClientSite: IOleClientSite) -> HRESULT;
-            fn GetClientSite(&self, #[out] #[out_ptr] ppClientSite: *mut IOleClientSite) -> HRESULT;
+            fn GetClientSite(&self, #[out] #[out_ptr] #[retval] ppClientSite: *mut IOleClientSite) -> HRESULT;
             fn SetHostNames(&self, #[in] szContainerApp: LPCOLESTR, #[in] #[opt] szContainerObj: LPCOLESTR) -> HRESULT;
             fn Close(&self, #[in] dwSaveOption: DWORD) -> HRESULT;
             fn SetMoniker(&self, #[in] dwWhichMoniker: DWORD, #[in] #[opt] pmk: IMoniker) -> HRESULT;
-            fn GetMoniker(&self, #[in] dwAssign: DWORD, #[in] dwWhichMoniker: DWORD, #[out] #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
+            fn GetMoniker(&self, #[in] dwAssign: DWORD, #[in] dwWhichMoniker: DWORD, #[out] #[out_ptr] #[retval] ppmk: *mut IMoniker) -> HRESULT;
             fn InitFromData(&self, #[in] #[opt] pDataObject: IDataObject, #[in] fCreation: BOOL, #[in] dwReserved: DWORD) -> HRESULT;
-            fn GetClipboardData(&self, #[in] dwReserved: DWORD, #[out] #[out_ptr] ppDataObject: *mut IDataObject) -> HRESULT;
+            fn GetClipboardData(&self, #[in] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppDataObject: *mut IDataObject) -> HRESULT;
             fn DoVerb(&self, #[in] iVerb: LONG, #[in] #[opt] lpmsg: LPMSG, #[in] #[opt] pActiveSite: IOleClientSite, #[in] lindex: LONG, #[in] hwndParent: HWND, #[in] #[opt] lprcPosRect: LPCRECT) -> HRESULT;
-            fn EnumVerbs(&self, #[out] #[out_ptr] ppEnumOleVerb: *mut IEnumOLEVERB) -> HRESULT;
+            fn EnumVerbs(&self, #[out] #[out_ptr] #[retval] ppEnumOleVerb: *mut IEnumOLEVERB) -> HRESULT;
             fn Update(&self) -> HRESULT;
             fn IsUpToDate(&self) -> HRESULT;
             fn GetUserClassID(&self, #[out] pClsid: *mut CLSID) -> HRESULT;
@@ -186,7 +186,7 @@ mod Windows {
             fn GetExtent(&self, #[in] dwDrawAspect: DWORD, #[out] psizel: *mut SIZEL) -> HRESULT;
             fn Advise(&self, #[in] #[opt] pAdvSink: IAdviseSink, #[out] pdwConnection: *mut DWORD) -> HRESULT;
             fn Unadvise(&self, #[in] dwConnection: DWORD) -> HRESULT;
-            fn EnumAdvise(&self, #[out] #[out_ptr] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+            fn EnumAdvise(&self, #[out] #[out_ptr] #[retval] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
             fn GetMiscStatus(&self, #[in] dwAspect: DWORD, #[out] pdwStatus: *mut DWORD) -> HRESULT;
             fn SetColorScheme(&self, #[in] pLogpal: *mut LOGPALETTE) -> HRESULT;
         }
@@ -197,7 +197,7 @@ mod Windows {
         }
         #[guid(0x0000011a_0000_0000_c000_000000000046)]
         interface IParseDisplayName: IUnknown {
-            fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] ppmkOut: *mut IMoniker) -> HRESULT;
+            fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] #[retval] ppmkOut: *mut IMoniker) -> HRESULT;
         }
         #[arch(X64 | Arm64)]
         #[guid(0x0000010d_0000_0000_c000_000000000046)]
@@ -207,7 +207,7 @@ mod Windows {
             fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
-            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
+            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] #[retval] ppAdvSink: *mut IAdviseSink) -> HRESULT;
         }
         #[arch(X86)]
         #[guid(0x0000010d_0000_0000_c000_000000000046)]
@@ -217,7 +217,7 @@ mod Windows {
             fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
-            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
+            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] #[retval] ppAdvSink: *mut IAdviseSink) -> HRESULT;
         }
         #[guid(0x00000127_0000_0000_c000_000000000046)]
         interface IViewObject2: IViewObject {

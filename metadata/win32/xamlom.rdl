@@ -64,7 +64,7 @@ mod Windows {
             fn GetPropertyIndex(&self, #[in] object: InstanceHandle, #[in] propertyName: LPCWSTR, #[out] pPropertyIndex: *mut u32) -> HRESULT;
             fn GetProperty(&self, #[in] object: InstanceHandle, #[in] propertyIndex: u32, #[out] pValue: *mut InstanceHandle) -> HRESULT;
             fn ReplaceResource(&self, #[in] resourceDictionary: InstanceHandle, #[in] key: InstanceHandle, #[in] newValue: InstanceHandle) -> HRESULT;
-            fn RenderTargetBitmap(&self, #[in] handle: InstanceHandle, #[in] options: RenderTargetBitmapOptions, #[in] maxPixelWidth: u32, #[in] maxPixelHeight: u32, #[out] #[out_ptr] ppBitmapData: *mut IBitmapData) -> HRESULT;
+            fn RenderTargetBitmap(&self, #[in] handle: InstanceHandle, #[in] options: RenderTargetBitmapOptions, #[in] maxPixelWidth: u32, #[in] maxPixelHeight: u32, #[out] #[out_ptr] #[retval] ppBitmapData: *mut IBitmapData) -> HRESULT;
         }
         #[guid(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd)]
         interface IVisualTreeService3: IVisualTreeService2 {

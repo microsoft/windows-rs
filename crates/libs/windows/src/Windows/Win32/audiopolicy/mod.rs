@@ -450,12 +450,18 @@ windows_core::imp::define_interface!(IAudioSessionManager, IAudioSessionManager_
 windows_core::imp::interface_hierarchy!(IAudioSessionManager, windows_core::IUnknown);
 impl IAudioSessionManager {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD, sessioncontrol: *mut Option<IAudioSessionControl>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, core::mem::transmute(sessioncontrol)) }
+    pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<IAudioSessionControl> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
-    pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD, audiovolume: *mut Option<super::ISimpleAudioVolume>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, core::mem::transmute(audiovolume)) }
+    pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<super::ISimpleAudioVolume> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -473,8 +479,8 @@ pub struct IAudioSessionManager_Vtbl {
 }
 #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionManager_Impl: windows_core::IUnknownImpl {
-    fn GetAudioSessionControl(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, sessioncontrol: windows_core::OutRef<IAudioSessionControl>) -> windows_core::Result<()>;
-    fn GetSimpleAudioVolume(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, audiovolume: windows_core::OutRef<super::ISimpleAudioVolume>) -> windows_core::Result<()>;
+    fn GetAudioSessionControl(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD) -> windows_core::Result<IAudioSessionControl>;
+    fn GetSimpleAudioVolume(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD) -> windows_core::Result<super::ISimpleAudioVolume>;
 }
 #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 impl IAudioSessionManager_Vtbl {
@@ -482,13 +488,25 @@ impl IAudioSessionManager_Vtbl {
         unsafe extern "system" fn GetAudioSessionControl<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, sessioncontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager_Impl::GetAudioSessionControl(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags), core::mem::transmute_copy(&sessioncontrol)).into()
+                match IAudioSessionManager_Impl::GetAudioSessionControl(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
+                    Ok(ok__) => {
+                        sessioncontrol.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSimpleAudioVolume<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, audiovolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager_Impl::GetSimpleAudioVolume(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags), core::mem::transmute_copy(&audiovolume)).into()
+                match IAudioSessionManager_Impl::GetSimpleAudioVolume(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
+                    Ok(ok__) => {
+                        audiovolume.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

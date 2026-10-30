@@ -23,11 +23,8 @@ fn const_hstring() -> Result<()> {
 #[test]
 fn const_uri() -> Result<()> {
     unsafe {
-        let mut uri = None;
-        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
-        let mut builder = None;
-        CreateIUriBuilder(uri.as_ref(), 0, 0, &mut builder).ok()?;
-        let builder = builder.unwrap();
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let builder = CreateIUriBuilder(&uri, 0, 0)?;
 
         let mut host_len = 0u32;
         let mut host = PCWSTR::null();

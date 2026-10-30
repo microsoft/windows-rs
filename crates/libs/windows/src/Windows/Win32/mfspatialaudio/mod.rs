@@ -28,8 +28,11 @@ impl IMFSpatialAudioObjectBuffer {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), ptype as _) }
     }
     #[cfg(feature = "spatialaudiometadata")]
-    pub unsafe fn GetMetadataItems(&self, ppmetadataitems: *mut Option<super::ISpatialAudioMetadataItems>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMetadataItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmetadataitems)) }
+    pub unsafe fn GetMetadataItems(&self) -> windows_core::Result<super::ISpatialAudioMetadataItems> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMetadataItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -64,7 +67,7 @@ pub trait IMFSpatialAudioObjectBuffer_Impl: super::IMFMediaBuffer_Impl {
     fn GetID(&self, pu32id: *mut super::UINT32) -> windows_core::Result<()>;
     fn SetType(&self, r#type: super::AudioObjectType) -> windows_core::Result<()>;
     fn GetType(&self, ptype: *mut super::AudioObjectType) -> windows_core::Result<()>;
-    fn GetMetadataItems(&self, ppmetadataitems: windows_core::OutRef<super::ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn GetMetadataItems(&self) -> windows_core::Result<super::ISpatialAudioMetadataItems>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
 impl IMFSpatialAudioObjectBuffer_Vtbl {
@@ -96,7 +99,16 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
         unsafe extern "system" fn GetMetadataItems<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioObjectBuffer_Impl::GetMetadataItems(this, core::mem::transmute_copy(&ppmetadataitems)).into()
+                match IMFSpatialAudioObjectBuffer_Impl::GetMetadataItems(this) {
+                    Ok(ok__) => {
+                        ppmetadataitems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppmetadataitems.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {

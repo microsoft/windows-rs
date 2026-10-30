@@ -4421,8 +4421,11 @@ impl IEnumPIDMap {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppienumpidmap: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppienumpidmap)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4445,7 +4448,7 @@ pub trait IEnumPIDMap_Impl: windows_core::IUnknownImpl {
     fn Next(&self, crequest: super::ULONG, ppidmap: *mut super::PID_MAP, pcreceived: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, crecords: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppienumpidmap: windows_core::OutRef<IEnumPIDMap>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumPIDMap>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 impl IEnumPIDMap_Vtbl {
@@ -4471,7 +4474,13 @@ impl IEnumPIDMap_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumPIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienumpidmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumPIDMap_Impl::Clone(this, core::mem::transmute_copy(&ppienumpidmap)).into()
+                match IEnumPIDMap_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppienumpidmap.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4620,8 +4629,11 @@ impl IMPEG2PIDMap {
     pub unsafe fn UnmapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnmapPID)(windows_core::Interface::as_raw(self), culpid, pulpid) }
     }
-    pub unsafe fn EnumPIDMap(&self, pienumpidmap: *mut Option<IEnumPIDMap>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumPIDMap)(windows_core::Interface::as_raw(self), core::mem::transmute(pienumpidmap)) }
+    pub unsafe fn EnumPIDMap(&self) -> windows_core::Result<IEnumPIDMap> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumPIDMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4642,7 +4654,7 @@ pub struct IMPEG2PIDMap_Vtbl {
 pub trait IMPEG2PIDMap_Impl: windows_core::IUnknownImpl {
     fn MapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG, mediasamplecontent: super::MEDIA_SAMPLE_CONTENT) -> windows_core::Result<()>;
     fn UnmapPID(&self, culpid: super::ULONG, pulpid: *const super::ULONG) -> windows_core::Result<()>;
-    fn EnumPIDMap(&self, pienumpidmap: windows_core::OutRef<IEnumPIDMap>) -> windows_core::Result<()>;
+    fn EnumPIDMap(&self) -> windows_core::Result<IEnumPIDMap>;
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
 impl IMPEG2PIDMap_Vtbl {
@@ -4662,7 +4674,13 @@ impl IMPEG2PIDMap_Vtbl {
         unsafe extern "system" fn EnumPIDMap<Identity: IMPEG2PIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pienumpidmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2PIDMap_Impl::EnumPIDMap(this, core::mem::transmute_copy(&pienumpidmap)).into()
+                match IMPEG2PIDMap_Impl::EnumPIDMap(this) {
+                    Ok(ok__) => {
+                        pienumpidmap.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

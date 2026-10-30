@@ -64,7 +64,7 @@ mod Windows {
         interface IDtcLuRecovery: IUnknown {}
         #[guid(0x4131e762_1aea_11d0_944b_00a0c905416e)]
         interface IDtcLuRecoveryFactory: IUnknown {
-            fn Create(&self, #[in] #[readable(entry, cbLuPair)] pucLuPair: *mut byte, #[in] cbLuPair: DWORD, #[out] #[out_ptr] ppRecovery: *mut IDtcLuRecovery) -> HRESULT;
+            fn Create(&self, #[in] #[readable(entry, cbLuPair)] pucLuPair: *mut byte, #[in] cbLuPair: DWORD, #[out] #[out_ptr] #[retval] ppRecovery: *mut IDtcLuRecovery) -> HRESULT;
         }
         #[guid(0x4131e764_1aea_11d0_944b_00a0c905416e)]
         interface IDtcLuRecoveryInitiatedByDtc: IUnknown {
@@ -92,7 +92,7 @@ mod Windows {
         }
         #[guid(0x4131e768_1aea_11d0_944b_00a0c905416e)]
         interface IDtcLuRecoveryInitiatedByLu: IUnknown {
-            fn GetObjectToHandleWorkFromLu(&self, #[out] #[out_ptr] ppWork: *mut IDtcLuRecoveryInitiatedByLuWork) -> HRESULT;
+            fn GetObjectToHandleWorkFromLu(&self, #[out] #[out_ptr] #[retval] ppWork: *mut IDtcLuRecoveryInitiatedByLuWork) -> HRESULT;
         }
         #[guid(0xac2b8ad1_d6f0_11d0_b386_00a0c9083365)]
         interface IDtcLuRecoveryInitiatedByLuWork: IUnknown {
@@ -220,12 +220,12 @@ mod Windows {
         }
         #[guid(0xd136c69a_f749_11d1_8f47_00c04f8ee57d)]
         interface IResourceManager2: IResourceManager {
-            fn Enlist2(&self, #[in] #[opt] pTransaction: ITransaction, #[in] #[opt] pResAsync: ITransactionResourceAsync, #[out] pUOW: *mut XACTUOW, #[out] pisoLevel: *mut LONG, #[out] pXid: *mut XID, #[out] #[out_ptr] ppEnlist: *mut ITransactionEnlistmentAsync) -> HRESULT;
+            fn Enlist2(&self, #[in] #[opt] pTransaction: ITransaction, #[in] #[opt] pResAsync: ITransactionResourceAsync, #[out] pUOW: *mut XACTUOW, #[out] pisoLevel: *mut LONG, #[out] pXid: *mut XID, #[out] #[out_ptr] #[retval] ppEnlist: *mut ITransactionEnlistmentAsync) -> HRESULT;
             fn Reenlist2(&self, #[in] pXid: *mut XID, #[in] dwTimeout: DWORD, #[out] pXactStat: *mut XACTSTAT) -> HRESULT;
         }
         #[guid(0x13741d20_87eb_11ce_8081_0080c758527e)]
         interface IResourceManagerFactory: IUnknown {
-            fn Create(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[out] #[out_ptr] ppResMgr: *mut IResourceManager) -> HRESULT;
+            fn Create(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[out] #[out_ptr] #[retval] ppResMgr: *mut IResourceManager) -> HRESULT;
         }
         #[guid(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d)]
         interface IResourceManagerFactory2: IResourceManagerFactory {
@@ -245,11 +245,11 @@ mod Windows {
             fn WaitForEnlistment(&self) -> HRESULT;
             fn Phase0Done(&self) -> HRESULT;
             fn Unenlist(&self) -> HRESULT;
-            fn GetTransaction(&self, #[out] #[out_ptr] ppITransaction: *mut ITransaction) -> HRESULT;
+            fn GetTransaction(&self, #[out] #[out_ptr] #[retval] ppITransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x82dc88e0_a954_11d1_8f88_00600895e7d5)]
         interface ITransactionPhase0Factory: IUnknown {
-            fn Create(&self, #[in] #[opt] pPhase0Notify: ITransactionPhase0NotifyAsync, #[out] #[out_ptr] ppPhase0Enlistment: *mut ITransactionPhase0EnlistmentAsync) -> HRESULT;
+            fn Create(&self, #[in] #[opt] pPhase0Notify: ITransactionPhase0NotifyAsync, #[out] #[out_ptr] #[retval] ppPhase0Enlistment: *mut ITransactionPhase0EnlistmentAsync) -> HRESULT;
         }
         #[guid(0xef081809_0c76_11d2_87a6_00c04f990f34)]
         interface ITransactionPhase0NotifyAsync: IUnknown {
@@ -258,14 +258,14 @@ mod Windows {
         }
         #[guid(0x59313e03_b36c_11cf_a539_00aa006887c3)]
         interface ITransactionReceiver: IUnknown {
-            fn UnmarshalPropagationToken(&self, #[in] cbToken: ULONG, #[in] #[readable(entry, cbToken)] rgbToken: *mut byte, #[out] #[out_ptr] ppTransaction: *mut ITransaction) -> HRESULT;
+            fn UnmarshalPropagationToken(&self, #[in] cbToken: ULONG, #[in] #[readable(entry, cbToken)] rgbToken: *mut byte, #[out] #[out_ptr] #[retval] ppTransaction: *mut ITransaction) -> HRESULT;
             fn GetReturnTokenSize(&self, #[out] pcbReturnToken: *mut ULONG) -> HRESULT;
             fn MarshalReturnToken(&self, #[in] cbReturnToken: ULONG, #[out] #[readable(success, cbReturnToken)] #[writable(entry, cbReturnToken)] #[writable(success, cbReturnToken)] rgbReturnToken: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }
         #[guid(0x59313e02_b36c_11cf_a539_00aa006887c3)]
         interface ITransactionReceiverFactory: IUnknown {
-            fn Create(&self, #[out] #[out_ptr] ppReceiver: *mut ITransactionReceiver) -> HRESULT;
+            fn Create(&self, #[out] #[out_ptr] #[retval] ppReceiver: *mut ITransactionReceiver) -> HRESULT;
         }
         #[guid(0x59313e01_b36c_11cf_a539_00aa006887c3)]
         interface ITransactionTransmitter: IUnknown {
@@ -277,7 +277,7 @@ mod Windows {
         }
         #[guid(0x59313e00_b36c_11cf_a539_00aa006887c3)]
         interface ITransactionTransmitterFactory: IUnknown {
-            fn Create(&self, #[out] #[out_ptr] ppTransmitter: *mut ITransactionTransmitter) -> HRESULT;
+            fn Create(&self, #[out] #[out_ptr] #[retval] ppTransmitter: *mut ITransactionTransmitter) -> HRESULT;
         }
         #[guid(0x5433376c_414d_11d3_b206_00c04fc2f3ef)]
         interface ITransactionVoterBallotAsync2: IUnknown {
@@ -285,7 +285,7 @@ mod Windows {
         }
         #[guid(0x5433376a_414d_11d3_b206_00c04fc2f3ef)]
         interface ITransactionVoterFactory2: IUnknown {
-            fn Create(&self, #[in] #[opt] pTransaction: ITransaction, #[in] #[opt] pVoterNotify: ITransactionVoterNotifyAsync2, #[out] #[out_ptr] ppVoterBallot: *mut ITransactionVoterBallotAsync2) -> HRESULT;
+            fn Create(&self, #[in] #[opt] pTransaction: ITransaction, #[in] #[opt] pVoterNotify: ITransactionVoterNotifyAsync2, #[out] #[out_ptr] #[retval] ppVoterBallot: *mut ITransactionVoterBallotAsync2) -> HRESULT;
         }
         #[guid(0x5433376b_414d_11d3_b206_00c04fc2f3ef)]
         interface ITransactionVoterNotifyAsync2: ITransactionOutcomeEvents {
@@ -302,11 +302,11 @@ mod Windows {
         }
         #[guid(0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4)]
         interface IXATransLookup: IUnknown {
-            fn Lookup(&self, #[out] #[out_ptr] ppTransaction: *mut ITransaction) -> HRESULT;
+            fn Lookup(&self, #[out] #[out_ptr] #[retval] ppTransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7)]
         interface IXATransLookup2: IUnknown {
-            fn Lookup(&self, #[in] pXID: *mut XID, #[out] #[out_ptr] ppTransaction: *mut ITransaction) -> HRESULT;
+            fn Lookup(&self, #[in] pXID: *mut XID, #[out] #[out_ptr] #[retval] ppTransaction: *mut ITransaction) -> HRESULT;
         }
         struct PROXY_CONFIG_PARAMS {
             wcThreadsMax: WORD,

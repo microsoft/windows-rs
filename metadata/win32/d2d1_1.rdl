@@ -4,9 +4,9 @@ mod Windows {
         #[library("d2d1.dll")]
         extern fn D2D1ConvertColorSpace(sourceColorSpace: D2D1_COLOR_SPACE, destinationColorSpace: D2D1_COLOR_SPACE, #[in] color: *const D2D1_COLOR_F) -> D2D1_COLOR_F;
         #[library("d2d1.dll")]
-        extern fn D2D1CreateDevice(#[in] dxgiDevice: IDXGIDevice, #[in] #[opt] creationProperties: *const D2D1_CREATION_PROPERTIES, #[out] #[out_ptr] d2dDevice: *mut ID2D1Device) -> HRESULT;
+        extern fn D2D1CreateDevice(#[in] dxgiDevice: IDXGIDevice, #[in] #[opt] creationProperties: *const D2D1_CREATION_PROPERTIES, #[out] #[out_ptr] #[retval] d2dDevice: *mut ID2D1Device) -> HRESULT;
         #[library("d2d1.dll")]
-        extern fn D2D1CreateDeviceContext(#[in] dxgiSurface: IDXGISurface, #[in] #[opt] creationProperties: *const D2D1_CREATION_PROPERTIES, #[out] #[out_ptr] d2dDeviceContext: *mut ID2D1DeviceContext) -> HRESULT;
+        extern fn D2D1CreateDeviceContext(#[in] dxgiSurface: IDXGISurface, #[in] #[opt] creationProperties: *const D2D1_CREATION_PROPERTIES, #[out] #[out_ptr] #[retval] d2dDeviceContext: *mut ID2D1DeviceContext) -> HRESULT;
         #[library("d2d1.dll")]
         extern fn D2D1SinCos(#[in] angle: FLOAT, #[out] s: *mut FLOAT, #[out] c: *mut FLOAT);
         #[library("d2d1.dll")]

@@ -737,7 +737,18 @@ impl CppMethod {
                 ReturnHint::ReturnValue | ReturnHint::ResultValue
                     if self.signature.params.len() - 1 == position =>
                 {
-                    quote! { &mut result__, }
+                    // A native pointer typedef spells an interface slot as `*mut Option<T>`, while
+                    // the result reads the raw interface pointer.
+                    if matches!(&param.ty, Type::CppStruct(ty) if ty.is_native_typedef())
+                        && param
+                            .projection_pointee(config.reader)
+                            .projection_type(config.reader)
+                            .is_interface_with_reader(config.reader)
+                    {
+                        quote! { core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast(), }
+                    } else {
+                        quote! { &mut result__, }
+                    }
                 }
                 ReturnHint::QueryOptional(object, _) if object == position => {
                     quote! { result__ as *mut _ as *mut _, }

@@ -383,7 +383,7 @@ mod Windows {
             fn Next(&self, #[in] cRequest: ULONG, #[in] #[out] #[readable(entry, cRequest)] #[readable(success, cRequest)] #[writable(entry, cRequest)] pPIDMap: *mut PID_MAP, #[out] pcReceived: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cRecords: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
         interface IFrequencyMap: IUnknown {
@@ -398,7 +398,7 @@ mod Windows {
         interface IMPEG2PIDMap: IUnknown {
             fn MapPID(&self, #[in] culPID: ULONG, #[in] pulPID: *mut ULONG, #[in] MediaSampleContent: MEDIA_SAMPLE_CONTENT) -> HRESULT;
             fn UnmapPID(&self, #[in] culPID: ULONG, #[in] pulPID: *mut ULONG) -> HRESULT;
-            fn EnumPIDMap(&self, #[out] #[out_ptr] pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+            fn EnumPIDMap(&self, #[out] #[out_ptr] #[retval] pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[repr(i32)]
         enum KSPROPERTY_IPSINK {

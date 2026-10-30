@@ -27,16 +27,16 @@ mod Windows {
             fn SetID(&self, #[in] #[opt] pszId: LPCWSTR) -> HRESULT;
             fn GetID(&self, #[out] #[out_ptr] ppszId: *mut LPCWSTR) -> HRESULT;
             fn SetContext(&self, #[in] pContext: IUnknown) -> HRESULT;
-            fn GetContext(&self, #[out] #[out_ptr] ppContext: *mut IUnknown) -> HRESULT;
+            fn GetContext(&self, #[out] #[out_ptr] #[retval] ppContext: *mut IUnknown) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c)]
         interface IWSDMessageParameters: IUnknown {
-            fn GetLocalAddress(&self, #[out] #[out_ptr] ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn GetLocalAddress(&self, #[out] #[out_ptr] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
             fn SetLocalAddress(&self, #[in] #[opt] pAddress: IWSDAddress) -> HRESULT;
-            fn GetRemoteAddress(&self, #[out] #[out_ptr] ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn GetRemoteAddress(&self, #[out] #[out_ptr] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
             fn SetRemoteAddress(&self, #[in] #[opt] pAddress: IWSDAddress) -> HRESULT;
-            fn GetLowerParameters(&self, #[out] #[out_ptr] ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
+            fn GetLowerParameters(&self, #[out] #[out_ptr] #[retval] ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
         }
         #[guid(0xde105e87_a0da_418e_98ad_27b9eed87bdc)]
         interface IWSDSSLClientCertificate: IUnknown {
@@ -92,11 +92,11 @@ mod Windows {
         const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: i32 = 8;
         const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: i32 = 4;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpAddress(#[out] #[out_ptr] ppAddress: *mut IWSDHttpAddress) -> HRESULT;
+        extern fn WSDCreateHttpAddress(#[out] #[out_ptr] #[retval] ppAddress: *mut IWSDHttpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpMessageParameters(#[out] #[out_ptr] ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
+        extern fn WSDCreateHttpMessageParameters(#[out] #[out_ptr] #[retval] ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateUdpAddress(#[out] #[out_ptr] ppAddress: *mut IWSDUdpAddress) -> HRESULT;
+        extern fn WSDCreateUdpAddress(#[out] #[out_ptr] #[retval] ppAddress: *mut IWSDUdpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDCreateUdpMessageParameters(ppTxParams: *mut IWSDUdpMessageParameters) -> HRESULT;
         #[repr(i32)]

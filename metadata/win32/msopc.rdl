@@ -216,7 +216,7 @@ mod Windows {
         #[guid(0x9f863ca5_3631_404c_828d_807e0715069b)]
         interface IOpcSignatureRelationshipReferenceSet: IUnknown {
             fn Create(&self, #[in] #[opt] sourceUri: IOpcUri, #[in] #[opt] digestMethod: LPCWSTR, #[in] relationshipSigningOption: OPC_RELATIONSHIPS_SIGNING_OPTION, #[in] #[opt] selectorSet: IOpcRelationshipSelectorSet, #[in] transformMethod: OPC_CANONICALIZATION_METHOD, #[out] #[out_ptr] #[retval] relationshipReference: *mut IOpcSignatureRelationshipReference) -> HRESULT;
-            fn CreateRelationshipSelectorSet(&self, #[out] #[out_ptr] selectorSet: *mut IOpcRelationshipSelectorSet) -> HRESULT;
+            fn CreateRelationshipSelectorSet(&self, #[out] #[out_ptr] #[retval] selectorSet: *mut IOpcRelationshipSelectorSet) -> HRESULT;
             fn Delete(&self, #[in] #[opt] relationshipReference: IOpcSignatureRelationshipReference) -> HRESULT;
             fn GetEnumerator(&self, #[out] #[out_ptr] #[retval] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
         }

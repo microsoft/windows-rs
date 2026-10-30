@@ -125,9 +125,7 @@ fn bool_as_error() {
 #[test]
 fn com() -> Result<()> {
     unsafe {
-        let mut stream = None;
-        CreateStreamOnHGlobal(Default::default(), true, &mut stream).ok()?;
-        let stream = stream.unwrap();
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
         let values = [1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
@@ -199,9 +197,7 @@ fn onecore_imports() -> Result<()> {
         let mut has_expanded_resources = BOOL::default();
         HasExpandedResources(&mut has_expanded_resources).ok()?;
 
-        let mut uri = None;
-        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
-        let uri = uri.unwrap();
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
 
         let mut port = 0;
         uri.GetPort(&mut port).ok()?;
@@ -228,9 +224,7 @@ fn onecore_imports() -> Result<()> {
 #[test]
 fn interface() -> Result<()> {
     unsafe {
-        let mut uri = None;
-        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut uri).ok()?;
-        let uri = uri.unwrap();
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
 
         let mut domain = BSTR::default();
         uri.GetDomain(&mut domain).ok()?;

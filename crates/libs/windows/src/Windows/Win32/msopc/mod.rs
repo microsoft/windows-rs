@@ -3342,8 +3342,11 @@ impl IOpcSignatureRelationshipReferenceSet {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), sourceuri.param().abi(), digestmethod.param().abi(), relationshipsigningoption, selectorset.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateRelationshipSelectorSet(&self, selectorset: *mut Option<IOpcRelationshipSelectorSet>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateRelationshipSelectorSet)(windows_core::Interface::as_raw(self), core::mem::transmute(selectorset)) }
+    pub unsafe fn CreateRelationshipSelectorSet(&self) -> windows_core::Result<IOpcRelationshipSelectorSet> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateRelationshipSelectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Delete<P0>(&self, relationshipreference: P0) -> windows_core::HRESULT
     where
@@ -3373,7 +3376,7 @@ pub struct IOpcSignatureRelationshipReferenceSet_Vtbl {
 #[cfg(feature = "urlmon")]
 pub trait IOpcSignatureRelationshipReferenceSet_Impl: windows_core::IUnknownImpl {
     fn Create(&self, sourceuri: windows_core::Ref<IOpcUri>, digestmethod: &windows_core::PCWSTR, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: windows_core::Ref<IOpcRelationshipSelectorSet>, transformmethod: OPC_CANONICALIZATION_METHOD) -> windows_core::Result<IOpcSignatureRelationshipReference>;
-    fn CreateRelationshipSelectorSet(&self, selectorset: windows_core::OutRef<IOpcRelationshipSelectorSet>) -> windows_core::Result<()>;
+    fn CreateRelationshipSelectorSet(&self) -> windows_core::Result<IOpcRelationshipSelectorSet>;
     fn Delete(&self, relationshipreference: windows_core::Ref<IOpcSignatureRelationshipReference>) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureRelationshipReferenceEnumerator>;
 }
@@ -3395,7 +3398,13 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
         unsafe extern "system" fn CreateRelationshipSelectorSet<Identity: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectorset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOpcSignatureRelationshipReferenceSet_Impl::CreateRelationshipSelectorSet(this, core::mem::transmute_copy(&selectorset)).into()
+                match IOpcSignatureRelationshipReferenceSet_Impl::CreateRelationshipSelectorSet(this) {
+                    Ok(ok__) => {
+                        selectorset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relationshipreference: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -13,7 +13,7 @@ mod Windows {
         }
         #[guid(0xe246107a_b06e_11d0_ad61_00c04fd8fdff)]
         interface IWbemEventConsumerProvider: IUnknown {
-            fn FindConsumer(&self, #[in] #[opt] pLogicalConsumer: IWbemClassObject, #[out] #[out_ptr] ppConsumer: *mut IWbemUnboundObjectSink) -> HRESULT;
+            fn FindConsumer(&self, #[in] #[opt] pLogicalConsumer: IWbemClassObject, #[out] #[out_ptr] #[retval] ppConsumer: *mut IWbemUnboundObjectSink) -> HRESULT;
         }
         #[guid(0xe245105b_b06e_11d0_ad61_00c04fd8fdff)]
         interface IWbemEventProvider: IUnknown {
@@ -32,7 +32,7 @@ mod Windows {
         interface IWbemEventSink: IWbemObjectSink {
             fn SetSinkSecurity(&self, #[in] lSDLength: i32, #[in] #[readable(entry, lSDLength)] pSD: *mut BYTE) -> HRESULT;
             fn IsActive(&self) -> HRESULT;
-            fn GetRestrictedSink(&self, #[in] lNumQueries: i32, #[in] #[readable(entry, lNumQueries)] awszQueries: *const LPCWSTR, #[in] #[opt] pCallback: IUnknown, #[out] #[out_ptr] ppSink: *mut IWbemEventSink) -> HRESULT;
+            fn GetRestrictedSink(&self, #[in] lNumQueries: i32, #[in] #[readable(entry, lNumQueries)] awszQueries: *const LPCWSTR, #[in] #[opt] pCallback: IUnknown, #[out] #[out_ptr] #[retval] ppSink: *mut IWbemEventSink) -> HRESULT;
             fn SetBatchingParameters(&self, #[in] lFlags: LONG, #[in] dwMaxBufferSize: DWORD, #[in] dwMaxSendLatency: DWORD) -> HRESULT;
         }
         #[guid(0x49353c93_516b_11d1_aea6_00c04fb68820)]

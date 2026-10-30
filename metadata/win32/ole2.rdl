@@ -98,7 +98,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleGetAutoConvert(clsidOld: &IID, pClsidNew: LPCLSID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleGetClipboard(#[out] #[out_ptr] ppDataObj: *mut LPDATAOBJECT) -> HRESULT;
+        extern fn OleGetClipboard(#[out] #[out_ptr] #[retval] ppDataObj: *mut LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleGetClipboardWithEnterpriseInfo(#[out] #[out_ptr(null_on_failure)] dataObject: *mut IDataObject, #[out] #[out_ptr(null_on_failure)] dataEnterpriseId: *mut PWSTR, #[out] #[out_ptr(null_on_failure)] sourceDescription: *mut PWSTR, #[out] #[out_ptr(null_on_failure)] targetDescription: *mut PWSTR, #[out] #[out_ptr(null_on_failure)] dataDescription: *mut PWSTR) -> HRESULT;
         #[library("ole32.dll")]
@@ -127,9 +127,9 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleQueryLinkFromData(pSrcDataObject: LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleRegEnumFormatEtc(clsid: &IID, dwDirection: DWORD, #[out] #[out_ptr] ppenum: *mut LPENUMFORMATETC) -> HRESULT;
+        extern fn OleRegEnumFormatEtc(clsid: &IID, dwDirection: DWORD, #[out] #[out_ptr] #[retval] ppenum: *mut LPENUMFORMATETC) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleRegEnumVerbs(clsid: &IID, #[out] #[out_ptr] ppenum: *mut LPENUMOLEVERB) -> HRESULT;
+        extern fn OleRegEnumVerbs(clsid: &IID, #[out] #[out_ptr] #[retval] ppenum: *mut LPENUMOLEVERB) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleRegGetMiscStatus(clsid: &IID, dwAspect: DWORD, pdwStatus: *mut DWORD) -> HRESULT;
         #[library("ole32.dll")]

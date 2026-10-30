@@ -10,8 +10,8 @@ mod Windows {
         }
         #[guid(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispError: IUnknown {
-            fn QueryErrorInfo(&self, #[in] guidErrorType: GUID, #[out] #[out_ptr] ppde: *mut IDispError) -> HRESULT;
-            fn GetNext(&self, #[out] #[out_ptr] ppde: *mut IDispError) -> HRESULT;
+            fn QueryErrorInfo(&self, #[in] guidErrorType: GUID, #[out] #[out_ptr] #[retval] ppde: *mut IDispError) -> HRESULT;
+            fn GetNext(&self, #[out] #[out_ptr] #[retval] ppde: *mut IDispError) -> HRESULT;
             fn GetHresult(&self, #[out] phr: *mut HRESULT) -> HRESULT;
             fn GetSource(&self, #[out] #[out_ptr] pbstrSource: *mut BSTR) -> HRESULT;
             fn GetHelpInfo(&self, #[out] #[out_ptr] pbstrFileName: *mut BSTR, #[out] pdwContext: *mut DWORD) -> HRESULT;
@@ -26,7 +26,7 @@ mod Windows {
             fn GetMemberProperties(&self, #[in] id: DISPID, #[in] grfdexFetch: DWORD, #[out] pgrfdex: *mut DWORD) -> HRESULT;
             fn GetMemberName(&self, #[in] id: DISPID, #[out] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
             fn GetNextDispID(&self, #[in] grfdex: DWORD, #[in] id: DISPID, #[out] pid: *mut DISPID) -> HRESULT;
-            fn GetNameSpaceParent(&self, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetNameSpaceParent(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         }
         const IID_ICanHandleException: GUID = 0xc5598e60_b307_11d1_b27d_006008c3fbfb;
         const IID_IDispError: GUID = 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9;

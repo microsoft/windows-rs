@@ -72,11 +72,11 @@ mod Windows {
         const HLNF_UNTRUSTEDFORDOWNLOAD: i32 = 33554432;
         #[guid(0x02ba3b52_0547_11d1_b833_00c04fc9b31f)]
         interface IBrowserService: IUnknown {
-            fn GetParentSite(&self, #[out] #[out_ptr] ppipsite: *mut IOleInPlaceSite) -> HRESULT;
+            fn GetParentSite(&self, #[out] #[out_ptr] #[retval] ppipsite: *mut IOleInPlaceSite) -> HRESULT;
             fn SetTitle(&self, #[in] psv: IShellView, #[in] pszName: LPCWSTR) -> HRESULT;
             fn GetTitle(&self, #[in] psv: IShellView, #[out] #[writable(entry, cchName)] pszName: LPWSTR, cchName: DWORD) -> HRESULT;
-            fn GetOleObject(&self, #[out] #[out_ptr] ppobjv: *mut IOleObject) -> HRESULT;
-            fn GetTravelLog(&self, #[out] #[out_ptr] pptl: *mut ITravelLog) -> HRESULT;
+            fn GetOleObject(&self, #[out] #[out_ptr] #[retval] ppobjv: *mut IOleObject) -> HRESULT;
+            fn GetTravelLog(&self, #[out] #[out_ptr] #[retval] pptl: *mut ITravelLog) -> HRESULT;
             fn ShowControlWindow(&self, id: UINT, fShow: BOOL) -> HRESULT;
             fn IsControlWindowShown(&self, id: UINT, #[out] pfShown: *mut BOOL) -> HRESULT;
             fn IEGetDisplayName(&self, #[in] pidl: LPCITEMIDLIST, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "(32 + sizeof(\"://\") + 2048)", "(32 + sizeof(\"://\") + 2048)")] #[out] pwszName: LPWSTR, uFlags: UINT) -> HRESULT;
@@ -94,8 +94,8 @@ mod Windows {
             fn GetPidl(&self, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
             fn SetReferrer(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
             fn GetBrowserIndex(&self) -> DWORD;
-            fn GetBrowserByIndex(&self, dwID: DWORD, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
-            fn GetHistoryObject(&self, #[out] #[out_ptr] ppole: *mut IOleObject, #[out] #[out_ptr] pstm: *mut IStream, #[out] #[out_ptr] ppbc: *mut IBindCtx) -> HRESULT;
+            fn GetBrowserByIndex(&self, dwID: DWORD, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetHistoryObject(&self, #[out] #[out_ptr] ppole: *mut IOleObject, #[out] #[out_ptr] pstm: *mut IStream, #[out] #[out_ptr] #[retval] ppbc: *mut IBindCtx) -> HRESULT;
             fn SetHistoryObject(&self, #[in] pole: IOleObject, fIsLocalAnchor: BOOL) -> HRESULT;
             fn CacheOLEServer(&self, #[in] pole: IOleObject) -> HRESULT;
             fn GetSetCodePage(&self, #[in] pvarIn: *mut VARIANT, #[out] pvarOut: *mut VARIANT) -> HRESULT;
@@ -185,7 +185,7 @@ mod Windows {
         }
         #[guid(0x0d7d1d00_6fc0_11d0_a974_00c04fd705a2)]
         interface IExpDispSupport: IUnknown {
-            fn FindConnectionPoint(&self, #[in] riid: &IID, #[out] #[out_ptr] ppccp: *mut IConnectionPoint) -> HRESULT;
+            fn FindConnectionPoint(&self, #[in] riid: &IID, #[out] #[out_ptr] #[retval] ppccp: *mut IConnectionPoint) -> HRESULT;
             fn OnTranslateAccelerator(&self, #[in] pMsg: *mut MSG, #[in] grfModifiers: DWORD) -> HRESULT;
             fn OnInvoke(&self, #[in] dispidMember: DISPID, #[in] iid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdispparams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pexcepinfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
         }
@@ -212,10 +212,10 @@ mod Windows {
             fn UpdateExternal(&self, #[in] #[opt] punk: IUnknown, #[in] #[opt] punkHLBrowseContext: IUnknown) -> HRESULT;
             fn Travel(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32) -> HRESULT;
             fn GetTravelEntry(&self, #[in] punk: IUnknown, #[in] iOffset: i32, #[opt] #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
-            fn FindTravelEntry(&self, #[in] #[opt] punk: IUnknown, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
+            fn FindTravelEntry(&self, #[in] #[opt] punk: IUnknown, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] #[retval] ppte: *mut ITravelEntry) -> HRESULT;
             fn GetToolTipText(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32, #[in] idsTemplate: i32, #[out] #[readable(success, cchText)] #[writable(entry, cchText)] #[writable(success, cchText)] pwzText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn InsertMenuEntries(&self, #[in] #[opt] punk: IUnknown, #[in] hmenu: HMENU, #[in] nPos: i32, #[in] idFirst: i32, #[in] idLast: i32, #[in] dwFlags: DWORD) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] pptl: *mut ITravelLog) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] pptl: *mut ITravelLog) -> HRESULT;
             fn CountEntries(&self, #[in] punk: IUnknown) -> DWORD;
             fn Revert(&self) -> HRESULT;
         }

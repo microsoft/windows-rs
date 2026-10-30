@@ -28,7 +28,7 @@ mod Windows {
             fn SearchById(&self, #[in] pszId: LPCWSTR, #[in] #[opt] pszTag: LPCWSTR) -> HRESULT;
             fn SearchByAddress(&self, #[in] pszAddress: LPCWSTR, #[in] #[opt] pszTag: LPCWSTR) -> HRESULT;
             fn SearchByType(&self, #[in] #[opt] pTypesList: *const WSD_NAME_LIST, #[in] #[opt] pScopesList: *const WSD_URI_LIST, #[in] #[opt] pszMatchBy: LPCWSTR, #[in] #[opt] pszTag: LPCWSTR) -> HRESULT;
-            fn GetXMLContext(&self, #[out] #[out_ptr] ppContext: *mut IWSDXMLContext) -> HRESULT;
+            fn GetXMLContext(&self, #[out] #[out_ptr] #[retval] ppContext: *mut IWSDXMLContext) -> HRESULT;
         }
         #[guid(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2)]
         interface IWSDiscoveryProviderNotify: IUnknown {
@@ -51,7 +51,7 @@ mod Windows {
             fn MatchResolveEx(&self, #[in] pResolveMessage: *const WSD_SOAP_MESSAGE, #[in] pMessageParameters: IWSDMessageParameters, #[in] pszId: LPCWSTR, #[in] ullMetadataVersion: ULONGLONG, #[in] ullInstanceId: ULONGLONG, #[in] ullMessageNumber: ULONGLONG, #[in] #[opt] pszSessionId: LPCWSTR, #[in] #[opt] pTypesList: *const WSD_NAME_LIST, #[in] #[opt] pScopesList: *const WSD_URI_LIST, #[in] #[opt] pXAddrsList: *const WSD_URI_LIST, #[in] #[opt] pHeaderAny: *const WSDXML_ELEMENT, #[in] #[opt] pReferenceParameterAny: *const WSDXML_ELEMENT, #[in] #[opt] pPolicyAny: *const WSDXML_ELEMENT, #[in] #[opt] pEndpointReferenceAny: *const WSDXML_ELEMENT, #[in] #[opt] pAny: *const WSDXML_ELEMENT) -> HRESULT;
             fn RegisterScopeMatchingRule(&self, #[in] pScopeMatchingRule: IWSDScopeMatchingRule) -> HRESULT;
             fn UnRegisterScopeMatchingRule(&self, #[in] pScopeMatchingRule: IWSDScopeMatchingRule) -> HRESULT;
-            fn GetXMLContext(&self, #[out] #[out_ptr] ppContext: *mut IWSDXMLContext) -> HRESULT;
+            fn GetXMLContext(&self, #[out] #[out_ptr] #[retval] ppContext: *mut IWSDXMLContext) -> HRESULT;
         }
         #[guid(0xe67651b0_337a_4b3c_9758_733388568251)]
         interface IWSDiscoveryPublisherNotify: IUnknown {
@@ -59,12 +59,12 @@ mod Windows {
             fn ResolveHandler(&self, #[in] pSoap: *const WSD_SOAP_MESSAGE, #[in] pMessageParameters: IWSDMessageParameters) -> HRESULT;
         }
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryProvider(pContext: IWSDXMLContext, #[out] #[out_ptr] ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
+        extern fn WSDCreateDiscoveryProvider(pContext: IWSDXMLContext, #[out] #[out_ptr] #[retval] ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryProvider2(pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
+        extern fn WSDCreateDiscoveryProvider2(pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] #[retval] ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryPublisher(pContext: IWSDXMLContext, #[out] #[out_ptr] ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
+        extern fn WSDCreateDiscoveryPublisher(pContext: IWSDXMLContext, #[out] #[out_ptr] #[retval] ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryPublisher2(pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
+        extern fn WSDCreateDiscoveryPublisher2(pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] #[retval] ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
     }
 }

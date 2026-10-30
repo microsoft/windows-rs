@@ -61,9 +61,7 @@ fn test() {
 
         assert_eq!(stringable.ToString().unwrap(), "Stringable");
 
-        let mut stream = None;
-        CoMarshalInterThreadInterfaceInStream(&IStringable::IID, &stringable, &mut stream).unwrap();
-        let stream = stream.unwrap();
+        let stream = CoMarshalInterThreadInterfaceInStream(&IStringable::IID, &stringable).unwrap();
         let copy: IStringable = CoUnmarshalInterface(&stream).unwrap();
 
         assert_eq!(copy.ToString().unwrap(), "Stringable");

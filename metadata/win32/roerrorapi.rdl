@@ -43,7 +43,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoReportUnhandledError(#[in] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoResolveRestrictedErrorInfoReference(#[in] reference: PCWSTR, #[out] #[out_ptr] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoResolveRestrictedErrorInfoReference(#[in] reference: PCWSTR, #[out] #[out_ptr] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoSetErrorReportingFlags(#[in] flags: UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]

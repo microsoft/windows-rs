@@ -108,9 +108,12 @@ pub unsafe fn CoFileTimeNow(lpfiletime: *mut super::FILETIME) -> windows_core::H
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CreateDataAdviseHolder(ppdaholder: *mut Option<super::LPDATAADVISEHOLDER>) -> windows_core::HRESULT {
+pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<super::LPDATAADVISEHOLDER> {
     windows_core::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDataAdviseHolder(core::mem::transmute(ppdaholder)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateDataAdviseHolder(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn DriveType(idrive: i32) -> i32 {

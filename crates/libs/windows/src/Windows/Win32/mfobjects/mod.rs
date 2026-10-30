@@ -399,8 +399,11 @@ impl windows_core::RuntimeName for IMFAsyncCallbackLogging {}
 windows_core::imp::define_interface!(IMFAsyncResult, IMFAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
 windows_core::imp::interface_hierarchy!(IMFAsyncResult, windows_core::IUnknown);
 impl IMFAsyncResult {
-    pub unsafe fn GetState(&self, ppunkstate: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunkstate)) }
+    pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self)) }
@@ -408,8 +411,11 @@ impl IMFAsyncResult {
     pub unsafe fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), hrstatus) }
     }
-    pub unsafe fn GetObject(&self, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppobject)) }
+    pub unsafe fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown> {
         unsafe { (windows_core::Interface::vtable(self).GetStateNoAddRef)(windows_core::Interface::as_raw(self)) }
@@ -426,10 +432,10 @@ pub struct IMFAsyncResult_Vtbl {
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
 pub trait IMFAsyncResult_Impl: windows_core::IUnknownImpl {
-    fn GetState(&self, ppunkstate: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetState(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetStatus(&self) -> windows_core::Result<()>;
     fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn GetObject(&self, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown>;
 }
 impl IMFAsyncResult_Vtbl {
@@ -437,7 +443,13 @@ impl IMFAsyncResult_Vtbl {
         unsafe extern "system" fn GetState<Identity: IMFAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFAsyncResult_Impl::GetState(this, core::mem::transmute_copy(&ppunkstate)).into()
+                match IMFAsyncResult_Impl::GetState(this) {
+                    Ok(ok__) => {
+                        ppunkstate.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetStatus<Identity: IMFAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -455,7 +467,13 @@ impl IMFAsyncResult_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IMFAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFAsyncResult_Impl::GetObject(this, core::mem::transmute_copy(&ppobject)).into()
+                match IMFAsyncResult_Impl::GetObject(this) {
+                    Ok(ok__) => {
+                        ppobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetStateNoAddRef<Identity: IMFAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<windows_core::IUnknown> {
@@ -1310,8 +1328,11 @@ impl IMFCollection {
         unsafe { (windows_core::Interface::vtable(self).GetElementCount)(windows_core::Interface::as_raw(self), pcelements as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetElement(&self, dwelementindex: super::DWORD, ppunkelement: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), dwelementindex, core::mem::transmute(ppunkelement)) }
+    pub unsafe fn GetElement(&self, dwelementindex: super::DWORD) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), dwelementindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddElement<P0>(&self, punkelement: P0) -> windows_core::HRESULT
     where
@@ -1320,8 +1341,11 @@ impl IMFCollection {
         unsafe { (windows_core::Interface::vtable(self).AddElement)(windows_core::Interface::as_raw(self), punkelement.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RemoveElement(&self, dwelementindex: super::DWORD, ppunkelement: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveElement)(windows_core::Interface::as_raw(self), dwelementindex, core::mem::transmute(ppunkelement)) }
+    pub unsafe fn RemoveElement(&self, dwelementindex: super::DWORD) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RemoveElement)(windows_core::Interface::as_raw(self), dwelementindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn InsertElementAt<P1>(&self, dwindex: super::DWORD, punknown: P1) -> windows_core::HRESULT
@@ -1360,9 +1384,9 @@ pub struct IMFCollection_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFCollection_Impl: windows_core::IUnknownImpl {
     fn GetElementCount(&self, pcelements: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetElement(&self, dwelementindex: super::DWORD, ppunkelement: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetElement(&self, dwelementindex: super::DWORD) -> windows_core::Result<windows_core::IUnknown>;
     fn AddElement(&self, punkelement: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RemoveElement(&self, dwelementindex: super::DWORD, ppunkelement: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RemoveElement(&self, dwelementindex: super::DWORD) -> windows_core::Result<windows_core::IUnknown>;
     fn InsertElementAt(&self, dwindex: super::DWORD, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllElements(&self) -> windows_core::Result<()>;
 }
@@ -1378,7 +1402,13 @@ impl IMFCollection_Vtbl {
         unsafe extern "system" fn GetElement<Identity: IMFCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwelementindex: super::DWORD, ppunkelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCollection_Impl::GetElement(this, core::mem::transmute_copy(&dwelementindex), core::mem::transmute_copy(&ppunkelement)).into()
+                match IMFCollection_Impl::GetElement(this, core::mem::transmute_copy(&dwelementindex)) {
+                    Ok(ok__) => {
+                        ppunkelement.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddElement<Identity: IMFCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1390,7 +1420,13 @@ impl IMFCollection_Vtbl {
         unsafe extern "system" fn RemoveElement<Identity: IMFCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwelementindex: super::DWORD, ppunkelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCollection_Impl::RemoveElement(this, core::mem::transmute_copy(&dwelementindex), core::mem::transmute_copy(&ppunkelement)).into()
+                match IMFCollection_Impl::RemoveElement(this, core::mem::transmute_copy(&dwelementindex)) {
+                    Ok(ok__) => {
+                        ppunkelement.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn InsertElementAt<Identity: IMFCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, punknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1947,8 +1983,11 @@ windows_core::imp::define_interface!(IMFMediaEventGenerator, IMFMediaEventGenera
 windows_core::imp::interface_hierarchy!(IMFMediaEventGenerator, windows_core::IUnknown);
 impl IMFMediaEventGenerator {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetEvent(&self, dwflags: super::DWORD, ppevent: *mut Option<IMFMediaEvent>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(ppevent)) }
+    pub unsafe fn GetEvent(&self, dwflags: super::DWORD) -> windows_core::Result<IMFMediaEvent> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn BeginGetEvent<P0, P1>(&self, pcallback: P0, punkstate: P1) -> windows_core::HRESULT
     where
@@ -1985,7 +2024,7 @@ pub struct IMFMediaEventGenerator_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEventGenerator_Impl: windows_core::IUnknownImpl {
-    fn GetEvent(&self, dwflags: super::DWORD, ppevent: windows_core::OutRef<IMFMediaEvent>) -> windows_core::Result<()>;
+    fn GetEvent(&self, dwflags: super::DWORD) -> windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndGetEvent(&self, presult: windows_core::Ref<IMFAsyncResult>, ppevent: windows_core::OutRef<IMFMediaEvent>) -> windows_core::Result<()>;
     fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
@@ -1996,7 +2035,13 @@ impl IMFMediaEventGenerator_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, ppevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEventGenerator_Impl::GetEvent(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppevent)).into()
+                match IMFMediaEventGenerator_Impl::GetEvent(this, core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppevent.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn BeginGetEvent<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, punkstate: *mut core::ffi::c_void) -> windows_core::HRESULT {

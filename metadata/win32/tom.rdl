@@ -77,7 +77,7 @@ mod Windows {
             fn GetImmContext(&self, #[out] #[retval] pContext: *mut i64) -> HRESULT;
             fn GetPreferredFont(&self, #[in] cp: i32, #[in] CharRep: i32, #[in] Options: i32, #[in] curCharRep: i32, #[in] curFontSize: i32, #[out] #[out_ptr] pbstr: *mut BSTR, #[out] pPitchAndFamily: *mut i32, #[out] pNewFontSize: *mut i32) -> HRESULT;
             fn GetProperty(&self, #[in] Type: i32, #[out] pValue: *mut i32) -> HRESULT;
-            fn GetStrings(&self, #[out] #[out_ptr] ppStrs: *mut ITextStrings) -> HRESULT;
+            fn GetStrings(&self, #[out] #[out_ptr] #[retval] ppStrs: *mut ITextStrings) -> HRESULT;
             fn Notify(&self, #[in] Notify: i32) -> HRESULT;
             fn Range2(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
             fn RangeFromPoint2(&self, #[in] x: i32, #[in] y: i32, #[in] Type: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;

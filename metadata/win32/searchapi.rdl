@@ -203,7 +203,7 @@ mod Windows {
         }
         #[guid(0xdbab3f73_db19_4a79_bfc0_a61a93886ddf)]
         interface ISearchManager2: ISearchManager {
-            fn CreateCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR, #[out] #[out_ptr] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            fn CreateCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR, #[out] #[out_ptr] #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
             fn DeleteCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR) -> HRESULT;
         }
         #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
@@ -361,8 +361,8 @@ mod Windows {
             fn GetSecurityDescriptor(&self, #[out] #[readable(success, dwSize)] #[writable(entry, dwSize)] #[writable(success, dwSize)] pSD: *mut BYTE, #[in] dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
             fn GetRedirectedURL(&self, #[out] #[readable(success, *pdwLength)] #[writable(entry, dwSize)] #[writable(success, dwSize)] wszRedirectedURL: *mut WCHAR, #[in] dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
             fn GetSecurityProvider(&self, #[out] pSPClsid: *mut CLSID) -> HRESULT;
-            fn BindToStream(&self, #[out] #[out_ptr] ppStream: *mut IStream) -> HRESULT;
-            fn BindToFilter(&self, #[out] #[out_ptr] ppFilter: *mut IFilter) -> HRESULT;
+            fn BindToStream(&self, #[out] #[out_ptr] #[retval] ppStream: *mut IStream) -> HRESULT;
+            fn BindToFilter(&self, #[out] #[out_ptr] #[retval] ppFilter: *mut IFilter) -> HRESULT;
         }
         #[guid(0xc7310734_ac80_11d1_8df3_00c04fb6ef4f)]
         interface IUrlAccessor2: IUrlAccessor {

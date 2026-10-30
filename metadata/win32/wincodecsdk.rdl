@@ -136,25 +136,25 @@ mod Windows {
         const GUID_MetadataFormatXMPStruct: GUID = 0x22383cf1_ed17_4e2e_af17_d85b8f6b30d0;
         #[guid(0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb)]
         interface IWICComponentFactory: IWICImagingFactory {
-            fn CreateMetadataReader(&self, #[in] guidMetadataFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwOptions: DWORD, #[in] #[opt] pIStream: IStream, #[out] #[out_ptr] ppIReader: *mut IWICMetadataReader) -> HRESULT;
-            fn CreateMetadataReaderFromContainer(&self, #[in] guidContainerFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwOptions: DWORD, #[in] #[opt] pIStream: IStream, #[out] #[out_ptr] ppIReader: *mut IWICMetadataReader) -> HRESULT;
-            fn CreateMetadataWriter(&self, #[in] guidMetadataFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwMetadataOptions: DWORD, #[out] #[out_ptr] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
-            fn CreateMetadataWriterFromReader(&self, #[in] #[opt] pIReader: IWICMetadataReader, #[in] #[opt] pguidVendor: *const GUID, #[out] #[out_ptr] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
-            fn CreateQueryReaderFromBlockReader(&self, #[in] #[opt] pIBlockReader: IWICMetadataBlockReader, #[out] #[out_ptr] ppIQueryReader: *mut IWICMetadataQueryReader) -> HRESULT;
-            fn CreateQueryWriterFromBlockWriter(&self, #[in] #[opt] pIBlockWriter: IWICMetadataBlockWriter, #[out] #[out_ptr] ppIQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
-            fn CreateEncoderPropertyBag(&self, #[in] #[opt] #[readable(entry, cCount)] ppropOptions: *mut PROPBAG2, #[in] cCount: UINT, #[out] #[out_ptr] ppIPropertyBag: *mut IPropertyBag2) -> HRESULT;
+            fn CreateMetadataReader(&self, #[in] guidMetadataFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwOptions: DWORD, #[in] #[opt] pIStream: IStream, #[out] #[out_ptr] #[retval] ppIReader: *mut IWICMetadataReader) -> HRESULT;
+            fn CreateMetadataReaderFromContainer(&self, #[in] guidContainerFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwOptions: DWORD, #[in] #[opt] pIStream: IStream, #[out] #[out_ptr] #[retval] ppIReader: *mut IWICMetadataReader) -> HRESULT;
+            fn CreateMetadataWriter(&self, #[in] guidMetadataFormat: &GUID, #[in] #[opt] #[readable(entry, 1)] pguidVendor: *const GUID, #[in] dwMetadataOptions: DWORD, #[out] #[out_ptr] #[retval] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
+            fn CreateMetadataWriterFromReader(&self, #[in] #[opt] pIReader: IWICMetadataReader, #[in] #[opt] pguidVendor: *const GUID, #[out] #[out_ptr] #[retval] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
+            fn CreateQueryReaderFromBlockReader(&self, #[in] #[opt] pIBlockReader: IWICMetadataBlockReader, #[out] #[out_ptr] #[retval] ppIQueryReader: *mut IWICMetadataQueryReader) -> HRESULT;
+            fn CreateQueryWriterFromBlockWriter(&self, #[in] #[opt] pIBlockWriter: IWICMetadataBlockWriter, #[out] #[out_ptr] #[retval] ppIQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+            fn CreateEncoderPropertyBag(&self, #[in] #[opt] #[readable(entry, cCount)] ppropOptions: *mut PROPBAG2, #[in] cCount: UINT, #[out] #[out_ptr] #[retval] ppIPropertyBag: *mut IPropertyBag2) -> HRESULT;
         }
         #[guid(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1)]
         interface IWICMetadataBlockReader: IUnknown {
             fn GetContainerFormat(&self, #[out] pguidContainerFormat: *mut GUID) -> HRESULT;
             fn GetCount(&self, #[out] pcCount: *mut UINT) -> HRESULT;
-            fn GetReaderByIndex(&self, #[in] nIndex: UINT, #[out] #[out_ptr] ppIMetadataReader: *mut IWICMetadataReader) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[out_ptr] ppIEnumMetadata: *mut IEnumUnknown) -> HRESULT;
+            fn GetReaderByIndex(&self, #[in] nIndex: UINT, #[out] #[out_ptr] #[retval] ppIMetadataReader: *mut IWICMetadataReader) -> HRESULT;
+            fn GetEnumerator(&self, #[out] #[out_ptr] #[retval] ppIEnumMetadata: *mut IEnumUnknown) -> HRESULT;
         }
         #[guid(0x08fb9676_b444_41e8_8dbe_6a53a542bff1)]
         interface IWICMetadataBlockWriter: IWICMetadataBlockReader {
             fn InitializeFromBlockReader(&self, #[in] #[opt] pIMDBlockReader: IWICMetadataBlockReader) -> HRESULT;
-            fn GetWriterByIndex(&self, #[in] nIndex: UINT, #[out] #[out_ptr] ppIMetadataWriter: *mut IWICMetadataWriter) -> HRESULT;
+            fn GetWriterByIndex(&self, #[in] nIndex: UINT, #[out] #[out_ptr] #[retval] ppIMetadataWriter: *mut IWICMetadataWriter) -> HRESULT;
             fn AddWriter(&self, #[in] #[opt] pIMetadataWriter: IWICMetadataWriter) -> HRESULT;
             fn SetWriterByIndex(&self, #[in] nIndex: UINT, #[in] #[opt] pIMetadataWriter: IWICMetadataWriter) -> HRESULT;
             fn RemoveWriterByIndex(&self, #[in] nIndex: UINT) -> HRESULT;
@@ -172,17 +172,17 @@ mod Windows {
         #[guid(0x9204fe99_d8fc_4fd5_a001_9536b067a899)]
         interface IWICMetadataReader: IUnknown {
             fn GetMetadataFormat(&self, #[out] pguidMetadataFormat: *mut GUID) -> HRESULT;
-            fn GetMetadataHandlerInfo(&self, #[out] #[out_ptr] ppIHandler: *mut IWICMetadataHandlerInfo) -> HRESULT;
+            fn GetMetadataHandlerInfo(&self, #[out] #[out_ptr] #[retval] ppIHandler: *mut IWICMetadataHandlerInfo) -> HRESULT;
             fn GetCount(&self, #[out] pcCount: *mut UINT) -> HRESULT;
             fn GetValueByIndex(&self, #[in] nIndex: UINT, #[in] #[opt] #[out] pvarSchema: *mut PROPVARIANT, #[in] #[opt] #[out] pvarId: *mut PROPVARIANT, #[in] #[opt] #[out] pvarValue: *mut PROPVARIANT) -> HRESULT;
             fn GetValue(&self, #[in] #[opt] pvarSchema: *const PROPVARIANT, #[in] pvarId: *const PROPVARIANT, #[in] #[opt] #[out] pvarValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[out_ptr] ppIEnumMetadata: *mut IWICEnumMetadataItem) -> HRESULT;
+            fn GetEnumerator(&self, #[out] #[out_ptr] #[retval] ppIEnumMetadata: *mut IWICEnumMetadataItem) -> HRESULT;
         }
         #[guid(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804)]
         interface IWICMetadataReaderInfo: IWICMetadataHandlerInfo {
             fn GetPatterns(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbSize))] pPattern: *mut WICMetadataPattern, #[opt] #[out] pcCount: *mut UINT, #[opt] #[out] pcbActual: *mut UINT) -> HRESULT;
             fn MatchesPattern(&self, #[in] guidContainerFormat: &GUID, #[in] #[opt] pIStream: IStream, #[out] pfMatches: *mut BOOL) -> HRESULT;
-            fn CreateInstance(&self, #[out] #[out_ptr] ppIReader: *mut IWICMetadataReader) -> HRESULT;
+            fn CreateInstance(&self, #[out] #[out_ptr] #[retval] ppIReader: *mut IWICMetadataReader) -> HRESULT;
         }
         #[guid(0xf7836e16_3be0_470b_86bb_160d0aecd7de)]
         interface IWICMetadataWriter: IWICMetadataReader {
@@ -194,7 +194,7 @@ mod Windows {
         #[guid(0xb22e3fba_3925_4323_b5c1_9ebfc430f236)]
         interface IWICMetadataWriterInfo: IWICMetadataHandlerInfo {
             fn GetHeader(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[in] #[opt] #[out] #[writable(entry, bytes(cbSize))] pHeader: *mut WICMetadataHeader, #[in] #[opt] #[out] pcbActual: *mut UINT) -> HRESULT;
-            fn CreateInstance(&self, #[out] #[out_ptr] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
+            fn CreateInstance(&self, #[out] #[out_ptr] #[retval] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
         }
         #[guid(0x00675040_6908_45f8_86a3_49c7dfd6d9ad)]
         interface IWICPersistStream: IPersistStream {
@@ -203,7 +203,7 @@ mod Windows {
         }
         #[guid(0x449494bc_b468_4927_96d7_ba90d31ab505)]
         interface IWICStreamProvider: IUnknown {
-            fn GetStream(&self, #[out] #[out_ptr] ppIStream: *mut IStream) -> HRESULT;
+            fn GetStream(&self, #[out] #[out_ptr] #[retval] ppIStream: *mut IStream) -> HRESULT;
             fn GetPersistOptions(&self, #[out] pdwPersistOptions: *mut DWORD) -> HRESULT;
             fn GetPreferredVendorGUID(&self, #[out] pguidPreferredVendor: *mut GUID) -> HRESULT;
             fn RefreshStream(&self) -> HRESULT;

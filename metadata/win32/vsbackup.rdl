@@ -85,7 +85,7 @@ mod Windows {
         interface IVssBackupComponentsEx3: IVssBackupComponentsEx2 {
             fn GetWriterStatusEx(&self, #[in] iWriter: UINT, #[out] pidInstance: *mut VSS_ID, #[out] pidWriter: *mut VSS_ID, #[out] pbstrWriter: *mut BSTR, #[out] pnStatus: *mut VSS_WRITER_STATE, #[out] phrFailureWriter: *mut HRESULT, #[opt] #[out] phrApplication: *mut HRESULT, #[opt] #[out] pbstrApplicationMessage: *mut BSTR) -> HRESULT;
             fn AddSnapshotToRecoverySet(&self, #[in] snapshotId: VSS_ID, #[in] dwFlags: DWORD, #[in] #[opt] pwszDestinationVolume: VSS_PWSZ) -> HRESULT;
-            fn RecoverSet(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppAsync: *mut IVssAsync) -> HRESULT;
+            fn RecoverSet(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppAsync: *mut IVssAsync) -> HRESULT;
             fn GetSessionId(&self, #[out] idSession: *mut VSS_ID) -> HRESULT;
         }
         #[guid(0xf434c2fd_b553_4961_a9f9_a8e90b673e53)]

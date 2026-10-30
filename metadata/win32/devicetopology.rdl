@@ -93,10 +93,10 @@ mod Windows {
             fn GetConnectorCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
             fn GetConnector(&self, #[in] nIndex: UINT, #[out] ppConnector: *mut IConnector) -> HRESULT;
             fn GetSubunitCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            fn GetSubunit(&self, #[in] nIndex: UINT, #[out] #[out_ptr] ppSubunit: *mut ISubunit) -> HRESULT;
-            fn GetPartById(&self, #[in] nId: UINT, #[out] #[out_ptr] ppPart: *mut IPart) -> HRESULT;
+            fn GetSubunit(&self, #[in] nIndex: UINT, #[out] #[out_ptr] #[retval] ppSubunit: *mut ISubunit) -> HRESULT;
+            fn GetPartById(&self, #[in] nId: UINT, #[out] #[out_ptr] #[retval] ppPart: *mut IPart) -> HRESULT;
             fn GetDeviceId(&self, #[out] #[out_ptr] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
-            fn GetSignalPath(&self, #[in] pIPartFrom: IPart, #[in] pIPartTo: IPart, #[in] bRejectMixedPaths: BOOL, #[out] #[out_ptr] ppParts: *mut IPartsList) -> HRESULT;
+            fn GetSignalPath(&self, #[in] pIPartFrom: IPart, #[in] pIPartTo: IPart, #[in] bRejectMixedPaths: BOOL, #[out] #[out_ptr] #[retval] ppParts: *mut IPartsList) -> HRESULT;
         }
         #[guid(0x28f54685_06fd_11d2_b27a_00a0c9223196)]
         interface IKsControl: IUnknown {

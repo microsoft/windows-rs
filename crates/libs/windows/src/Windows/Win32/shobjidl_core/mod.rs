@@ -4,12 +4,15 @@ pub unsafe fn GetCurrentProcessExplicitAppUserModelID(appid: *mut windows_core::
     unsafe { GetCurrentProcessExplicitAppUserModelID(appid as _) }
 }
 #[inline]
-pub unsafe fn SHAssocEnumHandlers<P0>(pszextra: P0, affilter: ASSOC_FILTER, ppenumhandler: *mut Option<IEnumAssocHandlers>) -> windows_core::HRESULT
+pub unsafe fn SHAssocEnumHandlers<P0>(pszextra: P0, affilter: ASSOC_FILTER) -> windows_core::Result<IEnumAssocHandlers>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : windows_core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHAssocEnumHandlers(pszextra.param().abi(), affilter, core::mem::transmute(ppenumhandler)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHAssocEnumHandlers(pszextra.param().abi(), affilter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -79,12 +82,15 @@ where
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateShellItemArray<P1>(pidlparent: Option<super::LPCITEMIDLIST>, psf: P1, ppidl: Option<&[super::LPCITEMIDLIST]>, ppsiitemarray: *mut Option<IShellItemArray>) -> windows_core::HRESULT
+pub unsafe fn SHCreateShellItemArray<P1>(pidlparent: Option<super::LPCITEMIDLIST>, psf: P1, ppidl: Option<&[super::LPCITEMIDLIST]>) -> windows_core::Result<IShellItemArray>
 where
     P1: windows_core::Param<IShellFolder>,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, cidl : super::UINT, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), core::mem::transmute(ppsiitemarray)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl"))]
 #[inline]
@@ -97,9 +103,12 @@ where
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::LPCITEMIDLIST], ppsiitemarray: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
+pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::LPCITEMIDLIST]) -> windows_core::Result<IShellItemArray> {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : super::UINT, rgpidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), core::mem::transmute(ppsiitemarray)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -1883,11 +1892,14 @@ impl IAssocHandler {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pdo.param().abi()) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn CreateInvoker<P0>(&self, pdo: P0, ppinvoker: *mut Option<IAssocHandlerInvoker>) -> windows_core::HRESULT
+    pub unsafe fn CreateInvoker<P0>(&self, pdo: P0) -> windows_core::Result<IAssocHandlerInvoker>
     where
         P0: windows_core::Param<super::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInvoker)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(ppinvoker)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateInvoker)(windows_core::Interface::as_raw(self), pdo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1916,7 +1928,7 @@ pub trait IAssocHandler_Impl: windows_core::IUnknownImpl {
     fn IsRecommended(&self) -> windows_core::Result<()>;
     fn MakeDefault(&self, pszdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Invoke(&self, pdo: windows_core::Ref<super::IDataObject>) -> windows_core::Result<()>;
-    fn CreateInvoker(&self, pdo: windows_core::Ref<super::IDataObject>, ppinvoker: windows_core::OutRef<IAssocHandlerInvoker>) -> windows_core::Result<()>;
+    fn CreateInvoker(&self, pdo: windows_core::Ref<super::IDataObject>) -> windows_core::Result<IAssocHandlerInvoker>;
 }
 #[cfg(feature = "objidl")]
 impl IAssocHandler_Vtbl {
@@ -1960,7 +1972,13 @@ impl IAssocHandler_Vtbl {
         unsafe extern "system" fn CreateInvoker<Identity: IAssocHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, ppinvoker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAssocHandler_Impl::CreateInvoker(this, core::mem::transmute_copy(&pdo), core::mem::transmute_copy(&ppinvoker)).into()
+                match IAssocHandler_Impl::CreateInvoker(this, core::mem::transmute_copy(&pdo)) {
+                    Ok(ok__) => {
+                        ppinvoker.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2607,8 +2625,11 @@ impl ICategoryProvider {
         unsafe { (windows_core::Interface::vtable(self).GetCategoryForSCID)(windows_core::Interface::as_raw(self), pscid, pguid as _) }
     }
     #[cfg(feature = "comcat")]
-    pub unsafe fn EnumCategories(&self, penum: *mut Option<super::IEnumGUID>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCategories)(windows_core::Interface::as_raw(self), core::mem::transmute(penum)) }
+    pub unsafe fn EnumCategories(&self) -> windows_core::Result<super::IEnumGUID> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCategoryName(&self, pguid: *const windows_core::GUID, pszname: windows_core::PWSTR, cch: super::UINT) -> windows_core::HRESULT {
@@ -2657,7 +2678,7 @@ pub trait ICategoryProvider_Impl: windows_core::IUnknownImpl {
     fn CanCategorizeOnSCID(&self, pscid: *const super::SHCOLUMNID) -> windows_core::Result<()>;
     fn GetDefaultCategory(&self, pguid: *mut windows_core::GUID, pscid: *mut super::SHCOLUMNID) -> windows_core::Result<()>;
     fn GetCategoryForSCID(&self, pscid: *const super::SHCOLUMNID, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn EnumCategories(&self, penum: windows_core::OutRef<super::IEnumGUID>) -> windows_core::Result<()>;
+    fn EnumCategories(&self) -> windows_core::Result<super::IEnumGUID>;
     fn GetCategoryName(&self, pguid: *const windows_core::GUID, pszname: windows_core::PWSTR, cch: super::UINT) -> windows_core::Result<()>;
     fn CreateCategory(&self, pguid: *const windows_core::GUID, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -2685,7 +2706,13 @@ impl ICategoryProvider_Vtbl {
         unsafe extern "system" fn EnumCategories<Identity: ICategoryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICategoryProvider_Impl::EnumCategories(this, core::mem::transmute_copy(&penum)).into()
+                match ICategoryProvider_Impl::EnumCategories(this) {
+                    Ok(ok__) => {
+                        penum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCategoryName<Identity: ICategoryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *const windows_core::GUID, pszname: windows_core::PWSTR, cch: super::UINT) -> windows_core::HRESULT {
@@ -3643,8 +3670,11 @@ windows_core::imp::define_interface!(IDataObjectProvider, IDataObjectProvider_Vt
 windows_core::imp::interface_hierarchy!(IDataObjectProvider, windows_core::IUnknown);
 impl IDataObjectProvider {
     #[cfg(feature = "objidl")]
-    pub unsafe fn GetDataObject(&self, dataobject: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDataObject)(windows_core::Interface::as_raw(self), core::mem::transmute(dataobject)) }
+    pub unsafe fn GetDataObject(&self) -> windows_core::Result<super::IDataObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn SetDataObject<P0>(&self, dataobject: P0) -> windows_core::HRESULT
@@ -3669,7 +3699,7 @@ pub struct IDataObjectProvider_Vtbl {
 }
 #[cfg(feature = "objidl")]
 pub trait IDataObjectProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDataObject(&self, dataobject: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
+    fn GetDataObject(&self) -> windows_core::Result<super::IDataObject>;
     fn SetDataObject(&self, dataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "objidl")]
@@ -3678,7 +3708,13 @@ impl IDataObjectProvider_Vtbl {
         unsafe extern "system" fn GetDataObject<Identity: IDataObjectProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectProvider_Impl::GetDataObject(this, core::mem::transmute_copy(&dataobject)).into()
+                match IDataObjectProvider_Impl::GetDataObject(this) {
+                    Ok(ok__) => {
+                        dataobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetDataObject<Identity: IDataObjectProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4136,8 +4172,11 @@ impl IDeskBar {
     {
         unsafe { (windows_core::Interface::vtable(self).SetClient)(windows_core::Interface::as_raw(self), punkclient.param().abi()) }
     }
-    pub unsafe fn GetClient(&self, ppunkclient: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetClient)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunkclient)) }
+    pub unsafe fn GetClient(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn OnPosRectChangeDB(&self, prc: *const super::RECT) -> windows_core::HRESULT {
@@ -4159,7 +4198,7 @@ pub struct IDeskBar_Vtbl {
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
 pub trait IDeskBar_Impl: super::IOleWindow_Impl {
     fn SetClient(&self, punkclient: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetClient(&self, ppunkclient: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetClient(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn OnPosRectChangeDB(&self, prc: *const super::RECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -4174,7 +4213,13 @@ impl IDeskBar_Vtbl {
         unsafe extern "system" fn GetClient<Identity: IDeskBar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkclient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeskBar_Impl::GetClient(this, core::mem::transmute_copy(&ppunkclient)).into()
+                match IDeskBar_Impl::GetClient(this) {
+                    Ok(ok__) => {
+                        ppunkclient.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OnPosRectChangeDB<Identity: IDeskBar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *const super::RECT) -> windows_core::HRESULT {
@@ -4247,8 +4292,11 @@ impl IDesktopWallpaper {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSlideshow)(windows_core::Interface::as_raw(self), items.param().abi()) }
     }
-    pub unsafe fn GetSlideshow(&self, items: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSlideshow)(windows_core::Interface::as_raw(self), core::mem::transmute(items)) }
+    pub unsafe fn GetSlideshow(&self) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSlideshow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetSlideshowOptions(&self, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: super::UINT) -> windows_core::HRESULT {
@@ -4325,7 +4373,7 @@ pub trait IDesktopWallpaper_Impl: windows_core::IUnknownImpl {
     fn SetPosition(&self, position: DESKTOP_WALLPAPER_POSITION) -> windows_core::Result<()>;
     fn GetPosition(&self, position: *mut DESKTOP_WALLPAPER_POSITION) -> windows_core::Result<()>;
     fn SetSlideshow(&self, items: windows_core::Ref<IShellItemArray>) -> windows_core::Result<()>;
-    fn GetSlideshow(&self, items: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
+    fn GetSlideshow(&self) -> windows_core::Result<IShellItemArray>;
     fn SetSlideshowOptions(&self, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: super::UINT) -> windows_core::Result<()>;
     fn GetSlideshowOptions(&self, options: *mut DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: *mut super::UINT) -> windows_core::Result<()>;
     fn AdvanceSlideshow(&self, monitorid: &windows_core::PCWSTR, direction: DESKTOP_SLIDESHOW_DIRECTION) -> windows_core::Result<()>;
@@ -4398,7 +4446,13 @@ impl IDesktopWallpaper_Vtbl {
         unsafe extern "system" fn GetSlideshow<Identity: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, items: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDesktopWallpaper_Impl::GetSlideshow(this, core::mem::transmute_copy(&items)).into()
+                match IDesktopWallpaper_Impl::GetSlideshow(this) {
+                    Ok(ok__) => {
+                        items.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetSlideshowOptions<Identity: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: super::UINT) -> windows_core::HRESULT {
@@ -4461,8 +4515,11 @@ windows_core::imp::define_interface!(IDestinationStreamFactory, IDestinationStre
 windows_core::imp::interface_hierarchy!(IDestinationStreamFactory, windows_core::IUnknown);
 impl IDestinationStreamFactory {
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetDestinationStream(&self, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDestinationStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstm)) }
+    pub unsafe fn GetDestinationStream(&self) -> windows_core::Result<super::IStream> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDestinationStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4476,7 +4533,7 @@ pub struct IDestinationStreamFactory_Vtbl {
 }
 #[cfg(feature = "objidlbase")]
 pub trait IDestinationStreamFactory_Impl: windows_core::IUnknownImpl {
-    fn GetDestinationStream(&self, ppstm: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
+    fn GetDestinationStream(&self) -> windows_core::Result<super::IStream>;
 }
 #[cfg(feature = "objidlbase")]
 impl IDestinationStreamFactory_Vtbl {
@@ -4484,7 +4541,13 @@ impl IDestinationStreamFactory_Vtbl {
         unsafe extern "system" fn GetDestinationStream<Identity: IDestinationStreamFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDestinationStreamFactory_Impl::GetDestinationStream(this, core::mem::transmute_copy(&ppstm)).into()
+                match IDestinationStreamFactory_Impl::GetDestinationStream(this) {
+                    Ok(ok__) => {
+                        ppstm.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDestinationStream: GetDestinationStream::<Identity, OFFSET> }
@@ -4836,8 +4899,11 @@ impl IEnumExplorerCommand {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4860,7 +4926,7 @@ pub trait IEnumExplorerCommand_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, puicommand: *mut Option<IExplorerCommand>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumExplorerCommand>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumExplorerCommand>;
 }
 #[cfg(feature = "shared")]
 impl IEnumExplorerCommand_Vtbl {
@@ -4886,7 +4952,13 @@ impl IEnumExplorerCommand_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumExplorerCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumExplorerCommand_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumExplorerCommand_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4917,8 +4989,11 @@ impl IEnumExtraSearch {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4941,7 +5016,7 @@ pub trait IEnumExtraSearch_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut EXTRASEARCH, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumExtraSearch>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumExtraSearch>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IEnumExtraSearch_Vtbl {
@@ -4967,7 +5042,13 @@ impl IEnumExtraSearch_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumExtraSearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumExtraSearch_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumExtraSearch_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4998,8 +5079,11 @@ impl IEnumFullIDList {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5022,7 +5106,7 @@ pub trait IEnumFullIDList_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut super::LPITEMIDLIST, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumFullIDList>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumFullIDList>;
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 impl IEnumFullIDList_Vtbl {
@@ -5048,7 +5132,13 @@ impl IEnumFullIDList_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumFullIDList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumFullIDList_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumFullIDList_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5079,8 +5169,11 @@ impl IEnumIDList {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5103,7 +5196,7 @@ pub trait IEnumIDList_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut super::LPITEMIDLIST, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumIDList>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumIDList>;
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 impl IEnumIDList_Vtbl {
@@ -5129,7 +5222,13 @@ impl IEnumIDList_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumIDList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumIDList_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumIDList_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5160,8 +5259,11 @@ impl IEnumObjects {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5184,7 +5286,7 @@ pub trait IEnumObjects_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, riid: *const super::IID, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumObjects>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumObjects>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IEnumObjects_Vtbl {
@@ -5210,7 +5312,13 @@ impl IEnumObjects_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumObjects_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumObjects_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5241,8 +5349,11 @@ impl IEnumResources {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenumr: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumr)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5265,7 +5376,7 @@ pub trait IEnumResources_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, psir: *mut SHELL_ITEM_RESOURCE, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenumr: windows_core::OutRef<IEnumResources>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumResources>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IEnumResources_Vtbl {
@@ -5291,7 +5402,13 @@ impl IEnumResources_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumResources_Impl::Clone(this, core::mem::transmute_copy(&ppenumr)).into()
+                match IEnumResources_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenumr.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5322,8 +5439,11 @@ impl IEnumShellItems {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5346,7 +5466,7 @@ pub trait IEnumShellItems_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IShellItem>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumShellItems>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumShellItems>;
 }
 #[cfg(feature = "shared")]
 impl IEnumShellItems_Vtbl {
@@ -5372,7 +5492,13 @@ impl IEnumShellItems_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumShellItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumShellItems_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumShellItems_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5963,8 +6089,11 @@ impl IExplorerCommand {
     pub unsafe fn GetFlags(&self, pflags: *mut EXPCMDFLAGS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pflags as _) }
     }
-    pub unsafe fn EnumSubCommands(&self, ppenum: *mut Option<IEnumExplorerCommand>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumSubCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumSubCommands(&self) -> windows_core::Result<IEnumExplorerCommand> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumSubCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5992,7 +6121,7 @@ pub trait IExplorerCommand_Impl: windows_core::IUnknownImpl {
     fn GetState(&self, psiitemarray: windows_core::Ref<IShellItemArray>, foktobeslow: windows_core::BOOL, pcmdstate: *mut EXPCMDSTATE) -> windows_core::Result<()>;
     fn Invoke(&self, psiitemarray: windows_core::Ref<IShellItemArray>, pbc: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
     fn GetFlags(&self, pflags: *mut EXPCMDFLAGS) -> windows_core::Result<()>;
-    fn EnumSubCommands(&self, ppenum: windows_core::OutRef<IEnumExplorerCommand>) -> windows_core::Result<()>;
+    fn EnumSubCommands(&self) -> windows_core::Result<IEnumExplorerCommand>;
 }
 #[cfg(feature = "objidl")]
 impl IExplorerCommand_Vtbl {
@@ -6042,7 +6171,13 @@ impl IExplorerCommand_Vtbl {
         unsafe extern "system" fn EnumSubCommands<Identity: IExplorerCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExplorerCommand_Impl::EnumSubCommands(this, core::mem::transmute_copy(&ppenum)).into()
+                match IExplorerCommand_Impl::EnumSubCommands(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -6345,11 +6480,17 @@ impl IFileDialog {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), psi.param().abi()) }
     }
-    pub unsafe fn GetFolder(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsi)) }
+    pub unsafe fn GetFolder(&self) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetCurrentSelection(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsi)) }
+    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFileName<P0>(&self, pszname: P0) -> windows_core::HRESULT
     where
@@ -6378,8 +6519,11 @@ impl IFileDialog {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFileNameLabel)(windows_core::Interface::as_raw(self), pszlabel.param().abi()) }
     }
-    pub unsafe fn GetResult(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsi)) }
+    pub unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddPlace<P0>(&self, psi: P0, fdap: FDAP) -> windows_core::HRESULT
     where
@@ -6463,14 +6607,14 @@ pub trait IFileDialog_Impl: IModalWindow_Impl {
     fn GetOptions(&self, pfos: *mut FILEOPENDIALOGOPTIONS) -> windows_core::Result<()>;
     fn SetDefaultFolder(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
     fn SetFolder(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn GetFolder(&self, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn GetCurrentSelection(&self, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn GetFolder(&self) -> windows_core::Result<IShellItem>;
+    fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem>;
     fn SetFileName(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetFileName(&self, pszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetTitle(&self, psztitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetOkButtonLabel(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetFileNameLabel(&self, pszlabel: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetResult(&self, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn GetResult(&self) -> windows_core::Result<IShellItem>;
     fn AddPlace(&self, psi: windows_core::Ref<IShellItem>, fdap: FDAP) -> windows_core::Result<()>;
     fn SetDefaultExtension(&self, pszdefaultextension: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Close(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
@@ -6538,13 +6682,25 @@ impl IFileDialog_Vtbl {
         unsafe extern "system" fn GetFolder<Identity: IFileDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileDialog_Impl::GetFolder(this, core::mem::transmute_copy(&ppsi)).into()
+                match IFileDialog_Impl::GetFolder(this) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCurrentSelection<Identity: IFileDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileDialog_Impl::GetCurrentSelection(this, core::mem::transmute_copy(&ppsi)).into()
+                match IFileDialog_Impl::GetCurrentSelection(this) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetFileName<Identity: IFileDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -6580,7 +6736,13 @@ impl IFileDialog_Vtbl {
         unsafe extern "system" fn GetResult<Identity: IFileDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileDialog_Impl::GetResult(this, core::mem::transmute_copy(&ppsi)).into()
+                match IFileDialog_Impl::GetResult(this) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddPlace<Identity: IFileDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, fdap: FDAP) -> windows_core::HRESULT {
@@ -7367,11 +7529,17 @@ impl core::ops::Deref for IFileOpenDialog {
 }
 windows_core::imp::interface_hierarchy!(IFileOpenDialog, windows_core::IUnknown, IModalWindow, IFileDialog);
 impl IFileOpenDialog {
-    pub unsafe fn GetResults(&self, ppenum: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn GetResults(&self) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetSelectedItems(&self, ppsai: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsai)) }
+    pub unsafe fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -7383,8 +7551,8 @@ pub struct IFileOpenDialog_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 pub trait IFileOpenDialog_Impl: IFileDialog_Impl {
-    fn GetResults(&self, ppenum: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
-    fn GetSelectedItems(&self, ppsai: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
+    fn GetResults(&self) -> windows_core::Result<IShellItemArray>;
+    fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray>;
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 impl IFileOpenDialog_Vtbl {
@@ -7392,13 +7560,25 @@ impl IFileOpenDialog_Vtbl {
         unsafe extern "system" fn GetResults<Identity: IFileOpenDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileOpenDialog_Impl::GetResults(this, core::mem::transmute_copy(&ppenum)).into()
+                match IFileOpenDialog_Impl::GetResults(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSelectedItems<Identity: IFileOpenDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsai: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileOpenDialog_Impl::GetSelectedItems(this, core::mem::transmute_copy(&ppsai)).into()
+                match IFileOpenDialog_Impl::GetSelectedItems(this) {
+                    Ok(ok__) => {
+                        ppsai.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -8141,8 +8321,11 @@ impl IFileSaveDialog {
         unsafe { (windows_core::Interface::vtable(self).SetCollectedProperties)(windows_core::Interface::as_raw(self), plist.param().abi(), fappenddefault.into()) }
     }
     #[cfg(feature = "propsys")]
-    pub unsafe fn GetProperties(&self, ppstore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstore)) }
+    pub unsafe fn GetProperties(&self) -> windows_core::Result<super::IPropertyStore> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "propsys", feature = "windef"))]
     pub unsafe fn ApplyProperties<P0, P1, P3>(&self, psi: P0, pstore: P1, hwnd: Option<super::HWND>, psink: P3) -> windows_core::HRESULT
@@ -8181,7 +8364,7 @@ pub trait IFileSaveDialog_Impl: IFileDialog_Impl {
     fn SetSaveAsItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
     fn SetProperties(&self, pstore: windows_core::Ref<super::IPropertyStore>) -> windows_core::Result<()>;
     fn SetCollectedProperties(&self, plist: windows_core::Ref<super::IPropertyDescriptionList>, fappenddefault: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetProperties(&self, ppstore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
+    fn GetProperties(&self) -> windows_core::Result<super::IPropertyStore>;
     fn ApplyProperties(&self, psi: windows_core::Ref<IShellItem>, pstore: windows_core::Ref<super::IPropertyStore>, hwnd: super::HWND, psink: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "propsys", feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -8208,7 +8391,13 @@ impl IFileSaveDialog_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IFileSaveDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSaveDialog_Impl::GetProperties(this, core::mem::transmute_copy(&ppstore)).into()
+                match IFileSaveDialog_Impl::GetProperties(this) {
+                    Ok(ok__) => {
+                        ppstore.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ApplyProperties<Identity: IFileSaveDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pstore: *mut core::ffi::c_void, hwnd: super::HWND, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8873,8 +9062,11 @@ impl IFolderView2 {
     pub unsafe fn GetSelectedItem(&self, istart: i32, piitem: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSelectedItem)(windows_core::Interface::as_raw(self), istart, piitem as _) }
     }
-    pub unsafe fn GetSelection(&self, fnoneimpliesfolder: bool, ppsia: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), fnoneimpliesfolder.into(), core::mem::transmute(ppsia)) }
+    pub unsafe fn GetSelection(&self, fnoneimpliesfolder: bool) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), fnoneimpliesfolder.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
     pub unsafe fn GetSelectionState(&self, pidl: super::LPCITEMIDLIST, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
@@ -8999,7 +9191,7 @@ pub trait IFolderView2_Impl: IFolderView_Impl {
     fn GetItem(&self, iitem: i32, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetVisibleItem(&self, istart: i32, fprevious: windows_core::BOOL, piitem: *mut i32) -> windows_core::Result<()>;
     fn GetSelectedItem(&self, istart: i32, piitem: *mut i32) -> windows_core::Result<()>;
-    fn GetSelection(&self, fnoneimpliesfolder: windows_core::BOOL, ppsia: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
+    fn GetSelection(&self, fnoneimpliesfolder: windows_core::BOOL) -> windows_core::Result<IShellItemArray>;
     fn GetSelectionState(&self, pidl: super::LPCITEMIDLIST, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
     fn InvokeVerbOnSelection(&self, pszverb: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn SetViewModeAndIconSize(&self, uviewmode: FOLDERVIEWMODE, iimagesize: i32) -> windows_core::Result<()>;
@@ -9106,7 +9298,13 @@ impl IFolderView2_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnoneimpliesfolder: windows_core::BOOL, ppsia: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderView2_Impl::GetSelection(this, core::mem::transmute_copy(&fnoneimpliesfolder), core::mem::transmute_copy(&ppsia)).into()
+                match IFolderView2_Impl::GetSelection(this, core::mem::transmute_copy(&fnoneimpliesfolder)) {
+                    Ok(ok__) => {
+                        ppsia.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSelectionState<Identity: IFolderView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
@@ -10432,14 +10630,20 @@ impl IKnownFolderManager {
         unsafe { (windows_core::Interface::vtable(self).GetFolderIds)(windows_core::Interface::as_raw(self), ppkfid as _, pcount as _) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn GetFolder(&self, rfid: *const super::KNOWNFOLDERID, ppkf: *mut Option<IKnownFolder>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), rfid, core::mem::transmute(ppkf)) }
+    pub unsafe fn GetFolder(&self, rfid: *const super::KNOWNFOLDERID) -> windows_core::Result<IKnownFolder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), rfid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetFolderByName<P0>(&self, pszcanonicalname: P0, ppkf: *mut Option<IKnownFolder>) -> windows_core::HRESULT
+    pub unsafe fn GetFolderByName<P0>(&self, pszcanonicalname: P0) -> windows_core::Result<IKnownFolder>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetFolderByName)(windows_core::Interface::as_raw(self), pszcanonicalname.param().abi(), core::mem::transmute(ppkf)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFolderByName)(windows_core::Interface::as_raw(self), pszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
     pub unsafe fn RegisterFolder(&self, rfid: *const super::KNOWNFOLDERID, pkfd: *const KNOWNFOLDER_DEFINITION) -> windows_core::HRESULT {
@@ -10449,15 +10653,21 @@ impl IKnownFolderManager {
     pub unsafe fn UnregisterFolder(&self, rfid: *const super::KNOWNFOLDERID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterFolder)(windows_core::Interface::as_raw(self), rfid) }
     }
-    pub unsafe fn FindFolderFromPath<P0>(&self, pszpath: P0, mode: FFFP_MODE, ppkf: *mut Option<IKnownFolder>) -> windows_core::HRESULT
+    pub unsafe fn FindFolderFromPath<P0>(&self, pszpath: P0, mode: FFFP_MODE) -> windows_core::Result<IKnownFolder>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindFolderFromPath)(windows_core::Interface::as_raw(self), pszpath.param().abi(), mode, core::mem::transmute(ppkf)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFolderFromPath)(windows_core::Interface::as_raw(self), pszpath.param().abi(), mode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
-    pub unsafe fn FindFolderFromIDList(&self, pidl: super::LPCITEMIDLIST, ppkf: *mut Option<IKnownFolder>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindFolderFromIDList)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(ppkf)) }
+    pub unsafe fn FindFolderFromIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<IKnownFolder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFolderFromIDList)(windows_core::Interface::as_raw(self), pidl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
     pub unsafe fn Redirect<P3>(&self, rfid: *const super::KNOWNFOLDERID, hwnd: Option<super::HWND>, flags: super::KF_REDIRECT_FLAGS, psztargetpath: P3, pexclusion: Option<&[super::KNOWNFOLDERID]>, ppszerror: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
@@ -10511,12 +10721,12 @@ pub trait IKnownFolderManager_Impl: windows_core::IUnknownImpl {
     fn FolderIdFromCsidl(&self, ncsidl: i32, pfid: *mut super::KNOWNFOLDERID) -> windows_core::Result<()>;
     fn FolderIdToCsidl(&self, rfid: *const super::KNOWNFOLDERID, pncsidl: *mut i32) -> windows_core::Result<()>;
     fn GetFolderIds(&self, ppkfid: *mut *mut super::KNOWNFOLDERID, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetFolder(&self, rfid: *const super::KNOWNFOLDERID, ppkf: windows_core::OutRef<IKnownFolder>) -> windows_core::Result<()>;
-    fn GetFolderByName(&self, pszcanonicalname: &windows_core::PCWSTR, ppkf: windows_core::OutRef<IKnownFolder>) -> windows_core::Result<()>;
+    fn GetFolder(&self, rfid: *const super::KNOWNFOLDERID) -> windows_core::Result<IKnownFolder>;
+    fn GetFolderByName(&self, pszcanonicalname: &windows_core::PCWSTR) -> windows_core::Result<IKnownFolder>;
     fn RegisterFolder(&self, rfid: *const super::KNOWNFOLDERID, pkfd: *const KNOWNFOLDER_DEFINITION) -> windows_core::Result<()>;
     fn UnregisterFolder(&self, rfid: *const super::KNOWNFOLDERID) -> windows_core::Result<()>;
-    fn FindFolderFromPath(&self, pszpath: &windows_core::PCWSTR, mode: FFFP_MODE, ppkf: windows_core::OutRef<IKnownFolder>) -> windows_core::Result<()>;
-    fn FindFolderFromIDList(&self, pidl: super::LPCITEMIDLIST, ppkf: windows_core::OutRef<IKnownFolder>) -> windows_core::Result<()>;
+    fn FindFolderFromPath(&self, pszpath: &windows_core::PCWSTR, mode: FFFP_MODE) -> windows_core::Result<IKnownFolder>;
+    fn FindFolderFromIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<IKnownFolder>;
     fn Redirect(&self, rfid: *const super::KNOWNFOLDERID, hwnd: super::HWND, flags: super::KF_REDIRECT_FLAGS, psztargetpath: &windows_core::PCWSTR, cfolders: super::UINT, pexclusion: *const super::KNOWNFOLDERID, ppszerror: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -10543,13 +10753,25 @@ impl IKnownFolderManager_Vtbl {
         unsafe extern "system" fn GetFolder<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfid: *const super::KNOWNFOLDERID, ppkf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKnownFolderManager_Impl::GetFolder(this, core::mem::transmute_copy(&rfid), core::mem::transmute_copy(&ppkf)).into()
+                match IKnownFolderManager_Impl::GetFolder(this, core::mem::transmute_copy(&rfid)) {
+                    Ok(ok__) => {
+                        ppkf.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetFolderByName<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcanonicalname: windows_core::PCWSTR, ppkf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKnownFolderManager_Impl::GetFolderByName(this, core::mem::transmute(&pszcanonicalname), core::mem::transmute_copy(&ppkf)).into()
+                match IKnownFolderManager_Impl::GetFolderByName(this, core::mem::transmute(&pszcanonicalname)) {
+                    Ok(ok__) => {
+                        ppkf.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RegisterFolder<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfid: *const super::KNOWNFOLDERID, pkfd: *const KNOWNFOLDER_DEFINITION) -> windows_core::HRESULT {
@@ -10567,13 +10789,25 @@ impl IKnownFolderManager_Vtbl {
         unsafe extern "system" fn FindFolderFromPath<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, mode: FFFP_MODE, ppkf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKnownFolderManager_Impl::FindFolderFromPath(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&mode), core::mem::transmute_copy(&ppkf)).into()
+                match IKnownFolderManager_Impl::FindFolderFromPath(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&mode)) {
+                    Ok(ok__) => {
+                        ppkf.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn FindFolderFromIDList<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, ppkf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKnownFolderManager_Impl::FindFolderFromIDList(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&ppkf)).into()
+                match IKnownFolderManager_Impl::FindFolderFromIDList(this, core::mem::transmute_copy(&pidl)) {
+                    Ok(ok__) => {
+                        ppkf.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Redirect<Identity: IKnownFolderManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfid: *const super::KNOWNFOLDERID, hwnd: super::HWND, flags: super::KF_REDIRECT_FLAGS, psztargetpath: windows_core::PCWSTR, cfolders: super::UINT, pexclusion: *const super::KNOWNFOLDERID, ppszerror: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -11065,8 +11299,11 @@ impl INameSpaceTreeControl {
     pub unsafe fn RemoveAllRoots(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllRoots)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetRootItems(&self, ppsiarootitems: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRootItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsiarootitems)) }
+    pub unsafe fn GetRootItems(&self) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRootItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetItemState<P0>(&self, psi: P0, nstcismask: NSTCITEMSTATE, nstcisflags: NSTCITEMSTATE) -> windows_core::HRESULT
     where
@@ -11080,8 +11317,11 @@ impl INameSpaceTreeControl {
     {
         unsafe { (windows_core::Interface::vtable(self).GetItemState)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcismask, pnstcisflags as _) }
     }
-    pub unsafe fn GetSelectedItems(&self, psiaitems: *mut Option<IShellItemArray>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), core::mem::transmute(psiaitems)) }
+    pub unsafe fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetItemCustomState<P0>(&self, psi: P0, pistatenumber: *mut i32) -> windows_core::HRESULT
     where
@@ -11107,15 +11347,21 @@ impl INameSpaceTreeControl {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTheme)(windows_core::Interface::as_raw(self), psztheme.param().abi()) }
     }
-    pub unsafe fn GetNextItem<P0>(&self, psi: P0, nstcgi: NSTCGNI, ppsinext: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn GetNextItem<P0>(&self, psi: P0, nstcgi: NSTCGNI) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcgi, core::mem::transmute(ppsinext)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcgi, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn HitTest(&self, ppt: *const super::POINT, ppsiout: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).HitTest)(windows_core::Interface::as_raw(self), ppt, core::mem::transmute(ppsiout)) }
+    pub unsafe fn HitTest(&self, ppt: *const super::POINT) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HitTest)(windows_core::Interface::as_raw(self), ppt, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetItemRect<P0>(&self, psi: P0, prect: *mut super::RECT) -> windows_core::HRESULT
@@ -11176,16 +11422,16 @@ pub trait INameSpaceTreeControl_Impl: windows_core::IUnknownImpl {
     fn InsertRoot(&self, iindex: i32, psiroot: windows_core::Ref<IShellItem>, grfenumflags: SHCONTF, grfrootstyle: NSTCROOTSTYLE, pif: windows_core::Ref<IShellItemFilter>) -> windows_core::Result<()>;
     fn RemoveRoot(&self, psiroot: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
     fn RemoveAllRoots(&self) -> windows_core::Result<()>;
-    fn GetRootItems(&self, ppsiarootitems: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
+    fn GetRootItems(&self) -> windows_core::Result<IShellItemArray>;
     fn SetItemState(&self, psi: windows_core::Ref<IShellItem>, nstcismask: NSTCITEMSTATE, nstcisflags: NSTCITEMSTATE) -> windows_core::Result<()>;
     fn GetItemState(&self, psi: windows_core::Ref<IShellItem>, nstcismask: NSTCITEMSTATE, pnstcisflags: *mut NSTCITEMSTATE) -> windows_core::Result<()>;
-    fn GetSelectedItems(&self, psiaitems: windows_core::OutRef<IShellItemArray>) -> windows_core::Result<()>;
+    fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray>;
     fn GetItemCustomState(&self, psi: windows_core::Ref<IShellItem>, pistatenumber: *mut i32) -> windows_core::Result<()>;
     fn SetItemCustomState(&self, psi: windows_core::Ref<IShellItem>, istatenumber: i32) -> windows_core::Result<()>;
     fn EnsureItemVisible(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
     fn SetTheme(&self, psztheme: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetNextItem(&self, psi: windows_core::Ref<IShellItem>, nstcgi: NSTCGNI, ppsinext: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn HitTest(&self, ppt: *const super::POINT, ppsiout: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn GetNextItem(&self, psi: windows_core::Ref<IShellItem>, nstcgi: NSTCGNI) -> windows_core::Result<IShellItem>;
+    fn HitTest(&self, ppt: *const super::POINT) -> windows_core::Result<IShellItem>;
     fn GetItemRect(&self, psi: windows_core::Ref<IShellItem>, prect: *mut super::RECT) -> windows_core::Result<()>;
     fn CollapseAll(&self) -> windows_core::Result<()>;
 }
@@ -11237,7 +11483,13 @@ impl INameSpaceTreeControl_Vtbl {
         unsafe extern "system" fn GetRootItems<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsiarootitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INameSpaceTreeControl_Impl::GetRootItems(this, core::mem::transmute_copy(&ppsiarootitems)).into()
+                match INameSpaceTreeControl_Impl::GetRootItems(this) {
+                    Ok(ok__) => {
+                        ppsiarootitems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetItemState<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, nstcismask: NSTCITEMSTATE, nstcisflags: NSTCITEMSTATE) -> windows_core::HRESULT {
@@ -11255,7 +11507,13 @@ impl INameSpaceTreeControl_Vtbl {
         unsafe extern "system" fn GetSelectedItems<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psiaitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INameSpaceTreeControl_Impl::GetSelectedItems(this, core::mem::transmute_copy(&psiaitems)).into()
+                match INameSpaceTreeControl_Impl::GetSelectedItems(this) {
+                    Ok(ok__) => {
+                        psiaitems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetItemCustomState<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pistatenumber: *mut i32) -> windows_core::HRESULT {
@@ -11285,13 +11543,25 @@ impl INameSpaceTreeControl_Vtbl {
         unsafe extern "system" fn GetNextItem<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, nstcgi: NSTCGNI, ppsinext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INameSpaceTreeControl_Impl::GetNextItem(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&nstcgi), core::mem::transmute_copy(&ppsinext)).into()
+                match INameSpaceTreeControl_Impl::GetNextItem(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&nstcgi)) {
+                    Ok(ok__) => {
+                        ppsinext.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn HitTest<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppt: *const super::POINT, ppsiout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INameSpaceTreeControl_Impl::HitTest(this, core::mem::transmute_copy(&ppt), core::mem::transmute_copy(&ppsiout)).into()
+                match INameSpaceTreeControl_Impl::HitTest(this, core::mem::transmute_copy(&ppt)) {
+                    Ok(ok__) => {
+                        ppsiout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetItemRect<Identity: INameSpaceTreeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, prect: *mut super::RECT) -> windows_core::HRESULT {
@@ -13759,8 +14029,11 @@ impl IRelatedItem {
     pub unsafe fn GetItemIDList(&self, ppidl: *mut super::LPITEMIDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItemIDList)(windows_core::Interface::as_raw(self), ppidl as _) }
     }
-    pub unsafe fn GetItem(&self, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsi)) }
+    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -13776,7 +14049,7 @@ pub struct IRelatedItem_Vtbl {
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 pub trait IRelatedItem_Impl: windows_core::IUnknownImpl {
     fn GetItemIDList(&self, ppidl: *mut super::LPITEMIDLIST) -> windows_core::Result<()>;
-    fn GetItem(&self, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn GetItem(&self) -> windows_core::Result<IShellItem>;
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 impl IRelatedItem_Vtbl {
@@ -13790,7 +14063,13 @@ impl IRelatedItem_Vtbl {
         unsafe extern "system" fn GetItem<Identity: IRelatedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRelatedItem_Impl::GetItem(this, core::mem::transmute_copy(&ppsi)).into()
+                match IRelatedItem_Impl::GetItem(this) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -14334,8 +14613,11 @@ impl IShellBrowser {
         unsafe { (windows_core::Interface::vtable(self).BrowseObject)(windows_core::Interface::as_raw(self), pidl.unwrap_or(core::mem::zeroed()) as _, wflags) }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn GetViewStateStream(&self, grfmode: super::DWORD, ppstrm: *mut Option<super::IStream>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetViewStateStream)(windows_core::Interface::as_raw(self), grfmode, core::mem::transmute(ppstrm)) }
+    pub unsafe fn GetViewStateStream(&self, grfmode: super::DWORD) -> windows_core::Result<super::IStream> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetViewStateStream)(windows_core::Interface::as_raw(self), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetControlWindow(&self, id: super::UINT, phwnd: *mut super::HWND) -> windows_core::HRESULT {
@@ -14345,8 +14627,11 @@ impl IShellBrowser {
     pub unsafe fn SendControlMsg(&self, id: super::UINT, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, pret: Option<*mut super::LRESULT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendControlMsg)(windows_core::Interface::as_raw(self), id, umsg, wparam, lparam, pret.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn QueryActiveShellView(&self, ppshv: *mut Option<IShellView>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryActiveShellView)(windows_core::Interface::as_raw(self), core::mem::transmute(ppshv)) }
+    pub unsafe fn QueryActiveShellView(&self) -> windows_core::Result<IShellView> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryActiveShellView)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OnViewWindowActive<P0>(&self, pshv: P0) -> windows_core::HRESULT
     where
@@ -14414,10 +14699,10 @@ pub trait IShellBrowser_Impl: super::IOleWindow_Impl {
     fn EnableModelessSB(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn TranslateAcceleratorSB(&self, pmsg: *const super::MSG, wid: super::WORD) -> windows_core::Result<()>;
     fn BrowseObject(&self, pidl: super::LPCITEMIDLIST, wflags: super::UINT) -> windows_core::Result<()>;
-    fn GetViewStateStream(&self, grfmode: super::DWORD, ppstrm: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
+    fn GetViewStateStream(&self, grfmode: super::DWORD) -> windows_core::Result<super::IStream>;
     fn GetControlWindow(&self, id: super::UINT, phwnd: *mut super::HWND) -> windows_core::Result<()>;
     fn SendControlMsg(&self, id: super::UINT, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, pret: *mut super::LRESULT) -> windows_core::Result<()>;
-    fn QueryActiveShellView(&self, ppshv: windows_core::OutRef<IShellView>) -> windows_core::Result<()>;
+    fn QueryActiveShellView(&self) -> windows_core::Result<IShellView>;
     fn OnViewWindowActive(&self, pshv: windows_core::Ref<IShellView>) -> windows_core::Result<()>;
     fn SetToolbarItems(&self, lpbuttons: LPTBBUTTONSB, nbuttons: super::UINT, uflags: super::UINT) -> windows_core::Result<()>;
 }
@@ -14469,7 +14754,13 @@ impl IShellBrowser_Vtbl {
         unsafe extern "system" fn GetViewStateStream<Identity: IShellBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfmode: super::DWORD, ppstrm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellBrowser_Impl::GetViewStateStream(this, core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&ppstrm)).into()
+                match IShellBrowser_Impl::GetViewStateStream(this, core::mem::transmute_copy(&grfmode)) {
+                    Ok(ok__) => {
+                        ppstrm.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetControlWindow<Identity: IShellBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::UINT, phwnd: *mut super::HWND) -> windows_core::HRESULT {
@@ -14487,7 +14778,13 @@ impl IShellBrowser_Vtbl {
         unsafe extern "system" fn QueryActiveShellView<Identity: IShellBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppshv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellBrowser_Impl::QueryActiveShellView(this, core::mem::transmute_copy(&ppshv)).into()
+                match IShellBrowser_Impl::QueryActiveShellView(this) {
+                    Ok(ok__) => {
+                        ppshv.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OnViewWindowActive<Identity: IShellBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshv: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14578,8 +14875,11 @@ impl IShellFolder {
         unsafe { (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, pbc.param().abi(), pszdisplayname.param().abi(), pcheaten.unwrap_or(core::mem::zeroed()) as _, ppidl as _, pdwattributes.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn EnumObjects(&self, hwnd: Option<super::HWND>, grfflags: SHCONTF, ppenumidlist: *mut Option<IEnumIDList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, grfflags, core::mem::transmute(ppenumidlist)) }
+    pub unsafe fn EnumObjects(&self, hwnd: Option<super::HWND>, grfflags: SHCONTF) -> windows_core::Result<IEnumIDList> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
     pub unsafe fn BindToObject<P1, T>(&self, pidl: super::LPCITEMIDLIST, pbc: P1) -> windows_core::Result<T>
@@ -14683,7 +14983,7 @@ pub struct IShellFolder_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared", feature = "shtypes", feature = "windef"))]
 pub trait IShellFolder_Impl: windows_core::IUnknownImpl {
     fn ParseDisplayName(&self, hwnd: super::HWND, pbc: windows_core::Ref<super::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *mut super::ULONG, ppidl: *mut super::LPITEMIDLIST, pdwattributes: *mut super::ULONG) -> windows_core::Result<()>;
-    fn EnumObjects(&self, hwnd: super::HWND, grfflags: SHCONTF, ppenumidlist: windows_core::OutRef<IEnumIDList>) -> windows_core::Result<()>;
+    fn EnumObjects(&self, hwnd: super::HWND, grfflags: SHCONTF) -> windows_core::Result<IEnumIDList>;
     fn BindToObject(&self, pidl: super::LPCITEMIDLIST, pbc: windows_core::Ref<super::IBindCtx>, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn BindToStorage(&self, pidl: super::LPCITEMIDLIST, pbc: windows_core::Ref<super::IBindCtx>, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CompareIDs(&self, lparam: super::LPARAM, pidl1: super::LPCITEMIDLIST, pidl2: super::LPCITEMIDLIST) -> windows_core::Result<()>;
@@ -14705,7 +15005,13 @@ impl IShellFolder_Vtbl {
         unsafe extern "system" fn EnumObjects<Identity: IShellFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, grfflags: SHCONTF, ppenumidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolder_Impl::EnumObjects(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&ppenumidlist)).into()
+                match IShellFolder_Impl::EnumObjects(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&grfflags)) {
+                    Ok(ok__) => {
+                        ppenumidlist.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn BindToObject<Identity: IShellFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, pbc: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14788,8 +15094,11 @@ impl IShellFolder2 {
     pub unsafe fn GetDefaultSearchGUID(&self, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDefaultSearchGUID)(windows_core::Interface::as_raw(self), pguid as _) }
     }
-    pub unsafe fn EnumSearches(&self, ppenum: *mut Option<IEnumExtraSearch>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumSearches)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumSearches(&self) -> windows_core::Result<IEnumExtraSearch> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumSearches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetDefaultColumn(&self, dwres: super::DWORD, psort: *mut super::ULONG, pdisplay: *mut super::ULONG) -> windows_core::HRESULT {
@@ -14842,7 +15151,7 @@ pub struct IShellFolder2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "shtypes", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellFolder2_Impl: IShellFolder_Impl {
     fn GetDefaultSearchGUID(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn EnumSearches(&self, ppenum: windows_core::OutRef<IEnumExtraSearch>) -> windows_core::Result<()>;
+    fn EnumSearches(&self) -> windows_core::Result<IEnumExtraSearch>;
     fn GetDefaultColumn(&self, dwres: super::DWORD, psort: *mut super::ULONG, pdisplay: *mut super::ULONG) -> windows_core::Result<()>;
     fn GetDefaultColumnState(&self, icolumn: super::UINT, pcsflags: *mut super::SHCOLSTATEF) -> windows_core::Result<()>;
     fn GetDetailsEx(&self, pidl: super::LPCITEMIDLIST, pscid: *const super::SHCOLUMNID, pv: *mut super::VARIANT) -> windows_core::Result<()>;
@@ -14861,7 +15170,13 @@ impl IShellFolder2_Vtbl {
         unsafe extern "system" fn EnumSearches<Identity: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolder2_Impl::EnumSearches(this, core::mem::transmute_copy(&ppenum)).into()
+                match IShellFolder2_Impl::EnumSearches(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDefaultColumn<Identity: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwres: super::DWORD, psort: *mut super::ULONG, pdisplay: *mut super::ULONG) -> windows_core::HRESULT {
@@ -15033,8 +15348,11 @@ impl IShellItem {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetParent(&self, ppsi: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsi)) }
+    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetDisplayName(&self, sigdnname: SIGDN, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), sigdnname, ppszname as _) }
@@ -15065,7 +15383,7 @@ pub struct IShellItem_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "objidl"))]
 pub trait IShellItem_Impl: windows_core::IUnknownImpl {
     fn BindToHandler(&self, pbc: windows_core::Ref<super::IBindCtx>, bhid: *const windows_core::GUID, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetParent(&self, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn GetParent(&self) -> windows_core::Result<IShellItem>;
     fn GetDisplayName(&self, sigdnname: SIGDN, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetAttributes(&self, sfgaomask: SFGAOF, psfgaoattribs: *mut SFGAOF) -> windows_core::Result<()>;
     fn Compare(&self, psi: windows_core::Ref<IShellItem>, hint: SICHINTF, piorder: *mut i32) -> windows_core::Result<()>;
@@ -15082,7 +15400,13 @@ impl IShellItem_Vtbl {
         unsafe extern "system" fn GetParent<Identity: IShellItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellItem_Impl::GetParent(this, core::mem::transmute_copy(&ppsi)).into()
+                match IShellItem_Impl::GetParent(this) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDisplayName<Identity: IShellItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sigdnname: SIGDN, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -15413,11 +15737,17 @@ impl IShellItemArray {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pdwnumitems as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetItemAt(&self, dwindex: super::DWORD, ppsi: *mut Option<IShellItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItemAt)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppsi)) }
+    pub unsafe fn GetItemAt(&self, dwindex: super::DWORD) -> windows_core::Result<IShellItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetItemAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn EnumItems(&self, ppenumshellitems: *mut Option<IEnumShellItems>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumshellitems)) }
+    pub unsafe fn EnumItems(&self) -> windows_core::Result<IEnumShellItems> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -15454,8 +15784,8 @@ pub trait IShellItemArray_Impl: windows_core::IUnknownImpl {
     fn GetPropertyDescriptionList(&self, keytype: *const super::PROPERTYKEY, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAttributes(&self, attribflags: SIATTRIBFLAGS, sfgaomask: SFGAOF, psfgaoattribs: *mut SFGAOF) -> windows_core::Result<()>;
     fn GetCount(&self, pdwnumitems: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetItemAt(&self, dwindex: super::DWORD, ppsi: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn EnumItems(&self, ppenumshellitems: windows_core::OutRef<IEnumShellItems>) -> windows_core::Result<()>;
+    fn GetItemAt(&self, dwindex: super::DWORD) -> windows_core::Result<IShellItem>;
+    fn EnumItems(&self) -> windows_core::Result<IEnumShellItems>;
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "propsys", feature = "shared", feature = "wtypes"))]
 impl IShellItemArray_Vtbl {
@@ -15493,13 +15823,25 @@ impl IShellItemArray_Vtbl {
         unsafe extern "system" fn GetItemAt<Identity: IShellItemArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppsi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellItemArray_Impl::GetItemAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppsi)).into()
+                match IShellItemArray_Impl::GetItemAt(this, core::mem::transmute_copy(&dwindex)) {
+                    Ok(ok__) => {
+                        ppsi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn EnumItems<Identity: IShellItemArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumshellitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellItemArray_Impl::EnumItems(this, core::mem::transmute_copy(&ppenumshellitems)).into()
+                match IShellItemArray_Impl::EnumItems(this) {
+                    Ok(ok__) => {
+                        ppenumshellitems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -15632,8 +15974,11 @@ impl IShellItemResources {
     pub unsafe fn GetResourceDescription(&self, pcsir: *const SHELL_ITEM_RESOURCE, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetResourceDescription)(windows_core::Interface::as_raw(self), pcsir, ppszdescription as _) }
     }
-    pub unsafe fn EnumResources(&self, ppenumr: *mut Option<IEnumResources>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumr)) }
+    pub unsafe fn EnumResources(&self) -> windows_core::Result<IEnumResources> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn SupportsResource(&self, pcsir: *const SHELL_ITEM_RESOURCE) -> windows_core::HRESULT {
@@ -15705,7 +16050,7 @@ pub trait IShellItemResources_Impl: windows_core::IUnknownImpl {
     fn GetTimes(&self, pftcreation: *mut super::FILETIME, pftwrite: *mut super::FILETIME, pftaccess: *mut super::FILETIME) -> windows_core::Result<()>;
     fn SetTimes(&self, pftcreation: *const super::FILETIME, pftwrite: *const super::FILETIME, pftaccess: *const super::FILETIME) -> windows_core::Result<()>;
     fn GetResourceDescription(&self, pcsir: *const SHELL_ITEM_RESOURCE, ppszdescription: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn EnumResources(&self, ppenumr: windows_core::OutRef<IEnumResources>) -> windows_core::Result<()>;
+    fn EnumResources(&self) -> windows_core::Result<IEnumResources>;
     fn SupportsResource(&self, pcsir: *const SHELL_ITEM_RESOURCE) -> windows_core::Result<()>;
     fn OpenResource(&self, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateResource(&self, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -15747,7 +16092,13 @@ impl IShellItemResources_Vtbl {
         unsafe extern "system" fn EnumResources<Identity: IShellItemResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellItemResources_Impl::EnumResources(this, core::mem::transmute_copy(&ppenumr)).into()
+                match IShellItemResources_Impl::EnumResources(this) {
+                    Ok(ok__) => {
+                        ppenumr.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SupportsResource<Identity: IShellItemResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsir: *const SHELL_ITEM_RESOURCE) -> windows_core::HRESULT {
@@ -15877,19 +16228,25 @@ impl IShellLibrary {
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Save<P0, P1>(&self, psifoldertosavein: P0, pszlibraryname: P1, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn Save<P0, P1>(&self, psifoldertosavein: P0, pszlibraryname: P1, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), psifoldertosavein.param().abi(), pszlibraryname.param().abi(), lsf, core::mem::transmute(ppsisavedto)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), psifoldertosavein.param().abi(), pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn SaveInKnownFolder<P1>(&self, kfidtosavein: *const super::KNOWNFOLDERID, pszlibraryname: P1, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn SaveInKnownFolder<P1>(&self, kfidtosavein: *const super::KNOWNFOLDERID, pszlibraryname: P1, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SaveInKnownFolder)(windows_core::Interface::as_raw(self), kfidtosavein, pszlibraryname.param().abi(), lsf, core::mem::transmute(ppsisavedto)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SaveInKnownFolder)(windows_core::Interface::as_raw(self), kfidtosavein, pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -15955,8 +16312,8 @@ pub trait IShellLibrary_Impl: windows_core::IUnknownImpl {
     fn GetIcon(&self, ppszicon: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetIcon(&self, pszicon: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
-    fn Save(&self, psifoldertosavein: windows_core::Ref<IShellItem>, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn SaveInKnownFolder(&self, kfidtosavein: *const super::KNOWNFOLDERID, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn Save(&self, psifoldertosavein: windows_core::Ref<IShellItem>, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>;
+    fn SaveInKnownFolder(&self, kfidtosavein: *const super::KNOWNFOLDERID, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes"))]
 impl IShellLibrary_Vtbl {
@@ -16054,13 +16411,25 @@ impl IShellLibrary_Vtbl {
         unsafe extern "system" fn Save<Identity: IShellLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psifoldertosavein: *mut core::ffi::c_void, pszlibraryname: windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLibrary_Impl::Save(this, core::mem::transmute_copy(&psifoldertosavein), core::mem::transmute(&pszlibraryname), core::mem::transmute_copy(&lsf), core::mem::transmute_copy(&ppsisavedto)).into()
+                match IShellLibrary_Impl::Save(this, core::mem::transmute_copy(&psifoldertosavein), core::mem::transmute(&pszlibraryname), core::mem::transmute_copy(&lsf)) {
+                    Ok(ok__) => {
+                        ppsisavedto.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SaveInKnownFolder<Identity: IShellLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kfidtosavein: *const super::KNOWNFOLDERID, pszlibraryname: windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLibrary_Impl::SaveInKnownFolder(this, core::mem::transmute_copy(&kfidtosavein), core::mem::transmute(&pszlibraryname), core::mem::transmute_copy(&lsf), core::mem::transmute_copy(&ppsisavedto)).into()
+                match IShellLibrary_Impl::SaveInKnownFolder(this, core::mem::transmute_copy(&kfidtosavein), core::mem::transmute(&pszlibraryname), core::mem::transmute_copy(&lsf)) {
+                    Ok(ok__) => {
+                        ppsisavedto.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -18367,20 +18736,26 @@ impl ITransferSource {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).OpenItem)(windows_core::Interface::as_raw(self), psi.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn MoveItem<P0, P1, P2>(&self, psi: P0, psiparentdst: P1, psznamedst: P2, flags: TRANSFER_SOURCE_FLAGS, ppsinew: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn MoveItem<P0, P1, P2>(&self, psi: P0, psiparentdst: P1, psznamedst: P2, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<IShellItem>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MoveItem)(windows_core::Interface::as_raw(self), psi.param().abi(), psiparentdst.param().abi(), psznamedst.param().abi(), flags, core::mem::transmute(ppsinew)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MoveItem)(windows_core::Interface::as_raw(self), psi.param().abi(), psiparentdst.param().abi(), psznamedst.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn RecycleItem<P0, P1>(&self, psisource: P0, psiparentdest: P1, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn RecycleItem<P0, P1>(&self, psisource: P0, psiparentdest: P1, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RecycleItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), flags, core::mem::transmute(ppsinewdest)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RecycleItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn RemoveItem<P0>(&self, psisource: P0, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::HRESULT
     where
@@ -18388,26 +18763,35 @@ impl ITransferSource {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), flags) }
     }
-    pub unsafe fn RenameItem<P0, P1>(&self, psisource: P0, psznewname: P1, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn RenameItem<P0, P1>(&self, psisource: P0, psznewname: P1, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psznewname.param().abi(), flags, core::mem::transmute(ppsinewdest)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn LinkItem<P0, P1, P2>(&self, psisource: P0, psiparentdest: P1, psznewname: P2, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn LinkItem<P0, P1, P2>(&self, psisource: P0, psiparentdest: P1, psznewname: P2, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<IShellItem>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LinkItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), psznewname.param().abi(), flags, core::mem::transmute(ppsinewdest)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LinkItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn ApplyPropertiesToItem<P0>(&self, psisource: P0, ppsinew: *mut Option<IShellItem>) -> windows_core::HRESULT
+    pub unsafe fn ApplyPropertiesToItem<P0>(&self, psisource: P0) -> windows_core::Result<IShellItem>
     where
         P0: windows_core::Param<IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ApplyPropertiesToItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), core::mem::transmute(ppsinew)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ApplyPropertiesToItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetDefaultDestinationName<P0, P1>(&self, psisource: P0, psiparentdest: P1, ppszdestinationname: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
@@ -18465,12 +18849,12 @@ pub trait ITransferSource_Impl: windows_core::IUnknownImpl {
     fn Unadvise(&self, dwcookie: super::DWORD) -> windows_core::Result<()>;
     fn SetProperties(&self, pproparray: windows_core::Ref<super::IPropertyChangeArray>) -> windows_core::Result<()>;
     fn OpenItem(&self, psi: windows_core::Ref<IShellItem>, flags: TRANSFER_SOURCE_FLAGS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn MoveItem(&self, psi: windows_core::Ref<IShellItem>, psiparentdst: windows_core::Ref<IShellItem>, psznamedst: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinew: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn RecycleItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn MoveItem(&self, psi: windows_core::Ref<IShellItem>, psiparentdst: windows_core::Ref<IShellItem>, psznamedst: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>;
+    fn RecycleItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>;
     fn RemoveItem(&self, psisource: windows_core::Ref<IShellItem>, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<()>;
-    fn RenameItem(&self, psisource: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn LinkItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
-    fn ApplyPropertiesToItem(&self, psisource: windows_core::Ref<IShellItem>, ppsinew: windows_core::OutRef<IShellItem>) -> windows_core::Result<()>;
+    fn RenameItem(&self, psisource: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>;
+    fn LinkItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>;
+    fn ApplyPropertiesToItem(&self, psisource: windows_core::Ref<IShellItem>) -> windows_core::Result<IShellItem>;
     fn GetDefaultDestinationName(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, ppszdestinationname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn EnterFolder(&self, psichildfolderdest: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
     fn LeaveFolder(&self, psichildfolderdest: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
@@ -18505,13 +18889,25 @@ impl ITransferSource_Vtbl {
         unsafe extern "system" fn MoveItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, psiparentdst: *mut core::ffi::c_void, psznamedst: windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferSource_Impl::MoveItem(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&psiparentdst), core::mem::transmute(&psznamedst), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&ppsinew)).into()
+                match ITransferSource_Impl::MoveItem(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&psiparentdst), core::mem::transmute(&psznamedst), core::mem::transmute_copy(&flags)) {
+                    Ok(ok__) => {
+                        ppsinew.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RecycleItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, psiparentdest: *mut core::ffi::c_void, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferSource_Impl::RecycleItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute_copy(&psiparentdest), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&ppsinewdest)).into()
+                match ITransferSource_Impl::RecycleItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute_copy(&psiparentdest), core::mem::transmute_copy(&flags)) {
+                    Ok(ok__) => {
+                        ppsinewdest.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemoveItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::HRESULT {
@@ -18523,19 +18919,37 @@ impl ITransferSource_Vtbl {
         unsafe extern "system" fn RenameItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, psznewname: windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferSource_Impl::RenameItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute(&psznewname), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&ppsinewdest)).into()
+                match ITransferSource_Impl::RenameItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute(&psznewname), core::mem::transmute_copy(&flags)) {
+                    Ok(ok__) => {
+                        ppsinewdest.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn LinkItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, psiparentdest: *mut core::ffi::c_void, psznewname: windows_core::PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsinewdest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferSource_Impl::LinkItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute_copy(&psiparentdest), core::mem::transmute(&psznewname), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&ppsinewdest)).into()
+                match ITransferSource_Impl::LinkItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute_copy(&psiparentdest), core::mem::transmute(&psznewname), core::mem::transmute_copy(&flags)) {
+                    Ok(ok__) => {
+                        ppsinewdest.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ApplyPropertiesToItem<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, ppsinew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferSource_Impl::ApplyPropertiesToItem(this, core::mem::transmute_copy(&psisource), core::mem::transmute_copy(&ppsinew)).into()
+                match ITransferSource_Impl::ApplyPropertiesToItem(this, core::mem::transmute_copy(&psisource)) {
+                    Ok(ok__) => {
+                        ppsinew.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDefaultDestinationName<Identity: ITransferSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psisource: *mut core::ffi::c_void, psiparentdest: *mut core::ffi::c_void, ppszdestinationname: *mut windows_core::PWSTR) -> windows_core::HRESULT {

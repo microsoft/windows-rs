@@ -47,8 +47,8 @@ mod Windows {
         }
         #[guid(0xbfa971f1_4d5e_40bb_935e_967039bfbee4)]
         interface IAudioSessionManager: IUnknown {
-            fn GetAudioSessionControl(&self, #[in] #[opt] AudioSessionGuid: LPCGUID, #[in] StreamFlags: DWORD, #[out] #[out_ptr] SessionControl: *mut IAudioSessionControl) -> HRESULT;
-            fn GetSimpleAudioVolume(&self, #[in] #[opt] AudioSessionGuid: LPCGUID, #[in] StreamFlags: DWORD, #[out] #[out_ptr] AudioVolume: *mut ISimpleAudioVolume) -> HRESULT;
+            fn GetAudioSessionControl(&self, #[in] #[opt] AudioSessionGuid: LPCGUID, #[in] StreamFlags: DWORD, #[out] #[out_ptr] #[retval] SessionControl: *mut IAudioSessionControl) -> HRESULT;
+            fn GetSimpleAudioVolume(&self, #[in] #[opt] AudioSessionGuid: LPCGUID, #[in] StreamFlags: DWORD, #[out] #[out_ptr] #[retval] AudioVolume: *mut ISimpleAudioVolume) -> HRESULT;
         }
         #[guid(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f)]
         interface IAudioSessionManager2: IAudioSessionManager {

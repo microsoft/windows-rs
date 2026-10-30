@@ -262,8 +262,11 @@ impl core::ops::Deref for ITransactionCloner {
 }
 windows_core::imp::interface_hierarchy!(ITransactionCloner, windows_core::IUnknown, ITransaction);
 impl ITransactionCloner {
-    pub unsafe fn CloneWithCommitDisabled(&self, ppitransaction: *mut Option<ITransaction>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CloneWithCommitDisabled)(windows_core::Interface::as_raw(self), core::mem::transmute(ppitransaction)) }
+    pub unsafe fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CloneWithCommitDisabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -274,7 +277,7 @@ pub struct ITransactionCloner_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionCloner_Impl: ITransaction_Impl {
-    fn CloneWithCommitDisabled(&self, ppitransaction: windows_core::OutRef<ITransaction>) -> windows_core::Result<()>;
+    fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction>;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionCloner_Vtbl {
@@ -282,7 +285,13 @@ impl ITransactionCloner_Vtbl {
         unsafe extern "system" fn CloneWithCommitDisabled<Identity: ITransactionCloner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionCloner_Impl::CloneWithCommitDisabled(this, core::mem::transmute_copy(&ppitransaction)).into()
+                match ITransactionCloner_Impl::CloneWithCommitDisabled(this) {
+                    Ok(ok__) => {
+                        ppitransaction.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: ITransaction_Vtbl::new::<Identity, OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Identity, OFFSET> }
@@ -296,16 +305,22 @@ impl windows_core::RuntimeName for ITransactionCloner {}
 windows_core::imp::define_interface!(ITransactionDispenser, ITransactionDispenser_Vtbl, 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionDispenser, windows_core::IUnknown);
 impl ITransactionDispenser {
-    pub unsafe fn GetOptionsObject(&self, ppoptions: *mut Option<ITransactionOptions>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppoptions)) }
+    pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<ITransactionOptions> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn BeginTransaction<P0, P3>(&self, punkouter: P0, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: P3, pptransaction: *mut Option<ITransaction>) -> windows_core::HRESULT
+    pub unsafe fn BeginTransaction<P0, P3>(&self, punkouter: P0, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: P3) -> windows_core::Result<ITransaction>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<ITransactionOptions>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginTransaction)(windows_core::Interface::as_raw(self), punkouter.param().abi(), isolevel, isoflags, poptions.param().abi(), core::mem::transmute(pptransaction)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BeginTransaction)(windows_core::Interface::as_raw(self), punkouter.param().abi(), isolevel, isoflags, poptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -320,8 +335,8 @@ pub struct ITransactionDispenser_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITransactionDispenser_Impl: windows_core::IUnknownImpl {
-    fn GetOptionsObject(&self, ppoptions: windows_core::OutRef<ITransactionOptions>) -> windows_core::Result<()>;
-    fn BeginTransaction(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<ITransactionOptions>, pptransaction: windows_core::OutRef<ITransaction>) -> windows_core::Result<()>;
+    fn GetOptionsObject(&self) -> windows_core::Result<ITransactionOptions>;
+    fn BeginTransaction(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<ITransactionOptions>) -> windows_core::Result<ITransaction>;
 }
 #[cfg(feature = "shared")]
 impl ITransactionDispenser_Vtbl {
@@ -329,13 +344,25 @@ impl ITransactionDispenser_Vtbl {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionDispenser_Impl::GetOptionsObject(this, core::mem::transmute_copy(&ppoptions)).into()
+                match ITransactionDispenser_Impl::GetOptionsObject(this) {
+                    Ok(ok__) => {
+                        ppoptions.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn BeginTransaction<Identity: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionDispenser_Impl::BeginTransaction(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pptransaction)).into()
+                match ITransactionDispenser_Impl::BeginTransaction(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions)) {
+                    Ok(ok__) => {
+                        pptransaction.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

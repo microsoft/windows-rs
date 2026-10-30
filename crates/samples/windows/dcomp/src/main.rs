@@ -143,11 +143,7 @@ fn main() -> windows::core::Result<()> {
                 let desktop: IDCompositionDesktopDevice = imp::Type::from_abi(desktop)?;
 
                 self.target = None;
-                let mut target = None;
-                desktop
-                    .CreateTargetForHwnd(self.handle, true, &mut target)
-                    .ok()?;
-                let target = target.unwrap();
+                let target = desktop.CreateTargetForHwnd(self.handle, true)?;
                 let root_visual = create_visual(&desktop)?;
                 target.SetRoot(&root_visual).ok()?;
                 self.target = Some(target);
@@ -211,9 +207,7 @@ fn main() -> windows::core::Result<()> {
                         back_visual.SetContent(&back_surface).ok()?;
                         draw_card_back(&back_surface, &bitmap, card.offset, self.dpi)?;
 
-                        let mut rotation = None;
-                        desktop.CreateRotateTransform3D(&mut rotation).ok()?;
-                        let rotation = rotation.unwrap();
+                        let rotation = desktop.CreateRotateTransform3D()?;
 
                         if card.status == Status::Selected {
                             rotation.SetAngle2(180.0).ok()?;
@@ -473,12 +467,8 @@ fn main() -> windows::core::Result<()> {
                 WICDecodeMetadataCacheOnDemand,
             )?;
 
-            let mut source = None;
-            decoder.GetFrame(0, &mut source).ok()?;
-            let source = source.unwrap();
-            let mut image = None;
-            factory.CreateFormatConverter(&mut image).ok()?;
-            let image = image.unwrap();
+            let source = decoder.GetFrame(0)?;
+            let image = factory.CreateFormatConverter()?;
 
             image
                 .Initialize(
@@ -516,16 +506,12 @@ fn main() -> windows::core::Result<()> {
 
     fn create_device_2d(device_3d: &ID3D11Device) -> Result<ID2D1Device> {
         let dxgi: IDXGIDevice3 = device_3d.cast()?;
-        let mut device = None;
-        unsafe { D2D1CreateDevice(&dxgi, None, &mut device) }.ok()?;
-        Ok(device.unwrap())
+        unsafe { D2D1CreateDevice(&dxgi, None) }
     }
 
     fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
         unsafe {
-            let mut visual = None;
-            device.CreateVisual(&mut visual).ok()?;
-            let visual = visual.unwrap();
+            let visual = device.CreateVisual()?;
             visual
                 .SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)
                 .ok()?;
@@ -538,19 +524,14 @@ fn main() -> windows::core::Result<()> {
         width: f32,
         height: f32,
     ) -> Result<IDCompositionSurface> {
-        let mut surface = None;
         unsafe {
-            device
-                .CreateSurface(
-                    width as u32,
-                    height as u32,
-                    DXGI_FORMAT_B8G8R8A8_UNORM,
-                    DXGI_ALPHA_MODE_PREMULTIPLIED,
-                    &mut surface,
-                )
-                .ok()?;
+            device.CreateSurface(
+                width as u32,
+                height as u32,
+                DXGI_FORMAT_B8G8R8A8_UNORM,
+                DXGI_ALPHA_MODE_PREMULTIPLIED,
+            )
         }
-        Ok(surface.unwrap())
     }
 
     fn add_show_transition(
@@ -576,9 +557,7 @@ fn main() -> windows::core::Result<()> {
 
     fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<()> {
         unsafe {
-            let mut animation = None;
-            device.CreateAnimation(&mut animation).ok()?;
-            let animation = animation.unwrap();
+            let animation = device.CreateAnimation()?;
             card.variable.copy_curve(&animation)?;
 
             card.rotation
@@ -611,32 +590,22 @@ fn main() -> windows::core::Result<()> {
             let pre_matrix = Matrix4x4::translation(-width / 2.0, -height / 2.0, 0.0)
                 * Matrix4x4::rotation_y(if front { 180.0 } else { 0.0 });
 
-            let mut pre_transform = None;
-            device.CreateMatrixTransform3D(&mut pre_transform).ok()?;
-            let pre_transform = pre_transform.unwrap();
+            let pre_transform = device.CreateMatrixTransform3D()?;
             pre_transform.SetMatrix(&pre_matrix).ok()?;
 
             let post_matrix = Matrix4x4::perspective_projection(width * 2.0)
                 * Matrix4x4::translation(width / 2.0, height / 2.0, 0.0);
 
-            let mut post_transform = None;
-            device.CreateMatrixTransform3D(&mut post_transform).ok()?;
-            let post_transform = post_transform.unwrap();
+            let post_transform = device.CreateMatrixTransform3D()?;
             post_transform.SetMatrix(&post_matrix).ok()?;
 
-            let mut transform = None;
-            device
-                .CreateTransform3DGroup(
-                    &[
-                        pre_transform.cast().ok(),
-                        rotation.cast().ok(),
-                        post_transform.cast().ok(),
-                    ],
-                    &mut transform,
-                )
-                .ok()?;
+            let transform = device.CreateTransform3DGroup(&[
+                pre_transform.cast().ok(),
+                rotation.cast().ok(),
+                post_transform.cast().ok(),
+            ])?;
 
-            visual.SetEffect(&transform.unwrap()).ok()
+            visual.SetEffect(&transform).ok()
         }
     }
 

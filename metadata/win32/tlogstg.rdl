@@ -6,11 +6,11 @@ mod Windows {
             fn Next(&self, #[in] cElt: ULONG, #[out] #[readable(success, *pcEltFetched)] #[writable(entry, cElt)] #[writable(success, cElt)] rgElt: *mut ITravelLogEntry, #[out] pcEltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cElt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTravelLogEntry) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTravelLogEntry) -> HRESULT;
         }
         #[guid(0x241c033e_e659_43da_aa4d_4086dbc4758d)]
         interface ITravelLogClient: IUnknown {
-            fn FindWindowByIndex(&self, #[in] dwID: DWORD, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn FindWindowByIndex(&self, #[in] dwID: DWORD, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
             fn GetWindowData(&self, #[in] #[opt] pStream: IStream, #[out] pWinData: LPWINDOWDATA) -> HRESULT;
             fn LoadHistoryPosition(&self, #[in] pszUrlLocation: LPWSTR, #[in] dwPosition: DWORD) -> HRESULT;
         }
@@ -21,13 +21,13 @@ mod Windows {
         }
         #[guid(0x7ebfdd80_ad18_11d3_a4c5_00c04f72d6b8)]
         interface ITravelLogStg: IUnknown {
-            fn CreateEntry(&self, #[in] pszUrl: LPCWSTR, #[in] pszTitle: LPCWSTR, #[in] #[opt] ptleRelativeTo: ITravelLogEntry, #[in] fPrepend: BOOL, #[out] #[out_ptr] pptle: *mut ITravelLogEntry) -> HRESULT;
+            fn CreateEntry(&self, #[in] pszUrl: LPCWSTR, #[in] pszTitle: LPCWSTR, #[in] #[opt] ptleRelativeTo: ITravelLogEntry, #[in] fPrepend: BOOL, #[out] #[out_ptr] #[retval] pptle: *mut ITravelLogEntry) -> HRESULT;
             fn TravelTo(&self, #[in] #[opt] ptle: ITravelLogEntry) -> HRESULT;
-            fn EnumEntries(&self, #[in] flags: TLENUMF, #[out] #[out_ptr] ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
-            fn FindEntries(&self, #[in] flags: TLENUMF, #[in] pszUrl: LPCWSTR, #[out] #[out_ptr] ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
+            fn EnumEntries(&self, #[in] flags: TLENUMF, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
+            fn FindEntries(&self, #[in] flags: TLENUMF, #[in] pszUrl: LPCWSTR, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
             fn GetCount(&self, #[in] flags: TLENUMF, #[out] pcEntries: *mut DWORD) -> HRESULT;
             fn RemoveEntry(&self, #[in] #[opt] ptle: ITravelLogEntry) -> HRESULT;
-            fn GetRelativeEntry(&self, #[in] iOffset: i32, #[out] #[out_ptr] ptle: *mut ITravelLogEntry) -> HRESULT;
+            fn GetRelativeEntry(&self, #[in] iOffset: i32, #[out] #[out_ptr] #[retval] ptle: *mut ITravelLogEntry) -> HRESULT;
         }
         type LPCWINDOWDATA = *const WINDOWDATA;
         type LPWINDOWDATA = *mut WINDOWDATA;

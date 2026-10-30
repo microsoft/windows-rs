@@ -163,7 +163,7 @@ mod Windows {
         }
         #[guid(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd)]
         interface IFsrmPipelineModuleImplementation: IDispatch {
-            fn OnLoad(&self, #[in] #[opt] moduleDefinition: IFsrmPipelineModuleDefinition, #[out] #[out_ptr] moduleConnector: *mut IFsrmPipelineModuleConnector) -> HRESULT;
+            fn OnLoad(&self, #[in] #[opt] moduleDefinition: IFsrmPipelineModuleDefinition, #[out] #[out_ptr] #[retval] moduleConnector: *mut IFsrmPipelineModuleConnector) -> HRESULT;
             fn OnUnload(&self) -> HRESULT;
         }
         #[guid(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768)]

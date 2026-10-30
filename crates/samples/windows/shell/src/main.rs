@@ -82,9 +82,7 @@ fn main() -> windows::core::Result<()> {
                 .QueryService(&SID_STopLevelBrowser, &IShellBrowser::IID, &mut browser)
                 .ok()?;
             let browser: IShellBrowser = imp::Type::from_abi(browser)?;
-            let mut view = None;
-            browser.QueryActiveShellView(&mut view).ok()?;
-            view.unwrap().cast()
+            browser.QueryActiveShellView()?.cast()
         }
     }
 

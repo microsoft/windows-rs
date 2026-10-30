@@ -1,8 +1,11 @@
 #[cfg(all(feature = "System", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherqueuecontroller: *mut Option<PDISPATCHERQUEUECONTROLLER>) -> windows_core::HRESULT {
+pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> windows_core::Result<PDISPATCHERQUEUECONTROLLER> {
     windows_core::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDispatcherQueueController(options, core::mem::transmute(dispatcherqueuecontroller)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateDispatcherQueueController(options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
 pub type DISPATCHERQUEUE_THREAD_TYPE = i32;

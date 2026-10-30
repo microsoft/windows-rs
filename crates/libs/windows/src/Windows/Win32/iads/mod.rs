@@ -13150,11 +13150,14 @@ impl IDirectoryObject {
         unsafe { (windows_core::Interface::vtable(self).SetObjectAttributes)(windows_core::Interface::as_raw(self), pattributeentries, dwnumattributes, pdwnumattributesmodified as _) }
     }
     #[cfg(all(feature = "minwinbase", feature = "oaidl", feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreateDSObject<P0>(&self, pszrdnname: P0, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD, ppobject: *mut Option<super::IDispatch>) -> windows_core::HRESULT
+    pub unsafe fn CreateDSObject<P0>(&self, pszrdnname: P0, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD) -> windows_core::Result<super::IDispatch>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDSObject)(windows_core::Interface::as_raw(self), pszrdnname.param().abi(), pattributeentries, dwnumattributes, core::mem::transmute(ppobject)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateDSObject)(windows_core::Interface::as_raw(self), pszrdnname.param().abi(), pattributeentries, dwnumattributes, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn DeleteDSObject<P0>(&self, pszrdnname: P0) -> windows_core::HRESULT
     where
@@ -13187,7 +13190,7 @@ pub trait IDirectoryObject_Impl: windows_core::IUnknownImpl {
     fn GetObjectInformation(&self, ppobjinfo: *mut PADS_OBJECT_INFO) -> windows_core::Result<()>;
     fn GetObjectAttributes(&self, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: super::DWORD, ppattributeentries: *mut PADS_ATTR_INFO, pdwnumattributesreturned: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetObjectAttributes(&self, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD, pdwnumattributesmodified: *mut super::DWORD) -> windows_core::Result<()>;
-    fn CreateDSObject(&self, pszrdnname: &windows_core::PCWSTR, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD, ppobject: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
+    fn CreateDSObject(&self, pszrdnname: &windows_core::PCWSTR, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD) -> windows_core::Result<super::IDispatch>;
     fn DeleteDSObject(&self, pszrdnname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwinbase", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -13214,7 +13217,13 @@ impl IDirectoryObject_Vtbl {
         unsafe extern "system" fn CreateDSObject<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrdnname: windows_core::PCWSTR, pattributeentries: PADS_ATTR_INFO, dwnumattributes: super::DWORD, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectoryObject_Impl::CreateDSObject(this, core::mem::transmute(&pszrdnname), core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes), core::mem::transmute_copy(&ppobject)).into()
+                match IDirectoryObject_Impl::CreateDSObject(this, core::mem::transmute(&pszrdnname), core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes)) {
+                    Ok(ok__) => {
+                        ppobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn DeleteDSObject<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrdnname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -13579,8 +13588,11 @@ impl IPrivateDispatch {
         unsafe { (windows_core::Interface::vtable(self).ADSIGetTypeInfoCount)(windows_core::Interface::as_raw(self), pctinfo as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared"))]
-    pub unsafe fn ADSIGetTypeInfo(&self, itinfo: super::UINT, lcid: super::LCID, pptinfo: *mut Option<super::ITypeInfo>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ADSIGetTypeInfo)(windows_core::Interface::as_raw(self), itinfo, lcid, core::mem::transmute(pptinfo)) }
+    pub unsafe fn ADSIGetTypeInfo(&self, itinfo: super::UINT, lcid: super::LCID) -> windows_core::Result<super::ITypeInfo> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ADSIGetTypeInfo)(windows_core::Interface::as_raw(self), itinfo, lcid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn ADSIGetIDsOfNames(&self, riid: *const super::IID, rgsznames: *const *const super::OLECHAR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::HRESULT {
@@ -13617,7 +13629,7 @@ pub struct IPrivateDispatch_Vtbl {
 pub trait IPrivateDispatch_Impl: windows_core::IUnknownImpl {
     fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> windows_core::Result<()>;
     fn ADSIGetTypeInfoCount(&self, pctinfo: *mut super::UINT) -> windows_core::Result<()>;
-    fn ADSIGetTypeInfo(&self, itinfo: super::UINT, lcid: super::LCID, pptinfo: windows_core::OutRef<super::ITypeInfo>) -> windows_core::Result<()>;
+    fn ADSIGetTypeInfo(&self, itinfo: super::UINT, lcid: super::LCID) -> windows_core::Result<super::ITypeInfo>;
     fn ADSIGetIDsOfNames(&self, riid: *const super::IID, rgsznames: *const *const super::OLECHAR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::Result<()>;
     fn ADSIInvoke(&self, dispidmember: super::DISPID, riid: *const super::IID, lcid: super::LCID, wflags: super::WORD, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::Result<()>;
 }
@@ -13639,7 +13651,13 @@ impl IPrivateDispatch_Vtbl {
         unsafe extern "system" fn ADSIGetTypeInfo<Identity: IPrivateDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itinfo: super::UINT, lcid: super::LCID, pptinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrivateDispatch_Impl::ADSIGetTypeInfo(this, core::mem::transmute_copy(&itinfo), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pptinfo)).into()
+                match IPrivateDispatch_Impl::ADSIGetTypeInfo(this, core::mem::transmute_copy(&itinfo), core::mem::transmute_copy(&lcid)) {
+                    Ok(ok__) => {
+                        pptinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ADSIGetIDsOfNames<Identity: IPrivateDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, rgsznames: *const *const super::OLECHAR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::HRESULT {

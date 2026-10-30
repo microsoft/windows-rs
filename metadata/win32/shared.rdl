@@ -56,7 +56,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoFileTimeNow(#[out] lpFileTime: *mut FILETIME) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreateDataAdviseHolder(#[out] #[out_ptr] ppDAHolder: *mut LPDATAADVISEHOLDER) -> HRESULT;
+        extern fn CreateDataAdviseHolder(#[out] #[out_ptr] #[retval] ppDAHolder: *mut LPDATAADVISEHOLDER) -> HRESULT;
         type D2D1_POINT_2L = POINT;
         type D2D1_RECT_L = RECT;
         const DDPF_FOURCC: i32 = 4;

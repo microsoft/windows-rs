@@ -116,21 +116,21 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATPROPSETSTG, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
         }
         #[guid(0x00000139_0000_0000_c000_000000000046)]
         interface IEnumSTATPROPSTG: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATPROPSTG, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
         }
         #[guid(0x0000013a_0000_0000_c000_000000000046)]
         interface IPropertySetStorage: IUnknown {
-            fn Create(&self, #[in] rfmtid: &IID, #[in] #[opt] pclsid: *const CLSID, #[in] grfFlags: DWORD, #[in] grfMode: DWORD, #[out] #[out_ptr] ppprstg: *mut IPropertyStorage) -> HRESULT;
-            fn Open(&self, #[in] rfmtid: &IID, #[in] grfMode: DWORD, #[out] #[out_ptr] ppprstg: *mut IPropertyStorage) -> HRESULT;
+            fn Create(&self, #[in] rfmtid: &IID, #[in] #[opt] pclsid: *const CLSID, #[in] grfFlags: DWORD, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppprstg: *mut IPropertyStorage) -> HRESULT;
+            fn Open(&self, #[in] rfmtid: &IID, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppprstg: *mut IPropertyStorage) -> HRESULT;
             fn Delete(&self, #[in] rfmtid: &IID) -> HRESULT;
-            fn Enum(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
+            fn Enum(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
         }
         #[guid(0x00000138_0000_0000_c000_000000000046)]
         interface IPropertyStorage: IUnknown {
@@ -142,7 +142,7 @@ mod Windows {
             fn DeletePropertyNames(&self, #[in] cpropid: ULONG, #[in] #[readable(entry, cpropid)] rgpropid: *const PROPID) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
             fn Revert(&self) -> HRESULT;
-            fn Enum(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
+            fn Enum(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
             fn SetTimes(&self, #[in] pctime: *const FILETIME, #[in] patime: *const FILETIME, #[in] pmtime: *const FILETIME) -> HRESULT;
             fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
             fn Stat(&self, #[out] pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;

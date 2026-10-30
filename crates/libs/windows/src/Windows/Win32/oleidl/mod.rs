@@ -325,8 +325,11 @@ impl IEnumOLEVERB {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -349,7 +352,7 @@ pub trait IEnumOLEVERB_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: LPOLEVERB, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumOLEVERB>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumOLEVERB>;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IEnumOLEVERB_Vtbl {
@@ -375,7 +378,13 @@ impl IEnumOLEVERB_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumOLEVERB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumOLEVERB_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumOLEVERB_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -407,8 +416,11 @@ impl IOleAdviseHolder {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwconnection) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn EnumAdvise(&self, ppenumadvise: *mut Option<super::IEnumSTATDATA>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumAdvise)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumadvise)) }
+    pub unsafe fn EnumAdvise(&self) -> windows_core::Result<super::IEnumSTATDATA> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumAdvise)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn SendOnRename<P0>(&self, pmk: P0) -> windows_core::HRESULT
@@ -451,7 +463,7 @@ pub struct IOleAdviseHolder_Vtbl {
 pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
     fn Advise(&self, padvise: windows_core::Ref<super::IAdviseSink>, pdwconnection: *mut super::DWORD) -> windows_core::Result<()>;
     fn Unadvise(&self, dwconnection: super::DWORD) -> windows_core::Result<()>;
-    fn EnumAdvise(&self, ppenumadvise: windows_core::OutRef<super::IEnumSTATDATA>) -> windows_core::Result<()>;
+    fn EnumAdvise(&self) -> windows_core::Result<super::IEnumSTATDATA>;
     fn SendOnRename(&self, pmk: windows_core::Ref<super::IMoniker>) -> windows_core::Result<()>;
     fn SendOnSave(&self) -> windows_core::Result<()>;
     fn SendOnClose(&self) -> windows_core::Result<()>;
@@ -474,7 +486,13 @@ impl IOleAdviseHolder_Vtbl {
         unsafe extern "system" fn EnumAdvise<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumadvise: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleAdviseHolder_Impl::EnumAdvise(this, core::mem::transmute_copy(&ppenumadvise)).into()
+                match IOleAdviseHolder_Impl::EnumAdvise(this) {
+                    Ok(ok__) => {
+                        ppenumadvise.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SendOnRename<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -523,8 +541,11 @@ impl IOleCache {
         unsafe { (windows_core::Interface::vtable(self).Uncache)(windows_core::Interface::as_raw(self), dwconnection) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn EnumCache(&self, ppenumstatdata: *mut Option<super::IEnumSTATDATA>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCache)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumstatdata)) }
+    pub unsafe fn EnumCache(&self) -> windows_core::Result<super::IEnumSTATDATA> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumCache)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn InitCache<P0>(&self, pdataobject: P0) -> windows_core::HRESULT
@@ -567,7 +588,7 @@ pub struct IOleCache_Vtbl {
 pub trait IOleCache_Impl: windows_core::IUnknownImpl {
     fn Cache(&self, pformatetc: *const super::FORMATETC, advf: super::DWORD, pdwconnection: *mut super::DWORD) -> windows_core::Result<()>;
     fn Uncache(&self, dwconnection: super::DWORD) -> windows_core::Result<()>;
-    fn EnumCache(&self, ppenumstatdata: windows_core::OutRef<super::IEnumSTATDATA>) -> windows_core::Result<()>;
+    fn EnumCache(&self) -> windows_core::Result<super::IEnumSTATDATA>;
     fn InitCache(&self, pdataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<()>;
     fn SetData(&self, pformatetc: *const super::FORMATETC, pmedium: *const super::STGMEDIUM, frelease: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -589,7 +610,13 @@ impl IOleCache_Vtbl {
         unsafe extern "system" fn EnumCache<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstatdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleCache_Impl::EnumCache(this, core::mem::transmute_copy(&ppenumstatdata)).into()
+                match IOleCache_Impl::EnumCache(this) {
+                    Ok(ok__) => {
+                        ppenumstatdata.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn InitCache<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -740,11 +767,17 @@ impl IOleClientSite {
         unsafe { (windows_core::Interface::vtable(self).SaveObject)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwassign, dwwhichmoniker, core::mem::transmute(ppmk)) }
+    pub unsafe fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD) -> windows_core::Result<super::IMoniker> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwassign, dwwhichmoniker, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetContainer(&self, ppcontainer: *mut Option<IOleContainer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcontainer)) }
+    pub unsafe fn GetContainer(&self) -> windows_core::Result<IOleContainer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ShowObject(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ShowObject)(windows_core::Interface::as_raw(self)) }
@@ -773,8 +806,8 @@ pub struct IOleClientSite_Vtbl {
 #[cfg(all(feature = "objidl", feature = "shared"))]
 pub trait IOleClientSite_Impl: windows_core::IUnknownImpl {
     fn SaveObject(&self) -> windows_core::Result<()>;
-    fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
-    fn GetContainer(&self, ppcontainer: windows_core::OutRef<IOleContainer>) -> windows_core::Result<()>;
+    fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD) -> windows_core::Result<super::IMoniker>;
+    fn GetContainer(&self) -> windows_core::Result<IOleContainer>;
     fn ShowObject(&self) -> windows_core::Result<()>;
     fn OnShowWindow(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn RequestNewObjectLayout(&self) -> windows_core::Result<()>;
@@ -791,13 +824,25 @@ impl IOleClientSite_Vtbl {
         unsafe extern "system" fn GetMoniker<Identity: IOleClientSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleClientSite_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker), core::mem::transmute_copy(&ppmk)).into()
+                match IOleClientSite_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker)) {
+                    Ok(ok__) => {
+                        ppmk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetContainer<Identity: IOleClientSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleClientSite_Impl::GetContainer(this, core::mem::transmute_copy(&ppcontainer)).into()
+                match IOleClientSite_Impl::GetContainer(this) {
+                    Ok(ok__) => {
+                        ppcontainer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ShowObject<Identity: IOleClientSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -844,8 +889,11 @@ impl core::ops::Deref for IOleContainer {
 windows_core::imp::interface_hierarchy!(IOleContainer, windows_core::IUnknown, IParseDisplayName);
 impl IOleContainer {
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn EnumObjects(&self, grfflags: super::DWORD, ppenum: *mut Option<super::IEnumUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), grfflags, core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumObjects(&self, grfflags: super::DWORD) -> windows_core::Result<super::IEnumUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn LockContainer(&self, flock: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockContainer)(windows_core::Interface::as_raw(self), flock.into()) }
@@ -863,7 +911,7 @@ pub struct IOleContainer_Vtbl {
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 pub trait IOleContainer_Impl: IParseDisplayName_Impl {
-    fn EnumObjects(&self, grfflags: super::DWORD, ppenum: windows_core::OutRef<super::IEnumUnknown>) -> windows_core::Result<()>;
+    fn EnumObjects(&self, grfflags: super::DWORD) -> windows_core::Result<super::IEnumUnknown>;
     fn LockContainer(&self, flock: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
@@ -872,7 +920,13 @@ impl IOleContainer_Vtbl {
         unsafe extern "system" fn EnumObjects<Identity: IOleContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleContainer_Impl::EnumObjects(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&ppenum)).into()
+                match IOleContainer_Impl::EnumObjects(this, core::mem::transmute_copy(&grfflags)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn LockContainer<Identity: IOleContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flock: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1570,8 +1624,11 @@ impl IOleLink {
         unsafe { (windows_core::Interface::vtable(self).SetSourceMoniker)(windows_core::Interface::as_raw(self), pmk.param().abi(), rclsid) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn GetSourceMoniker(&self, ppmk: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceMoniker)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmk)) }
+    pub unsafe fn GetSourceMoniker(&self) -> windows_core::Result<super::IMoniker> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSourceMoniker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn SetSourceDisplayName(&self, pszstatustext: super::LPCOLESTR) -> windows_core::HRESULT {
@@ -1591,8 +1648,11 @@ impl IOleLink {
     pub unsafe fn BindIfRunning(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BindIfRunning)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetBoundSource(&self, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBoundSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
+    pub unsafe fn GetBoundSource(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBoundSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn UnbindSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnbindSource)(windows_core::Interface::as_raw(self)) }
@@ -1650,12 +1710,12 @@ pub trait IOleLink_Impl: windows_core::IUnknownImpl {
     fn SetUpdateOptions(&self, dwupdateopt: super::DWORD) -> windows_core::Result<()>;
     fn GetUpdateOptions(&self, pdwupdateopt: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetSourceMoniker(&self, pmk: windows_core::Ref<super::IMoniker>, rclsid: *const super::IID) -> windows_core::Result<()>;
-    fn GetSourceMoniker(&self, ppmk: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn GetSourceMoniker(&self) -> windows_core::Result<super::IMoniker>;
     fn SetSourceDisplayName(&self, pszstatustext: super::LPCOLESTR) -> windows_core::Result<()>;
     fn GetSourceDisplayName(&self, ppszdisplayname: *mut super::LPOLESTR) -> windows_core::Result<()>;
     fn BindToSource(&self, bindflags: super::DWORD, pbc: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
     fn BindIfRunning(&self) -> windows_core::Result<()>;
-    fn GetBoundSource(&self, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetBoundSource(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn UnbindSource(&self) -> windows_core::Result<()>;
     fn Update(&self, pbc: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
 }
@@ -1683,7 +1743,13 @@ impl IOleLink_Vtbl {
         unsafe extern "system" fn GetSourceMoniker<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleLink_Impl::GetSourceMoniker(this, core::mem::transmute_copy(&ppmk)).into()
+                match IOleLink_Impl::GetSourceMoniker(this) {
+                    Ok(ok__) => {
+                        ppmk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetSourceDisplayName<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstatustext: super::LPCOLESTR) -> windows_core::HRESULT {
@@ -1713,7 +1779,13 @@ impl IOleLink_Vtbl {
         unsafe extern "system" fn GetBoundSource<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleLink_Impl::GetBoundSource(this, core::mem::transmute_copy(&ppunk)).into()
+                match IOleLink_Impl::GetBoundSource(this) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn UnbindSource<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1758,8 +1830,11 @@ impl IOleObject {
     {
         unsafe { (windows_core::Interface::vtable(self).SetClientSite)(windows_core::Interface::as_raw(self), pclientsite.param().abi()) }
     }
-    pub unsafe fn GetClientSite(&self, ppclientsite: *mut Option<IOleClientSite>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetClientSite)(windows_core::Interface::as_raw(self), core::mem::transmute(ppclientsite)) }
+    pub unsafe fn GetClientSite(&self) -> windows_core::Result<IOleClientSite> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClientSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn SetHostNames(&self, szcontainerapp: super::LPCOLESTR, szcontainerobj: Option<super::LPCOLESTR>) -> windows_core::HRESULT {
@@ -1777,8 +1852,11 @@ impl IOleObject {
         unsafe { (windows_core::Interface::vtable(self).SetMoniker)(windows_core::Interface::as_raw(self), dwwhichmoniker, pmk.param().abi()) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwassign, dwwhichmoniker, core::mem::transmute(ppmk)) }
+    pub unsafe fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD) -> windows_core::Result<super::IMoniker> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwassign, dwwhichmoniker, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn InitFromData<P0>(&self, pdataobject: P0, fcreation: bool, dwreserved: super::DWORD) -> windows_core::HRESULT
@@ -1788,8 +1866,11 @@ impl IOleObject {
         unsafe { (windows_core::Interface::vtable(self).InitFromData)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), fcreation.into(), dwreserved) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetClipboardData(&self, dwreserved: super::DWORD, ppdataobject: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), dwreserved, core::mem::transmute(ppdataobject)) }
+    pub unsafe fn GetClipboardData(&self, dwreserved: super::DWORD) -> windows_core::Result<super::IDataObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
     pub unsafe fn DoVerb<P2>(&self, iverb: super::LONG, lpmsg: Option<super::LPMSG>, pactivesite: P2, lindex: super::LONG, hwndparent: super::HWND, lprcposrect: Option<super::LPCRECT>) -> windows_core::HRESULT
@@ -1798,8 +1879,11 @@ impl IOleObject {
     {
         unsafe { (windows_core::Interface::vtable(self).DoVerb)(windows_core::Interface::as_raw(self), iverb, lpmsg.unwrap_or(core::mem::zeroed()) as _, pactivesite.param().abi(), lindex, hwndparent, lprcposrect.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn EnumVerbs(&self, ppenumoleverb: *mut Option<IEnumOLEVERB>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumVerbs)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumoleverb)) }
+    pub unsafe fn EnumVerbs(&self) -> windows_core::Result<IEnumOLEVERB> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumVerbs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Update(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self)) }
@@ -1835,8 +1919,11 @@ impl IOleObject {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwconnection) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn EnumAdvise(&self, ppenumadvise: *mut Option<super::IEnumSTATDATA>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumAdvise)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumadvise)) }
+    pub unsafe fn EnumAdvise(&self) -> windows_core::Result<super::IEnumSTATDATA> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumAdvise)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMiscStatus(&self, dwaspect: super::DWORD, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
@@ -1924,15 +2011,15 @@ pub struct IOleObject_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared", feature = "windef", feature = "wingdi", feature = "winuser", feature = "wtypesbase"))]
 pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn SetClientSite(&self, pclientsite: windows_core::Ref<IOleClientSite>) -> windows_core::Result<()>;
-    fn GetClientSite(&self, ppclientsite: windows_core::OutRef<IOleClientSite>) -> windows_core::Result<()>;
+    fn GetClientSite(&self) -> windows_core::Result<IOleClientSite>;
     fn SetHostNames(&self, szcontainerapp: super::LPCOLESTR, szcontainerobj: super::LPCOLESTR) -> windows_core::Result<()>;
     fn Close(&self, dwsaveoption: super::DWORD) -> windows_core::Result<()>;
     fn SetMoniker(&self, dwwhichmoniker: super::DWORD, pmk: windows_core::Ref<super::IMoniker>) -> windows_core::Result<()>;
-    fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn GetMoniker(&self, dwassign: super::DWORD, dwwhichmoniker: super::DWORD) -> windows_core::Result<super::IMoniker>;
     fn InitFromData(&self, pdataobject: windows_core::Ref<super::IDataObject>, fcreation: windows_core::BOOL, dwreserved: super::DWORD) -> windows_core::Result<()>;
-    fn GetClipboardData(&self, dwreserved: super::DWORD, ppdataobject: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
+    fn GetClipboardData(&self, dwreserved: super::DWORD) -> windows_core::Result<super::IDataObject>;
     fn DoVerb(&self, iverb: super::LONG, lpmsg: super::LPMSG, pactivesite: windows_core::Ref<IOleClientSite>, lindex: super::LONG, hwndparent: super::HWND, lprcposrect: super::LPCRECT) -> windows_core::Result<()>;
-    fn EnumVerbs(&self, ppenumoleverb: windows_core::OutRef<IEnumOLEVERB>) -> windows_core::Result<()>;
+    fn EnumVerbs(&self) -> windows_core::Result<IEnumOLEVERB>;
     fn Update(&self) -> windows_core::Result<()>;
     fn IsUpToDate(&self) -> windows_core::Result<()>;
     fn GetUserClassID(&self, pclsid: *mut super::CLSID) -> windows_core::Result<()>;
@@ -1941,7 +2028,7 @@ pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn GetExtent(&self, dwdrawaspect: super::DWORD, psizel: *mut super::SIZEL) -> windows_core::Result<()>;
     fn Advise(&self, padvsink: windows_core::Ref<super::IAdviseSink>, pdwconnection: *mut super::DWORD) -> windows_core::Result<()>;
     fn Unadvise(&self, dwconnection: super::DWORD) -> windows_core::Result<()>;
-    fn EnumAdvise(&self, ppenumadvise: windows_core::OutRef<super::IEnumSTATDATA>) -> windows_core::Result<()>;
+    fn EnumAdvise(&self) -> windows_core::Result<super::IEnumSTATDATA>;
     fn GetMiscStatus(&self, dwaspect: super::DWORD, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetColorScheme(&self, plogpal: *const super::LOGPALETTE) -> windows_core::Result<()>;
 }
@@ -1957,7 +2044,13 @@ impl IOleObject_Vtbl {
         unsafe extern "system" fn GetClientSite<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclientsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleObject_Impl::GetClientSite(this, core::mem::transmute_copy(&ppclientsite)).into()
+                match IOleObject_Impl::GetClientSite(this) {
+                    Ok(ok__) => {
+                        ppclientsite.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetHostNames<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szcontainerapp: super::LPCOLESTR, szcontainerobj: super::LPCOLESTR) -> windows_core::HRESULT {
@@ -1981,7 +2074,13 @@ impl IOleObject_Vtbl {
         unsafe extern "system" fn GetMoniker<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwassign: super::DWORD, dwwhichmoniker: super::DWORD, ppmk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleObject_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker), core::mem::transmute_copy(&ppmk)).into()
+                match IOleObject_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker)) {
+                    Ok(ok__) => {
+                        ppmk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn InitFromData<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, fcreation: windows_core::BOOL, dwreserved: super::DWORD) -> windows_core::HRESULT {
@@ -1993,7 +2092,13 @@ impl IOleObject_Vtbl {
         unsafe extern "system" fn GetClipboardData<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleObject_Impl::GetClipboardData(this, core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&ppdataobject)).into()
+                match IOleObject_Impl::GetClipboardData(this, core::mem::transmute_copy(&dwreserved)) {
+                    Ok(ok__) => {
+                        ppdataobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn DoVerb<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iverb: super::LONG, lpmsg: super::LPMSG, pactivesite: *mut core::ffi::c_void, lindex: super::LONG, hwndparent: super::HWND, lprcposrect: super::LPCRECT) -> windows_core::HRESULT {
@@ -2005,7 +2110,13 @@ impl IOleObject_Vtbl {
         unsafe extern "system" fn EnumVerbs<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumoleverb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleObject_Impl::EnumVerbs(this, core::mem::transmute_copy(&ppenumoleverb)).into()
+                match IOleObject_Impl::EnumVerbs(this) {
+                    Ok(ok__) => {
+                        ppenumoleverb.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Update<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2059,7 +2170,13 @@ impl IOleObject_Vtbl {
         unsafe extern "system" fn EnumAdvise<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumadvise: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleObject_Impl::EnumAdvise(this, core::mem::transmute_copy(&ppenumadvise)).into()
+                match IOleObject_Impl::EnumAdvise(this) {
+                    Ok(ok__) => {
+                        ppenumadvise.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetMiscStatus<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: super::DWORD, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
@@ -2162,11 +2279,14 @@ windows_core::imp::define_interface!(IParseDisplayName, IParseDisplayName_Vtbl, 
 windows_core::imp::interface_hierarchy!(IParseDisplayName, windows_core::IUnknown);
 impl IParseDisplayName {
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn ParseDisplayName<P0>(&self, pbc: P0, pszdisplayname: super::LPOLESTR, pcheaten: *mut super::ULONG, ppmkout: *mut Option<super::IMoniker>) -> windows_core::HRESULT
+    pub unsafe fn ParseDisplayName<P0>(&self, pbc: P0, pszdisplayname: super::LPOLESTR, pcheaten: *mut super::ULONG) -> windows_core::Result<super::IMoniker>
     where
         P0: windows_core::Param<super::IBindCtx>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), pbc.param().abi(), pszdisplayname, pcheaten as _, core::mem::transmute(ppmkout)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), pbc.param().abi(), pszdisplayname, pcheaten as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2180,7 +2300,7 @@ pub struct IParseDisplayName_Vtbl {
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IParseDisplayName_Impl: windows_core::IUnknownImpl {
-    fn ParseDisplayName(&self, pbc: windows_core::Ref<super::IBindCtx>, pszdisplayname: super::LPOLESTR, pcheaten: *mut super::ULONG, ppmkout: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn ParseDisplayName(&self, pbc: windows_core::Ref<super::IBindCtx>, pszdisplayname: super::LPOLESTR, pcheaten: *mut super::ULONG) -> windows_core::Result<super::IMoniker>;
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 impl IParseDisplayName_Vtbl {
@@ -2188,7 +2308,13 @@ impl IParseDisplayName_Vtbl {
         unsafe extern "system" fn ParseDisplayName<Identity: IParseDisplayName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, pszdisplayname: super::LPOLESTR, pcheaten: *mut super::ULONG, ppmkout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IParseDisplayName_Impl::ParseDisplayName(this, core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pszdisplayname), core::mem::transmute_copy(&pcheaten), core::mem::transmute_copy(&ppmkout)).into()
+                match IParseDisplayName_Impl::ParseDisplayName(this, core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pszdisplayname), core::mem::transmute_copy(&pcheaten)) {
+                    Ok(ok__) => {
+                        ppmkout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseDisplayName: ParseDisplayName::<Identity, OFFSET> }
@@ -2226,8 +2352,11 @@ impl IViewObject {
         unsafe { (windows_core::Interface::vtable(self).SetAdvise)(windows_core::Interface::as_raw(self), aspects, advf, padvsink.param().abi()) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
-    pub unsafe fn GetAdvise(&self, paspects: Option<*mut super::DWORD>, padvf: Option<*mut super::DWORD>, ppadvsink: *mut Option<super::IAdviseSink>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAdvise)(windows_core::Interface::as_raw(self), paspects.unwrap_or(core::mem::zeroed()) as _, padvf.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppadvsink)) }
+    pub unsafe fn GetAdvise(&self, paspects: Option<*mut super::DWORD>, padvf: Option<*mut super::DWORD>) -> windows_core::Result<super::IAdviseSink> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAdvise)(windows_core::Interface::as_raw(self), paspects.unwrap_or(core::mem::zeroed()) as _, padvf.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2266,7 +2395,7 @@ pub trait IViewObject_Impl: windows_core::IUnknownImpl {
     fn Freeze(&self, dwdrawaspect: super::DWORD, lindex: super::LONG, pvaspect: *const core::ffi::c_void, pdwfreeze: *mut super::DWORD) -> windows_core::Result<()>;
     fn Unfreeze(&self, dwfreeze: super::DWORD) -> windows_core::Result<()>;
     fn SetAdvise(&self, aspects: super::DWORD, advf: super::DWORD, padvsink: windows_core::Ref<super::IAdviseSink>) -> windows_core::Result<()>;
-    fn GetAdvise(&self, paspects: *mut super::DWORD, padvf: *mut super::DWORD, ppadvsink: windows_core::OutRef<super::IAdviseSink>) -> windows_core::Result<()>;
+    fn GetAdvise(&self, paspects: *mut super::DWORD, padvf: *mut super::DWORD) -> windows_core::Result<super::IAdviseSink>;
 }
 #[cfg(all(feature = "httpext", feature = "objidl", feature = "shared", feature = "windef", feature = "wingdi"))]
 impl IViewObject_Vtbl {
@@ -2304,7 +2433,13 @@ impl IViewObject_Vtbl {
         unsafe extern "system" fn GetAdvise<Identity: IViewObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paspects: *mut super::DWORD, padvf: *mut super::DWORD, ppadvsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewObject_Impl::GetAdvise(this, core::mem::transmute_copy(&paspects), core::mem::transmute_copy(&padvf), core::mem::transmute_copy(&ppadvsink)).into()
+                match IViewObject_Impl::GetAdvise(this, core::mem::transmute_copy(&paspects), core::mem::transmute_copy(&padvf)) {
+                    Ok(ok__) => {
+                        ppadvsink.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

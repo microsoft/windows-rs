@@ -80,7 +80,7 @@ mod Windows {
         #[guid(0x29aff080_182a_4a5d_af3b_448f3a6346cb)]
         interface IMFVideoPresenter: IMFClockStateSink {
             fn ProcessMessage(&self, eMessage: MFVP_MESSAGE_TYPE, ulParam: ULONG_PTR) -> HRESULT;
-            fn GetCurrentMediaType(&self, #[out] #[out_ptr] ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
+            fn GetCurrentMediaType(&self, #[out] #[out_ptr] #[retval] ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
         }
         #[guid(0xdfdfd197_a9ca_43d8_b341_6af3503792cd)]
         interface IMFVideoRenderer: IUnknown {

@@ -174,8 +174,11 @@ impl IDirectDrawVideo {
         unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), pdirectdraw.param().abi()) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetDirectDraw(&self, ppdirectdraw: *mut Option<super::LPDIRECTDRAW>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdirectdraw)) }
+    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSurfaceType(&self, psurfacetype: *mut super::DWORD) -> windows_core::HRESULT {
@@ -260,7 +263,7 @@ pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::Result<()>;
     fn GetFourCCCodes(&self, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
-    fn GetDirectDraw(&self, ppdirectdraw: windows_core::OutRef<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
+    fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW>;
     fn GetSurfaceType(&self, psurfacetype: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetDefault(&self) -> windows_core::Result<()>;
     fn UseScanLine(&self, usescanline: i32) -> windows_core::Result<()>;
@@ -318,7 +321,13 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn GetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirectdraw: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawVideo_Impl::GetDirectDraw(this, core::mem::transmute_copy(&ppdirectdraw)).into()
+                match IDirectDrawVideo_Impl::GetDirectDraw(this) {
+                    Ok(ok__) => {
+                        ppdirectdraw.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSurfaceType<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psurfacetype: *mut super::DWORD) -> windows_core::HRESULT {

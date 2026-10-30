@@ -40,8 +40,8 @@ mod Windows {
         }
         #[guid(0x45101ab7_7c3a_4bce_9500_12c09024b298)]
         interface ICastingSourceInfo: IUnknown {
-            fn GetController(&self, #[out] #[out_ptr] controller: *mut ICastingController) -> HRESULT;
-            fn GetProperties(&self, #[out] #[out_ptr] props: *mut INamedPropertyStore) -> HRESULT;
+            fn GetController(&self, #[out] #[out_ptr] #[retval] controller: *mut ICastingController) -> HRESULT;
+            fn GetProperties(&self, #[out] #[out_ptr] #[retval] props: *mut INamedPropertyStore) -> HRESULT;
         }
     }
 }

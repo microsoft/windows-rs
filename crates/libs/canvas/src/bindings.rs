@@ -2954,14 +2954,15 @@ impl IWICBitmapDecoder {
     pub(crate) unsafe fn GetFrame(
         &self,
         index: UINT,
-        ppibitmapframe: *mut Option<IWICBitmapFrameDecode>,
-    ) -> windows_core::HRESULT {
+    ) -> windows_core::Result<IWICBitmapFrameDecode> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFrame)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(ppibitmapframe),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3113,15 +3114,14 @@ impl IWICImagingFactory {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn CreateFormatConverter(
-        &self,
-        ppiformatconverter: *mut Option<IWICFormatConverter>,
-    ) -> windows_core::HRESULT {
+    pub(crate) unsafe fn CreateFormatConverter(&self) -> windows_core::Result<IWICFormatConverter> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFormatConverter)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(ppiformatconverter),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

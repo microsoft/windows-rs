@@ -24,11 +24,14 @@ windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderSe
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);
 impl IWTSBitmapRenderService {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: super::UINT64, pmappedrenderercallback: P1, ppmappedrenderer: *mut Option<IWTSBitmapRenderer>) -> windows_core::HRESULT
+    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: super::UINT64, pmappedrenderercallback: P1) -> windows_core::Result<IWTSBitmapRenderer>
     where
         P1: windows_core::Param<IWTSBitmapRendererCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMappedRenderer)(windows_core::Interface::as_raw(self), mappingid, pmappedrenderercallback.param().abi(), core::mem::transmute(ppmappedrenderer)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMappedRenderer)(windows_core::Interface::as_raw(self), mappingid, pmappedrenderercallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -42,7 +45,7 @@ pub struct IWTSBitmapRenderService_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderService_Impl: windows_core::IUnknownImpl {
-    fn GetMappedRenderer(&self, mappingid: super::UINT64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>, ppmappedrenderer: windows_core::OutRef<IWTSBitmapRenderer>) -> windows_core::Result<()>;
+    fn GetMappedRenderer(&self, mappingid: super::UINT64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
 }
 #[cfg(feature = "shared")]
 impl IWTSBitmapRenderService_Vtbl {
@@ -50,7 +53,13 @@ impl IWTSBitmapRenderService_Vtbl {
         unsafe extern "system" fn GetMappedRenderer<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappingid: super::UINT64, pmappedrenderercallback: *mut core::ffi::c_void, ppmappedrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback), core::mem::transmute_copy(&ppmappedrenderer)).into()
+                match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback)) {
+                    Ok(ok__) => {
+                        ppmappedrenderer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMappedRenderer: GetMappedRenderer::<Identity, OFFSET> }
@@ -172,8 +181,11 @@ windows_core::imp::define_interface!(IWTSListener, IWTSListener_Vtbl, 0xa1230206
 windows_core::imp::interface_hierarchy!(IWTSListener, windows_core::IUnknown);
 impl IWTSListener {
     #[cfg(feature = "oaidl")]
-    pub unsafe fn GetConfiguration(&self, pppropertybag: *mut Option<super::IPropertyBag>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropertybag)) }
+    pub unsafe fn GetConfiguration(&self) -> windows_core::Result<super::IPropertyBag> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -187,7 +199,7 @@ pub struct IWTSListener_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IWTSListener_Impl: windows_core::IUnknownImpl {
-    fn GetConfiguration(&self, pppropertybag: windows_core::OutRef<super::IPropertyBag>) -> windows_core::Result<()>;
+    fn GetConfiguration(&self) -> windows_core::Result<super::IPropertyBag>;
 }
 #[cfg(feature = "oaidl")]
 impl IWTSListener_Vtbl {
@@ -195,7 +207,13 @@ impl IWTSListener_Vtbl {
         unsafe extern "system" fn GetConfiguration<Identity: IWTSListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertybag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSListener_Impl::GetConfiguration(this, core::mem::transmute_copy(&pppropertybag)).into()
+                match IWTSListener_Impl::GetConfiguration(this) {
+                    Ok(ok__) => {
+                        pppropertybag.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetConfiguration: GetConfiguration::<Identity, OFFSET> }
@@ -209,11 +227,14 @@ impl windows_core::RuntimeName for IWTSListener {}
 windows_core::imp::define_interface!(IWTSListenerCallback, IWTSListenerCallback_Vtbl, 0xa1230203_d6a7_11d8_b9fd_000bdbd1f198);
 windows_core::imp::interface_hierarchy!(IWTSListenerCallback, windows_core::IUnknown);
 impl IWTSListenerCallback {
-    pub unsafe fn OnNewChannelConnection<P0>(&self, pchannel: P0, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL, ppcallback: *mut Option<IWTSVirtualChannelCallback>) -> windows_core::HRESULT
+    pub unsafe fn OnNewChannelConnection<P0>(&self, pchannel: P0, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL) -> windows_core::Result<IWTSVirtualChannelCallback>
     where
         P0: windows_core::Param<IWTSVirtualChannel>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnNewChannelConnection)(windows_core::Interface::as_raw(self), pchannel.param().abi(), core::mem::transmute_copy(data), pbaccept as _, core::mem::transmute(ppcallback)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OnNewChannelConnection)(windows_core::Interface::as_raw(self), pchannel.param().abi(), core::mem::transmute_copy(data), pbaccept as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -223,14 +244,20 @@ pub struct IWTSListenerCallback_Vtbl {
     pub OnNewChannelConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnNewChannelConnection(&self, pchannel: windows_core::Ref<IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL, ppcallback: windows_core::OutRef<IWTSVirtualChannelCallback>) -> windows_core::Result<()>;
+    fn OnNewChannelConnection(&self, pchannel: windows_core::Ref<IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL) -> windows_core::Result<IWTSVirtualChannelCallback>;
 }
 impl IWTSListenerCallback_Vtbl {
     pub const fn new<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnNewChannelConnection<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pbaccept: *mut windows_core::BOOL, ppcallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSListenerCallback_Impl::OnNewChannelConnection(this, core::mem::transmute_copy(&pchannel), core::mem::transmute(&data), core::mem::transmute_copy(&pbaccept), core::mem::transmute_copy(&ppcallback)).into()
+                match IWTSListenerCallback_Impl::OnNewChannelConnection(this, core::mem::transmute_copy(&pchannel), core::mem::transmute(&data), core::mem::transmute_copy(&pbaccept)) {
+                    Ok(ok__) => {
+                        ppcallback.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, OFFSET> }
@@ -323,8 +350,11 @@ impl windows_core::RuntimeName for IWTSPlugin {}
 windows_core::imp::define_interface!(IWTSPluginServiceProvider, IWTSPluginServiceProvider_Vtbl, 0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
 windows_core::imp::interface_hierarchy!(IWTSPluginServiceProvider, windows_core::IUnknown);
 impl IWTSPluginServiceProvider {
-    pub unsafe fn GetService(&self, serviceid: windows_core::GUID, ppunkobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), serviceid, core::mem::transmute(ppunkobject)) }
+    pub unsafe fn GetService(&self, serviceid: windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), serviceid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -334,14 +364,20 @@ pub struct IWTSPluginServiceProvider_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSPluginServiceProvider_Impl: windows_core::IUnknownImpl {
-    fn GetService(&self, serviceid: &windows_core::GUID, ppunkobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetService(&self, serviceid: &windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IWTSPluginServiceProvider_Vtbl {
     pub const fn new<Identity: IWTSPluginServiceProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetService<Identity: IWTSPluginServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: windows_core::GUID, ppunkobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSPluginServiceProvider_Impl::GetService(this, core::mem::transmute(&serviceid), core::mem::transmute_copy(&ppunkobject)).into()
+                match IWTSPluginServiceProvider_Impl::GetService(this, core::mem::transmute(&serviceid)) {
+                    Ok(ok__) => {
+                        ppunkobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, OFFSET> }
@@ -460,11 +496,14 @@ windows_core::imp::define_interface!(IWTSVirtualChannelManager, IWTSVirtualChann
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannelManager, windows_core::IUnknown);
 impl IWTSVirtualChannelManager {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: P2, pplistener: *mut Option<IWTSListener>) -> windows_core::HRESULT
+    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: P2) -> windows_core::Result<IWTSListener>
     where
         P2: windows_core::Param<IWTSListenerCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateListener)(windows_core::Interface::as_raw(self), pszchannelname, uflags, plistenercallback.param().abi(), core::mem::transmute(pplistener)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateListener)(windows_core::Interface::as_raw(self), pszchannelname, uflags, plistenercallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -478,7 +517,7 @@ pub struct IWTSVirtualChannelManager_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSVirtualChannelManager_Impl: windows_core::IUnknownImpl {
-    fn CreateListener(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: windows_core::Ref<IWTSListenerCallback>, pplistener: windows_core::OutRef<IWTSListener>) -> windows_core::Result<()>;
+    fn CreateListener(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: windows_core::Ref<IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
 }
 #[cfg(feature = "shared")]
 impl IWTSVirtualChannelManager_Vtbl {
@@ -486,7 +525,13 @@ impl IWTSVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateListener<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: *mut core::ffi::c_void, pplistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback), core::mem::transmute_copy(&pplistener)).into()
+                match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback)) {
+                    Ok(ok__) => {
+                        pplistener.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateListener: CreateListener::<Identity, OFFSET> }

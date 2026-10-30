@@ -388,9 +388,9 @@ mod Windows {
             #[must_use]
             fn CreateParabolicTransitionFromAcceleration(&self, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[in] acceleration: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicBezierLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] #[retval] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicBezierLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] #[retval] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9)]
         interface IUIAnimationVariable: IUnknown {

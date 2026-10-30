@@ -20,8 +20,11 @@ impl IAMCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Item(&self, litem: i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), litem, core::mem::transmute(ppunk)) }
+    pub unsafe fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), litem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -45,7 +48,7 @@ pub struct IAMCollection_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAMCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<super::LONG>;
-    fn Item(&self, litem: i32, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -66,7 +69,13 @@ impl IAMCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, litem: i32, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMCollection_Impl::Item(this, core::mem::transmute_copy(&litem), core::mem::transmute_copy(&ppunk)).into()
+                match IAMCollection_Impl::Item(this, core::mem::transmute_copy(&litem)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -997,8 +1006,11 @@ impl core::ops::Deref for IFilterInfo {
 windows_core::imp::interface_hierarchy!(IFilterInfo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IFilterInfo {
-    pub unsafe fn FindPin(&self, strpinid: &windows_core::BSTR, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpinid), core::mem::transmute(ppunk)) }
+    pub unsafe fn FindPin(&self, strpinid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpinid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1060,7 +1072,7 @@ pub struct IFilterInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFilterInfo_Impl: super::IDispatch_Impl {
-    fn FindPin(&self, strpinid: &windows_core::BSTR, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
+    fn FindPin(&self, strpinid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VendorInfo(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Filter(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -1075,7 +1087,13 @@ impl IFilterInfo_Vtbl {
         unsafe extern "system" fn FindPin<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid), core::mem::transmute_copy(&ppunk)).into()
+                match IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Name<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1219,8 +1237,11 @@ impl IMediaControl {
     pub unsafe fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RenderFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename)) }
     }
-    pub unsafe fn AddSourceFilter(&self, strfilename: &windows_core::BSTR, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddSourceFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename), core::mem::transmute(ppunk)) }
+    pub unsafe fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddSourceFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn FilterCollection(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
@@ -1263,7 +1284,7 @@ pub trait IMediaControl_Impl: super::IDispatch_Impl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn GetState(&self, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::Result<()>;
     fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddSourceFilter(&self, strfilename: &windows_core::BSTR, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
+    fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn FilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn RegFilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn StopWhenReady(&self) -> windows_core::Result<()>;
@@ -1304,7 +1325,13 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn AddSourceFilter<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename), core::mem::transmute_copy(&ppunk)).into()
+                match IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn FilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2243,8 +2270,11 @@ impl IRegFilterInfo {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Filter(&self, ppunk: *mut Option<super::IDispatch>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Filter)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
+    pub unsafe fn Filter(&self) -> windows_core::Result<super::IDispatch> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Filter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -2258,7 +2288,7 @@ pub struct IRegFilterInfo_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRegFilterInfo_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Filter(&self, ppunk: windows_core::OutRef<super::IDispatch>) -> windows_core::Result<()>;
+    fn Filter(&self) -> windows_core::Result<super::IDispatch>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRegFilterInfo_Vtbl {
@@ -2278,7 +2308,13 @@ impl IRegFilterInfo_Vtbl {
         unsafe extern "system" fn Filter<Identity: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegFilterInfo_Impl::Filter(this, core::mem::transmute_copy(&ppunk)).into()
+                match IRegFilterInfo_Impl::Filter(this) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Filter: Filter::<Identity, OFFSET> }
