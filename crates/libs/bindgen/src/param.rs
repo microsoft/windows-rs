@@ -148,7 +148,10 @@ impl Param {
 
     /// Whether `NullableAttribute` permits a null returned pointer.
     pub fn result_may_be_null(&self) -> bool {
-        self.has_attribute("NullableAttribute")
+        self.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NullableAttribute"
+        })
     }
 
     pub fn result_null_on_failure(&self) -> bool {

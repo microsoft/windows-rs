@@ -378,6 +378,47 @@ fn pointer_contract_owners_are_checked() {
 }
 
 #[test]
+fn nullable_shorthand_requires_valid_owner() {
+    let full = "#[Windows::Win32::Metadata::Nullable]";
+    let source = format!(
+        r#"{SCHEMA}
+        #[win32] mod Test {{
+            extern fn Valid(#[out] {full} value: *mut *mut u8) -> {full} *mut u8;
+            struct Record {{ {full} valid: *mut u8, {full} scalar: u32, }}
+            extern fn Input(#[in] {full} value: *mut *mut u8);
+            extern fn Direct(#[out] {full} value: *mut u8);
+            extern fn Scalar() -> {full} u32;
+        }}
+        "#
+    );
+    let out = std::path::Path::new(env!("OUT_DIR")).join("nullable-owners");
+    std::fs::create_dir_all(&out).unwrap();
+    let first = out.join("first.winmd");
+    let rdl = out.join("roundtrip.rdl");
+    let second = out.join("second.winmd");
+    windows_rdl::reader()
+        .input_text(&source)
+        .output(&first)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&first)
+        .filter("Test")
+        .output(&rdl)
+        .write()
+        .unwrap();
+    let text = std::fs::read_to_string(&rdl).unwrap();
+    assert_eq!(text.matches("#[nullable]").count(), 3, "{text}");
+    assert_eq!(text.matches(full).count(), 4, "{text}");
+    windows_rdl::reader()
+        .input_text(SCHEMA)
+        .input(&rdl)
+        .output(&second)
+        .write()
+        .unwrap();
+}
+
+#[test]
 fn termination_storage_and_legacy_owners_roundtrip() {
     let full = "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true, DoubleNullOnSuccess = true)]";
     let indirect = "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true, Indirect = true)]";
