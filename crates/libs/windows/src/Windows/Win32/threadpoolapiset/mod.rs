@@ -52,36 +52,42 @@ pub unsafe fn CloseThreadpoolWork(pwk: super::PTP_WORK) {
     windows_core::link!("kernel32.dll" "system" fn CloseThreadpoolWork(pwk : super::PTP_WORK));
     unsafe { CloseThreadpoolWork(pwk as _) }
 }
+#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateThreadpool(reserved: Option<super::PVOID>) -> super::PTP_POOL {
     windows_core::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : super::PVOID) -> super::PTP_POOL);
     unsafe { CreateThreadpool(reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateThreadpoolCleanupGroup() -> super::PTP_CLEANUP_GROUP {
     windows_core::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> super::PTP_CLEANUP_GROUP);
     unsafe { CreateThreadpoolCleanupGroup() }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateThreadpoolIo(fl: super::HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> super::PTP_IO {
     windows_core::link!("kernel32.dll" "system" fn CreateThreadpoolIo(fl : super::HANDLE, pfnio : PTP_WIN32_IO_CALLBACK, pv : super::PVOID, pcbe : super::PTP_CALLBACK_ENVIRON) -> super::PTP_IO);
     unsafe { CreateThreadpoolIo(fl, pfnio, pv.unwrap_or(core::mem::zeroed()) as _, pcbe.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateThreadpoolTimer(pfnti: super::PTP_TIMER_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> super::PTP_TIMER {
     windows_core::link!("kernel32.dll" "system" fn CreateThreadpoolTimer(pfnti : super::PTP_TIMER_CALLBACK, pv : super::PVOID, pcbe : super::PTP_CALLBACK_ENVIRON) -> super::PTP_TIMER);
     unsafe { CreateThreadpoolTimer(pfnti, pv.unwrap_or(core::mem::zeroed()) as _, pcbe.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateThreadpoolWait(pfnwa: super::PTP_WAIT_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> super::PTP_WAIT {
     windows_core::link!("kernel32.dll" "system" fn CreateThreadpoolWait(pfnwa : super::PTP_WAIT_CALLBACK, pv : super::PVOID, pcbe : super::PTP_CALLBACK_ENVIRON) -> super::PTP_WAIT);
     unsafe { CreateThreadpoolWait(pfnwa, pv.unwrap_or(core::mem::zeroed()) as _, pcbe.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateThreadpoolWork(pfnwk: super::PTP_WORK_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> super::PTP_WORK {
@@ -190,6 +196,7 @@ pub unsafe fn SubmitThreadpoolWork(pwk: super::PTP_WORK) {
     windows_core::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : super::PTP_WORK));
     unsafe { SubmitThreadpoolWork(pwk as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: super::PTP_SIMPLE_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> windows_core::BOOL {

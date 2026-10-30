@@ -507,6 +507,7 @@ pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: super::PULONG) -> window
     windows_core::link!("kernel32.dll" "system" fn SetThreadStackGuarantee(stacksizeinbytes : super::PULONG) -> windows_core::BOOL);
     unsafe { SetThreadStackGuarantee(stacksizeinbytes as _) }
 }
+#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadToken(thread: Option<super::PHANDLE>, token: Option<super::HANDLE>) -> windows_core::BOOL {
@@ -536,6 +537,7 @@ pub unsafe fn TerminateThread(hthread: super::HANDLE, dwexitcode: super::DWORD) 
     windows_core::link!("kernel32.dll" "system" fn TerminateThread(hthread : super::HANDLE, dwexitcode : super::DWORD) -> windows_core::BOOL);
     unsafe { TerminateThread(hthread, dwexitcode) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn TlsAlloc() -> super::DWORD {

@@ -466,6 +466,7 @@ where
         CoSwitchCallContext(pnewobject.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn CoTaskMemAlloc(cb: super::SIZE_T) -> super::LPVOID {
@@ -574,6 +575,7 @@ pub unsafe fn StringFromCLSID(rclsid: *const super::IID, lplpsz: *mut super::LPO
     windows_core::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const super::IID, lplpsz : *mut super::LPOLESTR) -> windows_core::HRESULT);
     unsafe { StringFromCLSID(rclsid, lplpsz as _) }
 }
+#[must_use]
 #[cfg(feature = "wtypesbase")]
 #[inline]
 pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: super::LPOLESTR, cchmax: i32) -> i32 {

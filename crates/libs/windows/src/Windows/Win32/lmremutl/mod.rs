@@ -7,6 +7,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : windows_core::PCWSTR, optionswanted : super::DWORD, optionssupported : super::LPDWORD) -> super::DWORD);
     unsafe { NetRemoteComputerSupports(uncservername.param().abi(), optionswanted, optionssupported as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetRemoteTOD<P0>(uncservername: P0, bufferptr: *mut super::LPBYTE) -> super::DWORD

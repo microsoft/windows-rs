@@ -16,48 +16,56 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn AddPackageDependency2(packagedependencyid : windows_core::PCWSTR, rank : super::INT32, options : AddPackageDependencyOptions2, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { AddPackageDependency2(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat(processtoken: super::HANDLE, policy: *mut AppPolicyClrCompat) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetClrCompat(processtoken : super::HANDLE, policy : *mut AppPolicyClrCompat) -> super::LONG);
     unsafe { AppPolicyGetClrCompat(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetCreateFileAccess(processtoken: super::HANDLE, policy: *mut AppPolicyCreateFileAccess) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetCreateFileAccess(processtoken : super::HANDLE, policy : *mut AppPolicyCreateFileAccess) -> super::LONG);
     unsafe { AppPolicyGetCreateFileAccess(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetLifecycleManagement(processtoken: super::HANDLE, policy: *mut AppPolicyLifecycleManagement) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetLifecycleManagement(processtoken : super::HANDLE, policy : *mut AppPolicyLifecycleManagement) -> super::LONG);
     unsafe { AppPolicyGetLifecycleManagement(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetMediaFoundationCodecLoading(processtoken: super::HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetMediaFoundationCodecLoading(processtoken : super::HANDLE, policy : *mut AppPolicyMediaFoundationCodecLoading) -> super::LONG);
     unsafe { AppPolicyGetMediaFoundationCodecLoading(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetProcessTerminationMethod(processtoken: super::HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetProcessTerminationMethod(processtoken : super::HANDLE, policy : *mut AppPolicyProcessTerminationMethod) -> super::LONG);
     unsafe { AppPolicyGetProcessTerminationMethod(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetShowDeveloperDiagnostic(processtoken: super::HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetShowDeveloperDiagnostic(processtoken : super::HANDLE, policy : *mut AppPolicyShowDeveloperDiagnostic) -> super::LONG);
     unsafe { AppPolicyGetShowDeveloperDiagnostic(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetThreadInitializationType(processtoken: super::HANDLE, policy: *mut AppPolicyThreadInitializationType) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetThreadInitializationType(processtoken : super::HANDLE, policy : *mut AppPolicyThreadInitializationType) -> super::LONG);
     unsafe { AppPolicyGetThreadInitializationType(processtoken, policy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AppPolicyGetWindowingModel(processtoken: super::HANDLE, policy: *mut AppPolicyWindowingModel) -> super::LONG {
@@ -92,6 +100,7 @@ pub unsafe fn FindPackageDependency(findpackagedependencycriteria: *const FindPa
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn FindPackageDependency(findpackagedependencycriteria : *const FindPackageDependencyCriteria, packagedependencyidscount : *mut super::UINT32, packagedependencyids : *mut *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { FindPackageDependency(findpackagedependencycriteria, packagedependencyidscount as _, packagedependencyids as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: super::UINT32, count: *mut super::UINT32, packagefullnames: Option<*mut windows_core::PWSTR>, bufferlength: *mut super::UINT32, buffer: Option<*mut super::WCHAR>, packageproperties: Option<*mut super::UINT32>) -> super::LONG
@@ -101,6 +110,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn FindPackagesByPackageFamily(packagefamilyname : windows_core::PCWSTR, packagefilters : super::UINT32, count : *mut super::UINT32, packagefullnames : *mut windows_core::PWSTR, bufferlength : *mut super::UINT32, buffer : *mut super::WCHAR, packageproperties : *mut super::UINT32) -> super::LONG);
     unsafe { FindPackagesByPackageFamily(packagefamilyname.param().abi(), packagefilters, count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, packageproperties.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut super::UINT32, applicationusermodelid: Option<windows_core::PWSTR>) -> super::LONG
@@ -117,6 +127,7 @@ pub unsafe fn GetApplicationUserModelId(hprocess: super::HANDLE, applicationuser
     windows_core::link!("kernel32.dll" "system" fn GetApplicationUserModelId(hprocess : super::HANDLE, applicationusermodelidlength : *mut super::UINT32, applicationusermodelid : windows_core::PWSTR) -> super::LONG);
     unsafe { GetApplicationUserModelId(hprocess, applicationusermodelidlength as _, applicationusermodelid.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetApplicationUserModelIdFromToken(token: super::HANDLE, applicationusermodelidlength: *mut super::UINT32, applicationusermodelid: Option<windows_core::PWSTR>) -> super::LONG {
@@ -197,6 +208,7 @@ pub unsafe fn GetPackageFamilyName(hprocess: super::HANDLE, packagefamilynamelen
     windows_core::link!("kernel32.dll" "system" fn GetPackageFamilyName(hprocess : super::HANDLE, packagefamilynamelength : *mut super::UINT32, packagefamilyname : windows_core::PWSTR) -> super::LONG);
     unsafe { GetPackageFamilyName(hprocess, packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetPackageFamilyNameFromToken(token: super::HANDLE, packagefamilynamelength: *mut super::UINT32, packagefamilyname: Option<windows_core::PWSTR>) -> super::LONG {
@@ -209,6 +221,7 @@ pub unsafe fn GetPackageFullName(hprocess: super::HANDLE, packagefullnamelength:
     windows_core::link!("kernel32.dll" "system" fn GetPackageFullName(hprocess : super::HANDLE, packagefullnamelength : *mut super::UINT32, packagefullname : windows_core::PWSTR) -> super::LONG);
     unsafe { GetPackageFullName(hprocess, packagefullnamelength as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetPackageFullNameFromToken(token: super::HANDLE, packagefullnamelength: *mut super::UINT32, packagefullname: Option<windows_core::PWSTR>) -> super::LONG {
@@ -263,6 +276,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackagePathByFullName2(packagefullname : windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut super::UINT32, path : windows_core::PWSTR) -> super::LONG);
     unsafe { GetPackagePathByFullName2(packagefullname.param().abi(), packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut super::UINT32, packagefullnames: Option<*mut windows_core::PWSTR>, bufferlength: *mut super::UINT32, buffer: Option<*mut super::WCHAR>) -> super::LONG
@@ -297,6 +311,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetResolvedPackageFullNameForPackageDependency2(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { GetResolvedPackageFullNameForPackageDependency2(packagedependencyid.param().abi(), packagefullname as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut PackageOrigin) -> super::LONG
@@ -346,6 +361,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : windows_core::PCWSTR, reserved : super::UINT32, packageinforeference : *mut PACKAGE_INFO_REFERENCE) -> super::LONG);
     unsafe { OpenPackageInfoByFullName(packagefullname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<P1>(usersid: Option<super::PSID>, packagefullname: P1, reserved: Option<super::UINT32>, packageinforeference: *mut PACKAGE_INFO_REFERENCE) -> super::LONG
@@ -355,6 +371,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::PSID, packagefullname : windows_core::PCWSTR, reserved : super::UINT32, packageinforeference : *mut PACKAGE_INFO_REFERENCE) -> super::LONG);
     unsafe { OpenPackageInfoByFullNameForUser(usersid.unwrap_or(core::mem::zeroed()) as _, packagefullname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut super::UINT32, packagefamilyname: Option<windows_core::PWSTR>) -> super::LONG
@@ -364,18 +381,21 @@ where
     windows_core::link!("kernel32.dll" "system" fn PackageFamilyNameFromFullName(packagefullname : windows_core::PCWSTR, packagefamilynamelength : *mut super::UINT32, packagefamilyname : windows_core::PWSTR) -> super::LONG);
     unsafe { PackageFamilyNameFromFullName(packagefullname.param().abi(), packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut super::UINT32, packagefamilyname: Option<windows_core::PWSTR>) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn PackageFamilyNameFromId(packageid : *const PACKAGE_ID, packagefamilynamelength : *mut super::UINT32, packagefamilyname : windows_core::PWSTR) -> super::LONG);
     unsafe { PackageFamilyNameFromId(packageid, packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut super::UINT32, packagefullname: Option<windows_core::PWSTR>) -> super::LONG {
     windows_core::link!("kernel32.dll" "system" fn PackageFullNameFromId(packageid : *const PACKAGE_ID, packagefullnamelength : *mut super::UINT32, packagefullname : windows_core::PWSTR) -> super::LONG);
     unsafe { PackageFullNameFromId(packageid, packagefullnamelength as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: super::UINT32, bufferlength: *mut super::UINT32, buffer: Option<*mut super::BYTE>) -> super::LONG
@@ -385,6 +405,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn PackageIdFromFullName(packagefullname : windows_core::PCWSTR, flags : super::UINT32, bufferlength : *mut super::UINT32, buffer : *mut super::BYTE) -> super::LONG);
     unsafe { PackageIdFromFullName(packagefullname.param().abi(), flags, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut super::UINT32, packagename: Option<windows_core::PWSTR>, packagepublisheridlength: *mut super::UINT32, packagepublisherid: Option<windows_core::PWSTR>) -> super::LONG
@@ -394,6 +415,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : windows_core::PCWSTR, packagenamelength : *mut super::UINT32, packagename : windows_core::PWSTR, packagepublisheridlength : *mut super::UINT32, packagepublisherid : windows_core::PWSTR) -> super::LONG);
     unsafe { PackageNameAndPublisherIdFromFamilyName(packagefamilyname.param().abi(), packagenamelength as _, packagename.unwrap_or(core::mem::zeroed()) as _, packagepublisheridlength as _, packagepublisherid.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut super::UINT32, packagefamilyname: Option<windows_core::PWSTR>, packagerelativeapplicationidlength: *mut super::UINT32, packagerelativeapplicationid: Option<windows_core::PWSTR>) -> super::LONG
@@ -428,6 +450,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn TryCreatePackageDependency2(user : super::PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, lifetimeexpiration : *const super::FILETIME, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { TryCreatePackageDependency2(user as _, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, packagedependencyid as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> super::LONG
@@ -437,6 +460,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyApplicationUserModelId(applicationusermodelid : windows_core::PCWSTR) -> super::LONG);
     unsafe { VerifyApplicationUserModelId(applicationusermodelid.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> super::LONG
@@ -446,6 +470,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFamilyName(packagefamilyname : windows_core::PCWSTR) -> super::LONG);
     unsafe { VerifyPackageFamilyName(packagefamilyname.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> super::LONG
@@ -455,12 +480,14 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : windows_core::PCWSTR) -> super::LONG);
     unsafe { VerifyPackageFullName(packagefullname.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::LONG {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageId(packageid : *const PACKAGE_ID) -> super::LONG);
     unsafe { VerifyPackageId(packageid) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationid: P0) -> super::LONG

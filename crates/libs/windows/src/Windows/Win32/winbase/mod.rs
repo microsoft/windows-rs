@@ -231,6 +231,7 @@ pub unsafe fn CancelDeviceWakeupRequest(hdevice: super::HANDLE) -> windows_core:
     windows_core::link!("kernel32.dll" "system" fn CancelDeviceWakeupRequest(hdevice : super::HANDLE) -> windows_core::BOOL);
     unsafe { CancelDeviceWakeupRequest(hdevice) }
 }
+#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CancelTimerQueueTimer(timerqueue: Option<super::HANDLE>, timer: super::HANDLE) -> windows_core::BOOL {
@@ -338,6 +339,7 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: Option<super::LPVOID>, dwflags
     windows_core::link!("kernel32.dll" "system" fn ConvertThreadToFiberEx(lpparameter : super::LPVOID, dwflags : super::DWORD) -> super::LPVOID);
     unsafe { ConvertThreadToFiberEx(lpparameter.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CopyContext(destination: super::PCONTEXT, contextflags: super::DWORD, source: super::PCONTEXT) -> windows_core::BOOL {
@@ -612,6 +614,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : super::LPSECURITY_ATTRIBUTES, lpboundarydescriptor : super::LPVOID, lpaliasprefix : windows_core::PCSTR) -> super::HANDLE);
     unsafe { CreatePrivateNamespaceA(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, lpaliasprefix.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessWithLogonW<P0, P1, P2, P4, P8>(lpusername: P0, lpdomain: P1, lppassword: P2, dwlogonflags: super::DWORD, lpapplicationname: P4, lpcommandline: Option<windows_core::PWSTR>, dwcreationflags: super::DWORD, lpenvironment: Option<super::LPVOID>, lpcurrentdirectory: P8, lpstartupinfo: super::LPSTARTUPINFOW, lpprocessinformation: super::LPPROCESS_INFORMATION) -> windows_core::BOOL
@@ -625,6 +628,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn CreateProcessWithLogonW(lpusername : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, dwlogonflags : super::DWORD, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : super::DWORD, lpenvironment : super::LPVOID, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : super::LPSTARTUPINFOW, lpprocessinformation : super::LPPROCESS_INFORMATION) -> windows_core::BOOL);
     unsafe { CreateProcessWithLogonW(lpusername.param().abi(), lpdomain.param().abi(), lppassword.param().abi(), dwlogonflags, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessWithTokenW<P2, P6>(htoken: super::HANDLE, dwlogonflags: super::DWORD, lpapplicationname: P2, lpcommandline: Option<windows_core::PWSTR>, dwcreationflags: super::DWORD, lpenvironment: Option<super::LPVOID>, lpcurrentdirectory: P6, lpstartupinfo: super::LPSTARTUPINFOW, lpprocessinformation: super::LPPROCESS_INFORMATION) -> windows_core::BOOL
@@ -699,6 +703,7 @@ pub unsafe fn CreateTapePartition(hdevice: super::HANDLE, dwpartitionmethod: sup
     windows_core::link!("kernel32.dll" "system" fn CreateTapePartition(hdevice : super::HANDLE, dwpartitionmethod : super::DWORD, dwcount : super::DWORD, dwsize : super::DWORD) -> super::DWORD);
     unsafe { CreateTapePartition(hdevice, dwpartitionmethod, dwcount, dwsize) }
 }
+#[must_use]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut PUMS_COMPLETION_LIST) -> windows_core::BOOL {
@@ -867,6 +872,7 @@ pub unsafe fn DosDateTimeToFileTime(wfatdate: super::WORD, wfattime: super::WORD
     windows_core::link!("kernel32.dll" "system" fn DosDateTimeToFileTime(wfatdate : super::WORD, wfattime : super::WORD, lpfiletime : super::LPFILETIME) -> windows_core::BOOL);
     unsafe { DosDateTimeToFileTime(wfatdate, wfattime, lpfiletime as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn EnableProcessOptionalXStateFeatures(features: super::DWORD64) -> windows_core::BOOL {
@@ -1898,6 +1904,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameA(lpszvolumename : windows_core::PCSTR, lpszvolumepathnames : super::LPCH, cchbufferlength : super::DWORD, lpcchreturnlength : super::PDWORD) -> windows_core::BOOL);
     unsafe { GetVolumePathNamesForVolumeNameA(lpszvolumename.param().abi(), lpszvolumepathnames.unwrap_or(core::mem::zeroed()) as _, cchbufferlength, lpcchreturnlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetXStateFeaturesMask(context: super::PCONTEXT, featuremask: super::PDWORD64) -> windows_core::BOOL {
@@ -3209,6 +3216,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetVolumeMountPointW(lpszvolumemountpoint : windows_core::PCWSTR, lpszvolumename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetVolumeMountPointW(lpszvolumemountpoint.param().abi(), lpszvolumename.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetXStateFeaturesMask(context: super::PCONTEXT, featuremask: super::DWORD64) -> windows_core::BOOL {
@@ -3250,6 +3258,7 @@ pub unsafe fn UnregisterApplicationRestart() -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn UnregisterApplicationRestart() -> windows_core::HRESULT);
     unsafe { UnregisterApplicationRestart() }
 }
+#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn UnregisterWait(waithandle: super::HANDLE) -> windows_core::BOOL {
@@ -3566,6 +3575,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn lstrcpyW(lpstring1 : windows_core::PWSTR, lpstring2 : windows_core::PCWSTR) -> windows_core::PWSTR);
     unsafe { lstrcpyW(lpstring1, lpstring2.param().abi()) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn lstrcpynA<P1>(lpstring1: windows_core::PSTR, lpstring2: P1, imaxlength: i32) -> windows_core::PSTR
 where
@@ -3574,6 +3584,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn lstrcpynA(lpstring1 : windows_core::PSTR, lpstring2 : windows_core::PCSTR, imaxlength : i32) -> windows_core::PSTR);
     unsafe { lstrcpynA(lpstring1, lpstring2.param().abi(), imaxlength) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn lstrcpynW<P1>(lpstring1: windows_core::PWSTR, lpstring2: P1, imaxlength: i32) -> windows_core::PWSTR
 where

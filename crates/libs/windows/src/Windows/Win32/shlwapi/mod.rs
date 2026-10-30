@@ -2242,6 +2242,7 @@ where
     windows_core::link!("kernel32.dll" "system" "lstrcpyA" fn StrCpyA(lpstring1 : windows_core::PSTR, lpstring2 : windows_core::PCSTR) -> windows_core::PSTR);
     unsafe { StrCpyA(lpstring1, lpstring2.param().abi()) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn StrCpyNA<P1>(lpstring1: windows_core::PSTR, lpstring2: P1, imaxlength: i32) -> windows_core::PSTR
 where

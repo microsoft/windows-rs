@@ -197,12 +197,14 @@ pub unsafe fn GetVersionExW(lpversioninformation: super::LPOSVERSIONINFOW) -> wi
     windows_core::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : super::LPOSVERSIONINFOW) -> windows_core::BOOL);
     unsafe { GetVersionExW(lpversioninformation as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: Option<windows_core::PSTR>, usize: super::UINT) -> super::UINT {
     windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryA(lpbuffer : windows_core::PSTR, usize : super::UINT) -> super::UINT);
     unsafe { GetWindowsDirectoryA(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: Option<windows_core::PWSTR>, usize: super::UINT) -> super::UINT {

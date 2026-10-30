@@ -414,6 +414,7 @@ pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, cl
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiClassNameFromGuidW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiCreateDevRegKeyA<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
@@ -423,6 +424,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : super::DWORD, hwprofile : super::DWORD, keytype : super::DWORD, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
     unsafe { SetupDiCreateDevRegKeyA(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiCreateDevRegKeyW<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
@@ -442,12 +444,14 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_core::PCSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCSTR, hwndparent : super::HWND, creationflags : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInfoA(deviceinfoset, devicename.param().abi(), classguid, devicedescription.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, creationflags, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoList(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>) -> HDEVINFO {
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const windows_core::GUID, hwndparent : super::HWND) -> HDEVINFO);
     unsafe { SetupDiCreateDeviceInfoList(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExA<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: Option<super::PVOID>) -> HDEVINFO
@@ -457,6 +461,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_core::GUID, hwndparent : super::HWND, machinename : windows_core::PCSTR, reserved : super::PVOID) -> HDEVINFO);
     unsafe { SetupDiCreateDeviceInfoListExA(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExW<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: Option<super::PVOID>) -> HDEVINFO
@@ -485,6 +490,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCSTR, creationflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInterfaceA(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
@@ -494,6 +500,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
     unsafe { SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
@@ -521,6 +528,7 @@ where
     windows_core::link!("setupapi.dll" "system" "SetupDiCreateDeviceInterfaceA" fn SetupDiCreateInterfaceDeviceA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCSTR, creationflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateInterfaceDeviceA(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiCreateInterfaceDeviceRegKeyA<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
@@ -530,6 +538,7 @@ where
     windows_core::link!("setupapi.dll" "system" "SetupDiCreateDeviceInterfaceRegKeyA" fn SetupDiCreateInterfaceDeviceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
     unsafe { SetupDiCreateInterfaceDeviceRegKeyA(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiCreateInterfaceDeviceRegKeyW<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
@@ -733,6 +742,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, devicei
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize : super::DWORD, requiredsize : super::PDWORD, propertysheettype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassDevPropertySheetsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, propertysheetheader, propertysheetheaderpagelistsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, propertysheettype) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsA<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD) -> HDEVINFO
@@ -742,6 +752,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : super::DWORD) -> HDEVINFO);
     unsafe { SetupDiGetClassDevsA(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExA<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: Option<super::PVOID>) -> HDEVINFO
@@ -752,6 +763,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : super::DWORD, deviceinfoset : HDEVINFO, machinename : windows_core::PCSTR, reserved : super::PVOID) -> HDEVINFO);
     unsafe { SetupDiGetClassDevsExA(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExW<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: Option<super::PVOID>) -> HDEVINFO
@@ -762,6 +774,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::HWND, flags : super::DWORD, deviceinfoset : HDEVINFO, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> HDEVINFO);
     unsafe { SetupDiGetClassDevsExW(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsW<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD) -> HDEVINFO
@@ -1185,12 +1198,14 @@ pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: PSP
     windows_core::link!("setupapi.dll" "system" fn SetupDiLoadDeviceIcon(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, cxicon : super::UINT, cyicon : super::UINT, flags : super::DWORD, hicon : *mut super::HICON) -> windows_core::BOOL);
     unsafe { SetupDiLoadDeviceIcon(deviceinfoset, deviceinfodata, cxicon, cyicon, flags, hicon as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKey(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKey(classguid : *const windows_core::GUID, samdesired : super::REGSAM) -> super::HKEY);
     unsafe { SetupDiOpenClassRegKey(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExA<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: super::DWORD, machinename: P3, reserved: Option<super::PVOID>) -> super::HKEY
@@ -1200,6 +1215,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : super::DWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> super::HKEY);
     unsafe { SetupDiOpenClassRegKeyExA(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExW<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: super::DWORD, machinename: P3, reserved: Option<super::PVOID>) -> super::HKEY
@@ -1209,6 +1225,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> super::HKEY);
     unsafe { SetupDiOpenClassRegKeyExW(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, samdesired: super::REGSAM) -> super::HKEY {
@@ -1242,6 +1259,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceA(deviceinfoset : HDEVINFO, devicepath : windows_core::PCSTR, openflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenDeviceInterfaceA(deviceinfoset, devicepath.param().abi(), openflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM) -> super::HKEY {
@@ -1266,6 +1284,7 @@ where
     windows_core::link!("setupapi.dll" "system" "SetupDiOpenDeviceInterfaceA" fn SetupDiOpenInterfaceDeviceA(deviceinfoset : HDEVINFO, devicepath : windows_core::PCSTR, openflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenInterfaceDeviceA(deviceinfoset, devicepath.param().abi(), openflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenInterfaceDeviceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<super::DWORD>, samdesired: super::REGSAM) -> super::HKEY {

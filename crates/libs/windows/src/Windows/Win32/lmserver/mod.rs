@@ -1,3 +1,4 @@
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerComputerNameAdd<P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> super::DWORD
@@ -9,6 +10,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameAdd(servername : windows_core::PCWSTR, emulateddomainname : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> super::DWORD);
     unsafe { NetServerComputerNameAdd(servername.param().abi(), emulateddomainname.param().abi(), emulatedservername.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerComputerNameDel<P0, P1>(servername: P0, emulatedservername: P1) -> super::DWORD
@@ -19,6 +21,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> super::DWORD);
     unsafe { NetServerComputerNameDel(servername.param().abi(), emulatedservername.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD
@@ -38,6 +41,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, servertype : super::DWORD, domain : windows_core::PCWSTR, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetServerEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, servertype, domain.param().abi(), resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE) -> super::DWORD
@@ -47,6 +51,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetServerGetInfo(servername.param().abi(), level, bufptr as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: super::DWORD, buf: super::LPBYTE, parmerror: Option<super::LPDWORD>) -> super::DWORD
@@ -56,6 +61,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parmerror : super::LPDWORD) -> super::DWORD);
     unsafe { NetServerSetInfo(servername.param().abi(), level, buf as _, parmerror.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
@@ -65,6 +71,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
     unsafe { NetServerTransportAdd(servername.param().abi(), level, bufptr) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
@@ -74,6 +81,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
     unsafe { NetServerTransportAddEx(servername.param().abi(), level, bufptr as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
@@ -83,6 +91,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
     unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD

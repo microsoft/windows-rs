@@ -1,15 +1,18 @@
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn MultinetGetConnectionPerformanceA(lpnetresource: LPNETRESOURCEA, lpnetconnectinfostruct: LPNETCONNECTINFOSTRUCT) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceA(lpnetresource : LPNETRESOURCEA, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> super::DWORD);
     unsafe { MultinetGetConnectionPerformanceA(lpnetresource, lpnetconnectinfostruct as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: LPNETRESOURCEW, lpnetconnectinfostruct: LPNETCONNECTINFOSTRUCT) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceW(lpnetresource : LPNETRESOURCEW, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> super::DWORD);
     unsafe { MultinetGetConnectionPerformanceW(lpnetresource, lpnetconnectinfostruct as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetAddConnection2A<P1, P2>(lpnetresource: LPNETRESOURCEA, lppassword: P1, lpusername: P2, dwflags: super::DWORD) -> super::DWORD
@@ -20,6 +23,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : LPNETRESOURCEA, lppassword : windows_core::PCSTR, lpusername : windows_core::PCSTR, dwflags : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection2A(lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetAddConnection2W<P1, P2>(lpnetresource: LPNETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: super::DWORD) -> super::DWORD
@@ -30,6 +34,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : LPNETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR, dwflags : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection2W(lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetAddConnection3A<P2, P3>(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, lppassword: P2, lpusername: P3, dwflags: super::DWORD) -> super::DWORD
@@ -40,6 +45,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_core::PCSTR, lpusername : windows_core::PCSTR, dwflags : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection3A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetAddConnection3W<P2, P3>(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, lppassword: P2, lpusername: P3, dwflags: super::DWORD) -> super::DWORD
@@ -50,18 +56,21 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR, dwflags : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection3W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetAddConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: &[u8]) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetAddConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: &[u8]) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
     unsafe { WNetAddConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetAddConnectionA<P0, P1, P2>(lpremotename: P0, lppassword: P1, lplocalname: P2) -> super::DWORD
@@ -73,6 +82,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : windows_core::PCSTR, lppassword : windows_core::PCSTR, lplocalname : windows_core::PCSTR) -> super::DWORD);
     unsafe { WNetAddConnectionA(lpremotename.param().abi(), lppassword.param().abi(), lplocalname.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetAddConnectionW<P0, P1, P2>(lpremotename: P0, lppassword: P1, lplocalname: P2) -> super::DWORD
@@ -84,6 +94,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, lplocalname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { WNetAddConnectionW(lpremotename.param().abi(), lppassword.param().abi(), lplocalname.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetCancelConnection2A<P0>(lpname: P0, dwflags: super::DWORD, fforce: bool) -> super::DWORD
@@ -93,6 +104,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_core::PCSTR, dwflags : super::DWORD, fforce : windows_core::BOOL) -> super::DWORD);
     unsafe { WNetCancelConnection2A(lpname.param().abi(), dwflags, fforce.into()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetCancelConnection2W<P0>(lpname: P0, dwflags: super::DWORD, fforce: bool) -> super::DWORD
@@ -102,6 +114,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_core::PCWSTR, dwflags : super::DWORD, fforce : windows_core::BOOL) -> super::DWORD);
     unsafe { WNetCancelConnection2W(lpname.param().abi(), dwflags, fforce.into()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetCancelConnectionA<P0>(lpname: P0, fforce: bool) -> super::DWORD
@@ -111,6 +124,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_core::PCSTR, fforce : windows_core::BOOL) -> super::DWORD);
     unsafe { WNetCancelConnectionA(lpname.param().abi(), fforce.into()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetCancelConnectionW<P0>(lpname: P0, fforce: bool) -> super::DWORD
@@ -120,60 +134,70 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_core::PCWSTR, fforce : windows_core::BOOL) -> super::DWORD);
     unsafe { WNetCancelConnectionW(lpname.param().abi(), fforce.into()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetCloseEnum(henum: super::HANDLE) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::HANDLE) -> super::DWORD);
     unsafe { WNetCloseEnum(henum) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetConnectionDialog(hwnd: super::HWND, dwtype: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetConnectionDialog(hwnd : super::HWND, dwtype : super::DWORD) -> super::DWORD);
     unsafe { WNetConnectionDialog(hwnd, dwtype) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: LPCONNECTDLGSTRUCTA) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetConnectionDialog1A(lpconndlgstruct : LPCONNECTDLGSTRUCTA) -> super::DWORD);
     unsafe { WNetConnectionDialog1A(lpconndlgstruct as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: LPCONNECTDLGSTRUCTW) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetConnectionDialog1W(lpconndlgstruct : LPCONNECTDLGSTRUCTW) -> super::DWORD);
     unsafe { WNetConnectionDialog1W(lpconndlgstruct as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetDisconnectDialog(hwnd: Option<super::HWND>, dwtype: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetDisconnectDialog(hwnd : super::HWND, dwtype : super::DWORD) -> super::DWORD);
     unsafe { WNetDisconnectDialog(hwnd.unwrap_or(core::mem::zeroed()) as _, dwtype) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: LPDISCDLGSTRUCTA) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetDisconnectDialog1A(lpconndlgstruct : LPDISCDLGSTRUCTA) -> super::DWORD);
     unsafe { WNetDisconnectDialog1A(lpconndlgstruct) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: LPDISCDLGSTRUCTW) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetDisconnectDialog1W(lpconndlgstruct : LPDISCDLGSTRUCTW) -> super::DWORD);
     unsafe { WNetDisconnectDialog1W(lpconndlgstruct) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetEnumResourceA(henum: super::HANDLE, lpccount: super::LPDWORD, lpbuffer: super::LPVOID, lpbuffersize: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetEnumResourceA(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetEnumResourceA(henum, lpccount as _, lpbuffer as _, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetEnumResourceW(henum: super::HANDLE, lpccount: super::LPDWORD, lpbuffer: super::LPVOID, lpbuffersize: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetEnumResourceW(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetEnumResourceW(henum, lpccount as _, lpbuffer as _, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetConnectionA<P0>(lplocalname: P0, lpremotename: Option<windows_core::PSTR>, lpnlength: super::LPDWORD) -> super::DWORD
@@ -183,6 +207,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : windows_core::PCSTR, lpremotename : windows_core::PSTR, lpnlength : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetConnectionA(lplocalname.param().abi(), lpremotename.unwrap_or(core::mem::zeroed()) as _, lpnlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetConnectionW<P0>(lplocalname: P0, lpremotename: Option<windows_core::PWSTR>, lpnlength: super::LPDWORD) -> super::DWORD
@@ -192,18 +217,21 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : windows_core::PCWSTR, lpremotename : windows_core::PWSTR, lpnlength : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetConnectionW(lplocalname.param().abi(), lpremotename.unwrap_or(core::mem::zeroed()) as _, lpnlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetLastErrorA(lperror: super::LPDWORD, lperrorbuf: windows_core::PSTR, nerrorbufsize: super::DWORD, lpnamebuf: windows_core::PSTR, nnamebufsize: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : super::LPDWORD, lperrorbuf : windows_core::PSTR, nerrorbufsize : super::DWORD, lpnamebuf : windows_core::PSTR, nnamebufsize : super::DWORD) -> super::DWORD);
     unsafe { WNetGetLastErrorA(lperror as _, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetLastErrorW(lperror: super::LPDWORD, lperrorbuf: windows_core::PWSTR, nerrorbufsize: super::DWORD, lpnamebuf: windows_core::PWSTR, nnamebufsize: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : super::LPDWORD, lperrorbuf : windows_core::PWSTR, nerrorbufsize : super::DWORD, lpnamebuf : windows_core::PWSTR, nnamebufsize : super::DWORD) -> super::DWORD);
     unsafe { WNetGetLastErrorW(lperror as _, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetGetNetworkInformationA<P0>(lpprovider: P0, lpnetinfostruct: LPNETINFOSTRUCT) -> super::DWORD
@@ -213,6 +241,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetNetworkInformationA(lpprovider : windows_core::PCSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> super::DWORD);
     unsafe { WNetGetNetworkInformationA(lpprovider.param().abi(), lpnetinfostruct as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WNetGetNetworkInformationW<P0>(lpprovider: P0, lpnetinfostruct: LPNETINFOSTRUCT) -> super::DWORD
@@ -222,42 +251,49 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetNetworkInformationW(lpprovider : windows_core::PCWSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> super::DWORD);
     unsafe { WNetGetNetworkInformationW(lpprovider.param().abi(), lpnetinfostruct as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetProviderNameA(dwnettype: super::DWORD, lpprovidername: windows_core::PSTR, lpbuffersize: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : super::DWORD, lpprovidername : windows_core::PSTR, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetProviderNameA(dwnettype, lpprovidername, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetProviderNameW(dwnettype: super::DWORD, lpprovidername: windows_core::PWSTR, lpbuffersize: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : super::DWORD, lpprovidername : windows_core::PWSTR, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetProviderNameW(dwnettype, lpprovidername, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetResourceInformationA(lpnetresource: LPNETRESOURCEA, lpbuffer: super::LPVOID, lpcbbuffer: super::LPDWORD, lplpsystem: *mut windows_core::PSTR) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetResourceInformationA(lpnetresource : LPNETRESOURCEA, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_core::PSTR) -> super::DWORD);
     unsafe { WNetGetResourceInformationA(lpnetresource, lpbuffer as _, lpcbbuffer as _, lplpsystem as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetResourceInformationW(lpnetresource: LPNETRESOURCEW, lpbuffer: super::LPVOID, lpcbbuffer: super::LPDWORD, lplpsystem: *mut windows_core::PWSTR) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetResourceInformationW(lpnetresource : LPNETRESOURCEW, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_core::PWSTR) -> super::DWORD);
     unsafe { WNetGetResourceInformationW(lpnetresource, lpbuffer as _, lpcbbuffer as _, lplpsystem as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetResourceParentA(lpnetresource: LPNETRESOURCEA, lpbuffer: super::LPVOID, lpcbbuffer: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetResourceParentA(lpnetresource : LPNETRESOURCEA, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetResourceParentA(lpnetresource, lpbuffer as _, lpcbbuffer as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetResourceParentW(lpnetresource: LPNETRESOURCEW, lpbuffer: super::LPVOID, lpcbbuffer: super::LPDWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetGetResourceParentW(lpnetresource : LPNETRESOURCEW, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetResourceParentW(lpnetresource, lpbuffer as _, lpcbbuffer as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetUniversalNameA<P0>(lplocalpath: P0, dwinfolevel: super::DWORD, lpbuffer: super::LPVOID, lpbuffersize: super::LPDWORD) -> super::DWORD
@@ -267,6 +303,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : windows_core::PCSTR, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetUniversalNameA(lplocalpath.param().abi(), dwinfolevel, lpbuffer as _, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetUniversalNameW<P0>(lplocalpath: P0, dwinfolevel: super::DWORD, lpbuffer: super::LPVOID, lpbuffersize: super::LPDWORD) -> super::DWORD
@@ -276,6 +313,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : windows_core::PCWSTR, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetUniversalNameW(lplocalpath.param().abi(), dwinfolevel, lpbuffer as _, lpbuffersize as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetUserA<P0>(lpname: P0, lpusername: windows_core::PSTR, lpnlength: super::LPDWORD) -> super::DWORD
@@ -285,6 +323,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_core::PCSTR, lpusername : windows_core::PSTR, lpnlength : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetUserA(lpname.param().abi(), lpusername, lpnlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetGetUserW<P0>(lpname: P0, lpusername: windows_core::PWSTR, lpnlength: super::LPDWORD) -> super::DWORD
@@ -294,30 +333,35 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_core::PCWSTR, lpusername : windows_core::PWSTR, lpnlength : super::LPDWORD) -> super::DWORD);
     unsafe { WNetGetUserW(lpname.param().abi(), lpusername, lpnlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetOpenEnumA(dwscope: super::DWORD, dwtype: super::DWORD, dwusage: super::DWORD, lpnetresource: Option<LPNETRESOURCEA>, lphenum: super::LPHANDLE) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetOpenEnumA(dwscope : super::DWORD, dwtype : super::DWORD, dwusage : super::DWORD, lpnetresource : LPNETRESOURCEA, lphenum : super::LPHANDLE) -> super::DWORD);
     unsafe { WNetOpenEnumA(dwscope, dwtype, dwusage, lpnetresource.unwrap_or(core::mem::zeroed()) as _, lphenum as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn WNetOpenEnumW(dwscope: super::DWORD, dwtype: super::DWORD, dwusage: super::DWORD, lpnetresource: Option<LPNETRESOURCEW>, lphenum: super::LPHANDLE) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetOpenEnumW(dwscope : super::DWORD, dwtype : super::DWORD, dwusage : super::DWORD, lpnetresource : LPNETRESOURCEW, lphenum : super::LPHANDLE) -> super::DWORD);
     unsafe { WNetOpenEnumW(dwscope, dwtype, dwusage, lpnetresource.unwrap_or(core::mem::zeroed()) as _, lphenum as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetUseConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
     unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WNetUseConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
     unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetUseConnectionA<P2, P3>(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, lppassword: P2, lpuserid: P3, dwflags: super::DWORD, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD
@@ -328,6 +372,7 @@ where
     windows_core::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_core::PCSTR, lpuserid : windows_core::PCSTR, dwflags : super::DWORD, lpaccessname : windows_core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
     unsafe { WNetUseConnectionA(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, lppassword.param().abi(), lpuserid.param().abi(), dwflags, lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn WNetUseConnectionW<P2, P3>(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, lppassword: P2, lpuserid: P3, dwflags: super::DWORD, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD

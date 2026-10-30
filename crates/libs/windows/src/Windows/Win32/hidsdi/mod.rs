@@ -10,18 +10,21 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: super::PHIDP_PREPARSED_DATA)
     windows_core::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : super::PHIDP_PREPARSED_DATA) -> super::BOOLEAN);
     unsafe { HidD_FreePreparsedData(preparseddata) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetAttributes(hiddeviceobject: super::HANDLE, attributes: PHIDD_ATTRIBUTES) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::HANDLE, attributes : PHIDD_ATTRIBUTES) -> super::BOOLEAN);
     unsafe { HidD_GetAttributes(hiddeviceobject, attributes as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetConfiguration(hiddeviceobject: super::HANDLE, configuration: PHIDD_CONFIGURATION, configurationlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::HANDLE, configuration : PHIDD_CONFIGURATION, configurationlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetConfiguration(hiddeviceobject, configuration as _, configurationlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetFeature(hiddeviceobject: super::HANDLE, reportbuffer: super::PVOID, reportbufferlength: super::ULONG) -> super::BOOLEAN {
@@ -34,78 +37,91 @@ pub unsafe fn HidD_GetHidGuid(hidguid: super::LPGUID) {
     windows_core::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : super::LPGUID));
     unsafe { HidD_GetHidGuid(hidguid as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetIndexedString(hiddeviceobject: super::HANDLE, stringindex: super::ULONG, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::HANDLE, stringindex : super::ULONG, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetIndexedString(hiddeviceobject, stringindex, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetInputReport(hiddeviceobject: super::HANDLE, reportbuffer: super::PVOID, reportbufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::HANDLE, reportbuffer : super::PVOID, reportbufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetInputReport(hiddeviceobject, reportbuffer as _, reportbufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetManufacturerString(hiddeviceobject: super::HANDLE, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::HANDLE, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetManufacturerString(hiddeviceobject, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::HANDLE, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::HANDLE, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetMsGenreDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetNumInputBuffers(hiddeviceobject: super::HANDLE, numberbuffers: super::PULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::HANDLE, numberbuffers : super::PULONG) -> super::BOOLEAN);
     unsafe { HidD_GetNumInputBuffers(hiddeviceobject, numberbuffers as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::HANDLE, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::HANDLE, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetPhysicalDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "hidpi", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetPreparsedData(hiddeviceobject: super::HANDLE, preparseddata: *mut super::PHIDP_PREPARSED_DATA) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::HANDLE, preparseddata : *mut super::PHIDP_PREPARSED_DATA) -> super::BOOLEAN);
     unsafe { HidD_GetPreparsedData(hiddeviceobject, preparseddata as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetProductString(hiddeviceobject: super::HANDLE, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::HANDLE, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetProductString(hiddeviceobject, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetSerialNumberString(hiddeviceobject: super::HANDLE, buffer: super::PVOID, bufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::HANDLE, buffer : super::PVOID, bufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_GetSerialNumberString(hiddeviceobject, buffer as _, bufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_SetConfiguration(hiddeviceobject: super::HANDLE, configuration: PHIDD_CONFIGURATION, configurationlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::HANDLE, configuration : PHIDD_CONFIGURATION, configurationlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_SetConfiguration(hiddeviceobject, configuration, configurationlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_SetFeature(hiddeviceobject: super::HANDLE, reportbuffer: super::PVOID, reportbufferlength: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::HANDLE, reportbuffer : super::PVOID, reportbufferlength : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_SetFeature(hiddeviceobject, reportbuffer, reportbufferlength) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_SetNumInputBuffers(hiddeviceobject: super::HANDLE, numberbuffers: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::HANDLE, numberbuffers : super::ULONG) -> super::BOOLEAN);
     unsafe { HidD_SetNumInputBuffers(hiddeviceobject, numberbuffers) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::HANDLE, reportbuffer: super::PVOID, reportbufferlength: super::ULONG) -> super::BOOLEAN {

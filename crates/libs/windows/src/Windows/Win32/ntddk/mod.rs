@@ -10,6 +10,7 @@ pub unsafe fn NtOpenProcess(processhandle: super::PHANDLE, desiredaccess: super:
     windows_core::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, clientid : super::PCLIENT_ID) -> windows_core::NTSTATUS);
     unsafe { NtOpenProcess(processhandle as _, desiredaccess, objectattributes, clientid.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlCompareString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: super::BOOLEAN) -> super::LONG {
@@ -28,12 +29,14 @@ pub unsafe fn RtlCopyString(destinationstring: super::PSTRING, sourcestring: Opt
     windows_core::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : super::PSTRING, sourcestring : *const super::STRING));
     unsafe { RtlCopyString(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCreateHashTable(hashtable: *mut PRTL_DYNAMIC_HASH_TABLE, shift: super::ULONG, flags: Option<super::ULONG>) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlCreateHashTable(hashtable : *mut PRTL_DYNAMIC_HASH_TABLE, shift : super::ULONG, flags : super::ULONG) -> super::BOOLEAN);
     unsafe { RtlCreateHashTable(hashtable as _, shift, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCreateHashTableEx(hashtable: *mut PRTL_DYNAMIC_HASH_TABLE, initialsize: super::ULONG, shift: super::ULONG, flags: Option<super::ULONG>) -> super::BOOLEAN {
@@ -92,42 +95,49 @@ pub unsafe fn RtlEndWeakEnumerationHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE,
     windows_core::link!("ntdll.dll" "system" fn RtlEndWeakEnumerationHashTable(hashtable : PRTL_DYNAMIC_HASH_TABLE, enumerator : PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR));
     unsafe { RtlEndWeakEnumerationHashTable(hashtable, enumerator as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateEntryHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE, enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateEntryHashTable(hashtable : PRTL_DYNAMIC_HASH_TABLE, enumerator : PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
     unsafe { RtlEnumerateEntryHashTable(hashtable, enumerator as _) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateGenericTable(table: PRTL_GENERIC_TABLE, restart: super::BOOLEAN) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTable(table : PRTL_GENERIC_TABLE, restart : super::BOOLEAN) -> super::PVOID);
     unsafe { RtlEnumerateGenericTable(table, restart) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateGenericTableAvl(table: PRTL_AVL_TABLE, restart: super::BOOLEAN) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableAvl(table : PRTL_AVL_TABLE, restart : super::BOOLEAN) -> super::PVOID);
     unsafe { RtlEnumerateGenericTableAvl(table, restart) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateGenericTableLikeADirectory(table: PRTL_AVL_TABLE, matchfunction: PRTL_AVL_MATCH_FUNCTION, matchdata: Option<super::PVOID>, nextflag: super::ULONG, restartkey: *mut super::PVOID, deletecount: super::PULONG, buffer: super::PVOID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableLikeADirectory(table : PRTL_AVL_TABLE, matchfunction : PRTL_AVL_MATCH_FUNCTION, matchdata : super::PVOID, nextflag : super::ULONG, restartkey : *mut super::PVOID, deletecount : super::PULONG, buffer : super::PVOID) -> super::PVOID);
     unsafe { RtlEnumerateGenericTableLikeADirectory(table, matchfunction, matchdata.unwrap_or(core::mem::zeroed()) as _, nextflag, restartkey as _, deletecount as _, buffer) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateGenericTableWithoutSplaying(table: PRTL_GENERIC_TABLE, restartkey: *mut super::PVOID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableWithoutSplaying(table : PRTL_GENERIC_TABLE, restartkey : *mut super::PVOID) -> super::PVOID);
     unsafe { RtlEnumerateGenericTableWithoutSplaying(table, restartkey as _) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEnumerateGenericTableWithoutSplayingAvl(table: PRTL_AVL_TABLE, restartkey: *mut super::PVOID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableWithoutSplayingAvl(table : PRTL_AVL_TABLE, restartkey : *mut super::PVOID) -> super::PVOID);
     unsafe { RtlEnumerateGenericTableWithoutSplayingAvl(table, restartkey as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlEqualString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
@@ -158,12 +168,14 @@ pub unsafe fn RtlGetConsoleSessionForegroundProcessId() -> super::ULONGLONG {
     windows_core::link!("ntdll.dll" "system" fn RtlGetConsoleSessionForegroundProcessId() -> super::ULONGLONG);
     unsafe { RtlGetConsoleSessionForegroundProcessId() }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlGetElementGenericTable(table: PRTL_GENERIC_TABLE, i: super::ULONG) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlGetElementGenericTable(table : PRTL_GENERIC_TABLE, i : super::ULONG) -> super::PVOID);
     unsafe { RtlGetElementGenericTable(table, i) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlGetElementGenericTableAvl(table: PRTL_AVL_TABLE, i: super::ULONG) -> super::PVOID {
@@ -176,6 +188,7 @@ pub unsafe fn RtlGetEnabledExtendedFeatures(featuremask: super::ULONG64) -> supe
     windows_core::link!("ntdll.dll" "system" fn RtlGetEnabledExtendedFeatures(featuremask : super::ULONG64) -> super::ULONG64);
     unsafe { RtlGetEnabledExtendedFeatures(featuremask) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlGetNextEntryHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE, context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY {
@@ -278,30 +291,35 @@ where
     windows_core::link!("ntdll.dll" "system" fn RtlIsApiSetImplemented(apisetname : windows_core::PCSTR) -> windows_core::NTSTATUS);
     unsafe { RtlIsApiSetImplemented(apisetname.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlIsGenericTableEmpty(table: PRTL_GENERIC_TABLE) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlIsGenericTableEmpty(table : PRTL_GENERIC_TABLE) -> super::BOOLEAN);
     unsafe { RtlIsGenericTableEmpty(table) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlIsGenericTableEmptyAvl(table: PRTL_AVL_TABLE) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlIsGenericTableEmptyAvl(table : PRTL_AVL_TABLE) -> super::BOOLEAN);
     unsafe { RtlIsGenericTableEmptyAvl(table) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlIsMultiSessionSku() -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlIsMultiSessionSku() -> super::BOOLEAN);
     unsafe { RtlIsMultiSessionSku() }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlIsMultiUsersInSessionSku() -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlIsMultiUsersInSessionSku() -> super::BOOLEAN);
     unsafe { RtlIsMultiUsersInSessionSku() }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlIsStateSeparationEnabled() -> super::BOOLEAN {
@@ -315,12 +333,14 @@ pub unsafe fn RtlLargeIntegerDivide(dividend: super::LARGE_INTEGER, divisor: sup
     windows_core::link!("ntdll.dll" "system" fn RtlLargeIntegerDivide(dividend : super::LARGE_INTEGER, divisor : super::LARGE_INTEGER, remainder : super::PLARGE_INTEGER) -> super::LARGE_INTEGER);
     unsafe { RtlLargeIntegerDivide(dividend, divisor, remainder.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlLookupElementGenericTable(table: PRTL_GENERIC_TABLE, buffer: super::PVOID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlLookupElementGenericTable(table : PRTL_GENERIC_TABLE, buffer : super::PVOID) -> super::PVOID);
     unsafe { RtlLookupElementGenericTable(table, buffer) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlLookupElementGenericTableAvl(table: PRTL_AVL_TABLE, buffer: super::PVOID) -> super::PVOID {
@@ -339,12 +359,14 @@ pub unsafe fn RtlLookupElementGenericTableFullAvl(table: PRTL_AVL_TABLE, buffer:
     windows_core::link!("ntdll.dll" "system" fn RtlLookupElementGenericTableFullAvl(table : PRTL_AVL_TABLE, buffer : super::PVOID, nodeorparent : *mut super::PVOID, searchresult : *mut TABLE_SEARCH_RESULT) -> super::PVOID);
     unsafe { RtlLookupElementGenericTableFullAvl(table, buffer, nodeorparent as _, searchresult as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlLookupEntryHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE, signature: super::ULONG_PTR, context: Option<PRTL_DYNAMIC_HASH_TABLE_CONTEXT>) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlLookupEntryHashTable(hashtable : PRTL_DYNAMIC_HASH_TABLE, signature : super::ULONG_PTR, context : PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
     unsafe { RtlLookupEntryHashTable(hashtable, signature, context.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlLookupFirstMatchingElementGenericTableAvl(table: PRTL_AVL_TABLE, buffer: super::PVOID, restartkey: *mut super::PVOID) -> super::PVOID {
@@ -369,6 +391,7 @@ pub unsafe fn RtlNumberGenericTableElementsAvl(table: PRTL_AVL_TABLE) -> super::
     windows_core::link!("ntdll.dll" "system" fn RtlNumberGenericTableElementsAvl(table : PRTL_AVL_TABLE) -> super::ULONG);
     unsafe { RtlNumberGenericTableElementsAvl(table) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlPrefixUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
@@ -381,11 +404,13 @@ pub unsafe fn RtlQueryRegistryValueWithFallback(primaryhandle: Option<super::HAN
     windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValueWithFallback(primaryhandle : super::HANDLE, fallbackhandle : super::HANDLE, valuename : super::PUNICODE_STRING, valuelength : super::ULONG, valuetype : super::PULONG, valuedata : super::PVOID, resultlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { RtlQueryRegistryValueWithFallback(primaryhandle.unwrap_or(core::mem::zeroed()) as _, fallbackhandle.unwrap_or(core::mem::zeroed()) as _, valuename, valuelength, valuetype.unwrap_or(core::mem::zeroed()) as _, valuedata as _, resultlength as _) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn RtlRealPredecessor(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {
     windows_core::link!("ntdll.dll" "system" fn RtlRealPredecessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
     unsafe { RtlRealPredecessor(links) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn RtlRealSuccessor(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {
     windows_core::link!("ntdll.dll" "system" fn RtlRealSuccessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
@@ -426,17 +451,20 @@ pub unsafe fn RtlSplay(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {
     windows_core::link!("ntdll.dll" "system" fn RtlSplay(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
     unsafe { RtlSplay(links as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlStronglyEnumerateEntryHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE, enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlStronglyEnumerateEntryHashTable(hashtable : PRTL_DYNAMIC_HASH_TABLE, enumerator : PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
     unsafe { RtlStronglyEnumerateEntryHashTable(hashtable, enumerator as _) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn RtlSubtreePredecessor(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {
     windows_core::link!("ntdll.dll" "system" fn RtlSubtreePredecessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
     unsafe { RtlSubtreePredecessor(links) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn RtlSubtreeSuccessor(links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS {
     windows_core::link!("ntdll.dll" "system" fn RtlSubtreeSuccessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
@@ -466,6 +494,7 @@ pub unsafe fn RtlWalkFrameChain(callers: *mut super::PVOID, count: super::ULONG,
     windows_core::link!("ntdll.dll" "system" fn RtlWalkFrameChain(callers : *mut super::PVOID, count : super::ULONG, flags : super::ULONG) -> super::ULONG);
     unsafe { RtlWalkFrameChain(callers as _, count, flags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlWeaklyEnumerateEntryHashTable(hashtable: PRTL_DYNAMIC_HASH_TABLE, enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY {
