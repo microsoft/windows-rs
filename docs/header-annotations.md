@@ -204,9 +204,9 @@ Metadata never authorizes a projection on its own. Bindgen applies these rules:
 | Metadata on a parameter | Bindgen |
 | --- | --- |
 | `BufferExtent` with a direct entry count, matching direction and type | Slice, with the count parameter hidden |
-| Any other `BufferExtent` | Raw pointer; excluded from scalar-result inference |
+| Any other `BufferExtent` | Raw pointer, except interface inputs; excluded from scalar-result inference |
 | `readable(success, unknown(), indirect)` matching `out_ptr` nullability | Query projection still allowed |
-| `NativeSal` | Raw pointer; no slice, scalar-result or query inference |
+| `NativeSal` | Raw pointer, except interface inputs; no slice, scalar-result or query inference |
 | `opt` or `reserved` | `Option` for pointers, independently of any buffer contract |
 
 ## `_Win32_*` macros
