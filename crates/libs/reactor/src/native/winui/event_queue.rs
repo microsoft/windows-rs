@@ -72,7 +72,7 @@ impl NativeEventQueue {
         })
     }
 
-    /// Queues an event occurrence with the state it reports, or the state alone. Returns alse
+    /// Queues an event occurrence with the state it reports, or the state alone. Returns false
     /// when there is neither.
     pub(super) fn queue(
         &self,
