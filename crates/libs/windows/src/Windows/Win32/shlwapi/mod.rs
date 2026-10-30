@@ -1239,31 +1239,40 @@ pub unsafe fn SHCreateShellPalette(hdc: Option<super::HDC>) -> super::HPALETTE {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileA<P0>(pszfile: P0, grfmode: super::DWORD, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
+pub unsafe fn SHCreateStreamOnFileA<P0>(pszfile: P0, grfmode: super::DWORD) -> windows_core::Result<super::IStream>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : windows_core::PCSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, core::mem::transmute(ppstm)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileEx<P0, P4>(pszfile: P0, grfmode: super::DWORD, dwattributes: super::DWORD, fcreate: bool, pstmtemplate: P4, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
+pub unsafe fn SHCreateStreamOnFileEx<P0, P4>(pszfile: P0, grfmode: super::DWORD, dwattributes: super::DWORD, fcreate: bool, pstmtemplate: P4) -> windows_core::Result<super::IStream>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<super::IStream>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, dwattributes : super::DWORD, fcreate : windows_core::BOOL, pstmtemplate : *mut core::ffi::c_void, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), core::mem::transmute(ppstm)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateStreamOnFileW<P0>(pszfile: P0, grfmode: super::DWORD, ppstm: *mut Option<super::IStream>) -> windows_core::HRESULT
+pub unsafe fn SHCreateStreamOnFileW<P0>(pszfile: P0, grfmode: super::DWORD) -> windows_core::Result<super::IStream>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, core::mem::transmute(ppstm)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -1273,9 +1282,12 @@ pub unsafe fn SHCreateThread(pfnthreadproc: super::LPTHREAD_START_ROUTINE, pdata
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SHCreateThreadRef(pcref: *mut super::LONG, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+pub unsafe fn SHCreateThreadRef(pcref: *mut super::LONG) -> windows_core::Result<windows_core::IUnknown> {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut super::LONG, ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateThreadRef(pcref as _, core::mem::transmute(ppunk)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateThreadRef(pcref as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

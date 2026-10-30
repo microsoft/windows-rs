@@ -91,35 +91,35 @@ mod Windows {
         }
         #[guid(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602)]
         interface IDCompositionDesktopDevice: IDCompositionDevice2 {
-            fn CreateTargetForHwnd(&self, #[in] hwnd: HWND, topmost: BOOL, #[out] #[out_ptr] target: *mut IDCompositionTarget) -> HRESULT;
-            fn CreateSurfaceFromHandle(&self, #[in] handle: HANDLE, #[out] #[out_ptr] surface: *mut IUnknown) -> HRESULT;
-            fn CreateSurfaceFromHwnd(&self, #[in] hwnd: HWND, #[out] #[out_ptr] surface: *mut IUnknown) -> HRESULT;
+            fn CreateTargetForHwnd(&self, #[in] hwnd: HWND, topmost: BOOL, #[out] #[out_ptr] #[retval] target: *mut IDCompositionTarget) -> HRESULT;
+            fn CreateSurfaceFromHandle(&self, #[in] handle: HANDLE, #[out] #[out_ptr] #[retval] surface: *mut IUnknown) -> HRESULT;
+            fn CreateSurfaceFromHwnd(&self, #[in] hwnd: HWND, #[out] #[out_ptr] #[retval] surface: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3)]
         interface IDCompositionDevice: IUnknown {
             fn Commit(&self) -> HRESULT;
             fn WaitForCommitCompletion(&self) -> HRESULT;
             fn GetFrameStatistics(&self, #[out] statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
-            fn CreateTargetForHwnd(&self, #[in] hwnd: HWND, topmost: BOOL, #[out] #[out_ptr] target: *mut IDCompositionTarget) -> HRESULT;
-            fn CreateVisual(&self, #[out] #[out_ptr] visual: *mut IDCompositionVisual) -> HRESULT;
-            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] surface: *mut IDCompositionSurface) -> HRESULT;
-            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
-            fn CreateSurfaceFromHandle(&self, #[in] handle: HANDLE, #[out] #[out_ptr] surface: *mut IUnknown) -> HRESULT;
-            fn CreateSurfaceFromHwnd(&self, #[in] hwnd: HWND, #[out] #[out_ptr] surface: *mut IUnknown) -> HRESULT;
-            fn CreateTranslateTransform(&self, #[out] #[out_ptr] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
-            fn CreateScaleTransform(&self, #[out] #[out_ptr] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
-            fn CreateRotateTransform(&self, #[out] #[out_ptr] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
-            fn CreateSkewTransform(&self, #[out] #[out_ptr] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
-            fn CreateMatrixTransform(&self, #[out] #[out_ptr] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] transformGroup: *mut IDCompositionTransform) -> HRESULT;
-            fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
-            fn CreateScaleTransform3D(&self, #[out] #[out_ptr] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
-            fn CreateRotateTransform3D(&self, #[out] #[out_ptr] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
-            fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
-            fn CreateEffectGroup(&self, #[out] #[out_ptr] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
-            fn CreateRectangleClip(&self, #[out] #[out_ptr] clip: *mut IDCompositionRectangleClip) -> HRESULT;
-            fn CreateAnimation(&self, #[out] #[out_ptr] animation: *mut IDCompositionAnimation) -> HRESULT;
+            fn CreateTargetForHwnd(&self, #[in] hwnd: HWND, topmost: BOOL, #[out] #[out_ptr] #[retval] target: *mut IDCompositionTarget) -> HRESULT;
+            fn CreateVisual(&self, #[out] #[out_ptr] #[retval] visual: *mut IDCompositionVisual) -> HRESULT;
+            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateSurfaceFromHandle(&self, #[in] handle: HANDLE, #[out] #[out_ptr] #[retval] surface: *mut IUnknown) -> HRESULT;
+            fn CreateSurfaceFromHwnd(&self, #[in] hwnd: HWND, #[out] #[out_ptr] #[retval] surface: *mut IUnknown) -> HRESULT;
+            fn CreateTranslateTransform(&self, #[out] #[out_ptr] #[retval] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
+            fn CreateScaleTransform(&self, #[out] #[out_ptr] #[retval] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
+            fn CreateRotateTransform(&self, #[out] #[out_ptr] #[retval] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
+            fn CreateSkewTransform(&self, #[out] #[out_ptr] #[retval] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
+            fn CreateMatrixTransform(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] #[retval] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
+            fn CreateScaleTransform3D(&self, #[out] #[out_ptr] #[retval] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
+            fn CreateRotateTransform3D(&self, #[out] #[out_ptr] #[retval] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
+            fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] #[retval] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateEffectGroup(&self, #[out] #[out_ptr] #[retval] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
+            fn CreateRectangleClip(&self, #[out] #[out_ptr] #[retval] clip: *mut IDCompositionRectangleClip) -> HRESULT;
+            fn CreateAnimation(&self, #[out] #[out_ptr] #[retval] animation: *mut IDCompositionAnimation) -> HRESULT;
             fn CheckDeviceState(&self, #[out] pfValid: *mut BOOL) -> HRESULT;
         }
         #[guid(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25)]
@@ -127,40 +127,40 @@ mod Windows {
             fn Commit(&self) -> HRESULT;
             fn WaitForCommitCompletion(&self) -> HRESULT;
             fn GetFrameStatistics(&self, #[out] statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
-            fn CreateVisual(&self, #[out] #[out_ptr] visual: *mut IDCompositionVisual2) -> HRESULT;
-            fn CreateSurfaceFactory(&self, #[in] renderingDevice: IUnknown, #[out] #[out_ptr] surfaceFactory: *mut IDCompositionSurfaceFactory) -> HRESULT;
-            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] surface: *mut IDCompositionSurface) -> HRESULT;
-            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
-            fn CreateTranslateTransform(&self, #[out] #[out_ptr] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
-            fn CreateScaleTransform(&self, #[out] #[out_ptr] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
-            fn CreateRotateTransform(&self, #[out] #[out_ptr] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
-            fn CreateSkewTransform(&self, #[out] #[out_ptr] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
-            fn CreateMatrixTransform(&self, #[out] #[out_ptr] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] transformGroup: *mut IDCompositionTransform) -> HRESULT;
-            fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
-            fn CreateScaleTransform3D(&self, #[out] #[out_ptr] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
-            fn CreateRotateTransform3D(&self, #[out] #[out_ptr] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
-            fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
-            fn CreateEffectGroup(&self, #[out] #[out_ptr] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
-            fn CreateRectangleClip(&self, #[out] #[out_ptr] clip: *mut IDCompositionRectangleClip) -> HRESULT;
-            fn CreateAnimation(&self, #[out] #[out_ptr] animation: *mut IDCompositionAnimation) -> HRESULT;
+            fn CreateVisual(&self, #[out] #[out_ptr] #[retval] visual: *mut IDCompositionVisual2) -> HRESULT;
+            fn CreateSurfaceFactory(&self, #[in] renderingDevice: IUnknown, #[out] #[out_ptr] #[retval] surfaceFactory: *mut IDCompositionSurfaceFactory) -> HRESULT;
+            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateTranslateTransform(&self, #[out] #[out_ptr] #[retval] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
+            fn CreateScaleTransform(&self, #[out] #[out_ptr] #[retval] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
+            fn CreateRotateTransform(&self, #[out] #[out_ptr] #[retval] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
+            fn CreateSkewTransform(&self, #[out] #[out_ptr] #[retval] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
+            fn CreateMatrixTransform(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] #[retval] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
+            fn CreateScaleTransform3D(&self, #[out] #[out_ptr] #[retval] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
+            fn CreateRotateTransform3D(&self, #[out] #[out_ptr] #[retval] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
+            fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] #[retval] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateEffectGroup(&self, #[out] #[out_ptr] #[retval] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
+            fn CreateRectangleClip(&self, #[out] #[out_ptr] #[retval] clip: *mut IDCompositionRectangleClip) -> HRESULT;
+            fn CreateAnimation(&self, #[out] #[out_ptr] #[retval] animation: *mut IDCompositionAnimation) -> HRESULT;
         }
         #[guid(0x0987cb06_f916_48bf_8d35_ce7641781bd9)]
         interface IDCompositionDevice3: IDCompositionDevice2 {
-            fn CreateGaussianBlurEffect(&self, #[out] #[out_ptr] gaussianBlurEffect: *mut IDCompositionGaussianBlurEffect) -> HRESULT;
-            fn CreateBrightnessEffect(&self, #[out] #[out_ptr] brightnessEffect: *mut IDCompositionBrightnessEffect) -> HRESULT;
-            fn CreateColorMatrixEffect(&self, #[out] #[out_ptr] colorMatrixEffect: *mut IDCompositionColorMatrixEffect) -> HRESULT;
-            fn CreateShadowEffect(&self, #[out] #[out_ptr] shadowEffect: *mut IDCompositionShadowEffect) -> HRESULT;
-            fn CreateHueRotationEffect(&self, #[out] #[out_ptr] hueRotationEffect: *mut IDCompositionHueRotationEffect) -> HRESULT;
-            fn CreateSaturationEffect(&self, #[out] #[out_ptr] saturationEffect: *mut IDCompositionSaturationEffect) -> HRESULT;
-            fn CreateTurbulenceEffect(&self, #[out] #[out_ptr] turbulenceEffect: *mut IDCompositionTurbulenceEffect) -> HRESULT;
-            fn CreateLinearTransferEffect(&self, #[out] #[out_ptr] linearTransferEffect: *mut IDCompositionLinearTransferEffect) -> HRESULT;
-            fn CreateTableTransferEffect(&self, #[out] #[out_ptr] tableTransferEffect: *mut IDCompositionTableTransferEffect) -> HRESULT;
-            fn CreateCompositeEffect(&self, #[out] #[out_ptr] compositeEffect: *mut IDCompositionCompositeEffect) -> HRESULT;
-            fn CreateBlendEffect(&self, #[out] #[out_ptr] blendEffect: *mut IDCompositionBlendEffect) -> HRESULT;
-            fn CreateArithmeticCompositeEffect(&self, #[out] #[out_ptr] arithmeticCompositeEffect: *mut IDCompositionArithmeticCompositeEffect) -> HRESULT;
-            fn CreateAffineTransform2DEffect(&self, #[out] #[out_ptr] affineTransform2dEffect: *mut IDCompositionAffineTransform2DEffect) -> HRESULT;
+            fn CreateGaussianBlurEffect(&self, #[out] #[out_ptr] #[retval] gaussianBlurEffect: *mut IDCompositionGaussianBlurEffect) -> HRESULT;
+            fn CreateBrightnessEffect(&self, #[out] #[out_ptr] #[retval] brightnessEffect: *mut IDCompositionBrightnessEffect) -> HRESULT;
+            fn CreateColorMatrixEffect(&self, #[out] #[out_ptr] #[retval] colorMatrixEffect: *mut IDCompositionColorMatrixEffect) -> HRESULT;
+            fn CreateShadowEffect(&self, #[out] #[out_ptr] #[retval] shadowEffect: *mut IDCompositionShadowEffect) -> HRESULT;
+            fn CreateHueRotationEffect(&self, #[out] #[out_ptr] #[retval] hueRotationEffect: *mut IDCompositionHueRotationEffect) -> HRESULT;
+            fn CreateSaturationEffect(&self, #[out] #[out_ptr] #[retval] saturationEffect: *mut IDCompositionSaturationEffect) -> HRESULT;
+            fn CreateTurbulenceEffect(&self, #[out] #[out_ptr] #[retval] turbulenceEffect: *mut IDCompositionTurbulenceEffect) -> HRESULT;
+            fn CreateLinearTransferEffect(&self, #[out] #[out_ptr] #[retval] linearTransferEffect: *mut IDCompositionLinearTransferEffect) -> HRESULT;
+            fn CreateTableTransferEffect(&self, #[out] #[out_ptr] #[retval] tableTransferEffect: *mut IDCompositionTableTransferEffect) -> HRESULT;
+            fn CreateCompositeEffect(&self, #[out] #[out_ptr] #[retval] compositeEffect: *mut IDCompositionCompositeEffect) -> HRESULT;
+            fn CreateBlendEffect(&self, #[out] #[out_ptr] #[retval] blendEffect: *mut IDCompositionBlendEffect) -> HRESULT;
+            fn CreateArithmeticCompositeEffect(&self, #[out] #[out_ptr] #[retval] arithmeticCompositeEffect: *mut IDCompositionArithmeticCompositeEffect) -> HRESULT;
+            fn CreateAffineTransform2DEffect(&self, #[out] #[out_ptr] #[retval] affineTransform2dEffect: *mut IDCompositionAffineTransform2DEffect) -> HRESULT;
         }
         #[guid(0x85fc5cca_2da6_494c_86b6_4a775c049b8a)]
         interface IDCompositionDevice4: IDCompositionDevice3 {
@@ -169,7 +169,7 @@ mod Windows {
         }
         #[guid(0x2c6bebfe_a603_472f_af34_d2443356e61b)]
         interface IDCompositionDevice5: IDCompositionDevice4 {
-            fn CreateDynamicTexture(&self, #[out] #[out_ptr] compositionDynamicTexture: *mut IDCompositionDynamicTexture) -> HRESULT;
+            fn CreateDynamicTexture(&self, #[out] #[out_ptr] #[retval] compositionDynamicTexture: *mut IDCompositionDynamicTexture) -> HRESULT;
         }
         #[guid(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c)]
         interface IDCompositionDeviceDebug: IUnknown {
@@ -364,8 +364,8 @@ mod Windows {
         }
         #[guid(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8)]
         interface IDCompositionSurfaceFactory: IUnknown {
-            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] surface: *mut IDCompositionSurface) -> HRESULT;
-            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateSurface(&self, #[in] width: UINT, #[in] height: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, #[in] initialWidth: UINT, #[in] initialHeight: UINT, #[in] pixelFormat: DXGI_FORMAT, #[in] alphaMode: DXGI_ALPHA_MODE, #[out] #[out_ptr] #[retval] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
         }
         #[guid(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd)]
         interface IDCompositionTableTransferEffect: IDCompositionFilterEffect {

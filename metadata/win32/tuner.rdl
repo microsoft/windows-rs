@@ -639,21 +639,21 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponentType, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumComponentTypes) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumComponentTypes) -> HRESULT;
         }
         #[guid(0x2a6e2939_2595_11d3_b64c_00c04f79498e)]
         interface IEnumComponents: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponent, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumComponents) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumComponents) -> HRESULT;
         }
         #[guid(0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980)]
         interface IEnumTuningSpaces: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut ITuningSpace, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
         }
         #[guid(0x907e0b5c_e42d_4f04_91f0_26f401f36907)]
         interface IGpnvsCommonBase: IUnknown {

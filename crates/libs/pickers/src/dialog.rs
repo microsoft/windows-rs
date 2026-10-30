@@ -114,9 +114,8 @@ pub fn show_dialog(dialog: &IFileDialog, owner: *mut core::ffi::c_void) -> Resul
         return Ok(None);
     }
 
-    let mut item = None;
-    unsafe { dialog.GetResult(&mut item).ok()? };
-    Ok(Some(item_path(&item.unwrap())?))
+    let item = unsafe { dialog.GetResult()? };
+    Ok(Some(item_path(&item)?))
 }
 
 pub fn show_dialog_multiple(
@@ -127,16 +126,13 @@ pub fn show_dialog_multiple(
         return Ok(Vec::new());
     }
 
-    let mut items = None;
-    unsafe { dialog.GetResults(&mut items).ok()? };
-    let items = items.unwrap();
+    let items = unsafe { dialog.GetResults()? };
     let mut count = 0;
     unsafe { items.GetCount(&mut count).ok()? };
     (0..count)
         .map(|index| {
-            let mut item = None;
-            unsafe { items.GetItemAt(index, &mut item).ok()? };
-            item_path(&item.unwrap())
+            let item = unsafe { items.GetItemAt(index)? };
+            item_path(&item)
         })
         .collect()
 }

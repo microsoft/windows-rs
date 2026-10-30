@@ -110,6 +110,10 @@ impl Results_Impl for Provider_Impl {
         assert_eq!(unsafe { *input }, core::ptr::without_provenance_mut(1));
         Err(E_FAIL.into())
     }
+
+    fn TypedefSlot(&self) -> windows_core::Result<Tracked> {
+        self.Required()
+    }
 }
 
 fn provider(mode: &Rc<Cell<Mode>>, drops: &Rc<Cell<u32>>) -> Results {
@@ -140,6 +144,8 @@ fn nullable_results_transfer_owned_references() {
         assert_eq!(drops.get(), 5);
         drop(result.Reserved(None).unwrap().unwrap());
         assert_eq!(drops.get(), 6);
+        drop(result.TypedefSlot().unwrap());
+        assert_eq!(drops.get(), 7);
 
         mode.set(Mode::Null);
         assert!(result.Nullable().unwrap().is_none());
@@ -153,7 +159,7 @@ fn nullable_results_transfer_owned_references() {
             .OptionalStorage::<Tracked>(core::ptr::null_mut())
             .unwrap();
         assert!(result.Data().unwrap().is_null());
-        assert_eq!(drops.get(), 6);
+        assert_eq!(drops.get(), 7);
 
         mode.set(Mode::Failure);
         assert_eq!(result.Nullable().unwrap_err().code(), E_FAIL);

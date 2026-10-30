@@ -60,12 +60,12 @@ mod Windows {
         }
         #[guid(0x02656950_2152_11d0_944c_00a0c905416e)]
         interface ITransactionCloner: ITransaction {
-            fn CloneWithCommitDisabled(&self, #[out] #[out_ptr] ppITransaction: *mut ITransaction) -> HRESULT;
+            fn CloneWithCommitDisabled(&self, #[out] #[out_ptr] #[retval] ppITransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionDispenser: IUnknown {
-            fn GetOptionsObject(&self, #[out] #[out_ptr] ppOptions: *mut ITransactionOptions) -> HRESULT;
-            fn BeginTransaction(&self, #[in] #[opt] punkOuter: IUnknown, #[in] isoLevel: ISOLEVEL, #[in] isoFlags: ULONG, #[in] #[opt] pOptions: ITransactionOptions, #[out] #[out_ptr] ppTransaction: *mut ITransaction) -> HRESULT;
+            fn GetOptionsObject(&self, #[out] #[out_ptr] #[retval] ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn BeginTransaction(&self, #[in] #[opt] punkOuter: IUnknown, #[in] isoLevel: ISOLEVEL, #[in] isoFlags: ULONG, #[in] #[opt] pOptions: ITransactionOptions, #[out] #[out_ptr] #[retval] ppTransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionOptions: IUnknown {

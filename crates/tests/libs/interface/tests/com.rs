@@ -124,9 +124,7 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 fn test_custom_interface() -> Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
-        let mut a = None;
-        CreateUri(w!("http://kennykerr.ca"), 0, None, &mut a).ok()?;
-        let a: IUri = a.unwrap();
+        let a: IUri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;

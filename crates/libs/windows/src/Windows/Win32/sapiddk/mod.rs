@@ -2063,11 +2063,14 @@ impl ISpTaskManager {
         unsafe { (windows_core::Interface::vtable(self).CreateReoccurringTask)(windows_core::Interface::as_raw(self), ptask.param().abi(), pvtaskdata, hcompevent, core::mem::transmute(pptaskctrl)) }
     }
     #[cfg(feature = "sapi")]
-    pub unsafe fn CreateThreadControl<P0>(&self, ptask: P0, pvtaskdata: *const core::ffi::c_void, npriority: i32, pptaskctrl: *mut Option<ISpThreadControl>) -> windows_core::HRESULT
+    pub unsafe fn CreateThreadControl<P0>(&self, ptask: P0, pvtaskdata: *const core::ffi::c_void, npriority: i32) -> windows_core::Result<ISpThreadControl>
     where
         P0: windows_core::Param<ISpThreadTask>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateThreadControl)(windows_core::Interface::as_raw(self), ptask.param().abi(), pvtaskdata, npriority, core::mem::transmute(pptaskctrl)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateThreadControl)(windows_core::Interface::as_raw(self), ptask.param().abi(), pvtaskdata, npriority, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn TerminateTask(&self, dwtaskid: super::DWORD, ulwaitperiod: super::ULONG) -> windows_core::HRESULT {
@@ -2117,7 +2120,7 @@ pub trait ISpTaskManager_Impl: windows_core::IUnknownImpl {
     fn GetThreadPoolInfo(&self, ppoolinfo: *mut SPTMTHREADINFO) -> windows_core::Result<()>;
     fn QueueTask(&self, ptask: windows_core::Ref<ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::HANDLE, pdwgroupid: *mut super::DWORD, ptaskid: *mut super::DWORD) -> windows_core::Result<()>;
     fn CreateReoccurringTask(&self, ptask: windows_core::Ref<ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::HANDLE, pptaskctrl: windows_core::OutRef<super::ISpNotifySink>) -> windows_core::Result<()>;
-    fn CreateThreadControl(&self, ptask: windows_core::Ref<ISpThreadTask>, pvtaskdata: *const core::ffi::c_void, npriority: i32, pptaskctrl: windows_core::OutRef<ISpThreadControl>) -> windows_core::Result<()>;
+    fn CreateThreadControl(&self, ptask: windows_core::Ref<ISpThreadTask>, pvtaskdata: *const core::ffi::c_void, npriority: i32) -> windows_core::Result<ISpThreadControl>;
     fn TerminateTask(&self, dwtaskid: super::DWORD, ulwaitperiod: super::ULONG) -> windows_core::Result<()>;
     fn TerminateTaskGroup(&self, dwgroupid: super::DWORD, ulwaitperiod: super::ULONG) -> windows_core::Result<()>;
 }
@@ -2151,7 +2154,13 @@ impl ISpTaskManager_Vtbl {
         unsafe extern "system" fn CreateThreadControl<Identity: ISpTaskManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptask: *mut core::ffi::c_void, pvtaskdata: *const core::ffi::c_void, npriority: i32, pptaskctrl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpTaskManager_Impl::CreateThreadControl(this, core::mem::transmute_copy(&ptask), core::mem::transmute_copy(&pvtaskdata), core::mem::transmute_copy(&npriority), core::mem::transmute_copy(&pptaskctrl)).into()
+                match ISpTaskManager_Impl::CreateThreadControl(this, core::mem::transmute_copy(&ptask), core::mem::transmute_copy(&pvtaskdata), core::mem::transmute_copy(&npriority)) {
+                    Ok(ok__) => {
+                        pptaskctrl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn TerminateTask<Identity: ISpTaskManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtaskid: super::DWORD, ulwaitperiod: super::ULONG) -> windows_core::HRESULT {

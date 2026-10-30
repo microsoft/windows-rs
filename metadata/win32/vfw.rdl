@@ -124,7 +124,7 @@ mod Windows {
         extern fn AVIFileWriteData(#[in] pfile: PAVIFILE, #[in] ckid: DWORD, #[in] #[readable(entry, bytes(cbData))] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
         const AVIGETFRAMEF_BESTDISPLAYFMT: i32 = 1;
         #[library("AVIFIL32.dll")]
-        extern fn AVIGetFromClipboard(#[out] #[out_ptr] lppf: *mut PAVIFILE) -> HRESULT;
+        extern fn AVIGetFromClipboard(#[out] #[out_ptr] #[retval] lppf: *mut PAVIFILE) -> HRESULT;
         const AVIIF_COMPUSE: i32 = 268369920;
         const AVIIF_FIRSTPART: i32 = 32;
         const AVIIF_KEYFRAME: i32 = 16;
@@ -144,7 +144,7 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIMakeFileFromStreams(#[out] #[out_ptr] ppfile: *mut PAVIFILE, #[in] nStreams: i32, #[in] #[readable(entry, nStreams)] papStreams: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIMakeStreamFromClipboard(cfFormat: UINT, #[in] hGlobal: HANDLE, #[out] #[out_ptr] ppstream: *mut PAVISTREAM) -> HRESULT;
+        extern fn AVIMakeStreamFromClipboard(cfFormat: UINT, #[in] hGlobal: HANDLE, #[out] #[out_ptr] #[retval] ppstream: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIPutFileOnClipboard(#[in] pf: PAVIFILE) -> HRESULT;
         extern fn AVISAVECALLBACK(param0: i32) -> BOOL;
@@ -492,11 +492,11 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn DrawDibTime(#[in] hdd: HDRAWDIB, #[out] lpddtime: LPDRAWDIBTIME) -> BOOL;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamClone(#[in] pavi: PAVISTREAM, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamClone(#[in] pavi: PAVISTREAM, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamCopy(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamCopy(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamCut(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamCut(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn EditStreamPaste(#[in] pavi: PAVISTREAM, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[in] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
@@ -547,10 +547,10 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Cut(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
-            fn Copy(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Cut(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Copy(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn Paste(&self, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
         #[guid(0x00020020_0000_0000_c000_000000000046)]

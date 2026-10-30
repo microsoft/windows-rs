@@ -73,15 +73,15 @@ mod Windows {
         #[guid(0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugExtendedProperty: IDebugProperty {
             fn GetExtendedPropertyInfo(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[out] pExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo) -> HRESULT;
-            fn EnumExtendedMembers(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[out] #[out_ptr] ppeepi: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
+            fn EnumExtendedMembers(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[out] #[out_ptr] #[retval] ppeepi: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
         }
         #[guid(0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugProperty: IUnknown {
             fn GetPropertyInfo(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[out] pPropertyInfo: *mut DebugPropertyInfo) -> HRESULT;
             fn GetExtendedInfo(&self, #[in] cInfos: ULONG, #[in] #[readable(entry, cInfos)] rgguidExtendedInfo: *mut GUID, #[out] #[readable(success, cInfos)] #[writable(entry, cInfos)] #[writable(success, cInfos)] rgvar: *mut VARIANT) -> HRESULT;
             fn SetValueAsString(&self, #[in] pszValue: LPCOLESTR, #[in] nRadix: UINT) -> HRESULT;
-            fn EnumMembers(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[in] refiid: &IID, #[out] #[out_ptr] ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
-            fn GetParent(&self, #[out] #[out_ptr] ppDebugProp: *mut IDebugProperty) -> HRESULT;
+            fn EnumMembers(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[in] refiid: &IID, #[out] #[out_ptr] #[retval] ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
+            fn GetParent(&self, #[out] #[out_ptr] #[retval] ppDebugProp: *mut IDebugProperty) -> HRESULT;
         }
         #[guid(0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugPropertyEnumType_All: IUnknown {
@@ -100,7 +100,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] pedpe: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] pedpe: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
             fn GetCount(&self, #[out] pcelt: *mut ULONG) -> HRESULT;
         }
         #[guid(0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a)]
@@ -108,7 +108,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] pi: *mut DebugPropertyInfo, #[out] pcEltsfetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
             fn GetCount(&self, #[out] pcelt: *mut ULONG) -> HRESULT;
         }
         #[guid(0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a)]

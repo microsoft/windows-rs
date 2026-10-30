@@ -364,7 +364,7 @@ mod Windows {
         }
         #[guid(0x219a9db0_4959_47d0_8034_b1ce84f41a4d)]
         interface IXpsOMPackageTarget: IUnknown {
-            fn CreateXpsOMPackageWriter(&self, #[in] #[opt] documentSequencePartName: IOpcPartUri, #[in] #[opt] documentSequencePrintTicket: IXpsOMPrintTicketResource, #[in] #[opt] discardControlPartName: IOpcPartUri, #[out] #[out_ptr] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
+            fn CreateXpsOMPackageWriter(&self, #[in] #[opt] documentSequencePartName: IOpcPartUri, #[in] #[opt] documentSequencePrintTicket: IXpsOMPrintTicketResource, #[in] #[opt] discardControlPartName: IOpcPartUri, #[out] #[out_ptr] #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
         }
         #[guid(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9)]
         interface IXpsOMPackageWriter: IUnknown {

@@ -629,7 +629,7 @@ mod Windows {
             fn Resolve(&self, #[in] #[opt] pFrom: IDispatch) -> HRESULT;
             fn SetSecurity(&self, #[in] Sddl: BSTR) -> HRESULT;
             fn GetSecurity(&self, #[in] SecurityInfo: ULONG, #[out] #[out_ptr] #[retval] Sddl: *mut BSTR) -> HRESULT;
-            fn GetRegisteredProcesses(&self, #[out] #[out_ptr] Processes: *mut IValueMap) -> HRESULT;
+            fn GetRegisteredProcesses(&self, #[out] #[out_ptr] #[retval] Processes: *mut IValueMap) -> HRESULT;
         }
         #[guid(0x03837510_098b_11d8_9414_505054503030)]
         interface ITraceDataProviderCollection: IDispatch {

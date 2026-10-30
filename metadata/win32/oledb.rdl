@@ -1901,7 +1901,7 @@ mod Windows {
             fn AddErrorRecord(&self, #[in] pErrorInfo: *mut ERRORINFO, #[in] dwLookupID: DWORD, #[in] #[opt] pdispparams: *mut DISPPARAMS, #[in] #[opt] punkCustomError: IUnknown, #[in] dwDynamicErrorID: DWORD) -> HRESULT;
             fn GetBasicErrorInfo(&self, #[in] ulRecordNum: ULONG, #[out] pErrorInfo: *mut ERRORINFO) -> HRESULT;
             fn GetCustomErrorObject(&self, #[in] ulRecordNum: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(nullable)] ppObject: *mut IUnknown) -> HRESULT;
-            fn GetErrorInfo(&self, #[in] ulRecordNum: ULONG, #[in] lcid: LCID, #[out] #[out_ptr] ppErrorInfo: *mut IErrorInfo) -> HRESULT;
+            fn GetErrorInfo(&self, #[in] ulRecordNum: ULONG, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] ppErrorInfo: *mut IErrorInfo) -> HRESULT;
             fn GetErrorParameters(&self, #[in] ulRecordNum: ULONG, #[out] pdispparams: *mut DISPPARAMS) -> HRESULT;
             fn GetRecordCount(&self, #[out] pcRecords: *mut ULONG) -> HRESULT;
         }
@@ -2131,17 +2131,17 @@ mod Windows {
         }
         #[guid(0x0c733a5e_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionJoin: IUnknown {
-            fn GetOptionsObject(&self, #[out] #[out_ptr] ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn GetOptionsObject(&self, #[out] #[out_ptr] #[retval] ppOptions: *mut ITransactionOptions) -> HRESULT;
             fn JoinTransaction(&self, #[in] #[opt] punkTransactionCoord: IUnknown, #[in] isoLevel: ISOLEVEL, #[in] isoFlags: ULONG, #[in] #[opt] pOtherOptions: ITransactionOptions) -> HRESULT;
         }
         #[guid(0x0c733a5f_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionLocal: ITransaction {
-            fn GetOptionsObject(&self, #[out] #[out_ptr] ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn GetOptionsObject(&self, #[out] #[out_ptr] #[retval] ppOptions: *mut ITransactionOptions) -> HRESULT;
             fn StartTransaction(&self, #[in] isoLevel: ISOLEVEL, #[in] isoFlags: ULONG, #[in] #[opt] pOtherOptions: ITransactionOptions, #[opt] #[out] pulTransactionLevel: *mut ULONG) -> HRESULT;
         }
         #[guid(0x0c733a60_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionObject: IUnknown {
-            fn GetTransactionObject(&self, #[in] ulTransactionLevel: ULONG, #[out] #[out_ptr] ppTransactionObject: *mut ITransaction) -> HRESULT;
+            fn GetTransactionObject(&self, #[in] ulTransactionLevel: ULONG, #[out] #[out_ptr] #[retval] ppTransactionObject: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x0c733aa1_2a1c_11ce_ade5_00aa0044773d)]
         interface ITrusteeAdmin: IUnknown {

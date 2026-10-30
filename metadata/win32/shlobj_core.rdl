@@ -108,7 +108,7 @@ mod Windows {
         }
         const CABINETSTATE_VERSION: i32 = 2;
         #[library("SHELL32.dll")]
-        extern fn CDefFolderMenu_Create2(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] #[opt] hwnd: HWND, cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[in] #[opt] psf: IShellFolder, #[in] #[opt] pfn: LPFNDFMCALLBACK, nKeys: UINT, #[in] #[opt] #[readable(entry, nKeys)] ahkeys: *const HKEY, #[out] #[out_ptr] ppcm: *mut IContextMenu) -> HRESULT;
+        extern fn CDefFolderMenu_Create2(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] #[opt] hwnd: HWND, cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[in] #[opt] psf: IShellFolder, #[in] #[opt] pfn: LPFNDFMCALLBACK, nKeys: UINT, #[in] #[opt] #[readable(entry, nKeys)] ahkeys: *const HKEY, #[out] #[out_ptr] #[retval] ppcm: *mut IContextMenu) -> HRESULT;
         #[encoding("ansi")]
         const CFSTR_AUTOPLAY_SHELLIDLISTS: String = "Autoplay Enumerated IDList Array";
         #[encoding("ansi")]
@@ -181,7 +181,7 @@ mod Windows {
             aoffset: [UINT; 1],
         }
         #[library("SHELL32.dll")]
-        extern fn CIDLData_CreateFromIDArray(#[in] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[out] #[out_ptr] ppdtobj: *mut IDataObject) -> HRESULT;
+        extern fn CIDLData_CreateFromIDArray(#[in] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[out] #[out_ptr] #[retval] ppdtobj: *mut IDataObject) -> HRESULT;
         const CMDID_INTSHORTCUTCREATE: i32 = 1;
         #[packed(1)]
         struct COMPONENT {
@@ -1448,13 +1448,13 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreateFileExtractIconW(#[in] pszFile: LPCWSTR, #[in] dwFileAttributes: DWORD, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellFolderView(#[in] pcsfv: *const SFV_CREATE, #[out] #[out_ptr] ppsv: *mut IShellView) -> HRESULT;
+        extern fn SHCreateShellFolderView(#[in] pcsfv: *const SFV_CREATE, #[out] #[out_ptr] #[retval] ppsv: *mut IShellView) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellFolderViewEx(#[in] pcsfv: *mut CSFV, #[out] #[out_ptr] ppsv: *mut IShellView) -> HRESULT;
+        extern fn SHCreateShellFolderViewEx(#[in] pcsfv: *mut CSFV, #[out] #[out_ptr] #[retval] ppsv: *mut IShellView) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItem(#[in] #[opt] pidlParent: LPCITEMIDLIST, #[in] #[opt] psfParent: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppsi: *mut IShellItem) -> HRESULT;
+        extern fn SHCreateShellItem(#[in] #[opt] pidlParent: LPCITEMIDLIST, #[in] #[opt] psfParent: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] #[retval] ppsi: *mut IShellItem) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateStdEnumFmtEtc(#[in] cfmt: UINT, #[in] #[readable(entry, cfmt)] afmt: *const FORMATETC, #[out] #[out_ptr] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn SHCreateStdEnumFmtEtc(#[in] cfmt: UINT, #[in] #[readable(entry, cfmt)] afmt: *const FORMATETC, #[out] #[out_ptr] #[retval] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
         #[packed(8)]
         struct SHDESCRIPTIONID {
             dwDescriptionId: DWORD,
@@ -1680,7 +1680,7 @@ mod Windows {
         extern fn SHGetDataFromIDListW(#[in] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, nFormat: i32, #[out] #[writable(entry, bytes(cb))] pv: *mut void, cb: i32) -> HRESULT;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetDesktopFolder(#[out] #[out_ptr] ppshf: *mut IShellFolder) -> HRESULT;
+        extern fn SHGetDesktopFolder(#[out] #[out_ptr] #[retval] ppshf: *mut IShellFolder) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1697,7 +1697,7 @@ mod Windows {
         extern fn SHGetIconOverlayIndexW(#[in] #[opt] pszIconPath: LPCWSTR, iIconIndex: i32) -> i32;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetInstanceExplorer(#[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHGetInstanceExplorer(#[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetKnownFolderIDList(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1706,7 +1706,7 @@ mod Windows {
         extern fn SHGetKnownFolderPath(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] #[out_ptr] ppszPath: *mut PWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetMalloc(#[out] #[out_ptr] ppMalloc: *mut IMalloc) -> HRESULT;
+        extern fn SHGetMalloc(#[out] #[out_ptr] #[retval] ppMalloc: *mut IMalloc) -> HRESULT;
         #[library("SHELL32.dll")]
         #[success(return != 0)]
         extern fn SHGetPathFromIDListA(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, 260)] pszPath: LPSTR) -> BOOL;

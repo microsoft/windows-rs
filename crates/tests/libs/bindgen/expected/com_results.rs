@@ -192,6 +192,16 @@ impl Results {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub unsafe fn TypedefSlot(&self) -> windows_core::Result<Tracked> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TypedefSlot)(
+                windows_core::Interface::as_raw(self),
+                core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast(),
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct Results_Vtbl {
@@ -237,6 +247,8 @@ pub struct Results_Vtbl {
         *const *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    pub TypedefSlot:
+        unsafe extern "system" fn(*mut core::ffi::c_void, TrackedSlot) -> windows_core::HRESULT,
 }
 pub trait Results_Impl: windows_core::IUnknownImpl {
     fn Nullable(&self) -> windows_core::Result<Option<ObjectAlias>>;
@@ -257,6 +269,7 @@ pub trait Results_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn Data(&self) -> windows_core::Result<*mut u8>;
     fn ReadThenFail(&self, input: *const *mut core::ffi::c_void) -> windows_core::Result<Tracked>;
+    fn TypedefSlot(&self) -> windows_core::Result<Tracked>;
 }
 impl Results_Vtbl {
     pub const fn new<Identity: Results_Impl, const OFFSET: isize>() -> Self {
@@ -431,6 +444,22 @@ impl Results_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn TypedefSlot<Identity: Results_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: TrackedSlot,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match Results_Impl::TypedefSlot(this) {
+                    Ok(ok__) => {
+                        value.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Nullable: Nullable::<Identity, OFFSET>,
@@ -443,6 +472,7 @@ impl Results_Vtbl {
             InOutQuery: InOutQuery::<Identity, OFFSET>,
             Data: Data::<Identity, OFFSET>,
             ReadThenFail: ReadThenFail::<Identity, OFFSET>,
+            TypedefSlot: TypedefSlot::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -472,3 +502,4 @@ impl Tracked_Vtbl {
     }
 }
 impl windows_core::RuntimeName for Tracked {}
+pub type TrackedSlot = *mut Option<Tracked>;

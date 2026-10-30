@@ -5280,8 +5280,11 @@ impl ITraceDataProvider {
             (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), securityinfo, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetRegisteredProcesses(&self, processes: *mut Option<IValueMap>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRegisteredProcesses)(windows_core::Interface::as_raw(self), core::mem::transmute(processes)) }
+    pub unsafe fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRegisteredProcesses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -5350,7 +5353,7 @@ pub trait ITraceDataProvider_Impl: super::IDispatch_Impl {
     fn Resolve(&self, pfrom: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
     fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetSecurity(&self, securityinfo: super::ULONG) -> windows_core::Result<windows_core::BSTR>;
-    fn GetRegisteredProcesses(&self, processes: windows_core::OutRef<IValueMap>) -> windows_core::Result<()>;
+    fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITraceDataProvider_Vtbl {
@@ -5526,7 +5529,13 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn GetRegisteredProcesses<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::GetRegisteredProcesses(this, core::mem::transmute_copy(&processes)).into()
+                match ITraceDataProvider_Impl::GetRegisteredProcesses(this) {
+                    Ok(ok__) => {
+                        processes.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

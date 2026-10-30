@@ -10,12 +10,15 @@ where
 }
 #[cfg(feature = "shobjidl_core")]
 #[inline]
-pub unsafe fn SHCreateDefaultPropertiesOp<P0>(psi: P0, ppfileop: *mut Option<super::IFileOperation>) -> windows_core::HRESULT
+pub unsafe fn SHCreateDefaultPropertiesOp<P0>(psi: P0) -> windows_core::Result<super::IFileOperation>
 where
     P0: windows_core::Param<super::IShellItem>,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : *mut core::ffi::c_void, ppfileop : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateDefaultPropertiesOp(psi.param().abi(), core::mem::transmute(ppfileop)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateDefaultPropertiesOp(psi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "windef"))]
 #[inline]
@@ -821,8 +824,11 @@ impl IEnumerableView {
         unsafe { (windows_core::Interface::vtable(self).SetEnumReadyCallback)(windows_core::Interface::as_raw(self), percb.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
-    pub unsafe fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: super::DWORD, ppenumidlist: *mut Option<super::IEnumIDList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateEnumIDListFromContents)(windows_core::Interface::as_raw(self), pidlfolder, dwenumflags, core::mem::transmute(ppenumidlist)) }
+    pub unsafe fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: super::DWORD) -> windows_core::Result<super::IEnumIDList> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateEnumIDListFromContents)(windows_core::Interface::as_raw(self), pidlfolder, dwenumflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -838,7 +844,7 @@ pub struct IEnumerableView_Vtbl {
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 pub trait IEnumerableView_Impl: windows_core::IUnknownImpl {
     fn SetEnumReadyCallback(&self, percb: windows_core::Ref<IEnumReadyCallback>) -> windows_core::Result<()>;
-    fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: super::DWORD, ppenumidlist: windows_core::OutRef<super::IEnumIDList>) -> windows_core::Result<()>;
+    fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: super::DWORD) -> windows_core::Result<super::IEnumIDList>;
 }
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 impl IEnumerableView_Vtbl {
@@ -852,7 +858,13 @@ impl IEnumerableView_Vtbl {
         unsafe extern "system" fn CreateEnumIDListFromContents<Identity: IEnumerableView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidlfolder: super::LPCITEMIDLIST, dwenumflags: super::DWORD, ppenumidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumerableView_Impl::CreateEnumIDListFromContents(this, core::mem::transmute_copy(&pidlfolder), core::mem::transmute_copy(&dwenumflags), core::mem::transmute_copy(&ppenumidlist)).into()
+                match IEnumerableView_Impl::CreateEnumIDListFromContents(this, core::mem::transmute_copy(&pidlfolder), core::mem::transmute_copy(&dwenumflags)) {
+                    Ok(ok__) => {
+                        ppenumidlist.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1324,12 +1336,15 @@ windows_core::imp::define_interface!(IImageRecompress, IImageRecompress_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IImageRecompress, windows_core::IUnknown);
 impl IImageRecompress {
     #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shobjidl_core"))]
-    pub unsafe fn RecompressImage<P0, P4>(&self, psi: P0, cx: i32, cy: i32, iquality: i32, pstg: P4, ppstrmout: *mut Option<super::IStream>) -> windows_core::HRESULT
+    pub unsafe fn RecompressImage<P0, P4>(&self, psi: P0, cx: i32, cy: i32, iquality: i32, pstg: P4) -> windows_core::Result<super::IStream>
     where
         P0: windows_core::Param<super::IShellItem>,
         P4: windows_core::Param<super::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RecompressImage)(windows_core::Interface::as_raw(self), psi.param().abi(), cx, cy, iquality, pstg.param().abi(), core::mem::transmute(ppstrmout)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RecompressImage)(windows_core::Interface::as_raw(self), psi.param().abi(), cx, cy, iquality, pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1343,7 +1358,7 @@ pub struct IImageRecompress_Vtbl {
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shobjidl_core"))]
 pub trait IImageRecompress_Impl: windows_core::IUnknownImpl {
-    fn RecompressImage(&self, psi: windows_core::Ref<super::IShellItem>, cx: i32, cy: i32, iquality: i32, pstg: windows_core::Ref<super::IStorage>, ppstrmout: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
+    fn RecompressImage(&self, psi: windows_core::Ref<super::IShellItem>, cx: i32, cy: i32, iquality: i32, pstg: windows_core::Ref<super::IStorage>) -> windows_core::Result<super::IStream>;
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shobjidl_core"))]
 impl IImageRecompress_Vtbl {
@@ -1351,7 +1366,13 @@ impl IImageRecompress_Vtbl {
         unsafe extern "system" fn RecompressImage<Identity: IImageRecompress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, cx: i32, cy: i32, iquality: i32, pstg: *mut core::ffi::c_void, ppstrmout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageRecompress_Impl::RecompressImage(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&iquality), core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&ppstrmout)).into()
+                match IImageRecompress_Impl::RecompressImage(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&iquality), core::mem::transmute_copy(&pstg)) {
+                    Ok(ok__) => {
+                        ppstrmout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RecompressImage: RecompressImage::<Identity, OFFSET> }

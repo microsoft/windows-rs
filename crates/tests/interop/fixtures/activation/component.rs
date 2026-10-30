@@ -24,7 +24,7 @@ impl Nested::IWidget_Impl for Widget_Impl {
 struct Settings;
 
 impl IActivationFactory_Impl for Settings_Impl {
-    fn ActivateInstance(&self, _: OutRef<IInspectable>) -> Result<()> {
+    fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(E_NOTIMPL.into())
     }
 }

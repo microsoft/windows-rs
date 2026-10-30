@@ -10,29 +10,29 @@ mod Windows {
             fn SetCallback(&self, #[in] pCallback: IWSDAsyncCallback, #[in] pAsyncState: IUnknown) -> HRESULT;
             fn SetWaitHandle(&self, #[in] hWaitHandle: HANDLE) -> HRESULT;
             fn HasCompleted(&self) -> HRESULT;
-            fn GetAsyncState(&self, #[out] #[out_ptr] ppAsyncState: *mut IUnknown) -> HRESULT;
+            fn GetAsyncState(&self, #[out] #[out_ptr] #[retval] ppAsyncState: *mut IUnknown) -> HRESULT;
             fn Abort(&self) -> HRESULT;
             fn GetEvent(&self, #[out] pEvent: *mut WSD_EVENT) -> HRESULT;
-            fn GetEndpointProxy(&self, #[out] #[out_ptr] ppEndpoint: *mut IWSDEndpointProxy) -> HRESULT;
+            fn GetEndpointProxy(&self, #[out] #[out_ptr] #[retval] ppEndpoint: *mut IWSDEndpointProxy) -> HRESULT;
         }
         #[guid(0xeee0c031_c578_4c0e_9a3b_973c35f409db)]
         interface IWSDDeviceProxy: IUnknown {
             fn Init(&self, #[in] pszDeviceId: LPCWSTR, #[in] pDeviceAddress: IWSDAddress, #[in] pszLocalId: LPCWSTR, #[in] #[opt] pContext: IWSDXMLContext, #[in] #[opt] pSponsor: IWSDDeviceProxy) -> HRESULT;
-            fn BeginGetMetadata(&self, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginGetMetadata(&self, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndGetMetadata(&self, #[in] pResult: IWSDAsyncResult) -> HRESULT;
             fn GetHostMetadata(&self, #[out] #[out_ptr] ppHostMetadata: *mut *mut WSD_HOST_METADATA) -> HRESULT;
             fn GetThisModelMetadata(&self, #[out] #[out_ptr] ppManufacturerMetadata: *mut *mut WSD_THIS_MODEL_METADATA) -> HRESULT;
             fn GetThisDeviceMetadata(&self, #[out] #[out_ptr] ppThisDeviceMetadata: *mut *mut WSD_THIS_DEVICE_METADATA) -> HRESULT;
             fn GetAllMetadata(&self, #[out] #[out_ptr] ppMetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> HRESULT;
-            fn GetServiceProxyById(&self, #[in] pszServiceId: LPCWSTR, #[out] #[out_ptr] ppServiceProxy: *mut IWSDServiceProxy) -> HRESULT;
-            fn GetServiceProxyByType(&self, #[in] pType: *const WSDXML_NAME, #[out] #[out_ptr] ppServiceProxy: *mut IWSDServiceProxy) -> HRESULT;
-            fn GetEndpointProxy(&self, #[out] #[out_ptr] ppProxy: *mut IWSDEndpointProxy) -> HRESULT;
+            fn GetServiceProxyById(&self, #[in] pszServiceId: LPCWSTR, #[out] #[out_ptr] #[retval] ppServiceProxy: *mut IWSDServiceProxy) -> HRESULT;
+            fn GetServiceProxyByType(&self, #[in] pType: *const WSDXML_NAME, #[out] #[out_ptr] #[retval] ppServiceProxy: *mut IWSDServiceProxy) -> HRESULT;
+            fn GetEndpointProxy(&self, #[out] #[out_ptr] #[retval] ppProxy: *mut IWSDEndpointProxy) -> HRESULT;
         }
         #[guid(0x1860d430_b24c_4975_9f90_dbb39baa24ec)]
         interface IWSDEndpointProxy: IUnknown {
             fn SendOneWayRequest(&self, #[in] pBody: *const void, #[in] pOperation: *const WSD_OPERATION) -> HRESULT;
             fn SendTwoWayRequest(&self, #[in] pBody: *const void, #[in] pOperation: *const WSD_OPERATION, #[in] #[opt] pResponseContext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> HRESULT;
-            fn SendTwoWayRequestAsync(&self, #[in] pBody: *const void, #[in] pOperation: *const WSD_OPERATION, #[in] pAsyncState: IUnknown, #[in] pCallback: IWSDAsyncCallback, #[out] #[out_ptr] pResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn SendTwoWayRequestAsync(&self, #[in] pBody: *const void, #[in] pOperation: *const WSD_OPERATION, #[in] pAsyncState: IUnknown, #[in] pCallback: IWSDAsyncCallback, #[out] #[out_ptr] #[retval] pResult: *mut IWSDAsyncResult) -> HRESULT;
             fn AbortAsyncOperation(&self, #[in] pAsyncResult: IWSDAsyncResult) -> HRESULT;
             fn ProcessFault(&self, #[in] pFault: *const WSD_SOAP_FAULT) -> HRESULT;
             fn GetErrorInfo(&self, #[out] #[out_ptr] ppszErrorInfo: *mut LPCWSTR) -> HRESULT;
@@ -50,34 +50,34 @@ mod Windows {
         }
         #[guid(0xd4c7fb9c_03ab_4175_9d67_094fafebf487)]
         interface IWSDServiceProxy: IWSDMetadataExchange {
-            fn BeginGetMetadata(&self, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginGetMetadata(&self, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndGetMetadata(&self, #[in] pResult: IWSDAsyncResult, #[out] #[out_ptr] ppMetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> HRESULT;
             fn GetServiceMetadata(&self, #[out] #[out_ptr] ppServiceMetadata: *mut *mut WSD_SERVICE_METADATA) -> HRESULT;
             fn SubscribeToOperation(&self, #[in] pOperation: *const WSD_OPERATION, #[in] pUnknown: IUnknown, #[in] pAny: *const WSDXML_ELEMENT, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
             fn UnsubscribeToOperation(&self, #[in] pOperation: *const WSD_OPERATION) -> HRESULT;
             fn SetEventingStatusCallback(&self, #[in] #[opt] pStatus: IWSDEventingStatus) -> HRESULT;
-            fn GetEndpointProxy(&self, #[out] #[out_ptr] ppProxy: *mut IWSDEndpointProxy) -> HRESULT;
+            fn GetEndpointProxy(&self, #[out] #[out_ptr] #[retval] ppProxy: *mut IWSDEndpointProxy) -> HRESULT;
         }
         #[guid(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe)]
         interface IWSDServiceProxyEventing: IWSDServiceProxy {
             fn SubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pUnknown: IUnknown, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
-            fn BeginSubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pUnknown: IUnknown, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginSubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pUnknown: IUnknown, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndSubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] pResult: IWSDAsyncResult, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
             fn UnsubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] pAny: *const WSDXML_ELEMENT) -> HRESULT;
-            fn BeginUnsubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginUnsubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndUnsubscribeToMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] pResult: IWSDAsyncResult) -> HRESULT;
             fn RenewMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
-            fn BeginRenewMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginRenewMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pExpires: *const WSD_EVENTING_EXPIRES, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndRenewMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] pResult: IWSDAsyncResult, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
             fn GetStatusForMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
-            fn BeginGetStatusForMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] ppResult: *mut IWSDAsyncResult) -> HRESULT;
+            fn BeginGetStatusForMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] #[opt] pAny: *const WSDXML_ELEMENT, #[in] #[opt] pAsyncState: IUnknown, #[in] #[opt] pAsyncCallback: IWSDAsyncCallback, #[out] #[out_ptr] #[retval] ppResult: *mut IWSDAsyncResult) -> HRESULT;
             fn EndGetStatusForMultipleOperations(&self, #[in] #[readable(entry, dwOperationCount)] pOperations: *const WSD_OPERATION, #[in] dwOperationCount: DWORD, #[in] pResult: IWSDAsyncResult, #[opt] #[out] #[out_ptr] ppExpires: *mut *mut WSD_EVENTING_EXPIRES, #[opt] #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
         }
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceProxy(#[in] pszDeviceId: LPCWSTR, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[out] #[out_ptr] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
+        extern fn WSDCreateDeviceProxy(#[in] pszDeviceId: LPCWSTR, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[out] #[out_ptr] #[retval] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceProxy2(#[in] pszDeviceId: LPCWSTR, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
+        extern fn WSDCreateDeviceProxy2(#[in] pszDeviceId: LPCWSTR, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] #[retval] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceProxyAdvanced(#[in] pszDeviceId: LPCWSTR, pDeviceAddress: IWSDAddress, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[out] #[out_ptr] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
+        extern fn WSDCreateDeviceProxyAdvanced(#[in] pszDeviceId: LPCWSTR, pDeviceAddress: IWSDAddress, #[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[out] #[out_ptr] #[retval] ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
     }
 }

@@ -3,15 +3,7 @@ fn main() -> windows::core::Result<()> {
     use windows::core::*;
 
     unsafe {
-        let mut uri = None;
-        CreateUri(
-            w!("https://github.com/microsoft/windows-rs"),
-            0,
-            None,
-            &mut uri,
-        )
-        .ok()?;
-        let uri = uri.unwrap();
+        let uri = CreateUri(w!("https://github.com/microsoft/windows-rs"), 0, None)?;
 
         let mut domain = BSTR::new();
         uri.GetDomain(&mut domain).ok()?;

@@ -530,8 +530,8 @@ mod Windows {
             fn GetStringValue(&self, #[in] #[opt] pszValueName: LPCWSTR, #[out] #[out_ptr] ppszValue: *mut LPWSTR) -> HRESULT;
             fn SetDWORD(&self, #[in] pszValueName: LPCWSTR, #[in] dwValue: DWORD) -> HRESULT;
             fn GetDWORD(&self, #[in] pszValueName: LPCWSTR, #[out] pdwValue: *mut DWORD) -> HRESULT;
-            fn OpenKey(&self, #[in] pszSubKeyName: LPCWSTR, #[out] #[out_ptr] ppSubKey: *mut ISpDataKey) -> HRESULT;
-            fn CreateKey(&self, #[in] pszSubKey: LPCWSTR, #[out] #[out_ptr] ppSubKey: *mut ISpDataKey) -> HRESULT;
+            fn OpenKey(&self, #[in] pszSubKeyName: LPCWSTR, #[out] #[out_ptr] #[retval] ppSubKey: *mut ISpDataKey) -> HRESULT;
+            fn CreateKey(&self, #[in] pszSubKey: LPCWSTR, #[out] #[out_ptr] #[retval] ppSubKey: *mut ISpDataKey) -> HRESULT;
             fn DeleteKey(&self, #[in] pszSubKey: LPCWSTR) -> HRESULT;
             fn DeleteValue(&self, #[in] pszValueName: LPCWSTR) -> HRESULT;
             fn EnumKeys(&self, #[in] Index: ULONG, #[out] #[out_ptr] ppszSubKeyName: *mut LPWSTR) -> HRESULT;
@@ -625,7 +625,7 @@ mod Windows {
         interface ISpObjectToken: ISpDataKey {
             fn SetId(&self, #[in] #[opt] pszCategoryId: LPCWSTR, #[in] pszTokenId: LPCWSTR, #[in] fCreateIfNotExist: BOOL) -> HRESULT;
             fn GetId(&self, #[out] #[out_ptr] ppszCoMemTokenId: *mut LPWSTR) -> HRESULT;
-            fn GetCategory(&self, #[out] #[out_ptr] ppTokenCategory: *mut ISpObjectTokenCategory) -> HRESULT;
+            fn GetCategory(&self, #[out] #[out_ptr] #[retval] ppTokenCategory: *mut ISpObjectTokenCategory) -> HRESULT;
             fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] dwClsContext: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut *mut void) -> HRESULT;
             fn GetStorageFileName(&self, #[in] clsidCaller: &IID, #[in] pszValueName: LPCWSTR, #[in] #[opt] pszFileNameSpecifier: LPCWSTR, #[in] nFolder: ULONG, #[out] #[out_ptr] ppszFilePath: *mut LPWSTR) -> HRESULT;
             fn RemoveStorageFileName(&self, #[in] clsidCaller: &IID, #[in] pszKeyName: LPCWSTR, #[in] fDeleteFile: BOOL) -> HRESULT;
@@ -638,7 +638,7 @@ mod Windows {
         interface ISpObjectTokenCategory: ISpDataKey {
             fn SetId(&self, #[in] pszCategoryId: LPCWSTR, #[in] fCreateIfNotExist: BOOL) -> HRESULT;
             fn GetId(&self, #[out] #[out_ptr] ppszCoMemCategoryId: *mut LPWSTR) -> HRESULT;
-            fn GetDataKey(&self, #[in] spdkl: SPDATAKEYLOCATION, #[out] #[out_ptr] ppDataKey: *mut ISpDataKey) -> HRESULT;
+            fn GetDataKey(&self, #[in] spdkl: SPDATAKEYLOCATION, #[out] #[out_ptr] #[retval] ppDataKey: *mut ISpDataKey) -> HRESULT;
             fn EnumTokens(&self, #[in] #[opt] pzsReqAttribs: LPCWSTR, #[in] #[opt] pszOptAttribs: LPCWSTR, #[out] ppEnum: *mut IEnumSpObjectTokens) -> HRESULT;
             fn SetDefaultTokenId(&self, #[in] pszTokenId: LPCWSTR) -> HRESULT;
             fn GetDefaultTokenId(&self, #[out] #[out_ptr] ppszCoMemTokenId: *mut LPWSTR) -> HRESULT;
@@ -650,7 +650,7 @@ mod Windows {
         #[guid(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0)]
         interface ISpObjectWithToken: IUnknown {
             fn SetObjectToken(&self, #[in] #[opt] pToken: ISpObjectToken) -> HRESULT;
-            fn GetObjectToken(&self, #[out] #[out_ptr] ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetObjectToken(&self, #[out] #[out_ptr] #[retval] ppToken: *mut ISpObjectToken) -> HRESULT;
         }
         #[guid(0x8445c581_0cac_4a38_abfe_9b2ce2826455)]
         interface ISpPhoneConverter: ISpObjectWithToken {
@@ -681,7 +681,7 @@ mod Windows {
         interface ISpPhrase2: ISpPhrase {
             fn GetXMLResult(&self, #[out] #[out_ptr] ppszCoMemXMLResult: *mut LPWSTR, #[in] Options: SPXMLRESULTOPTIONS) -> HRESULT;
             fn GetXMLErrorInfo(&self, #[out] pSemanticErrorInfo: *mut SPSEMANTICERRORINFO) -> HRESULT;
-            fn GetAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[out] #[out_ptr] ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn GetAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[out] #[out_ptr] #[retval] ppStream: *mut ISpStreamFormat) -> HRESULT;
         }
         #[guid(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d)]
         interface ISpPhraseAlt: ISpPhrase {
@@ -729,7 +729,7 @@ mod Windows {
         #[guid(0x2177db29_7f45_47d0_8554_067e91c80502)]
         interface ISpRecoGrammar: ISpGrammarBuilder {
             fn GetGrammarId(&self, #[out] pullGrammarId: *mut ULONGLONG) -> HRESULT;
-            fn GetRecoContext(&self, #[out] #[out_ptr] ppRecoCtxt: *mut ISpRecoContext) -> HRESULT;
+            fn GetRecoContext(&self, #[out] #[out_ptr] #[retval] ppRecoCtxt: *mut ISpRecoContext) -> HRESULT;
             fn LoadCmdFromFile(&self, #[in] pszFileName: LPCWSTR, #[in] Options: SPLOADOPTIONS) -> HRESULT;
             fn LoadCmdFromObject(&self, #[in] rcid: &IID, #[in] pszGrammarName: LPCWSTR, #[in] Options: SPLOADOPTIONS) -> HRESULT;
             fn LoadCmdFromResource(&self, #[in] hModule: HMODULE, #[in] pszResourceName: LPCWSTR, #[in] pszResourceType: LPCWSTR, #[in] wLanguage: WORD, #[in] Options: SPLOADOPTIONS) -> HRESULT;
@@ -779,10 +779,10 @@ mod Windows {
             fn SetRecognizer(&self, #[in] pRecognizer: ISpObjectToken) -> HRESULT;
             fn GetRecognizer(&self, #[out] ppRecognizer: *mut ISpObjectToken) -> HRESULT;
             fn SetInput(&self, #[in] #[opt] pUnkInput: IUnknown, #[in] fAllowFormatChanges: BOOL) -> HRESULT;
-            fn GetInputObjectToken(&self, #[out] #[out_ptr] ppToken: *mut ISpObjectToken) -> HRESULT;
-            fn GetInputStream(&self, #[out] #[out_ptr] ppStream: *mut ISpStreamFormat) -> HRESULT;
-            fn CreateRecoContext(&self, #[out] #[out_ptr] ppNewCtxt: *mut ISpRecoContext) -> HRESULT;
-            fn GetRecoProfile(&self, #[out] #[out_ptr] ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetInputObjectToken(&self, #[out] #[out_ptr] #[retval] ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetInputStream(&self, #[out] #[out_ptr] #[retval] ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn CreateRecoContext(&self, #[out] #[out_ptr] #[retval] ppNewCtxt: *mut ISpRecoContext) -> HRESULT;
+            fn GetRecoProfile(&self, #[out] #[out_ptr] #[retval] ppToken: *mut ISpObjectToken) -> HRESULT;
             fn SetRecoProfile(&self, #[in] pToken: ISpObjectToken) -> HRESULT;
             fn IsSharedInstance(&self) -> HRESULT;
             fn GetRecoState(&self, #[out] pState: *mut SPRECOSTATE) -> HRESULT;
@@ -801,9 +801,9 @@ mod Windows {
         }
         #[guid(0xdf1b943c_5838_4aa2_8706_d7cd5b333499)]
         interface ISpRecognizer3: IUnknown {
-            fn GetCategory(&self, #[in] categoryType: SPCATEGORYTYPE, #[out] #[out_ptr] ppCategory: *mut ISpRecoCategory) -> HRESULT;
+            fn GetCategory(&self, #[in] categoryType: SPCATEGORYTYPE, #[out] #[out_ptr] #[retval] ppCategory: *mut ISpRecoCategory) -> HRESULT;
             fn SetActiveCategory(&self, #[in] pCategory: ISpRecoCategory) -> HRESULT;
-            fn GetActiveCategory(&self, #[out] #[out_ptr] ppCategory: *mut ISpRecoCategory) -> HRESULT;
+            fn GetActiveCategory(&self, #[out] #[out_ptr] #[retval] ppCategory: *mut ISpRecoCategory) -> HRESULT;
         }
         #[guid(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b)]
         interface ISpRegDataKey: ISpDataKey {
@@ -833,7 +833,7 @@ mod Windows {
         #[guid(0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e)]
         interface ISpStream: ISpStreamFormat {
             fn SetBaseStream(&self, #[in] pStream: IStream, #[in] rguidFormat: &GUID, #[in] pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
-            fn GetBaseStream(&self, #[out] #[out_ptr] ppStream: *mut IStream) -> HRESULT;
+            fn GetBaseStream(&self, #[out] #[out_ptr] #[retval] ppStream: *mut IStream) -> HRESULT;
             fn BindToFile(&self, #[in] #[null_terminated(entry)] pszFileName: LPCWSTR, #[in] eMode: SPFILEMODE, #[in] #[opt] pFormatId: *const GUID, #[in] #[opt] pWaveFormatEx: *const WAVEFORMATEX, #[in] ullEventInterest: ULONGLONG) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
@@ -844,7 +844,7 @@ mod Windows {
         #[guid(0x678a932c_ea71_4446_9b41_78fda6280a29)]
         interface ISpStreamFormatConverter: ISpStreamFormat {
             fn SetBaseStream(&self, #[in] #[opt] pStream: ISpStreamFormat, #[in] fSetFormatToBaseStreamFormat: BOOL, #[in] fWriteToBaseStream: BOOL) -> HRESULT;
-            fn GetBaseStream(&self, #[out] #[out_ptr] ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn GetBaseStream(&self, #[out] #[out_ptr] #[retval] ppStream: *mut ISpStreamFormat) -> HRESULT;
             fn SetFormat(&self, #[in] rguidFormatIdOfConvertedStream: &GUID, #[in] pWaveFormatExOfConvertedStream: *const WAVEFORMATEX) -> HRESULT;
             fn ResetSeekPosition(&self) -> HRESULT;
             fn ScaleConvertedToBaseOffset(&self, #[in] ullOffsetConvertedStream: ULONGLONG, #[out] pullOffsetBaseStream: *mut ULONGLONG) -> HRESULT;
@@ -858,12 +858,12 @@ mod Windows {
         #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]
         interface ISpVoice: ISpEventSource {
             fn SetOutput(&self, #[in] pUnkOutput: IUnknown, #[in] fAllowFormatChanges: BOOL) -> HRESULT;
-            fn GetOutputObjectToken(&self, #[out] #[out_ptr] ppObjectToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetOutputObjectToken(&self, #[out] #[out_ptr] #[retval] ppObjectToken: *mut ISpObjectToken) -> HRESULT;
             fn GetOutputStream(&self, #[out] ppStream: *mut ISpStreamFormat) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn SetVoice(&self, #[in] pToken: ISpObjectToken) -> HRESULT;
-            fn GetVoice(&self, #[out] #[out_ptr] ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetVoice(&self, #[out] #[out_ptr] #[retval] ppToken: *mut ISpObjectToken) -> HRESULT;
             fn Speak(&self, #[in] #[opt] pwcs: LPCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
             fn SpeakStream(&self, #[in] pStream: IStream, #[in] dwFlags: DWORD, #[opt] #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
             fn GetStatus(&self, #[out] pStatus: *mut SPVOICESTATUS, #[out] #[out_ptr] ppszLastBookmark: *mut LPWSTR) -> HRESULT;

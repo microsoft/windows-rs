@@ -90,11 +90,14 @@ impl IAccessibleEx {
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0, ppretvalout: *mut Option<Self>) -> windows_core::HRESULT
+    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), core::mem::transmute(ppretvalout)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -117,7 +120,7 @@ pub trait IAccessibleEx_Impl: windows_core::IUnknownImpl {
     fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx>;
     fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<super::IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>, ppretvalout: windows_core::OutRef<IAccessibleEx>) -> windows_core::Result<()>;
+    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
 }
 #[cfg(all(feature = "oaidl", feature = "oleacc", feature = "shared", feature = "winnt"))]
 impl IAccessibleEx_Vtbl {
@@ -155,7 +158,13 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn ConvertReturnedElement<Identity: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, ppretvalout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&ppretvalout)).into()
+                match IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin)) {
+                    Ok(ok__) => {
+                        ppretvalout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4718,11 +4727,14 @@ impl windows_core::RuntimeName for IUIAutomationClientInfoSource {}
 windows_core::imp::define_interface!(IUIAutomationPatternHandler, IUIAutomationPatternHandler_Vtbl, 0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
 windows_core::imp::interface_hierarchy!(IUIAutomationPatternHandler, windows_core::IUnknown);
 impl IUIAutomationPatternHandler {
-    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0, pclientwrapper: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<IUIAutomationPatternInstance>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), core::mem::transmute(pclientwrapper)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::HRESULT
@@ -4744,7 +4756,7 @@ pub struct IUIAutomationPatternHandler_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IUIAutomationPatternHandler_Impl: windows_core::IUnknownImpl {
-    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>, pclientwrapper: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
     fn Dispatch(&self, ptarget: windows_core::Ref<windows_core::IUnknown>, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -4753,7 +4765,13 @@ impl IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn CreateClientWrapper<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppatterninstance: *mut core::ffi::c_void, pclientwrapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance), core::mem::transmute_copy(&pclientwrapper)).into()
+                match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance)) {
+                    Ok(ok__) => {
+                        pclientwrapper.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Dispatch<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, index: super::UINT, pparams: *const UIAutomationParameter, cparams: super::UINT) -> windows_core::HRESULT {

@@ -584,7 +584,7 @@ mod Windows {
             fn Release(&self) -> ULONG;
             fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] #[out_ptr] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
             fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
-            fn DuplicateSoundBuffer(&self, #[in] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[out_ptr] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
+            fn DuplicateSoundBuffer(&self, #[in] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[out_ptr] #[retval] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
             fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: DWORD) -> HRESULT;
             fn Compact(&self) -> HRESULT;
             fn GetSpeakerConfig(&self, #[out] pdwSpeakerConfig: LPDWORD) -> HRESULT;
@@ -938,7 +938,7 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Initialize(&self, #[in] pCaptureGuid: LPCGUID, #[in] pRenderGuid: LPCGUID, #[in] lpDscBufferDesc: LPCDSCBUFFERDESC, #[in] lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
+            fn Initialize(&self, #[in] pCaptureGuid: LPCGUID, #[in] pRenderGuid: LPCGUID, #[in] lpDscBufferDesc: LPCDSCBUFFERDESC, #[in] lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] #[retval] lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
         }
         #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundNotify: IUnknown {

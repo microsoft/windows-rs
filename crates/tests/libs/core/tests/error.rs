@@ -37,9 +37,7 @@ fn hresult_last_error() {
 #[test]
 fn set_error_info() -> Result<()> {
     unsafe {
-        let mut creator = None;
-        CreateErrorInfo(&mut creator).ok()?;
-        let creator = creator.unwrap();
+        let creator = CreateErrorInfo()?;
         creator
             .SetDescription(w!("message").as_ptr().cast_mut())
             .ok()?;

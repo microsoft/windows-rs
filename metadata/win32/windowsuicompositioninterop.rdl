@@ -41,7 +41,7 @@ mod Windows {
         #[guid(0xd3eef34c_0667_4afc_8d13_867607b0fe91)]
         interface ICompositorInterop2: IUnknown {
             fn CheckCompositionTextureSupport(&self, #[in] renderingDevice: IUnknown, #[out] supportsCompositionTextures: *mut BOOL) -> HRESULT;
-            fn CreateCompositionTexture(&self, #[in] d3dTexture: IUnknown, #[out] #[out_ptr] compositionTexture: *mut super::UI::Composition::ICompositionTexture) -> HRESULT;
+            fn CreateCompositionTexture(&self, #[in] d3dTexture: IUnknown, #[out] #[out_ptr] #[retval] compositionTexture: *mut super::UI::Composition::ICompositionTexture) -> HRESULT;
         }
         #[guid(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9)]
         interface IDesktopWindowTargetInterop: IUnknown {

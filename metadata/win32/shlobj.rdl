@@ -290,7 +290,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreatePropSheetExtArray(#[in] hKey: HKEY, #[in] #[opt] pszSubKey: PCWSTR, max_iface: UINT) -> HPSXA;
         #[library("SHELL32.dll")]
-        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[out_ptr] ppmoniker: *mut IMoniker) -> HRESULT;
+        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[out_ptr] #[retval] ppmoniker: *mut IMoniker) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHMultiFileProperties(#[in] pdtobj: IDataObject, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]

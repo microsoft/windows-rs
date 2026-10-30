@@ -57,7 +57,7 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn EnumFormatEtc(&self, _: u32, _: OutRef<IEnumFORMATETC>) -> Result<()> {
+    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         unsafe {
             (*self.0.get()).EnumFormatEtc = true;
             Err(Error::empty())
@@ -85,7 +85,7 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
         unsafe {
             (*self.0.get()).EnumDAdvise = true;
             Err(Error::empty())
@@ -108,9 +108,11 @@ fn test() -> Result<()> {
             .ok()?;
 
         // EnumFormatEtc returns a null result value with a successful (S_OK) return code.
-        let mut r = None;
-        assert!(d.EnumFormatEtc(0, &mut r) == S_OK);
-        assert!(r.is_none());
+        let r = d.EnumFormatEtc(0);
+        assert!(r.is_err());
+        let e = r.unwrap_err();
+        assert!(e.code() == S_OK);
+        assert!(e.as_ptr().is_null());
 
         let mut connection = 0;
         d.DAdvise(&Default::default(), 0, None, &mut connection)
@@ -129,7 +131,7 @@ fn test() -> Result<()> {
         assert!(!(*i).EnumDAdvise);
 
         d.DUnadvise(0).ok()?;
-        _ = d.EnumDAdvise(&mut None);
+        _ = d.EnumDAdvise();
 
         assert!((*i).DUnadvise);
         assert!((*i).EnumDAdvise);

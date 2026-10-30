@@ -205,8 +205,11 @@ impl windows_core::RuntimeName for IMFHDCPStatus {}
 windows_core::imp::define_interface!(IMFMediaEngine, IMFMediaEngine_Vtbl, 0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93);
 windows_core::imp::interface_hierarchy!(IMFMediaEngine, windows_core::IUnknown);
 impl IMFMediaEngine {
-    pub unsafe fn GetError(&self, pperror: *mut Option<IMFMediaError>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetError)(windows_core::Interface::as_raw(self), core::mem::transmute(pperror)) }
+    pub unsafe fn GetError(&self) -> windows_core::Result<IMFMediaError> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetErrorCode)(windows_core::Interface::as_raw(self), error) }
@@ -233,8 +236,11 @@ impl IMFMediaEngine {
     pub unsafe fn SetPreload(&self, preload: MF_MEDIA_ENGINE_PRELOAD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPreload)(windows_core::Interface::as_raw(self), preload) }
     }
-    pub unsafe fn GetBuffered(&self, ppbuffered: *mut Option<IMFMediaTimeRange>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffered)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffered)) }
+    pub unsafe fn GetBuffered(&self) -> windows_core::Result<IMFMediaTimeRange> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBuffered)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Load(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self)) }
@@ -276,11 +282,17 @@ impl IMFMediaEngine {
     pub unsafe fn SetPlaybackRate(&self, rate: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPlaybackRate)(windows_core::Interface::as_raw(self), rate) }
     }
-    pub unsafe fn GetPlayed(&self, ppplayed: *mut Option<IMFMediaTimeRange>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPlayed)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplayed)) }
+    pub unsafe fn GetPlayed(&self) -> windows_core::Result<IMFMediaTimeRange> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPlayed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetSeekable(&self, ppseekable: *mut Option<IMFMediaTimeRange>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSeekable)(windows_core::Interface::as_raw(self), core::mem::transmute(ppseekable)) }
+    pub unsafe fn GetSeekable(&self) -> windows_core::Result<IMFMediaTimeRange> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSeekable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn IsEnded(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsEnded)(windows_core::Interface::as_raw(self)) }
@@ -411,7 +423,7 @@ pub struct IMFMediaEngine_Vtbl {
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared", feature = "windef"))]
 pub trait IMFMediaEngine_Impl: windows_core::IUnknownImpl {
-    fn GetError(&self, pperror: windows_core::OutRef<IMFMediaError>) -> windows_core::Result<()>;
+    fn GetError(&self) -> windows_core::Result<IMFMediaError>;
     fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> windows_core::Result<()>;
     fn SetSourceElements(&self, psrcelements: windows_core::Ref<IMFMediaEngineSrcElements>) -> windows_core::Result<()>;
     fn SetSource(&self, purl: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -419,7 +431,7 @@ pub trait IMFMediaEngine_Impl: windows_core::IUnknownImpl {
     fn GetNetworkState(&self) -> super::USHORT;
     fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD;
     fn SetPreload(&self, preload: MF_MEDIA_ENGINE_PRELOAD) -> windows_core::Result<()>;
-    fn GetBuffered(&self, ppbuffered: windows_core::OutRef<IMFMediaTimeRange>) -> windows_core::Result<()>;
+    fn GetBuffered(&self) -> windows_core::Result<IMFMediaTimeRange>;
     fn Load(&self) -> windows_core::Result<()>;
     fn CanPlayType(&self, r#type: &windows_core::BSTR, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::Result<()>;
     fn GetReadyState(&self) -> super::USHORT;
@@ -433,8 +445,8 @@ pub trait IMFMediaEngine_Impl: windows_core::IUnknownImpl {
     fn SetDefaultPlaybackRate(&self, rate: f64) -> windows_core::Result<()>;
     fn GetPlaybackRate(&self) -> f64;
     fn SetPlaybackRate(&self, rate: f64) -> windows_core::Result<()>;
-    fn GetPlayed(&self, ppplayed: windows_core::OutRef<IMFMediaTimeRange>) -> windows_core::Result<()>;
-    fn GetSeekable(&self, ppseekable: windows_core::OutRef<IMFMediaTimeRange>) -> windows_core::Result<()>;
+    fn GetPlayed(&self) -> windows_core::Result<IMFMediaTimeRange>;
+    fn GetSeekable(&self) -> windows_core::Result<IMFMediaTimeRange>;
     fn IsEnded(&self) -> windows_core::BOOL;
     fn GetAutoPlay(&self) -> windows_core::BOOL;
     fn SetAutoPlay(&self, autoplay: windows_core::BOOL) -> windows_core::Result<()>;
@@ -460,7 +472,13 @@ impl IMFMediaEngine_Vtbl {
         unsafe extern "system" fn GetError<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperror: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngine_Impl::GetError(this, core::mem::transmute_copy(&pperror)).into()
+                match IMFMediaEngine_Impl::GetError(this) {
+                    Ok(ok__) => {
+                        pperror.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetErrorCode<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: MF_MEDIA_ENGINE_ERR) -> windows_core::HRESULT {
@@ -508,7 +526,13 @@ impl IMFMediaEngine_Vtbl {
         unsafe extern "system" fn GetBuffered<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffered: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngine_Impl::GetBuffered(this, core::mem::transmute_copy(&ppbuffered)).into()
+                match IMFMediaEngine_Impl::GetBuffered(this) {
+                    Ok(ok__) => {
+                        ppbuffered.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Load<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -592,13 +616,25 @@ impl IMFMediaEngine_Vtbl {
         unsafe extern "system" fn GetPlayed<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppplayed: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngine_Impl::GetPlayed(this, core::mem::transmute_copy(&ppplayed)).into()
+                match IMFMediaEngine_Impl::GetPlayed(this) {
+                    Ok(ok__) => {
+                        ppplayed.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSeekable<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppseekable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngine_Impl::GetSeekable(this, core::mem::transmute_copy(&ppseekable)).into()
+                match IMFMediaEngine_Impl::GetSeekable(this) {
+                    Ok(ok__) => {
+                        ppseekable.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn IsEnded<Identity: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -814,17 +850,26 @@ windows_core::imp::define_interface!(IMFMediaEngineClassFactory, IMFMediaEngineC
 windows_core::imp::interface_hierarchy!(IMFMediaEngineClassFactory, windows_core::IUnknown);
 impl IMFMediaEngineClassFactory {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn CreateInstance<P1>(&self, dwflags: super::DWORD, pattr: P1, ppplayer: *mut Option<IMFMediaEngine>) -> windows_core::HRESULT
+    pub unsafe fn CreateInstance<P1>(&self, dwflags: super::DWORD, pattr: P1) -> windows_core::Result<IMFMediaEngine>
     where
         P1: windows_core::Param<super::IMFAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), dwflags, pattr.param().abi(), core::mem::transmute(ppplayer)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), dwflags, pattr.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreateTimeRange(&self, pptimerange: *mut Option<IMFMediaTimeRange>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateTimeRange)(windows_core::Interface::as_raw(self), core::mem::transmute(pptimerange)) }
+    pub unsafe fn CreateTimeRange(&self) -> windows_core::Result<IMFMediaTimeRange> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTimeRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreateError(&self, pperror: *mut Option<IMFMediaError>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateError)(windows_core::Interface::as_raw(self), core::mem::transmute(pperror)) }
+    pub unsafe fn CreateError(&self) -> windows_core::Result<IMFMediaError> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -840,9 +885,9 @@ pub struct IMFMediaEngineClassFactory_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFMediaEngineClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, dwflags: super::DWORD, pattr: windows_core::Ref<super::IMFAttributes>, ppplayer: windows_core::OutRef<IMFMediaEngine>) -> windows_core::Result<()>;
-    fn CreateTimeRange(&self, pptimerange: windows_core::OutRef<IMFMediaTimeRange>) -> windows_core::Result<()>;
-    fn CreateError(&self, pperror: windows_core::OutRef<IMFMediaError>) -> windows_core::Result<()>;
+    fn CreateInstance(&self, dwflags: super::DWORD, pattr: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<IMFMediaEngine>;
+    fn CreateTimeRange(&self) -> windows_core::Result<IMFMediaTimeRange>;
+    fn CreateError(&self) -> windows_core::Result<IMFMediaError>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFMediaEngineClassFactory_Vtbl {
@@ -850,19 +895,37 @@ impl IMFMediaEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: IMFMediaEngineClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pattr: *mut core::ffi::c_void, ppplayer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineClassFactory_Impl::CreateInstance(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pattr), core::mem::transmute_copy(&ppplayer)).into()
+                match IMFMediaEngineClassFactory_Impl::CreateInstance(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pattr)) {
+                    Ok(ok__) => {
+                        ppplayer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateTimeRange<Identity: IMFMediaEngineClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptimerange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineClassFactory_Impl::CreateTimeRange(this, core::mem::transmute_copy(&pptimerange)).into()
+                match IMFMediaEngineClassFactory_Impl::CreateTimeRange(this) {
+                    Ok(ok__) => {
+                        pptimerange.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateError<Identity: IMFMediaEngineClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperror: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineClassFactory_Impl::CreateError(this, core::mem::transmute_copy(&pperror)).into()
+                match IMFMediaEngineClassFactory_Impl::CreateError(this) {
+                    Ok(ok__) => {
+                        pperror.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1791,11 +1854,14 @@ impl IMFMediaEngineExtension {
         unsafe { (windows_core::Interface::vtable(self).CancelObjectCreation)(windows_core::Interface::as_raw(self), piunknowncancelcookie.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn EndCreateObject<P0>(&self, presult: P0, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    pub unsafe fn EndCreateObject<P0>(&self, presult: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::IMFAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndCreateObject)(windows_core::Interface::as_raw(self), presult.param().abi(), core::mem::transmute(ppobject)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EndCreateObject)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1818,7 +1884,7 @@ pub trait IMFMediaEngineExtension_Impl: windows_core::IUnknownImpl {
     fn CanPlayType(&self, audioonly: windows_core::BOOL, mimetype: &windows_core::BSTR, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::Result<()>;
     fn BeginCreateObject(&self, bstrurl: &windows_core::BSTR, pbytestream: windows_core::Ref<super::IMFByteStream>, r#type: super::MF_OBJECT_TYPE, ppiunknowncancelcookie: windows_core::OutRef<windows_core::IUnknown>, pcallback: windows_core::Ref<super::IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObject(&self, presult: windows_core::Ref<super::IMFAsyncResult>, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObject(&self, presult: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl IMFMediaEngineExtension_Vtbl {
@@ -1844,7 +1910,13 @@ impl IMFMediaEngineExtension_Vtbl {
         unsafe extern "system" fn EndCreateObject<Identity: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineExtension_Impl::EndCreateObject(this, core::mem::transmute_copy(&presult), core::mem::transmute_copy(&ppobject)).into()
+                match IMFMediaEngineExtension_Impl::EndCreateObject(this, core::mem::transmute_copy(&presult)) {
+                    Ok(ok__) => {
+                        ppobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3277,11 +3349,14 @@ impl IMFMediaSourceExtension {
     pub unsafe fn SetDuration(&self, duration: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), duration) }
     }
-    pub unsafe fn AddSourceBuffer<P1>(&self, r#type: &windows_core::BSTR, pnotify: P1, ppsourcebuffer: *mut Option<IMFSourceBuffer>) -> windows_core::HRESULT
+    pub unsafe fn AddSourceBuffer<P1>(&self, r#type: &windows_core::BSTR, pnotify: P1) -> windows_core::Result<IMFSourceBuffer>
     where
         P1: windows_core::Param<IMFSourceBufferNotify>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddSourceBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(r#type), pnotify.param().abi(), core::mem::transmute(ppsourcebuffer)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddSourceBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(r#type), pnotify.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn RemoveSourceBuffer<P0>(&self, psourcebuffer: P0) -> windows_core::HRESULT
     where
@@ -3325,7 +3400,7 @@ pub trait IMFMediaSourceExtension_Impl: windows_core::IUnknownImpl {
     fn GetReadyState(&self) -> MF_MSE_READY;
     fn GetDuration(&self) -> f64;
     fn SetDuration(&self, duration: f64) -> windows_core::Result<()>;
-    fn AddSourceBuffer(&self, r#type: &windows_core::BSTR, pnotify: windows_core::Ref<IMFSourceBufferNotify>, ppsourcebuffer: windows_core::OutRef<IMFSourceBuffer>) -> windows_core::Result<()>;
+    fn AddSourceBuffer(&self, r#type: &windows_core::BSTR, pnotify: windows_core::Ref<IMFSourceBufferNotify>) -> windows_core::Result<IMFSourceBuffer>;
     fn RemoveSourceBuffer(&self, psourcebuffer: windows_core::Ref<IMFSourceBuffer>) -> windows_core::Result<()>;
     fn SetEndOfStream(&self, error: MF_MSE_ERROR) -> windows_core::Result<()>;
     fn IsTypeSupported(&self, r#type: &windows_core::BSTR) -> windows_core::BOOL;
@@ -3367,7 +3442,13 @@ impl IMFMediaSourceExtension_Vtbl {
         unsafe extern "system" fn AddSourceBuffer<Identity: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void, ppsourcebuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaSourceExtension_Impl::AddSourceBuffer(this, core::mem::transmute(&r#type), core::mem::transmute_copy(&pnotify), core::mem::transmute_copy(&ppsourcebuffer)).into()
+                match IMFMediaSourceExtension_Impl::AddSourceBuffer(this, core::mem::transmute(&r#type), core::mem::transmute_copy(&pnotify)) {
+                    Ok(ok__) => {
+                        ppsourcebuffer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemoveSourceBuffer<Identity: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcebuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3639,8 +3720,11 @@ impl IMFSourceBuffer {
     pub unsafe fn GetUpdating(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetUpdating)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetBuffered(&self, ppbuffered: *mut Option<IMFMediaTimeRange>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffered)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffered)) }
+    pub unsafe fn GetBuffered(&self) -> windows_core::Result<IMFMediaTimeRange> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBuffered)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetTimeStampOffset(&self) -> f64 {
         unsafe { (windows_core::Interface::vtable(self).GetTimeStampOffset)(windows_core::Interface::as_raw(self)) }
@@ -3704,7 +3788,7 @@ pub struct IMFSourceBuffer_Vtbl {
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFSourceBuffer_Impl: windows_core::IUnknownImpl {
     fn GetUpdating(&self) -> windows_core::BOOL;
-    fn GetBuffered(&self, ppbuffered: windows_core::OutRef<IMFMediaTimeRange>) -> windows_core::Result<()>;
+    fn GetBuffered(&self) -> windows_core::Result<IMFMediaTimeRange>;
     fn GetTimeStampOffset(&self) -> f64;
     fn SetTimeStampOffset(&self, offset: f64) -> windows_core::Result<()>;
     fn GetAppendWindowStart(&self) -> f64;
@@ -3728,7 +3812,13 @@ impl IMFSourceBuffer_Vtbl {
         unsafe extern "system" fn GetBuffered<Identity: IMFSourceBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffered: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBuffer_Impl::GetBuffered(this, core::mem::transmute_copy(&ppbuffered)).into()
+                match IMFSourceBuffer_Impl::GetBuffered(this) {
+                    Ok(ok__) => {
+                        ppbuffered.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetTimeStampOffset<Identity: IMFSourceBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f64 {

@@ -215,7 +215,7 @@ mod Windows {
         interface IClientSecurity: IUnknown {
             fn QueryBlanket(&self, #[in] pProxy: IUnknown, #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[out] #[out_ptr] pServerPrincName: *mut *mut OLECHAR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[out] #[out_ptr(nullable)] pAuthInfo: *mut *mut void, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
             fn SetBlanket(&self, #[in] pProxy: IUnknown, #[in] dwAuthnSvc: DWORD, #[in] dwAuthzSvc: DWORD, #[in] #[opt] pServerPrincName: *mut OLECHAR, #[in] dwAuthnLevel: DWORD, #[in] dwImpLevel: DWORD, #[in] #[opt] pAuthInfo: *mut void, #[in] dwCapabilities: DWORD) -> HRESULT;
-            fn CopyProxy(&self, #[in] pProxy: IUnknown, #[out] #[out_ptr] ppCopy: *mut IUnknown) -> HRESULT;
+            fn CopyProxy(&self, #[in] pProxy: IUnknown, #[out] #[out_ptr] #[retval] ppCopy: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x000001ce_0000_0000_c000_000000000046)]
         interface IComThreadingInfo: IUnknown {
@@ -231,14 +231,14 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPOLESTR, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumString) -> HRESULT;
         }
         #[guid(0x00000100_0000_0000_c000_000000000046)]
         interface IEnumUnknown: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IUnknown, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumUnknown) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumUnknown) -> HRESULT;
         }
         #[guid(0x00000019_0000_0000_c000_000000000046)]
         interface IExternalConnection: IUnknown {
@@ -302,7 +302,7 @@ mod Windows {
         #[guid(0xd5f569d0_593b_101a_b569_08002b2dbf7a)]
         interface IPSFactoryBuffer: IUnknown {
             fn CreateProxy(&self, #[in] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] #[out_ptr] ppProxy: *mut IRpcProxyBuffer, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn CreateStub(&self, #[in] riid: &IID, #[in] #[opt] pUnkServer: IUnknown, #[out] #[out_ptr] ppStub: *mut IRpcStubBuffer) -> HRESULT;
+            fn CreateStub(&self, #[in] riid: &IID, #[in] #[opt] pUnkServer: IUnknown, #[out] #[out_ptr] #[retval] ppStub: *mut IRpcStubBuffer) -> HRESULT;
         }
         #[guid(0x8f146474_b228_48fb_a58c_105ebb273abc)]
         interface IPackagedComSyntaxSupport: IUnknown {
@@ -408,7 +408,7 @@ mod Windows {
             fn LockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
             fn UnlockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
             fn Stat(&self, #[out] pstatstg: *mut STATSTG, #[in] grfStatFlag: DWORD) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
         }
         #[guid(0x765d1df2_f0af_4ef8_aa50_84789ca330ed)]
         interface ISupportActivateAsActivatorPackaged: IUnknown {}
@@ -440,7 +440,7 @@ mod Windows {
         #[guid(0x00000033_0000_0000_c000_000000000046)]
         interface ISynchronizeContainer: IUnknown {
             fn AddSynchronize(&self, #[in] pSync: ISynchronize) -> HRESULT;
-            fn WaitMultiple(&self, #[in] dwFlags: DWORD, #[in] dwTimeOut: DWORD, #[out] #[out_ptr] ppSync: *mut ISynchronize) -> HRESULT;
+            fn WaitMultiple(&self, #[in] dwFlags: DWORD, #[in] dwTimeOut: DWORD, #[out] #[out_ptr] #[retval] ppSync: *mut ISynchronize) -> HRESULT;
         }
         #[guid(0x00000032_0000_0000_c000_000000000046)]
         interface ISynchronizeEvent: ISynchronizeHandle {
@@ -456,7 +456,7 @@ mod Windows {
         }
         #[guid(0x0000002b_0000_0000_c000_000000000046)]
         interface IWaitMultiple: IUnknown {
-            fn WaitMultiple(&self, #[in] timeout: DWORD, #[out] #[out_ptr] pSync: *mut ISynchronize) -> HRESULT;
+            fn WaitMultiple(&self, #[in] timeout: DWORD, #[out] #[out_ptr] #[retval] pSync: *mut ISynchronize) -> HRESULT;
             fn AddSynchronize(&self, #[in] pSync: ISynchronize) -> HRESULT;
         }
         #[repr(i32)]

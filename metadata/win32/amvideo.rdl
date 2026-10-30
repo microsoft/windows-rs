@@ -57,7 +57,7 @@ mod Windows {
             fn GetSurfaceDesc(&self, #[in] #[out] pSurfaceDesc: *mut DDSURFACEDESC) -> HRESULT;
             fn GetFourCCCodes(&self, #[out] pCount: *mut DWORD, #[out] pCodes: *mut DWORD) -> HRESULT;
             fn SetDirectDraw(&self, pDirectDraw: LPDIRECTDRAW) -> HRESULT;
-            fn GetDirectDraw(&self, #[out] #[out_ptr] ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
+            fn GetDirectDraw(&self, #[out] #[out_ptr] #[retval] ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
             fn GetSurfaceType(&self, #[out] pSurfaceType: *mut DWORD) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
             fn UseScanLine(&self, UseScanLine: i32) -> HRESULT;

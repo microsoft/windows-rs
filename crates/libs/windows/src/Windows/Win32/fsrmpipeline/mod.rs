@@ -1672,11 +1672,14 @@ windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleImplementation, windo
 #[cfg(feature = "oaidl")]
 impl IFsrmPipelineModuleImplementation {
     #[cfg(feature = "fsrm")]
-    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0, moduleconnector: *mut Option<IFsrmPipelineModuleConnector>) -> windows_core::HRESULT
+    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
     where
         P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), core::mem::transmute(moduleconnector)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OnUnload(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self)) }
@@ -1695,7 +1698,7 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::IDispatch_Impl {
-    fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleconnector: windows_core::OutRef<IFsrmPipelineModuleConnector>) -> windows_core::Result<()>;
+    fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
     fn OnUnload(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1704,7 +1707,13 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleImplementation_Impl::OnLoad(this, core::mem::transmute_copy(&moduledefinition), core::mem::transmute_copy(&moduleconnector)).into()
+                match IFsrmPipelineModuleImplementation_Impl::OnLoad(this, core::mem::transmute_copy(&moduledefinition)) {
+                    Ok(ok__) => {
+                        moduleconnector.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OnUnload<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

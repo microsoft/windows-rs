@@ -6,15 +6,15 @@ mod Windows {
             fn Next(&self, #[in] cObjects: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, cObjects)] #[writable(success, cObjects)] pObjIDs: *mut LPWSTR, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cObjects: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c)]
         interface IPortableDevice: IUnknown {
             fn Open(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] #[opt] pClientInfo: IPortableDeviceValues) -> HRESULT;
-            fn SendCommand(&self, #[in] dwFlags: DWORD, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] ppResults: *mut IPortableDeviceValues) -> HRESULT;
-            fn Content(&self, #[out] #[out_ptr] ppContent: *mut IPortableDeviceContent) -> HRESULT;
-            fn Capabilities(&self, #[out] #[out_ptr] ppCapabilities: *mut IPortableDeviceCapabilities) -> HRESULT;
+            fn SendCommand(&self, #[in] dwFlags: DWORD, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn Content(&self, #[out] #[out_ptr] #[retval] ppContent: *mut IPortableDeviceContent) -> HRESULT;
+            fn Capabilities(&self, #[out] #[out_ptr] #[retval] ppCapabilities: *mut IPortableDeviceCapabilities) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
             fn Advise(&self, #[in] dwFlags: DWORD, #[in] #[opt] pCallback: IPortableDeviceEventCallback, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] ppszCookie: *mut LPWSTR) -> HRESULT;
@@ -23,27 +23,27 @@ mod Windows {
         }
         #[guid(0x2c8c6dbf_e3dc_4061_becc_8542e810d126)]
         interface IPortableDeviceCapabilities: IUnknown {
-            fn GetSupportedCommands(&self, #[out] #[out_ptr] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetCommandOptions(&self, #[in] Command: &PROPERTYKEY, #[out] #[out_ptr] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetFunctionalCategories(&self, #[out] #[out_ptr] ppCategories: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFunctionalObjects(&self, #[in] Category: &GUID, #[out] #[out_ptr] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedContentTypes(&self, #[in] Category: &GUID, #[out] #[out_ptr] ppContentTypes: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedFormats(&self, #[in] ContentType: &GUID, #[out] #[out_ptr] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedFormatProperties(&self, #[in] Format: &GUID, #[out] #[out_ptr] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetFixedPropertyAttributes(&self, #[in] Format: &GUID, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedCommands(&self, #[out] #[out_ptr] #[retval] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetCommandOptions(&self, #[in] Command: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetFunctionalCategories(&self, #[out] #[out_ptr] #[retval] ppCategories: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFunctionalObjects(&self, #[in] Category: &GUID, #[out] #[out_ptr] #[retval] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedContentTypes(&self, #[in] Category: &GUID, #[out] #[out_ptr] #[retval] ppContentTypes: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedFormats(&self, #[in] ContentType: &GUID, #[out] #[out_ptr] #[retval] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedFormatProperties(&self, #[in] Format: &GUID, #[out] #[out_ptr] #[retval] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetFixedPropertyAttributes(&self, #[in] Format: &GUID, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn GetSupportedEvents(&self, #[out] #[out_ptr] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetEventOptions(&self, #[in] Event: &GUID, #[out] #[out_ptr] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedEvents(&self, #[out] #[out_ptr] #[retval] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetEventOptions(&self, #[in] Event: &GUID, #[out] #[out_ptr] #[retval] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0x6a96ed84_7c73_4480_9938_bf5af477d426)]
         interface IPortableDeviceContent: IUnknown {
-            fn EnumObjects(&self, #[in] dwFlags: DWORD, #[in] pszParentObjectID: LPCWSTR, #[in] #[opt] pFilter: IPortableDeviceValues, #[out] #[out_ptr] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
-            fn Properties(&self, #[out] #[out_ptr] ppProperties: *mut IPortableDeviceProperties) -> HRESULT;
-            fn Transfer(&self, #[out] #[out_ptr] ppResources: *mut IPortableDeviceResources) -> HRESULT;
+            fn EnumObjects(&self, #[in] dwFlags: DWORD, #[in] pszParentObjectID: LPCWSTR, #[in] #[opt] pFilter: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
+            fn Properties(&self, #[out] #[out_ptr] #[retval] ppProperties: *mut IPortableDeviceProperties) -> HRESULT;
+            fn Transfer(&self, #[out] #[out_ptr] #[retval] ppResources: *mut IPortableDeviceResources) -> HRESULT;
             fn CreateObjectWithPropertiesOnly(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszObjectID: *mut LPWSTR) -> HRESULT;
             fn CreateObjectWithPropertiesAndData(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
             fn Delete(&self, #[in] dwOptions: DWORD, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetObjectIDsFromPersistentUniqueIDs(&self, #[in] #[opt] pPersistentUniqueIDs: IPortableDevicePropVariantCollection, #[out] #[out_ptr] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetObjectIDsFromPersistentUniqueIDs(&self, #[in] #[opt] pPersistentUniqueIDs: IPortableDevicePropVariantCollection, #[out] #[out_ptr] #[retval] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn Move(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
             fn Copy(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
@@ -77,10 +77,10 @@ mod Windows {
         }
         #[guid(0x7f6d695c_03df_4439_a809_59266beee3a6)]
         interface IPortableDeviceProperties: IUnknown {
-            fn GetSupportedProperties(&self, #[in] pszObjectID: LPCWSTR, #[out] #[out_ptr] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetPropertyAttributes(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetValues(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] ppValues: *mut IPortableDeviceValues) -> HRESULT;
-            fn SetValues(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pValues: IPortableDeviceValues, #[out] #[out_ptr] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedProperties(&self, #[in] pszObjectID: LPCWSTR, #[out] #[out_ptr] #[retval] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetPropertyAttributes(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetValues(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] #[retval] ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn SetValues(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pValues: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppResults: *mut IPortableDeviceValues) -> HRESULT;
             fn Delete(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pKeys: IPortableDeviceKeyCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
@@ -100,9 +100,9 @@ mod Windows {
         }
         #[guid(0xfd8878ac_d841_4d17_891c_e6829cdb6934)]
         interface IPortableDeviceResources: IUnknown {
-            fn GetSupportedResources(&self, #[in] pszObjectID: LPCWSTR, #[out] #[out_ptr] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetResourceAttributes(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] ppResourceAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetStream(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[in] dwMode: DWORD, #[in] #[opt] #[out] pdwOptimalBufferSize: *mut DWORD, #[out] #[out_ptr] ppStream: *mut IStream) -> HRESULT;
+            fn GetSupportedResources(&self, #[in] pszObjectID: LPCWSTR, #[out] #[out_ptr] #[retval] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetResourceAttributes(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppResourceAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetStream(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[in] dwMode: DWORD, #[in] #[opt] #[out] pdwOptimalBufferSize: *mut DWORD, #[out] #[out_ptr] #[retval] ppStream: *mut IStream) -> HRESULT;
             fn Delete(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pKeys: IPortableDeviceKeyCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn CreateResource(&self, #[in] #[opt] pResourceAttributes: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
@@ -110,16 +110,16 @@ mod Windows {
         #[guid(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08)]
         interface IPortableDeviceService: IUnknown {
             fn Open(&self, #[in] pszPnPServiceID: LPCWSTR, #[in] #[opt] pClientInfo: IPortableDeviceValues) -> HRESULT;
-            fn Capabilities(&self, #[out] #[out_ptr] ppCapabilities: *mut IPortableDeviceServiceCapabilities) -> HRESULT;
-            fn Content(&self, #[out] #[out_ptr] ppContent: *mut IPortableDeviceContent2) -> HRESULT;
-            fn Methods(&self, #[out] #[out_ptr] ppMethods: *mut IPortableDeviceServiceMethods) -> HRESULT;
+            fn Capabilities(&self, #[out] #[out_ptr] #[retval] ppCapabilities: *mut IPortableDeviceServiceCapabilities) -> HRESULT;
+            fn Content(&self, #[out] #[out_ptr] #[retval] ppContent: *mut IPortableDeviceContent2) -> HRESULT;
+            fn Methods(&self, #[out] #[out_ptr] #[retval] ppMethods: *mut IPortableDeviceServiceMethods) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
             fn GetServiceObjectID(&self, #[out] #[out_ptr] ppszServiceObjectID: *mut LPWSTR) -> HRESULT;
             fn GetPnPServiceID(&self, #[out] #[out_ptr] ppszPnPServiceID: *mut LPWSTR) -> HRESULT;
             fn Advise(&self, #[in] dwFlags: DWORD, #[in] #[opt] pCallback: IPortableDeviceEventCallback, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] ppszCookie: *mut LPWSTR) -> HRESULT;
             fn Unadvise(&self, #[in] pszCookie: LPCWSTR) -> HRESULT;
-            fn SendCommand(&self, #[in] dwFlags: DWORD, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn SendCommand(&self, #[in] dwFlags: DWORD, #[in] #[opt] pParameters: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppResults: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8)]
         interface IPortableDeviceServiceActivation: IUnknown {
@@ -128,21 +128,21 @@ mod Windows {
         }
         #[guid(0x24dbd89d_413e_43e0_bd5b_197f3c56c886)]
         interface IPortableDeviceServiceCapabilities: IUnknown {
-            fn GetSupportedMethods(&self, #[out] #[out_ptr] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedMethodsByFormat(&self, #[in] Format: &GUID, #[out] #[out_ptr] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetMethodAttributes(&self, #[in] Method: &GUID, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetMethodParameterAttributes(&self, #[in] Method: &GUID, #[in] Parameter: &PROPERTYKEY, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedFormats(&self, #[out] #[out_ptr] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFormatAttributes(&self, #[in] Format: &GUID, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedFormatProperties(&self, #[in] Format: &GUID, #[out] #[out_ptr] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetFormatPropertyAttributes(&self, #[in] Format: &GUID, #[in] Property: &PROPERTYKEY, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedEvents(&self, #[out] #[out_ptr] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetEventAttributes(&self, #[in] Event: &GUID, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetEventParameterAttributes(&self, #[in] Event: &GUID, #[in] Parameter: &PROPERTYKEY, #[out] #[out_ptr] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetInheritedServices(&self, #[in] dwInheritanceType: DWORD, #[out] #[out_ptr] ppServices: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFormatRenderingProfiles(&self, #[in] Format: &GUID, #[out] #[out_ptr] ppRenderingProfiles: *mut IPortableDeviceValuesCollection) -> HRESULT;
-            fn GetSupportedCommands(&self, #[out] #[out_ptr] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetCommandOptions(&self, #[in] Command: &PROPERTYKEY, #[out] #[out_ptr] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedMethods(&self, #[out] #[out_ptr] #[retval] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedMethodsByFormat(&self, #[in] Format: &GUID, #[out] #[out_ptr] #[retval] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetMethodAttributes(&self, #[in] Method: &GUID, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetMethodParameterAttributes(&self, #[in] Method: &GUID, #[in] Parameter: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedFormats(&self, #[out] #[out_ptr] #[retval] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFormatAttributes(&self, #[in] Format: &GUID, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedFormatProperties(&self, #[in] Format: &GUID, #[out] #[out_ptr] #[retval] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetFormatPropertyAttributes(&self, #[in] Format: &GUID, #[in] Property: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedEvents(&self, #[out] #[out_ptr] #[retval] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetEventAttributes(&self, #[in] Event: &GUID, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetEventParameterAttributes(&self, #[in] Event: &GUID, #[in] Parameter: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetInheritedServices(&self, #[in] dwInheritanceType: DWORD, #[out] #[out_ptr] #[retval] ppServices: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFormatRenderingProfiles(&self, #[in] Format: &GUID, #[out] #[out_ptr] #[retval] ppRenderingProfiles: *mut IPortableDeviceValuesCollection) -> HRESULT;
+            fn GetSupportedCommands(&self, #[out] #[out_ptr] #[retval] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetCommandOptions(&self, #[in] Command: &PROPERTYKEY, #[out] #[out_ptr] #[retval] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961)]

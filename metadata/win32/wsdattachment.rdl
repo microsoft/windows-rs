@@ -15,6 +15,6 @@ mod Windows {
             fn Abort(&self) -> HRESULT;
         }
         #[library("wsdapi.dll")]
-        extern fn WSDCreateOutboundAttachment(#[out] #[out_ptr] ppAttachment: *mut IWSDOutboundAttachment) -> HRESULT;
+        extern fn WSDCreateOutboundAttachment(#[out] #[out_ptr] #[retval] ppAttachment: *mut IWSDOutboundAttachment) -> HRESULT;
     }
 }

@@ -13,12 +13,12 @@ mod Windows {
             fn GetType(&self, #[out] pSensorType: *mut SENSOR_TYPE_ID) -> HRESULT;
             fn GetFriendlyName(&self, #[out] #[out_ptr] pFriendlyName: *mut BSTR) -> HRESULT;
             fn GetProperty(&self, #[in] key: &PROPERTYKEY, #[out] pProperty: *mut PROPVARIANT) -> HRESULT;
-            fn GetProperties(&self, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] ppProperties: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedDataFields(&self, #[out] #[out_ptr] ppDataFields: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn SetProperties(&self, #[in] #[opt] pProperties: IPortableDeviceValues, #[out] #[out_ptr] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetProperties(&self, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] #[retval] ppProperties: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedDataFields(&self, #[out] #[out_ptr] #[retval] ppDataFields: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn SetProperties(&self, #[in] #[opt] pProperties: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppResults: *mut IPortableDeviceValues) -> HRESULT;
             fn SupportsDataField(&self, #[in] key: &PROPERTYKEY, #[out] pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetState(&self, #[out] pState: *mut SensorState) -> HRESULT;
-            fn GetData(&self, #[out] #[out_ptr] ppDataReport: *mut ISensorDataReport) -> HRESULT;
+            fn GetData(&self, #[out] #[out_ptr] #[retval] ppDataReport: *mut ISensorDataReport) -> HRESULT;
             fn SupportsEvent(&self, #[in] eventGuid: &GUID, #[out] pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetEventInterest(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pCount, indirect, nullable)] #[writable(success, *pCount, indirect, nullable)] ppValues: *mut *mut GUID, #[out] pCount: *mut ULONG) -> HRESULT;
             fn SetEventInterest(&self, #[in] #[opt] #[readable(entry, count)] pValues: *mut GUID, #[in] count: ULONG) -> HRESULT;
@@ -26,7 +26,7 @@ mod Windows {
         }
         #[guid(0x23571e11_e545_4dd8_a337_b89bf44b10df)]
         interface ISensorCollection: IUnknown {
-            fn GetAt(&self, #[in] ulIndex: ULONG, #[out] #[out_ptr] ppSensor: *mut ISensor) -> HRESULT;
+            fn GetAt(&self, #[in] ulIndex: ULONG, #[out] #[out_ptr] #[retval] ppSensor: *mut ISensor) -> HRESULT;
             fn GetCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
             fn Add(&self, #[in] #[opt] pSensor: ISensor) -> HRESULT;
             fn Remove(&self, #[in] #[opt] pSensor: ISensor) -> HRESULT;
@@ -37,7 +37,7 @@ mod Windows {
         interface ISensorDataReport: IUnknown {
             fn GetTimestamp(&self, #[out] pTimeStamp: *mut SYSTEMTIME) -> HRESULT;
             fn GetSensorValue(&self, #[in] pKey: &PROPERTYKEY, #[out] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetSensorValues(&self, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSensorValues(&self, #[in] #[opt] pKeys: IPortableDeviceKeyCollection, #[out] #[out_ptr] #[retval] ppValues: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391)]
         interface ISensorEvents: IUnknown {
@@ -48,9 +48,9 @@ mod Windows {
         }
         #[guid(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a)]
         interface ISensorManager: IUnknown {
-            fn GetSensorsByCategory(&self, #[in] sensorCategory: &GUID, #[out] #[out_ptr] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
-            fn GetSensorsByType(&self, #[in] sensorType: &GUID, #[out] #[out_ptr] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
-            fn GetSensorByID(&self, #[in] sensorID: &GUID, #[out] #[out_ptr] ppSensor: *mut ISensor) -> HRESULT;
+            fn GetSensorsByCategory(&self, #[in] sensorCategory: &GUID, #[out] #[out_ptr] #[retval] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
+            fn GetSensorsByType(&self, #[in] sensorType: &GUID, #[out] #[out_ptr] #[retval] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
+            fn GetSensorByID(&self, #[in] sensorID: &GUID, #[out] #[out_ptr] #[retval] ppSensor: *mut ISensor) -> HRESULT;
             fn SetEventSink(&self, #[in] #[opt] pEvents: ISensorManagerEvents) -> HRESULT;
             fn RequestPermissions(&self, #[in] hParent: HWND, #[in] #[opt] pSensors: ISensorCollection, #[in] fModal: BOOL) -> HRESULT;
         }

@@ -133,10 +133,10 @@ mod Windows {
             fn ReleaseBoundObjects(&self) -> HRESULT;
             fn SetBindOptions(&self, #[in] pbindopts: *mut BIND_OPTS) -> HRESULT;
             fn GetBindOptions(&self, #[in] #[out] pbindopts: *mut BIND_OPTS) -> HRESULT;
-            fn GetRunningObjectTable(&self, #[out] #[out_ptr] pprot: *mut IRunningObjectTable) -> HRESULT;
+            fn GetRunningObjectTable(&self, #[out] #[out_ptr] #[retval] pprot: *mut IRunningObjectTable) -> HRESULT;
             fn RegisterObjectParam(&self, #[in] pszKey: LPOLESTR, #[in] #[opt] punk: IUnknown) -> HRESULT;
-            fn GetObjectParam(&self, #[in] pszKey: LPOLESTR, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
-            fn EnumObjectParam(&self, #[out] #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
+            fn GetObjectParam(&self, #[in] pszKey: LPOLESTR, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn EnumObjectParam(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumString) -> HRESULT;
             fn RevokeObjectParam(&self, #[in] pszKey: LPOLESTR) -> HRESULT;
         }
         #[guid(0x30f3d47a_6447_11d1_8e3c_00c04fb9386d)]
@@ -152,7 +152,7 @@ mod Windows {
         interface IDataAdviseHolder: IUnknown {
             fn Advise(&self, #[in] #[opt] pDataObject: IDataObject, #[in] pFetc: *mut FORMATETC, #[in] advf: DWORD, #[in] pAdvise: IAdviseSink, #[out] pdwConnection: *mut DWORD) -> HRESULT;
             fn Unadvise(&self, #[in] dwConnection: DWORD) -> HRESULT;
-            fn EnumAdvise(&self, #[out] #[out_ptr] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+            fn EnumAdvise(&self, #[out] #[out_ptr] #[retval] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
             fn SendOnDataChange(&self, #[in] pDataObject: IDataObject, #[in] #[reserved] dwReserved: DWORD, #[in] advf: DWORD) -> HRESULT;
         }
         #[guid(0x0000010e_0000_0000_c000_000000000046)]
@@ -162,10 +162,10 @@ mod Windows {
             fn QueryGetData(&self, #[in] #[opt] pformatetc: *mut FORMATETC) -> HRESULT;
             fn GetCanonicalFormatEtc(&self, #[in] #[opt] pformatectIn: *mut FORMATETC, #[out] pformatetcOut: *mut FORMATETC) -> HRESULT;
             fn SetData(&self, #[in] pformatetc: *mut FORMATETC, #[in] pmedium: *mut STGMEDIUM, #[in] fRelease: BOOL) -> HRESULT;
-            fn EnumFormatEtc(&self, #[in] dwDirection: DWORD, #[out] #[out_ptr] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+            fn EnumFormatEtc(&self, #[in] dwDirection: DWORD, #[out] #[out_ptr] #[retval] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
             fn DAdvise(&self, #[in] pformatetc: *mut FORMATETC, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink, #[out] pdwConnection: *mut DWORD) -> HRESULT;
             fn DUnadvise(&self, #[in] dwConnection: DWORD) -> HRESULT;
-            fn EnumDAdvise(&self, #[out] #[out_ptr] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+            fn EnumDAdvise(&self, #[out] #[out_ptr] #[retval] ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
         }
         #[guid(0x0e6d4d92_6738_11cf_9608_00aa00680db4)]
         interface IDirectWriterLock: IUnknown {
@@ -182,28 +182,28 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut FORMATETC, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumFORMATETC) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumFORMATETC) -> HRESULT;
         }
         #[guid(0x00000102_0000_0000_c000_000000000046)]
         interface IEnumMoniker: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IMoniker, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumMoniker) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumMoniker) -> HRESULT;
         }
         #[guid(0x00000105_0000_0000_c000_000000000046)]
         interface IEnumSTATDATA: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATDATA, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATDATA) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATDATA) -> HRESULT;
         }
         #[guid(0x0000000d_0000_0000_c000_000000000046)]
         interface IEnumSTATSTG: IUnknown {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATSTG, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATSTG) -> HRESULT;
         }
         #[guid(0x99caf010_415e_11cf_8814_00aa00b569f5)]
         interface IFillLockBytes: IUnknown {
@@ -266,18 +266,18 @@ mod Windows {
         interface IMoniker: IPersistStream {
             fn BindToObject(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riidResult: &IID, #[iid_is] #[out] #[out_ptr] ppvResult: *mut *mut void) -> HRESULT;
             fn BindToStorage(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
-            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] ppmkReduced: *mut IMoniker) -> HRESULT;
-            fn ComposeWith(&self, #[in] #[opt] pmkRight: IMoniker, #[in] fOnlyIfNotGeneric: BOOL, #[out] #[out_ptr] ppmkComposite: *mut IMoniker) -> HRESULT;
-            fn Enum(&self, #[in] fForward: BOOL, #[out] #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] #[retval] ppmkReduced: *mut IMoniker) -> HRESULT;
+            fn ComposeWith(&self, #[in] #[opt] pmkRight: IMoniker, #[in] fOnlyIfNotGeneric: BOOL, #[out] #[out_ptr] #[retval] ppmkComposite: *mut IMoniker) -> HRESULT;
+            fn Enum(&self, #[in] fForward: BOOL, #[out] #[out_ptr] #[retval] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
             fn IsEqual(&self, #[in] #[opt] pmkOtherMoniker: IMoniker) -> HRESULT;
             fn Hash(&self, #[out] pdwHash: *mut DWORD) -> HRESULT;
             fn IsRunning(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] #[opt] pmkNewlyRunning: IMoniker) -> HRESULT;
             fn GetTimeOfLastChange(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[out] pFileTime: *mut FILETIME) -> HRESULT;
-            fn Inverse(&self, #[out] #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
-            fn CommonPrefixWith(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] ppmkPrefix: *mut IMoniker) -> HRESULT;
-            fn RelativePathTo(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] ppmkRelPath: *mut IMoniker) -> HRESULT;
+            fn Inverse(&self, #[out] #[out_ptr] #[retval] ppmk: *mut IMoniker) -> HRESULT;
+            fn CommonPrefixWith(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] #[retval] ppmkPrefix: *mut IMoniker) -> HRESULT;
+            fn RelativePathTo(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] #[retval] ppmkRelPath: *mut IMoniker) -> HRESULT;
             fn GetDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[out] #[out_ptr] ppszDisplayName: *mut LPOLESTR) -> HRESULT;
-            fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] ppmkOut: *mut IMoniker) -> HRESULT;
+            fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] #[retval] ppmkOut: *mut IMoniker) -> HRESULT;
             fn IsSystemMoniker(&self, #[out] pdwMksys: *mut DWORD) -> HRESULT;
         }
         #[packed(8)]
@@ -349,22 +349,22 @@ mod Windows {
             fn Register(&self, #[in] grfFlags: DWORD, #[in] #[opt] punkObject: IUnknown, #[in] #[opt] pmkObjectName: IMoniker, #[out] pdwRegister: *mut DWORD) -> HRESULT;
             fn Revoke(&self, #[in] dwRegister: DWORD) -> HRESULT;
             fn IsRunning(&self, #[in] #[opt] pmkObjectName: IMoniker) -> HRESULT;
-            fn GetObject(&self, #[in] #[opt] pmkObjectName: IMoniker, #[out] #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
+            fn GetObject(&self, #[in] #[opt] pmkObjectName: IMoniker, #[out] #[out_ptr] #[retval] ppunkObject: *mut IUnknown) -> HRESULT;
             fn NoteChangeTime(&self, #[in] dwRegister: DWORD, #[in] pfiletime: *mut FILETIME) -> HRESULT;
             fn GetTimeOfLastChange(&self, #[in] #[opt] pmkObjectName: IMoniker, #[out] pfiletime: *mut FILETIME) -> HRESULT;
-            fn EnumRunning(&self, #[out] #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+            fn EnumRunning(&self, #[out] #[out_ptr] #[retval] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
         }
         #[guid(0x0000000b_0000_0000_c000_000000000046)]
         interface IStorage: IUnknown {
-            fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
-            fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
-            fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
-            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
+            fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
+            fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
+            fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
+            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
             fn CopyTo(&self, #[in] ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
             fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
             fn Revert(&self) -> HRESULT;
-            fn EnumElements(&self, #[in] #[reserved] reserved1: DWORD, #[in] #[reserved] reserved2: *mut void, #[in] #[reserved] reserved3: DWORD, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
+            fn EnumElements(&self, #[in] #[reserved] reserved1: DWORD, #[in] #[reserved] reserved2: *mut void, #[in] #[reserved] reserved3: DWORD, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATSTG) -> HRESULT;
             fn DestroyElement(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
             fn RenameElement(&self, #[in] #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
             fn SetElementTimes(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;

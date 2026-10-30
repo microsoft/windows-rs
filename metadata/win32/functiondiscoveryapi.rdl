@@ -40,7 +40,7 @@ mod Windows {
         interface IFunctionInstanceCollectionQuery: IUnknown {
             fn AddQueryConstraint(&self, #[in] #[null_terminated(entry)] pszConstraintName: *const WCHAR, #[in] #[null_terminated(entry)] pszConstraintValue: *const WCHAR) -> HRESULT;
             fn AddPropertyConstraint(&self, #[in] Key: &PROPERTYKEY, #[in] pv: *const PROPVARIANT, #[in] enumPropertyConstraint: PropertyConstraint) -> HRESULT;
-            fn Execute(&self, #[out] #[out_ptr] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
+            fn Execute(&self, #[out] #[out_ptr] #[retval] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
         }
         struct IFunctionInstanceCollectionQuery2 {}
         struct IFunctionInstanceCollectionQueryCollection {}

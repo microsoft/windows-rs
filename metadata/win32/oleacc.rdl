@@ -128,14 +128,14 @@ mod Windows {
         }
         #[guid(0x03022430_abc4_11d0_bde2_00aa001a1953)]
         interface IAccessibleHandler: IUnknown {
-            fn AccessibleObjectFromID(&self, #[in] hwnd: i32, #[in] lObjectID: i32, #[out] #[out_ptr] pIAccessible: *mut LPACCESSIBLE) -> HRESULT;
+            fn AccessibleObjectFromID(&self, #[in] hwnd: i32, #[in] lObjectID: i32, #[out] #[out_ptr] #[retval] pIAccessible: *mut LPACCESSIBLE) -> HRESULT;
         }
         #[guid(0xbf3abd9c_76da_4389_9eb6_1427d25abab7)]
         interface IAccessibleWindowlessSite: IUnknown {
             fn AcquireObjectIdRange(&self, #[in] rangeSize: i32, #[in] #[opt] pRangeOwner: IAccessibleHandler, #[out] pRangeBase: *mut i32) -> HRESULT;
             fn ReleaseObjectIdRange(&self, #[in] rangeBase: i32, #[in] #[opt] pRangeOwner: IAccessibleHandler) -> HRESULT;
             fn QueryObjectIdRanges(&self, #[in] #[opt] pRangesOwner: IAccessibleHandler, #[out] #[out_ptr] psaRanges: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetParentAccessible(&self, #[out] #[out_ptr] ppParent: *mut IAccessible) -> HRESULT;
+            fn GetParentAccessible(&self, #[out] #[out_ptr] #[retval] ppParent: *mut IAccessible) -> HRESULT;
         }
         const IID_IAccIdentity: GUID = 0x7852b78d_1cfd_41c1_a615_9c0c85960b5f;
         const IID_IAccPropMgrInternal: GUID = 0x2bd370a9_3e7f_4edd_8a85_f8fed1f8e51f;

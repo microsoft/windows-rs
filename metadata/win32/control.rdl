@@ -7,7 +7,7 @@ mod Windows {
         interface IAMCollection: IDispatch {
             #[special]
             fn get_Count(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
-            fn Item(&self, #[in] lItem: i32, #[out] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] lItem: i32, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
             #[special]
             fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
         }
@@ -101,7 +101,7 @@ mod Windows {
         }
         #[guid(0x56a868ba_0ad4_11ce_b03a_0020af0ba770)]
         interface IFilterInfo: IDispatch {
-            fn FindPin(&self, #[in] strPinID: BSTR, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn FindPin(&self, #[in] strPinID: BSTR, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
             fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
             #[special]
@@ -140,7 +140,7 @@ mod Windows {
             fn Stop(&self) -> HRESULT;
             fn GetState(&self, #[in] msTimeout: LONG, #[out] pfs: *mut OAFilterState) -> HRESULT;
             fn RenderFile(&self, #[in] strFilename: BSTR) -> HRESULT;
-            fn AddSourceFilter(&self, #[in] strFilename: BSTR, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn AddSourceFilter(&self, #[in] strFilename: BSTR, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
             fn get_FilterCollection(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
@@ -225,7 +225,7 @@ mod Windows {
         interface IRegFilterInfo: IDispatch {
             #[special]
             fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
-            fn Filter(&self, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn Filter(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
         }
         #[guid(0x56a868b4_0ad4_11ce_b03a_0020af0ba770)]
         interface IVideoWindow: IDispatch {

@@ -1113,8 +1113,11 @@ impl IVssBackupComponentsEx3 {
         unsafe { (windows_core::Interface::vtable(self).AddSnapshotToRecoverySet)(windows_core::Interface::as_raw(self), snapshotid, dwflags, pwszdestinationvolume.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "vss"))]
-    pub unsafe fn RecoverSet(&self, dwflags: super::DWORD, ppasync: *mut Option<super::IVssAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(ppasync)) }
+    pub unsafe fn RecoverSet(&self, dwflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn GetSessionId(&self, idsession: *mut super::VSS_ID) -> windows_core::HRESULT {
@@ -1146,7 +1149,7 @@ pub struct IVssBackupComponentsEx3_Vtbl {
 pub trait IVssBackupComponentsEx3_Impl: IVssBackupComponentsEx2_Impl {
     fn GetWriterStatusEx(&self, iwriter: super::UINT, pidinstance: *mut super::VSS_ID, pidwriter: *mut super::VSS_ID, pbstrwriter: *mut windows_core::BSTR, pnstatus: *mut super::VSS_WRITER_STATE, phrfailurewriter: *mut windows_core::HRESULT, phrapplication: *mut windows_core::HRESULT, pbstrapplicationmessage: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn AddSnapshotToRecoverySet(&self, snapshotid: &super::VSS_ID, dwflags: super::DWORD, pwszdestinationvolume: super::VSS_PWSZ) -> windows_core::Result<()>;
-    fn RecoverSet(&self, dwflags: super::DWORD, ppasync: windows_core::OutRef<super::IVssAsync>) -> windows_core::Result<()>;
+    fn RecoverSet(&self, dwflags: super::DWORD) -> windows_core::Result<super::IVssAsync>;
     fn GetSessionId(&self, idsession: *mut super::VSS_ID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1167,7 +1170,13 @@ impl IVssBackupComponentsEx3_Vtbl {
         unsafe extern "system" fn RecoverSet<Identity: IVssBackupComponentsEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssBackupComponentsEx3_Impl::RecoverSet(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppasync)).into()
+                match IVssBackupComponentsEx3_Impl::RecoverSet(this, core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSessionId<Identity: IVssBackupComponentsEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idsession: *mut super::VSS_ID) -> windows_core::HRESULT {

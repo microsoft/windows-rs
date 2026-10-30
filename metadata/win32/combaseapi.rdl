@@ -63,10 +63,10 @@ mod Windows {
         extern fn CoCancelCall(#[in] dwThreadId: DWORD, #[in] ulTimeout: ULONG) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCopyProxy(#[in] pProxy: IUnknown, #[out] #[out_ptr] ppCopy: *mut IUnknown) -> HRESULT;
+        extern fn CoCopyProxy(#[in] pProxy: IUnknown, #[out] #[out_ptr] #[retval] ppCopy: *mut IUnknown) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCreateFreeThreadedMarshaler(#[in] #[opt] punkOuter: LPUNKNOWN, #[out] #[out_ptr] ppunkMarshal: *mut LPUNKNOWN) -> HRESULT;
+        extern fn CoCreateFreeThreadedMarshaler(#[in] #[opt] punkOuter: LPUNKNOWN, #[out] #[out_ptr] #[retval] ppunkMarshal: *mut LPUNKNOWN) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoCreateGuid(#[out] pguid: *mut GUID) -> HRESULT;
@@ -129,7 +129,7 @@ mod Windows {
         extern fn CoGetInterfaceAndReleaseStream(#[in] pStm: LPSTREAM, #[in] iid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetMalloc(#[in] dwMemContext: DWORD, #[out] #[out_ptr] ppMalloc: *mut LPMALLOC) -> HRESULT;
+        extern fn CoGetMalloc(#[in] dwMemContext: DWORD, #[out] #[out_ptr] #[retval] ppMalloc: *mut LPMALLOC) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetMarshalSizeMax(#[out] pulSize: *mut ULONG, #[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD) -> HRESULT;
@@ -141,10 +141,10 @@ mod Windows {
         extern fn CoGetPSClsid(#[in] riid: &IID, #[out] pClsid: *mut CLSID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetStandardMarshal(#[in] riid: &IID, #[in] #[opt] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD, #[out] #[out_ptr] ppMarshal: *mut LPMARSHAL) -> HRESULT;
+        extern fn CoGetStandardMarshal(#[in] riid: &IID, #[in] #[opt] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD, #[out] #[out_ptr] #[retval] ppMarshal: *mut LPMARSHAL) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetStdMarshalEx(#[in] pUnkOuter: LPUNKNOWN, #[in] smexflags: DWORD, #[out] #[out_ptr] ppUnkInner: *mut LPUNKNOWN) -> HRESULT;
+        extern fn CoGetStdMarshalEx(#[in] pUnkOuter: LPUNKNOWN, #[in] smexflags: DWORD, #[out] #[out_ptr] #[retval] ppUnkInner: *mut LPUNKNOWN) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetTreatAsClass(#[in] clsidOld: &IID, #[out] pClsidNew: LPCLSID) -> HRESULT;
@@ -172,7 +172,7 @@ mod Windows {
         extern fn CoMarshalHresult(#[in] pstm: LPSTREAM, #[in] hresult: HRESULT) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoMarshalInterThreadInterfaceInStream(#[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[out] #[out_ptr] ppStm: *mut LPSTREAM) -> HRESULT;
+        extern fn CoMarshalInterThreadInterfaceInStream(#[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[out] #[out_ptr] #[retval] ppStm: *mut LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoMarshalInterface(#[in] pStm: LPSTREAM, #[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD) -> HRESULT;
@@ -226,7 +226,7 @@ mod Windows {
         extern fn CoSuspendClassObjects() -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoSwitchCallContext(#[in] #[opt] pNewObject: IUnknown, #[out] #[out_ptr] ppOldObject: *mut IUnknown) -> HRESULT;
+        extern fn CoSwitchCallContext(#[in] #[opt] pNewObject: IUnknown, #[out] #[out_ptr] #[retval] ppOldObject: *mut IUnknown) -> HRESULT;
         #[Windows::Win32::Metadata::NativeSal("1.1", "_Ret_opt_", "", "")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "cb", "cb")]
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_allocatesMem", "Mem", "Mem")]
@@ -257,7 +257,7 @@ mod Windows {
         extern fn CoWaitForMultipleObjects(#[in] dwFlags: DWORD, #[in] dwTimeout: DWORD, #[in] cHandles: ULONG, #[in] #[readable(entry, cHandles)] pHandles: *const HANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] ppstm: *mut LPSTREAM) -> HRESULT;
+        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] #[retval] ppstm: *mut LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn GetHGlobalFromStream(#[in] pstm: LPSTREAM, #[out] phglobal: *mut HGLOBAL) -> HRESULT;

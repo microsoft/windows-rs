@@ -1,8 +1,11 @@
 windows_core::imp::define_interface!(IEnumTfLangBarItems, IEnumTfLangBarItems_Vtbl, 0x583f34d0_de25_11d2_afdd_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfLangBarItems, windows_core::IUnknown);
 impl IEnumTfLangBarItems {
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, ulcount: super::ULONG, ppitem: *mut Option<ITfLangBarItem>, pcfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
@@ -33,7 +36,7 @@ pub struct IEnumTfLangBarItems_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEnumTfLangBarItems_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumTfLangBarItems>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumTfLangBarItems>;
     fn Next(&self, ulcount: super::ULONG, ppitem: *mut Option<ITfLangBarItem>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: super::ULONG) -> windows_core::Result<()>;
@@ -44,7 +47,13 @@ impl IEnumTfLangBarItems_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumTfLangBarItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumTfLangBarItems_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumTfLangBarItems_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Next<Identity: IEnumTfLangBarItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: super::ULONG, ppitem: *mut *mut core::ffi::c_void, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
@@ -666,11 +675,17 @@ impl windows_core::RuntimeName for ITfLangBarItemButton {}
 windows_core::imp::define_interface!(ITfLangBarItemMgr, ITfLangBarItemMgr_Vtbl, 0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa);
 windows_core::imp::interface_hierarchy!(ITfLangBarItemMgr, windows_core::IUnknown);
 impl ITfLangBarItemMgr {
-    pub unsafe fn EnumItems(&self, ppenum: *mut Option<IEnumTfLangBarItems>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumItems(&self) -> windows_core::Result<IEnumTfLangBarItems> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetItem(&self, rguid: *const windows_core::GUID, ppitem: *mut Option<ITfLangBarItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), rguid, core::mem::transmute(ppitem)) }
+    pub unsafe fn GetItem(&self, rguid: *const windows_core::GUID) -> windows_core::Result<ITfLangBarItem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), rguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddItem<P0>(&self, punk: P0) -> windows_core::HRESULT
     where
@@ -763,8 +778,8 @@ pub struct ITfLangBarItemMgr_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ITfLangBarItemMgr_Impl: windows_core::IUnknownImpl {
-    fn EnumItems(&self, ppenum: windows_core::OutRef<IEnumTfLangBarItems>) -> windows_core::Result<()>;
-    fn GetItem(&self, rguid: *const windows_core::GUID, ppitem: windows_core::OutRef<ITfLangBarItem>) -> windows_core::Result<()>;
+    fn EnumItems(&self) -> windows_core::Result<IEnumTfLangBarItems>;
+    fn GetItem(&self, rguid: *const windows_core::GUID) -> windows_core::Result<ITfLangBarItem>;
     fn AddItem(&self, punk: windows_core::Ref<ITfLangBarItem>) -> windows_core::Result<()>;
     fn RemoveItem(&self, punk: windows_core::Ref<ITfLangBarItem>) -> windows_core::Result<()>;
     fn AdviseItemSink(&self, punk: windows_core::Ref<ITfLangBarItemSink>, pdwcookie: *mut super::DWORD, rguiditem: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -782,13 +797,25 @@ impl ITfLangBarItemMgr_Vtbl {
         unsafe extern "system" fn EnumItems<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemMgr_Impl::EnumItems(this, core::mem::transmute_copy(&ppenum)).into()
+                match ITfLangBarItemMgr_Impl::EnumItems(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetItem<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguid: *const windows_core::GUID, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemMgr_Impl::GetItem(this, core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&ppitem)).into()
+                match ITfLangBarItemMgr_Impl::GetItem(this, core::mem::transmute_copy(&rguid)) {
+                    Ok(ok__) => {
+                        ppitem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddItem<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {

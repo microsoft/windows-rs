@@ -3,13 +3,13 @@ mod Windows {
     mod Win32 {
         #[guid(0x04a2dbf3_df83_116c_0946_0812abf6e07d)]
         interface ILanguageExceptionErrorInfo: IUnknown {
-            fn GetLanguageException(&self, #[out] #[out_ptr] languageException: *mut IUnknown) -> HRESULT;
+            fn GetLanguageException(&self, #[out] #[out_ptr] #[retval] languageException: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x5746e5c4_5b97_424c_b620_2822915734dd)]
         interface ILanguageExceptionErrorInfo2: ILanguageExceptionErrorInfo {
-            fn GetPreviousLanguageExceptionErrorInfo(&self, #[out] #[out_ptr] previousLanguageExceptionErrorInfo: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+            fn GetPreviousLanguageExceptionErrorInfo(&self, #[out] #[out_ptr] #[retval] previousLanguageExceptionErrorInfo: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
             fn CapturePropagationContext(&self, #[in] #[opt] languageException: IUnknown) -> HRESULT;
-            fn GetPropagationContextHead(&self, #[out] #[out_ptr] propagatedLanguageExceptionErrorInfoHead: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+            fn GetPropagationContextHead(&self, #[out] #[out_ptr] #[retval] propagatedLanguageExceptionErrorInfoHead: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
         }
         #[guid(0xcbe53fb5_f967_4258_8d34_42f5e25833de)]
         interface ILanguageExceptionStackBackTrace: IUnknown {
@@ -17,7 +17,7 @@ mod Windows {
         }
         #[guid(0xfeb5a271_a6cd_45ce_880a_696706badc65)]
         interface ILanguageExceptionTransform: IUnknown {
-            fn GetTransformedRestrictedErrorInfo(&self, #[out] #[out_ptr] restrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+            fn GetTransformedRestrictedErrorInfo(&self, #[out] #[out_ptr] #[retval] restrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         }
         #[guid(0x82ba7092_4c88_427d_a7bc_16dd93feb67e)]
         interface IRestrictedErrorInfo: IUnknown {

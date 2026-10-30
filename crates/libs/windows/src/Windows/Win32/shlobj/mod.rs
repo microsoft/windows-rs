@@ -55,9 +55,12 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
+pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> windows_core::Result<super::IMoniker> {
     windows_core::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateQueryCancelAutoPlayMoniker(core::mem::transmute(ppmoniker)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHCreateQueryCancelAutoPlayMoniker(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]

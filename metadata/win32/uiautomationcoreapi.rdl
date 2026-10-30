@@ -667,7 +667,7 @@ mod Windows {
         #[library("UIAutomationCore.DLL")]
         extern fn UiaProviderForNonClient(hwnd: HWND, idObject: i32, idChild: i32, ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
-        extern fn UiaProviderFromIAccessible(#[in] pAccessible: IAccessible, idChild: i32, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
+        extern fn UiaProviderFromIAccessible(#[in] pAccessible: IAccessible, idChild: i32, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
         extern fn UiaRaiseActiveTextPositionChangedEvent(#[in] provider: IRawElementProviderSimple, #[in] #[opt] textRange: ITextRangeProvider) -> HRESULT;
         #[library("UIAutomationCore.DLL")]

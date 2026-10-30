@@ -322,13 +322,16 @@ where
 }
 #[cfg(all(feature = "oaidl", feature = "objidlbase"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadStream<P0, P1>(propbag: P0, propname: P1, value: *mut Option<super::IStream>) -> windows_core::HRESULT
+pub unsafe fn PSPropertyBag_ReadStream<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::IStream>
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadStream(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PSPropertyBag_ReadStream(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PSPropertyBag_ReadStream(propbag.param().abi(), propname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

@@ -45,17 +45,12 @@ fn main() -> windows::core::Result<()> {
             .ok()?;
         let server = server.unwrap();
 
-        let mut query = None;
-        server
-            .ExecQuery(
-                &BSTR::from("WQL"),
-                &BSTR::from("select Caption from Win32_LogicalDisk"),
-                WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY,
-                None,
-                &mut query,
-            )
-            .ok()?;
-        let query = query.unwrap();
+        let query = server.ExecQuery(
+            &BSTR::from("WQL"),
+            &BSTR::from("select Caption from Win32_LogicalDisk"),
+            WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY,
+            None,
+        )?;
 
         loop {
             let mut row = [None; 1];

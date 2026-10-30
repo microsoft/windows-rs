@@ -141,8 +141,11 @@ impl IEnumVdsObject {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -165,7 +168,7 @@ pub trait IEnumVdsObject_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
 impl IEnumVdsObject_Vtbl {
@@ -191,7 +194,13 @@ impl IEnumVdsObject_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVdsObject_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumVdsObject_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -220,8 +229,11 @@ impl IVdsAdvancedDisk {
         unsafe { (windows_core::Interface::vtable(self).QueryPartitions)(windows_core::Interface::as_raw(self), pppartitionproparray as _, plnumberofpartitions as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreatePartition(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreatePartition)(windows_core::Interface::as_raw(self), ulloffset, ullsize, para, core::mem::transmute(ppasync)) }
+    pub unsafe fn CreatePartition(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreatePartition)(windows_core::Interface::as_raw(self), ulloffset, ullsize, para, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn DeletePartition(&self, ulloffset: super::ULONGLONG, bforce: bool, bforceprotected: bool) -> windows_core::HRESULT {
@@ -244,14 +256,20 @@ impl IVdsAdvancedDisk {
         unsafe { (windows_core::Interface::vtable(self).GetDriveLetter)(windows_core::Interface::as_raw(self), ulloffset, pwcletter as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FormatPartition<P2>(&self, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: super::DWORD, bforce: bool, bquickformat: bool, benablecompression: bool, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn FormatPartition<P2>(&self, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: super::DWORD, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn Clean(&self, bforce: bool, bforceoem: bool, bfullclean: bool, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.into(), bforceoem.into(), bfullclean.into(), core::mem::transmute(ppasync)) }
+    pub unsafe fn Clean(&self, bforce: bool, bforceoem: bool, bfullclean: bool) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.into(), bforceoem.into(), bfullclean.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -300,14 +318,14 @@ pub struct IVdsAdvancedDisk_Vtbl {
 pub trait IVdsAdvancedDisk_Impl: windows_core::IUnknownImpl {
     fn GetPartitionProperties(&self, ulloffset: super::ULONGLONG, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::Result<()>;
     fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut super::LONG) -> windows_core::Result<()>;
-    fn CreatePartition(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn CreatePartition(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
     fn DeletePartition(&self, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::Result<()>;
     fn ChangeAttributes(&self, ulloffset: super::ULONGLONG, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()>;
     fn AssignDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::Result<()>;
     fn DeleteDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::Result<()>;
     fn GetDriveLetter(&self, ulloffset: super::ULONGLONG, pwcletter: *mut super::WCHAR) -> windows_core::Result<()>;
-    fn FormatPartition(&self, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn FormatPartition(&self, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsAdvancedDisk_Vtbl {
@@ -327,7 +345,13 @@ impl IVdsAdvancedDisk_Vtbl {
         unsafe extern "system" fn CreatePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::CreatePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&para), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsAdvancedDisk_Impl::CreatePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&para)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn DeletePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::HRESULT {
@@ -363,13 +387,25 @@ impl IVdsAdvancedDisk_Vtbl {
         unsafe extern "system" fn FormatPartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Clean<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::Clean(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceoem), core::mem::transmute_copy(&bfullclean), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsAdvancedDisk_Impl::Clean(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceoem), core::mem::transmute_copy(&bfullclean)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -597,8 +633,11 @@ impl IVdsController {
     pub unsafe fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pcontrollerprop as _) }
     }
-    pub unsafe fn GetSubSystem(&self, ppsubsystem: *mut Option<IVdsSubSystem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubsystem)) }
+    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPortProperties(&self, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT {
@@ -613,8 +652,11 @@ impl IVdsController {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn QueryAssociatedLuns(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status) }
@@ -642,12 +684,12 @@ pub struct IVdsController_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsController_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self, ppsubsystem: windows_core::OutRef<IVdsSubSystem>) -> windows_core::Result<()>;
+    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
     fn GetPortProperties(&self, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
     fn FlushCache(&self) -> windows_core::Result<()>;
     fn InvalidateCache(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn QueryAssociatedLuns(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
     fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -662,7 +704,13 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn GetSubSystem<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::GetSubSystem(this, core::mem::transmute_copy(&ppsubsystem)).into()
+                match IVdsController_Impl::GetSubSystem(this) {
+                    Ok(ok__) => {
+                        ppsubsystem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetPortProperties<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT {
@@ -692,7 +740,13 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn QueryAssociatedLuns<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::QueryAssociatedLuns(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsController_Impl::QueryAssociatedLuns(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_CONTROLLER_STATUS) -> windows_core::HRESULT {
@@ -722,8 +776,11 @@ impl windows_core::RuntimeName for IVdsController {}
 windows_core::imp::define_interface!(IVdsControllerControllerPort, IVdsControllerControllerPort_Vtbl, 0xca5d735f_6bae_42c0_b30e_f2666045ce71);
 windows_core::imp::interface_hierarchy!(IVdsControllerControllerPort, windows_core::IUnknown);
 impl IVdsControllerControllerPort {
-    pub unsafe fn QueryControllerPorts(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryControllerPorts)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryControllerPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryControllerPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -733,14 +790,20 @@ pub struct IVdsControllerControllerPort_Vtbl {
     pub QueryControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsControllerControllerPort_Impl: windows_core::IUnknownImpl {
-    fn QueryControllerPorts(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryControllerPorts(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 impl IVdsControllerControllerPort_Vtbl {
     pub const fn new<Identity: IVdsControllerControllerPort_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryControllerPorts<Identity: IVdsControllerControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerControllerPort_Impl::QueryControllerPorts(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsControllerControllerPort_Impl::QueryControllerPorts(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryControllerPorts: QueryControllerPorts::<Identity, OFFSET> }
@@ -756,11 +819,17 @@ impl IVdsControllerPort {
     pub unsafe fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportprop as _) }
     }
-    pub unsafe fn GetController(&self, ppcontroller: *mut Option<IVdsController>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcontroller)) }
+    pub unsafe fn GetController(&self) -> windows_core::Result<IVdsController> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryAssociatedLuns(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -781,8 +850,8 @@ pub struct IVdsControllerPort_Vtbl {
 }
 pub trait IVdsControllerPort_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
-    fn GetController(&self, ppcontroller: windows_core::OutRef<IVdsController>) -> windows_core::Result<()>;
-    fn QueryAssociatedLuns(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn GetController(&self) -> windows_core::Result<IVdsController>;
+    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn SetStatus(&self, status: VDS_PORT_STATUS) -> windows_core::Result<()>;
 }
@@ -797,13 +866,25 @@ impl IVdsControllerPort_Vtbl {
         unsafe extern "system" fn GetController<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontroller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerPort_Impl::GetController(this, core::mem::transmute_copy(&ppcontroller)).into()
+                match IVdsControllerPort_Impl::GetController(this) {
+                    Ok(ok__) => {
+                        ppcontroller.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryAssociatedLuns<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerPort_Impl::QueryAssociatedLuns(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsControllerPort_Impl::QueryAssociatedLuns(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Reset<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -836,8 +917,11 @@ windows_core::imp::define_interface!(IVdsCreatePartitionEx, IVdsCreatePartitionE
 windows_core::imp::interface_hierarchy!(IVdsCreatePartitionEx, windows_core::IUnknown);
 impl IVdsCreatePartitionEx {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreatePartitionEx(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, ulalign: super::ULONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreatePartitionEx)(windows_core::Interface::as_raw(self), ulloffset, ullsize, ulalign, para, core::mem::transmute(ppasync)) }
+    pub unsafe fn CreatePartitionEx(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, ulalign: super::ULONG, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreatePartitionEx)(windows_core::Interface::as_raw(self), ulloffset, ullsize, ulalign, para, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -851,7 +935,7 @@ pub struct IVdsCreatePartitionEx_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsCreatePartitionEx_Impl: windows_core::IUnknownImpl {
-    fn CreatePartitionEx(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, ulalign: super::ULONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn CreatePartitionEx(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, ulalign: super::ULONG, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsCreatePartitionEx_Vtbl {
@@ -859,7 +943,13 @@ impl IVdsCreatePartitionEx_Vtbl {
         unsafe extern "system" fn CreatePartitionEx<Identity: IVdsCreatePartitionEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, ulalign: super::ULONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsCreatePartitionEx_Impl::CreatePartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&para), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsCreatePartitionEx_Impl::CreatePartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&para)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreatePartitionEx: CreatePartitionEx::<Identity, OFFSET> }
@@ -877,8 +967,11 @@ impl IVdsDisk {
     pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdiskproperties as _) }
     }
-    pub unsafe fn GetPack(&self, pppack: *mut Option<IVdsPack>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), core::mem::transmute(pppack)) }
+    pub unsafe fn GetPack(&self) -> windows_core::Result<IVdsPack> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
     pub unsafe fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
@@ -930,7 +1023,7 @@ pub struct IVdsDisk_Vtbl {
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsDisk_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::Result<()>;
-    fn GetPack(&self, pppack: windows_core::OutRef<IVdsPack>) -> windows_core::Result<()>;
+    fn GetPack(&self) -> windows_core::Result<IVdsPack>;
     fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
     fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> windows_core::Result<()>;
@@ -949,7 +1042,13 @@ impl IVdsDisk_Vtbl {
         unsafe extern "system" fn GetPack<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppack: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::GetPack(this, core::mem::transmute_copy(&pppack)).into()
+                match IVdsDisk_Impl::GetPack(this) {
+                    Ok(ok__) => {
+                        pppack.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetIdentificationData<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
@@ -1145,12 +1244,15 @@ impl IVdsDiskPartitionMF {
         unsafe { (windows_core::Interface::vtable(self).QueryPartitionFileSystemFormatSupport)(windows_core::Interface::as_raw(self), ulloffset, ppfilesystemsupportprops as _, plnumberoffilesystems as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FormatPartitionEx<P1, P4>(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: P1, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P4, bforce: bool, bquickformat: bool, benablecompression: bool, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn FormatPartitionEx<P1, P4>(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: P1, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P4, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1179,7 +1281,7 @@ pub trait IVdsDiskPartitionMF_Impl: windows_core::IUnknownImpl {
     fn GetPartitionFileSystemProperties(&self, ulloffset: super::ULONGLONG, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
     fn GetPartitionFileSystemTypeName(&self, ulloffset: super::ULONGLONG, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: super::ULONGLONG, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
-    fn FormatPartitionEx(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn FormatPartitionEx(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsDiskPartitionMF_Vtbl {
@@ -1205,7 +1307,13 @@ impl IVdsDiskPartitionMF_Vtbl {
         unsafe extern "system" fn FormatPartitionEx<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1226,12 +1334,15 @@ windows_core::imp::define_interface!(IVdsDiskPartitionMF2, IVdsDiskPartitionMF2_
 windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF2, windows_core::IUnknown);
 impl IVdsDiskPartitionMF2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn FormatPartitionEx2<P1, P4>(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: P1, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P4, options: super::DWORD, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn FormatPartitionEx2<P1, P4>(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: P1, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P4, options: super::DWORD) -> windows_core::Result<IVdsAsync>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FormatPartitionEx2)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FormatPartitionEx2)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1245,7 +1356,7 @@ pub struct IVdsDiskPartitionMF2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsDiskPartitionMF2_Impl: windows_core::IUnknownImpl {
-    fn FormatPartitionEx2(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, options: super::DWORD, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn FormatPartitionEx2(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, options: super::DWORD) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsDiskPartitionMF2_Vtbl {
@@ -1253,7 +1364,13 @@ impl IVdsDiskPartitionMF2_Vtbl {
         unsafe extern "system" fn FormatPartitionEx2<Identity: IVdsDiskPartitionMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, options: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskPartitionMF2_Impl::FormatPartitionEx2(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsDiskPartitionMF2_Impl::FormatPartitionEx2(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FormatPartitionEx2: FormatPartitionEx2::<Identity, OFFSET> }
@@ -1271,8 +1388,11 @@ impl IVdsDrive {
     pub unsafe fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdriveprop as _) }
     }
-    pub unsafe fn GetSubSystem(&self, ppsubsystem: *mut Option<IVdsSubSystem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubsystem)) }
+    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
@@ -1316,7 +1436,7 @@ pub struct IVdsDrive_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsDrive_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self, ppsubsystem: windows_core::OutRef<IVdsSubSystem>) -> windows_core::Result<()>;
+    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
     fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
     fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
@@ -1334,7 +1454,13 @@ impl IVdsDrive_Vtbl {
         unsafe extern "system" fn GetSubSystem<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::GetSubSystem(this, core::mem::transmute_copy(&ppsubsystem)).into()
+                match IVdsDrive_Impl::GetSubSystem(this) {
+                    Ok(ok__) => {
+                        ppsubsystem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryExtents<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
@@ -1471,8 +1597,11 @@ impl windows_core::RuntimeName for IVdsHbaPort {}
 windows_core::imp::define_interface!(IVdsHwProvider, IVdsHwProvider_Vtbl, 0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
 windows_core::imp::interface_hierarchy!(IVdsHwProvider, windows_core::IUnknown);
 impl IVdsHwProvider {
-    pub unsafe fn QuerySubSystems(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QuerySubSystems)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QuerySubSystems(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QuerySubSystems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Reenumerate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)) }
@@ -1490,7 +1619,7 @@ pub struct IVdsHwProvider_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProvider_Impl: windows_core::IUnknownImpl {
-    fn QuerySubSystems(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QuerySubSystems(&self) -> windows_core::Result<IEnumVdsObject>;
     fn Reenumerate(&self) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
 }
@@ -1499,7 +1628,13 @@ impl IVdsHwProvider_Vtbl {
         unsafe extern "system" fn QuerySubSystems<Identity: IVdsHwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProvider_Impl::QuerySubSystems(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsHwProvider_Impl::QuerySubSystems(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Reenumerate<Identity: IVdsHwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1530,15 +1665,21 @@ windows_core::imp::define_interface!(IVdsHwProviderStoragePools, IVdsHwProviderS
 windows_core::imp::interface_hierarchy!(IVdsHwProviderStoragePools, windows_core::IUnknown);
 impl IVdsHwProviderStoragePools {
     #[cfg(all(feature = "shared", feature = "vdslun"))]
-    pub unsafe fn QueryStoragePools(&self, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: Option<*const VDS_POOL_ATTRIBUTES>, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryStoragePools)(windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ppoolattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryStoragePools(&self, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: Option<*const VDS_POOL_ATTRIBUTES>) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryStoragePools)(windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ppoolattributes.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
-    pub unsafe fn CreateLunInStoragePool<P3>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: VDS_OBJECT_ID, pwszunmaskinglist: P3, phints2: Option<*const VDS_HINTS2>, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn CreateLunInStoragePool<P3>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: VDS_OBJECT_ID, pwszunmaskinglist: P3, phints2: Option<*const VDS_HINTS2>) -> windows_core::Result<IVdsAsync>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, storagepoolid, pwszunmaskinglist.param().abi(), phints2.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, storagepoolid, pwszunmaskinglist.param().abi(), phints2.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: VDS_OBJECT_ID, phints2: Option<*const VDS_HINTS2>, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -1564,8 +1705,8 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsHwProviderStoragePools_Impl: windows_core::IUnknownImpl {
-    fn QueryStoragePools(&self, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: *const VDS_POOL_ATTRIBUTES, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: &VDS_OBJECT_ID, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn QueryStoragePools(&self, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> windows_core::Result<IEnumVdsObject>;
+    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: &VDS_OBJECT_ID, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
@@ -1574,13 +1715,25 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn QueryStoragePools<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: *const VDS_POOL_ATTRIBUTES, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderStoragePools_Impl::QueryStoragePools(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ullremainingfreespace), core::mem::transmute_copy(&ppoolattributes), core::mem::transmute_copy(&ppenum)).into()
+                match IVdsHwProviderStoragePools_Impl::QueryStoragePools(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ullremainingfreespace), core::mem::transmute_copy(&ppoolattributes)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateLunInStoragePool<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: VDS_OBJECT_ID, pwszunmaskinglist: windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderStoragePools_Impl::CreateLunInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute(&storagepoolid), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsHwProviderStoragePools_Impl::CreateLunInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute(&storagepoolid), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryMaxLunCreateSizeInStoragePool<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, storagepoolid: VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -1670,15 +1823,24 @@ impl IVdsIscsiInitiatorAdapter {
     pub unsafe fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pinitiatoradapterprop as _) }
     }
-    pub unsafe fn QueryInitiatorPortals(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInitiatorPortals)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryInitiatorPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: VDS_OBJECT_ID, targetportalid: VDS_OBJECT_ID, initiatorportalid: VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, targetid, targetportalid, initiatorportalid, ulloginflags, bheaderdigest.into(), bdatadigest.into(), authtype, core::mem::transmute(ppasync)) }
+    pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: VDS_OBJECT_ID, targetportalid: VDS_OBJECT_ID, initiatorportalid: VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, targetid, targetportalid, initiatorportalid, ulloginflags, bheaderdigest.into(), bdatadigest.into(), authtype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn LogoutFromTarget(&self, targetid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LogoutFromTarget)(windows_core::Interface::as_raw(self), targetid, core::mem::transmute(ppasync)) }
+    pub unsafe fn LogoutFromTarget(&self, targetid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LogoutFromTarget)(windows_core::Interface::as_raw(self), targetid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1696,9 +1858,9 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsIscsiInitiatorAdapter_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::Result<()>;
-    fn QueryInitiatorPortals(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &VDS_OBJECT_ID, targetportalid: &VDS_OBJECT_ID, initiatorportalid: &VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn LogoutFromTarget(&self, targetid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &VDS_OBJECT_ID, targetportalid: &VDS_OBJECT_ID, initiatorportalid: &VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>;
+    fn LogoutFromTarget(&self, targetid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsIscsiInitiatorAdapter_Vtbl {
@@ -1712,19 +1874,37 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
         unsafe extern "system" fn QueryInitiatorPortals<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorAdapter_Impl::QueryInitiatorPortals(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsIscsiInitiatorAdapter_Impl::QueryInitiatorPortals(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn LoginToTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: VDS_OBJECT_ID, targetportalid: VDS_OBJECT_ID, initiatorportalid: VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), core::mem::transmute(&targetid), core::mem::transmute(&targetportalid), core::mem::transmute(&initiatorportalid), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), core::mem::transmute(&targetid), core::mem::transmute(&targetportalid), core::mem::transmute(&initiatorportalid), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn LogoutFromTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorAdapter_Impl::LogoutFromTarget(this, core::mem::transmute(&targetid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiInitiatorAdapter_Impl::LogoutFromTarget(this, core::mem::transmute(&targetid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1748,8 +1928,11 @@ impl IVdsIscsiInitiatorPortal {
     pub unsafe fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pinitiatorportalprop as _) }
     }
-    pub unsafe fn GetInitiatorAdapter(&self, ppinitiatoradapter: *mut Option<IVdsIscsiInitiatorAdapter>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInitiatorAdapter)(windows_core::Interface::as_raw(self), core::mem::transmute(ppinitiatoradapter)) }
+    pub unsafe fn GetInitiatorAdapter(&self) -> windows_core::Result<IVdsIscsiInitiatorAdapter> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetInitiatorAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT {
@@ -1789,7 +1972,7 @@ pub struct IVdsIscsiInitiatorPortal_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsIscsiInitiatorPortal_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::Result<()>;
-    fn GetInitiatorAdapter(&self, ppinitiatoradapter: windows_core::OutRef<IVdsIscsiInitiatorAdapter>) -> windows_core::Result<()>;
+    fn GetInitiatorAdapter(&self) -> windows_core::Result<IVdsIscsiInitiatorAdapter>;
     fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
     fn GetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
     fn SetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
@@ -1806,7 +1989,13 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
         unsafe extern "system" fn GetInitiatorAdapter<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinitiatoradapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::GetInitiatorAdapter(this, core::mem::transmute_copy(&ppinitiatoradapter)).into()
+                match IVdsIscsiInitiatorPortal_Impl::GetInitiatorAdapter(this) {
+                    Ok(ok__) => {
+                        ppinitiatoradapter.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetIpsecTunnelAddress<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT {
@@ -1849,11 +2038,17 @@ impl IVdsIscsiPortal {
     pub unsafe fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportalprop as _) }
     }
-    pub unsafe fn GetSubSystem(&self, ppsubsystem: *mut Option<IVdsSubSystem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubsystem)) }
+    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryAssociatedPortalGroups(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedPortalGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedPortalGroups(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedPortalGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status) }
@@ -1898,8 +2093,8 @@ pub struct IVdsIscsiPortal_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsIscsiPortal_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self, ppsubsystem: windows_core::OutRef<IVdsSubSystem>) -> windows_core::Result<()>;
-    fn QueryAssociatedPortalGroups(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
+    fn QueryAssociatedPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
     fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::Result<()>;
     fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
     fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
@@ -1917,13 +2112,25 @@ impl IVdsIscsiPortal_Vtbl {
         unsafe extern "system" fn GetSubSystem<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::GetSubSystem(this, core::mem::transmute_copy(&ppsubsystem)).into()
+                match IVdsIscsiPortal_Impl::GetSubSystem(this) {
+                    Ok(ok__) => {
+                        ppsubsystem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryAssociatedPortalGroups<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::QueryAssociatedPortalGroups(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsIscsiPortal_Impl::QueryAssociatedPortalGroups(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::HRESULT {
@@ -1973,20 +2180,35 @@ impl IVdsIscsiPortalGroup {
     pub unsafe fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportalgroupprop as _) }
     }
-    pub unsafe fn GetTarget(&self, pptarget: *mut Option<IVdsIscsiTarget>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(pptarget)) }
+    pub unsafe fn GetTarget(&self) -> windows_core::Result<IVdsIscsiTarget> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryAssociatedPortals(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedPortals)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn AddPortal(&self, portalid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPortal)(windows_core::Interface::as_raw(self), portalid, core::mem::transmute(ppasync)) }
+    pub unsafe fn AddPortal(&self, portalid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddPortal)(windows_core::Interface::as_raw(self), portalid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn RemovePortal(&self, portalid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemovePortal)(windows_core::Interface::as_raw(self), portalid, core::mem::transmute(ppasync)) }
+    pub unsafe fn RemovePortal(&self, portalid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RemovePortal)(windows_core::Interface::as_raw(self), portalid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn Delete(&self, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
+    pub unsafe fn Delete(&self) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2002,11 +2224,11 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
 }
 pub trait IVdsIscsiPortalGroup_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::Result<()>;
-    fn GetTarget(&self, pptarget: windows_core::OutRef<IVdsIscsiTarget>) -> windows_core::Result<()>;
-    fn QueryAssociatedPortals(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn AddPortal(&self, portalid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn RemovePortal(&self, portalid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Delete(&self, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn GetTarget(&self) -> windows_core::Result<IVdsIscsiTarget>;
+    fn QueryAssociatedPortals(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn AddPortal(&self, portalid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn RemovePortal(&self, portalid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn Delete(&self) -> windows_core::Result<IVdsAsync>;
 }
 impl IVdsIscsiPortalGroup_Vtbl {
     pub const fn new<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>() -> Self {
@@ -2019,31 +2241,61 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn GetTarget<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::GetTarget(this, core::mem::transmute_copy(&pptarget)).into()
+                match IVdsIscsiPortalGroup_Impl::GetTarget(this) {
+                    Ok(ok__) => {
+                        pptarget.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryAssociatedPortals<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::QueryAssociatedPortals(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsIscsiPortalGroup_Impl::QueryAssociatedPortals(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddPortal<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portalid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::AddPortal(this, core::mem::transmute(&portalid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiPortalGroup_Impl::AddPortal(this, core::mem::transmute(&portalid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemovePortal<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portalid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::RemovePortal(this, core::mem::transmute(&portalid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiPortalGroup_Impl::RemovePortal(this, core::mem::transmute(&portalid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::Delete(this, core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiPortalGroup_Impl::Delete(this) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2105,20 +2357,35 @@ impl IVdsIscsiTarget {
     pub unsafe fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), ptargetprop as _) }
     }
-    pub unsafe fn GetSubSystem(&self, ppsubsystem: *mut Option<IVdsSubSystem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubsystem)) }
+    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryPortalGroups(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryPortalGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryPortalGroups(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryPortalGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryAssociatedLuns(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreatePortalGroup(&self, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreatePortalGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
+    pub unsafe fn CreatePortalGroup(&self) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreatePortalGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn Delete(&self, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
+    pub unsafe fn Delete(&self) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::HRESULT
     where
@@ -2172,11 +2439,11 @@ pub struct IVdsIscsiTarget_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsIscsiTarget_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self, ppsubsystem: windows_core::OutRef<IVdsSubSystem>) -> windows_core::Result<()>;
-    fn QueryPortalGroups(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryAssociatedLuns(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn CreatePortalGroup(&self, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Delete(&self, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
+    fn QueryPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn CreatePortalGroup(&self) -> windows_core::Result<IVdsAsync>;
+    fn Delete(&self) -> windows_core::Result<IVdsAsync>;
     fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>;
@@ -2194,31 +2461,61 @@ impl IVdsIscsiTarget_Vtbl {
         unsafe extern "system" fn GetSubSystem<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::GetSubSystem(this, core::mem::transmute_copy(&ppsubsystem)).into()
+                match IVdsIscsiTarget_Impl::GetSubSystem(this) {
+                    Ok(ok__) => {
+                        ppsubsystem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryPortalGroups<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::QueryPortalGroups(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsIscsiTarget_Impl::QueryPortalGroups(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryAssociatedLuns<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::QueryAssociatedLuns(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsIscsiTarget_Impl::QueryAssociatedLuns(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreatePortalGroup<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::CreatePortalGroup(this, core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiTarget_Impl::CreatePortalGroup(this) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::Delete(this, core::mem::transmute_copy(&ppasync)).into()
+                match IVdsIscsiTarget_Impl::Delete(this) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2272,35 +2569,59 @@ impl IVdsLun {
     pub unsafe fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), plunprop as _) }
     }
-    pub unsafe fn GetSubSystem(&self, ppsubsystem: *mut Option<IVdsSubSystem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubsystem)) }
+    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
     pub unsafe fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIdentificationData)(windows_core::Interface::as_raw(self), pluninfo as _) }
     }
-    pub unsafe fn QueryActiveControllers(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryActiveControllers)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryActiveControllers(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryActiveControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Extend(&self, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), ullnumberofbytestoadd, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, core::mem::transmute(ppasync)) }
+    pub unsafe fn Extend(&self, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), ullnumberofbytestoadd, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, core::mem::transmute(ppasync)) }
+    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryPlexes(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn AddPlex(&self, lunid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), lunid, core::mem::transmute(ppasync)) }
+    pub unsafe fn AddPlex(&self, lunid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), lunid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, core::mem::transmute(ppasync)) }
+    pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn Recover(&self, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
+    pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> windows_core::HRESULT
     where
@@ -2380,15 +2701,15 @@ pub struct IVdsLun_Vtbl {
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsLun_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self, ppsubsystem: windows_core::OutRef<IVdsSubSystem>) -> windows_core::Result<()>;
+    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
     fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
-    fn QueryActiveControllers(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn Extend(&self, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn QueryPlexes(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn AddPlex(&self, lunid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn RemovePlex(&self, plexid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Recover(&self, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn QueryActiveControllers(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn Extend(&self, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG) -> windows_core::Result<IVdsAsync>;
+    fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
+    fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn AddPlex(&self, lunid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn RemovePlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn Recover(&self) -> windows_core::Result<IVdsAsync>;
     fn SetMask(&self, pwszunmaskinglist: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn AssociateControllers(&self, pactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofactivecontrollers: super::LONG, pinactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollers: super::LONG) -> windows_core::Result<()>;
@@ -2409,7 +2730,13 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn GetSubSystem<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::GetSubSystem(this, core::mem::transmute_copy(&ppsubsystem)).into()
+                match IVdsLun_Impl::GetSubSystem(this) {
+                    Ok(ok__) => {
+                        ppsubsystem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetIdentificationData<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
@@ -2421,43 +2748,85 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn QueryActiveControllers<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::QueryActiveControllers(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsLun_Impl::QueryActiveControllers(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Extend<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::Extend(this, core::mem::transmute_copy(&ullnumberofbytestoadd), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsLun_Impl::Extend(this, core::mem::transmute_copy(&ullnumberofbytestoadd), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Shrink<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullnumberofbytestoremove: super::ULONGLONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsLun_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryPlexes<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::QueryPlexes(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsLun_Impl::QueryPlexes(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddPlex<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lunid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::AddPlex(this, core::mem::transmute(&lunid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsLun_Impl::AddPlex(this, core::mem::transmute(&lunid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemovePlex<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::RemovePlex(this, core::mem::transmute(&plexid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsLun_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Recover<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::Recover(this, core::mem::transmute_copy(&ppasync)).into()
+                match IVdsLun_Impl::Recover(this) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetMask<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszunmaskinglist: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2593,8 +2962,11 @@ impl IVdsLunControllerPorts {
     pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: Option<*const VDS_OBJECT_ID>, lnumberofactivecontrollerports: super::LONG, pinactivecontrollerportidarray: Option<*const VDS_OBJECT_ID>, lnumberofinactivecontrollerports: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AssociateControllerPorts)(windows_core::Interface::as_raw(self), pactivecontrollerportidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofactivecontrollerports, pinactivecontrollerportidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofinactivecontrollerports) }
     }
-    pub unsafe fn QueryActiveControllerPorts(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryActiveControllerPorts)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryActiveControllerPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryActiveControllerPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2610,7 +2982,7 @@ pub struct IVdsLunControllerPorts_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsLunControllerPorts_Impl: windows_core::IUnknownImpl {
     fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofactivecontrollerports: super::LONG, pinactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollerports: super::LONG) -> windows_core::Result<()>;
-    fn QueryActiveControllerPorts(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryActiveControllerPorts(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
 impl IVdsLunControllerPorts_Vtbl {
@@ -2624,7 +2996,13 @@ impl IVdsLunControllerPorts_Vtbl {
         unsafe extern "system" fn QueryActiveControllerPorts<Identity: IVdsLunControllerPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunControllerPorts_Impl::QueryActiveControllerPorts(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsLunControllerPorts_Impl::QueryActiveControllerPorts(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2646,8 +3024,11 @@ impl IVdsLunIscsi {
     pub unsafe fn AssociateTargets(&self, ptargetidarray: Option<*const VDS_OBJECT_ID>, lnumberoftargets: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AssociateTargets)(windows_core::Interface::as_raw(self), ptargetidarray.unwrap_or(core::mem::zeroed()) as _, lnumberoftargets) }
     }
-    pub unsafe fn QueryAssociatedTargets(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAssociatedTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAssociatedTargets(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAssociatedTargets)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2663,7 +3044,7 @@ pub struct IVdsLunIscsi_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsLunIscsi_Impl: windows_core::IUnknownImpl {
     fn AssociateTargets(&self, ptargetidarray: *const VDS_OBJECT_ID, lnumberoftargets: super::LONG) -> windows_core::Result<()>;
-    fn QueryAssociatedTargets(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryAssociatedTargets(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
 impl IVdsLunIscsi_Vtbl {
@@ -2677,7 +3058,13 @@ impl IVdsLunIscsi_Vtbl {
         unsafe extern "system" fn QueryAssociatedTargets<Identity: IVdsLunIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunIscsi_Impl::QueryAssociatedTargets(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsLunIscsi_Impl::QueryAssociatedTargets(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2860,8 +3247,11 @@ impl IVdsLunPlex {
     pub unsafe fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pplexprop as _) }
     }
-    pub unsafe fn GetLun(&self, pplun: *mut Option<IVdsLun>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLun)(windows_core::Interface::as_raw(self), core::mem::transmute(pplun)) }
+    pub unsafe fn GetLun(&self) -> windows_core::Result<IVdsLun> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetLun)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
@@ -2901,7 +3291,7 @@ pub struct IVdsLunPlex_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsLunPlex_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::Result<()>;
-    fn GetLun(&self, pplun: windows_core::OutRef<IVdsLun>) -> windows_core::Result<()>;
+    fn GetLun(&self) -> windows_core::Result<IVdsLun>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
     fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()>;
     fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()>;
@@ -2918,7 +3308,13 @@ impl IVdsLunPlex_Vtbl {
         unsafe extern "system" fn GetLun<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplun: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunPlex_Impl::GetLun(this, core::mem::transmute_copy(&pplun)).into()
+                match IVdsLunPlex_Impl::GetLun(this) {
+                    Ok(ok__) => {
+                        pplun.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryExtents<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
@@ -3023,11 +3419,14 @@ windows_core::imp::define_interface!(IVdsOpenVDisk, IVdsOpenVDisk_Vtbl, 0x75c8f3
 windows_core::imp::interface_hierarchy!(IVdsOpenVDisk, windows_core::IUnknown);
 impl IVdsOpenVDisk {
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
-    pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG) -> windows_core::Result<IVdsAsync>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, timeoutinms, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
     pub unsafe fn Detach(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT {
@@ -3038,16 +3437,25 @@ impl IVdsOpenVDisk {
         unsafe { (windows_core::Interface::vtable(self).DetachAndDelete)(windows_core::Interface::as_raw(self), flags, providerspecificflags) }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
-    pub unsafe fn Compact(&self, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self), flags, reserved, core::mem::transmute(ppasync)) }
+    pub unsafe fn Compact(&self, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self), flags, reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
-    pub unsafe fn Merge(&self, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), flags, mergedepth, core::mem::transmute(ppasync)) }
+    pub unsafe fn Merge(&self, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), flags, mergedepth, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
-    pub unsafe fn Expand(&self, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), flags, newsize, core::mem::transmute(ppasync)) }
+    pub unsafe fn Expand(&self, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), flags, newsize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3081,12 +3489,12 @@ pub struct IVdsOpenVDisk_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "virtdisk"))]
 pub trait IVdsOpenVDisk_Impl: windows_core::IUnknownImpl {
-    fn Attach(&self, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Attach(&self, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG) -> windows_core::Result<IVdsAsync>;
     fn Detach(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::Result<()>;
     fn DetachAndDelete(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::Result<()>;
-    fn Compact(&self, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Merge(&self, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Expand(&self, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Compact(&self, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG) -> windows_core::Result<IVdsAsync>;
+    fn Merge(&self, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG) -> windows_core::Result<IVdsAsync>;
+    fn Expand(&self, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "virtdisk"))]
 impl IVdsOpenVDisk_Vtbl {
@@ -3094,7 +3502,13 @@ impl IVdsOpenVDisk_Vtbl {
         unsafe extern "system" fn Attach<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::Attach(this, core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&timeoutinms), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsOpenVDisk_Impl::Attach(this, core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&timeoutinms)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Detach<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT {
@@ -3112,19 +3526,37 @@ impl IVdsOpenVDisk_Vtbl {
         unsafe extern "system" fn Compact<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::Compact(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsOpenVDisk_Impl::Compact(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Merge<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::Merge(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&mergedepth), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsOpenVDisk_Impl::Merge(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&mergedepth)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Expand<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::Expand(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&newsize), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsOpenVDisk_Impl::Expand(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&newsize)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3150,18 +3582,30 @@ impl IVdsPack {
     pub unsafe fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), ppackprop as _) }
     }
-    pub unsafe fn GetProvider(&self, ppprovider: *mut Option<IVdsProvider>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(ppprovider)) }
+    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryVolumes(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryVolumes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryVolumes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryDisks(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, core::mem::transmute(ppasync)) }
+    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddDisk(&self, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), diskid, partitionstyle, bashotspare.into()) }
@@ -3170,14 +3614,20 @@ impl IVdsPack {
     pub unsafe fn MigrateDisks(&self, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: VDS_OBJECT_ID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, targetpack, bforce.into(), bqueryonly.into(), presults as _, pbrebootneeded as _) }
     }
-    pub unsafe fn ReplaceDisk(&self, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReplaceDisk)(windows_core::Interface::as_raw(self), olddiskid, newdiskid, core::mem::transmute(ppasync)) }
+    pub unsafe fn ReplaceDisk(&self, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReplaceDisk)(windows_core::Interface::as_raw(self), olddiskid, newdiskid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn RemoveMissingDisk(&self, diskid: VDS_OBJECT_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveMissingDisk)(windows_core::Interface::as_raw(self), diskid) }
     }
-    pub unsafe fn Recover(&self, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), core::mem::transmute(ppasync)) }
+    pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3207,15 +3657,15 @@ pub struct IVdsPack_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsPack_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::Result<()>;
-    fn GetProvider(&self, ppprovider: windows_core::OutRef<IVdsProvider>) -> windows_core::Result<()>;
-    fn QueryVolumes(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryDisks(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
+    fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync>;
     fn AddDisk(&self, diskid: &VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::Result<()>;
     fn MigrateDisks(&self, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: &VDS_OBJECT_ID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn ReplaceDisk(&self, olddiskid: &VDS_OBJECT_ID, newdiskid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn ReplaceDisk(&self, olddiskid: &VDS_OBJECT_ID, newdiskid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn RemoveMissingDisk(&self, diskid: &VDS_OBJECT_ID) -> windows_core::Result<()>;
-    fn Recover(&self, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Recover(&self) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsPack_Vtbl {
@@ -3229,25 +3679,49 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn GetProvider<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::GetProvider(this, core::mem::transmute_copy(&ppprovider)).into()
+                match IVdsPack_Impl::GetProvider(this) {
+                    Ok(ok__) => {
+                        ppprovider.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryVolumes<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::QueryVolumes(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsPack_Impl::QueryVolumes(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryDisks<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::QueryDisks(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsPack_Impl::QueryDisks(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateVolume<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::CreateVolume(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsPack_Impl::CreateVolume(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::HRESULT {
@@ -3265,7 +3739,13 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn ReplaceDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::ReplaceDisk(this, core::mem::transmute(&olddiskid), core::mem::transmute(&newdiskid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsPack_Impl::ReplaceDisk(this, core::mem::transmute(&olddiskid), core::mem::transmute(&newdiskid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemoveMissingDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID) -> windows_core::HRESULT {
@@ -3277,7 +3757,13 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn Recover<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::Recover(this, core::mem::transmute_copy(&ppasync)).into()
+                match IVdsPack_Impl::Recover(this) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3304,8 +3790,11 @@ windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_
 windows_core::imp::interface_hierarchy!(IVdsPack2, windows_core::IUnknown);
 impl IVdsPack2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG, ulalign: super::ULONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, core::mem::transmute(ppasync)) }
+    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3319,7 +3808,7 @@ pub struct IVdsPack2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsPack2_Impl: windows_core::IUnknownImpl {
-    fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ulalign: super::ULONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsPack2_Vtbl {
@@ -3327,7 +3816,13 @@ impl IVdsPack2_Vtbl {
         unsafe extern "system" fn CreateVolume2<Identity: IVdsPack2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ulalign: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack2_Impl::CreateVolume2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize), core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsPack2_Impl::CreateVolume2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize), core::mem::transmute_copy(&ulalign)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateVolume2: CreateVolume2::<Identity, OFFSET> }
@@ -3470,17 +3965,29 @@ impl IVdsService {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pserviceprop as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryProviders(&self, masks: super::DWORD, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryProviders)(windows_core::Interface::as_raw(self), masks, core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryProviders(&self, masks: super::DWORD) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryProviders)(windows_core::Interface::as_raw(self), masks, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryMaskedDisks(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryMaskedDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryMaskedDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryMaskedDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryUnallocatedDisks(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryUnallocatedDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryUnallocatedDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryUnallocatedDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetObject(&self, objectid: VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE, ppobjectunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), objectid, r#type, core::mem::transmute(ppobjectunk)) }
+    pub unsafe fn GetObject(&self, objectid: VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), objectid, r#type, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn QueryDriveLetters(&self, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::HRESULT {
@@ -3573,10 +4080,10 @@ pub trait IVdsService_Impl: windows_core::IUnknownImpl {
     fn IsServiceReady(&self) -> windows_core::Result<()>;
     fn WaitForServiceReady(&self) -> windows_core::Result<()>;
     fn GetProperties(&self, pserviceprop: *mut VDS_SERVICE_PROP) -> windows_core::Result<()>;
-    fn QueryProviders(&self, masks: super::DWORD, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryMaskedDisks(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryUnallocatedDisks(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn GetObject(&self, objectid: &VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE, ppobjectunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn QueryProviders(&self, masks: super::DWORD) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryMaskedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryUnallocatedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn GetObject(&self, objectid: &VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryDriveLetters(&self, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::Result<()>;
     fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
     fn Reenumerate(&self) -> windows_core::Result<()>;
@@ -3612,25 +4119,49 @@ impl IVdsService_Vtbl {
         unsafe extern "system" fn QueryProviders<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, masks: super::DWORD, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::QueryProviders(this, core::mem::transmute_copy(&masks), core::mem::transmute_copy(&ppenum)).into()
+                match IVdsService_Impl::QueryProviders(this, core::mem::transmute_copy(&masks)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryMaskedDisks<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::QueryMaskedDisks(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsService_Impl::QueryMaskedDisks(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryUnallocatedDisks<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::QueryUnallocatedDisks(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsService_Impl::QueryUnallocatedDisks(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetObject<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE, ppobjectunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::GetObject(this, core::mem::transmute(&objectid), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ppobjectunk)).into()
+                match IVdsService_Impl::GetObject(this, core::mem::transmute(&objectid), core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        ppobjectunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryDriveLetters<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::HRESULT {
@@ -3723,8 +4254,11 @@ impl windows_core::RuntimeName for IVdsService {}
 windows_core::imp::define_interface!(IVdsServiceHba, IVdsServiceHba_Vtbl, 0x0ac13689_3134_47c6_a17c_4669216801be);
 windows_core::imp::interface_hierarchy!(IVdsServiceHba, windows_core::IUnknown);
 impl IVdsServiceHba {
-    pub unsafe fn QueryHbaPorts(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryHbaPorts)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryHbaPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryHbaPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3734,14 +4268,20 @@ pub struct IVdsServiceHba_Vtbl {
     pub QueryHbaPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceHba_Impl: windows_core::IUnknownImpl {
-    fn QueryHbaPorts(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryHbaPorts(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 impl IVdsServiceHba_Vtbl {
     pub const fn new<Identity: IVdsServiceHba_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryHbaPorts<Identity: IVdsServiceHba_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceHba_Impl::QueryHbaPorts(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsServiceHba_Impl::QueryHbaPorts(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryHbaPorts: QueryHbaPorts::<Identity, OFFSET> }
@@ -3791,8 +4331,11 @@ impl IVdsServiceIscsi {
     pub unsafe fn GetInitiatorName(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInitiatorName)(windows_core::Interface::as_raw(self), ppwsziscsiname as _) }
     }
-    pub unsafe fn QueryInitiatorAdapters(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInitiatorAdapters)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryInitiatorAdapters(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryInitiatorAdapters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: Option<*const VDS_ISCSI_IPSEC_KEY>) -> windows_core::HRESULT {
@@ -3845,7 +4388,7 @@ pub struct IVdsServiceIscsi_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsServiceIscsi_Impl: windows_core::IUnknownImpl {
     fn GetInitiatorName(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn QueryInitiatorAdapters(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryInitiatorAdapters(&self) -> windows_core::Result<IEnumVdsObject>;
     fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
     fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
     fn SetAllIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
@@ -3864,7 +4407,13 @@ impl IVdsServiceIscsi_Vtbl {
         unsafe extern "system" fn QueryInitiatorAdapters<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::QueryInitiatorAdapters(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsServiceIscsi_Impl::QueryInitiatorAdapters(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetIpsecGroupPresharedKey<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
@@ -3917,11 +4466,14 @@ impl windows_core::RuntimeName for IVdsServiceIscsi {}
 windows_core::imp::define_interface!(IVdsServiceLoader, IVdsServiceLoader_Vtbl, 0xe0393303_90d4_4a97_ab71_e9b671ee2729);
 windows_core::imp::interface_hierarchy!(IVdsServiceLoader, windows_core::IUnknown);
 impl IVdsServiceLoader {
-    pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0, ppservice: *mut Option<IVdsService>) -> windows_core::HRESULT
+    pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0) -> windows_core::Result<IVdsService>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadService)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), core::mem::transmute(ppservice)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LoadService)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3931,14 +4483,20 @@ pub struct IVdsServiceLoader_Vtbl {
     pub LoadService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceLoader_Impl: windows_core::IUnknownImpl {
-    fn LoadService(&self, pwszmachinename: &windows_core::PCWSTR, ppservice: windows_core::OutRef<IVdsService>) -> windows_core::Result<()>;
+    fn LoadService(&self, pwszmachinename: &windows_core::PCWSTR) -> windows_core::Result<IVdsService>;
 }
 impl IVdsServiceLoader_Vtbl {
     pub const fn new<Identity: IVdsServiceLoader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadService<Identity: IVdsServiceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmachinename: windows_core::PCWSTR, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceLoader_Impl::LoadService(this, core::mem::transmute(&pwszmachinename), core::mem::transmute_copy(&ppservice)).into()
+                match IVdsServiceLoader_Impl::LoadService(this, core::mem::transmute(&pwszmachinename)) {
+                    Ok(ok__) => {
+                        ppservice.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadService: LoadService::<Identity, OFFSET> }
@@ -3997,11 +4555,14 @@ impl windows_core::RuntimeName for IVdsServiceSAN {}
 windows_core::imp::define_interface!(IVdsServiceSw, IVdsServiceSw_Vtbl, 0x15fc031c_0652_4306_b2c3_f558b8f837e2);
 windows_core::imp::interface_hierarchy!(IVdsServiceSw, windows_core::IUnknown);
 impl IVdsServiceSw {
-    pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0, ppdiskunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDiskObject)(windows_core::Interface::as_raw(self), pwszdeviceid.param().abi(), core::mem::transmute(ppdiskunk)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDiskObject)(windows_core::Interface::as_raw(self), pwszdeviceid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4011,14 +4572,20 @@ pub struct IVdsServiceSw_Vtbl {
     pub GetDiskObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceSw_Impl: windows_core::IUnknownImpl {
-    fn GetDiskObject(&self, pwszdeviceid: &windows_core::PCWSTR, ppdiskunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDiskObject(&self, pwszdeviceid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IVdsServiceSw_Vtbl {
     pub const fn new<Identity: IVdsServiceSw_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDiskObject<Identity: IVdsServiceSw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdeviceid: windows_core::PCWSTR, ppdiskunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceSw_Impl::GetDiskObject(this, core::mem::transmute(&pwszdeviceid), core::mem::transmute_copy(&ppdiskunk)).into()
+                match IVdsServiceSw_Impl::GetDiskObject(this, core::mem::transmute(&pwszdeviceid)) {
+                    Ok(ok__) => {
+                        ppdiskunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDiskObject: GetDiskObject::<Identity, OFFSET> }
@@ -4088,8 +4655,11 @@ impl windows_core::RuntimeName for IVdsServiceUninstallDisk {}
 windows_core::imp::define_interface!(IVdsStoragePool, IVdsStoragePool_Vtbl, 0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
 windows_core::imp::interface_hierarchy!(IVdsStoragePool, windows_core::IUnknown);
 impl IVdsStoragePool {
-    pub unsafe fn GetProvider(&self, ppprovider: *mut Option<IVdsProvider>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(ppprovider)) }
+    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::HRESULT {
@@ -4103,11 +4673,17 @@ impl IVdsStoragePool {
     pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryDriveExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _) }
     }
-    pub unsafe fn QueryAllocatedLuns(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAllocatedLuns)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAllocatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAllocatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryAllocatedStoragePools(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryAllocatedStoragePools)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryAllocatedStoragePools(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryAllocatedStoragePools)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4132,12 +4708,12 @@ pub struct IVdsStoragePool_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsStoragePool_Impl: windows_core::IUnknownImpl {
-    fn GetProvider(&self, ppprovider: windows_core::OutRef<IVdsProvider>) -> windows_core::Result<()>;
+    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
     fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::Result<()>;
     fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::Result<()>;
     fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
-    fn QueryAllocatedLuns(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryAllocatedStoragePools(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryAllocatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryAllocatedStoragePools(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsStoragePool_Vtbl {
@@ -4145,7 +4721,13 @@ impl IVdsStoragePool_Vtbl {
         unsafe extern "system" fn GetProvider<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::GetProvider(this, core::mem::transmute_copy(&ppprovider)).into()
+                match IVdsStoragePool_Impl::GetProvider(this) {
+                    Ok(ok__) => {
+                        ppprovider.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetProperties<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::HRESULT {
@@ -4169,13 +4751,25 @@ impl IVdsStoragePool_Vtbl {
         unsafe extern "system" fn QueryAllocatedLuns<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::QueryAllocatedLuns(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsStoragePool_Impl::QueryAllocatedLuns(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryAllocatedStoragePools<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::QueryAllocatedStoragePools(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsStoragePool_Impl::QueryAllocatedStoragePools(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4201,21 +4795,36 @@ impl IVdsSubSystem {
     pub unsafe fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), psubsystemprop as _) }
     }
-    pub unsafe fn GetProvider(&self, ppprovider: *mut Option<IVdsProvider>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(ppprovider)) }
+    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryControllers(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryControllers)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryControllers(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryLuns(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryLuns)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryDrives(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryDrives)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryDrives(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryDrives)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDrive(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ppdrive: *mut Option<IVdsDrive>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDrive)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, core::mem::transmute(ppdrive)) }
+    pub unsafe fn GetDrive(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT) -> windows_core::Result<IVdsDrive> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDrive)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Reenumerate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)) }
@@ -4225,11 +4834,14 @@ impl IVdsSubSystem {
         unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), ponlinecontrolleridarray.as_ptr(), ponlinecontrolleridarray.len().try_into().unwrap(), pofflinecontrolleridarray.as_ptr(), pofflinecontrolleridarray.len().try_into().unwrap()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints: Option<*const VDS_HINTS>, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints: Option<*const VDS_HINTS>) -> windows_core::Result<IVdsAsync>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateLun)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, pwszunmaskinglist.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateLun)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, pwszunmaskinglist.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: VDS_OBJECT_ID, replacementdrive: VDS_OBJECT_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReplaceDrive)(windows_core::Interface::as_raw(self), drivetobereplaced, replacementdrive) }
@@ -4277,14 +4889,14 @@ pub struct IVdsSubSystem_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsSubSystem_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn GetProvider(&self, ppprovider: windows_core::OutRef<IVdsProvider>) -> windows_core::Result<()>;
-    fn QueryControllers(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryLuns(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryDrives(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn GetDrive(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ppdrive: windows_core::OutRef<IVdsDrive>) -> windows_core::Result<()>;
+    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
+    fn QueryControllers(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryLuns(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryDrives(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn GetDrive(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT) -> windows_core::Result<IVdsDrive>;
     fn Reenumerate(&self) -> windows_core::Result<()>;
     fn SetControllerStatus(&self, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::Result<()>;
-    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints: *const VDS_HINTS, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints: *const VDS_HINTS) -> windows_core::Result<IVdsAsync>;
     fn ReplaceDrive(&self, drivetobereplaced: &VDS_OBJECT_ID, replacementdrive: &VDS_OBJECT_ID) -> windows_core::Result<()>;
     fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::Result<()>;
     fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints: *const VDS_HINTS, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
@@ -4301,31 +4913,61 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn GetProvider<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::GetProvider(this, core::mem::transmute_copy(&ppprovider)).into()
+                match IVdsSubSystem_Impl::GetProvider(this) {
+                    Ok(ok__) => {
+                        ppprovider.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryControllers<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::QueryControllers(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSubSystem_Impl::QueryControllers(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryLuns<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::QueryLuns(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSubSystem_Impl::QueryLuns(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryDrives<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::QueryDrives(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSubSystem_Impl::QueryDrives(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDrive<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ppdrive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::GetDrive(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber), core::mem::transmute_copy(&ppdrive)).into()
+                match IVdsSubSystem_Impl::GetDrive(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber)) {
+                    Ok(ok__) => {
+                        ppdrive.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Reenumerate<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4343,7 +4985,13 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn CreateLun<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: windows_core::PCWSTR, phints: *const VDS_HINTS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::CreateLun(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsSubSystem_Impl::CreateLun(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReplaceDrive<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drivetobereplaced: VDS_OBJECT_ID, replacementdrive: VDS_OBJECT_ID) -> windows_core::HRESULT {
@@ -4394,15 +5042,21 @@ impl IVdsSubSystem2 {
         unsafe { (windows_core::Interface::vtable(self).GetProperties2)(windows_core::Interface::as_raw(self), psubsystemprop2 as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDrive2(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG, ppdrive: *mut Option<IVdsDrive>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDrive2)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, core::mem::transmute(ppdrive)) }
+    pub unsafe fn GetDrive2(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG) -> windows_core::Result<IVdsDrive> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDrive2)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
-    pub unsafe fn CreateLun2<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints2: Option<*const VDS_HINTS2>, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn CreateLun2<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints2: Option<*const VDS_HINTS2>) -> windows_core::Result<IVdsAsync>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateLun2)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, pwszunmaskinglist.param().abi(), phints2.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateLun2)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, pdriveidarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdrives, pwszunmaskinglist.param().abi(), phints2.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "vdslun"))]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, phints2: Option<*const VDS_HINTS2>, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -4433,8 +5087,8 @@ pub struct IVdsSubSystem2_Vtbl {
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsSubSystem2_Impl: windows_core::IUnknownImpl {
     fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::Result<()>;
-    fn GetDrive2(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG, ppdrive: windows_core::OutRef<IVdsDrive>) -> windows_core::Result<()>;
-    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn GetDrive2(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG) -> windows_core::Result<IVdsDrive>;
+    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
@@ -4449,13 +5103,25 @@ impl IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn GetDrive2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG, ppdrive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem2_Impl::GetDrive2(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber), core::mem::transmute_copy(&ulenclosurenumber), core::mem::transmute_copy(&ppdrive)).into()
+                match IVdsSubSystem2_Impl::GetDrive2(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber), core::mem::transmute_copy(&ulenclosurenumber)) {
+                    Ok(ok__) => {
+                        ppdrive.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateLun2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem2_Impl::CreateLun2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsSubSystem2_Impl::CreateLun2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryMaxLunCreateSize2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
@@ -4568,18 +5234,27 @@ impl windows_core::RuntimeName for IVdsSubSystemInterconnect {}
 windows_core::imp::define_interface!(IVdsSubSystemIscsi, IVdsSubSystemIscsi_Vtbl, 0x0027346f_40d0_4b45_8cec_5906dc0380c8);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemIscsi, windows_core::IUnknown);
 impl IVdsSubSystemIscsi {
-    pub unsafe fn QueryTargets(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryTargets(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryTargets)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryPortals(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryPortals)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> windows_core::Result<IVdsAsync>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.param().abi(), pwszfriendlyname.param().abi(), core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.param().abi(), pwszfriendlyname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: Option<*const VDS_ISCSI_IPSEC_KEY>) -> windows_core::HRESULT {
@@ -4600,9 +5275,9 @@ pub struct IVdsSubSystemIscsi_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsSubSystemIscsi_Impl: windows_core::IUnknownImpl {
-    fn QueryTargets(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn QueryPortals(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn CreateTarget(&self, pwsziscsiname: &windows_core::PCWSTR, pwszfriendlyname: &windows_core::PCWSTR, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn QueryTargets(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryPortals(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn CreateTarget(&self, pwsziscsiname: &windows_core::PCWSTR, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<IVdsAsync>;
     fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -4611,19 +5286,37 @@ impl IVdsSubSystemIscsi_Vtbl {
         unsafe extern "system" fn QueryTargets<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemIscsi_Impl::QueryTargets(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSubSystemIscsi_Impl::QueryTargets(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryPortals<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemIscsi_Impl::QueryPortals(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSubSystemIscsi_Impl::QueryPortals(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateTarget<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsziscsiname: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemIscsi_Impl::CreateTarget(this, core::mem::transmute(&pwsziscsiname), core::mem::transmute(&pwszfriendlyname), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsSubSystemIscsi_Impl::CreateTarget(this, core::mem::transmute(&pwsziscsiname), core::mem::transmute(&pwszfriendlyname)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetIpsecGroupPresharedKey<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
@@ -4683,11 +5376,17 @@ impl windows_core::RuntimeName for IVdsSubSystemNaming {}
 windows_core::imp::define_interface!(IVdsSwProvider, IVdsSwProvider_Vtbl, 0x9aa58360_ce33_4f92_b658_ed24b14425b8);
 windows_core::imp::interface_hierarchy!(IVdsSwProvider, windows_core::IUnknown);
 impl IVdsSwProvider {
-    pub unsafe fn QueryPacks(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryPacks)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryPacks(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryPacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreatePack(&self, pppack: *mut Option<IVdsPack>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreatePack)(windows_core::Interface::as_raw(self), core::mem::transmute(pppack)) }
+    pub unsafe fn CreatePack(&self) -> windows_core::Result<IVdsPack> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreatePack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4698,21 +5397,33 @@ pub struct IVdsSwProvider_Vtbl {
     pub CreatePack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsSwProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryPacks(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn CreatePack(&self, pppack: windows_core::OutRef<IVdsPack>) -> windows_core::Result<()>;
+    fn QueryPacks(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn CreatePack(&self) -> windows_core::Result<IVdsPack>;
 }
 impl IVdsSwProvider_Vtbl {
     pub const fn new<Identity: IVdsSwProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryPacks<Identity: IVdsSwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSwProvider_Impl::QueryPacks(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsSwProvider_Impl::QueryPacks(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreatePack<Identity: IVdsSwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppack: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSwProvider_Impl::CreatePack(this, core::mem::transmute_copy(&pppack)).into()
+                match IVdsSwProvider_Impl::CreatePack(this) {
+                    Ok(ok__) => {
+                        pppack.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4730,15 +5441,21 @@ windows_core::imp::define_interface!(IVdsVDisk, IVdsVDisk_Vtbl, 0x1e062b84_e5e6_
 windows_core::imp::interface_hierarchy!(IVdsVDisk, windows_core::IUnknown);
 impl IVdsVDisk {
     #[cfg(all(feature = "shared", feature = "virtdisk"))]
-    pub unsafe fn Open(&self, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG, ppopenvdisk: *mut Option<IVdsOpenVDisk>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, core::mem::transmute(ppopenvdisk)) }
+    pub unsafe fn Open(&self, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG) -> windows_core::Result<IVdsOpenVDisk> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
     pub unsafe fn GetProperties(&self, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdiskproperties as _) }
     }
-    pub unsafe fn GetHostVolume(&self, ppvolume: *mut Option<IVdsVolume>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHostVolume)(windows_core::Interface::as_raw(self), core::mem::transmute(ppvolume)) }
+    pub unsafe fn GetHostVolume(&self) -> windows_core::Result<IVdsVolume> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetHostVolume)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetDeviceName(&self, ppdevicename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceName)(windows_core::Interface::as_raw(self), ppdevicename as _) }
@@ -4761,9 +5478,9 @@ pub struct IVdsVDisk_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 pub trait IVdsVDisk_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG, ppopenvdisk: windows_core::OutRef<IVdsOpenVDisk>) -> windows_core::Result<()>;
+    fn Open(&self, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG) -> windows_core::Result<IVdsOpenVDisk>;
     fn GetProperties(&self, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::Result<()>;
-    fn GetHostVolume(&self, ppvolume: windows_core::OutRef<IVdsVolume>) -> windows_core::Result<()>;
+    fn GetHostVolume(&self) -> windows_core::Result<IVdsVolume>;
     fn GetDeviceName(&self, ppdevicename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
@@ -4772,7 +5489,13 @@ impl IVdsVDisk_Vtbl {
         unsafe extern "system" fn Open<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG, ppopenvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVDisk_Impl::Open(this, core::mem::transmute_copy(&accessmask), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&readwritedepth), core::mem::transmute_copy(&ppopenvdisk)).into()
+                match IVdsVDisk_Impl::Open(this, core::mem::transmute_copy(&accessmask), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&readwritedepth)) {
+                    Ok(ok__) => {
+                        ppopenvdisk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetProperties<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::HRESULT {
@@ -4784,7 +5507,13 @@ impl IVdsVDisk_Vtbl {
         unsafe extern "system" fn GetHostVolume<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVDisk_Impl::GetHostVolume(this, core::mem::transmute_copy(&ppvolume)).into()
+                match IVdsVDisk_Impl::GetHostVolume(this) {
+                    Ok(ok__) => {
+                        ppvolume.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDeviceName<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevicename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -4810,8 +5539,11 @@ impl windows_core::RuntimeName for IVdsVDisk {}
 windows_core::imp::define_interface!(IVdsVdProvider, IVdsVdProvider_Vtbl, 0xb481498c_8354_45f9_84a0_0bdd2832a91f);
 windows_core::imp::interface_hierarchy!(IVdsVdProvider, windows_core::IUnknown);
 impl IVdsVdProvider {
-    pub unsafe fn QueryVDisks(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryVDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryVDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
     pub unsafe fn CreateVDisk<P1, P2>(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: P1, pstringsecuritydescriptor: P2, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: Option<*mut Option<IVdsAsync>>) -> windows_core::HRESULT
@@ -4828,17 +5560,23 @@ impl IVdsVdProvider {
     {
         unsafe { (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), ppvdisk.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0, ppdisk: *mut Option<IVdsDisk>) -> windows_core::HRESULT
+    pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> windows_core::Result<IVdsDisk>
     where
         P0: windows_core::Param<IVdsVDisk>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDiskFromVDisk)(windows_core::Interface::as_raw(self), pvdisk.param().abi(), core::mem::transmute(ppdisk)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDiskFromVDisk)(windows_core::Interface::as_raw(self), pvdisk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::HRESULT
+    pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0) -> windows_core::Result<IVdsVDisk>
     where
         P0: windows_core::Param<IVdsDisk>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetVDiskFromDisk)(windows_core::Interface::as_raw(self), pdisk.param().abi(), core::mem::transmute(ppvdisk)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetVDiskFromDisk)(windows_core::Interface::as_raw(self), pdisk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4859,11 +5597,11 @@ pub struct IVdsVdProvider_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryVDisks(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
+    fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreateVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>;
     fn AddVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>;
-    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<IVdsVDisk>, ppdisk: windows_core::OutRef<IVdsDisk>) -> windows_core::Result<()>;
-    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<IVdsDisk>, ppvdisk: windows_core::OutRef<IVdsVDisk>) -> windows_core::Result<()>;
+    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
+    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
 }
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 impl IVdsVdProvider_Vtbl {
@@ -4871,7 +5609,13 @@ impl IVdsVdProvider_Vtbl {
         unsafe extern "system" fn QueryVDisks<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::QueryVDisks(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsVdProvider_Impl::QueryVDisks(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4889,13 +5633,25 @@ impl IVdsVdProvider_Vtbl {
         unsafe extern "system" fn GetDiskFromVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdisk: *mut core::ffi::c_void, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::GetDiskFromVDisk(this, core::mem::transmute_copy(&pvdisk), core::mem::transmute_copy(&ppdisk)).into()
+                match IVdsVdProvider_Impl::GetDiskFromVDisk(this, core::mem::transmute_copy(&pvdisk)) {
+                    Ok(ok__) => {
+                        ppdisk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetVDiskFromDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisk: *mut core::ffi::c_void, ppvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::GetVDiskFromDisk(this, core::mem::transmute_copy(&pdisk), core::mem::transmute_copy(&ppvdisk)).into()
+                match IVdsVdProvider_Impl::GetVDiskFromDisk(this, core::mem::transmute_copy(&pdisk)) {
+                    Ok(ok__) => {
+                        ppvdisk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4920,28 +5676,49 @@ impl IVdsVolume {
     pub unsafe fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pvolumeproperties as _) }
     }
-    pub unsafe fn GetPack(&self, pppack: *mut Option<IVdsPack>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), core::mem::transmute(pppack)) }
+    pub unsafe fn GetPack(&self) -> windows_core::Result<IVdsPack> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn QueryPlexes(&self, ppenum: *mut Option<IEnumVdsObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Extend(&self, pinputdiskarray: Option<*const VDS_INPUT_DISK>, lnumberofdisks: super::LONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), pinputdiskarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdisks, core::mem::transmute(ppasync)) }
+    pub unsafe fn Extend(&self, pinputdiskarray: Option<*const VDS_INPUT_DISK>, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), pinputdiskarray.unwrap_or(core::mem::zeroed()) as _, lnumberofdisks, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, core::mem::transmute(ppasync)) }
+    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn AddPlex(&self, volumeid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), volumeid, core::mem::transmute(ppasync)) }
+    pub unsafe fn AddPlex(&self, volumeid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), volumeid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn BreakPlex(&self, plexid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakPlex)(windows_core::Interface::as_raw(self), plexid, core::mem::transmute(ppasync)) }
+    pub unsafe fn BreakPlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BreakPlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, core::mem::transmute(ppasync)) }
+    pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Delete(&self, bforce: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.into()) }
@@ -4989,13 +5766,13 @@ pub struct IVdsVolume_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::Result<()>;
-    fn GetPack(&self, pppack: windows_core::OutRef<IVdsPack>) -> windows_core::Result<()>;
-    fn QueryPlexes(&self, ppenum: windows_core::OutRef<IEnumVdsObject>) -> windows_core::Result<()>;
-    fn Extend(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn AddPlex(&self, volumeid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn BreakPlex(&self, plexid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
-    fn RemovePlex(&self, plexid: &VDS_OBJECT_ID, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn GetPack(&self) -> windows_core::Result<IVdsPack>;
+    fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn Extend(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync>;
+    fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
+    fn AddPlex(&self, volumeid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn BreakPlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
+    fn RemovePlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn Delete(&self, bforce: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetFlags(&self, ulflags: super::ULONG, brevertonclose: windows_core::BOOL) -> windows_core::Result<()>;
     fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
@@ -5012,43 +5789,85 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn GetPack<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppack: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::GetPack(this, core::mem::transmute_copy(&pppack)).into()
+                match IVdsVolume_Impl::GetPack(this) {
+                    Ok(ok__) => {
+                        pppack.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryPlexes<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::QueryPlexes(this, core::mem::transmute_copy(&ppenum)).into()
+                match IVdsVolume_Impl::QueryPlexes(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Extend<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::Extend(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolume_Impl::Extend(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Shrink<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullnumberofbytestoremove: super::ULONGLONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolume_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddPlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volumeid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::AddPlex(this, core::mem::transmute(&volumeid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolume_Impl::AddPlex(this, core::mem::transmute(&volumeid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn BreakPlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::BreakPlex(this, core::mem::transmute(&plexid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolume_Impl::BreakPlex(this, core::mem::transmute(&plexid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemovePlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::RemovePlex(this, core::mem::transmute(&plexid), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolume_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5136,11 +5955,14 @@ impl IVdsVolumeMF {
         unsafe { (windows_core::Interface::vtable(self).GetFileSystemProperties)(windows_core::Interface::as_raw(self), pfilesystemprop as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Format<P1>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: super::DWORD, bforce: bool, bquickformat: bool, benablecompression: bool, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn Format<P1>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: super::DWORD, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddAccessPath(&self, pwszpath: &[u16; 260]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpath.as_ptr())) }
@@ -5207,7 +6029,7 @@ pub struct IVdsVolumeMF_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeMF_Impl: windows_core::IUnknownImpl {
     fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
     fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::Result<()>;
     fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::Result<()>;
@@ -5229,7 +6051,13 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn Format<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -5311,12 +6139,15 @@ impl IVdsVolumeMF2 {
         unsafe { (windows_core::Interface::vtable(self).QueryFileSystemFormatSupport)(windows_core::Interface::as_raw(self), ppfilesystemsupportprops as _, plnumberoffilesystems as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FormatEx<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P3, bforce: bool, bquickformat: bool, benablecompression: bool, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn FormatEx<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P3, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5337,7 +6168,7 @@ pub struct IVdsVolumeMF2_Vtbl {
 pub trait IVdsVolumeMF2_Impl: windows_core::IUnknownImpl {
     fn GetFileSystemTypeName(&self, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
-    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsVolumeMF2_Vtbl {
@@ -5357,7 +6188,13 @@ impl IVdsVolumeMF2_Vtbl {
         unsafe extern "system" fn FormatEx<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF2_Impl::FormatEx(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolumeMF2_Impl::FormatEx(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5381,12 +6218,15 @@ impl IVdsVolumeMF3 {
         unsafe { (windows_core::Interface::vtable(self).QueryVolumeGuidPathnames)(windows_core::Interface::as_raw(self), pwszpatharray as _, pulnumberofpaths as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FormatEx2<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P3, options: super::DWORD, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT
+    pub unsafe fn FormatEx2<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: P3, options: super::DWORD) -> windows_core::Result<IVdsAsync>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FormatEx2)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, core::mem::transmute(ppasync)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FormatEx2)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OfflineVolume(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OfflineVolume)(windows_core::Interface::as_raw(self)) }
@@ -5409,7 +6249,7 @@ pub struct IVdsVolumeMF3_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeMF3_Impl: windows_core::IUnknownImpl {
     fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut super::ULONG) -> windows_core::Result<()>;
-    fn FormatEx2(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, options: super::DWORD, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn FormatEx2(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, options: super::DWORD) -> windows_core::Result<IVdsAsync>;
     fn OfflineVolume(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -5424,7 +6264,13 @@ impl IVdsVolumeMF3_Vtbl {
         unsafe extern "system" fn FormatEx2<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, options: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF3_Impl::FormatEx2(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolumeMF3_Impl::FormatEx2(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OfflineVolume<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5484,16 +6330,22 @@ impl IVdsVolumePlex {
     pub unsafe fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pplexproperties as _) }
     }
-    pub unsafe fn GetVolume(&self, ppvolume: *mut Option<IVdsVolume>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), core::mem::transmute(ppvolume)) }
+    pub unsafe fn GetVolume(&self) -> windows_core::Result<IVdsVolume> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK], ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), core::mem::transmute(ppasync)) }
+    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5517,9 +6369,9 @@ pub struct IVdsVolumePlex_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsVolumePlex_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::Result<()>;
-    fn GetVolume(&self, ppvolume: windows_core::OutRef<IVdsVolume>) -> windows_core::Result<()>;
+    fn GetVolume(&self) -> windows_core::Result<IVdsVolume>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
-    fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolumePlex_Vtbl {
@@ -5533,7 +6385,13 @@ impl IVdsVolumePlex_Vtbl {
         unsafe extern "system" fn GetVolume<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumePlex_Impl::GetVolume(this, core::mem::transmute_copy(&ppvolume)).into()
+                match IVdsVolumePlex_Impl::GetVolume(this) {
+                    Ok(ok__) => {
+                        ppvolume.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryExtents<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
@@ -5545,7 +6403,13 @@ impl IVdsVolumePlex_Vtbl {
         unsafe extern "system" fn Repair<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumePlex_Impl::Repair(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolumePlex_Impl::Repair(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5570,8 +6434,11 @@ impl IVdsVolumeShrink {
         unsafe { (windows_core::Interface::vtable(self).QueryMaxReclaimableBytes)(windows_core::Interface::as_raw(self), pullmaxnumberofreclaimablebytes as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Shrink(&self, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ulldesirednumberofreclaimablebytes, ullminnumberofreclaimablebytes, core::mem::transmute(ppasync)) }
+    pub unsafe fn Shrink(&self, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG) -> windows_core::Result<IVdsAsync> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ulldesirednumberofreclaimablebytes, ullminnumberofreclaimablebytes, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5590,7 +6457,7 @@ pub struct IVdsVolumeShrink_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeShrink_Impl: windows_core::IUnknownImpl {
     fn QueryMaxReclaimableBytes(&self, pullmaxnumberofreclaimablebytes: *mut super::ULONGLONG) -> windows_core::Result<()>;
-    fn Shrink(&self, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn Shrink(&self, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolumeShrink_Vtbl {
@@ -5604,7 +6471,13 @@ impl IVdsVolumeShrink_Vtbl {
         unsafe extern "system" fn Shrink<Identity: IVdsVolumeShrink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeShrink_Impl::Shrink(this, core::mem::transmute_copy(&ulldesirednumberofreclaimablebytes), core::mem::transmute_copy(&ullminnumberofreclaimablebytes), core::mem::transmute_copy(&ppasync)).into()
+                match IVdsVolumeShrink_Impl::Shrink(this, core::mem::transmute_copy(&ulldesirednumberofreclaimablebytes), core::mem::transmute_copy(&ullminnumberofreclaimablebytes)) {
+                    Ok(ok__) => {
+                        ppasync.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

@@ -3482,8 +3482,11 @@ impl IErrorRecords {
         unsafe { (windows_core::Interface::vtable(self).GetCustomErrorObject)(windows_core::Interface::as_raw(self), ulrecordnum, riid, core::mem::transmute(ppobject)) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared"))]
-    pub unsafe fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID, pperrorinfo: *mut Option<super::IErrorInfo>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, lcid, core::mem::transmute(pperrorinfo)) }
+    pub unsafe fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, lcid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetErrorParameters(&self, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
@@ -3528,7 +3531,7 @@ pub trait IErrorRecords_Impl: windows_core::IUnknownImpl {
     fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: windows_core::Ref<windows_core::IUnknown>, dwdynamicerrorid: super::DWORD) -> windows_core::Result<()>;
     fn GetBasicErrorInfo(&self, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::Result<()>;
     fn GetCustomErrorObject(&self, ulrecordnum: super::ULONG, riid: *const super::IID, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID, pperrorinfo: windows_core::OutRef<super::IErrorInfo>) -> windows_core::Result<()>;
+    fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo>;
     fn GetErrorParameters(&self, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::Result<()>;
     fn GetRecordCount(&self, pcrecords: *mut super::ULONG) -> windows_core::Result<()>;
 }
@@ -3556,7 +3559,13 @@ impl IErrorRecords_Vtbl {
         unsafe extern "system" fn GetErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, lcid: super::LCID, pperrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pperrorinfo)).into()
+                match IErrorRecords_Impl::GetErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&lcid)) {
+                    Ok(ok__) => {
+                        pperrorinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetErrorParameters<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
@@ -6096,8 +6105,11 @@ windows_core::imp::define_interface!(ITransactionJoin, ITransactionJoin_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ITransactionJoin, windows_core::IUnknown);
 impl ITransactionJoin {
     #[cfg(feature = "transact")]
-    pub unsafe fn GetOptionsObject(&self, ppoptions: *mut Option<super::ITransactionOptions>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppoptions)) }
+    pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "transact"))]
     pub unsafe fn JoinTransaction<P0, P3>(&self, punktransactioncoord: P0, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: P3) -> windows_core::HRESULT
@@ -6123,7 +6135,7 @@ pub struct ITransactionJoin_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 pub trait ITransactionJoin_Impl: windows_core::IUnknownImpl {
-    fn GetOptionsObject(&self, ppoptions: windows_core::OutRef<super::ITransactionOptions>) -> windows_core::Result<()>;
+    fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
     fn JoinTransaction(&self, punktransactioncoord: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
@@ -6132,7 +6144,13 @@ impl ITransactionJoin_Vtbl {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionJoin_Impl::GetOptionsObject(this, core::mem::transmute_copy(&ppoptions)).into()
+                match ITransactionJoin_Impl::GetOptionsObject(this) {
+                    Ok(ok__) => {
+                        ppoptions.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn JoinTransaction<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransactioncoord: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6166,8 +6184,11 @@ impl core::ops::Deref for ITransactionLocal {
 windows_core::imp::interface_hierarchy!(ITransactionLocal, windows_core::IUnknown, super::ITransaction);
 #[cfg(feature = "transact")]
 impl ITransactionLocal {
-    pub unsafe fn GetOptionsObject(&self, ppoptions: *mut Option<super::ITransactionOptions>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppoptions)) }
+    pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn StartTransaction<P2>(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: P2, pultransactionlevel: Option<*mut super::ULONG>) -> windows_core::HRESULT
@@ -6190,7 +6211,7 @@ pub struct ITransactionLocal_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionLocal_Impl: super::ITransaction_Impl {
-    fn GetOptionsObject(&self, ppoptions: windows_core::OutRef<super::ITransactionOptions>) -> windows_core::Result<()>;
+    fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
     fn StartTransaction(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>, pultransactionlevel: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
@@ -6199,7 +6220,13 @@ impl ITransactionLocal_Vtbl {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionLocal_Impl::GetOptionsObject(this, core::mem::transmute_copy(&ppoptions)).into()
+                match ITransactionLocal_Impl::GetOptionsObject(this) {
+                    Ok(ok__) => {
+                        ppoptions.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn StartTransaction<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void, pultransactionlevel: *mut super::ULONG) -> windows_core::HRESULT {
@@ -6224,8 +6251,11 @@ windows_core::imp::define_interface!(ITransactionObject, ITransactionObject_Vtbl
 windows_core::imp::interface_hierarchy!(ITransactionObject, windows_core::IUnknown);
 impl ITransactionObject {
     #[cfg(all(feature = "shared", feature = "transact"))]
-    pub unsafe fn GetTransactionObject(&self, ultransactionlevel: super::ULONG, pptransactionobject: *mut Option<super::ITransaction>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTransactionObject)(windows_core::Interface::as_raw(self), ultransactionlevel, core::mem::transmute(pptransactionobject)) }
+    pub unsafe fn GetTransactionObject(&self, ultransactionlevel: super::ULONG) -> windows_core::Result<super::ITransaction> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTransactionObject)(windows_core::Interface::as_raw(self), ultransactionlevel, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -6239,7 +6269,7 @@ pub struct ITransactionObject_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 pub trait ITransactionObject_Impl: windows_core::IUnknownImpl {
-    fn GetTransactionObject(&self, ultransactionlevel: super::ULONG, pptransactionobject: windows_core::OutRef<super::ITransaction>) -> windows_core::Result<()>;
+    fn GetTransactionObject(&self, ultransactionlevel: super::ULONG) -> windows_core::Result<super::ITransaction>;
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 impl ITransactionObject_Vtbl {
@@ -6247,7 +6277,13 @@ impl ITransactionObject_Vtbl {
         unsafe extern "system" fn GetTransactionObject<Identity: ITransactionObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultransactionlevel: super::ULONG, pptransactionobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionObject_Impl::GetTransactionObject(this, core::mem::transmute_copy(&ultransactionlevel), core::mem::transmute_copy(&pptransactionobject)).into()
+                match ITransactionObject_Impl::GetTransactionObject(this, core::mem::transmute_copy(&ultransactionlevel)) {
+                    Ok(ok__) => {
+                        pptransactionobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTransactionObject: GetTransactionObject::<Identity, OFFSET> }

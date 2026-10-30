@@ -925,8 +925,11 @@ impl IMFVideoPresenter {
         unsafe { (windows_core::Interface::vtable(self).ProcessMessage)(windows_core::Interface::as_raw(self), emessage, ulparam) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn GetCurrentMediaType(&self, ppmediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediatype)) }
+    pub unsafe fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFVideoMediaType> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "mfidl")]
@@ -946,7 +949,7 @@ pub struct IMFVideoPresenter_Vtbl {
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared"))]
 pub trait IMFVideoPresenter_Impl: super::IMFClockStateSink_Impl {
     fn ProcessMessage(&self, emessage: MFVP_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::Result<()>;
-    fn GetCurrentMediaType(&self, ppmediatype: windows_core::OutRef<super::IMFVideoMediaType>) -> windows_core::Result<()>;
+    fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFVideoMediaType>;
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared"))]
 impl IMFVideoPresenter_Vtbl {
@@ -960,7 +963,13 @@ impl IMFVideoPresenter_Vtbl {
         unsafe extern "system" fn GetCurrentMediaType<Identity: IMFVideoPresenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFVideoPresenter_Impl::GetCurrentMediaType(this, core::mem::transmute_copy(&ppmediatype)).into()
+                match IMFVideoPresenter_Impl::GetCurrentMediaType(this) {
+                    Ok(ok__) => {
+                        ppmediatype.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

@@ -214,27 +214,36 @@ where
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut super::UINT, ppdevicemanager: *mut Option<super::IMFDXGIDeviceManager>) -> windows_core::HRESULT {
+pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut super::UINT) -> windows_core::Result<super::IMFDXGIDeviceManager> {
     windows_core::link!("mfplat.dll" "system" fn MFCreateDXGIDeviceManager(resettoken : *mut super::UINT, ppdevicemanager : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateDXGIDeviceManager(resettoken as _, core::mem::transmute(ppdevicemanager)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateDXGIDeviceManager(resettoken as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateDXGISurfaceBuffer<P1>(riid: *const super::IID, punksurface: P1, usubresourceindex: super::UINT, fbottomupwhenlinear: bool, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateDXGISurfaceBuffer<P1>(riid: *const super::IID, punksurface: P1, usubresourceindex: super::UINT, fbottomupwhenlinear: bool) -> windows_core::Result<super::IMFMediaBuffer>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateDXGISurfaceBuffer(riid : *const super::IID, punksurface : *mut core::ffi::c_void, usubresourceindex : super::UINT, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateDXGISurfaceBuffer(riid, punksurface.param().abi(), usubresourceindex, fbottomupwhenlinear.into(), core::mem::transmute(ppbuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateDXGISurfaceBuffer(riid, punksurface.param().abi(), usubresourceindex, fbottomupwhenlinear.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects"))]
 #[inline]
-pub unsafe fn MFCreateDXSurfaceBuffer<P1>(riid: *const super::IID, punksurface: P1, fbottomupwhenlinear: bool, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateDXSurfaceBuffer<P1>(riid: *const super::IID, punksurface: P1, fbottomupwhenlinear: bool) -> windows_core::Result<super::IMFMediaBuffer>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateDXSurfaceBuffer(riid : *const super::IID, punksurface : *mut core::ffi::c_void, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateDXSurfaceBuffer(riid, punksurface.param().abi(), fbottomupwhenlinear.into(), core::mem::transmute(ppbuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateDXSurfaceBuffer(riid, punksurface.param().abi(), fbottomupwhenlinear.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -253,13 +262,16 @@ where
 }
 #[cfg(all(feature = "mediaobj", feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<P0, P1>(psample: P0, pmfmediabuffer: P1, cboffset: super::DWORD, ppmediabuffer: *mut Option<super::IMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<P0, P1>(psample: P0, pmfmediabuffer: P1, cboffset: super::DWORD) -> windows_core::Result<super::IMediaBuffer>
 where
     P0: windows_core::Param<super::IMFSample>,
     P1: windows_core::Param<super::IMFMediaBuffer>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample : *mut core::ffi::c_void, pmfmediabuffer : *mut core::ffi::c_void, cboffset : super::DWORD, ppmediabuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.param().abi(), pmfmediabuffer.param().abi(), cboffset, core::mem::transmute(ppmediabuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.param().abi(), pmfmediabuffer.param().abi(), cboffset, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -281,12 +293,15 @@ where
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateMediaBufferFromMediaType<P0>(pmediatype: P0, llduration: super::LONGLONG, dwminlength: super::DWORD, dwminalignment: super::DWORD, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateMediaBufferFromMediaType<P0>(pmediatype: P0, llduration: super::LONGLONG, dwminlength: super::DWORD, dwminalignment: super::DWORD) -> windows_core::Result<super::IMFMediaBuffer>
 where
     P0: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaBufferFromMediaType(pmediatype : *mut core::ffi::c_void, llduration : super::LONGLONG, dwminlength : super::DWORD, dwminalignment : super::DWORD, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaBufferFromMediaType(pmediatype.param().abi(), llduration, dwminlength, dwminalignment, core::mem::transmute(ppbuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateMediaBufferFromMediaType(pmediatype.param().abi(), llduration, dwminlength, dwminalignment, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -315,9 +330,12 @@ where
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMediaType(ppmftype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
+pub unsafe fn MFCreateMediaType() -> windows_core::Result<super::IMFMediaType> {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaType(ppmftype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaType(core::mem::transmute(ppmftype)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateMediaType(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "mfobjects", feature = "minwindef"))]
 #[inline]
@@ -411,12 +429,15 @@ pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const super::IID, ppsampleal
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects"))]
 #[inline]
-pub unsafe fn MFCreateWICBitmapBuffer<P1>(riid: *const super::IID, punksurface: P1, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateWICBitmapBuffer<P1>(riid: *const super::IID, punksurface: P1) -> windows_core::Result<super::IMFMediaBuffer>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateWICBitmapBuffer(riid : *const super::IID, punksurface : *mut core::ffi::c_void, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateWICBitmapBuffer(riid, punksurface.param().abi(), core::mem::transmute(ppbuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateWICBitmapBuffer(riid, punksurface.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "mfobjects", feature = "mmeapi", feature = "shared"))]
 #[inline]
@@ -671,9 +692,12 @@ pub unsafe fn MFIsFormatYUV(format: super::DWORD) -> windows_core::BOOL {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFLockDXGIDeviceManager(presettoken: Option<*mut super::UINT>, ppmanager: *mut Option<super::IMFDXGIDeviceManager>) -> windows_core::HRESULT {
+pub unsafe fn MFLockDXGIDeviceManager(presettoken: Option<*mut super::UINT>) -> windows_core::Result<super::IMFDXGIDeviceManager> {
     windows_core::link!("mfplat.dll" "system" fn MFLockDXGIDeviceManager(presettoken : *mut super::UINT, ppmanager : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFLockDXGIDeviceManager(presettoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppmanager)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFLockDXGIDeviceManager(presettoken.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn MFLockPlatform() -> windows_core::HRESULT {

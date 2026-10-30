@@ -1914,11 +1914,14 @@ impl core::ops::Deref for ISearchManager2 {
 }
 windows_core::imp::interface_hierarchy!(ISearchManager2, windows_core::IUnknown, ISearchManager);
 impl ISearchManager2 {
-    pub unsafe fn CreateCatalog<P0>(&self, pszcatalog: P0, ppcatalogmanager: *mut Option<ISearchCatalogManager>) -> windows_core::HRESULT
+    pub unsafe fn CreateCatalog<P0>(&self, pszcatalog: P0) -> windows_core::Result<ISearchCatalogManager>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateCatalog)(windows_core::Interface::as_raw(self), pszcatalog.param().abi(), core::mem::transmute(ppcatalogmanager)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateCatalog)(windows_core::Interface::as_raw(self), pszcatalog.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn DeleteCatalog<P0>(&self, pszcatalog: P0) -> windows_core::HRESULT
     where
@@ -1936,7 +1939,7 @@ pub struct ISearchManager2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchManager2_Impl: ISearchManager_Impl {
-    fn CreateCatalog(&self, pszcatalog: &windows_core::PCWSTR, ppcatalogmanager: windows_core::OutRef<ISearchCatalogManager>) -> windows_core::Result<()>;
+    fn CreateCatalog(&self, pszcatalog: &windows_core::PCWSTR) -> windows_core::Result<ISearchCatalogManager>;
     fn DeleteCatalog(&self, pszcatalog: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1945,7 +1948,13 @@ impl ISearchManager2_Vtbl {
         unsafe extern "system" fn CreateCatalog<Identity: ISearchManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcatalog: windows_core::PCWSTR, ppcatalogmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISearchManager2_Impl::CreateCatalog(this, core::mem::transmute(&pszcatalog), core::mem::transmute_copy(&ppcatalogmanager)).into()
+                match ISearchManager2_Impl::CreateCatalog(this, core::mem::transmute(&pszcatalog)) {
+                    Ok(ok__) => {
+                        ppcatalogmanager.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn DeleteCatalog<Identity: ISearchManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcatalog: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -3241,12 +3250,18 @@ impl IUrlAccessor {
         unsafe { (windows_core::Interface::vtable(self).GetSecurityProvider)(windows_core::Interface::as_raw(self), pspclsid as _) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn BindToStream(&self, ppstream: *mut Option<super::IStream>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BindToStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream)) }
+    pub unsafe fn BindToStream(&self) -> windows_core::Result<super::IStream> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BindToStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "filter")]
-    pub unsafe fn BindToFilter(&self, ppfilter: *mut Option<super::IFilter>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BindToFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(ppfilter)) }
+    pub unsafe fn BindToFilter(&self) -> windows_core::Result<super::IFilter> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BindToFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3316,8 +3331,8 @@ pub trait IUrlAccessor_Impl: windows_core::IUnknownImpl {
     fn GetSecurityDescriptor(&self, psd: *mut super::BYTE, dwsize: super::DWORD, pdwlength: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetRedirectedURL(&self, wszredirectedurl: *mut super::WCHAR, dwsize: super::DWORD, pdwlength: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetSecurityProvider(&self, pspclsid: *mut super::CLSID) -> windows_core::Result<()>;
-    fn BindToStream(&self, ppstream: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
-    fn BindToFilter(&self, ppfilter: windows_core::OutRef<super::IFilter>) -> windows_core::Result<()>;
+    fn BindToStream(&self) -> windows_core::Result<super::IStream>;
+    fn BindToFilter(&self) -> windows_core::Result<super::IFilter>;
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUrlAccessor_Vtbl {
@@ -3391,13 +3406,25 @@ impl IUrlAccessor_Vtbl {
         unsafe extern "system" fn BindToStream<Identity: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUrlAccessor_Impl::BindToStream(this, core::mem::transmute_copy(&ppstream)).into()
+                match IUrlAccessor_Impl::BindToStream(this) {
+                    Ok(ok__) => {
+                        ppstream.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn BindToFilter<Identity: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUrlAccessor_Impl::BindToFilter(this, core::mem::transmute_copy(&ppfilter)).into()
+                match IUrlAccessor_Impl::BindToFilter(this) {
+                    Ok(ok__) => {
+                        ppfilter.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

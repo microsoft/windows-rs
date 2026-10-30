@@ -35,10 +35,10 @@ mod Windows {
         }
         #[guid(0xac6b7889_0740_4d51_8619_905994a55cc6)]
         interface IMFAsyncResult: IUnknown {
-            fn GetState(&self, #[out] #[out_ptr] ppunkState: *mut IUnknown) -> HRESULT;
+            fn GetState(&self, #[out] #[out_ptr] #[retval] ppunkState: *mut IUnknown) -> HRESULT;
             fn GetStatus(&self) -> HRESULT;
             fn SetStatus(&self, #[in] hrStatus: HRESULT) -> HRESULT;
-            fn GetObject(&self, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
+            fn GetObject(&self, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn GetStateNoAddRef(&self) -> IUnknown;
         }
         #[guid(0x2cd2d921_c447_44a7_a13c_4adabfc247e3)]
@@ -103,9 +103,9 @@ mod Windows {
         #[guid(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe)]
         interface IMFCollection: IUnknown {
             fn GetElementCount(&self, #[out] pcElements: *mut DWORD) -> HRESULT;
-            fn GetElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn GetElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
             fn AddElement(&self, #[in] #[opt] pUnkElement: IUnknown) -> HRESULT;
-            fn RemoveElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn RemoveElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
             fn InsertElementAt(&self, #[in] dwIndex: DWORD, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllElements(&self) -> HRESULT;
         }
@@ -150,7 +150,7 @@ mod Windows {
         }
         #[guid(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d)]
         interface IMFMediaEventGenerator: IUnknown {
-            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppEvent: *mut IMFMediaEvent) -> HRESULT;
             fn BeginGetEvent(&self, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndGetEvent(&self, #[in] pResult: IMFAsyncResult, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
             fn QueueEvent(&self, #[in] met: MediaEventType, #[in] guidExtendedType: &GUID, #[in] hrStatus: HRESULT, #[in] #[opt] pvValue: *const PROPVARIANT) -> HRESULT;

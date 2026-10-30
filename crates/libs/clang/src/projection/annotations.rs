@@ -667,6 +667,8 @@ pub(super) fn parameter(
         return Err(Error("MIDL result marker requires output storage".into()));
     }
     let normalized = sal::parameters(attributes, parameters);
+    let interface_output = matches!(canonical, MetadataType::PtrMut(target, 1)
+        if matches!(**target, MetadataType::ClassName(_) | MetadataType::Object));
     let com_result = success == Some(SuccessCondition::Nonnegative)
         && parameters
             .last()
@@ -680,12 +682,9 @@ pub(super) fn parameter(
         && matches!(
             normalized.as_slice(),
             [sal::ParameterAnnotation::Contract(contract)]
-                if contract.returned_pointer
-                    == Some(sal::ReturnedPointer {
-                        may_be_null: false,
-                        null_on_failure: true,
-                        com: true,
-                    })
+                if contract.returned_pointer.is_some_and(|pointer| {
+                    !pointer.may_be_null && (pointer.com || interface_output)
+                })
         );
     let preserve = normalized.iter().any(|value| {
         matches!(
@@ -734,8 +733,9 @@ pub(super) fn parameter(
             null_on_failure,
         ))
     });
-    // `_COM_Outptr_` on the trailing output of a `return >= 0` callable is a stronger contract than
-    // MIDL `[retval]`: the callee writes a non-null object on every success and null on failure.
+    // A required non-null returned pointer (`_COM_Outptr_`, or `_Outptr_` to an interface) on the
+    // trailing output of a `return >= 0` callable meets the MIDL `[retval]` contract: the callee
+    // writes a non-null object on every success, and callers read it only on success.
     let retval = (midl.retval || com_result).then(|| quote! { #[retval] });
     let names: Vec<_> = parameters
         .iter()

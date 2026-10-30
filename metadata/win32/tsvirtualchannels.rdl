@@ -21,7 +21,7 @@ mod Windows {
         const IID_IWTSWindowInfoService: GUID = 0x2a002c7b_0120_4d04_bfb1_3c73110c8581;
         #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
         interface IWTSBitmapRenderService: IUnknown {
-            fn GetMappedRenderer(&self, #[in] mappingId: UINT64, #[in] #[opt] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out] #[out_ptr] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
+            fn GetMappedRenderer(&self, #[in] mappingId: UINT64, #[in] #[opt] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out] #[out_ptr] #[retval] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
         }
         #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
         interface IWTSBitmapRenderer: IUnknown {
@@ -35,11 +35,11 @@ mod Windows {
         }
         #[guid(0xa1230206_9a39_4d58_8674_cdb4dff4e73b)]
         interface IWTSListener: IUnknown {
-            fn GetConfiguration(&self, #[out] #[out_ptr] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
+            fn GetConfiguration(&self, #[out] #[out_ptr] #[retval] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
         }
         #[guid(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSListenerCallback: IUnknown {
-            fn OnNewChannelConnection(&self, #[in] #[opt] pChannel: IWTSVirtualChannel, #[in] #[opt] data: BSTR, #[out] pbAccept: *mut BOOL, #[out] #[out_ptr] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
+            fn OnNewChannelConnection(&self, #[in] #[opt] pChannel: IWTSVirtualChannel, #[in] #[opt] data: BSTR, #[out] pbAccept: *mut BOOL, #[out] #[out_ptr] #[retval] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
         }
         #[guid(0xa1230201_1439_4e62_a414_190d0ac3d40e)]
         interface IWTSPlugin: IUnknown {
@@ -50,7 +50,7 @@ mod Windows {
         }
         #[guid(0xd3e07363_087c_476c_86a7_dbb15f46ddb4)]
         interface IWTSPluginServiceProvider: IUnknown {
-            fn GetService(&self, #[in] ServiceId: GUID, #[out] #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
+            fn GetService(&self, #[in] ServiceId: GUID, #[out] #[out_ptr] #[retval] ppunkObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannel: IUnknown {
@@ -64,7 +64,7 @@ mod Windows {
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelManager: IUnknown {
-            fn CreateListener(&self, #[in] #[null_terminated(entry)] pszChannelName: *const i8, #[in] uFlags: ULONG, #[in] #[opt] pListenerCallback: IWTSListenerCallback, #[out] #[out_ptr] ppListener: *mut IWTSListener) -> HRESULT;
+            fn CreateListener(&self, #[in] #[null_terminated(entry)] pszChannelName: *const i8, #[in] uFlags: ULONG, #[in] #[opt] pListenerCallback: IWTSListenerCallback, #[out] #[out_ptr] #[retval] ppListener: *mut IWTSListener) -> HRESULT;
         }
         #[guid(0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c)]
         interface IWTSWindowChangedCallback: IUnknown {

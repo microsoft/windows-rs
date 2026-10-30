@@ -92,7 +92,7 @@ mod Windows {
         #[guid(0x19c613a0_fcb8_4f28_81ae_897c3d078f81)]
         interface IBackgroundCopyError: IUnknown {
             fn GetError(&self, #[out] pContext: *mut BG_ERROR_CONTEXT, #[out] pCode: *mut HRESULT) -> HRESULT;
-            fn GetFile(&self, #[out] #[out_ptr] pVal: *mut IBackgroundCopyFile) -> HRESULT;
+            fn GetFile(&self, #[out] #[out_ptr] #[retval] pVal: *mut IBackgroundCopyFile) -> HRESULT;
             fn GetErrorDescription(&self, #[in] LanguageId: DWORD, #[out] #[out_ptr] pErrorDescription: *mut LPWSTR) -> HRESULT;
             fn GetErrorContextDescription(&self, #[in] LanguageId: DWORD, #[out] #[out_ptr] pContextDescription: *mut LPWSTR) -> HRESULT;
             fn GetProtocol(&self, #[out] #[out_ptr] pProtocol: *mut LPWSTR) -> HRESULT;
@@ -107,7 +107,7 @@ mod Windows {
         interface IBackgroundCopyJob: IUnknown {
             fn AddFileSet(&self, #[in] cFileCount: ULONG, #[in] #[readable(entry, cFileCount)] pFileSet: *mut BG_FILE_INFO) -> HRESULT;
             fn AddFile(&self, #[in] RemoteUrl: LPCWSTR, #[in] LocalName: LPCWSTR) -> HRESULT;
-            fn EnumFiles(&self, #[out] #[out_ptr] pEnum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
+            fn EnumFiles(&self, #[out] #[out_ptr] #[retval] pEnum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
             fn Suspend(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
@@ -117,7 +117,7 @@ mod Windows {
             fn GetProgress(&self, #[out] pVal: *mut BG_JOB_PROGRESS) -> HRESULT;
             fn GetTimes(&self, #[out] pVal: *mut BG_JOB_TIMES) -> HRESULT;
             fn GetState(&self, #[out] pVal: *mut BG_JOB_STATE) -> HRESULT;
-            fn GetError(&self, #[out] #[out_ptr] ppError: *mut IBackgroundCopyError) -> HRESULT;
+            fn GetError(&self, #[out] #[out_ptr] #[retval] ppError: *mut IBackgroundCopyError) -> HRESULT;
             fn GetOwner(&self, #[out] #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
             fn SetDisplayName(&self, #[in] Val: LPCWSTR) -> HRESULT;
             fn GetDisplayName(&self, #[out] #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
@@ -128,7 +128,7 @@ mod Windows {
             fn SetNotifyFlags(&self, #[in] Val: ULONG) -> HRESULT;
             fn GetNotifyFlags(&self, #[out] pVal: *mut ULONG) -> HRESULT;
             fn SetNotifyInterface(&self, #[in] #[opt] Val: IUnknown) -> HRESULT;
-            fn GetNotifyInterface(&self, #[out] #[out_ptr] pVal: *mut IUnknown) -> HRESULT;
+            fn GetNotifyInterface(&self, #[out] #[out_ptr] #[retval] pVal: *mut IUnknown) -> HRESULT;
             fn SetMinimumRetryDelay(&self, #[in] Seconds: ULONG) -> HRESULT;
             fn GetMinimumRetryDelay(&self, #[out] Seconds: *mut ULONG) -> HRESULT;
             fn SetNoProgressTimeout(&self, #[in] Seconds: ULONG) -> HRESULT;
@@ -140,9 +140,9 @@ mod Windows {
         }
         #[guid(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c)]
         interface IBackgroundCopyManager: IUnknown {
-            fn CreateJob(&self, #[in] DisplayName: LPCWSTR, #[in] Type: BG_JOB_TYPE, #[out] pJobId: *mut GUID, #[out] #[out_ptr] ppJob: *mut IBackgroundCopyJob) -> HRESULT;
-            fn GetJob(&self, #[in] jobID: &GUID, #[out] #[out_ptr] ppJob: *mut IBackgroundCopyJob) -> HRESULT;
-            fn EnumJobs(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppEnum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
+            fn CreateJob(&self, #[in] DisplayName: LPCWSTR, #[in] Type: BG_JOB_TYPE, #[out] pJobId: *mut GUID, #[out] #[out_ptr] #[retval] ppJob: *mut IBackgroundCopyJob) -> HRESULT;
+            fn GetJob(&self, #[in] jobID: &GUID, #[out] #[out_ptr] #[retval] ppJob: *mut IBackgroundCopyJob) -> HRESULT;
+            fn EnumJobs(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
             fn GetErrorDescription(&self, #[in] hResult: HRESULT, #[in] LanguageId: DWORD, #[out] #[out_ptr] pErrorDescription: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
@@ -150,7 +150,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyFile, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
             fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
         }
         #[guid(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad)]
@@ -158,7 +158,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyJob, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
             fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
         }
     }

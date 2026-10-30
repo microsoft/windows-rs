@@ -13,7 +13,7 @@ mod Windows {
         extern fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn CreateErrorInfo(#[out] #[out_ptr] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
+        extern fn CreateErrorInfo(#[out] #[out_ptr] #[retval] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
         extern fn CreateStdDispatch(punkOuter: IUnknown, pvThis: *mut void, ptinfo: ITypeInfo, ppunkStdDisp: *mut IUnknown) -> HRESULT;
@@ -47,7 +47,7 @@ mod Windows {
         extern fn GetAltMonthNames(lcid: LCID, #[out] #[writable(success, 13, indirect, nullable)] prgp: *mut *mut LPOLESTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] pperrinfo: *mut IErrorInfo) -> HRESULT;
+        extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] #[retval] pperrinfo: *mut IErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn GetRecordInfoFromGuids(rGuidTypeLib: &GUID, uVerMajor: ULONG, uVerMinor: ULONG, lcid: LCID, rGuidTypeInfo: &GUID, ppRecInfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -190,7 +190,7 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetLBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plLbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] prinfo: *mut IRecordInfo) -> HRESULT;
+        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] #[retval] prinfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetUBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plUbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]

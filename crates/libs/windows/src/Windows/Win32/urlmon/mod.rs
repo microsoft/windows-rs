@@ -196,13 +196,16 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateAsyncBindCtx<P1, P2>(reserved: super::DWORD, pbscb: P1, pefetc: P2, ppbc: *mut Option<super::IBindCtx>) -> windows_core::HRESULT
+pub unsafe fn CreateAsyncBindCtx<P1, P2>(reserved: super::DWORD, pbscb: P1, pefetc: P2) -> windows_core::Result<super::IBindCtx>
 where
     P1: windows_core::Param<IBindStatusCallback>,
     P2: windows_core::Param<super::IEnumFORMATETC>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : super::DWORD, pbscb : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateAsyncBindCtx(reserved, pbscb.param().abi(), pefetc.param().abi(), core::mem::transmute(ppbc)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateAsyncBindCtx(reserved, pbscb.param().abi(), pefetc.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
@@ -217,28 +220,37 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
 #[inline]
-pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC], ppenumfmtetc: *mut Option<super::IEnumFORMATETC>) -> windows_core::HRESULT {
+pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> windows_core::Result<super::IEnumFORMATETC> {
     windows_core::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : super::UINT, rgfmtetc : *const super::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), rgfmtetc.as_ptr(), core::mem::transmute(ppenumfmtetc)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), rgfmtetc.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateIUriBuilder<P0>(piuri: P0, dwflags: super::DWORD, dwreserved: super::DWORD_PTR, ppiuribuilder: *mut Option<IUriBuilder>) -> windows_core::HRESULT
+pub unsafe fn CreateIUriBuilder<P0>(piuri: P0, dwflags: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUriBuilder>
 where
     P0: windows_core::Param<IUri>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : *mut core::ffi::c_void, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppiuribuilder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateIUriBuilder(piuri.param().abi(), dwflags, dwreserved, core::mem::transmute(ppiuribuilder)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateIUriBuilder(piuri.param().abi(), dwflags, dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CreateURLMoniker<P0, P1>(pmkctx: P0, szurl: P1, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
+pub unsafe fn CreateURLMoniker<P0, P1>(pmkctx: P0, szurl: P1) -> windows_core::Result<super::LPMONIKER>
 where
     P0: windows_core::Param<super::LPMONIKER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : *mut core::ffi::c_void, szurl : windows_core::PCWSTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateURLMoniker(pmkctx.param().abi(), szurl.param().abi(), core::mem::transmute(ppmk)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateURLMoniker(pmkctx.param().abi(), szurl.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
@@ -262,31 +274,40 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateUri<P0>(pwzuri: P0, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>, ppuri: *mut Option<IUri>) -> windows_core::HRESULT
+pub unsafe fn CreateUri<P0>(pwzuri: P0, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateUri(pwzuri.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppuri)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateUri(pwzuri.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateUriFromMultiByteString<P0>(pszansiinputuri: P0, dwencodingflags: super::DWORD, dwcodepage: super::DWORD, dwcreateflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>, ppuri: *mut Option<IUri>) -> windows_core::HRESULT
+pub unsafe fn CreateUriFromMultiByteString<P0>(pszansiinputuri: P0, dwencodingflags: super::DWORD, dwcodepage: super::DWORD, dwcreateflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_core::PCSTR, dwencodingflags : super::DWORD, dwcodepage : super::DWORD, dwcreateflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateUriFromMultiByteString(pszansiinputuri.param().abi(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppuri)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateUriFromMultiByteString(pszansiinputuri.param().abi(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateUriWithFragment<P0, P1>(pwzuri: P0, pwzfragment: P1, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>, ppuri: *mut Option<IUri>) -> windows_core::HRESULT
+pub unsafe fn CreateUriWithFragment<P0, P1>(pwzuri: P0, pwzfragment: P1, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_core::PCWSTR, pwzfragment : windows_core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateUriWithFragment(pwzuri.param().abi(), pwzfragment.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppuri)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateUriWithFragment(pwzuri.param().abi(), pwzfragment.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -470,13 +491,16 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
-pub unsafe fn MkParseDisplayNameEx<P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: *mut super::ULONG, ppmk: *mut Option<super::LPMONIKER>) -> windows_core::HRESULT
+pub unsafe fn MkParseDisplayNameEx<P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: *mut super::ULONG) -> windows_core::Result<super::LPMONIKER>
 where
     P0: windows_core::Param<super::IBindCtx>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn MkParseDisplayNameEx(pbc : *mut core::ffi::c_void, szdisplayname : windows_core::PCWSTR, pcheaten : *mut super::ULONG, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MkParseDisplayNameEx(pbc.param().abi(), szdisplayname.param().abi(), pcheaten as _, core::mem::transmute(ppmk)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MkParseDisplayNameEx(pbc.param().abi(), szdisplayname.param().abi(), pcheaten as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -3004,8 +3028,11 @@ impl IInternetSecurityManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSecuritySite)(windows_core::Interface::as_raw(self), psite.param().abi()) }
     }
-    pub unsafe fn GetSecuritySite(&self, ppsite: *mut Option<IInternetSecurityMgrSite>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSecuritySite)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsite)) }
+    pub unsafe fn GetSecuritySite(&self) -> windows_core::Result<IInternetSecurityMgrSite> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSecuritySite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT
@@ -3081,7 +3108,7 @@ pub struct IInternetSecurityManager_Vtbl {
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IInternetSecurityManager_Impl: windows_core::IUnknownImpl {
     fn SetSecuritySite(&self, psite: windows_core::Ref<IInternetSecurityMgrSite>) -> windows_core::Result<()>;
-    fn GetSecuritySite(&self, ppsite: windows_core::OutRef<IInternetSecurityMgrSite>) -> windows_core::Result<()>;
+    fn GetSecuritySite(&self) -> windows_core::Result<IInternetSecurityMgrSite>;
     fn MapUrlToZone(&self, pwszurl: &windows_core::PCWSTR, pdwzone: *mut super::DWORD, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn GetSecurityId(&self, pwszurl: &windows_core::PCWSTR, pbsecurityid: *mut super::BYTE, pcbsecurityid: *mut super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<()>;
     fn ProcessUrlAction(&self, pwszurl: &windows_core::PCWSTR, dwaction: super::DWORD, ppolicy: *mut super::BYTE, cbpolicy: super::DWORD, pcontext: *const super::BYTE, cbcontext: super::DWORD, dwflags: super::DWORD, dwreserved: super::DWORD) -> windows_core::Result<()>;
@@ -3101,7 +3128,13 @@ impl IInternetSecurityManager_Vtbl {
         unsafe extern "system" fn GetSecuritySite<Identity: IInternetSecurityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInternetSecurityManager_Impl::GetSecuritySite(this, core::mem::transmute_copy(&ppsite)).into()
+                match IInternetSecurityManager_Impl::GetSecuritySite(this) {
+                    Ok(ok__) => {
+                        ppsite.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn MapUrlToZone<Identity: IInternetSecurityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, pdwzone: *mut super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT {
@@ -4066,8 +4099,11 @@ impl IPersistMoniker {
         unsafe { (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pibc.param().abi()) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn GetCurMoniker(&self, ppimkname: *mut Option<super::IMoniker>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurMoniker)(windows_core::Interface::as_raw(self), core::mem::transmute(ppimkname)) }
+    pub unsafe fn GetCurMoniker(&self) -> windows_core::Result<super::IMoniker> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCurMoniker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4103,7 +4139,7 @@ pub trait IPersistMoniker_Impl: windows_core::IUnknownImpl {
     fn Load(&self, ffullyavailable: windows_core::BOOL, pimkname: windows_core::Ref<super::IMoniker>, pibc: windows_core::Ref<super::LPBC>, grfmode: super::DWORD) -> windows_core::Result<()>;
     fn Save(&self, pimkname: windows_core::Ref<super::IMoniker>, pbc: windows_core::Ref<super::LPBC>, fremember: windows_core::BOOL) -> windows_core::Result<()>;
     fn SaveCompleted(&self, pimkname: windows_core::Ref<super::IMoniker>, pibc: windows_core::Ref<super::LPBC>) -> windows_core::Result<()>;
-    fn GetCurMoniker(&self, ppimkname: windows_core::OutRef<super::IMoniker>) -> windows_core::Result<()>;
+    fn GetCurMoniker(&self) -> windows_core::Result<super::IMoniker>;
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
 impl IPersistMoniker_Vtbl {
@@ -4141,7 +4177,13 @@ impl IPersistMoniker_Vtbl {
         unsafe extern "system" fn GetCurMoniker<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppimkname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPersistMoniker_Impl::GetCurMoniker(this, core::mem::transmute_copy(&ppimkname)).into()
+                match IPersistMoniker_Impl::GetCurMoniker(this) {
+                    Ok(ok__) => {
+                        ppimkname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -4620,16 +4662,25 @@ windows_core::imp::define_interface!(IUriBuilder, IUriBuilder_Vtbl, 0x4221b2e1_8
 windows_core::imp::interface_hierarchy!(IUriBuilder, windows_core::IUnknown);
 impl IUriBuilder {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateUriSimple(&self, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut Option<IUri>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateUriSimple)(windows_core::Interface::as_raw(self), dwallowencodingpropertymask, dwreserved, core::mem::transmute(ppiuri)) }
+    pub unsafe fn CreateUriSimple(&self, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateUriSimple)(windows_core::Interface::as_raw(self), dwallowencodingpropertymask, dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateUri(&self, dwcreateflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut Option<IUri>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateUri)(windows_core::Interface::as_raw(self), dwcreateflags, dwallowencodingpropertymask, dwreserved, core::mem::transmute(ppiuri)) }
+    pub unsafe fn CreateUri(&self, dwcreateflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateUri)(windows_core::Interface::as_raw(self), dwcreateflags, dwallowencodingpropertymask, dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateUriWithFlags(&self, dwcreateflags: super::DWORD, dwuribuilderflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut Option<IUri>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateUriWithFlags)(windows_core::Interface::as_raw(self), dwcreateflags, dwuribuilderflags, dwallowencodingpropertymask, dwreserved, core::mem::transmute(ppiuri)) }
+    pub unsafe fn CreateUriWithFlags(&self, dwcreateflags: super::DWORD, dwuribuilderflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateUriWithFlags)(windows_core::Interface::as_raw(self), dwcreateflags, dwuribuilderflags, dwallowencodingpropertymask, dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetIUri(&self, ppiuri: *mut Option<IUri>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIUri)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiuri)) }
@@ -4795,9 +4846,9 @@ pub struct IUriBuilder_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IUriBuilder_Impl: windows_core::IUnknownImpl {
-    fn CreateUriSimple(&self, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: windows_core::OutRef<IUri>) -> windows_core::Result<()>;
-    fn CreateUri(&self, dwcreateflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: windows_core::OutRef<IUri>) -> windows_core::Result<()>;
-    fn CreateUriWithFlags(&self, dwcreateflags: super::DWORD, dwuribuilderflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: windows_core::OutRef<IUri>) -> windows_core::Result<()>;
+    fn CreateUriSimple(&self, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri>;
+    fn CreateUri(&self, dwcreateflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri>;
+    fn CreateUriWithFlags(&self, dwcreateflags: super::DWORD, dwuribuilderflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR) -> windows_core::Result<IUri>;
     fn GetIUri(&self, ppiuri: windows_core::OutRef<IUri>) -> windows_core::Result<()>;
     fn SetIUri(&self, piuri: windows_core::Ref<IUri>) -> windows_core::Result<()>;
     fn GetFragment(&self, pcchfragment: *mut super::DWORD, ppwzfragment: *mut windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -4825,19 +4876,37 @@ impl IUriBuilder_Vtbl {
         unsafe extern "system" fn CreateUriSimple<Identity: IUriBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUriBuilder_Impl::CreateUriSimple(this, core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&ppiuri)).into()
+                match IUriBuilder_Impl::CreateUriSimple(this, core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved)) {
+                    Ok(ok__) => {
+                        ppiuri.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateUri<Identity: IUriBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcreateflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUriBuilder_Impl::CreateUri(this, core::mem::transmute_copy(&dwcreateflags), core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&ppiuri)).into()
+                match IUriBuilder_Impl::CreateUri(this, core::mem::transmute_copy(&dwcreateflags), core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved)) {
+                    Ok(ok__) => {
+                        ppiuri.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CreateUriWithFlags<Identity: IUriBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcreateflags: super::DWORD, dwuribuilderflags: super::DWORD, dwallowencodingpropertymask: super::DWORD, dwreserved: super::DWORD_PTR, ppiuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUriBuilder_Impl::CreateUriWithFlags(this, core::mem::transmute_copy(&dwcreateflags), core::mem::transmute_copy(&dwuribuilderflags), core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&ppiuri)).into()
+                match IUriBuilder_Impl::CreateUriWithFlags(this, core::mem::transmute_copy(&dwcreateflags), core::mem::transmute_copy(&dwuribuilderflags), core::mem::transmute_copy(&dwallowencodingpropertymask), core::mem::transmute_copy(&dwreserved)) {
+                    Ok(ok__) => {
+                        ppiuri.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetIUri<Identity: IUriBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

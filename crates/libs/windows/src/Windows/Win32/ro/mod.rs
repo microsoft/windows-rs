@@ -61,9 +61,12 @@ pub unsafe fn RoGetApartmentIdentifier(apartmentidentifier: *mut super::UINT64) 
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn RoGetBufferMarshaler(buffermarshaler: *mut Option<super::IMarshal>) -> windows_core::HRESULT {
+pub unsafe fn RoGetBufferMarshaler() -> windows_core::Result<super::IMarshal> {
     windows_core::link!("api-ms-win-core-winrt-robuffer-l1-1-0.dll" "system" fn RoGetBufferMarshaler(buffermarshaler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoGetBufferMarshaler(core::mem::transmute(buffermarshaler)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoGetBufferMarshaler(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -163,12 +166,15 @@ where
 }
 #[cfg(feature = "restrictederrorinfo")]
 #[inline]
-pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0, pprestrictederrorinfo: *mut Option<super::IRestrictedErrorInfo>) -> windows_core::HRESULT
+pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> windows_core::Result<super::IRestrictedErrorInfo>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoResolveRestrictedErrorInfoReference(reference : windows_core::PCWSTR, pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoResolveRestrictedErrorInfoReference(reference.param().abi(), core::mem::transmute(pprestrictederrorinfo)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoResolveRestrictedErrorInfoReference(reference.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn RoRevokeActivationFactories(cookie: RO_REGISTRATION_COOKIE) {

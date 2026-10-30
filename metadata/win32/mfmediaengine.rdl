@@ -27,7 +27,7 @@ mod Windows {
         }
         #[guid(0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93)]
         interface IMFMediaEngine: IUnknown {
-            fn GetError(&self, #[out] #[out_ptr] ppError: *mut IMFMediaError) -> HRESULT;
+            fn GetError(&self, #[out] #[out_ptr] #[retval] ppError: *mut IMFMediaError) -> HRESULT;
             fn SetErrorCode(&self, #[in] error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
             fn SetSourceElements(&self, #[in] pSrcElements: IMFMediaEngineSrcElements) -> HRESULT;
             fn SetSource(&self, #[in] pUrl: BSTR) -> HRESULT;
@@ -35,7 +35,7 @@ mod Windows {
             fn GetNetworkState(&self) -> USHORT;
             fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD;
             fn SetPreload(&self, #[in] Preload: MF_MEDIA_ENGINE_PRELOAD) -> HRESULT;
-            fn GetBuffered(&self, #[out] #[out_ptr] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetBuffered(&self, #[out] #[out_ptr] #[retval] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
             fn Load(&self) -> HRESULT;
             fn CanPlayType(&self, #[in] r#type: BSTR, #[out] pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
             fn GetReadyState(&self) -> USHORT;
@@ -49,8 +49,8 @@ mod Windows {
             fn SetDefaultPlaybackRate(&self, #[in] Rate: f64) -> HRESULT;
             fn GetPlaybackRate(&self) -> f64;
             fn SetPlaybackRate(&self, #[in] Rate: f64) -> HRESULT;
-            fn GetPlayed(&self, #[out] #[out_ptr] ppPlayed: *mut IMFMediaTimeRange) -> HRESULT;
-            fn GetSeekable(&self, #[out] #[out_ptr] ppSeekable: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetPlayed(&self, #[out] #[out_ptr] #[retval] ppPlayed: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetSeekable(&self, #[out] #[out_ptr] #[retval] ppSeekable: *mut IMFMediaTimeRange) -> HRESULT;
             fn IsEnded(&self) -> BOOL;
             fn GetAutoPlay(&self) -> BOOL;
             fn SetAutoPlay(&self, #[in] AutoPlay: BOOL) -> HRESULT;
@@ -77,9 +77,9 @@ mod Windows {
         }
         #[guid(0x4d645ace_26aa_4688_9be1_df3516990b93)]
         interface IMFMediaEngineClassFactory: IUnknown {
-            fn CreateInstance(&self, #[in] dwFlags: DWORD, #[in] pAttr: IMFAttributes, #[out] #[out_ptr] ppPlayer: *mut IMFMediaEngine) -> HRESULT;
-            fn CreateTimeRange(&self, #[out] #[out_ptr] ppTimeRange: *mut IMFMediaTimeRange) -> HRESULT;
-            fn CreateError(&self, #[out] #[out_ptr] ppError: *mut IMFMediaError) -> HRESULT;
+            fn CreateInstance(&self, #[in] dwFlags: DWORD, #[in] pAttr: IMFAttributes, #[out] #[out_ptr] #[retval] ppPlayer: *mut IMFMediaEngine) -> HRESULT;
+            fn CreateTimeRange(&self, #[out] #[out_ptr] #[retval] ppTimeRange: *mut IMFMediaTimeRange) -> HRESULT;
+            fn CreateError(&self, #[out] #[out_ptr] #[retval] ppError: *mut IMFMediaError) -> HRESULT;
         }
         #[guid(0x09083cef_867f_4bf6_8776_dee3a7b42fca)]
         interface IMFMediaEngineClassFactory2: IUnknown {
@@ -154,7 +154,7 @@ mod Windows {
             fn CanPlayType(&self, #[in] AudioOnly: BOOL, #[in] MimeType: BSTR, #[out] pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
             fn BeginCreateObject(&self, #[in] bstrURL: BSTR, #[in] #[opt] pByteStream: IMFByteStream, #[in] r#type: MF_OBJECT_TYPE, #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] #[opt] punkState: IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
-            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x46a30204_a696_4b18_8804_246b8f031bb1)]
         interface IMFMediaEngineNeedKeyNotify: IUnknown {
@@ -273,7 +273,7 @@ mod Windows {
             fn GetReadyState(&self) -> MF_MSE_READY;
             fn GetDuration(&self) -> f64;
             fn SetDuration(&self, #[in] duration: f64) -> HRESULT;
-            fn AddSourceBuffer(&self, #[in] r#type: BSTR, #[in] pNotify: IMFSourceBufferNotify, #[out] #[out_ptr] ppSourceBuffer: *mut IMFSourceBuffer) -> HRESULT;
+            fn AddSourceBuffer(&self, #[in] r#type: BSTR, #[in] pNotify: IMFSourceBufferNotify, #[out] #[out_ptr] #[retval] ppSourceBuffer: *mut IMFSourceBuffer) -> HRESULT;
             fn RemoveSourceBuffer(&self, #[in] pSourceBuffer: IMFSourceBuffer) -> HRESULT;
             fn SetEndOfStream(&self, #[in] error: MF_MSE_ERROR) -> HRESULT;
             fn IsTypeSupported(&self, #[in] r#type: BSTR) -> BOOL;
@@ -302,7 +302,7 @@ mod Windows {
         #[guid(0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877)]
         interface IMFSourceBuffer: IUnknown {
             fn GetUpdating(&self) -> BOOL;
-            fn GetBuffered(&self, #[out] #[out_ptr] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetBuffered(&self, #[out] #[out_ptr] #[retval] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
             fn GetTimeStampOffset(&self) -> f64;
             fn SetTimeStampOffset(&self, #[in] offset: f64) -> HRESULT;
             fn GetAppendWindowStart(&self) -> f64;

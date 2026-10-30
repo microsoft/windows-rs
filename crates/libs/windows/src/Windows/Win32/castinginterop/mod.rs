@@ -167,12 +167,18 @@ impl windows_core::RuntimeName for ICastingEventHandler {}
 windows_core::imp::define_interface!(ICastingSourceInfo, ICastingSourceInfo_Vtbl, 0x45101ab7_7c3a_4bce_9500_12c09024b298);
 windows_core::imp::interface_hierarchy!(ICastingSourceInfo, windows_core::IUnknown);
 impl ICastingSourceInfo {
-    pub unsafe fn GetController(&self, controller: *mut Option<ICastingController>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), core::mem::transmute(controller)) }
+    pub unsafe fn GetController(&self) -> windows_core::Result<ICastingController> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "propsys")]
-    pub unsafe fn GetProperties(&self, props: *mut Option<super::INamedPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(props)) }
+    pub unsafe fn GetProperties(&self) -> windows_core::Result<super::INamedPropertyStore> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -187,8 +193,8 @@ pub struct ICastingSourceInfo_Vtbl {
 }
 #[cfg(feature = "propsys")]
 pub trait ICastingSourceInfo_Impl: windows_core::IUnknownImpl {
-    fn GetController(&self, controller: windows_core::OutRef<ICastingController>) -> windows_core::Result<()>;
-    fn GetProperties(&self, props: windows_core::OutRef<super::INamedPropertyStore>) -> windows_core::Result<()>;
+    fn GetController(&self) -> windows_core::Result<ICastingController>;
+    fn GetProperties(&self) -> windows_core::Result<super::INamedPropertyStore>;
 }
 #[cfg(feature = "propsys")]
 impl ICastingSourceInfo_Vtbl {
@@ -196,13 +202,25 @@ impl ICastingSourceInfo_Vtbl {
         unsafe extern "system" fn GetController<Identity: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, controller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingSourceInfo_Impl::GetController(this, core::mem::transmute_copy(&controller)).into()
+                match ICastingSourceInfo_Impl::GetController(this) {
+                    Ok(ok__) => {
+                        controller.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetProperties<Identity: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, props: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingSourceInfo_Impl::GetProperties(this, core::mem::transmute_copy(&props)).into()
+                match ICastingSourceInfo_Impl::GetProperties(this) {
+                    Ok(ok__) => {
+                        props.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

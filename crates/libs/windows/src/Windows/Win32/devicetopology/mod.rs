@@ -806,22 +806,31 @@ impl IDeviceTopology {
         unsafe { (windows_core::Interface::vtable(self).GetSubunitCount)(windows_core::Interface::as_raw(self), pcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSubunit(&self, nindex: super::UINT, ppsubunit: *mut Option<ISubunit>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSubunit)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(ppsubunit)) }
+    pub unsafe fn GetSubunit(&self, nindex: super::UINT) -> windows_core::Result<ISubunit> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubunit)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPartById(&self, nid: super::UINT, pppart: *mut Option<IPart>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPartById)(windows_core::Interface::as_raw(self), nid, core::mem::transmute(pppart)) }
+    pub unsafe fn GetPartById(&self, nid: super::UINT) -> windows_core::Result<IPart> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPartById)(windows_core::Interface::as_raw(self), nid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetDeviceId(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceId)(windows_core::Interface::as_raw(self), ppwstrdeviceid as _) }
     }
-    pub unsafe fn GetSignalPath<P0, P1>(&self, pipartfrom: P0, pipartto: P1, brejectmixedpaths: bool, ppparts: *mut Option<IPartsList>) -> windows_core::HRESULT
+    pub unsafe fn GetSignalPath<P0, P1>(&self, pipartfrom: P0, pipartto: P1, brejectmixedpaths: bool) -> windows_core::Result<IPartsList>
     where
         P0: windows_core::Param<IPart>,
         P1: windows_core::Param<IPart>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSignalPath)(windows_core::Interface::as_raw(self), pipartfrom.param().abi(), pipartto.param().abi(), brejectmixedpaths.into(), core::mem::transmute(ppparts)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSignalPath)(windows_core::Interface::as_raw(self), pipartfrom.param().abi(), pipartto.param().abi(), brejectmixedpaths.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -856,10 +865,10 @@ pub trait IDeviceTopology_Impl: windows_core::IUnknownImpl {
     fn GetConnectorCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
     fn GetConnector(&self, nindex: super::UINT, ppconnector: windows_core::OutRef<IConnector>) -> windows_core::Result<()>;
     fn GetSubunitCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetSubunit(&self, nindex: super::UINT, ppsubunit: windows_core::OutRef<ISubunit>) -> windows_core::Result<()>;
-    fn GetPartById(&self, nid: super::UINT, pppart: windows_core::OutRef<IPart>) -> windows_core::Result<()>;
+    fn GetSubunit(&self, nindex: super::UINT) -> windows_core::Result<ISubunit>;
+    fn GetPartById(&self, nid: super::UINT) -> windows_core::Result<IPart>;
     fn GetDeviceId(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetSignalPath(&self, pipartfrom: windows_core::Ref<IPart>, pipartto: windows_core::Ref<IPart>, brejectmixedpaths: windows_core::BOOL, ppparts: windows_core::OutRef<IPartsList>) -> windows_core::Result<()>;
+    fn GetSignalPath(&self, pipartfrom: windows_core::Ref<IPart>, pipartto: windows_core::Ref<IPart>, brejectmixedpaths: windows_core::BOOL) -> windows_core::Result<IPartsList>;
 }
 #[cfg(feature = "shared")]
 impl IDeviceTopology_Vtbl {
@@ -885,13 +894,25 @@ impl IDeviceTopology_Vtbl {
         unsafe extern "system" fn GetSubunit<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppsubunit: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetSubunit(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppsubunit)).into()
+                match IDeviceTopology_Impl::GetSubunit(this, core::mem::transmute_copy(&nindex)) {
+                    Ok(ok__) => {
+                        ppsubunit.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetPartById<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nid: super::UINT, pppart: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetPartById(this, core::mem::transmute_copy(&nid), core::mem::transmute_copy(&pppart)).into()
+                match IDeviceTopology_Impl::GetPartById(this, core::mem::transmute_copy(&nid)) {
+                    Ok(ok__) => {
+                        pppart.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetDeviceId<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -903,7 +924,13 @@ impl IDeviceTopology_Vtbl {
         unsafe extern "system" fn GetSignalPath<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipartfrom: *mut core::ffi::c_void, pipartto: *mut core::ffi::c_void, brejectmixedpaths: windows_core::BOOL, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetSignalPath(this, core::mem::transmute_copy(&pipartfrom), core::mem::transmute_copy(&pipartto), core::mem::transmute_copy(&brejectmixedpaths), core::mem::transmute_copy(&ppparts)).into()
+                match IDeviceTopology_Impl::GetSignalPath(this, core::mem::transmute_copy(&pipartfrom), core::mem::transmute_copy(&pipartto), core::mem::transmute_copy(&brejectmixedpaths)) {
+                    Ok(ok__) => {
+                        ppparts.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

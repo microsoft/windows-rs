@@ -18,7 +18,7 @@ mod Windows {
             fn Next(&self, #[in] cViews: ULONG, #[out] rgpView: *mut IOleDocumentView, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cViews: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
         }
         #[repr(i32)]
         enum IGNOREMIME {
@@ -35,9 +35,9 @@ mod Windows {
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocument: IUnknown {
-            fn CreateView(&self, #[in] #[opt] pIPSite: IOleInPlaceSite, #[in] #[opt] pstm: IStream, #[in] dwReserved: DWORD, #[out] #[out_ptr] ppView: *mut IOleDocumentView) -> HRESULT;
+            fn CreateView(&self, #[in] #[opt] pIPSite: IOleInPlaceSite, #[in] #[opt] pstm: IStream, #[in] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
             fn GetDocMiscStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
-            fn EnumViews(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews, #[out] #[out_ptr] ppView: *mut IOleDocumentView) -> HRESULT;
+            fn EnumViews(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews, #[out] #[out_ptr] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc7_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentSite: IUnknown {
@@ -46,8 +46,8 @@ mod Windows {
         #[guid(0xb722bcc6_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentView: IUnknown {
             fn SetInPlaceSite(&self, #[in] #[opt] pIPSite: IOleInPlaceSite) -> HRESULT;
-            fn GetInPlaceSite(&self, #[out] #[out_ptr] ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
-            fn GetDocument(&self, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetInPlaceSite(&self, #[out] #[out_ptr] #[retval] ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
+            fn GetDocument(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
             fn SetRect(&self, #[in] prcView: LPRECT) -> HRESULT;
             fn GetRect(&self, #[out] prcView: LPRECT) -> HRESULT;
             fn SetRectComplex(&self, #[in] #[opt] prcView: LPRECT, #[in] #[opt] prcHScroll: LPRECT, #[in] #[opt] prcVScroll: LPRECT, #[in] #[opt] prcSizeBox: LPRECT) -> HRESULT;
@@ -57,7 +57,7 @@ mod Windows {
             fn CloseView(&self, #[in] dwReserved: DWORD) -> HRESULT;
             fn SaveViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
             fn ApplyViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
-            fn Clone(&self, #[in] #[opt] pIPSiteNew: IOleInPlaceSite, #[out] #[out_ptr] ppViewNew: *mut IOleDocumentView) -> HRESULT;
+            fn Clone(&self, #[in] #[opt] pIPSiteNew: IOleInPlaceSite, #[out] #[out_ptr] #[retval] ppViewNew: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc9_4e68_101b_a2bc_00aa00404770)]
         interface IPrint: IUnknown {

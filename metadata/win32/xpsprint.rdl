@@ -11,9 +11,9 @@ mod Windows {
             fn Close(&self) -> HRESULT;
         }
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[in] #[readable(entry, printablePagesOnCount)] printablePagesOn: *mut UINT8, #[in] printablePagesOnCount: UINT32, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] documentStream: *mut IXpsPrintJobStream, #[out] #[out_ptr] printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
+        extern fn StartXpsPrintJob(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[in] #[readable(entry, printablePagesOnCount)] printablePagesOn: *mut UINT8, #[in] printablePagesOnCount: UINT32, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] documentStream: *mut IXpsPrintJobStream, #[out] #[out_ptr] #[retval] printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob1(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
+        extern fn StartXpsPrintJob1(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] #[retval] printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
         #[repr(i32)]
         enum XPS_JOB_COMPLETION {
             XPS_JOB_IN_PROGRESS = 0,

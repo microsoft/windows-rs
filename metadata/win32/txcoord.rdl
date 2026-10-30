@@ -54,8 +54,8 @@ mod Windows {
         const IID_ITransactionResourceAsync: GUID = 0x69e971f0_23ce_11cf_ad60_00aa00a74ccd;
         #[guid(0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipHelper: IUnknown {
-            fn Pull(&self, #[in] i_pszTxUrl: *mut i8, #[out] #[out_ptr] o_ppITransaction: *mut ITransaction) -> HRESULT;
-            fn PullAsync(&self, #[in] i_pszTxUrl: *mut i8, #[in] #[opt] i_pTipPullSink: ITipPullSink, #[out] #[out_ptr] o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn Pull(&self, #[in] i_pszTxUrl: *mut i8, #[out] #[out_ptr] #[retval] o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn PullAsync(&self, #[in] i_pszTxUrl: *mut i8, #[in] #[opt] i_pTipPullSink: ITipPullSink, #[out] #[out_ptr] #[retval] o_ppITransaction: *mut ITransaction) -> HRESULT;
             fn GetLocalTmUrl(&self, #[out] #[out_ptr] o_ppszLocalTmUrl: *mut *mut i8) -> HRESULT;
         }
         #[guid(0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef)]
@@ -81,7 +81,7 @@ mod Windows {
         #[guid(0xe1cf9b53_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionExportFactory: IUnknown {
             fn GetRemoteClassId(&self, #[out] pclsid: *mut CLSID) -> HRESULT;
-            fn Create(&self, #[in] cbWhereabouts: ULONG, #[in] #[readable(entry, cbWhereabouts)] rgbWhereabouts: *mut byte, #[out] #[out_ptr] ppExport: *mut ITransactionExport) -> HRESULT;
+            fn Create(&self, #[in] cbWhereabouts: ULONG, #[in] #[readable(entry, cbWhereabouts)] rgbWhereabouts: *mut byte, #[out] #[out_ptr] #[retval] ppExport: *mut ITransactionExport) -> HRESULT;
         }
         #[guid(0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionImport: IUnknown {

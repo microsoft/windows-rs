@@ -19,7 +19,7 @@ static NUMBER: AtomicI32 = AtomicI32::new(0);
 struct StaticValueFactory;
 
 impl IActivationFactory_Impl for StaticValueFactory_Impl {
-    fn ActivateInstance(&self, _: OutRef<IInspectable>) -> Result<()> {
+    fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(E_NOTIMPL.into())
     }
 }

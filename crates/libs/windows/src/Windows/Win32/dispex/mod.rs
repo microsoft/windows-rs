@@ -42,11 +42,17 @@ impl windows_core::RuntimeName for ICanHandleException {}
 windows_core::imp::define_interface!(IDispError, IDispError_Vtbl, 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
 windows_core::imp::interface_hierarchy!(IDispError, windows_core::IUnknown);
 impl IDispError {
-    pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID, ppde: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryErrorInfo)(windows_core::Interface::as_raw(self), guiderrortype, core::mem::transmute(ppde)) }
+    pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).QueryErrorInfo)(windows_core::Interface::as_raw(self), guiderrortype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetNext(&self, ppde: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), core::mem::transmute(ppde)) }
+    pub unsafe fn GetNext(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetHresult(&self, phr: *mut windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetHresult)(windows_core::Interface::as_raw(self), phr as _) }
@@ -78,8 +84,8 @@ pub struct IDispError_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDispError_Impl: windows_core::IUnknownImpl {
-    fn QueryErrorInfo(&self, guiderrortype: &windows_core::GUID, ppde: windows_core::OutRef<IDispError>) -> windows_core::Result<()>;
-    fn GetNext(&self, ppde: windows_core::OutRef<IDispError>) -> windows_core::Result<()>;
+    fn QueryErrorInfo(&self, guiderrortype: &windows_core::GUID) -> windows_core::Result<IDispError>;
+    fn GetNext(&self) -> windows_core::Result<IDispError>;
     fn GetHresult(&self, phr: *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut super::DWORD) -> windows_core::Result<()>;
@@ -91,13 +97,25 @@ impl IDispError_Vtbl {
         unsafe extern "system" fn QueryErrorInfo<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guiderrortype: windows_core::GUID, ppde: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::QueryErrorInfo(this, core::mem::transmute(&guiderrortype), core::mem::transmute_copy(&ppde)).into()
+                match IDispError_Impl::QueryErrorInfo(this, core::mem::transmute(&guiderrortype)) {
+                    Ok(ok__) => {
+                        ppde.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetNext<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppde: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::GetNext(this, core::mem::transmute_copy(&ppde)).into()
+                match IDispError_Impl::GetNext(this) {
+                    Ok(ok__) => {
+                        ppde.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetHresult<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phr: *mut windows_core::HRESULT) -> windows_core::HRESULT {
@@ -184,8 +202,11 @@ impl IDispatchEx {
     pub unsafe fn GetNextDispID(&self, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNextDispID)(windows_core::Interface::as_raw(self), grfdex, id, pid as _) }
     }
-    pub unsafe fn GetNameSpaceParent(&self, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameSpaceParent)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunk)) }
+    pub unsafe fn GetNameSpaceParent(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNameSpaceParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -232,7 +253,7 @@ pub trait IDispatchEx_Impl: super::IDispatch_Impl {
     fn GetMemberProperties(&self, id: super::DISPID, grfdexfetch: super::DWORD, pgrfdex: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetMemberName(&self, id: super::DISPID, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetNextDispID(&self, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::Result<()>;
-    fn GetNameSpaceParent(&self, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetNameSpaceParent(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispatchEx_Vtbl {
@@ -282,7 +303,13 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn GetNameSpaceParent<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetNameSpaceParent(this, core::mem::transmute_copy(&ppunk)).into()
+                match IDispatchEx_Impl::GetNameSpaceParent(this) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

@@ -15,7 +15,7 @@ static CHANGED: Event<EventHandler<i32>> = Event::new();
 struct Widget;
 
 impl IActivationFactory_Impl for Widget_Impl {
-    fn ActivateInstance(&self, _: OutRef<IInspectable>) -> Result<()> {
+    fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(E_NOTIMPL.into())
     }
 }

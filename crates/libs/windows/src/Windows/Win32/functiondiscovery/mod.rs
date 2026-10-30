@@ -620,8 +620,11 @@ impl IFunctionInstanceCollectionQuery {
     pub unsafe fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyConstraint)(windows_core::Interface::as_raw(self), key, pv, enumpropertyconstraint) }
     }
-    pub unsafe fn Execute(&self, ppifunctioninstancecollection: *mut Option<IFunctionInstanceCollection>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), core::mem::transmute(ppifunctioninstancecollection)) }
+    pub unsafe fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -642,7 +645,7 @@ pub struct IFunctionInstanceCollectionQuery_Vtbl {
 pub trait IFunctionInstanceCollectionQuery_Impl: windows_core::IUnknownImpl {
     fn AddQueryConstraint(&self, pszconstraintname: *const super::WCHAR, pszconstraintvalue: *const super::WCHAR) -> windows_core::Result<()>;
     fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::Result<()>;
-    fn Execute(&self, ppifunctioninstancecollection: windows_core::OutRef<IFunctionInstanceCollection>) -> windows_core::Result<()>;
+    fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFunctionInstanceCollectionQuery_Vtbl {
@@ -662,7 +665,13 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         unsafe extern "system" fn Execute<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollectionQuery_Impl::Execute(this, core::mem::transmute_copy(&ppifunctioninstancecollection)).into()
+                match IFunctionInstanceCollectionQuery_Impl::Execute(this) {
+                    Ok(ok__) => {
+                        ppifunctioninstancecollection.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {

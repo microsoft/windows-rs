@@ -44,18 +44,8 @@ fn main() -> windows::core::Result<()> {
         let manager: IBackgroundCopyManager =
             CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER as u32)?;
 
-        let mut job = None;
+        let job = manager.CreateJob(w!("sample"), BG_JOB_TYPE_DOWNLOAD, &mut Default::default())?;
 
-        manager
-            .CreateJob(
-                w!("sample"),
-                BG_JOB_TYPE_DOWNLOAD,
-                &mut Default::default(),
-                &mut job,
-            )
-            .ok()?;
-
-        let job = job.unwrap();
         let destination = std::env::temp_dir().join("windows-rs-bits.png");
         let destination_wide: Vec<u16> = destination
             .as_os_str()

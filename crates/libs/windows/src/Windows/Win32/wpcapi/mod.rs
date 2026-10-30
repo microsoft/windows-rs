@@ -328,11 +328,14 @@ impl core::ops::Deref for IWindowsParentalControls {
 }
 windows_core::imp::interface_hierarchy!(IWindowsParentalControls, windows_core::IUnknown, IWindowsParentalControlsCore);
 impl IWindowsParentalControls {
-    pub unsafe fn GetGamesSettings<P0>(&self, pcszsid: P0, ppsettings: *mut Option<IWPCGamesSettings>) -> windows_core::HRESULT
+    pub unsafe fn GetGamesSettings<P0>(&self, pcszsid: P0) -> windows_core::Result<IWPCGamesSettings>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetGamesSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), core::mem::transmute(ppsettings)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetGamesSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -342,14 +345,20 @@ pub struct IWindowsParentalControls_Vtbl {
     pub GetGamesSettings: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWindowsParentalControls_Impl: IWindowsParentalControlsCore_Impl {
-    fn GetGamesSettings(&self, pcszsid: &windows_core::PCWSTR, ppsettings: windows_core::OutRef<IWPCGamesSettings>) -> windows_core::Result<()>;
+    fn GetGamesSettings(&self, pcszsid: &windows_core::PCWSTR) -> windows_core::Result<IWPCGamesSettings>;
 }
 impl IWindowsParentalControls_Vtbl {
     pub const fn new<Identity: IWindowsParentalControls_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGamesSettings<Identity: IWindowsParentalControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWindowsParentalControls_Impl::GetGamesSettings(this, core::mem::transmute(&pcszsid), core::mem::transmute_copy(&ppsettings)).into()
+                match IWindowsParentalControls_Impl::GetGamesSettings(this, core::mem::transmute(&pcszsid)) {
+                    Ok(ok__) => {
+                        ppsettings.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: IWindowsParentalControlsCore_Vtbl::new::<Identity, OFFSET>(), GetGamesSettings: GetGamesSettings::<Identity, OFFSET> }
@@ -365,17 +374,23 @@ impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self, pevisibility: *mut WPCFLAG_VISIBILITY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVisibility)(windows_core::Interface::as_raw(self), pevisibility as _) }
     }
-    pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0, ppsettings: *mut Option<IWPCSettings>) -> windows_core::HRESULT
+    pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> windows_core::Result<IWPCSettings>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetUserSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), core::mem::transmute(ppsettings)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetUserSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0, ppsettings: *mut Option<IWPCWebSettings>) -> windows_core::HRESULT
+    pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> windows_core::Result<IWPCWebSettings>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetWebSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), core::mem::transmute(ppsettings)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetWebSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut windows_core::GUID, ppszname: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWebFilterInfo)(windows_core::Interface::as_raw(self), pguidid as _, ppszname.unwrap_or(core::mem::zeroed()) as _) }
@@ -392,8 +407,8 @@ pub struct IWindowsParentalControlsCore_Vtbl {
 }
 pub trait IWindowsParentalControlsCore_Impl: windows_core::IUnknownImpl {
     fn GetVisibility(&self, pevisibility: *mut WPCFLAG_VISIBILITY) -> windows_core::Result<()>;
-    fn GetUserSettings(&self, pcszsid: &windows_core::PCWSTR, ppsettings: windows_core::OutRef<IWPCSettings>) -> windows_core::Result<()>;
-    fn GetWebSettings(&self, pcszsid: &windows_core::PCWSTR, ppsettings: windows_core::OutRef<IWPCWebSettings>) -> windows_core::Result<()>;
+    fn GetUserSettings(&self, pcszsid: &windows_core::PCWSTR) -> windows_core::Result<IWPCSettings>;
+    fn GetWebSettings(&self, pcszsid: &windows_core::PCWSTR) -> windows_core::Result<IWPCWebSettings>;
     fn GetWebFilterInfo(&self, pguidid: *mut windows_core::GUID, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IWindowsParentalControlsCore_Vtbl {
@@ -407,13 +422,25 @@ impl IWindowsParentalControlsCore_Vtbl {
         unsafe extern "system" fn GetUserSettings<Identity: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWindowsParentalControlsCore_Impl::GetUserSettings(this, core::mem::transmute(&pcszsid), core::mem::transmute_copy(&ppsettings)).into()
+                match IWindowsParentalControlsCore_Impl::GetUserSettings(this, core::mem::transmute(&pcszsid)) {
+                    Ok(ok__) => {
+                        ppsettings.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetWebSettings<Identity: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWindowsParentalControlsCore_Impl::GetWebSettings(this, core::mem::transmute(&pcszsid), core::mem::transmute_copy(&ppsettings)).into()
+                match IWindowsParentalControlsCore_Impl::GetWebSettings(this, core::mem::transmute(&pcszsid)) {
+                    Ok(ok__) => {
+                        ppsettings.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetWebFilterInfo<Identity: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidid: *mut windows_core::GUID, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {

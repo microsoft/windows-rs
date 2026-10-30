@@ -11529,8 +11529,11 @@ impl windows_core::RuntimeName for IMediaSample2 {}
 windows_core::imp::define_interface!(IMediaSample2Config, IMediaSample2Config_Vtbl, 0x68961e68_832b_41ea_bc91_63593f3e70e3);
 windows_core::imp::interface_hierarchy!(IMediaSample2Config, windows_core::IUnknown);
 impl IMediaSample2Config {
-    pub unsafe fn GetSurface(&self, ppdirect3dsurface9: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdirect3dsurface9)) }
+    pub unsafe fn GetSurface(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -11540,14 +11543,20 @@ pub struct IMediaSample2Config_Vtbl {
     pub GetSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMediaSample2Config_Impl: windows_core::IUnknownImpl {
-    fn GetSurface(&self, ppdirect3dsurface9: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSurface(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IMediaSample2Config_Vtbl {
     pub const fn new<Identity: IMediaSample2Config_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSurface<Identity: IMediaSample2Config_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirect3dsurface9: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaSample2Config_Impl::GetSurface(this, core::mem::transmute_copy(&ppdirect3dsurface9)).into()
+                match IMediaSample2Config_Impl::GetSurface(this) {
+                    Ok(ok__) => {
+                        ppdirect3dsurface9.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSurface: GetSurface::<Identity, OFFSET> }

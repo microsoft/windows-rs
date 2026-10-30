@@ -108,7 +108,7 @@ mod Windows {
         #[guid(0x8c8bf236_1aec_495f_9894_91d57c3c686f)]
         interface IEnumerableView: IUnknown {
             fn SetEnumReadyCallback(&self, #[in] percb: IEnumReadyCallback) -> HRESULT;
-            fn CreateEnumIDListFromContents(&self, #[in] pidlFolder: LPCITEMIDLIST, #[in] dwEnumFlags: DWORD, #[out] #[out_ptr] ppEnumIDList: *mut IEnumIDList) -> HRESULT;
+            fn CreateEnumIDListFromContents(&self, #[in] pidlFolder: LPCITEMIDLIST, #[in] dwEnumFlags: DWORD, #[out] #[out_ptr] #[retval] ppEnumIDList: *mut IEnumIDList) -> HRESULT;
         }
         #[guid(0x61744fc7_85b5_4791_a9b0_272276309b13)]
         interface IFileDialog2: IFileDialog {
@@ -150,7 +150,7 @@ mod Windows {
         }
         #[guid(0x505f1513_6b3e_4892_a272_59f8889a4d3e)]
         interface IImageRecompress: IUnknown {
-            fn RecompressImage(&self, #[in] #[opt] psi: IShellItem, #[in] cx: i32, #[in] cy: i32, #[in] iQuality: i32, #[in] #[opt] pstg: IStorage, #[out] #[out_ptr] ppstrmOut: *mut IStream) -> HRESULT;
+            fn RecompressImage(&self, #[in] #[opt] psi: IShellItem, #[in] cx: i32, #[in] cy: i32, #[in] iQuality: i32, #[in] #[opt] pstg: IStorage, #[out] #[out_ptr] #[retval] ppstrmOut: *mut IStream) -> HRESULT;
         }
         #[guid(0xd2b57227_3d23_4b95_93c0_492bd454c356)]
         interface IInsertItem: IUnknown {
@@ -367,7 +367,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHAddDefaultPropertiesByExt(#[in] pszExt: PCWSTR, #[in] pPropStore: IPropertyStore) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDefaultPropertiesOp(#[in] psi: IShellItem, #[out] #[out_ptr] ppFileOp: *mut IFileOperation) -> HRESULT;
+        extern fn SHCreateDefaultPropertiesOp(#[in] psi: IShellItem, #[out] #[out_ptr] #[retval] ppFileOp: *mut IFileOperation) -> HRESULT;
         const SHPWHF_ANYLOCATION: i32 = 256;
         const SHPWHF_NOFILESELECTOR: i32 = 4;
         const SHPWHF_NONETPLACECREATE: i32 = 2;

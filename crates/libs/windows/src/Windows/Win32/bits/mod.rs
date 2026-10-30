@@ -653,8 +653,11 @@ impl IBackgroundCopyError {
     pub unsafe fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetError)(windows_core::Interface::as_raw(self), pcontext as _, pcode as _) }
     }
-    pub unsafe fn GetFile(&self, pval: *mut Option<IBackgroundCopyFile>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), core::mem::transmute(pval)) }
+    pub unsafe fn GetFile(&self) -> windows_core::Result<IBackgroundCopyFile> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetErrorDescription(&self, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -687,7 +690,7 @@ pub struct IBackgroundCopyError_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IBackgroundCopyError_Impl: windows_core::IUnknownImpl {
     fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut windows_core::HRESULT) -> windows_core::Result<()>;
-    fn GetFile(&self, pval: windows_core::OutRef<IBackgroundCopyFile>) -> windows_core::Result<()>;
+    fn GetFile(&self) -> windows_core::Result<IBackgroundCopyFile>;
     fn GetErrorDescription(&self, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetErrorContextDescription(&self, languageid: super::DWORD, pcontextdescription: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetProtocol(&self, pprotocol: *mut windows_core::PWSTR) -> windows_core::Result<()>;
@@ -704,7 +707,13 @@ impl IBackgroundCopyError_Vtbl {
         unsafe extern "system" fn GetFile<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyError_Impl::GetFile(this, core::mem::transmute_copy(&pval)).into()
+                match IBackgroundCopyError_Impl::GetFile(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1138,8 +1147,11 @@ impl IBackgroundCopyJob {
     {
         unsafe { (windows_core::Interface::vtable(self).AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()) }
     }
-    pub unsafe fn EnumFiles(&self, penum: *mut Option<IEnumBackgroundCopyFiles>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumFiles)(windows_core::Interface::as_raw(self), core::mem::transmute(penum)) }
+    pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Suspend(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Suspend)(windows_core::Interface::as_raw(self)) }
@@ -1170,8 +1182,11 @@ impl IBackgroundCopyJob {
     pub unsafe fn GetState(&self, pval: *mut BG_JOB_STATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), pval as _) }
     }
-    pub unsafe fn GetError(&self, pperror: *mut Option<IBackgroundCopyError>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetError)(windows_core::Interface::as_raw(self), core::mem::transmute(pperror)) }
+    pub unsafe fn GetError(&self) -> windows_core::Result<IBackgroundCopyError> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetOwner(&self, pval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), pval as _) }
@@ -1214,8 +1229,11 @@ impl IBackgroundCopyJob {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()) }
     }
-    pub unsafe fn GetNotifyInterface(&self, pval: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNotifyInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(pval)) }
+    pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNotifyInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetMinimumRetryDelay(&self, seconds: super::ULONG) -> windows_core::HRESULT {
@@ -1322,7 +1340,7 @@ pub struct IBackgroundCopyJob_Vtbl {
 pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn AddFileSet(&self, cfilecount: super::ULONG, pfileset: *const BG_FILE_INFO) -> windows_core::Result<()>;
     fn AddFile(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn EnumFiles(&self, penum: windows_core::OutRef<IEnumBackgroundCopyFiles>) -> windows_core::Result<()>;
+    fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles>;
     fn Suspend(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
@@ -1332,7 +1350,7 @@ pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> windows_core::Result<()>;
     fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> windows_core::Result<()>;
     fn GetState(&self, pval: *mut BG_JOB_STATE) -> windows_core::Result<()>;
-    fn GetError(&self, pperror: windows_core::OutRef<IBackgroundCopyError>) -> windows_core::Result<()>;
+    fn GetError(&self) -> windows_core::Result<IBackgroundCopyError>;
     fn GetOwner(&self, pval: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetDisplayName(&self, val: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetDisplayName(&self, pval: *mut windows_core::PWSTR) -> windows_core::Result<()>;
@@ -1343,7 +1361,7 @@ pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn SetNotifyFlags(&self, val: super::ULONG) -> windows_core::Result<()>;
     fn GetNotifyFlags(&self, pval: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetNotifyInterface(&self, val: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetNotifyInterface(&self, pval: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetMinimumRetryDelay(&self, seconds: super::ULONG) -> windows_core::Result<()>;
     fn GetMinimumRetryDelay(&self, seconds: *mut super::ULONG) -> windows_core::Result<()>;
     fn SetNoProgressTimeout(&self, seconds: super::ULONG) -> windows_core::Result<()>;
@@ -1371,7 +1389,13 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn EnumFiles<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::EnumFiles(this, core::mem::transmute_copy(&penum)).into()
+                match IBackgroundCopyJob_Impl::EnumFiles(this) {
+                    Ok(ok__) => {
+                        penum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Suspend<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1431,7 +1455,13 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn GetError<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperror: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::GetError(this, core::mem::transmute_copy(&pperror)).into()
+                match IBackgroundCopyJob_Impl::GetError(this) {
+                    Ok(ok__) => {
+                        pperror.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetOwner<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1497,7 +1527,13 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn GetNotifyInterface<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::GetNotifyInterface(this, core::mem::transmute_copy(&pval)).into()
+                match IBackgroundCopyJob_Impl::GetNotifyInterface(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetMinimumRetryDelay<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: super::ULONG) -> windows_core::HRESULT {
@@ -2283,18 +2319,27 @@ impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions3 {}
 windows_core::imp::define_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, windows_core::IUnknown);
 impl IBackgroundCopyManager {
-    pub unsafe fn CreateJob<P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: *mut Option<IBackgroundCopyJob>) -> windows_core::HRESULT
+    pub unsafe fn CreateJob<P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.param().abi(), r#type, pjobid as _, core::mem::transmute(ppjob)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.param().abi(), r#type, pjobid as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetJob(&self, jobid: *const windows_core::GUID, ppjob: *mut Option<IBackgroundCopyJob>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), jobid, core::mem::transmute(ppjob)) }
+    pub unsafe fn GetJob(&self, jobid: *const windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), jobid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumJobs(&self, dwflags: super::DWORD, ppenum: *mut Option<IEnumBackgroundCopyJobs>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumJobs(&self, dwflags: super::DWORD) -> windows_core::Result<IEnumBackgroundCopyJobs> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2318,9 +2363,9 @@ pub struct IBackgroundCopyManager_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IBackgroundCopyManager_Impl: windows_core::IUnknownImpl {
-    fn CreateJob(&self, displayname: &windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: windows_core::OutRef<IBackgroundCopyJob>) -> windows_core::Result<()>;
-    fn GetJob(&self, jobid: *const windows_core::GUID, ppjob: windows_core::OutRef<IBackgroundCopyJob>) -> windows_core::Result<()>;
-    fn EnumJobs(&self, dwflags: super::DWORD, ppenum: windows_core::OutRef<IEnumBackgroundCopyJobs>) -> windows_core::Result<()>;
+    fn CreateJob(&self, displayname: &windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob>;
+    fn GetJob(&self, jobid: *const windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob>;
+    fn EnumJobs(&self, dwflags: super::DWORD) -> windows_core::Result<IEnumBackgroundCopyJobs>;
     fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -2329,19 +2374,37 @@ impl IBackgroundCopyManager_Vtbl {
         unsafe extern "system" fn CreateJob<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyManager_Impl::CreateJob(this, core::mem::transmute(&displayname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pjobid), core::mem::transmute_copy(&ppjob)).into()
+                match IBackgroundCopyManager_Impl::CreateJob(this, core::mem::transmute(&displayname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pjobid)) {
+                    Ok(ok__) => {
+                        ppjob.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetJob<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobid: *const windows_core::GUID, ppjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyManager_Impl::GetJob(this, core::mem::transmute_copy(&jobid), core::mem::transmute_copy(&ppjob)).into()
+                match IBackgroundCopyManager_Impl::GetJob(this, core::mem::transmute_copy(&jobid)) {
+                    Ok(ok__) => {
+                        ppjob.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn EnumJobs<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyManager_Impl::EnumJobs(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppenum)).into()
+                match IBackgroundCopyManager_Impl::EnumJobs(this, core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2491,11 +2554,17 @@ impl IBitsPeerCacheAdministration {
     pub unsafe fn SetConfigurationFlags(&self, flags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetConfigurationFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    pub unsafe fn EnumRecords(&self, ppenum: *mut Option<IEnumBitsPeerCacheRecords>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumRecords)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumRecords(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetRecord(&self, id: *const windows_core::GUID, pprecord: *mut Option<IBitsPeerCacheRecord>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRecord)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pprecord)) }
+    pub unsafe fn GetRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<IBitsPeerCacheRecord> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRecord)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ClearRecords(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearRecords)(windows_core::Interface::as_raw(self)) }
@@ -2509,8 +2578,11 @@ impl IBitsPeerCacheAdministration {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteUrl)(windows_core::Interface::as_raw(self), url.param().abi()) }
     }
-    pub unsafe fn EnumPeers(&self, ppenum: *mut Option<IEnumBitsPeers>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumPeers)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn EnumPeers(&self) -> windows_core::Result<IEnumBitsPeers> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumPeers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ClearPeers(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearPeers)(windows_core::Interface::as_raw(self)) }
@@ -2564,12 +2636,12 @@ pub trait IBitsPeerCacheAdministration_Impl: windows_core::IUnknownImpl {
     fn SetMaximumContentAge(&self, seconds: super::ULONG) -> windows_core::Result<()>;
     fn GetConfigurationFlags(&self, pflags: *mut super::DWORD) -> windows_core::Result<()>;
     fn SetConfigurationFlags(&self, flags: super::DWORD) -> windows_core::Result<()>;
-    fn EnumRecords(&self, ppenum: windows_core::OutRef<IEnumBitsPeerCacheRecords>) -> windows_core::Result<()>;
-    fn GetRecord(&self, id: *const windows_core::GUID, pprecord: windows_core::OutRef<IBitsPeerCacheRecord>) -> windows_core::Result<()>;
+    fn EnumRecords(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords>;
+    fn GetRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<IBitsPeerCacheRecord>;
     fn ClearRecords(&self) -> windows_core::Result<()>;
     fn DeleteRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<()>;
     fn DeleteUrl(&self, url: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn EnumPeers(&self, ppenum: windows_core::OutRef<IEnumBitsPeers>) -> windows_core::Result<()>;
+    fn EnumPeers(&self) -> windows_core::Result<IEnumBitsPeers>;
     fn ClearPeers(&self) -> windows_core::Result<()>;
     fn DiscoverPeers(&self) -> windows_core::Result<()>;
 }
@@ -2615,13 +2687,25 @@ impl IBitsPeerCacheAdministration_Vtbl {
         unsafe extern "system" fn EnumRecords<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitsPeerCacheAdministration_Impl::EnumRecords(this, core::mem::transmute_copy(&ppenum)).into()
+                match IBitsPeerCacheAdministration_Impl::EnumRecords(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetRecord<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const windows_core::GUID, pprecord: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitsPeerCacheAdministration_Impl::GetRecord(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pprecord)).into()
+                match IBitsPeerCacheAdministration_Impl::GetRecord(this, core::mem::transmute_copy(&id)) {
+                    Ok(ok__) => {
+                        pprecord.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ClearRecords<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2645,7 +2729,13 @@ impl IBitsPeerCacheAdministration_Vtbl {
         unsafe extern "system" fn EnumPeers<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitsPeerCacheAdministration_Impl::EnumPeers(this, core::mem::transmute_copy(&ppenum)).into()
+                match IBitsPeerCacheAdministration_Impl::EnumPeers(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ClearPeers<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2916,8 +3006,11 @@ impl IEnumBackgroundCopyFiles {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -2948,7 +3041,7 @@ pub trait IEnumBackgroundCopyFiles_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyFile>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumBackgroundCopyFiles>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumBackgroundCopyFiles>;
     fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -2975,7 +3068,13 @@ impl IEnumBackgroundCopyFiles_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumBackgroundCopyFiles_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumBackgroundCopyFiles_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3013,8 +3112,11 @@ impl IEnumBackgroundCopyJobs {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3045,7 +3147,7 @@ pub trait IEnumBackgroundCopyJobs_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyJob>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumBackgroundCopyJobs>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumBackgroundCopyJobs>;
     fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3072,7 +3174,13 @@ impl IEnumBackgroundCopyJobs_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumBackgroundCopyJobs_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumBackgroundCopyJobs_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3110,8 +3218,11 @@ impl IEnumBitsPeerCacheRecords {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3142,7 +3253,7 @@ pub trait IEnumBitsPeerCacheRecords_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeerCacheRecord>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumBitsPeerCacheRecords>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords>;
     fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3169,7 +3280,13 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumBitsPeerCacheRecords_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumBitsPeerCacheRecords_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3207,8 +3324,11 @@ impl IEnumBitsPeers {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3239,7 +3359,7 @@ pub trait IEnumBitsPeers_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeer>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumBitsPeers>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumBitsPeers>;
     fn GetCount(&self, pucount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shared")]
@@ -3266,7 +3386,13 @@ impl IEnumBitsPeers_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumBitsPeers_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumBitsPeers_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {

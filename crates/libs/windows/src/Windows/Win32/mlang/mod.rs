@@ -1364,8 +1364,11 @@ impl IMultiLanguage {
         unsafe { (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), uicodepage, puifamilycodepage as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD, ppenumcodepage: *mut Option<IEnumCodePage>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, core::mem::transmute(ppenumcodepage)) }
+    pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD) -> windows_core::Result<IEnumCodePage> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
@@ -1398,16 +1401,22 @@ impl IMultiLanguage {
     pub unsafe fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), plocale as _, core::mem::transmute_copy(bstrrfc1766)) }
     }
-    pub unsafe fn EnumRfc1766(&self, ppenumrfc1766: *mut Option<IEnumRfc1766>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumrfc1766)) }
+    pub unsafe fn EnumRfc1766(&self) -> windows_core::Result<IEnumRfc1766> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, prfc1766info as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut Option<IMLangConvertCharset>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, core::mem::transmute(ppmlangconvertcharset)) }
+    pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1474,7 +1483,7 @@ pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::Result<()>;
     fn GetCodePageInfo(&self, uicodepage: super::UINT, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
     fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn EnumCodePages(&self, grfflags: super::DWORD, ppenumcodepage: windows_core::OutRef<IEnumCodePage>) -> windows_core::Result<()>;
+    fn EnumCodePages(&self, grfflags: super::DWORD) -> windows_core::Result<IEnumCodePage>;
     fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
     fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
@@ -1483,9 +1492,9 @@ pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn ConvertStringReset(&self) -> windows_core::Result<()>;
     fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn EnumRfc1766(&self, ppenumrfc1766: windows_core::OutRef<IEnumRfc1766>) -> windows_core::Result<()>;
+    fn EnumRfc1766(&self) -> windows_core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
-    fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: windows_core::OutRef<IMLangConvertCharset>) -> windows_core::Result<()>;
+    fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IMultiLanguage_Vtbl {
@@ -1511,7 +1520,13 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn EnumCodePages<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, ppenumcodepage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::EnumCodePages(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&ppenumcodepage)).into()
+                match IMultiLanguage_Impl::EnumCodePages(this, core::mem::transmute_copy(&grfflags)) {
+                    Ok(ok__) => {
+                        ppenumcodepage.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
@@ -1565,7 +1580,13 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn EnumRfc1766<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::EnumRfc1766(this, core::mem::transmute_copy(&ppenumrfc1766)).into()
+                match IMultiLanguage_Impl::EnumRfc1766(this) {
+                    Ok(ok__) => {
+                        ppenumrfc1766.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
@@ -1577,7 +1598,13 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn CreateConvertCharset<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::CreateConvertCharset(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty), core::mem::transmute_copy(&ppmlangconvertcharset)).into()
+                match IMultiLanguage_Impl::CreateConvertCharset(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty)) {
+                    Ok(ok__) => {
+                        ppmlangconvertcharset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1621,8 +1648,11 @@ impl IMultiLanguage2 {
         unsafe { (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), uicodepage, puifamilycodepage as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID, ppenumcodepage: *mut Option<IEnumCodePage>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, core::mem::transmute(ppenumcodepage)) }
+    pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumCodePage> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
@@ -1656,16 +1686,22 @@ impl IMultiLanguage2 {
         unsafe { (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), plocale as _, core::mem::transmute_copy(bstrrfc1766)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumRfc1766(&self, langid: super::LANGID, ppenumrfc1766: *mut Option<IEnumRfc1766>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, core::mem::transmute(ppenumrfc1766)) }
+    pub unsafe fn EnumRfc1766(&self, langid: super::LANGID) -> windows_core::Result<IEnumRfc1766> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, langid, prfc1766info as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut Option<IMLangConvertCharset>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, core::mem::transmute(ppmlangconvertcharset)) }
+    pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
     pub unsafe fn ConvertStringInIStream<P5, P6>(&self, pdwmode: Option<*mut super::DWORD>, dwflag: super::DWORD, lpfallback: Option<*const super::WCHAR>, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: P5, pstmout: P6) -> windows_core::HRESULT
@@ -1714,8 +1750,11 @@ impl IMultiLanguage2 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberOfScripts)(windows_core::Interface::as_raw(self), pnscripts as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID, ppenumscript: *mut Option<IEnumScript>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, core::mem::transmute(ppenumscript)) }
+    pub unsafe fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumScript> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn ValidateCodePageEx(&self, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::HRESULT {
@@ -1834,7 +1873,7 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::Result<()>;
     fn GetCodePageInfo(&self, uicodepage: super::UINT, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
     fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID, ppenumcodepage: windows_core::OutRef<IEnumCodePage>) -> windows_core::Result<()>;
+    fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumCodePage>;
     fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
     fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
@@ -1843,9 +1882,9 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn ConvertStringReset(&self) -> windows_core::Result<()>;
     fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn EnumRfc1766(&self, langid: super::LANGID, ppenumrfc1766: windows_core::OutRef<IEnumRfc1766>) -> windows_core::Result<()>;
+    fn EnumRfc1766(&self, langid: super::LANGID) -> windows_core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
-    fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: windows_core::OutRef<IMLangConvertCharset>) -> windows_core::Result<()>;
+    fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset>;
     fn ConvertStringInIStream(&self, pdwmode: *mut super::DWORD, dwflag: super::DWORD, lpfallback: *const super::WCHAR, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: windows_core::Ref<super::IStream>, pstmout: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn ConvertStringToUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::Result<()>;
     fn ConvertStringFromUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::Result<()>;
@@ -1856,7 +1895,7 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn IsCodePageInstallable(&self, uicodepage: super::UINT) -> windows_core::Result<()>;
     fn SetMimeDBSource(&self, dwsource: MIMECONTF) -> windows_core::Result<()>;
     fn GetNumberOfScripts(&self, pnscripts: *mut super::UINT) -> windows_core::Result<()>;
-    fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID, ppenumscript: windows_core::OutRef<IEnumScript>) -> windows_core::Result<()>;
+    fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumScript>;
     fn ValidateCodePageEx(&self, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1883,7 +1922,13 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn EnumCodePages<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, langid: super::LANGID, ppenumcodepage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::EnumCodePages(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&ppenumcodepage)).into()
+                match IMultiLanguage2_Impl::EnumCodePages(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&langid)) {
+                    Ok(ok__) => {
+                        ppenumcodepage.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
@@ -1937,7 +1982,13 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn EnumRfc1766<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::LANGID, ppenumrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::EnumRfc1766(this, core::mem::transmute_copy(&langid), core::mem::transmute_copy(&ppenumrfc1766)).into()
+                match IMultiLanguage2_Impl::EnumRfc1766(this, core::mem::transmute_copy(&langid)) {
+                    Ok(ok__) => {
+                        ppenumrfc1766.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
@@ -1949,7 +2000,13 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn CreateConvertCharset<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::CreateConvertCharset(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty), core::mem::transmute_copy(&ppmlangconvertcharset)).into()
+                match IMultiLanguage2_Impl::CreateConvertCharset(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty)) {
+                    Ok(ok__) => {
+                        ppmlangconvertcharset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ConvertStringInIStream<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwflag: super::DWORD, lpfallback: *const super::WCHAR, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: *mut core::ffi::c_void, pstmout: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2015,7 +2072,13 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn EnumScripts<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, langid: super::LANGID, ppenumscript: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::EnumScripts(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&ppenumscript)).into()
+                match IMultiLanguage2_Impl::EnumScripts(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&langid)) {
+                    Ok(ok__) => {
+                        ppenumscript.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ValidateCodePageEx<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::HRESULT {

@@ -99,7 +99,7 @@ mod Windows {
             fn GetObjectForChild(&self, #[in] idChild: i32, #[out] #[out_ptr] #[retval] pRetVal: *mut IAccessibleEx) -> HRESULT;
             fn GetIAccessiblePair(&self, #[out] #[out_ptr] ppAcc: *mut IAccessible, #[out] pidChild: *mut i32) -> HRESULT;
             fn GetRuntimeId(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn ConvertReturnedElement(&self, #[in] #[opt] pIn: IRawElementProviderSimple, #[out] #[out_ptr] ppRetValOut: *mut IAccessibleEx) -> HRESULT;
+            fn ConvertReturnedElement(&self, #[in] #[opt] pIn: IRawElementProviderSimple, #[out] #[out_ptr] #[retval] ppRetValOut: *mut IAccessibleEx) -> HRESULT;
         }
         #[guid(0x33ac331b_943e_4020_b295_db37784974a3)]
         interface IAccessibleHostingElementProviders: IUnknown {
@@ -495,7 +495,7 @@ mod Windows {
         }
         #[guid(0xd97022f3_a947_465e_8b2a_ac4315fa54e8)]
         interface IUIAutomationPatternHandler: IUnknown {
-            fn CreateClientWrapper(&self, #[in] #[opt] pPatternInstance: IUIAutomationPatternInstance, #[out] #[out_ptr] pClientWrapper: *mut IUnknown) -> HRESULT;
+            fn CreateClientWrapper(&self, #[in] #[opt] pPatternInstance: IUIAutomationPatternInstance, #[out] #[out_ptr] #[retval] pClientWrapper: *mut IUnknown) -> HRESULT;
             fn Dispatch(&self, #[in] pTarget: IUnknown, #[in] index: UINT, #[in] pParams: *const UIAutomationParameter, #[in] cParams: UINT) -> HRESULT;
         }
         #[guid(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d)]

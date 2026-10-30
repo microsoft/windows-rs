@@ -62,12 +62,12 @@ mod Windows {
             fn CreateDefaultConfiguration(&self, #[in] OverwriteIfExists: BOOL) -> HRESULT;
             fn SaveConfiguration(&self) -> HRESULT;
             fn AddRemoveExcludeRule(&self, #[in] Add: BOOL, #[in] Category: FH_PROTECTED_ITEM_CATEGORY, #[in] Item: BSTR) -> HRESULT;
-            fn GetIncludeExcludeRules(&self, #[in] Include: BOOL, #[in] Category: FH_PROTECTED_ITEM_CATEGORY, #[out] #[out_ptr] Iterator: *mut IFhScopeIterator) -> HRESULT;
+            fn GetIncludeExcludeRules(&self, #[in] Include: BOOL, #[in] Category: FH_PROTECTED_ITEM_CATEGORY, #[out] #[out_ptr] #[retval] Iterator: *mut IFhScopeIterator) -> HRESULT;
             fn GetLocalPolicy(&self, #[in] LocalPolicyType: FH_LOCAL_POLICY_TYPE, #[out] PolicyValue: *mut ULONGLONG) -> HRESULT;
             fn SetLocalPolicy(&self, #[in] LocalPolicyType: FH_LOCAL_POLICY_TYPE, #[in] PolicyValue: ULONGLONG) -> HRESULT;
             fn GetBackupStatus(&self, #[out] BackupStatus: *mut FH_BACKUP_STATUS) -> HRESULT;
             fn SetBackupStatus(&self, #[in] BackupStatus: FH_BACKUP_STATUS) -> HRESULT;
-            fn GetDefaultTarget(&self, #[out] #[out_ptr] DefaultTarget: *mut IFhTarget) -> HRESULT;
+            fn GetDefaultTarget(&self, #[out] #[out_ptr] #[retval] DefaultTarget: *mut IFhTarget) -> HRESULT;
             fn ValidateTarget(&self, #[in] TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
             fn ProvisionAndSetNewTarget(&self, #[in] TargetUrl: BSTR, #[in] TargetName: BSTR) -> HRESULT;
             fn ChangeDefaultTargetRecommendation(&self, #[in] Recommend: BOOL) -> HRESULT;

@@ -1,24 +1,30 @@
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: &[super::UINT8], xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>, printticketstream: *mut Option<IXpsPrintJobStream>) -> windows_core::HRESULT
+pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: &[super::UINT8], xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>) -> windows_core::Result<IXpsPrintJobStream>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, printablepageson : *const super::UINT8, printablepagesoncount : super::UINT32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson.as_ptr(), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), core::mem::transmute(printticketstream)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson.as_ptr(), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn StartXpsPrintJob1<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, xpsprintjob: *mut Option<IXpsPrintJob>, printcontentreceiver: *mut Option<IXpsOMPackageTarget>) -> windows_core::HRESULT
+pub unsafe fn StartXpsPrintJob1<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, xpsprintjob: *mut Option<IXpsPrintJob>) -> windows_core::Result<IXpsOMPackageTarget>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob1(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, xpsprintjob : *mut *mut core::ffi::c_void, printcontentreceiver : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StartXpsPrintJob1(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, core::mem::transmute(xpsprintjob), core::mem::transmute(printcontentreceiver)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StartXpsPrintJob1(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, core::mem::transmute(xpsprintjob), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 windows_core::imp::define_interface!(IXpsOMBrush, IXpsOMBrush_Vtbl, 0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
 impl core::ops::Deref for IXpsOMBrush {
@@ -6253,13 +6259,16 @@ windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vt
 windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, windows_core::IUnknown);
 impl IXpsOMPackageTarget {
     #[cfg(all(feature = "msopc", feature = "urlmon"))]
-    pub unsafe fn CreateXpsOMPackageWriter<P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2, packagewriter: *mut Option<IXpsOMPackageWriter>) -> windows_core::HRESULT
+    pub unsafe fn CreateXpsOMPackageWriter<P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<super::IOpcPartUri>,
         P1: windows_core::Param<IXpsOMPrintTicketResource>,
         P2: windows_core::Param<super::IOpcPartUri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateXpsOMPackageWriter)(windows_core::Interface::as_raw(self), documentsequencepartname.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), core::mem::transmute(packagewriter)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateXpsOMPackageWriter)(windows_core::Interface::as_raw(self), documentsequencepartname.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -6273,7 +6282,7 @@ pub struct IXpsOMPackageTarget_Vtbl {
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPackageTarget_Impl: windows_core::IUnknownImpl {
-    fn CreateXpsOMPackageWriter(&self, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>, packagewriter: windows_core::OutRef<IXpsOMPackageWriter>) -> windows_core::Result<()>;
+    fn CreateXpsOMPackageWriter(&self, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPackageTarget_Vtbl {
@@ -6281,7 +6290,13 @@ impl IXpsOMPackageTarget_Vtbl {
         unsafe extern "system" fn CreateXpsOMPackageWriter<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname), core::mem::transmute_copy(&packagewriter)).into()
+                match IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname)) {
+                    Ok(ok__) => {
+                        packagewriter.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateXpsOMPackageWriter: CreateXpsOMPackageWriter::<Identity, OFFSET> }

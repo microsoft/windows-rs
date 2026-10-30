@@ -16,9 +16,7 @@ unsafe fn create_xml_writer<T: Interface>() -> Result<T> {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        let mut stream = None;
-        CreateStreamOnHGlobal(Default::default(), true, &mut stream).ok()?;
-        let stream = stream.unwrap();
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
         let writer: IXmlWriter = create_xml_writer()?;
         writer.SetOutput(&stream).ok()?;
@@ -140,9 +138,7 @@ fn test() -> Result<()> {
 #[test]
 fn lite() -> Result<()> {
     unsafe {
-        let mut stream = None;
-        CreateStreamOnHGlobal(Default::default(), true, &mut stream).ok()?;
-        let stream = stream.unwrap();
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
         let writer: IXmlWriterLite = create_xml_writer()?;
         writer.SetOutput(&stream).ok()?;

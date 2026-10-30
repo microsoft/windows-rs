@@ -422,7 +422,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PSPropertyBag_ReadStrAlloc(#[in] propBag: IPropertyBag, #[in] propName: LPCWSTR, #[out] #[out_ptr] value: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSPropertyBag_ReadStream(#[in] propBag: IPropertyBag, #[in] propName: LPCWSTR, #[out] #[out_ptr] value: *mut IStream) -> HRESULT;
+        extern fn PSPropertyBag_ReadStream(#[in] propBag: IPropertyBag, #[in] propName: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut IStream) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSPropertyBag_ReadType(#[in] propBag: IPropertyBag, #[in] propName: LPCWSTR, #[out] var: *mut VARIANT, r#type: VARTYPE) -> HRESULT;
         #[library("PROPSYS.dll")]

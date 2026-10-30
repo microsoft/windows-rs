@@ -166,8 +166,11 @@ impl IEnumSTATPROPSETSTG {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -190,7 +193,7 @@ pub trait IEnumSTATPROPSETSTG_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumSTATPROPSETSTG>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSETSTG>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 impl IEnumSTATPROPSETSTG_Vtbl {
@@ -216,7 +219,13 @@ impl IEnumSTATPROPSETSTG_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSTATPROPSETSTG_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumSTATPROPSETSTG_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -247,8 +256,11 @@ impl IEnumSTATPROPSTG {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -271,7 +283,7 @@ pub trait IEnumSTATPROPSTG_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: super::ULONG, rgelt: *mut STATPROPSTG, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumSTATPROPSTG>) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSTG>;
 }
 #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumSTATPROPSTG_Vtbl {
@@ -297,7 +309,13 @@ impl IEnumSTATPROPSTG_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSTATPROPSTG_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                match IEnumSTATPROPSTG_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -318,19 +336,28 @@ windows_core::imp::define_interface!(IPropertySetStorage, IPropertySetStorage_Vt
 windows_core::imp::interface_hierarchy!(IPropertySetStorage, windows_core::IUnknown);
 impl IPropertySetStorage {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn Create(&self, rfmtid: *const super::IID, pclsid: Option<*const super::CLSID>, grfflags: super::DWORD, grfmode: super::DWORD, ppprstg: *mut Option<IPropertyStorage>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rfmtid, pclsid.unwrap_or(core::mem::zeroed()) as _, grfflags, grfmode, core::mem::transmute(ppprstg)) }
+    pub unsafe fn Create(&self, rfmtid: *const super::IID, pclsid: Option<*const super::CLSID>, grfflags: super::DWORD, grfmode: super::DWORD) -> windows_core::Result<IPropertyStorage> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rfmtid, pclsid.unwrap_or(core::mem::zeroed()) as _, grfflags, grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn Open(&self, rfmtid: *const super::IID, grfmode: super::DWORD, ppprstg: *mut Option<IPropertyStorage>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), rfmtid, grfmode, core::mem::transmute(ppprstg)) }
+    pub unsafe fn Open(&self, rfmtid: *const super::IID, grfmode: super::DWORD) -> windows_core::Result<IPropertyStorage> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), rfmtid, grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn Delete(&self, rfmtid: *const super::IID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), rfmtid) }
     }
-    pub unsafe fn Enum(&self, ppenum: *mut Option<IEnumSTATPROPSETSTG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSETSTG> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -353,10 +380,10 @@ pub struct IPropertySetStorage_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IPropertySetStorage_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, rfmtid: *const super::IID, pclsid: *const super::CLSID, grfflags: super::DWORD, grfmode: super::DWORD, ppprstg: windows_core::OutRef<IPropertyStorage>) -> windows_core::Result<()>;
-    fn Open(&self, rfmtid: *const super::IID, grfmode: super::DWORD, ppprstg: windows_core::OutRef<IPropertyStorage>) -> windows_core::Result<()>;
+    fn Create(&self, rfmtid: *const super::IID, pclsid: *const super::CLSID, grfflags: super::DWORD, grfmode: super::DWORD) -> windows_core::Result<IPropertyStorage>;
+    fn Open(&self, rfmtid: *const super::IID, grfmode: super::DWORD) -> windows_core::Result<IPropertyStorage>;
     fn Delete(&self, rfmtid: *const super::IID) -> windows_core::Result<()>;
-    fn Enum(&self, ppenum: windows_core::OutRef<IEnumSTATPROPSETSTG>) -> windows_core::Result<()>;
+    fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSETSTG>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IPropertySetStorage_Vtbl {
@@ -364,13 +391,25 @@ impl IPropertySetStorage_Vtbl {
         unsafe extern "system" fn Create<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const super::IID, pclsid: *const super::CLSID, grfflags: super::DWORD, grfmode: super::DWORD, ppprstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySetStorage_Impl::Create(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&ppprstg)).into()
+                match IPropertySetStorage_Impl::Create(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&grfmode)) {
+                    Ok(ok__) => {
+                        ppprstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Open<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const super::IID, grfmode: super::DWORD, ppprstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySetStorage_Impl::Open(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&ppprstg)).into()
+                match IPropertySetStorage_Impl::Open(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&grfmode)) {
+                    Ok(ok__) => {
+                        ppprstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const super::IID) -> windows_core::HRESULT {
@@ -382,7 +421,13 @@ impl IPropertySetStorage_Vtbl {
         unsafe extern "system" fn Enum<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySetStorage_Impl::Enum(this, core::mem::transmute_copy(&ppenum)).into()
+                match IPropertySetStorage_Impl::Enum(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -433,8 +478,11 @@ impl IPropertyStorage {
     pub unsafe fn Revert(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Enum(&self, ppenum: *mut Option<IEnumSTATPROPSTG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+    pub unsafe fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSTG> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn SetTimes(&self, pctime: *const super::FILETIME, patime: *const super::FILETIME, pmtime: *const super::FILETIME) -> windows_core::HRESULT {
@@ -506,7 +554,7 @@ pub trait IPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn DeletePropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: super::DWORD) -> windows_core::Result<()>;
     fn Revert(&self) -> windows_core::Result<()>;
-    fn Enum(&self, ppenum: windows_core::OutRef<IEnumSTATPROPSTG>) -> windows_core::Result<()>;
+    fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSTG>;
     fn SetTimes(&self, pctime: *const super::FILETIME, patime: *const super::FILETIME, pmtime: *const super::FILETIME) -> windows_core::Result<()>;
     fn SetClass(&self, clsid: *const super::IID) -> windows_core::Result<()>;
     fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> windows_core::Result<()>;
@@ -565,7 +613,13 @@ impl IPropertyStorage_Vtbl {
         unsafe extern "system" fn Enum<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyStorage_Impl::Enum(this, core::mem::transmute_copy(&ppenum)).into()
+                match IPropertyStorage_Impl::Enum(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetTimes<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctime: *const super::FILETIME, patime: *const super::FILETIME, pmtime: *const super::FILETIME) -> windows_core::HRESULT {

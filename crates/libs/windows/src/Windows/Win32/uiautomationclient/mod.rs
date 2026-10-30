@@ -1650,8 +1650,11 @@ impl core::ops::Deref for IUIAutomation6 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation6, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4, IUIAutomation5);
 impl IUIAutomation6 {
-    pub unsafe fn CreateEventHandlerGroup(&self, handlergroup: *mut Option<IUIAutomationEventHandlerGroup>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateEventHandlerGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(handlergroup)) }
+    pub unsafe fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateEventHandlerGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::HRESULT
     where
@@ -1717,7 +1720,7 @@ pub struct IUIAutomation6_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "oleacc", feature = "shared", feature = "uiautomationcore", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
-    fn CreateEventHandlerGroup(&self, handlergroup: windows_core::OutRef<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
+    fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
     fn AddEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
     fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
     fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions>;
@@ -1733,7 +1736,13 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn CreateEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlergroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation6_Impl::CreateEventHandlerGroup(this, core::mem::transmute_copy(&handlergroup)).into()
+                match IUIAutomation6_Impl::CreateEventHandlerGroup(this) {
+                    Ok(ok__) => {
+                        handlergroup.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handlergroup: *mut core::ffi::c_void) -> windows_core::HRESULT {

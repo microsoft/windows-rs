@@ -20,7 +20,7 @@ impl IDataObject_Impl for DataObject_Impl {
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
         unimplemented!()
     }
-    fn EnumFormatEtc(&self, _: u32, _: OutRef<IEnumFORMATETC>) -> Result<()> {
+    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         unimplemented!()
     }
     fn DAdvise(
@@ -39,7 +39,7 @@ impl IDataObject_Impl for DataObject_Impl {
     fn DUnadvise(&self, _: u32) -> Result<()> {
         unimplemented!()
     }
-    fn EnumDAdvise(&self, _: OutRef<IEnumSTATDATA>) -> Result<()> {
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
         unimplemented!()
     }
 }

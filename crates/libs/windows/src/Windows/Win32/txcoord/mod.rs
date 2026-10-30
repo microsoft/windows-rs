@@ -349,15 +349,21 @@ windows_core::imp::define_interface!(ITipHelper, ITipHelper_Vtbl, 0x17cf72d1_bac
 windows_core::imp::interface_hierarchy!(ITipHelper, windows_core::IUnknown);
 impl ITipHelper {
     #[cfg(feature = "transact")]
-    pub unsafe fn Pull(&self, i_psztxurl: *const i8, o_ppitransaction: *mut Option<super::ITransaction>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, core::mem::transmute(o_ppitransaction)) }
+    pub unsafe fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::ITransaction> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "transact")]
-    pub unsafe fn PullAsync<P1>(&self, i_psztxurl: *const i8, i_ptippullsink: P1, o_ppitransaction: *mut Option<super::ITransaction>) -> windows_core::HRESULT
+    pub unsafe fn PullAsync<P1>(&self, i_psztxurl: *const i8, i_ptippullsink: P1) -> windows_core::Result<super::ITransaction>
     where
         P1: windows_core::Param<ITipPullSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PullAsync)(windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.param().abi(), core::mem::transmute(o_ppitransaction)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).PullAsync)(windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetLocalTmUrl(&self, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLocalTmUrl)(windows_core::Interface::as_raw(self), o_ppszlocaltmurl as _) }
@@ -379,8 +385,8 @@ pub struct ITipHelper_Vtbl {
 }
 #[cfg(feature = "transact")]
 pub trait ITipHelper_Impl: windows_core::IUnknownImpl {
-    fn Pull(&self, i_psztxurl: *const i8, o_ppitransaction: windows_core::OutRef<super::ITransaction>) -> windows_core::Result<()>;
-    fn PullAsync(&self, i_psztxurl: *const i8, i_ptippullsink: windows_core::Ref<ITipPullSink>, o_ppitransaction: windows_core::OutRef<super::ITransaction>) -> windows_core::Result<()>;
+    fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::ITransaction>;
+    fn PullAsync(&self, i_psztxurl: *const i8, i_ptippullsink: windows_core::Ref<ITipPullSink>) -> windows_core::Result<super::ITransaction>;
     fn GetLocalTmUrl(&self, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::Result<()>;
 }
 #[cfg(feature = "transact")]
@@ -389,13 +395,25 @@ impl ITipHelper_Vtbl {
         unsafe extern "system" fn Pull<Identity: ITipHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i_psztxurl: *const i8, o_ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipHelper_Impl::Pull(this, core::mem::transmute_copy(&i_psztxurl), core::mem::transmute_copy(&o_ppitransaction)).into()
+                match ITipHelper_Impl::Pull(this, core::mem::transmute_copy(&i_psztxurl)) {
+                    Ok(ok__) => {
+                        o_ppitransaction.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn PullAsync<Identity: ITipHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i_psztxurl: *const i8, i_ptippullsink: *mut core::ffi::c_void, o_ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipHelper_Impl::PullAsync(this, core::mem::transmute_copy(&i_psztxurl), core::mem::transmute_copy(&i_ptippullsink), core::mem::transmute_copy(&o_ppitransaction)).into()
+                match ITipHelper_Impl::PullAsync(this, core::mem::transmute_copy(&i_psztxurl), core::mem::transmute_copy(&i_ptippullsink)) {
+                    Ok(ok__) => {
+                        o_ppitransaction.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetLocalTmUrl<Identity: ITipHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::HRESULT {
@@ -633,8 +651,11 @@ impl ITransactionExportFactory {
         unsafe { (windows_core::Interface::vtable(self).GetRemoteClassId)(windows_core::Interface::as_raw(self), pclsid as _) }
     }
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn Create(&self, rgbwhereabouts: &[super::byte], ppexport: *mut Option<ITransactionExport>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), rgbwhereabouts.as_ptr(), core::mem::transmute(ppexport)) }
+    pub unsafe fn Create(&self, rgbwhereabouts: &[super::byte]) -> windows_core::Result<ITransactionExport> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), rgbwhereabouts.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -653,7 +674,7 @@ pub struct ITransactionExportFactory_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "rpc", feature = "shared"))]
 pub trait ITransactionExportFactory_Impl: windows_core::IUnknownImpl {
     fn GetRemoteClassId(&self, pclsid: *mut super::CLSID) -> windows_core::Result<()>;
-    fn Create(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte, ppexport: windows_core::OutRef<ITransactionExport>) -> windows_core::Result<()>;
+    fn Create(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte) -> windows_core::Result<ITransactionExport>;
 }
 #[cfg(all(feature = "guiddef", feature = "rpc", feature = "shared"))]
 impl ITransactionExportFactory_Vtbl {
@@ -667,7 +688,13 @@ impl ITransactionExportFactory_Vtbl {
         unsafe extern "system" fn Create<Identity: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte, ppexport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionExportFactory_Impl::Create(this, core::mem::transmute_copy(&cbwhereabouts), core::mem::transmute_copy(&rgbwhereabouts), core::mem::transmute_copy(&ppexport)).into()
+                match ITransactionExportFactory_Impl::Create(this, core::mem::transmute_copy(&cbwhereabouts), core::mem::transmute_copy(&rgbwhereabouts)) {
+                    Ok(ok__) => {
+                        ppexport.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
