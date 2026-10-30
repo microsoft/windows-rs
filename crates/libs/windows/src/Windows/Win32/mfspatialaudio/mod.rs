@@ -138,8 +138,11 @@ impl IMFSpatialAudioSample {
         unsafe { (windows_core::Interface::vtable(self).AddSpatialAudioObject)(windows_core::Interface::as_raw(self), paudioobjbuffer.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD, ppaudioobjbuffer: *mut Option<IMFSpatialAudioObjectBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpatialAudioObjectByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppaudioobjbuffer)) }
+    pub unsafe fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSpatialAudioObjectByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -161,7 +164,7 @@ pub struct IMFSpatialAudioSample_Vtbl {
 pub trait IMFSpatialAudioSample_Impl: super::IMFSample_Impl {
     fn GetObjectCount(&self, pdwobjectcount: *mut super::DWORD) -> windows_core::Result<()>;
     fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
-    fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD, ppaudioobjbuffer: windows_core::OutRef<IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
+    fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSpatialAudioSample_Vtbl {
@@ -181,7 +184,16 @@ impl IMFSpatialAudioSample_Vtbl {
         unsafe extern "system" fn GetSpatialAudioObjectByIndex<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppaudioobjbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioSample_Impl::GetSpatialAudioObjectByIndex(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppaudioobjbuffer)).into()
+                match IMFSpatialAudioSample_Impl::GetSpatialAudioObjectByIndex(this, core::mem::transmute_copy(&dwindex)) {
+                    Ok(ok__) => {
+                        ppaudioobjbuffer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppaudioobjbuffer.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {

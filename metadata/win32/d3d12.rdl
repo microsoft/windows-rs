@@ -4310,7 +4310,7 @@ mod Windows {
         }
         #[guid(0xe30e9fc7_e641_4d6e_8a81_9dd9206ec47a)]
         interface ID3D12DeviceTools1: ID3D12DeviceTools {
-            fn GetApplicationSpecificDriverState(&self, #[out] #[out_ptr(null_on_failure)] ppBlob: *mut ID3D10Blob) -> HRESULT;
+            fn GetApplicationSpecificDriverState(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlob: *mut ID3D10Blob) -> HRESULT;
             fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS;
         }
         #[guid(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76)]
@@ -4489,7 +4489,7 @@ mod Windows {
         }
         #[guid(0x765a30f3_f624_4c6f_a828_ace948622445)]
         interface ID3D12PipelineState: ID3D12Pageable {
-            fn GetCachedBlob(&self, #[out] #[out_ptr(null_on_failure)] ppBlob: *mut ID3D10Blob) -> HRESULT;
+            fn GetCachedBlob(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlob: *mut ID3D10Blob) -> HRESULT;
         }
         #[guid(0x5646804c_9638_48f7_9182_b3ee5a6b60fb)]
         interface ID3D12PipelineState1: ID3D12PipelineState {

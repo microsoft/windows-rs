@@ -36,7 +36,7 @@ mod Windows {
             fn GetStaticObjectPosition(&self, #[in] r#type: AudioObjectType, #[out] x: *mut f32, #[out] y: *mut f32, #[out] z: *mut f32) -> HRESULT;
             fn GetNativeStaticObjectTypeMask(&self, #[out] mask: *mut AudioObjectType) -> HRESULT;
             fn GetMaxDynamicObjectCount(&self, #[out] value: *mut UINT32) -> HRESULT;
-            fn GetSupportedAudioObjectFormatEnumerator(&self, #[out] #[out_ptr(null_on_failure)] enumerator: *mut IAudioFormatEnumerator) -> HRESULT;
+            fn GetSupportedAudioObjectFormatEnumerator(&self, #[out] #[out_ptr(null_on_failure)] #[retval] enumerator: *mut IAudioFormatEnumerator) -> HRESULT;
             fn GetMaxFrameCount(&self, #[in] objectFormat: *const WAVEFORMATEX, #[out] frameCountPerBuffer: *mut UINT32) -> HRESULT;
             fn IsAudioObjectFormatSupported(&self, #[in] objectFormat: *const WAVEFORMATEX) -> HRESULT;
             fn IsSpatialAudioStreamAvailable(&self, #[in] streamUuid: &IID, #[in] #[opt] auxiliaryInfo: *const PROPVARIANT) -> HRESULT;
@@ -61,7 +61,7 @@ mod Windows {
         }
         #[guid(0xbab5f473_b423_477b_85f5_b5a332a04153)]
         interface ISpatialAudioObjectRenderStream: ISpatialAudioObjectRenderStreamBase {
-            fn ActivateSpatialAudioObject(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] audioObject: *mut ISpatialAudioObject) -> HRESULT;
+            fn ActivateSpatialAudioObject(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObject) -> HRESULT;
         }
         #[guid(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8)]
         interface ISpatialAudioObjectRenderStreamBase: IUnknown {

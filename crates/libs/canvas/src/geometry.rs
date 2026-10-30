@@ -69,20 +69,9 @@ pub struct PathBuilder {
 impl PathBuilder {
     /// Creates an empty path builder.
     pub fn new(device: &GpuDevice) -> Result<Self> {
-        let mut geometry = None;
-        unsafe {
-            device
-                .d2d_factory()
-                .CreatePathGeometry(&mut geometry)
-                .ok()?;
-        }
-        let geometry = geometry.unwrap();
-        let mut sink = None;
-        unsafe { geometry.Open(&mut sink).ok()? };
-        Ok(Self {
-            sink: sink.unwrap(),
-            geometry,
-        })
+        let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
+        let sink = unsafe { geometry.Open()? };
+        Ok(Self { sink, geometry })
     }
 
     /// Starts a filled figure at `start`.

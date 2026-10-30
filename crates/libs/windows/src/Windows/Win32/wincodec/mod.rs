@@ -2189,8 +2189,11 @@ impl IWICD3DTextureSource {
         unsafe { (windows_core::Interface::vtable(self).DoesSupportD3DDeviceType)(windows_core::Interface::as_raw(self), riid, pfissupported as _) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn GetD3DTextureOptions(&self, ppid3dtextureoptions: *mut Option<super::IPropertyBag2>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetD3DTextureOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(ppid3dtextureoptions)) }
+    pub unsafe fn GetD3DTextureOptions(&self) -> windows_core::Result<super::IPropertyBag2> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetD3DTextureOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2219,7 +2222,7 @@ pub trait IWICD3DTextureSource_Impl: windows_core::IUnknownImpl {
     fn GetTexture(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pid3dtextureoptions: windows_core::Ref<super::IPropertyBag2>, riid: *const super::IID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetTransformedTexture(&self, prc: *const WICRect, uiwidth: super::UINT, uiheight: super::UINT, pguiddstformat: *const WICPixelFormatGUID, dsttransform: WICBitmapTransformOptions, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pid3dtextureoptions: windows_core::Ref<super::IPropertyBag2>, riid: *const super::IID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn DoesSupportD3DDeviceType(&self, riid: *const super::IID, pfissupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetD3DTextureOptions(&self, ppid3dtextureoptions: windows_core::OutRef<super::IPropertyBag2>) -> windows_core::Result<()>;
+    fn GetD3DTextureOptions(&self) -> windows_core::Result<super::IPropertyBag2>;
 }
 #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared"))]
 impl IWICD3DTextureSource_Vtbl {
@@ -2245,7 +2248,16 @@ impl IWICD3DTextureSource_Vtbl {
         unsafe extern "system" fn GetD3DTextureOptions<Identity: IWICD3DTextureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppid3dtextureoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICD3DTextureSource_Impl::GetD3DTextureOptions(this, core::mem::transmute_copy(&ppid3dtextureoptions)).into()
+                match IWICD3DTextureSource_Impl::GetD3DTextureOptions(this) {
+                    Ok(ok__) => {
+                        ppid3dtextureoptions.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppid3dtextureoptions.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {

@@ -40,12 +40,15 @@ where
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DDisassemble11Trace<P2>(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ptrace: P2, startstep: super::UINT, numsteps: super::UINT, flags: super::UINT, ppdisassembly: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT
+pub unsafe fn D3DDisassemble11Trace<P2>(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, ptrace: P2, startstep: super::UINT, numsteps: super::UINT, flags: super::UINT) -> windows_core::Result<super::ID3D10Blob>
 where
     P2: windows_core::Param<ID3D11ShaderTrace>,
 {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ptrace : *mut core::ffi::c_void, startstep : super::UINT, numsteps : super::UINT, flags : super::UINT, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.param().abi(), startstep, numsteps, flags, core::mem::transmute(ppdisassembly)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.param().abi(), startstep, numsteps, flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 pub type APP_DEPRECATED_HRESULT = windows_core::HRESULT;
 #[repr(C)]
@@ -5347,18 +5350,24 @@ impl core::ops::Deref for ID3D11ClassLinkage {
 windows_core::imp::interface_hierarchy!(ID3D11ClassLinkage, windows_core::IUnknown, ID3D11DeviceChild);
 impl ID3D11ClassLinkage {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetClassInstance<P0>(&self, pclassinstancename: P0, instanceindex: super::UINT, ppinstance: *mut Option<ID3D11ClassInstance>) -> windows_core::HRESULT
+    pub unsafe fn GetClassInstance<P0>(&self, pclassinstancename: P0, instanceindex: super::UINT) -> windows_core::Result<ID3D11ClassInstance>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetClassInstance)(windows_core::Interface::as_raw(self), pclassinstancename.param().abi(), instanceindex, core::mem::transmute(ppinstance)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassInstance)(windows_core::Interface::as_raw(self), pclassinstancename.param().abi(), instanceindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateClassInstance<P0>(&self, pclasstypename: P0, constantbufferoffset: super::UINT, constantvectoroffset: super::UINT, textureoffset: super::UINT, sampleroffset: super::UINT, ppinstance: *mut Option<ID3D11ClassInstance>) -> windows_core::HRESULT
+    pub unsafe fn CreateClassInstance<P0>(&self, pclasstypename: P0, constantbufferoffset: super::UINT, constantvectoroffset: super::UINT, textureoffset: super::UINT, sampleroffset: super::UINT) -> windows_core::Result<ID3D11ClassInstance>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClassInstance)(windows_core::Interface::as_raw(self), pclasstypename.param().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, core::mem::transmute(ppinstance)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateClassInstance)(windows_core::Interface::as_raw(self), pclasstypename.param().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5376,8 +5385,8 @@ pub struct ID3D11ClassLinkage_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D11ClassLinkage_Impl: ID3D11DeviceChild_Impl {
-    fn GetClassInstance(&self, pclassinstancename: &windows_core::PCSTR, instanceindex: super::UINT, ppinstance: windows_core::OutRef<ID3D11ClassInstance>) -> windows_core::Result<()>;
-    fn CreateClassInstance(&self, pclasstypename: &windows_core::PCSTR, constantbufferoffset: super::UINT, constantvectoroffset: super::UINT, textureoffset: super::UINT, sampleroffset: super::UINT, ppinstance: windows_core::OutRef<ID3D11ClassInstance>) -> windows_core::Result<()>;
+    fn GetClassInstance(&self, pclassinstancename: &windows_core::PCSTR, instanceindex: super::UINT) -> windows_core::Result<ID3D11ClassInstance>;
+    fn CreateClassInstance(&self, pclasstypename: &windows_core::PCSTR, constantbufferoffset: super::UINT, constantvectoroffset: super::UINT, textureoffset: super::UINT, sampleroffset: super::UINT) -> windows_core::Result<ID3D11ClassInstance>;
 }
 #[cfg(feature = "shared")]
 impl ID3D11ClassLinkage_Vtbl {
@@ -5385,13 +5394,31 @@ impl ID3D11ClassLinkage_Vtbl {
         unsafe extern "system" fn GetClassInstance<Identity: ID3D11ClassLinkage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclassinstancename: windows_core::PCSTR, instanceindex: super::UINT, ppinstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ClassLinkage_Impl::GetClassInstance(this, core::mem::transmute(&pclassinstancename), core::mem::transmute_copy(&instanceindex), core::mem::transmute_copy(&ppinstance)).into()
+                match ID3D11ClassLinkage_Impl::GetClassInstance(this, core::mem::transmute(&pclassinstancename), core::mem::transmute_copy(&instanceindex)) {
+                    Ok(ok__) => {
+                        ppinstance.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppinstance.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateClassInstance<Identity: ID3D11ClassLinkage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclasstypename: windows_core::PCSTR, constantbufferoffset: super::UINT, constantvectoroffset: super::UINT, textureoffset: super::UINT, sampleroffset: super::UINT, ppinstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ClassLinkage_Impl::CreateClassInstance(this, core::mem::transmute(&pclasstypename), core::mem::transmute_copy(&constantbufferoffset), core::mem::transmute_copy(&constantvectoroffset), core::mem::transmute_copy(&textureoffset), core::mem::transmute_copy(&sampleroffset), core::mem::transmute_copy(&ppinstance)).into()
+                match ID3D11ClassLinkage_Impl::CreateClassInstance(this, core::mem::transmute(&pclasstypename), core::mem::transmute_copy(&constantbufferoffset), core::mem::transmute_copy(&constantvectoroffset), core::mem::transmute_copy(&textureoffset), core::mem::transmute_copy(&sampleroffset)) {
+                    Ok(ok__) => {
+                        ppinstance.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppinstance.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {
@@ -6002,8 +6029,11 @@ impl ID3D11Device {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateComputeShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), ppcomputeshader.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn CreateClassLinkage(&self, pplinkage: *mut Option<ID3D11ClassLinkage>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateClassLinkage)(windows_core::Interface::as_raw(self), core::mem::transmute(pplinkage)) }
+    pub unsafe fn CreateClassLinkage(&self) -> windows_core::Result<ID3D11ClassLinkage> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateClassLinkage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateBlendState(&self, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: Option<*mut Option<ID3D11BlendState>>) -> windows_core::HRESULT {
@@ -6276,7 +6306,7 @@ pub trait ID3D11Device_Impl: windows_core::IUnknownImpl {
     fn CreateHullShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: windows_core::Ref<ID3D11ClassLinkage>, pphullshader: windows_core::OutRef<ID3D11HullShader>) -> windows_core::Result<()>;
     fn CreateDomainShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: windows_core::Ref<ID3D11ClassLinkage>, ppdomainshader: windows_core::OutRef<ID3D11DomainShader>) -> windows_core::Result<()>;
     fn CreateComputeShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: windows_core::Ref<ID3D11ClassLinkage>, ppcomputeshader: windows_core::OutRef<ID3D11ComputeShader>) -> windows_core::Result<()>;
-    fn CreateClassLinkage(&self, pplinkage: windows_core::OutRef<ID3D11ClassLinkage>) -> windows_core::Result<()>;
+    fn CreateClassLinkage(&self) -> windows_core::Result<ID3D11ClassLinkage>;
     fn CreateBlendState(&self, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: windows_core::OutRef<ID3D11BlendState>) -> windows_core::Result<()>;
     fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC, ppdepthstencilstate: windows_core::OutRef<ID3D11DepthStencilState>) -> windows_core::Result<()>;
     fn CreateRasterizerState(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC, pprasterizerstate: windows_core::OutRef<ID3D11RasterizerState>) -> windows_core::Result<()>;
@@ -6403,7 +6433,16 @@ impl ID3D11Device_Vtbl {
         unsafe extern "system" fn CreateClassLinkage<Identity: ID3D11Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplinkage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Device_Impl::CreateClassLinkage(this, core::mem::transmute_copy(&pplinkage)).into()
+                match ID3D11Device_Impl::CreateClassLinkage(this) {
+                    Ok(ok__) => {
+                        pplinkage.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        pplinkage.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateBlendState<Identity: ID3D11Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10154,20 +10193,29 @@ impl ID3D11FunctionLinkingGraph {
         unsafe { (windows_core::Interface::vtable(self).CreateModuleInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmoduleinstance), core::mem::transmute(pperrorbuffer)) }
     }
     #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-    pub unsafe fn SetInputSignature(&self, pinputparameters: &[D3D11_PARAMETER_DESC], ppinputnode: *mut Option<ID3D11LinkingNode>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetInputSignature)(windows_core::Interface::as_raw(self), pinputparameters.as_ptr(), pinputparameters.len().try_into().unwrap(), core::mem::transmute(ppinputnode)) }
+    pub unsafe fn SetInputSignature(&self, pinputparameters: &[D3D11_PARAMETER_DESC]) -> windows_core::Result<ID3D11LinkingNode> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetInputSignature)(windows_core::Interface::as_raw(self), pinputparameters.as_ptr(), pinputparameters.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-    pub unsafe fn SetOutputSignature(&self, poutputparameters: &[D3D11_PARAMETER_DESC], ppoutputnode: *mut Option<ID3D11LinkingNode>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOutputSignature)(windows_core::Interface::as_raw(self), poutputparameters.as_ptr(), poutputparameters.len().try_into().unwrap(), core::mem::transmute(ppoutputnode)) }
+    pub unsafe fn SetOutputSignature(&self, poutputparameters: &[D3D11_PARAMETER_DESC]) -> windows_core::Result<ID3D11LinkingNode> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetOutputSignature)(windows_core::Interface::as_raw(self), poutputparameters.as_ptr(), poutputparameters.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CallFunction<P0, P1, P2>(&self, pmoduleinstancenamespace: P0, pmodulewithfunctionprototype: P1, pfunctionname: P2, ppcallnode: *mut Option<ID3D11LinkingNode>) -> windows_core::HRESULT
+    pub unsafe fn CallFunction<P0, P1, P2>(&self, pmoduleinstancenamespace: P0, pmodulewithfunctionprototype: P1, pfunctionname: P2) -> windows_core::Result<ID3D11LinkingNode>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
         P1: windows_core::Param<ID3D11Module>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CallFunction)(windows_core::Interface::as_raw(self), pmoduleinstancenamespace.param().abi(), pmodulewithfunctionprototype.param().abi(), pfunctionname.param().abi(), core::mem::transmute(ppcallnode)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CallFunction)(windows_core::Interface::as_raw(self), pmoduleinstancenamespace.param().abi(), pmodulewithfunctionprototype.param().abi(), pfunctionname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn PassValue<P0, P2>(&self, psrcnode: P0, srcparameterindex: super::INT, pdstnode: P2, dstparameterindex: super::INT) -> windows_core::HRESULT
@@ -10192,8 +10240,11 @@ impl ID3D11FunctionLinkingGraph {
         unsafe { (windows_core::Interface::vtable(self).GetLastError)(windows_core::Interface::as_raw(self), core::mem::transmute(pperrorbuffer)) }
     }
     #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-    pub unsafe fn GenerateHlsl(&self, uflags: super::UINT, ppbuffer: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GenerateHlsl)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(ppbuffer)) }
+    pub unsafe fn GenerateHlsl(&self, uflags: super::UINT) -> windows_core::Result<super::ID3D10Blob> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GenerateHlsl)(windows_core::Interface::as_raw(self), uflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -10233,13 +10284,13 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D11FunctionLinkingGraph_Impl: windows_core::IUnknownImpl {
     fn CreateModuleInstance(&self, ppmoduleinstance: windows_core::OutRef<ID3D11ModuleInstance>, pperrorbuffer: *mut Option<super::ID3D10Blob>) -> windows_core::Result<()>;
-    fn SetInputSignature(&self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: super::UINT, ppinputnode: windows_core::OutRef<ID3D11LinkingNode>) -> windows_core::Result<()>;
-    fn SetOutputSignature(&self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: super::UINT, ppoutputnode: windows_core::OutRef<ID3D11LinkingNode>) -> windows_core::Result<()>;
-    fn CallFunction(&self, pmoduleinstancenamespace: &windows_core::PCSTR, pmodulewithfunctionprototype: windows_core::Ref<ID3D11Module>, pfunctionname: &windows_core::PCSTR, ppcallnode: windows_core::OutRef<ID3D11LinkingNode>) -> windows_core::Result<()>;
+    fn SetInputSignature(&self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: super::UINT) -> windows_core::Result<ID3D11LinkingNode>;
+    fn SetOutputSignature(&self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: super::UINT) -> windows_core::Result<ID3D11LinkingNode>;
+    fn CallFunction(&self, pmoduleinstancenamespace: &windows_core::PCSTR, pmodulewithfunctionprototype: windows_core::Ref<ID3D11Module>, pfunctionname: &windows_core::PCSTR) -> windows_core::Result<ID3D11LinkingNode>;
     fn PassValue(&self, psrcnode: windows_core::Ref<ID3D11LinkingNode>, srcparameterindex: super::INT, pdstnode: windows_core::Ref<ID3D11LinkingNode>, dstparameterindex: super::INT) -> windows_core::Result<()>;
     fn PassValueWithSwizzle(&self, psrcnode: windows_core::Ref<ID3D11LinkingNode>, srcparameterindex: super::INT, psrcswizzle: &windows_core::PCSTR, pdstnode: windows_core::Ref<ID3D11LinkingNode>, dstparameterindex: super::INT, pdstswizzle: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetLastError(&self, pperrorbuffer: *mut Option<super::ID3D10Blob>) -> windows_core::Result<()>;
-    fn GenerateHlsl(&self, uflags: super::UINT, ppbuffer: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
+    fn GenerateHlsl(&self, uflags: super::UINT) -> windows_core::Result<super::ID3D10Blob>;
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 impl ID3D11FunctionLinkingGraph_Vtbl {
@@ -10253,19 +10304,46 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
         unsafe extern "system" fn SetInputSignature<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: super::UINT, ppinputnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::SetInputSignature(this, core::mem::transmute_copy(&pinputparameters), core::mem::transmute_copy(&cinputparameters), core::mem::transmute_copy(&ppinputnode)).into()
+                match ID3D11FunctionLinkingGraph_Impl::SetInputSignature(this, core::mem::transmute_copy(&pinputparameters), core::mem::transmute_copy(&cinputparameters)) {
+                    Ok(ok__) => {
+                        ppinputnode.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppinputnode.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn SetOutputSignature<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: super::UINT, ppoutputnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::SetOutputSignature(this, core::mem::transmute_copy(&poutputparameters), core::mem::transmute_copy(&coutputparameters), core::mem::transmute_copy(&ppoutputnode)).into()
+                match ID3D11FunctionLinkingGraph_Impl::SetOutputSignature(this, core::mem::transmute_copy(&poutputparameters), core::mem::transmute_copy(&coutputparameters)) {
+                    Ok(ok__) => {
+                        ppoutputnode.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppoutputnode.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CallFunction<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmoduleinstancenamespace: windows_core::PCSTR, pmodulewithfunctionprototype: *mut core::ffi::c_void, pfunctionname: windows_core::PCSTR, ppcallnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::CallFunction(this, core::mem::transmute(&pmoduleinstancenamespace), core::mem::transmute_copy(&pmodulewithfunctionprototype), core::mem::transmute(&pfunctionname), core::mem::transmute_copy(&ppcallnode)).into()
+                match ID3D11FunctionLinkingGraph_Impl::CallFunction(this, core::mem::transmute(&pmoduleinstancenamespace), core::mem::transmute_copy(&pmodulewithfunctionprototype), core::mem::transmute(&pfunctionname)) {
+                    Ok(ok__) => {
+                        ppcallnode.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppcallnode.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn PassValue<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcnode: *mut core::ffi::c_void, srcparameterindex: super::INT, pdstnode: *mut core::ffi::c_void, dstparameterindex: super::INT) -> windows_core::HRESULT {
@@ -10289,7 +10367,16 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
         unsafe extern "system" fn GenerateHlsl<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: super::UINT, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::GenerateHlsl(this, core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&ppbuffer)).into()
+                match ID3D11FunctionLinkingGraph_Impl::GenerateHlsl(this, core::mem::transmute_copy(&uflags)) {
+                    Ok(ok__) => {
+                        ppbuffer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppbuffer.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {
@@ -11266,11 +11353,14 @@ impl windows_core::RuntimeName for ID3D11LinkingNode {}
 windows_core::imp::define_interface!(ID3D11Module, ID3D11Module_Vtbl, 0xcac701ee_80fc_4122_8242_10b39c8cec34);
 windows_core::imp::interface_hierarchy!(ID3D11Module, windows_core::IUnknown);
 impl ID3D11Module {
-    pub unsafe fn CreateInstance<P0>(&self, pnamespace: P0, ppmoduleinstance: *mut Option<ID3D11ModuleInstance>) -> windows_core::HRESULT
+    pub unsafe fn CreateInstance<P0>(&self, pnamespace: P0) -> windows_core::Result<ID3D11ModuleInstance>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), core::mem::transmute(ppmoduleinstance)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -11280,14 +11370,23 @@ pub struct ID3D11Module_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ID3D11Module_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, pnamespace: &windows_core::PCSTR, ppmoduleinstance: windows_core::OutRef<ID3D11ModuleInstance>) -> windows_core::Result<()>;
+    fn CreateInstance(&self, pnamespace: &windows_core::PCSTR) -> windows_core::Result<ID3D11ModuleInstance>;
 }
 impl ID3D11Module_Vtbl {
     pub const fn new<Identity: ID3D11Module_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInstance<Identity: ID3D11Module_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: windows_core::PCSTR, ppmoduleinstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Module_Impl::CreateInstance(this, core::mem::transmute(&pnamespace), core::mem::transmute_copy(&ppmoduleinstance)).into()
+                match ID3D11Module_Impl::CreateInstance(this, core::mem::transmute(&pnamespace)) {
+                    Ok(ok__) => {
+                        ppmoduleinstance.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppmoduleinstance.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, OFFSET> }
@@ -13289,11 +13388,14 @@ windows_core::imp::define_interface!(ID3D11ShaderTraceFactory, ID3D11ShaderTrace
 windows_core::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, windows_core::IUnknown);
 impl ID3D11ShaderTraceFactory {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateShaderTrace<P0>(&self, pshader: P0, ptracedesc: *const D3D11_SHADER_TRACE_DESC, ppshadertrace: *mut Option<ID3D11ShaderTrace>) -> windows_core::HRESULT
+    pub unsafe fn CreateShaderTrace<P0>(&self, pshader: P0, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> windows_core::Result<ID3D11ShaderTrace>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateShaderTrace)(windows_core::Interface::as_raw(self), pshader.param().abi(), ptracedesc, core::mem::transmute(ppshadertrace)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateShaderTrace)(windows_core::Interface::as_raw(self), pshader.param().abi(), ptracedesc, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -13307,7 +13409,7 @@ pub struct ID3D11ShaderTraceFactory_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D11ShaderTraceFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateShaderTrace(&self, pshader: windows_core::Ref<windows_core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC, ppshadertrace: windows_core::OutRef<ID3D11ShaderTrace>) -> windows_core::Result<()>;
+    fn CreateShaderTrace(&self, pshader: windows_core::Ref<windows_core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> windows_core::Result<ID3D11ShaderTrace>;
 }
 #[cfg(feature = "shared")]
 impl ID3D11ShaderTraceFactory_Vtbl {
@@ -13315,7 +13417,16 @@ impl ID3D11ShaderTraceFactory_Vtbl {
         unsafe extern "system" fn CreateShaderTrace<Identity: ID3D11ShaderTraceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void, ptracedesc: *const D3D11_SHADER_TRACE_DESC, ppshadertrace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ShaderTraceFactory_Impl::CreateShaderTrace(this, core::mem::transmute_copy(&pshader), core::mem::transmute_copy(&ptracedesc), core::mem::transmute_copy(&ppshadertrace)).into()
+                match ID3D11ShaderTraceFactory_Impl::CreateShaderTrace(this, core::mem::transmute_copy(&pshader), core::mem::transmute_copy(&ptracedesc)) {
+                    Ok(ok__) => {
+                        ppshadertrace.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppshadertrace.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateShaderTrace: CreateShaderTrace::<Identity, OFFSET> }
@@ -15574,21 +15685,33 @@ windows_core::imp::define_interface!(ID3D11VideoDevice, ID3D11VideoDevice_Vtbl, 
 windows_core::imp::interface_hierarchy!(ID3D11VideoDevice, windows_core::IUnknown);
 impl ID3D11VideoDevice {
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG, ppdecoder: *mut Option<ID3D11VideoDecoder>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), pvideodesc, pconfig, core::mem::transmute(ppdecoder)) }
+    pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> windows_core::Result<ID3D11VideoDecoder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), pvideodesc, pconfig, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVideoProcessor<P0>(&self, penum: P0, rateconversionindex: super::UINT, ppvideoprocessor: *mut Option<ID3D11VideoProcessor>) -> windows_core::HRESULT
+    pub unsafe fn CreateVideoProcessor<P0>(&self, penum: P0, rateconversionindex: super::UINT) -> windows_core::Result<ID3D11VideoProcessor>
     where
         P0: windows_core::Param<ID3D11VideoProcessorEnumerator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), penum.param().abi(), rateconversionindex, core::mem::transmute(ppvideoprocessor)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), penum.param().abi(), rateconversionindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE, ppauthenticatedchannel: *mut Option<ID3D11AuthenticatedChannel>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateAuthenticatedChannel)(windows_core::Interface::as_raw(self), channeltype, core::mem::transmute(ppauthenticatedchannel)) }
+    pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> windows_core::Result<ID3D11AuthenticatedChannel> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateAuthenticatedChannel)(windows_core::Interface::as_raw(self), channeltype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const windows_core::GUID, pdecoderprofile: Option<*const windows_core::GUID>, pkeyexchangetype: *const windows_core::GUID, ppcryptosession: *mut Option<ID3D11CryptoSession>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateCryptoSession)(windows_core::Interface::as_raw(self), pcryptotype, pdecoderprofile.unwrap_or(core::mem::zeroed()) as _, pkeyexchangetype, core::mem::transmute(ppcryptosession)) }
+    pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const windows_core::GUID, pdecoderprofile: Option<*const windows_core::GUID>, pkeyexchangetype: *const windows_core::GUID) -> windows_core::Result<ID3D11CryptoSession> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateCryptoSession)(windows_core::Interface::as_raw(self), pcryptotype, pdecoderprofile.unwrap_or(core::mem::zeroed()) as _, pkeyexchangetype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateVideoDecoderOutputView<P0>(&self, presource: P0, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: Option<*mut Option<ID3D11VideoDecoderOutputView>>) -> windows_core::HRESULT
@@ -15614,8 +15737,11 @@ impl ID3D11VideoDevice {
         unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessorOutputView)(windows_core::Interface::as_raw(self), presource.param().abi(), penum.param().abi(), pdesc, ppvpoview.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppenum: *mut Option<ID3D11VideoProcessorEnumerator>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessorEnumerator)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(ppenum)) }
+    pub unsafe fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> windows_core::Result<ID3D11VideoProcessorEnumerator> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateVideoProcessorEnumerator)(windows_core::Interface::as_raw(self), pdesc, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetVideoDecoderProfileCount(&self) -> super::UINT {
@@ -15722,14 +15848,14 @@ pub struct ID3D11VideoDevice_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D11VideoDevice_Impl: windows_core::IUnknownImpl {
-    fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG, ppdecoder: windows_core::OutRef<ID3D11VideoDecoder>) -> windows_core::Result<()>;
-    fn CreateVideoProcessor(&self, penum: windows_core::Ref<ID3D11VideoProcessorEnumerator>, rateconversionindex: super::UINT, ppvideoprocessor: windows_core::OutRef<ID3D11VideoProcessor>) -> windows_core::Result<()>;
-    fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE, ppauthenticatedchannel: windows_core::OutRef<ID3D11AuthenticatedChannel>) -> windows_core::Result<()>;
-    fn CreateCryptoSession(&self, pcryptotype: *const windows_core::GUID, pdecoderprofile: *const windows_core::GUID, pkeyexchangetype: *const windows_core::GUID, ppcryptosession: windows_core::OutRef<ID3D11CryptoSession>) -> windows_core::Result<()>;
+    fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> windows_core::Result<ID3D11VideoDecoder>;
+    fn CreateVideoProcessor(&self, penum: windows_core::Ref<ID3D11VideoProcessorEnumerator>, rateconversionindex: super::UINT) -> windows_core::Result<ID3D11VideoProcessor>;
+    fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> windows_core::Result<ID3D11AuthenticatedChannel>;
+    fn CreateCryptoSession(&self, pcryptotype: *const windows_core::GUID, pdecoderprofile: *const windows_core::GUID, pkeyexchangetype: *const windows_core::GUID) -> windows_core::Result<ID3D11CryptoSession>;
     fn CreateVideoDecoderOutputView(&self, presource: windows_core::Ref<ID3D11Resource>, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: windows_core::OutRef<ID3D11VideoDecoderOutputView>) -> windows_core::Result<()>;
     fn CreateVideoProcessorInputView(&self, presource: windows_core::Ref<ID3D11Resource>, penum: windows_core::Ref<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, ppvpiview: windows_core::OutRef<ID3D11VideoProcessorInputView>) -> windows_core::Result<()>;
     fn CreateVideoProcessorOutputView(&self, presource: windows_core::Ref<ID3D11Resource>, penum: windows_core::Ref<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, ppvpoview: windows_core::OutRef<ID3D11VideoProcessorOutputView>) -> windows_core::Result<()>;
-    fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppenum: windows_core::OutRef<ID3D11VideoProcessorEnumerator>) -> windows_core::Result<()>;
+    fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> windows_core::Result<ID3D11VideoProcessorEnumerator>;
     fn GetVideoDecoderProfileCount(&self) -> super::UINT;
     fn GetVideoDecoderProfile(&self, index: super::UINT, pdecoderprofile: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn CheckVideoDecoderFormat(&self, pdecoderprofile: *const windows_core::GUID, format: super::DXGI_FORMAT, psupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
@@ -15746,25 +15872,61 @@ impl ID3D11VideoDevice_Vtbl {
         unsafe extern "system" fn CreateVideoDecoder<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG, ppdecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11VideoDevice_Impl::CreateVideoDecoder(this, core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pconfig), core::mem::transmute_copy(&ppdecoder)).into()
+                match ID3D11VideoDevice_Impl::CreateVideoDecoder(this, core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pconfig)) {
+                    Ok(ok__) => {
+                        ppdecoder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppdecoder.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateVideoProcessor<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penum: *mut core::ffi::c_void, rateconversionindex: super::UINT, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11VideoDevice_Impl::CreateVideoProcessor(this, core::mem::transmute_copy(&penum), core::mem::transmute_copy(&rateconversionindex), core::mem::transmute_copy(&ppvideoprocessor)).into()
+                match ID3D11VideoDevice_Impl::CreateVideoProcessor(this, core::mem::transmute_copy(&penum), core::mem::transmute_copy(&rateconversionindex)) {
+                    Ok(ok__) => {
+                        ppvideoprocessor.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppvideoprocessor.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateAuthenticatedChannel<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE, ppauthenticatedchannel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11VideoDevice_Impl::CreateAuthenticatedChannel(this, core::mem::transmute_copy(&channeltype), core::mem::transmute_copy(&ppauthenticatedchannel)).into()
+                match ID3D11VideoDevice_Impl::CreateAuthenticatedChannel(this, core::mem::transmute_copy(&channeltype)) {
+                    Ok(ok__) => {
+                        ppauthenticatedchannel.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppauthenticatedchannel.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateCryptoSession<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcryptotype: *const windows_core::GUID, pdecoderprofile: *const windows_core::GUID, pkeyexchangetype: *const windows_core::GUID, ppcryptosession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11VideoDevice_Impl::CreateCryptoSession(this, core::mem::transmute_copy(&pcryptotype), core::mem::transmute_copy(&pdecoderprofile), core::mem::transmute_copy(&pkeyexchangetype), core::mem::transmute_copy(&ppcryptosession)).into()
+                match ID3D11VideoDevice_Impl::CreateCryptoSession(this, core::mem::transmute_copy(&pcryptotype), core::mem::transmute_copy(&pdecoderprofile), core::mem::transmute_copy(&pkeyexchangetype)) {
+                    Ok(ok__) => {
+                        ppcryptosession.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppcryptosession.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn CreateVideoDecoderOutputView<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15788,7 +15950,16 @@ impl ID3D11VideoDevice_Vtbl {
         unsafe extern "system" fn CreateVideoProcessorEnumerator<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11VideoDevice_Impl::CreateVideoProcessorEnumerator(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppenum)).into()
+                match ID3D11VideoDevice_Impl::CreateVideoProcessorEnumerator(this, core::mem::transmute_copy(&pdesc)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppenum.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn GetVideoDecoderProfileCount<Identity: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {

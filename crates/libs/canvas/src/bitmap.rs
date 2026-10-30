@@ -43,11 +43,8 @@ impl Bitmap {
                 )
                 .ok()?;
 
-            let mut bitmap = None;
-            context
-                .CreateBitmapFromWicBitmap(&converter, None, &mut bitmap)
-                .ok()?;
-            Ok(Self(bitmap.unwrap()))
+            let bitmap = context.CreateBitmapFromWicBitmap(&converter, None)?;
+            Ok(Self(bitmap))
         }
     }
 
@@ -85,19 +82,10 @@ impl Bitmap {
         };
         let size = D2D_SIZE_U { width, height };
 
-        let mut bitmap = None;
-        unsafe {
-            context
-                .CreateBitmap(
-                    size,
-                    Some(pixels.as_ptr().cast()),
-                    stride,
-                    &properties,
-                    &mut bitmap,
-                )
-                .ok()?;
-        }
-        Ok(Self(bitmap.unwrap()))
+        let bitmap = unsafe {
+            context.CreateBitmap(size, Some(pixels.as_ptr().cast()), stride, &properties)?
+        };
+        Ok(Self(bitmap))
     }
 
     /// Returns the width of the bitmap, in device-independent pixels.

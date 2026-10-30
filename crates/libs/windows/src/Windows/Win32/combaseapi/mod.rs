@@ -534,12 +534,15 @@ pub unsafe fn ProgIDFromCLSID(clsid: *const super::IID, lplpszprogid: *mut super
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase"))]
 #[inline]
-pub unsafe fn RoGetAgileReference<P2>(options: AgileReferenceOptions, riid: *const super::IID, punk: P2, ppagilereference: *mut Option<super::IAgileReference>) -> windows_core::HRESULT
+pub unsafe fn RoGetAgileReference<P2>(options: AgileReferenceOptions, riid: *const super::IID, punk: P2) -> windows_core::Result<super::IAgileReference>
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const super::IID, punk : *mut core::ffi::c_void, ppagilereference : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoGetAgileReference(options, riid, punk.param().abi(), core::mem::transmute(ppagilereference)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoGetAgileReference(options, riid, punk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]

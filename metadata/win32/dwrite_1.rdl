@@ -511,7 +511,7 @@ mod Windows {
         #[guid(0x30572f99_dac6_41db_a16e_0486307e606a)]
         interface IDWriteFactory1: IDWriteFactory {
             fn GetEudcFontCollection(&self, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
-            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, enhancedContrastGrayscale: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[out_ptr(null_on_failure)] renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
+            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, enhancedContrastGrayscale: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32738)]
         interface IDWriteFont1: IDWriteFont {

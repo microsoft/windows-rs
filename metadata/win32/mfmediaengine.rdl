@@ -83,11 +83,11 @@ mod Windows {
         }
         #[guid(0x09083cef_867f_4bf6_8776_dee3a7b42fca)]
         interface IMFMediaEngineClassFactory2: IUnknown {
-            fn CreateMediaKeys2(&self, #[in] keySystem: BSTR, #[in] defaultCdmStorePath: BSTR, #[in] #[opt] inprivateCdmStorePath: BSTR, #[out] #[out_ptr(null_on_failure)] ppKeys: *mut IMFMediaKeys) -> HRESULT;
+            fn CreateMediaKeys2(&self, #[in] keySystem: BSTR, #[in] defaultCdmStorePath: BSTR, #[in] #[opt] inprivateCdmStorePath: BSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeys: *mut IMFMediaKeys) -> HRESULT;
         }
         #[guid(0x3787614f_65f7_4003_b673_ead8293a0e60)]
         interface IMFMediaEngineClassFactory3: IUnknown {
-            fn CreateMediaKeySystemAccess(&self, #[in] keySystem: BSTR, #[in] #[readable(entry, uSize)] ppSupportedConfigurationsArray: *mut IPropertyStore, #[in] uSize: UINT, #[out] #[out_ptr(null_on_failure)] ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
+            fn CreateMediaKeySystemAccess(&self, #[in] keySystem: BSTR, #[in] #[readable(entry, uSize)] ppSupportedConfigurationsArray: *mut IPropertyStore, #[in] uSize: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
         }
         #[guid(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186)]
         interface IMFMediaEngineClassFactory4: IUnknown {
@@ -95,8 +95,8 @@ mod Windows {
         }
         #[guid(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e)]
         interface IMFMediaEngineClassFactoryEx: IMFMediaEngineClassFactory {
-            fn CreateMediaSourceExtension(&self, #[in] dwFlags: DWORD, #[in] pAttr: IMFAttributes, #[out] #[out_ptr(null_on_failure)] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
-            fn CreateMediaKeys(&self, #[in] keySystem: BSTR, #[in] #[opt] cdmStorePath: BSTR, #[out] #[out_ptr(null_on_failure)] ppKeys: *mut IMFMediaKeys) -> HRESULT;
+            fn CreateMediaSourceExtension(&self, #[in] dwFlags: DWORD, #[in] pAttr: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn CreateMediaKeys(&self, #[in] keySystem: BSTR, #[in] #[opt] cdmStorePath: BSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeys: *mut IMFMediaKeys) -> HRESULT;
             fn IsTypeSupported(&self, #[in] #[opt] r#type: BSTR, #[in] keySystem: BSTR, #[out] isSupported: *mut BOOL) -> HRESULT;
         }
         #[guid(0x50dc93e4_ba4f_4275_ae66_83e836e57469)]
@@ -194,7 +194,7 @@ mod Windows {
         #[guid(0xa724b056_1b2e_4642_a6f3_db9420c52908)]
         interface IMFMediaEngineSupportsSourceTransfer: IUnknown {
             fn ShouldTransferSource(&self, #[out] pfShouldTransfer: *mut BOOL) -> HRESULT;
-            fn DetachMediaSource(&self, #[out] #[out_ptr(null_on_failure)] ppByteStream: *mut IMFByteStream, #[out] #[out_ptr(null_on_failure)] ppMediaSource: *mut IMFMediaSource, #[out] #[out_ptr(null_on_failure)] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn DetachMediaSource(&self, #[out] #[out_ptr(null_on_failure)] ppByteStream: *mut IMFByteStream, #[out] #[out_ptr(null_on_failure)] ppMediaSource: *mut IMFMediaSource, #[out] #[out_ptr(null_on_failure)] #[retval] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
             fn AttachMediaSource(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] pMediaSource: IMFMediaSource, #[in] #[opt] pMSE: IMFMediaSourceExtension) -> HRESULT;
         }
         #[guid(0x24230452_fe54_40cc_94f3_fcc394c340d6)]
@@ -209,7 +209,7 @@ mod Windows {
         #[guid(0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c)]
         interface IMFMediaEngineWebSupport: IUnknown {
             fn ShouldDelayTheLoadEvent(&self) -> BOOL;
-            fn ConnectWebAudio(&self, #[in] dwSampleRate: DWORD, #[out] #[out_ptr(null_on_failure)] ppSourceProvider: *mut IAudioSourceProvider) -> HRESULT;
+            fn ConnectWebAudio(&self, #[in] dwSampleRate: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppSourceProvider: *mut IAudioSourceProvider) -> HRESULT;
             fn DisconnectWebAudio(&self) -> HRESULT;
         }
         #[guid(0xfc0e10d2_ab2a_4501_a951_06bb1075184c)]
@@ -222,8 +222,8 @@ mod Windows {
         #[guid(0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5)]
         interface IMFMediaKeySession: IUnknown {
             fn GetError(&self, #[out] code: *mut USHORT, #[out] systemCode: *mut DWORD) -> HRESULT;
-            fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] keySystem: *mut BSTR) -> HRESULT;
-            fn get_SessionId(&self, #[out] #[out_ptr(null_on_failure)] sessionId: *mut BSTR) -> HRESULT;
+            fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] #[retval] keySystem: *mut BSTR) -> HRESULT;
+            fn get_SessionId(&self, #[out] #[out_ptr(null_on_failure)] #[retval] sessionId: *mut BSTR) -> HRESULT;
             fn Update(&self, #[in] #[readable(entry, bytes(cb))] key: *const BYTE, #[in] cb: DWORD) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
@@ -249,20 +249,20 @@ mod Windows {
         }
         #[guid(0xaec63fda_7a97_4944_b35c_6c6df8085cc3)]
         interface IMFMediaKeySystemAccess: IUnknown {
-            fn CreateMediaKeys(&self, #[in] #[opt] pCdmCustomConfig: IPropertyStore, #[out] #[out_ptr(null_on_failure)] ppKeys: *mut IMFMediaKeys2) -> HRESULT;
-            fn get_SupportedConfiguration(&self, #[out] #[out_ptr(null_on_failure)] ppSupportedConfiguration: *mut IPropertyStore) -> HRESULT;
+            fn CreateMediaKeys(&self, #[in] #[opt] pCdmCustomConfig: IPropertyStore, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeys: *mut IMFMediaKeys2) -> HRESULT;
+            fn get_SupportedConfiguration(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppSupportedConfiguration: *mut IPropertyStore) -> HRESULT;
             fn get_KeySystem(&self, #[out] pKeySystem: *mut BSTR) -> HRESULT;
         }
         #[guid(0x5cb31c05_61ff_418f_afda_caaf41421a38)]
         interface IMFMediaKeys: IUnknown {
-            fn CreateSession(&self, #[in] #[opt] mimeType: BSTR, #[in] #[opt] #[readable(entry, bytes(cb))] initData: *const BYTE, #[in] #[opt] cb: DWORD, #[in] #[opt] #[readable(entry, bytes(cbCustomData))] customData: *const BYTE, #[in] cbCustomData: DWORD, #[in] notify: IMFMediaKeySessionNotify, #[out] #[out_ptr(null_on_failure)] ppSession: *mut IMFMediaKeySession) -> HRESULT;
-            fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] keySystem: *mut BSTR) -> HRESULT;
+            fn CreateSession(&self, #[in] #[opt] mimeType: BSTR, #[in] #[opt] #[readable(entry, bytes(cb))] initData: *const BYTE, #[in] #[opt] cb: DWORD, #[in] #[opt] #[readable(entry, bytes(cbCustomData))] customData: *const BYTE, #[in] cbCustomData: DWORD, #[in] notify: IMFMediaKeySessionNotify, #[out] #[out_ptr(null_on_failure)] #[retval] ppSession: *mut IMFMediaKeySession) -> HRESULT;
+            fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] #[retval] keySystem: *mut BSTR) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
-            fn GetSuspendNotify(&self, #[out] #[out_ptr(null_on_failure)] notify: *mut IMFCdmSuspendNotify) -> HRESULT;
+            fn GetSuspendNotify(&self, #[out] #[out_ptr(null_on_failure)] #[retval] notify: *mut IMFCdmSuspendNotify) -> HRESULT;
         }
         #[guid(0x45892507_ad66_4de2_83a2_acbb13cd8d43)]
         interface IMFMediaKeys2: IMFMediaKeys {
-            fn CreateSession2(&self, #[in] eSessionType: MF_MEDIAKEYSESSION_TYPE, #[in] pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, #[out] #[out_ptr(null_on_failure)] ppSession: *mut IMFMediaKeySession2) -> HRESULT;
+            fn CreateSession2(&self, #[in] eSessionType: MF_MEDIAKEYSESSION_TYPE, #[in] pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, #[out] #[out_ptr(null_on_failure)] #[retval] ppSession: *mut IMFMediaKeySession2) -> HRESULT;
             fn SetServerCertificate(&self, #[in] #[opt] #[readable(entry, bytes(cb))] pbServerCertificate: *const BYTE, #[in] cb: DWORD) -> HRESULT;
             fn GetDOMException(&self, #[in] systemCode: HRESULT, #[out] code: *mut HRESULT) -> HRESULT;
         }
@@ -338,14 +338,14 @@ mod Windows {
             fn SelectTrack(&self, #[in] trackId: DWORD, #[in] selected: BOOL) -> HRESULT;
             fn AddDataSource(&self, #[in] byteStream: IMFByteStream, #[in] #[opt] label: LPCWSTR, #[in] #[opt] language: LPCWSTR, #[in] kind: MF_TIMED_TEXT_TRACK_KIND, #[in] isDefault: BOOL, #[in] #[out] trackId: *mut DWORD) -> HRESULT;
             fn AddDataSourceFromUrl(&self, #[in] url: LPCWSTR, #[in] #[opt] label: LPCWSTR, #[in] #[opt] language: LPCWSTR, #[in] kind: MF_TIMED_TEXT_TRACK_KIND, #[in] isDefault: BOOL, #[in] #[out] trackId: *mut DWORD) -> HRESULT;
-            fn AddTrack(&self, #[in] #[opt] label: LPCWSTR, #[in] #[opt] language: LPCWSTR, #[in] kind: MF_TIMED_TEXT_TRACK_KIND, #[out] #[out_ptr(null_on_failure)] track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn AddTrack(&self, #[in] #[opt] label: LPCWSTR, #[in] #[opt] language: LPCWSTR, #[in] kind: MF_TIMED_TEXT_TRACK_KIND, #[out] #[out_ptr(null_on_failure)] #[retval] track: *mut IMFTimedTextTrack) -> HRESULT;
             fn RemoveTrack(&self, #[in] track: IMFTimedTextTrack) -> HRESULT;
             fn GetCueTimeOffset(&self, #[out] offset: *mut f64) -> HRESULT;
             fn SetCueTimeOffset(&self, #[in] offset: f64) -> HRESULT;
-            fn GetTracks(&self, #[out] #[out_ptr(null_on_failure)] tracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetActiveTracks(&self, #[out] #[out_ptr(null_on_failure)] activeTracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetTextTracks(&self, #[out] #[out_ptr(null_on_failure)] textTracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetMetadataTracks(&self, #[out] #[out_ptr(null_on_failure)] metadataTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetTracks(&self, #[out] #[out_ptr(null_on_failure)] #[retval] tracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetActiveTracks(&self, #[out] #[out_ptr(null_on_failure)] #[retval] activeTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetTextTracks(&self, #[out] #[out_ptr(null_on_failure)] #[retval] textTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetMetadataTracks(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataTracks: *mut IMFTimedTextTrackList) -> HRESULT;
             fn SetInBandEnabled(&self, #[in] enabled: BOOL) -> HRESULT;
             fn IsInBandEnabled(&self) -> BOOL;
         }
@@ -371,14 +371,14 @@ mod Windows {
             fn GetRegion(&self, #[out] #[out_ptr(nullable, null_on_failure)] region: *mut IMFTimedTextRegion) -> HRESULT;
             fn GetStyle(&self, #[out] #[out_ptr(nullable, null_on_failure)] style: *mut IMFTimedTextStyle) -> HRESULT;
             fn GetLineCount(&self) -> DWORD;
-            fn GetLine(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] line: *mut IMFTimedTextFormattedText) -> HRESULT;
+            fn GetLine(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] line: *mut IMFTimedTextFormattedText) -> HRESULT;
         }
         #[guid(0xad128745_211b_40a0_9981_fe65f166d0fd)]
         interface IMFTimedTextCueList: IUnknown {
             fn GetLength(&self) -> DWORD;
-            fn GetCueByIndex(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn GetCueById(&self, #[in] id: DWORD, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn GetCueByOriginalId(&self, #[in] originalId: LPCWSTR, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueByIndex(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueById(&self, #[in] id: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueByOriginalId(&self, #[in] originalId: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn AddTextCue(&self, #[in] start: f64, #[in] duration: f64, #[in] text: LPCWSTR, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn AddDataCue(&self, #[in] start: f64, #[in] duration: f64, #[in] #[readable(entry, bytes(dataSize))] data: *const BYTE, #[in] dataSize: DWORD, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn RemoveCue(&self, #[in] cue: IMFTimedTextCue) -> HRESULT;
@@ -458,13 +458,13 @@ mod Windows {
             fn GetExtendedErrorCode(&self) -> HRESULT;
             fn GetDataFormat(&self, #[out] format: *mut GUID) -> HRESULT;
             fn GetReadyState(&self) -> MF_TIMED_TEXT_TRACK_READY_STATE;
-            fn GetCueList(&self, #[out] #[out_ptr(null_on_failure)] cues: *mut IMFTimedTextCueList) -> HRESULT;
+            fn GetCueList(&self, #[out] #[out_ptr(null_on_failure)] #[retval] cues: *mut IMFTimedTextCueList) -> HRESULT;
         }
         #[guid(0x23ff334c_442c_445f_bccc_edc438aa11e2)]
         interface IMFTimedTextTrackList: IUnknown {
             fn GetLength(&self) -> DWORD;
-            fn GetTrack(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] track: *mut IMFTimedTextTrack) -> HRESULT;
-            fn GetTrackById(&self, #[in] trackId: DWORD, #[out] #[out_ptr(null_on_failure)] track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn GetTrack(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn GetTrackById(&self, #[in] trackId: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] track: *mut IMFTimedTextTrack) -> HRESULT;
         }
         #[guid(0x980fbb84_297d_4ea7_895f_bcf28a462881)]
         const MF_EME_AUDIOCAPABILITIES: PROPERTYKEY = 6;

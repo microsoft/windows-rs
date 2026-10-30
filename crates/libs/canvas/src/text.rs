@@ -84,23 +84,19 @@ impl TextFormat {
         let family_wide: Vec<u16> = family.encode_utf16().chain(std::iter::once(0)).collect();
         let locale_wide: Vec<u16> = "en-us\0".encode_utf16().collect();
 
-        let mut raw = None;
-        unsafe {
-            factory
-                .CreateTextFormat(
-                    family_wide.as_ptr(),
-                    None,
-                    weight.0,
-                    DWRITE_FONT_STYLE_NORMAL,
-                    DWRITE_FONT_STRETCH_NORMAL,
-                    size,
-                    locale_wide.as_ptr(),
-                    &mut raw,
-                )
-                .ok()?;
-        }
+        let raw = unsafe {
+            factory.CreateTextFormat(
+                family_wide.as_ptr(),
+                None,
+                weight.0,
+                DWRITE_FONT_STYLE_NORMAL,
+                DWRITE_FONT_STRETCH_NORMAL,
+                size,
+                locale_wide.as_ptr(),
+            )?
+        };
 
-        Ok(Self { raw: raw.unwrap() })
+        Ok(Self { raw })
     }
 
     /// Sets the horizontal text alignment.
@@ -200,13 +196,8 @@ impl TextLayout {
     pub fn new(text: &str, format: &TextFormat, max_width: f32, max_height: f32) -> Result<Self> {
         let factory = dwrite_factory()?;
         let wide: Vec<u16> = text.encode_utf16().collect();
-        let mut raw = None;
-        unsafe {
-            factory
-                .CreateTextLayout(&wide, format.raw(), max_width, max_height, &mut raw)
-                .ok()?;
-        }
-        Ok(Self { raw: raw.unwrap() })
+        let raw = unsafe { factory.CreateTextLayout(&wide, format.raw(), max_width, max_height)? };
+        Ok(Self { raw })
     }
 
     /// Measures the laid-out text.

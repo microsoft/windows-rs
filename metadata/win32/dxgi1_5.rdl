@@ -49,7 +49,7 @@ mod Windows {
         }
         #[guid(0x80a07424_ab52_42eb_833c_0c42fd282d98)]
         interface IDXGIOutput5: IDXGIOutput4 {
-            fn DuplicateOutput1(&self, #[in] pDevice: IUnknown, #[in] Flags: UINT, #[in] SupportedFormatsCount: UINT, #[in] #[readable(entry, SupportedFormatsCount)] pSupportedFormats: *const DXGI_FORMAT, #[out] #[out_ptr(null_on_failure)] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
+            fn DuplicateOutput1(&self, #[in] pDevice: IUnknown, #[in] Flags: UINT, #[in] SupportedFormatsCount: UINT, #[in] #[readable(entry, SupportedFormatsCount)] pSupportedFormats: *const DXGI_FORMAT, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
         }
         #[guid(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb)]
         interface IDXGISwapChain4: IDXGISwapChain3 {

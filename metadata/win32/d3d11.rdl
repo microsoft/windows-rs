@@ -2026,8 +2026,8 @@ mod Windows {
         }
         #[guid(0xddf57cba_9543_46e4_a12b_f207a0fe7fed)]
         interface ID3D11ClassLinkage: ID3D11DeviceChild {
-            fn GetClassInstance(&self, #[in] pClassInstanceName: LPCSTR, #[in] InstanceIndex: UINT, #[out] #[out_ptr(null_on_failure)] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
-            fn CreateClassInstance(&self, #[in] pClassTypeName: LPCSTR, #[in] ConstantBufferOffset: UINT, #[in] ConstantVectorOffset: UINT, #[in] TextureOffset: UINT, #[in] SamplerOffset: UINT, #[out] #[out_ptr(null_on_failure)] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn GetClassInstance(&self, #[in] pClassInstanceName: LPCSTR, #[in] InstanceIndex: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn CreateClassInstance(&self, #[in] pClassTypeName: LPCSTR, #[in] ConstantBufferOffset: UINT, #[in] ConstantVectorOffset: UINT, #[in] TextureOffset: UINT, #[in] SamplerOffset: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
         }
         #[guid(0xa24bc4d1_769e_43f7_8013_98ff566c18e2)]
         interface ID3D11CommandList: ID3D11DeviceChild {
@@ -2073,7 +2073,7 @@ mod Windows {
             fn CreateHullShader(&self, #[in] #[readable(entry, BytecodeLength)] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppHullShader: *mut ID3D11HullShader) -> HRESULT;
             fn CreateDomainShader(&self, #[in] #[readable(entry, BytecodeLength)] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppDomainShader: *mut ID3D11DomainShader) -> HRESULT;
             fn CreateComputeShader(&self, #[in] #[readable(entry, BytecodeLength)] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppComputeShader: *mut ID3D11ComputeShader) -> HRESULT;
-            fn CreateClassLinkage(&self, #[out] #[out_ptr(null_on_failure)] ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
+            fn CreateClassLinkage(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
             fn CreateBlendState(&self, #[in] pBlendStateDesc: *const D3D11_BLEND_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppBlendState: *mut ID3D11BlendState) -> HRESULT;
             fn CreateDepthStencilState(&self, #[in] pDepthStencilDesc: *const D3D11_DEPTH_STENCIL_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppDepthStencilState: *mut ID3D11DepthStencilState) -> HRESULT;
             fn CreateRasterizerState(&self, #[in] pRasterizerDesc: *const D3D11_RASTERIZER_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppRasterizerState: *mut ID3D11RasterizerState) -> HRESULT;
@@ -2344,14 +2344,14 @@ mod Windows {
         }
         #[guid(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333)]
         interface ID3D11VideoDevice: IUnknown {
-            fn CreateVideoDecoder(&self, #[in] pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] pConfig: *const D3D11_VIDEO_DECODER_CONFIG, #[out] #[out_ptr(null_on_failure)] ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
-            fn CreateVideoProcessor(&self, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] RateConversionIndex: UINT, #[out] #[out_ptr(null_on_failure)] ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
-            fn CreateAuthenticatedChannel(&self, #[in] ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, #[out] #[out_ptr(null_on_failure)] ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
-            fn CreateCryptoSession(&self, #[in] pCryptoType: *const GUID, #[in] #[opt] pDecoderProfile: *const GUID, #[in] pKeyExchangeType: *const GUID, #[out] #[out_ptr(null_on_failure)] ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
+            fn CreateVideoDecoder(&self, #[in] pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] pConfig: *const D3D11_VIDEO_DECODER_CONFIG, #[out] #[out_ptr(null_on_failure)] #[retval] ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
+            fn CreateVideoProcessor(&self, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] RateConversionIndex: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
+            fn CreateAuthenticatedChannel(&self, #[in] ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, #[out] #[out_ptr(null_on_failure)] #[retval] ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
+            fn CreateCryptoSession(&self, #[in] pCryptoType: *const GUID, #[in] #[opt] pDecoderProfile: *const GUID, #[in] pKeyExchangeType: *const GUID, #[out] #[out_ptr(null_on_failure)] #[retval] ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
             fn CreateVideoDecoderOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pDesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVDOVView: *mut ID3D11VideoDecoderOutputView) -> HRESULT;
             fn CreateVideoProcessorInputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVPIView: *mut ID3D11VideoProcessorInputView) -> HRESULT;
             fn CreateVideoProcessorOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVPOView: *mut ID3D11VideoProcessorOutputView) -> HRESULT;
-            fn CreateVideoProcessorEnumerator(&self, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, #[out] #[out_ptr(null_on_failure)] ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
+            fn CreateVideoProcessorEnumerator(&self, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, #[out] #[out_ptr(null_on_failure)] #[retval] ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
             fn GetVideoDecoderProfileCount(&self) -> UINT;
             fn GetVideoDecoderProfile(&self, #[in] Index: UINT, #[out] pDecoderProfile: *mut GUID) -> HRESULT;
             fn CheckVideoDecoderFormat(&self, #[in] pDecoderProfile: *const GUID, #[in] Format: DXGI_FORMAT, #[out] pSupported: *mut BOOL) -> HRESULT;

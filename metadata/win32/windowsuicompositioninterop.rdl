@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x2c9db356_e70d_4642_8298_bc4aa5b4865c)]
         interface ICompositionCapabilitiesInteropFactory: IInspectable {
-            fn GetForWindow(&self, #[in] hwnd: HWND, #[out] #[out_ptr(null_on_failure)] result: *mut super::UI::Composition::ICompositionCapabilities) -> HRESULT;
+            fn GetForWindow(&self, #[in] hwnd: HWND, #[out] #[out_ptr(null_on_failure)] #[retval] result: *mut super::UI::Composition::ICompositionCapabilities) -> HRESULT;
         }
         #[guid(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee)]
         interface ICompositionDrawingSurfaceInterop: IUnknown {
@@ -20,7 +20,7 @@ mod Windows {
         }
         #[guid(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8)]
         interface ICompositionGraphicsDeviceInterop: IUnknown {
-            fn GetRenderingDevice(&self, #[out] #[out_ptr(null_on_failure)] value: *mut IUnknown) -> HRESULT;
+            fn GetRenderingDevice(&self, #[out] #[out_ptr(null_on_failure)] #[retval] value: *mut IUnknown) -> HRESULT;
             fn SetRenderingDevice(&self, #[in] value: IUnknown) -> HRESULT;
         }
         #[guid(0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4)]
@@ -29,14 +29,14 @@ mod Windows {
         }
         #[guid(0x29e691fa_4567_4dca_b319_d0f207eb6807)]
         interface ICompositorDesktopInterop: IUnknown {
-            fn CreateDesktopWindowTarget(&self, #[in] hwndTarget: HWND, #[in] isTopmost: BOOL, #[out] #[out_ptr(null_on_failure)] result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
+            fn CreateDesktopWindowTarget(&self, #[in] hwndTarget: HWND, #[in] isTopmost: BOOL, #[out] #[out_ptr(null_on_failure)] #[retval] result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
             fn EnsureOnThread(&self, #[in] threadId: DWORD) -> HRESULT;
         }
         #[guid(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330)]
         interface ICompositorInterop: IUnknown {
-            fn CreateCompositionSurfaceForHandle(&self, #[in] swapChain: HANDLE, #[out] #[out_ptr(null_on_failure)] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
-            fn CreateCompositionSurfaceForSwapChain(&self, #[in] swapChain: IUnknown, #[out] #[out_ptr(null_on_failure)] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
-            fn CreateGraphicsDevice(&self, #[in] renderingDevice: IUnknown, #[out] #[out_ptr(null_on_failure)] result: *mut super::UI::Composition::ICompositionGraphicsDevice) -> HRESULT;
+            fn CreateCompositionSurfaceForHandle(&self, #[in] swapChain: HANDLE, #[out] #[out_ptr(null_on_failure)] #[retval] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateCompositionSurfaceForSwapChain(&self, #[in] swapChain: IUnknown, #[out] #[out_ptr(null_on_failure)] #[retval] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateGraphicsDevice(&self, #[in] renderingDevice: IUnknown, #[out] #[out_ptr(null_on_failure)] #[retval] result: *mut super::UI::Composition::ICompositionGraphicsDevice) -> HRESULT;
         }
         #[guid(0xd3eef34c_0667_4afc_8d13_867607b0fe91)]
         interface ICompositorInterop2: IUnknown {

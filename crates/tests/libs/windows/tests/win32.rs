@@ -219,10 +219,7 @@ fn onecore_imports() -> Result<()> {
         .ok()
         .unwrap_err();
 
-        let mut disassembly = None;
-        assert!(
-            D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0, &mut disassembly).is_err()
-        );
+        assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
 
         Ok(())
     }

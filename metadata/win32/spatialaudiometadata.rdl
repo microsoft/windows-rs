@@ -53,8 +53,8 @@ mod Windows {
         }
         #[guid(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1)]
         interface ISpatialAudioObjectRenderStreamForMetadata: ISpatialAudioObjectRenderStreamBase {
-            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
-            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
         }
         const SPATIAL_AUDIO_POSITION: i32 = 200;
         #[arch(X64 | Arm64)]
