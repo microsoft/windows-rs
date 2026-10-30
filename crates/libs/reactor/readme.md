@@ -15,8 +15,8 @@ Reactor is a preview; public APIs may change.
 windows-reactor = "0.100"
 ```
 
-Use the default features and an installed Windows App SDK runtime, or configure a
-[self-contained build](https://docs.rs/windows-reactor-setup).
+Apps use an installed Windows App Runtime by default. To ship the runtime with your app, configure
+a [self-contained build](https://docs.rs/windows-reactor-setup).
 
 ```rust,no_run
 use windows_reactor::*;
@@ -65,49 +65,68 @@ fn main() {
 }
 ```
 
-Run with `cargo run`. Events enqueue messages, `update` changes state, and `view` describes the
-controls for that state.
+Run it with `cargo run`. A click sends a message to `update`, which changes the state. Reactor
+then calls `view` again and updates only the controls that changed.
 
-## Grow the component
+## Showcase
 
-Declare editable values from state and send changes back as messages. Handle those messages in
-`update`, not in `view`. Reactor applies declared values without echoing its own writes as user
-edits; only properties you declare are controlled.
+Clone the repository and run these samples from its root.
 
-Use `View::component` for stateful children whose input implements `Clone + PartialEq`.
-Give movable items stable application keys, not list indices, so state and focus follow the item.
+### Gallery
 
-Updates and rendering run on the UI thread. Use `spawn_background` for blocking work,
-`set_timeout` for delayed messages, and effects for subscriptions tied to a component's lifetime.
-Workers return messages rather than touching controls.
+Browse WinUI controls built with Reactor.
 
-## Application lifetime and deployment
+```sh
+cargo run -p reactor-gallery
+```
 
-Use `App::run_application` when state must outlive individual windows. Its `ApplicationView`
-declares keyed windows and notification icons. Load saved placement before opening a window and
-save observations as they arrive.
+![Reactor gallery](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-gallery.png)
 
-For self-contained deployment, use `windows-reactor-setup` from `build.rs` and package the staged
-runtime alongside the executable. Otherwise the matching Windows App SDK runtime must be installed.
-Add `#![windows_subsystem = "windows"]` to hide the console; leave it visible while diagnosing
-startup.
+### Solitaire
 
-## Samples
+A complete game built from standard controls.
 
-| Sample | Shows |
-| --- | --- |
-| [Controlled input][controlled] | Editable state and callbacks |
-| [Effects][effects] | Subscription lifetime |
-| [Async state][async] | Background work |
-| [Notification icon][notifyicon] | Application and window lifetimes |
-| [Window placement][placement] | Persisted window bounds |
-| [Gallery][gallery] | Controls and navigation |
-| [Stacker][stacker] | Reactor, Canvas, and Composition together |
+```sh
+cargo run -p reactor-solitaire
+```
+
+![Solitaire](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-solitaire.png)
+
+### Stacker
+
+Reactor, Canvas, and Composition together.
+
+```sh
+cargo run -p reactor-stacker
+```
+
+![Stacker](https://raw.githubusercontent.com/microsoft/windows-rs/master/docs/reactor-stacker.png)
+
+## Next steps
+
+| To | Use | Sample |
+| --- | --- | --- |
+| Edit text and other values | Set the value from state, handle its change event in `update` | [Controlled input][controlled] |
+| Split the UI into parts | `View::component`, with input that implements `Clone + PartialEq` | [Component input][component] |
+| Keep state with list items | `KeyedView` with a stable key per item, not its index | [Keyed list][keyed] |
+| Run blocking work | `spawn_background`; the work returns a message | [Async state][async] |
+| Start and stop a subscription | `use_effect` | [Effects][effects] |
+| Add windows or a tray icon | `App::run_application` | [Notification icon][notifyicon] |
+| Remember window placement | `initial_placement` and `on_window_placement` | [Window placement][placement] |
+
+Updates and rendering run on the UI thread, so keep `update` and `view` quick.
+
+## Ship the app
+
+Add `#![windows_subsystem = "windows"]` to hide the console window; leave it visible while
+diagnosing startup. For a self-contained app, use
+[windows-reactor-setup](https://docs.rs/windows-reactor-setup) from `build.rs` and distribute the
+staged runtime files alongside the executable.
 
 [controlled]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/controlled
+[component]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/component-input
+[keyed]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/keyed-list-reorder
 [effects]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/use-effect
 [async]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/async-state
 [notifyicon]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/notifyicon
 [placement]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-placement-registry
-[gallery]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/gallery
-[stacker]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/stacker
