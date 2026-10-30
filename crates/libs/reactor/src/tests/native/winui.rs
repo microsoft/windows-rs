@@ -249,7 +249,7 @@ fn native_queue_expired_report_keeps_only_its_observation() {
 fn image_source_change_discards_only_queued_load_results() {
     let image = ObjectId::test(1);
     let other = ObjectId::test(2);
-    let queue = NativeEventQueue::default();
+    let queue = Rc::new(NativeEventQueue::default());
     let event = |object, event| QueuedEvent {
         object,
         event,
@@ -286,7 +286,7 @@ fn image_source_change_discards_only_queued_load_results() {
 fn replacement_discards_queued_reorders_without_callbacks() {
     let replaced = ObjectId::test(1);
     let other = ObjectId::test(2);
-    let queue = NativeEventQueue::default();
+    let queue = Rc::new(NativeEventQueue::default());
     let reorder = |object| Observation::Reorder {
         object,
         relation: RelationId::Items,
@@ -642,14 +642,14 @@ fn pointer_event_queue_preserves_payload_and_callback() {
         ..Default::default()
     };
 
-    assert!(WinUiAdapter::queue_event(
+    WinUiAdapter::dispatch(
         &event,
         &event_queue,
         object,
         EventId::PointerReleased,
         None,
         payload,
-    ));
+    );
     let queued = event_queue.events.borrow();
     assert_eq!(queued.len(), 1);
     let NativeEvent::Event {
@@ -679,14 +679,14 @@ fn queued_occurrences_follow_their_subscription() {
     let event = Rc::new(RefCell::new(NativeUnitEvent::default()));
     let mut adapter = WinUiAdapter::default();
     let queue = |adapter: &WinUiAdapter| {
-        assert!(WinUiAdapter::queue_event(
+        WinUiAdapter::dispatch(
             &event,
             &adapter.event_queue,
             object,
             EventId::Click,
             None,
             (),
-        ));
+        );
     };
     let delivered = |callback: &Callback<()>| {
         Some(NativeEvent::Event {

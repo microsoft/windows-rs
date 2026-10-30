@@ -9,25 +9,12 @@ impl WinUiAdapter {
         observation: Option<Observation>,
         value: T::Native,
     ) {
-        if Self::queue_event(event, event_queue, object, event_id, observation, value) {
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    pub(super) fn queue_event<T: EventArg>(
-        event: &Rc<RefCell<NativeValueEvent<T>>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: T::Native,
-    ) -> bool {
         let queued = event.borrow().handler(value).map(|handler| QueuedEvent {
             object,
             event: event_id,
             handler,
         });
-        event_queue.queue(observation, queued)
+        event_queue.queue(observation, queued);
     }
 
     pub(super) fn drag_kind(
@@ -118,7 +105,6 @@ impl WinUiAdapter {
                         handler: subscription.handler(value),
                     }),
                 );
-                Self::schedule_event_wake(&event_queue);
             }
             _ = deferral_for_handler.Complete();
         })?;
@@ -220,7 +206,6 @@ impl WinUiAdapter {
                 handler,
             }),
         );
-        Self::schedule_event_wake(event_queue);
     }
 
     pub(super) fn pointer_event_info(
@@ -398,37 +383,7 @@ impl WinUiAdapter {
 
     /// Records a native change Reactor caused through its own write, without a callback.
     pub(super) fn record(event_queue: &Rc<NativeEventQueue>, observation: Observation) {
-        event_queue
-            .events
-            .borrow_mut()
-            .push_back(NativeEvent::Record(observation));
-        Self::schedule_event_wake(event_queue);
-    }
-
-    pub(super) fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
-        if event_queue.waker.borrow().is_none() {
-            return;
-        }
-        if event_queue.wake_pending.replace(true) {
-            return;
-        }
-        let event_queue = Rc::clone(event_queue);
-        let queue = native::DispatcherQueue::GetForCurrentThread().unwrap();
-        let event_queue_for_handler = Rc::clone(&event_queue);
-        let handler = native::DispatcherQueueHandler::new(move || {
-            event_queue_for_handler.wake_pending.set(false);
-            let waker = event_queue_for_handler.waker.borrow().clone();
-            if let Some(waker) = waker {
-                waker();
-            }
-        });
-        // The dispatcher rejects work only once it is shutting down.
-        if !queue
-            .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)
-            .unwrap()
-        {
-            event_queue.wake_pending.set(false);
-        }
+        event_queue.push(NativeEvent::Record(observation));
     }
 
     pub(super) fn set_events(

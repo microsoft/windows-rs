@@ -616,11 +616,7 @@ impl WinUiAdapter {
         timer.SetIsRepeating(false)?;
         let event_queue = Rc::clone(&self.event_queue);
         let tick = timer.Tick(move |_, _| {
-            event_queue
-                .events
-                .borrow_mut()
-                .push_back(NativeEvent::Retirement(RetirementCompletion { root }));
-            Self::schedule_event_wake(&event_queue);
+            event_queue.push(NativeEvent::Retirement(RetirementCompletion { root }));
         })?;
         self.retirements.insert(
             root,

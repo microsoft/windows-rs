@@ -72,26 +72,49 @@ impl NativeEventQueue {
         })
     }
 
-    /// Queues an event occurrence with the state it reports, or the state alone. Returns false
-    /// when there is neither.
+    /// Queues native work and wakes the runtime to apply it.
+    pub(super) fn push(self: &Rc<Self>, event: QueuedNativeEvent) {
+        self.events.borrow_mut().push_back(event);
+        self.wake();
+    }
+
+    /// Queues an event occurrence with the state it reports, or the state alone.
     pub(super) fn queue(
-        &self,
+        self: &Rc<Self>,
         observation: Option<Observation>,
         event: Option<QueuedEvent>,
-    ) -> bool {
-        let Some(queued) = NativeEvent::report(observation, event) else {
-            return false;
-        };
-        self.events.borrow_mut().push_back(queued);
-        true
+    ) {
+        if let Some(queued) = NativeEvent::report(observation, event) {
+            self.push(queued);
+        }
     }
 
     pub(super) fn queue_realization(self: &Rc<Self>, request: RealizationRequest) {
-        let mut events = self.events.borrow_mut();
-        let request = coalesce_queued_realization(&mut events, request);
-        events.push_back(NativeEvent::Realization(request));
-        drop(events);
-        WinUiAdapter::schedule_event_wake(self);
+        let request = coalesce_queued_realization(&mut self.events.borrow_mut(), request);
+        self.push(NativeEvent::Realization(request));
+    }
+
+    /// Schedules one dispatcher callback to run the waker, if any, for the queued work.
+    pub(super) fn wake(self: &Rc<Self>) {
+        if self.waker.borrow().is_none() || self.wake_pending.replace(true) {
+            return;
+        }
+        let event_queue = Rc::clone(self);
+        let handler = native::DispatcherQueueHandler::new(move || {
+            event_queue.wake_pending.set(false);
+            let waker = event_queue.waker.borrow().clone();
+            if let Some(waker) = waker {
+                waker();
+            }
+        });
+        // The dispatcher rejects work only once it is shutting down.
+        if !native::DispatcherQueue::GetForCurrentThread()
+            .unwrap()
+            .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)
+            .unwrap()
+        {
+            self.wake_pending.set(false);
+        }
     }
 
     /// Applies the realizations at the front of the native queue before returning a realized
@@ -144,7 +167,7 @@ impl WinUiAdapter {
     pub fn set_event_waker(&mut self, waker: impl Fn() + 'static) {
         *self.event_queue.waker.borrow_mut() = Some(Rc::new(waker));
         if !self.event_queue.events.borrow().is_empty() {
-            Self::schedule_event_wake(&self.event_queue);
+            self.event_queue.wake();
         }
     }
 
