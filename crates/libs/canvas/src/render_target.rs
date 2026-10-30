@@ -14,14 +14,11 @@ impl RenderTarget {
         if width == 0 || height == 0 {
             return Err(Error::from_hresult(E_INVALIDARG));
         }
-        let mut context = None;
-        unsafe {
+        let context = unsafe {
             device
                 .d2d_device()
-                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut context)
-                .ok()?;
-        }
-        let context = context.unwrap();
+                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?
+        };
         let properties = D2D1_BITMAP_PROPERTIES1 {
             pixelFormat: D2D1_PIXEL_FORMAT {
                 format: DXGI_FORMAT_B8G8R8A8_UNORM,
@@ -32,21 +29,11 @@ impl RenderTarget {
             bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET,
             ..Default::default()
         };
-        let mut target = None;
-        unsafe {
-            context
-                .CreateBitmap(
-                    D2D_SIZE_U { width, height },
-                    None,
-                    0,
-                    &properties,
-                    &mut target,
-                )
-                .ok()?;
-        }
+        let target =
+            unsafe { context.CreateBitmap(D2D_SIZE_U { width, height }, None, 0, &properties)? };
         Ok(Self {
             context,
-            target: target.unwrap(),
+            target,
             device_lost_flag: Cell::new(false),
             width,
             height,
@@ -91,20 +78,15 @@ impl RenderTarget {
             ..Default::default()
         };
         unsafe {
-            let mut staging = None;
-            self.context
-                .CreateBitmap(
-                    D2D_SIZE_U {
-                        width: self.width,
-                        height: self.height,
-                    },
-                    None,
-                    0,
-                    &properties,
-                    &mut staging,
-                )
-                .ok()?;
-            let staging = staging.unwrap();
+            let staging = self.context.CreateBitmap(
+                D2D_SIZE_U {
+                    width: self.width,
+                    height: self.height,
+                },
+                None,
+                0,
+                &properties,
+            )?;
             staging.CopyFromBitmap(None, &self.target, None).ok()?;
             let mut mapped = D2D1_MAPPED_RECT::default();
             staging.Map(D2D1_MAP_OPTIONS_READ, &mut mapped).ok()?;

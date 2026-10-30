@@ -315,7 +315,7 @@ mod Windows {
             fn GetTexture(&self, #[in] pD3DDevice: IUnknown, #[in] #[opt] pID3DTextureOptions: IPropertyBag2, riid: &IID, #[out] #[out_ptr] ppTexture: *mut *mut void) -> HRESULT;
             fn GetTransformedTexture(&self, #[in] #[opt] prc: *const WICRect, uiWidth: UINT, uiHeight: UINT, #[in] #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, #[in] pD3DDevice: IUnknown, #[in] #[opt] pID3DTextureOptions: IPropertyBag2, riid: &IID, #[out] #[out_ptr] ppTexture: *mut *mut void) -> HRESULT;
             fn DoesSupportD3DDeviceType(&self, riid: &IID, #[out] pfIsSupported: *mut BOOL) -> HRESULT;
-            fn GetD3DTextureOptions(&self, #[out] #[out_ptr(null_on_failure)] ppID3DTextureOptions: *mut IPropertyBag2) -> HRESULT;
+            fn GetD3DTextureOptions(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppID3DTextureOptions: *mut IPropertyBag2) -> HRESULT;
         }
         #[guid(0x409cd537_8532_40cb_9774_e2feb2df4e9c)]
         interface IWICDdsDecoder: IUnknown {

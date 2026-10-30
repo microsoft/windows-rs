@@ -328,8 +328,8 @@ mod Windows {
         }
         #[guid(0x47dd575d_ac05_4cdd_8049_9b02cd16f44c)]
         interface ID2D1Device: ID2D1Resource {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext: *mut ID2D1DeviceContext) -> HRESULT;
-            fn CreatePrintControl(&self, #[in] wicFactory: IWICImagingFactory, #[in] documentTarget: *mut IPrintDocumentPackageTarget, #[in] #[opt] printControlProperties: *const D2D1_PRINT_CONTROL_PROPERTIES, #[out] #[out_ptr(null_on_failure)] printControl: *mut ID2D1PrintControl) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext: *mut ID2D1DeviceContext) -> HRESULT;
+            fn CreatePrintControl(&self, #[in] wicFactory: IWICImagingFactory, #[in] documentTarget: *mut IPrintDocumentPackageTarget, #[in] #[opt] printControlProperties: *const D2D1_PRINT_CONTROL_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] printControl: *mut ID2D1PrintControl) -> HRESULT;
             fn SetMaximumTextureMemory(&self, maximumInBytes: UINT64);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMaximumTextureMemory(&self) -> UINT64;
@@ -337,17 +337,17 @@ mod Windows {
         }
         #[guid(0xe8f7fe7a_191c_466d_ad95_975678bda998)]
         interface ID2D1DeviceContext: ID2D1RenderTarget {
-            fn CreateBitmap(&self, size: D2D1_SIZE_U, #[in] #[opt] sourceData: *const void, pitch: UINT32, #[in] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
-            fn CreateBitmapFromWicBitmap(&self, #[in] wicBitmapSource: IWICBitmapSource, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
-            fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, #[in] #[opt] #[readable(entry, profileSize)] profile: *const BYTE, profileSize: UINT32, #[out] #[out_ptr(null_on_failure)] colorContext: *mut ID2D1ColorContext) -> HRESULT;
-            fn CreateColorContextFromFilename(&self, #[in] filename: PCWSTR, #[out] #[out_ptr(null_on_failure)] colorContext: *mut ID2D1ColorContext) -> HRESULT;
-            fn CreateColorContextFromWicColorContext(&self, #[in] wicColorContext: IWICColorContext, #[out] #[out_ptr(null_on_failure)] colorContext: *mut ID2D1ColorContext) -> HRESULT;
-            fn CreateBitmapFromDxgiSurface(&self, #[in] surface: IDXGISurface, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
-            fn CreateEffect(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] effect: *mut ID2D1Effect) -> HRESULT;
-            fn CreateGradientStopCollection(&self, #[in] #[readable(entry, straightAlphaGradientStopsCount)] straightAlphaGradientStops: *const D2D1_GRADIENT_STOP, #[range(entry, >=1)] straightAlphaGradientStopsCount: UINT32, preInterpolationSpace: D2D1_COLOR_SPACE, postInterpolationSpace: D2D1_COLOR_SPACE, bufferPrecision: D2D1_BUFFER_PRECISION, extendMode: D2D1_EXTEND_MODE, colorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE, #[out] #[out_ptr(null_on_failure)] gradientStopCollection1: *mut ID2D1GradientStopCollection1) -> HRESULT;
-            fn CreateImageBrush(&self, #[in] #[opt] image: ID2D1Image, #[in] imageBrushProperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] imageBrush: *mut ID2D1ImageBrush) -> HRESULT;
-            fn CreateBitmapBrush(&self, #[in] #[opt] bitmap: ID2D1Bitmap, #[in] #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] bitmapBrush: *mut ID2D1BitmapBrush1) -> HRESULT;
-            fn CreateCommandList(&self, #[out] #[out_ptr(null_on_failure)] commandList: *mut ID2D1CommandList) -> HRESULT;
+            fn CreateBitmap(&self, size: D2D1_SIZE_U, #[in] #[opt] sourceData: *const void, pitch: UINT32, #[in] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
+            fn CreateBitmapFromWicBitmap(&self, #[in] wicBitmapSource: IWICBitmapSource, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
+            fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, #[in] #[opt] #[readable(entry, profileSize)] profile: *const BYTE, profileSize: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] colorContext: *mut ID2D1ColorContext) -> HRESULT;
+            fn CreateColorContextFromFilename(&self, #[in] filename: PCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] colorContext: *mut ID2D1ColorContext) -> HRESULT;
+            fn CreateColorContextFromWicColorContext(&self, #[in] wicColorContext: IWICColorContext, #[out] #[out_ptr(null_on_failure)] #[retval] colorContext: *mut ID2D1ColorContext) -> HRESULT;
+            fn CreateBitmapFromDxgiSurface(&self, #[in] surface: IDXGISurface, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES1, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap1) -> HRESULT;
+            fn CreateEffect(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] #[retval] effect: *mut ID2D1Effect) -> HRESULT;
+            fn CreateGradientStopCollection(&self, #[in] #[readable(entry, straightAlphaGradientStopsCount)] straightAlphaGradientStops: *const D2D1_GRADIENT_STOP, #[range(entry, >=1)] straightAlphaGradientStopsCount: UINT32, preInterpolationSpace: D2D1_COLOR_SPACE, postInterpolationSpace: D2D1_COLOR_SPACE, bufferPrecision: D2D1_BUFFER_PRECISION, extendMode: D2D1_EXTEND_MODE, colorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] gradientStopCollection1: *mut ID2D1GradientStopCollection1) -> HRESULT;
+            fn CreateImageBrush(&self, #[in] #[opt] image: ID2D1Image, #[in] imageBrushProperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] imageBrush: *mut ID2D1ImageBrush) -> HRESULT;
+            fn CreateBitmapBrush(&self, #[in] #[opt] bitmap: ID2D1Bitmap, #[in] #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmapBrush: *mut ID2D1BitmapBrush1) -> HRESULT;
+            fn CreateCommandList(&self, #[out] #[out_ptr(null_on_failure)] #[retval] commandList: *mut ID2D1CommandList) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn IsDxgiFormatSupported(&self, format: DXGI_FORMAT) -> BOOL;
             #[Windows::Win32::Metadata::NativeConstMethod]
@@ -402,18 +402,18 @@ mod Windows {
         }
         #[guid(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f)]
         interface ID2D1Factory1: ID2D1Factory {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice: *mut ID2D1Device) -> HRESULT;
-            fn CreateStrokeStyle(&self, #[in] strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES1, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] strokeStyle: *mut ID2D1StrokeStyle1) -> HRESULT;
-            fn CreatePathGeometry(&self, #[out] #[out_ptr(null_on_failure)] pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
-            fn CreateDrawingStateBlock(&self, #[in] #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, #[in] #[opt] textRenderingParams: IDWriteRenderingParams, #[out] #[out_ptr(null_on_failure)] drawingStateBlock: *mut ID2D1DrawingStateBlock1) -> HRESULT;
-            fn CreateGdiMetafile(&self, #[in] metafileStream: IStream, #[out] #[out_ptr(null_on_failure)] metafile: *mut ID2D1GdiMetafile) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice: *mut ID2D1Device) -> HRESULT;
+            fn CreateStrokeStyle(&self, #[in] strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES1, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] strokeStyle: *mut ID2D1StrokeStyle1) -> HRESULT;
+            fn CreatePathGeometry(&self, #[out] #[out_ptr(null_on_failure)] #[retval] pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
+            fn CreateDrawingStateBlock(&self, #[in] #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, #[in] #[opt] textRenderingParams: IDWriteRenderingParams, #[out] #[out_ptr(null_on_failure)] #[retval] drawingStateBlock: *mut ID2D1DrawingStateBlock1) -> HRESULT;
+            fn CreateGdiMetafile(&self, #[in] metafileStream: IStream, #[out] #[out_ptr(null_on_failure)] #[retval] metafile: *mut ID2D1GdiMetafile) -> HRESULT;
             fn RegisterEffectFromStream(&self, #[in] classId: &IID, #[in] propertyXml: IStream, #[in] #[opt] #[readable(entry, bindingsCount)] bindings: *const D2D1_PROPERTY_BINDING, bindingsCount: UINT32, #[in] effectFactory: PD2D1_EFFECT_FACTORY) -> HRESULT;
             fn RegisterEffectFromString(&self, #[in] classId: &IID, #[in] propertyXml: PCWSTR, #[in] #[opt] #[readable(entry, bindingsCount)] bindings: *const D2D1_PROPERTY_BINDING, bindingsCount: UINT32, #[in] effectFactory: PD2D1_EFFECT_FACTORY) -> HRESULT;
             fn UnregisterEffect(&self, #[in] classId: &IID) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetRegisteredEffects(&self, #[opt] #[out] #[readable(success, if_present(*effectsReturned))] #[writable(entry, effectsCount)] effects: *mut CLSID, effectsCount: UINT32, #[opt] #[out] effectsReturned: *mut UINT32, #[opt] #[out] effectsRegistered: *mut UINT32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetEffectProperties(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] properties: *mut ID2D1Properties) -> HRESULT;
+            fn GetEffectProperties(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] #[retval] properties: *mut ID2D1Properties) -> HRESULT;
         }
         #[guid(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395)]
         interface ID2D1GdiMetafile: ID2D1Resource {

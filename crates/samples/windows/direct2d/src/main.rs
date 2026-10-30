@@ -300,9 +300,7 @@ fn main() -> windows::core::Result<()> {
                 ..Default::default()
             };
 
-            let mut bitmap = None;
-            unsafe { target.CreateBitmap(size_u, None, 0, &properties, &mut bitmap) }.ok()?;
-            Ok(bitmap.unwrap())
+            unsafe { target.CreateBitmap(size_u, None, 0, &properties) }
         }
 
         fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -387,16 +385,12 @@ fn main() -> windows::core::Result<()> {
             transform: Matrix3x2::identity(),
         };
 
-        let mut brush = None;
-        unsafe { target.CreateSolidColorBrush(&color, Some(&properties), &mut brush) }.ok()?;
-        Ok(brush.unwrap())
+        unsafe { target.CreateSolidColorBrush(&color, Some(&properties)) }
     }
 
     fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
         unsafe {
-            let mut shadow = None;
-            target.CreateEffect(&CLSID_D2D1Shadow, &mut shadow).ok()?;
-            let shadow = shadow.unwrap();
+            let shadow = target.CreateEffect(&CLSID_D2D1Shadow)?;
 
             shadow.SetInput(0, clock, true);
             Ok(shadow)
@@ -429,9 +423,7 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        let mut style = None;
-        unsafe { factory.CreateStrokeStyle(&props, None, &mut style) }.ok()?;
-        Ok(style.unwrap())
+        unsafe { factory.CreateStrokeStyle(&props, None) }
     }
 
     fn create_transition() -> Result<Transition> {
@@ -480,17 +472,9 @@ fn main() -> windows::core::Result<()> {
         device: &ID3D11Device,
     ) -> Result<ID2D1DeviceContext> {
         unsafe {
-            let mut d2device = None;
-            factory
-                .CreateDevice(&device.cast::<IDXGIDevice>()?, &mut d2device)
-                .ok()?;
-            let d2device = d2device.unwrap();
+            let d2device = factory.CreateDevice(&device.cast::<IDXGIDevice>()?)?;
 
-            let mut target = None;
-            d2device
-                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut target)
-                .ok()?;
-            let target = target.unwrap();
+            let target = d2device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
             target.SetUnitMode(D2D1_UNIT_MODE_DIPS);
 
@@ -500,11 +484,7 @@ fn main() -> windows::core::Result<()> {
 
     fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
         let dxdevice = device.cast::<IDXGIDevice>()?;
-        let mut adapter = None;
-        unsafe {
-            dxdevice.GetAdapter(&mut adapter).ok()?;
-            adapter.unwrap().GetParent()
-        }
+        unsafe { dxdevice.GetAdapter()?.GetParent() }
     }
 
     fn create_swapchain_bitmap(
@@ -525,11 +505,8 @@ fn main() -> windows::core::Result<()> {
         };
 
         unsafe {
-            let mut bitmap = None;
-            target
-                .CreateBitmapFromDxgiSurface(&surface, Some(&props), &mut bitmap)
-                .ok()?;
-            target.SetTarget(&bitmap.unwrap());
+            let bitmap = target.CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
+            target.SetTarget(&bitmap);
         };
 
         Ok(())
@@ -550,12 +527,7 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        let mut swapchain = None;
-        unsafe {
-            factory.CreateSwapChainForHwnd(device, window, &props, None, None, &mut swapchain)
-        }
-        .ok()?;
-        Ok(swapchain.unwrap())
+        unsafe { factory.CreateSwapChainForHwnd(device, window, &props, None, None) }
     }
 
     unsafe {

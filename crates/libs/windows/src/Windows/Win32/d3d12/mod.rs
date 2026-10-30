@@ -13768,8 +13768,11 @@ impl core::ops::Deref for ID3D12DeviceTools1 {
 windows_core::imp::interface_hierarchy!(ID3D12DeviceTools1, windows_core::IUnknown, ID3D12DeviceTools);
 impl ID3D12DeviceTools1 {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetApplicationSpecificDriverState(&self, ppblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), core::mem::transmute(ppblob)) }
+    pub unsafe fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS {
         unsafe { (windows_core::Interface::vtable(self).GetApplicationSpecificDriverBlobStatus)(windows_core::Interface::as_raw(self)) }
@@ -13787,7 +13790,7 @@ pub struct ID3D12DeviceTools1_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12DeviceTools1_Impl: ID3D12DeviceTools_Impl {
-    fn GetApplicationSpecificDriverState(&self, ppblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
+    fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob>;
     fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS;
 }
 #[cfg(feature = "d3dcommon")]
@@ -13796,7 +13799,16 @@ impl ID3D12DeviceTools1_Vtbl {
         unsafe extern "system" fn GetApplicationSpecificDriverState<Identity: ID3D12DeviceTools1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppblob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverState(this, core::mem::transmute_copy(&ppblob)).into()
+                match ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverState(this) {
+                    Ok(ok__) => {
+                        ppblob.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppblob.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn GetApplicationSpecificDriverBlobStatus<Identity: ID3D12DeviceTools1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS {
@@ -17260,8 +17272,11 @@ impl core::ops::Deref for ID3D12PipelineState {
 windows_core::imp::interface_hierarchy!(ID3D12PipelineState, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12PipelineState {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetCachedBlob(&self, ppblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(ppblob)) }
+    pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -17275,7 +17290,7 @@ pub struct ID3D12PipelineState_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "guiddef", feature = "shared"))]
 pub trait ID3D12PipelineState_Impl: ID3D12Pageable_Impl {
-    fn GetCachedBlob(&self, ppblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
+    fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob>;
 }
 #[cfg(all(feature = "d3dcommon", feature = "guiddef", feature = "shared"))]
 impl ID3D12PipelineState_Vtbl {
@@ -17283,7 +17298,16 @@ impl ID3D12PipelineState_Vtbl {
         unsafe extern "system" fn GetCachedBlob<Identity: ID3D12PipelineState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppblob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12PipelineState_Impl::GetCachedBlob(this, core::mem::transmute_copy(&ppblob)).into()
+                match ID3D12PipelineState_Impl::GetCachedBlob(this) {
+                    Ok(ok__) => {
+                        ppblob.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppblob.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetCachedBlob: GetCachedBlob::<Identity, OFFSET> }

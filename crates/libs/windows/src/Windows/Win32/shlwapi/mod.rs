@@ -1376,9 +1376,12 @@ pub unsafe fn SHGetInverseCMAP(pbmap: *mut super::BYTE, cbmap: super::ULONG) -> 
     unsafe { SHGetInverseCMAP(pbmap as _, cbmap) }
 }
 #[inline]
-pub unsafe fn SHGetThreadRef(ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+pub unsafe fn SHGetThreadRef() -> windows_core::Result<windows_core::IUnknown> {
     windows_core::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetThreadRef(core::mem::transmute(ppunk)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SHGetThreadRef(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]

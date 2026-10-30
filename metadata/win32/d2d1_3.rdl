@@ -160,69 +160,69 @@ mod Windows {
         }
         #[guid(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b)]
         interface ID2D1Device2: ID2D1Device1 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext2: *mut ID2D1DeviceContext2) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext2: *mut ID2D1DeviceContext2) -> HRESULT;
             fn FlushDeviceContexts(&self, #[in] bitmap: ID2D1Bitmap);
-            fn GetDxgiDevice(&self, #[out] #[out_ptr(null_on_failure)] dxgiDevice: *mut IDXGIDevice) -> HRESULT;
+            fn GetDxgiDevice(&self, #[out] #[out_ptr(null_on_failure)] #[retval] dxgiDevice: *mut IDXGIDevice) -> HRESULT;
         }
         #[guid(0x852f2087_802c_4037_ab60_ff2e7ee6fc01)]
         interface ID2D1Device3: ID2D1Device2 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext3: *mut ID2D1DeviceContext3) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext3: *mut ID2D1DeviceContext3) -> HRESULT;
         }
         #[guid(0xd7bdb159_5683_4a46_bc9c_72dc720b858b)]
         interface ID2D1Device4: ID2D1Device3 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext4: *mut ID2D1DeviceContext4) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext4: *mut ID2D1DeviceContext4) -> HRESULT;
             fn SetMaximumColorGlyphCacheMemory(&self, maximumInBytes: UINT64);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMaximumColorGlyphCacheMemory(&self) -> UINT64;
         }
         #[guid(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4)]
         interface ID2D1Device5: ID2D1Device4 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext5: *mut ID2D1DeviceContext5) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext5: *mut ID2D1DeviceContext5) -> HRESULT;
         }
         #[guid(0x7bfef914_2d75_4bad_be87_e18ddb077b6d)]
         interface ID2D1Device6: ID2D1Device5 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext6: *mut ID2D1DeviceContext6) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext6: *mut ID2D1DeviceContext6) -> HRESULT;
         }
         #[guid(0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb)]
         interface ID2D1Device7: ID2D1Device6 {
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext: *mut ID2D1DeviceContext7) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext: *mut ID2D1DeviceContext7) -> HRESULT;
         }
         #[guid(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7)]
         interface ID2D1DeviceContext2: ID2D1DeviceContext1 {
-            fn CreateInk(&self, #[in] startPoint: *const D2D1_INK_POINT, #[out] #[out_ptr(null_on_failure)] ink: *mut ID2D1Ink) -> HRESULT;
-            fn CreateInkStyle(&self, #[in] #[opt] inkStyleProperties: *const D2D1_INK_STYLE_PROPERTIES, #[out] #[out_ptr(null_on_failure)] inkStyle: *mut ID2D1InkStyle) -> HRESULT;
-            fn CreateGradientMesh(&self, #[in] #[readable(entry, patchesCount)] patches: *const D2D1_GRADIENT_MESH_PATCH, patchesCount: UINT32, #[out] #[out_ptr(null_on_failure)] gradientMesh: *mut ID2D1GradientMesh) -> HRESULT;
-            fn CreateImageSourceFromWic(&self, #[in] wicBitmapSource: IWICBitmapSource, loadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphaMode: D2D1_ALPHA_MODE, #[out] #[out_ptr(null_on_failure)] imageSource: *mut ID2D1ImageSourceFromWic) -> HRESULT;
-            fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, #[in] #[readable(entry, 3)] extents: *const UINT32, #[in] #[readable(entry, dataCount)] data: *const BYTE, dataCount: UINT32, #[in] #[readable(entry, 2)] strides: *const UINT32, #[out] #[out_ptr(null_on_failure)] lookupTable: *mut ID2D1LookupTable3D) -> HRESULT;
-            fn CreateImageSourceFromDxgi(&self, #[in] #[readable(entry, surfaceCount)] surfaces: *mut IDXGISurface, surfaceCount: UINT32, colorSpace: DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, #[out] #[out_ptr(null_on_failure)] imageSource: *mut ID2D1ImageSource) -> HRESULT;
+            fn CreateInk(&self, #[in] startPoint: *const D2D1_INK_POINT, #[out] #[out_ptr(null_on_failure)] #[retval] ink: *mut ID2D1Ink) -> HRESULT;
+            fn CreateInkStyle(&self, #[in] #[opt] inkStyleProperties: *const D2D1_INK_STYLE_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] inkStyle: *mut ID2D1InkStyle) -> HRESULT;
+            fn CreateGradientMesh(&self, #[in] #[readable(entry, patchesCount)] patches: *const D2D1_GRADIENT_MESH_PATCH, patchesCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] gradientMesh: *mut ID2D1GradientMesh) -> HRESULT;
+            fn CreateImageSourceFromWic(&self, #[in] wicBitmapSource: IWICBitmapSource, loadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphaMode: D2D1_ALPHA_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] imageSource: *mut ID2D1ImageSourceFromWic) -> HRESULT;
+            fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, #[in] #[readable(entry, 3)] extents: *const UINT32, #[in] #[readable(entry, dataCount)] data: *const BYTE, dataCount: UINT32, #[in] #[readable(entry, 2)] strides: *const UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] lookupTable: *mut ID2D1LookupTable3D) -> HRESULT;
+            fn CreateImageSourceFromDxgi(&self, #[in] #[readable(entry, surfaceCount)] surfaces: *mut IDXGISurface, surfaceCount: UINT32, colorSpace: DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] imageSource: *mut ID2D1ImageSource) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetGradientMeshWorldBounds(&self, #[in] gradientMesh: ID2D1GradientMesh, #[out] pBounds: *mut D2D1_RECT_F) -> HRESULT;
             fn DrawInk(&self, #[in] ink: ID2D1Ink, #[in] brush: ID2D1Brush, #[in] #[opt] inkStyle: ID2D1InkStyle);
             fn DrawGradientMesh(&self, #[in] gradientMesh: ID2D1GradientMesh);
             fn DrawGdiMetafile(&self, #[in] gdiMetafile: ID2D1GdiMetafile, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, #[in] #[opt] sourceRectangle: *const D2D1_RECT_F);
-            fn CreateTransformedImageSource(&self, #[in] imageSource: ID2D1ImageSource, #[in] properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, #[out] #[out_ptr(null_on_failure)] transformedImageSource: *mut ID2D1TransformedImageSource) -> HRESULT;
+            fn CreateTransformedImageSource(&self, #[in] imageSource: ID2D1ImageSource, #[in] properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] transformedImageSource: *mut ID2D1TransformedImageSource) -> HRESULT;
         }
         #[guid(0x235a7496_8351_414c_bcd4_6672ab2d8e00)]
         interface ID2D1DeviceContext3: ID2D1DeviceContext2 {
-            fn CreateSpriteBatch(&self, #[out] #[out_ptr(null_on_failure)] spriteBatch: *mut ID2D1SpriteBatch) -> HRESULT;
+            fn CreateSpriteBatch(&self, #[out] #[out_ptr(null_on_failure)] #[retval] spriteBatch: *mut ID2D1SpriteBatch) -> HRESULT;
             fn DrawSpriteBatch(&self, #[in] spriteBatch: ID2D1SpriteBatch, startIndex: UINT32, spriteCount: UINT32, #[in] bitmap: ID2D1Bitmap, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, spriteOptions: D2D1_SPRITE_OPTIONS);
         }
         #[guid(0x8c427831_3d90_4476_b647_c4fae349e4db)]
         interface ID2D1DeviceContext4: ID2D1DeviceContext3 {
-            fn CreateSvgGlyphStyle(&self, #[out] #[out_ptr(null_on_failure)] svgGlyphStyle: *mut ID2D1SvgGlyphStyle) -> HRESULT;
+            fn CreateSvgGlyphStyle(&self, #[out] #[out_ptr(null_on_failure)] #[retval] svgGlyphStyle: *mut ID2D1SvgGlyphStyle) -> HRESULT;
             fn DrawText(&self, #[in] #[readable(entry, stringLength)] string: *const WCHAR, stringLength: UINT32, #[in] textFormat: IDWriteTextFormat, #[in] layoutRect: *const D2D1_RECT_F, #[in] #[opt] defaultFillBrush: ID2D1Brush, #[in] #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: UINT32, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
             fn DrawTextLayout(&self, origin: D2D1_POINT_2F, #[in] textLayout: IDWriteTextLayout, #[in] #[opt] defaultFillBrush: ID2D1Brush, #[in] #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: UINT32, options: D2D1_DRAW_TEXT_OPTIONS);
             fn DrawColorBitmapGlyphRun(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
             fn DrawSvgGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] defaultFillBrush: ID2D1Brush, #[in] #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: UINT32, measuringMode: DWRITE_MEASURING_MODE);
-            fn GetColorBitmapGlyphImage(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphOrigin: D2D1_POINT_2F, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, glyphIndex: UINT16, isSideways: BOOL, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, dpiX: FLOAT, dpiY: FLOAT, #[out] glyphTransform: *mut D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] glyphImage: *mut ID2D1Image) -> HRESULT;
-            fn GetSvgGlyphImage(&self, glyphOrigin: D2D1_POINT_2F, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, glyphIndex: UINT16, isSideways: BOOL, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, #[in] #[opt] defaultFillBrush: ID2D1Brush, #[in] #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: UINT32, #[out] glyphTransform: *mut D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] glyphImage: *mut ID2D1CommandList) -> HRESULT;
+            fn GetColorBitmapGlyphImage(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphOrigin: D2D1_POINT_2F, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, glyphIndex: UINT16, isSideways: BOOL, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, dpiX: FLOAT, dpiY: FLOAT, #[out] glyphTransform: *mut D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] #[retval] glyphImage: *mut ID2D1Image) -> HRESULT;
+            fn GetSvgGlyphImage(&self, glyphOrigin: D2D1_POINT_2F, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, glyphIndex: UINT16, isSideways: BOOL, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, #[in] #[opt] defaultFillBrush: ID2D1Brush, #[in] #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: UINT32, #[out] glyphTransform: *mut D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] #[retval] glyphImage: *mut ID2D1CommandList) -> HRESULT;
         }
         #[guid(0x7836d248_68cc_4df6_b9e8_de991bf62eb7)]
         interface ID2D1DeviceContext5: ID2D1DeviceContext4 {
-            fn CreateSvgDocument(&self, #[in] #[opt] inputXmlStream: IStream, viewportSize: D2D1_SIZE_F, #[out] #[out_ptr(null_on_failure)] svgDocument: *mut ID2D1SvgDocument) -> HRESULT;
+            fn CreateSvgDocument(&self, #[in] #[opt] inputXmlStream: IStream, viewportSize: D2D1_SIZE_F, #[out] #[out_ptr(null_on_failure)] #[retval] svgDocument: *mut ID2D1SvgDocument) -> HRESULT;
             fn DrawSvgDocument(&self, #[in] svgDocument: ID2D1SvgDocument);
-            fn CreateColorContextFromDxgiColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE, #[out] #[out_ptr(null_on_failure)] colorContext: *mut ID2D1ColorContext1) -> HRESULT;
-            fn CreateColorContextFromSimpleColorProfile(&self, #[in] simpleProfile: *const D2D1_SIMPLE_COLOR_PROFILE, #[out] #[out_ptr(null_on_failure)] colorContext: *mut ID2D1ColorContext1) -> HRESULT;
+            fn CreateColorContextFromDxgiColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE, #[out] #[out_ptr(null_on_failure)] #[retval] colorContext: *mut ID2D1ColorContext1) -> HRESULT;
+            fn CreateColorContextFromSimpleColorProfile(&self, #[in] simpleProfile: *const D2D1_SIMPLE_COLOR_PROFILE, #[out] #[out_ptr(null_on_failure)] #[retval] colorContext: *mut ID2D1ColorContext1) -> HRESULT;
         }
         #[guid(0x985f7e37_4ed0_4a19_98a3_15b0edfde306)]
         interface ID2D1DeviceContext6: ID2D1DeviceContext5 {
@@ -236,27 +236,27 @@ mod Windows {
         }
         #[guid(0x0869759f_4f00_413f_b03e_2bda45404d0f)]
         interface ID2D1Factory3: ID2D1Factory2 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice2: *mut ID2D1Device2) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice2: *mut ID2D1Device2) -> HRESULT;
         }
         #[guid(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096)]
         interface ID2D1Factory4: ID2D1Factory3 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice3: *mut ID2D1Device3) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice3: *mut ID2D1Device3) -> HRESULT;
         }
         #[guid(0xc4349994_838e_4b0f_8cab_44997d9eeacc)]
         interface ID2D1Factory5: ID2D1Factory4 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice4: *mut ID2D1Device4) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice4: *mut ID2D1Device4) -> HRESULT;
         }
         #[guid(0xf9976f46_f642_44c1_97ca_da32ea2a2635)]
         interface ID2D1Factory6: ID2D1Factory5 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice5: *mut ID2D1Device5) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice5: *mut ID2D1Device5) -> HRESULT;
         }
         #[guid(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de)]
         interface ID2D1Factory7: ID2D1Factory6 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice6: *mut ID2D1Device6) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice6: *mut ID2D1Device6) -> HRESULT;
         }
         #[guid(0x677c9311_f36d_4b1f_ae86_86d1223ffd3a)]
         interface ID2D1Factory8: ID2D1Factory7 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice6: *mut ID2D1Device7) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice6: *mut ID2D1Device7) -> HRESULT;
         }
         #[guid(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df)]
         interface ID2D1GdiMetafile1: ID2D1GdiMetafile {

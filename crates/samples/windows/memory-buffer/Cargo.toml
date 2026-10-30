@@ -8,6 +8,7 @@ publish = false
 windows = { workspace = true, default-features = true, features = [
     "Foundation",
     "memorybuffer",
+    "shared",
 ] }
 
 [lints]

@@ -9,7 +9,7 @@ mod Windows {
             AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT = 3,
         }
         #[library("MMDevAPI.DLL")]
-        extern fn ActivateAudioInterfaceAsync(#[in] deviceInterfacePath: LPCWSTR, #[in] riid: &IID, #[in] #[opt] activationParams: *mut PROPVARIANT, #[in] completionHandler: IActivateAudioInterfaceCompletionHandler, #[out] #[out_ptr(null_on_failure)] activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
+        extern fn ActivateAudioInterfaceAsync(#[in] deviceInterfacePath: LPCWSTR, #[in] riid: &IID, #[in] #[opt] activationParams: *mut PROPVARIANT, #[in] completionHandler: IActivateAudioInterfaceCompletionHandler, #[out] #[out_ptr(null_on_failure)] #[retval] activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
         struct AudioExtensionParams {
             AddPageParam: LPARAM,
             pEndpoint: IMMDevice,
@@ -77,9 +77,9 @@ mod Windows {
         }
         #[guid(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a)]
         interface IAudioSystemEffectsPropertyStore: IUnknown {
-            fn OpenDefaultPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] propStore: *mut IPropertyStore) -> HRESULT;
-            fn OpenUserPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] propStore: *mut IPropertyStore) -> HRESULT;
-            fn OpenVolatilePropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenDefaultPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenUserPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenVolatilePropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
             fn ResetUserPropertyStore(&self) -> HRESULT;
             fn ResetVolatilePropertyStore(&self) -> HRESULT;
             fn RegisterPropertyChangeNotification(&self, #[in] callback: IAudioSystemEffectsPropertyChangeNotificationClient) -> HRESULT;

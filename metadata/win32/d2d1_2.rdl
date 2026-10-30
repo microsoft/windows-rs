@@ -17,17 +17,17 @@ mod Windows {
         interface ID2D1Device1: ID2D1Device {
             fn GetRenderingPriority(&self) -> D2D1_RENDERING_PRIORITY;
             fn SetRenderingPriority(&self, renderingPriority: D2D1_RENDERING_PRIORITY);
-            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] deviceContext1: *mut ID2D1DeviceContext1) -> HRESULT;
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext1: *mut ID2D1DeviceContext1) -> HRESULT;
         }
         #[guid(0xd37f57e4_6908_459f_a199_e72f24f79987)]
         interface ID2D1DeviceContext1: ID2D1DeviceContext {
-            fn CreateFilledGeometryRealization(&self, #[in] geometry: ID2D1Geometry, flatteningTolerance: FLOAT, #[out] #[out_ptr(null_on_failure)] geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
-            fn CreateStrokedGeometryRealization(&self, #[in] geometry: ID2D1Geometry, flatteningTolerance: FLOAT, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle, #[out] #[out_ptr(null_on_failure)] geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
+            fn CreateFilledGeometryRealization(&self, #[in] geometry: ID2D1Geometry, flatteningTolerance: FLOAT, #[out] #[out_ptr(null_on_failure)] #[retval] geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
+            fn CreateStrokedGeometryRealization(&self, #[in] geometry: ID2D1Geometry, flatteningTolerance: FLOAT, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle, #[out] #[out_ptr(null_on_failure)] #[retval] geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
             fn DrawGeometryRealization(&self, #[in] geometryRealization: ID2D1GeometryRealization, #[in] brush: ID2D1Brush);
         }
         #[guid(0x94f81a73_9212_4376_9c58_b16a3a0d3992)]
         interface ID2D1Factory2: ID2D1Factory1 {
-            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] d2dDevice1: *mut ID2D1Device1) -> HRESULT;
+            fn CreateDevice(&self, #[in] dxgiDevice: IDXGIDevice, #[out] #[out_ptr(null_on_failure)] #[retval] d2dDevice1: *mut ID2D1Device1) -> HRESULT;
         }
         #[guid(0xa16907d7_bc02_4801_99e8_8cf7f485f774)]
         interface ID2D1GeometryRealization: ID2D1Resource {}

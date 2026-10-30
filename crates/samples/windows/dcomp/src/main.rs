@@ -152,14 +152,9 @@ fn main() -> windows::core::Result<()> {
                 target.SetRoot(&root_visual).ok()?;
                 self.target = Some(target);
 
-                let mut dc = None;
-                device_2d
-                    .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut dc)
-                    .ok()?;
-                let dc = dc.unwrap();
+                let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
-                let mut brush = None;
-                dc.CreateSolidColorBrush(
+                let brush = dc.CreateSolidColorBrush(
                     &D2D_COLOR_F {
                         r: 0.0,
                         g: 0.0,
@@ -167,15 +162,9 @@ fn main() -> windows::core::Result<()> {
                         a: 1.0,
                     },
                     None,
-                    &mut brush,
-                )
-                .ok()?;
-                let brush = brush.unwrap();
+                )?;
 
-                let mut bitmap = None;
-                dc.CreateBitmapFromWicBitmap(&self.image, None, &mut bitmap)
-                    .ok()?;
-                let bitmap = bitmap.unwrap();
+                let bitmap = dc.CreateBitmapFromWicBitmap(&self.image, None)?;
                 let width = logical_to_physical(CARD_WIDTH, self.dpi.0);
                 let height = logical_to_physical(CARD_HEIGHT, self.dpi.1);
 
@@ -445,29 +434,18 @@ fn main() -> windows::core::Result<()> {
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let mut factory = None;
-            DWriteCreateFactory(
-                DWRITE_FACTORY_TYPE_SHARED,
-                &IDWriteFactory2::IID,
-                &mut factory,
-            )
-            .ok()?;
-            let factory: IDWriteFactory2 = factory.unwrap().cast()?;
+            let factory: IDWriteFactory2 =
+                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
 
-            let mut format = None;
-            factory
-                .CreateTextFormat(
-                    w!("Candara").as_ptr(),
-                    None,
-                    DWRITE_FONT_WEIGHT_NORMAL,
-                    DWRITE_FONT_STYLE_NORMAL,
-                    DWRITE_FONT_STRETCH_NORMAL,
-                    CARD_HEIGHT / 2.0,
-                    w!("en").as_ptr(),
-                    &mut format,
-                )
-                .ok()?;
-            let format = format.unwrap();
+            let format = factory.CreateTextFormat(
+                w!("Candara").as_ptr(),
+                None,
+                DWRITE_FONT_WEIGHT_NORMAL,
+                DWRITE_FONT_STYLE_NORMAL,
+                DWRITE_FONT_STRETCH_NORMAL,
+                CARD_HEIGHT / 2.0,
+                w!("en").as_ptr(),
+            )?;
 
             format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER).ok()?;
             format

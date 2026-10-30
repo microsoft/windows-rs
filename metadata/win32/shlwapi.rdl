@@ -684,7 +684,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHGetInverseCMAP(#[out] #[writable(entry, bytes(cbMap))] pbMap: *mut BYTE, cbMap: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetThreadRef(#[out] #[out_ptr(null_on_failure)] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHGetThreadRef(#[out] #[out_ptr(null_on_failure)] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHGetValueA(#[in] hkey: HKEY, #[in] #[opt] pszSubKey: LPCSTR, #[in] #[opt] pszValue: LPCSTR, #[opt] #[out] pdwType: *mut DWORD, #[opt] #[out] #[writable(entry, bytes(if_present(*pcbData)))] pvData: *mut void, #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]

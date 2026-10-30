@@ -96,7 +96,7 @@ mod Windows {
         }
         #[guid(0xa624f617_4704_4206_8a6d_ebda4a093985)]
         interface IMFCameraConfigurationManager: IUnknown {
-            fn LoadDefaults(&self, #[in] cameraAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] configurations: *mut IMFCameraControlDefaultsCollection) -> HRESULT;
+            fn LoadDefaults(&self, #[in] cameraAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] configurations: *mut IMFCameraControlDefaultsCollection) -> HRESULT;
             fn SaveDefaults(&self, #[in] configurations: IMFCameraControlDefaultsCollection) -> HRESULT;
             fn Shutdown(&self);
         }
@@ -110,9 +110,9 @@ mod Windows {
         #[guid(0x92d43d0f_54a8_4bae_96da_356d259a5c26)]
         interface IMFCameraControlDefaultsCollection: IMFAttributes {
             fn GetControlCount(&self) -> ULONG;
-            fn GetControl(&self, #[in] index: ULONG, #[out] #[out_ptr(null_on_failure)] configuration: *mut IMFCameraControlDefaults) -> HRESULT;
-            fn GetOrAddExtendedControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] constrolId: ULONG, #[in] streamId: DWORD, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
-            fn GetOrAddControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] controlSet: &GUID, #[in] constrolId: ULONG, #[in] controlSize: ULONG, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetControl(&self, #[in] index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] configuration: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddExtendedControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] constrolId: ULONG, #[in] streamId: DWORD, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] controlSet: &GUID, #[in] constrolId: ULONG, #[in] controlSize: ULONG, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
             fn RemoveControl(&self, #[in] controlSet: &GUID, #[in] constrolId: ULONG) -> HRESULT;
             fn RemoveAllControls(&self) -> HRESULT;
         }
@@ -209,7 +209,7 @@ mod Windows {
         }
         #[guid(0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc)]
         interface IMFExtendedCameraController: IUnknown {
-            fn GetExtendedCameraControl(&self, #[in] dwStreamIndex: DWORD, #[in] ulPropertyId: ULONG, #[out] #[out_ptr(null_on_failure)] ppControl: *mut IMFExtendedCameraControl) -> HRESULT;
+            fn GetExtendedCameraControl(&self, #[in] dwStreamIndex: DWORD, #[in] ulPropertyId: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] ppControl: *mut IMFExtendedCameraControl) -> HRESULT;
         }
         #[guid(0x5c595e64_4630_4231_855a_12842f733245)]
         interface IMFExtendedCameraIntrinsicModel: IUnknown {
@@ -223,7 +223,7 @@ mod Windows {
             fn GetBufferSize(&self, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn SerializeToBuffer(&self, #[out] #[readable(success, bytes(*pdwBufferSize))] #[writable(entry, bytes(*pdwBufferSize))] pbBuffer: *mut BYTE, #[in] #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn GetIntrinsicModelCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetIntrinsicModelByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+            fn GetIntrinsicModelByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
             fn AddIntrinsicModel(&self, #[in] pIntrinsicModel: IMFExtendedCameraIntrinsicModel) -> HRESULT;
         }
         #[guid(0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d)]
@@ -280,12 +280,12 @@ mod Windows {
         #[guid(0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db)]
         interface IMFHttpDownloadSession: IUnknown {
             fn SetServer(&self, #[in] szServerName: LPCWSTR, #[in] nPort: DWORD) -> HRESULT;
-            fn CreateRequest(&self, #[in] szObjectName: LPCWSTR, #[in] fBypassProxyCache: BOOL, #[in] fSecure: BOOL, #[in] #[opt] szVerb: LPCWSTR, #[in] #[opt] szReferrer: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppRequest: *mut IMFHttpDownloadRequest) -> HRESULT;
+            fn CreateRequest(&self, #[in] szObjectName: LPCWSTR, #[in] fBypassProxyCache: BOOL, #[in] fSecure: BOOL, #[in] #[opt] szVerb: LPCWSTR, #[in] #[opt] szReferrer: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppRequest: *mut IMFHttpDownloadRequest) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x1b4cf4b9_3a16_4115_839d_03cc5c99df01)]
         interface IMFHttpDownloadSessionProvider: IUnknown {
-            fn CreateHttpDownloadSession(&self, #[in] wszScheme: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppDownloadSession: *mut IMFHttpDownloadSession) -> HRESULT;
+            fn CreateHttpDownloadSession(&self, #[in] wszScheme: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppDownloadSession: *mut IMFHttpDownloadSession) -> HRESULT;
         }
         #[guid(0xd19f8e98_b126_4446_890c_5dcb7ad71453)]
         interface IMFInputTrustAuthority: IUnknown {
@@ -575,8 +575,8 @@ mod Windows {
         #[guid(0x421af7f6_573e_4ad0_8fda_2e57cedb18c6)]
         interface IMFRelativePanelWatcher: IMFShutdown {
             fn BeginGetReport(&self, #[in] pCallback: IMFAsyncCallback, #[in] #[opt] pState: IUnknown) -> HRESULT;
-            fn EndGetReport(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr(null_on_failure)] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
-            fn GetReport(&self, #[out] #[out_ptr(null_on_failure)] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+            fn EndGetReport(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+            fn GetReport(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
         }
         #[guid(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a)]
         interface IMFRemoteDesktopPlugin: IUnknown {
@@ -650,8 +650,8 @@ mod Windows {
         #[guid(0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777)]
         interface IMFSensorActivitiesReport: IUnknown {
             fn GetCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
-            fn GetActivityReport(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
-            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated(entry)] SymbolicName: LPCWSTR, #[out] #[out_ptr(null_on_failure)] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReport(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated(entry)] SymbolicName: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
         }
         #[guid(0xde5072ee_dbe3_46dc_8a87_b6f631194751)]
         interface IMFSensorActivitiesReportCallback: IUnknown {
@@ -667,7 +667,7 @@ mod Windows {
             fn GetFriendlyName(&self, #[null_terminated(success)] #[out] #[writable(entry, cchFriendlyName)] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetProcessCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
-            fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
+            fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
         }
         #[guid(0xfb9f48f2_2a18_4e28_9730_786f30f04dc4)]
         interface IMFSensorDevice: IUnknown {
@@ -677,7 +677,7 @@ mod Windows {
             fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetDeviceAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamAttributesCount(&self, #[in] eType: MFSensorStreamType, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn SetSensorDeviceMode(&self, #[in] eMode: MFSensorDeviceMode) -> HRESULT;
             fn GetSensorDeviceMode(&self, #[out] peMode: *mut MFSensorDeviceMode) -> HRESULT;
         }
@@ -687,10 +687,10 @@ mod Windows {
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
             fn GetSensorGroupAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetSensorDeviceCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetSensorDevice(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppDevice: *mut IMFSensorDevice) -> HRESULT;
+            fn GetSensorDevice(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppDevice: *mut IMFSensorDevice) -> HRESULT;
             fn SetDefaultSensorDeviceIndex(&self, #[in] dwIndex: DWORD) -> HRESULT;
             fn GetDefaultSensorDeviceIndex(&self, #[out] pdwIndex: *mut DWORD) -> HRESULT;
-            fn CreateMediaSource(&self, #[out] #[out_ptr(null_on_failure)] ppSource: *mut IMFMediaSource) -> HRESULT;
+            fn CreateMediaSource(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppSource: *mut IMFMediaSource) -> HRESULT;
         }
         #[guid(0x39dc7f4a_b141_4719_813c_a7f46162a2b8)]
         interface IMFSensorProcessActivity: IUnknown {
@@ -709,25 +709,25 @@ mod Windows {
         #[guid(0xc95ea55b_0187_48be_9353_8d2507662351)]
         interface IMFSensorProfileCollection: IUnknown {
             fn GetProfileCount(&self) -> DWORD;
-            fn GetProfile(&self, #[in] Index: DWORD, #[out] #[out_ptr(null_on_failure)] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn GetProfile(&self, #[in] Index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
             fn AddProfile(&self, #[in] pProfile: IMFSensorProfile) -> HRESULT;
-            fn FindProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID, #[out] #[out_ptr(null_on_failure)] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn FindProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
             fn RemoveProfileByIndex(&self, #[in] Index: DWORD);
             fn RemoveProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID);
         }
         #[guid(0xe9a42171_c56e_498a_8b39_eda5a070b7fc)]
         interface IMFSensorStream: IMFAttributes {
             fn GetMediaTypeCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetMediaType(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn CloneSensorStream(&self, #[out] #[out_ptr(null_on_failure)] ppStream: *mut IMFSensorStream) -> HRESULT;
+            fn GetMediaType(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn CloneSensorStream(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
         }
         #[guid(0xeed9c2ee_66b4_4f18_a697_ac7d3960215c)]
         interface IMFSensorTransformFactory: IUnknown {
-            fn GetFactoryAttributes(&self, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetFactoryAttributes(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn InitializeFactory(&self, #[in] dwMaxTransformCount: DWORD, #[in] pSensorDevices: IMFCollection, #[in] #[opt] pAttributes: IMFAttributes) -> HRESULT;
             fn GetTransformCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes, #[out] #[out_ptr(null_on_failure)] ppStreamInformation: *mut IMFCollection) -> HRESULT;
-            fn CreateTransform(&self, #[in] guidSensorTransformID: &GUID, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
+            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamInformation: *mut IMFCollection) -> HRESULT;
+            fn CreateTransform(&self, #[in] guidSensorTransformID: &GUID, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
         }
         #[guid(0x197cd219_19cb_4de1_a64c_acf2edcbe59e)]
         interface IMFSequencerSource: IUnknown {
@@ -1097,9 +1097,9 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateAudioRendererActivate(#[out] #[out_ptr] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[out_ptr(null_on_failure)] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
+        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[out_ptr(null_on_failure)] #[retval] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[out_ptr(null_on_failure)] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
+        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[out_ptr(null_on_failure)] #[retval] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateContentDecryptorContext(#[in] guidMediaProtectionSystemId: &GUID, #[in] #[opt] pD3DManager: IMFDXGIDeviceManager, #[in] pContentProtectionDevice: IMFContentProtectionDevice, #[out] #[out_ptr] ppContentDecryptorContext: *mut IMFContentDecryptorContext) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -1111,9 +1111,9 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateDeviceSourceActivate(#[in] pAttributes: IMFAttributes, #[out] #[out_ptr] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFCORE.dll")]
-        extern fn MFCreateExtendedCameraIntrinsicModel(distortionModelType: MFCameraIntrinsic_DistortionModelType, #[out] #[out_ptr(null_on_failure)] ppExtendedCameraIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+        extern fn MFCreateExtendedCameraIntrinsicModel(distortionModelType: MFCameraIntrinsic_DistortionModelType, #[out] #[out_ptr(null_on_failure)] #[retval] ppExtendedCameraIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
         #[library("MFCORE.dll")]
-        extern fn MFCreateExtendedCameraIntrinsics(#[out] #[out_ptr(null_on_failure)] ppExtendedCameraIntrinsics: *mut IMFExtendedCameraIntrinsics) -> HRESULT;
+        extern fn MFCreateExtendedCameraIntrinsics(#[out] #[out_ptr(null_on_failure)] #[retval] ppExtendedCameraIntrinsics: *mut IMFExtendedCameraIntrinsics) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateFMPEG4MediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -1147,7 +1147,7 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateProxyLocator(pszProtocol: LPCWSTR, pProxyConfig: IPropertyStore, #[out] #[out_ptr] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateRelativePanelWatcher(#[in] videoDeviceId: PCWSTR, #[in] displayMonitorDeviceId: PCWSTR, #[out] #[out_ptr(null_on_failure)] ppRelativePanelWatcher: *mut IMFRelativePanelWatcher) -> HRESULT;
+        extern fn MFCreateRelativePanelWatcher(#[in] videoDeviceId: PCWSTR, #[in] displayMonitorDeviceId: PCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelWatcher: *mut IMFRelativePanelWatcher) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateRemoteDesktopPlugin(#[out] #[out_ptr] ppPlugin: *mut IMFRemoteDesktopPlugin) -> HRESULT;
         #[library("MF.dll")]
@@ -1155,15 +1155,15 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateSampleGrabberSinkActivate(pIMFMediaType: IMFMediaType, pIMFSampleGrabberSinkCallback: IMFSampleGrabberSinkCallback, #[out] #[out_ptr] ppIActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorActivityMonitor(#[in] pCallback: IMFSensorActivitiesReportCallback, #[out] #[out_ptr(null_on_failure)] ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
+        extern fn MFCreateSensorActivityMonitor(#[in] pCallback: IMFSensorActivitiesReportCallback, #[out] #[out_ptr(null_on_failure)] #[retval] ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
+        extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfileCollection(#[out] #[out_ptr(null_on_failure)] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
+        extern fn MFCreateSensorProfileCollection(#[out] #[out_ptr(null_on_failure)] #[retval] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorStream(#[in] StreamId: DWORD, #[in] #[opt] pAttributes: IMFAttributes, #[in] pMediaTypeCollection: IMFCollection, #[out] #[out_ptr(null_on_failure)] ppStream: *mut IMFSensorStream) -> HRESULT;
+        extern fn MFCreateSensorStream(#[in] StreamId: DWORD, #[in] #[opt] pAttributes: IMFAttributes, #[in] pMediaTypeCollection: IMFCollection, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateSequencerSegmentOffset(dwId: MFSequencerElementId, hnsOffset: MFTIME, #[out] pvarSegmentOffset: *mut PROPVARIANT) -> HRESULT;
         #[library("MF.dll")]

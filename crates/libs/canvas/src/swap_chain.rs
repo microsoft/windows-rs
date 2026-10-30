@@ -28,15 +28,13 @@ impl SwapChain {
             ..Default::default()
         };
 
-        let mut swap_chain = None;
-        unsafe {
+        let swap_chain = unsafe {
             device
                 .dxgi_factory()
-                .CreateSwapChainForComposition(device.d3d_device(), &desc, None, &mut swap_chain)
-                .ok()?;
-        }
+                .CreateSwapChainForComposition(device.d3d_device(), &desc, None)?
+        };
 
-        Self::from_swap_chain(device, swap_chain.unwrap(), width, height)
+        Self::from_swap_chain(device, swap_chain, width, height)
     }
 
     pub(crate) fn new_for_hwnd(
@@ -59,22 +57,17 @@ impl SwapChain {
             ..Default::default()
         };
 
-        let mut swap_chain = None;
-        unsafe {
-            device
-                .dxgi_factory()
-                .CreateSwapChainForHwnd(
-                    device.d3d_device(),
-                    hwnd.cast(),
-                    &desc,
-                    None,
-                    None,
-                    &mut swap_chain,
-                )
-                .ok()?;
-        }
+        let swap_chain = unsafe {
+            device.dxgi_factory().CreateSwapChainForHwnd(
+                device.d3d_device(),
+                hwnd.cast(),
+                &desc,
+                None,
+                None,
+            )?
+        };
 
-        Self::from_swap_chain(device, swap_chain.unwrap(), width, height)
+        Self::from_swap_chain(device, swap_chain, width, height)
     }
 
     fn from_swap_chain(
@@ -83,17 +76,15 @@ impl SwapChain {
         width: u32,
         height: u32,
     ) -> Result<Self> {
-        let mut d2d_context = None;
-        unsafe {
+        let d2d_context = unsafe {
             device
                 .d2d_device()
-                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut d2d_context)
-                .ok()?;
-        }
+                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?
+        };
 
         let mut result = Self {
             swap_chain,
-            d2d_context: d2d_context.unwrap(),
+            d2d_context,
             device_lost_flag: Cell::new(false),
             width,
             height,
@@ -140,13 +131,7 @@ impl SwapChain {
 
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
-        let mut brush = None;
-        unsafe {
-            self.d2d_context
-                .CreateSolidColorBrush(&c, None, &mut brush)
-                .ok()?;
-        }
-        Ok(Brush(brush.unwrap()))
+        unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
@@ -208,11 +193,10 @@ impl SwapChain {
                 bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
                 ..Default::default()
             };
-            let mut bitmap = None;
-            self.d2d_context
-                .CreateBitmapFromDxgiSurface(&surface, Some(&props), &mut bitmap)
-                .ok()?;
-            self.d2d_context.SetTarget(bitmap.as_ref().unwrap());
+            let bitmap = self
+                .d2d_context
+                .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
+            self.d2d_context.SetTarget(&bitmap);
             self.d2d_context.SetDpi(self.dpi_x, self.dpi_y);
             Ok(())
         }

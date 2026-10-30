@@ -170,8 +170,11 @@ impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
 windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, ICompositionGraphicsDeviceInterop_Vtbl, 0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 windows_core::imp::interface_hierarchy!(ICompositionGraphicsDeviceInterop, windows_core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
-    pub unsafe fn GetRenderingDevice(&self, value: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRenderingDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(value)) }
+    pub unsafe fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRenderingDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::HRESULT
     where
@@ -188,7 +191,7 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub SetRenderingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn GetRenderingDevice(&self, value: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetRenderingDevice(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
@@ -196,7 +199,16 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         unsafe extern "system" fn GetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionGraphicsDeviceInterop_Impl::GetRenderingDevice(this, core::mem::transmute_copy(&value)).into()
+                match ICompositionGraphicsDeviceInterop_Impl::GetRenderingDevice(this) {
+                    Ok(ok__) => {
+                        value.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn SetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {

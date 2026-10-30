@@ -364,7 +364,7 @@ mod Windows {
         }
         #[guid(0x2cd90695_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1BitmapRenderTarget: ID2D1RenderTarget {
-            fn GetBitmap(&self, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn GetBitmap(&self, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap) -> HRESULT;
         }
         #[guid(0x2cd906a8_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1Brush: ID2D1Resource {
@@ -398,18 +398,18 @@ mod Windows {
             fn ReloadSystemMetrics(&self) -> HRESULT;
             #[Windows::Win32::Metadata::NativeDeprecated("Deprecated. Use DisplayInformation::LogicalDpi for Windows Store Apps or GetDpiForWindow for desktop apps.", "")]
             fn GetDesktopDpi(&self, #[out] dpiX: *mut FLOAT, #[out] dpiY: *mut FLOAT);
-            fn CreateRectangleGeometry(&self, #[in] rectangle: *const D2D1_RECT_F, #[out] #[out_ptr(null_on_failure)] rectangleGeometry: *mut ID2D1RectangleGeometry) -> HRESULT;
-            fn CreateRoundedRectangleGeometry(&self, #[in] roundedRectangle: *const D2D1_ROUNDED_RECT, #[out] #[out_ptr(null_on_failure)] roundedRectangleGeometry: *mut ID2D1RoundedRectangleGeometry) -> HRESULT;
-            fn CreateEllipseGeometry(&self, #[in] ellipse: *const D2D1_ELLIPSE, #[out] #[out_ptr(null_on_failure)] ellipseGeometry: *mut ID2D1EllipseGeometry) -> HRESULT;
-            fn CreateGeometryGroup(&self, fillMode: D2D1_FILL_MODE, #[in] #[readable(entry, geometriesCount)] geometries: *mut ID2D1Geometry, geometriesCount: UINT32, #[out] #[out_ptr(null_on_failure)] geometryGroup: *mut ID2D1GeometryGroup) -> HRESULT;
-            fn CreateTransformedGeometry(&self, #[in] sourceGeometry: ID2D1Geometry, #[in] transform: *const D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] transformedGeometry: *mut ID2D1TransformedGeometry) -> HRESULT;
-            fn CreatePathGeometry(&self, #[out] #[out_ptr(null_on_failure)] pathGeometry: *mut ID2D1PathGeometry) -> HRESULT;
-            fn CreateStrokeStyle(&self, #[in] strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] strokeStyle: *mut ID2D1StrokeStyle) -> HRESULT;
-            fn CreateDrawingStateBlock(&self, #[in] #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION, #[in] #[opt] textRenderingParams: IDWriteRenderingParams, #[out] #[out_ptr(null_on_failure)] drawingStateBlock: *mut ID2D1DrawingStateBlock) -> HRESULT;
-            fn CreateWicBitmapRenderTarget(&self, #[in] target: IWICBitmap, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
-            fn CreateHwndRenderTarget(&self, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[in] hwndRenderTargetProperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] hwndRenderTarget: *mut ID2D1HwndRenderTarget) -> HRESULT;
-            fn CreateDxgiSurfaceRenderTarget(&self, #[in] dxgiSurface: IDXGISurface, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
-            fn CreateDCRenderTarget(&self, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] dcRenderTarget: *mut ID2D1DCRenderTarget) -> HRESULT;
+            fn CreateRectangleGeometry(&self, #[in] rectangle: *const D2D1_RECT_F, #[out] #[out_ptr(null_on_failure)] #[retval] rectangleGeometry: *mut ID2D1RectangleGeometry) -> HRESULT;
+            fn CreateRoundedRectangleGeometry(&self, #[in] roundedRectangle: *const D2D1_ROUNDED_RECT, #[out] #[out_ptr(null_on_failure)] #[retval] roundedRectangleGeometry: *mut ID2D1RoundedRectangleGeometry) -> HRESULT;
+            fn CreateEllipseGeometry(&self, #[in] ellipse: *const D2D1_ELLIPSE, #[out] #[out_ptr(null_on_failure)] #[retval] ellipseGeometry: *mut ID2D1EllipseGeometry) -> HRESULT;
+            fn CreateGeometryGroup(&self, fillMode: D2D1_FILL_MODE, #[in] #[readable(entry, geometriesCount)] geometries: *mut ID2D1Geometry, geometriesCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] geometryGroup: *mut ID2D1GeometryGroup) -> HRESULT;
+            fn CreateTransformedGeometry(&self, #[in] sourceGeometry: ID2D1Geometry, #[in] transform: *const D2D1_MATRIX_3X2_F, #[out] #[out_ptr(null_on_failure)] #[retval] transformedGeometry: *mut ID2D1TransformedGeometry) -> HRESULT;
+            fn CreatePathGeometry(&self, #[out] #[out_ptr(null_on_failure)] #[retval] pathGeometry: *mut ID2D1PathGeometry) -> HRESULT;
+            fn CreateStrokeStyle(&self, #[in] strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] strokeStyle: *mut ID2D1StrokeStyle) -> HRESULT;
+            fn CreateDrawingStateBlock(&self, #[in] #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION, #[in] #[opt] textRenderingParams: IDWriteRenderingParams, #[out] #[out_ptr(null_on_failure)] #[retval] drawingStateBlock: *mut ID2D1DrawingStateBlock) -> HRESULT;
+            fn CreateWicBitmapRenderTarget(&self, #[in] target: IWICBitmap, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
+            fn CreateHwndRenderTarget(&self, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[in] hwndRenderTargetProperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] hwndRenderTarget: *mut ID2D1HwndRenderTarget) -> HRESULT;
+            fn CreateDxgiSurfaceRenderTarget(&self, #[in] dxgiSurface: IDXGISurface, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
+            fn CreateDCRenderTarget(&self, #[in] renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] dcRenderTarget: *mut ID2D1DCRenderTarget) -> HRESULT;
         }
         #[guid(0xe0db51c3_6f77_4bae_b3d5_e47509b35838)]
         interface ID2D1GdiInteropRenderTarget: IUnknown {
@@ -500,11 +500,11 @@ mod Windows {
         }
         #[guid(0x2cd906c2_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1Mesh: ID2D1Resource {
-            fn Open(&self, #[out] #[out_ptr(null_on_failure)] tessellationSink: *mut ID2D1TessellationSink) -> HRESULT;
+            fn Open(&self, #[out] #[out_ptr(null_on_failure)] #[retval] tessellationSink: *mut ID2D1TessellationSink) -> HRESULT;
         }
         #[guid(0x2cd906a5_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1PathGeometry: ID2D1Geometry {
-            fn Open(&self, #[out] #[out_ptr(null_on_failure)] geometrySink: *mut ID2D1GeometrySink) -> HRESULT;
+            fn Open(&self, #[out] #[out_ptr(null_on_failure)] #[retval] geometrySink: *mut ID2D1GeometrySink) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn Stream(&self, #[in] geometrySink: ID2D1GeometrySink) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
@@ -536,17 +536,17 @@ mod Windows {
         }
         #[guid(0x2cd90694_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1RenderTarget: ID2D1Resource {
-            fn CreateBitmap(&self, size: D2D1_SIZE_U, #[in] #[opt] srcData: *const void, pitch: UINT32, #[in] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap) -> HRESULT;
-            fn CreateBitmapFromWicBitmap(&self, #[in] wicBitmapSource: IWICBitmapSource, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap) -> HRESULT;
-            fn CreateSharedBitmap(&self, #[in] riid: &IID, #[in] #[out] data: *mut void, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] bitmap: *mut ID2D1Bitmap) -> HRESULT;
-            fn CreateBitmapBrush(&self, #[in] #[opt] bitmap: ID2D1Bitmap, #[in] #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] bitmapBrush: *mut ID2D1BitmapBrush) -> HRESULT;
-            fn CreateSolidColorBrush(&self, #[in] color: *const D2D1_COLOR_F, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] solidColorBrush: *mut ID2D1SolidColorBrush) -> HRESULT;
-            fn CreateGradientStopCollection(&self, #[in] #[readable(entry, gradientStopsCount)] gradientStops: *const D2D1_GRADIENT_STOP, #[range(entry, >=1)] gradientStopsCount: UINT32, colorInterpolationGamma: D2D1_GAMMA, extendMode: D2D1_EXTEND_MODE, #[out] #[out_ptr(null_on_failure)] gradientStopCollection: *mut ID2D1GradientStopCollection) -> HRESULT;
-            fn CreateLinearGradientBrush(&self, #[in] linearGradientBrushProperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[in] gradientStopCollection: ID2D1GradientStopCollection, #[out] #[out_ptr(null_on_failure)] linearGradientBrush: *mut ID2D1LinearGradientBrush) -> HRESULT;
-            fn CreateRadialGradientBrush(&self, #[in] radialGradientBrushProperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[in] gradientStopCollection: ID2D1GradientStopCollection, #[out] #[out_ptr(null_on_failure)] radialGradientBrush: *mut ID2D1RadialGradientBrush) -> HRESULT;
-            fn CreateCompatibleRenderTarget(&self, #[in] #[opt] desiredSize: *const D2D1_SIZE_F, #[in] #[opt] desiredPixelSize: *const D2D1_SIZE_U, #[in] #[opt] desiredFormat: *const D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, #[out] #[out_ptr(null_on_failure)] bitmapRenderTarget: *mut ID2D1BitmapRenderTarget) -> HRESULT;
-            fn CreateLayer(&self, #[in] #[opt] size: *const D2D1_SIZE_F, #[out] #[out_ptr(null_on_failure)] layer: *mut ID2D1Layer) -> HRESULT;
-            fn CreateMesh(&self, #[out] #[out_ptr(null_on_failure)] mesh: *mut ID2D1Mesh) -> HRESULT;
+            fn CreateBitmap(&self, size: D2D1_SIZE_U, #[in] #[opt] srcData: *const void, pitch: UINT32, #[in] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateBitmapFromWicBitmap(&self, #[in] wicBitmapSource: IWICBitmapSource, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateSharedBitmap(&self, #[in] riid: &IID, #[in] #[out] data: *mut void, #[in] #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateBitmapBrush(&self, #[in] #[opt] bitmap: ID2D1Bitmap, #[in] #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmapBrush: *mut ID2D1BitmapBrush) -> HRESULT;
+            fn CreateSolidColorBrush(&self, #[in] color: *const D2D1_COLOR_F, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] solidColorBrush: *mut ID2D1SolidColorBrush) -> HRESULT;
+            fn CreateGradientStopCollection(&self, #[in] #[readable(entry, gradientStopsCount)] gradientStops: *const D2D1_GRADIENT_STOP, #[range(entry, >=1)] gradientStopsCount: UINT32, colorInterpolationGamma: D2D1_GAMMA, extendMode: D2D1_EXTEND_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] gradientStopCollection: *mut ID2D1GradientStopCollection) -> HRESULT;
+            fn CreateLinearGradientBrush(&self, #[in] linearGradientBrushProperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[in] gradientStopCollection: ID2D1GradientStopCollection, #[out] #[out_ptr(null_on_failure)] #[retval] linearGradientBrush: *mut ID2D1LinearGradientBrush) -> HRESULT;
+            fn CreateRadialGradientBrush(&self, #[in] radialGradientBrushProperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[in] gradientStopCollection: ID2D1GradientStopCollection, #[out] #[out_ptr(null_on_failure)] #[retval] radialGradientBrush: *mut ID2D1RadialGradientBrush) -> HRESULT;
+            fn CreateCompatibleRenderTarget(&self, #[in] #[opt] desiredSize: *const D2D1_SIZE_F, #[in] #[opt] desiredPixelSize: *const D2D1_SIZE_U, #[in] #[opt] desiredFormat: *const D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] bitmapRenderTarget: *mut ID2D1BitmapRenderTarget) -> HRESULT;
+            fn CreateLayer(&self, #[in] #[opt] size: *const D2D1_SIZE_F, #[out] #[out_ptr(null_on_failure)] #[retval] layer: *mut ID2D1Layer) -> HRESULT;
+            fn CreateMesh(&self, #[out] #[out_ptr(null_on_failure)] #[retval] mesh: *mut ID2D1Mesh) -> HRESULT;
             fn DrawLine(&self, point0: D2D1_POINT_2F, point1: D2D1_POINT_2F, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
             fn DrawRectangle(&self, #[in] rect: *const D2D1_RECT_F, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
             fn FillRectangle(&self, #[in] rect: *const D2D1_RECT_F, #[in] brush: ID2D1Brush);

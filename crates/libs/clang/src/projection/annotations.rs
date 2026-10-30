@@ -80,6 +80,20 @@ fn data_pointer(snapshot: &Snapshot, mut ty: TypeId) -> bool {
         if !matches!(snapshot.types[inner.0].kind, TypeKind::Function(_)))
 }
 
+/// Storage for a returned pointer whose target type is known, excluding untyped `void**`.
+fn typed_out_pointer(snapshot: &Snapshot, ty: TypeId) -> bool {
+    let TypeKind::Pointer(inner) = snapshot.types[ty.0].kind else {
+        return false;
+    };
+    let TypeKind::Pointer(target) = snapshot.types[inner.0].kind else {
+        return false;
+    };
+    !matches!(
+        snapshot.types[target.0].kind,
+        TypeKind::Void | TypeKind::Function(_)
+    )
+}
+
 fn nullable_result<'a>(
     snapshot: &Snapshot,
     result: TypeId,
@@ -134,6 +148,30 @@ fn write_result_owned(
         declaration,
         result,
     })
+}
+
+/// The success condition SAL applies to a callable: its own `_Success_` when present, otherwise
+/// the `_Return_type_success_` inherited from its written result typedefs.
+pub(super) fn callable_success(
+    resolution: &Resolution<'_>,
+    snapshot: &Snapshot,
+    written_result: TypeId,
+    result_type: TypeId,
+    attributes: &[Attribute],
+) -> Result<Option<SuccessCondition>, Error> {
+    if resolve::sal(attributes)
+        .iter()
+        .any(|value| is_success(value.value))
+    {
+        return Ok(success_condition(
+            snapshot,
+            result_type,
+            [attributes],
+            false,
+        ));
+    }
+    let inherited = value_alias_attributes(resolution, snapshot, written_result)?;
+    Ok(success_condition(snapshot, result_type, inherited, true))
 }
 
 fn is_success(value: &SalAnnotation) -> bool {
@@ -616,6 +654,7 @@ pub(super) fn parameter(
     parameter: &Parameter,
     parameters: &[Parameter],
     canonical: &MetadataType,
+    success: Option<SuccessCondition>,
 ) -> Result<TokenStream, Error> {
     let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
@@ -628,6 +667,26 @@ pub(super) fn parameter(
         return Err(Error("MIDL result marker requires output storage".into()));
     }
     let normalized = sal::parameters(attributes, parameters);
+    let com_result = success == Some(SuccessCondition::Nonnegative)
+        && parameters
+            .last()
+            .is_some_and(|last| std::ptr::eq(last, parameter))
+        && output
+        && !input
+        && !optional
+        && !midl.iid_is
+        && !matches!(canonical, MetadataType::ClassName(_))
+        && typed_out_pointer(snapshot, function.parameters[parameters.len() - 1])
+        && matches!(
+            normalized.as_slice(),
+            [sal::ParameterAnnotation::Contract(contract)]
+                if contract.returned_pointer
+                    == Some(sal::ReturnedPointer {
+                        may_be_null: false,
+                        null_on_failure: true,
+                        com: true,
+                    })
+        );
     let preserve = normalized.iter().any(|value| {
         matches!(
             value,
@@ -675,7 +734,9 @@ pub(super) fn parameter(
             null_on_failure,
         ))
     });
-    let retval = midl.retval.then(|| quote! { #[retval] });
+    // `_COM_Outptr_` on the trailing output of a `return >= 0` callable is a stronger contract than
+    // MIDL `[retval]`: the callee writes a non-null object on every success and null on failure.
+    let retval = (midl.retval || com_result).then(|| quote! { #[retval] });
     let names: Vec<_> = parameters
         .iter()
         .map(|parameter| parameter.name.as_str())

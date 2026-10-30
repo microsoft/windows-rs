@@ -35,11 +35,11 @@ mod Windows {
         }
         #[guid(0x0439fc60_ca44_4994_8dee_3a9af7b732ec)]
         interface IDWriteFactory2: IDWriteFactory1 {
-            fn GetSystemFontFallback(&self, #[out] #[out_ptr(null_on_failure)] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
-            fn CreateFontFallbackBuilder(&self, #[out] #[out_ptr(null_on_failure)] fontFallbackBuilder: *mut IDWriteFontFallbackBuilder) -> HRESULT;
-            fn TranslateColorGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringMode: DWRITE_MEASURING_MODE, #[in] #[opt] worldToDeviceTransform: *const DWRITE_MATRIX, colorPaletteIndex: UINT32, #[out] #[out_ptr(null_on_failure)] colorLayers: *mut IDWriteColorGlyphRunEnumerator) -> HRESULT;
-            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, grayscaleEnhancedContrast: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, #[out] #[out_ptr(null_on_failure)] renderingParams: *mut IDWriteRenderingParams2) -> HRESULT;
-            fn CreateGlyphRunAnalysis(&self, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[out] #[out_ptr(null_on_failure)] glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
+            fn GetSystemFontFallback(&self, #[out] #[out_ptr(null_on_failure)] #[retval] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+            fn CreateFontFallbackBuilder(&self, #[out] #[out_ptr(null_on_failure)] #[retval] fontFallbackBuilder: *mut IDWriteFontFallbackBuilder) -> HRESULT;
+            fn TranslateColorGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringMode: DWRITE_MEASURING_MODE, #[in] #[opt] worldToDeviceTransform: *const DWRITE_MATRIX, colorPaletteIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] colorLayers: *mut IDWriteColorGlyphRunEnumerator) -> HRESULT;
+            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, grayscaleEnhancedContrast: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] renderingParams: *mut IDWriteRenderingParams2) -> HRESULT;
+            fn CreateGlyphRunAnalysis(&self, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[out] #[out_ptr(null_on_failure)] #[retval] glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
         }
         #[guid(0x29748ed6_8c9c_4a6a_be0b_d912e8538944)]
         interface IDWriteFont2: IDWriteFont1 {
@@ -61,7 +61,7 @@ mod Windows {
         interface IDWriteFontFallbackBuilder: IUnknown {
             fn AddMapping(&self, #[in] #[readable(entry, rangesCount)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: UINT32, #[in] #[readable(entry, targetFamilyNamesCount)] targetFamilyNames: *mut *const WCHAR, targetFamilyNamesCount: UINT32, #[in] #[opt] fontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const WCHAR, scale: FLOAT) -> HRESULT;
             fn AddMappings(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
-            fn CreateFontFallback(&self, #[out] #[out_ptr(null_on_failure)] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+            fn CreateFontFallback(&self, #[out] #[out_ptr(null_on_failure)] #[retval] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
         }
         #[guid(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948)]
         interface IDWriteRenderingParams2: IDWriteRenderingParams1 {

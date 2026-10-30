@@ -11,12 +11,12 @@ mod Windows {
         #[guid(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32)]
         interface IMFDeviceTransform: IUnknown {
             fn InitializeTransform(&self, #[in] pAttributes: IMFAttributes) -> HRESULT;
-            fn GetInputAvailableType(&self, #[in] dwInputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputCurrentType(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputStreamAttributes(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetOutputAvailableType(&self, #[in] dwOutputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputCurrentType(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputStreamAttributes(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetInputAvailableType(&self, #[in] dwInputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputCurrentType(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamAttributes(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputAvailableType(&self, #[in] dwOutputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
             fn GetStreamIDs(&self, #[in] dwInputIDArraySize: DWORD, #[out] pdwInputStreamIds: *mut DWORD, #[in] dwOutputIDArraySize: DWORD, #[out] pdwOutputStreamIds: *mut DWORD) -> HRESULT;
             fn ProcessEvent(&self, #[in] dwInputStreamID: DWORD, #[in] pEvent: IMFMediaEvent) -> HRESULT;
@@ -27,13 +27,13 @@ mod Windows {
             fn GetInputStreamState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
             fn SetOutputStreamState(&self, #[in] dwStreamID: DWORD, #[in] pMediaType: IMFMediaType, #[in] value: DeviceStreamState, #[in] dwFlags: DWORD) -> HRESULT;
             fn GetOutputStreamState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
-            fn GetInputStreamPreferredState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState, #[out] #[out_ptr(null_on_failure)] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamPreferredState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn FlushInputStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
             fn FlushOutputStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0xf5980fed_b521_488f_909f_1a5fcecedb14)]
         interface IMFDeviceTransform2: IMFDeviceTransform {
-            fn GetTransformAttributes(&self, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetTransformAttributes(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x6d5cb646_29ec_41fb_8179_8c4c6d750811)]
         interface IMFDeviceTransformCallback: IUnknown {

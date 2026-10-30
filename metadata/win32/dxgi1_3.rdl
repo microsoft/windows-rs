@@ -66,8 +66,8 @@ mod Windows {
         }
         #[guid(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12)]
         interface IDXGIFactoryMedia: IUnknown {
-            fn CreateSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *mut DXGI_DECODE_SWAP_CHAIN_DESC, #[in] pYuvDecodeBuffers: IDXGIResource, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
+            fn CreateSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *mut DXGI_DECODE_SWAP_CHAIN_DESC, #[in] pYuvDecodeBuffers: IDXGIResource, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
         }
         #[guid(0x595e39d1_2724_4663_99b1_da969de28364)]
         interface IDXGIOutput2: IDXGIOutput1 {

@@ -1,12 +1,15 @@
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn ActivateAudioInterfaceAsync<P0, P3>(deviceinterfacepath: P0, riid: *const super::IID, activationparams: Option<*const super::PROPVARIANT>, completionhandler: P3, activationoperation: *mut Option<IActivateAudioInterfaceAsyncOperation>) -> windows_core::HRESULT
+pub unsafe fn ActivateAudioInterfaceAsync<P0, P3>(deviceinterfacepath: P0, riid: *const super::IID, activationparams: Option<*const super::PROPVARIANT>, completionhandler: P3) -> windows_core::Result<IActivateAudioInterfaceAsyncOperation>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IActivateAudioInterfaceCompletionHandler>,
 {
     windows_core::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_core::PCWSTR, riid : *const super::IID, activationparams : *const super::PROPVARIANT, completionhandler : *mut core::ffi::c_void, activationoperation : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), riid, activationparams.unwrap_or(core::mem::zeroed()) as _, completionhandler.param().abi(), core::mem::transmute(activationoperation)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), riid, activationparams.unwrap_or(core::mem::zeroed()) as _, completionhandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 pub type AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = i32;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 0;
@@ -160,16 +163,25 @@ windows_core::imp::define_interface!(IAudioSystemEffectsPropertyStore, IAudioSys
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyStore, windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyStore {
     #[cfg(all(feature = "propsys", feature = "shared"))]
-    pub unsafe fn OpenDefaultPropertyStore(&self, stgmaccess: super::DWORD, propstore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OpenDefaultPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, core::mem::transmute(propstore)) }
+    pub unsafe fn OpenDefaultPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenDefaultPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "propsys", feature = "shared"))]
-    pub unsafe fn OpenUserPropertyStore(&self, stgmaccess: super::DWORD, propstore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OpenUserPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, core::mem::transmute(propstore)) }
+    pub unsafe fn OpenUserPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenUserPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "propsys", feature = "shared"))]
-    pub unsafe fn OpenVolatilePropertyStore(&self, stgmaccess: super::DWORD, propstore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OpenVolatilePropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, core::mem::transmute(propstore)) }
+    pub unsafe fn OpenVolatilePropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenVolatilePropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn ResetUserPropertyStore(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetUserPropertyStore)(windows_core::Interface::as_raw(self)) }
@@ -213,9 +225,9 @@ pub struct IAudioSystemEffectsPropertyStore_Vtbl {
 }
 #[cfg(all(feature = "propsys", feature = "shared"))]
 pub trait IAudioSystemEffectsPropertyStore_Impl: windows_core::IUnknownImpl {
-    fn OpenDefaultPropertyStore(&self, stgmaccess: super::DWORD, propstore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
-    fn OpenUserPropertyStore(&self, stgmaccess: super::DWORD, propstore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
-    fn OpenVolatilePropertyStore(&self, stgmaccess: super::DWORD, propstore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
+    fn OpenDefaultPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
+    fn OpenUserPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
+    fn OpenVolatilePropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
     fn ResetUserPropertyStore(&self) -> windows_core::Result<()>;
     fn ResetVolatilePropertyStore(&self) -> windows_core::Result<()>;
     fn RegisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
@@ -227,19 +239,46 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         unsafe extern "system" fn OpenDefaultPropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stgmaccess: super::DWORD, propstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::OpenDefaultPropertyStore(this, core::mem::transmute_copy(&stgmaccess), core::mem::transmute_copy(&propstore)).into()
+                match IAudioSystemEffectsPropertyStore_Impl::OpenDefaultPropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
+                    Ok(ok__) => {
+                        propstore.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        propstore.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn OpenUserPropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stgmaccess: super::DWORD, propstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::OpenUserPropertyStore(this, core::mem::transmute_copy(&stgmaccess), core::mem::transmute_copy(&propstore)).into()
+                match IAudioSystemEffectsPropertyStore_Impl::OpenUserPropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
+                    Ok(ok__) => {
+                        propstore.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        propstore.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn OpenVolatilePropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stgmaccess: super::DWORD, propstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::OpenVolatilePropertyStore(this, core::mem::transmute_copy(&stgmaccess), core::mem::transmute_copy(&propstore)).into()
+                match IAudioSystemEffectsPropertyStore_Impl::OpenVolatilePropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
+                    Ok(ok__) => {
+                        propstore.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        propstore.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn ResetUserPropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

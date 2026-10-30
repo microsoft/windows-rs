@@ -176,12 +176,12 @@ mod Windows {
         #[guid(0xce8bd576_e440_43b3_be34_1e53f565f7e8)]
         interface IMFMuxStreamAttributesManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetAttributes(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetAttributes(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8)]
         interface IMFMuxStreamMediaTypeManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetMediaType(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetMediaType(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetStreamConfigurationCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn AddStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
             fn RemoveStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
@@ -190,7 +190,7 @@ mod Windows {
         #[guid(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca)]
         interface IMFMuxStreamSampleManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetSample(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppSample: *mut IMFSample) -> HRESULT;
+            fn GetSample(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppSample: *mut IMFSample) -> HRESULT;
             fn GetStreamConfiguration(&self) -> ULONGLONG;
         }
         #[guid(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96)]

@@ -449,7 +449,19 @@ impl Projector<'_, '_> {
             parameters,
             &names,
         )?;
-        let mut parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
+        let mut parameters = self.parameter_list(
+            snapshot_id,
+            function,
+            parameters,
+            named,
+            annotations::callable_success(
+                self.resolution,
+                snapshot,
+                written.prototype.result,
+                function.result,
+                &observation.attributes,
+            )?,
+        )?;
         if function.variadic {
             parameters.push(quote! { ... });
         }
@@ -475,7 +487,7 @@ impl Projector<'_, '_> {
         function: &Function,
         parameters: &[Parameter],
     ) -> Result<Vec<TokenStream>, Error> {
-        self.parameter_list(snapshot_id, function, parameters, true)
+        self.parameter_list(snapshot_id, function, parameters, true, None)
     }
 
     fn parameter_list(
@@ -484,6 +496,7 @@ impl Projector<'_, '_> {
         function: &Function,
         parameters: &[Parameter],
         named: bool,
+        success: Option<windows_rdl::emit::SuccessCondition>,
     ) -> Result<Vec<TokenStream>, Error> {
         if parameters.len() != function.parameters.len() {
             return Err(Error(
@@ -517,8 +530,9 @@ impl Projector<'_, '_> {
                 let ty = if named { ty } else { self.comparison_type(ty)? };
                 let snapshot = self.resolution.snapshots[snapshot_id];
                 let buffer_ty = self.parameter_ty(snapshot_id, canonical, canonical)?;
-                let attributes =
-                    annotations::parameter(snapshot, function, parameter, parameters, &buffer_ty)?;
+                let attributes = annotations::parameter(
+                    snapshot, function, parameter, parameters, &buffer_ty, success,
+                )?;
                 let size = annotations::buffer(
                     snapshot,
                     function,

@@ -27,7 +27,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoGetErrorReportingFlags(#[out] pflags: *mut UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoGetMatchingRestrictedErrorInfo(#[in] hrIn: HRESULT, #[out] #[out_ptr(null_on_failure)] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoGetMatchingRestrictedErrorInfo(#[in] hrIn: HRESULT, #[out] #[out_ptr(null_on_failure)] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoInspectCapturedStackBackTrace(#[in] targetErrorInfoAddress: UINT_PTR, machine: USHORT, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: PVOID, #[out] frameCount: *mut UINT32, #[out] targetBackTraceAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]

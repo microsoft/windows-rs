@@ -16,9 +16,12 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const super::IID, riid: *const super
     unsafe { MetaDataGetDispenser(rclsid, riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn RoActivateInstance(activatableclassid: &windows_core::HSTRING, instance: *mut Option<windows_core::IInspectable>) -> windows_core::HRESULT {
+pub unsafe fn RoActivateInstance(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : *mut core::ffi::c_void, instance : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoActivateInstance(core::mem::transmute_copy(activatableclassid), core::mem::transmute(instance)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoActivateInstance(core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn RoCaptureErrorContext(hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -70,9 +73,12 @@ pub unsafe fn RoGetErrorReportingFlags(pflags: *mut super::UINT32) -> windows_co
 }
 #[cfg(feature = "restrictederrorinfo")]
 #[inline]
-pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: windows_core::HRESULT, pprestrictederrorinfo: *mut Option<super::IRestrictedErrorInfo>) -> windows_core::HRESULT {
+pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: windows_core::HRESULT) -> windows_core::Result<super::IRestrictedErrorInfo> {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoGetMatchingRestrictedErrorInfo(hrin : windows_core::HRESULT, pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoGetMatchingRestrictedErrorInfo(hrin, core::mem::transmute(pprestrictederrorinfo)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoGetMatchingRestrictedErrorInfo(hrin, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "shared")]
 #[inline]

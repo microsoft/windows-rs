@@ -225,7 +225,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateCollection(#[out] ppIMFCollection: *mut IMFCollection) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGICrossAdapterBuffer(#[in] riid: &IID, #[in] punkDevice: IUnknown, #[in] pMediaType: IMFMediaType, #[in] uSubresource: UINT, #[out] #[out_ptr(null_on_failure)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXGICrossAdapterBuffer(#[in] riid: &IID, #[in] punkDevice: IUnknown, #[in] pMediaType: IMFMediaType, #[in] uSubresource: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateDXGIDeviceManager(#[out] resetToken: *mut UINT, #[out] #[out_ptr] ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -257,11 +257,11 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateMemoryBuffer(#[in] cbMaxLength: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamAttributes(#[in] pAttributesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] ppMuxAttribs: *mut IMFAttributes) -> HRESULT;
+        extern fn MFCreateMuxStreamAttributes(#[in] pAttributesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] #[retval] ppMuxAttribs: *mut IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamMediaType(#[in] pMediaTypesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] ppMuxMediaType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMuxStreamMediaType(#[in] pMediaTypesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] #[retval] ppMuxMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamSample(#[in] pSamplesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] ppMuxSample: *mut IMFSample) -> HRESULT;
+        extern fn MFCreateMuxStreamSample(#[in] pSamplesToMux: IMFCollection, #[out] #[out_ptr(null_on_failure)] #[retval] ppMuxSample: *mut IMFSample) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateSample(#[out] ppIMFSample: *mut IMFSample) -> HRESULT;
         #[library("MFPlat.DLL")]

@@ -13,7 +13,7 @@ mod Windows {
         interface IMFSpatialAudioSample: IMFSample {
             fn GetObjectCount(&self, #[out] pdwObjectCount: *mut DWORD) -> HRESULT;
             fn AddSpatialAudioObject(&self, #[in] pAudioObjBuffer: IMFSpatialAudioObjectBuffer) -> HRESULT;
-            fn GetSpatialAudioObjectByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
+            fn GetSpatialAudioObjectByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
         }
     }
 }

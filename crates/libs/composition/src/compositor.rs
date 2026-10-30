@@ -59,13 +59,8 @@ impl Compositor {
         is_topmost: bool,
     ) -> Result<DesktopWindowTarget> {
         let interop: bindings::ICompositorDesktopInterop = self.0.cast()?;
-        let mut target = None;
-        unsafe {
-            interop
-                .CreateDesktopWindowTarget(hwnd.cast(), is_topmost, &mut target)
-                .ok()?;
-        }
-        Ok(DesktopWindowTarget::new(target.unwrap()))
+        let target = unsafe { interop.CreateDesktopWindowTarget(hwnd.cast(), is_topmost)? };
+        Ok(DesktopWindowTarget::new(target))
     }
 
     /// Creates an empty container visual that hosts a child visual tree.
@@ -184,11 +179,7 @@ impl Compositor {
         let interop: bindings::IMicrosoftCompositorInterop = self.0.cast()?;
         let device: windows_core::IUnknown = rendering_device.cast()?;
         #[cfg(all(feature = "system", not(feature = "reactor")))]
-        let graphics = unsafe {
-            let mut graphics = None;
-            interop.CreateGraphicsDevice(&device, &mut graphics).ok()?;
-            graphics.unwrap()
-        };
+        let graphics = unsafe { interop.CreateGraphicsDevice(&device)? };
         #[cfg(feature = "reactor")]
         let graphics = unsafe {
             let mut graphics = core::ptr::null_mut();

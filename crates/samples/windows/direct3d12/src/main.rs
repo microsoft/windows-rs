@@ -76,20 +76,16 @@ fn main() -> windows::core::Result<()> {
                 ..Default::default()
             };
 
-            let mut swap_chain = None;
-            unsafe {
-                self.dxgi_factory
-                    .CreateSwapChainForHwnd(
-                        &command_queue,
-                        hwnd,
-                        &swap_chain_desc,
-                        None,
-                        None,
-                        &mut swap_chain,
-                    )
-                    .ok()?;
+            let swap_chain: IDXGISwapChain3 = unsafe {
+                self.dxgi_factory.CreateSwapChainForHwnd(
+                    &command_queue,
+                    hwnd,
+                    &swap_chain_desc,
+                    None,
+                    None,
+                )?
             }
-            let swap_chain: IDXGISwapChain3 = swap_chain.unwrap().cast()?;
+            .cast()?;
 
             unsafe {
                 self.dxgi_factory
@@ -216,9 +212,7 @@ fn main() -> windows::core::Result<()> {
 
     fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
         for i in 0.. {
-            let mut adapter = None;
-            unsafe { factory.EnumAdapters1(i, &mut adapter).ok()? };
-            let adapter = adapter.unwrap();
+            let adapter = unsafe { factory.EnumAdapters1(i)? };
             let mut desc = DXGI_ADAPTER_DESC1::default();
             unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
 

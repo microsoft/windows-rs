@@ -2276,15 +2276,16 @@ impl ICompositorDesktopInterop {
         &self,
         hwndtarget: HWND,
         istopmost: bool,
-        result: *mut Option<IDesktopWindowTarget>,
-    ) -> windows_core::HRESULT {
+    ) -> windows_core::Result<IDesktopWindowTarget> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(
                 windows_core::Interface::as_raw(self),
                 hwndtarget,
                 istopmost.into(),
-                core::mem::transmute(result),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2310,17 +2311,18 @@ impl ICompositorInterop {
     pub(crate) unsafe fn CreateGraphicsDevice<P0>(
         &self,
         renderingdevice: P0,
-        result: *mut Option<ICompositionGraphicsDevice>,
-    ) -> windows_core::HRESULT
+    ) -> windows_core::Result<ICompositionGraphicsDevice>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGraphicsDevice)(
                 windows_core::Interface::as_raw(self),
                 renderingdevice.param().abi(),
-                core::mem::transmute(result),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

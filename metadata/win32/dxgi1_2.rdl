@@ -145,8 +145,8 @@ mod Windows {
         #[guid(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0)]
         interface IDXGIFactory2: IDXGIFactory1 {
             fn IsWindowedStereoEnabled(&self) -> BOOL;
-            fn CreateSwapChainForHwnd(&self, #[in] pDevice: IUnknown, #[in] hWnd: HWND, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pFullscreenDesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn CreateSwapChainForCoreWindow(&self, #[in] pDevice: IUnknown, #[in] pWindow: IUnknown, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateSwapChainForHwnd(&self, #[in] pDevice: IUnknown, #[in] hWnd: HWND, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pFullscreenDesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateSwapChainForCoreWindow(&self, #[in] pDevice: IUnknown, #[in] pWindow: IUnknown, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
             fn GetSharedResourceAdapterLuid(&self, #[in] hResource: HANDLE, #[out] pLuid: *mut LUID) -> HRESULT;
             fn RegisterStereoStatusWindow(&self, #[in] WindowHandle: HWND, #[in] wMsg: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn RegisterStereoStatusEvent(&self, #[in] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD) -> HRESULT;
@@ -154,19 +154,19 @@ mod Windows {
             fn RegisterOcclusionStatusWindow(&self, #[in] WindowHandle: HWND, #[in] wMsg: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn RegisterOcclusionStatusEvent(&self, #[in] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn UnregisterOcclusionStatus(&self, #[in] dwCookie: DWORD);
-            fn CreateSwapChainForComposition(&self, #[in] pDevice: IUnknown, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateSwapChainForComposition(&self, #[in] pDevice: IUnknown, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
         }
         #[guid(0x00cddea8_939b_4b83_a340_a685226666cc)]
         interface IDXGIOutput1: IDXGIOutput {
             fn GetDisplayModeList1(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[opt] #[out] #[readable(success, *pNumModes)] #[writable(entry, *pNumModes)] pDesc: *mut DXGI_MODE_DESC1) -> HRESULT;
             fn FindClosestMatchingMode1(&self, #[in] pModeToMatch: *const DXGI_MODE_DESC1, #[out] pClosestMatch: *mut DXGI_MODE_DESC1, #[in] #[opt] pConcernedDevice: IUnknown) -> HRESULT;
             fn GetDisplaySurfaceData1(&self, #[in] pDestination: IDXGIResource) -> HRESULT;
-            fn DuplicateOutput(&self, #[in] pDevice: IUnknown, #[out] #[out_ptr(null_on_failure)] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
+            fn DuplicateOutput(&self, #[in] pDevice: IUnknown, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
         }
         #[guid(0x191cfac3_a341_470d_b26e_a864f428319c)]
         interface IDXGIOutputDuplication: IDXGIObject {
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTDUPL_DESC);
-            fn AcquireNextFrame(&self, #[in] TimeoutInMilliseconds: UINT, #[out] pFrameInfo: *mut DXGI_OUTDUPL_FRAME_INFO, #[out] #[out_ptr(null_on_failure)] ppDesktopResource: *mut IDXGIResource) -> HRESULT;
+            fn AcquireNextFrame(&self, #[in] TimeoutInMilliseconds: UINT, #[out] pFrameInfo: *mut DXGI_OUTDUPL_FRAME_INFO, #[out] #[out_ptr(null_on_failure)] #[retval] ppDesktopResource: *mut IDXGIResource) -> HRESULT;
             fn GetFrameDirtyRects(&self, #[in] DirtyRectsBufferSize: UINT, #[out] #[readable(success, bytes(*pDirtyRectsBufferSizeRequired))] #[writable(entry, bytes(DirtyRectsBufferSize))] pDirtyRectsBuffer: *mut RECT, #[out] pDirtyRectsBufferSizeRequired: *mut UINT) -> HRESULT;
             fn GetFrameMoveRects(&self, #[in] MoveRectsBufferSize: UINT, #[out] #[readable(success, bytes(*pMoveRectsBufferSizeRequired))] #[writable(entry, bytes(MoveRectsBufferSize))] pMoveRectBuffer: *mut DXGI_OUTDUPL_MOVE_RECT, #[out] pMoveRectsBufferSizeRequired: *mut UINT) -> HRESULT;
             fn GetFramePointerShape(&self, #[in] PointerShapeBufferSize: UINT, #[out] #[readable(success, bytes(*pPointerShapeBufferSizeRequired))] #[writable(entry, bytes(PointerShapeBufferSize))] pPointerShapeBuffer: *mut void, #[out] pPointerShapeBufferSizeRequired: *mut UINT, #[out] pPointerShapeInfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> HRESULT;
@@ -176,7 +176,7 @@ mod Windows {
         }
         #[guid(0x30961379_4609_4a41_998e_54fe567ee0c1)]
         interface IDXGIResource1: IDXGIResource {
-            fn CreateSubresourceSurface(&self, index: UINT, #[out] #[out_ptr(null_on_failure)] ppSurface: *mut IDXGISurface2) -> HRESULT;
+            fn CreateSubresourceSurface(&self, index: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppSurface: *mut IDXGISurface2) -> HRESULT;
             fn CreateSharedHandle(&self, #[in] #[opt] pAttributes: *const SECURITY_ATTRIBUTES, #[in] dwAccess: DWORD, #[in] #[opt] lpName: LPCWSTR, #[out] pHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2)]

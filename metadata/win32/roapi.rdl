@@ -14,7 +14,7 @@ mod Windows {
         type RO_REGISTRATION_COOKIE = *mut _RO_REGISTRATION_COOKIE;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         #[must_use]
-        extern fn RoActivateInstance(#[in] activatableClassId: HSTRING, #[out] #[out_ptr(null_on_failure)] instance: *mut IInspectable) -> HRESULT;
+        extern fn RoActivateInstance(#[in] activatableClassId: HSTRING, #[out] #[out_ptr(null_on_failure)] #[retval] instance: *mut IInspectable) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         #[must_use]
         extern fn RoGetActivationFactory(#[in] activatableClassId: HSTRING, #[in] iid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] factory: *mut *mut void) -> HRESULT;

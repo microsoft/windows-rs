@@ -201,13 +201,16 @@ pub unsafe fn MFCreateCollection(ppimfcollection: *mut Option<super::IMFCollecti
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateDXGICrossAdapterBuffer<P1, P2>(riid: *const super::IID, punkdevice: P1, pmediatype: P2, usubresource: super::UINT, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT
+pub unsafe fn MFCreateDXGICrossAdapterBuffer<P1, P2>(riid: *const super::IID, punkdevice: P1, pmediatype: P2, usubresource: super::UINT) -> windows_core::Result<super::IMFMediaBuffer>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
     P2: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateDXGICrossAdapterBuffer(riid : *const super::IID, punkdevice : *mut core::ffi::c_void, pmediatype : *mut core::ffi::c_void, usubresource : super::UINT, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateDXGICrossAdapterBuffer(riid, punkdevice.param().abi(), pmediatype.param().abi(), usubresource, core::mem::transmute(ppbuffer)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateDXGICrossAdapterBuffer(riid, punkdevice.param().abi(), pmediatype.param().abi(), usubresource, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -330,30 +333,39 @@ pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: super::DWORD, ppbuffer: *mut Opt
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMuxStreamAttributes<P0>(pattributestomux: P0, ppmuxattribs: *mut Option<super::IMFAttributes>) -> windows_core::HRESULT
+pub unsafe fn MFCreateMuxStreamAttributes<P0>(pattributestomux: P0) -> windows_core::Result<super::IMFAttributes>
 where
     P0: windows_core::Param<super::IMFCollection>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamAttributes(pattributestomux : *mut core::ffi::c_void, ppmuxattribs : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMuxStreamAttributes(pattributestomux.param().abi(), core::mem::transmute(ppmuxattribs)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateMuxStreamAttributes(pattributestomux.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMuxStreamMediaType<P0>(pmediatypestomux: P0, ppmuxmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT
+pub unsafe fn MFCreateMuxStreamMediaType<P0>(pmediatypestomux: P0) -> windows_core::Result<super::IMFMediaType>
 where
     P0: windows_core::Param<super::IMFCollection>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamMediaType(pmediatypestomux : *mut core::ffi::c_void, ppmuxmediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMuxStreamMediaType(pmediatypestomux.param().abi(), core::mem::transmute(ppmuxmediatype)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateMuxStreamMediaType(pmediatypestomux.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateMuxStreamSample<P0>(psamplestomux: P0, ppmuxsample: *mut Option<super::IMFSample>) -> windows_core::HRESULT
+pub unsafe fn MFCreateMuxStreamSample<P0>(psamplestomux: P0) -> windows_core::Result<super::IMFSample>
 where
     P0: windows_core::Param<super::IMFCollection>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamSample(psamplestomux : *mut core::ffi::c_void, ppmuxsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMuxStreamSample(psamplestomux.param().abi(), core::mem::transmute(ppmuxsample)) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateMuxStreamSample(psamplestomux.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

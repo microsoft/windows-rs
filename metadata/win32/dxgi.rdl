@@ -145,7 +145,7 @@ mod Windows {
         const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
         #[guid(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0)]
         interface IDXGIAdapter: IDXGIObject {
-            fn EnumOutputs(&self, #[in] Output: UINT, #[out] #[out_ptr(null_on_failure)] ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn EnumOutputs(&self, #[in] Output: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutput: *mut IDXGIOutput) -> HRESULT;
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
             fn CheckInterfaceSupport(&self, #[in] InterfaceName: &GUID, #[out] pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
         }
@@ -155,7 +155,7 @@ mod Windows {
         }
         #[guid(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c)]
         interface IDXGIDevice: IDXGIObject {
-            fn GetAdapter(&self, #[out] #[out_ptr(null_on_failure)] pAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn GetAdapter(&self, #[out] #[out_ptr(null_on_failure)] #[retval] pAdapter: *mut IDXGIAdapter) -> HRESULT;
             fn CreateSurface(&self, #[in] pDesc: *const DXGI_SURFACE_DESC, #[in] NumSurfaces: UINT, #[in] Usage: DXGI_USAGE, #[in] #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[out] #[writable(entry, NumSurfaces)] ppSurface: *mut IDXGISurface) -> HRESULT;
             fn QueryResourceResidency(&self, #[in] #[readable(entry, NumResources)] ppResources: *const IUnknown, #[out] #[writable(entry, NumResources)] pResidencyStatus: *mut DXGI_RESIDENCY, #[in] NumResources: UINT) -> HRESULT;
             fn SetGPUThreadPriority(&self, #[in] Priority: INT) -> HRESULT;
@@ -172,15 +172,15 @@ mod Windows {
         }
         #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
         interface IDXGIFactory: IDXGIObject {
-            fn EnumAdapters(&self, #[in] Adapter: UINT, #[out] #[out_ptr(null_on_failure)] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn EnumAdapters(&self, #[in] Adapter: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
             fn MakeWindowAssociation(&self, WindowHandle: HWND, Flags: UINT) -> HRESULT;
             fn GetWindowAssociation(&self, #[out] pWindowHandle: *mut HWND) -> HRESULT;
-            fn CreateSwapChain(&self, #[in] pDevice: IUnknown, #[in] pDesc: *mut DXGI_SWAP_CHAIN_DESC, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
-            fn CreateSoftwareAdapter(&self, #[in] Module: HMODULE, #[out] #[out_ptr(null_on_failure)] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn CreateSwapChain(&self, #[in] pDevice: IUnknown, #[in] pDesc: *mut DXGI_SWAP_CHAIN_DESC, #[out] #[out_ptr(null_on_failure)] #[retval] ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn CreateSoftwareAdapter(&self, #[in] Module: HMODULE, #[out] #[out_ptr(null_on_failure)] #[retval] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
         }
         #[guid(0x770aae78_f26f_4dba_a829_253c83d1b387)]
         interface IDXGIFactory1: IDXGIFactory {
-            fn EnumAdapters1(&self, #[in] Adapter: UINT, #[out] #[out_ptr(null_on_failure)] ppAdapter: *mut IDXGIAdapter1) -> HRESULT;
+            fn EnumAdapters1(&self, #[in] Adapter: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppAdapter: *mut IDXGIAdapter1) -> HRESULT;
             fn IsCurrent(&self) -> BOOL;
         }
         #[guid(0x9d8e1289_d7b3_465f_8126_250e349af85d)]
@@ -237,7 +237,7 @@ mod Windows {
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
             fn ResizeBuffers(&self, #[in] BufferCount: UINT, #[in] Width: UINT, #[in] Height: UINT, #[in] NewFormat: DXGI_FORMAT, #[in] SwapChainFlags: UINT) -> HRESULT;
             fn ResizeTarget(&self, #[in] pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;
-            fn GetContainingOutput(&self, #[out] #[out_ptr(null_on_failure)] ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn GetContainingOutput(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutput: *mut IDXGIOutput) -> HRESULT;
             fn GetFrameStatistics(&self, #[out] pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
             fn GetLastPresentCount(&self, #[out] pLastPresentCount: *mut UINT) -> HRESULT;
         }

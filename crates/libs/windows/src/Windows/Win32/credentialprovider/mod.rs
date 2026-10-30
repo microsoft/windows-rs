@@ -164,8 +164,11 @@ impl ICredentialProvider {
         unsafe { (windows_core::Interface::vtable(self).GetCredentialCount)(windows_core::Interface::as_raw(self), pdwcount as _, pdwdefault as _, pbautologonwithdefault as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetCredentialAt(&self, dwindex: super::DWORD, ppcpc: *mut Option<ICredentialProviderCredential>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCredentialAt)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppcpc)) }
+    pub unsafe fn GetCredentialAt(&self, dwindex: super::DWORD) -> windows_core::Result<ICredentialProviderCredential> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCredentialAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -211,7 +214,7 @@ pub trait ICredentialProvider_Impl: windows_core::IUnknownImpl {
     fn GetFieldDescriptorCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetFieldDescriptorAt(&self, dwindex: super::DWORD, ppcpfd: *mut *mut CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetCredentialCount(&self, pdwcount: *mut super::DWORD, pdwdefault: *mut super::DWORD, pbautologonwithdefault: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetCredentialAt(&self, dwindex: super::DWORD, ppcpc: windows_core::OutRef<ICredentialProviderCredential>) -> windows_core::Result<()>;
+    fn GetCredentialAt(&self, dwindex: super::DWORD) -> windows_core::Result<ICredentialProviderCredential>;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ICredentialProvider_Vtbl {
@@ -261,7 +264,16 @@ impl ICredentialProvider_Vtbl {
         unsafe extern "system" fn GetCredentialAt<Identity: ICredentialProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppcpc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProvider_Impl::GetCredentialAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&ppcpc)).into()
+                match ICredentialProvider_Impl::GetCredentialAt(this, core::mem::transmute_copy(&dwindex)) {
+                    Ok(ok__) => {
+                        ppcpc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppcpc.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {
@@ -1156,8 +1168,11 @@ impl ICredentialProviderUserArray {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), usercount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAt(&self, userindex: super::DWORD, user: *mut Option<ICredentialProviderUser>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), userindex, core::mem::transmute(user)) }
+    pub unsafe fn GetAt(&self, userindex: super::DWORD) -> windows_core::Result<ICredentialProviderUser> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), userindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1180,7 +1195,7 @@ pub trait ICredentialProviderUserArray_Impl: windows_core::IUnknownImpl {
     fn SetProviderFilter(&self, guidprovidertofilterto: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetAccountOptions(&self, credentialprovideraccountoptions: *mut CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS) -> windows_core::Result<()>;
     fn GetCount(&self, usercount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetAt(&self, userindex: super::DWORD, user: windows_core::OutRef<ICredentialProviderUser>) -> windows_core::Result<()>;
+    fn GetAt(&self, userindex: super::DWORD) -> windows_core::Result<ICredentialProviderUser>;
 }
 #[cfg(feature = "shared")]
 impl ICredentialProviderUserArray_Vtbl {
@@ -1206,7 +1221,16 @@ impl ICredentialProviderUserArray_Vtbl {
         unsafe extern "system" fn GetAt<Identity: ICredentialProviderUserArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, userindex: super::DWORD, user: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProviderUserArray_Impl::GetAt(this, core::mem::transmute_copy(&userindex), core::mem::transmute_copy(&user)).into()
+                match ICredentialProviderUserArray_Impl::GetAt(this, core::mem::transmute_copy(&userindex)) {
+                    Ok(ok__) => {
+                        user.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        user.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {

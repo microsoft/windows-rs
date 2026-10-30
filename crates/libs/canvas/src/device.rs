@@ -65,17 +65,9 @@ impl GpuDevice {
         let d2d_factory = d2d_factory.unwrap();
 
         let dxgi_device: IDXGIDevice = d3d_device.cast()?;
-        let mut d2d_device = None;
-        unsafe {
-            d2d_factory
-                .CreateDevice(&dxgi_device, &mut d2d_device)
-                .ok()?;
-        }
-        let d2d_device = d2d_device.unwrap();
+        let d2d_device = unsafe { d2d_factory.CreateDevice(&dxgi_device)? };
 
-        let mut dxgi_adapter = None;
-        unsafe { dxgi_device.GetAdapter(&mut dxgi_adapter).ok()? };
-        let dxgi_adapter = dxgi_adapter.unwrap();
+        let dxgi_adapter: IDXGIAdapter = unsafe { dxgi_device.GetAdapter()? };
         let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
 
         let dwrite_factory = dwrite_factory()?;
@@ -144,13 +136,11 @@ impl GpuDevice {
     /// Creates a Direct2D stroke style from `builder`.
     pub fn create_stroke_style(&self, builder: &StrokeStyleBuilder) -> Result<StrokeStyle> {
         let props = builder.to_abi();
-        let mut style = None;
         unsafe {
             self.d2d_factory
-                .CreateStrokeStyle(&props, None, &mut style)
-                .ok()?;
+                .CreateStrokeStyle(&props, None)
+                .map(StrokeStyle)
         }
-        Ok(StrokeStyle(style.unwrap()))
     }
 
     /// Returns the underlying DXGI factory for interop.

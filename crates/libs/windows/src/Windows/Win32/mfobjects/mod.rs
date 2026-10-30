@@ -2275,8 +2275,11 @@ impl IMFMuxStreamAttributesManager {
         unsafe { (windows_core::Interface::vtable(self).GetStreamCount)(windows_core::Interface::as_raw(self), pdwmuxstreamcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetAttributes(&self, dwmuxstreamindex: super::DWORD, ppstreamattributes: *mut Option<IMFAttributes>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), dwmuxstreamindex, core::mem::transmute(ppstreamattributes)) }
+    pub unsafe fn GetAttributes(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFAttributes> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), dwmuxstreamindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2295,7 +2298,7 @@ pub struct IMFMuxStreamAttributesManager_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFMuxStreamAttributesManager_Impl: windows_core::IUnknownImpl {
     fn GetStreamCount(&self, pdwmuxstreamcount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetAttributes(&self, dwmuxstreamindex: super::DWORD, ppstreamattributes: windows_core::OutRef<IMFAttributes>) -> windows_core::Result<()>;
+    fn GetAttributes(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFAttributes>;
 }
 #[cfg(feature = "shared")]
 impl IMFMuxStreamAttributesManager_Vtbl {
@@ -2309,7 +2312,16 @@ impl IMFMuxStreamAttributesManager_Vtbl {
         unsafe extern "system" fn GetAttributes<Identity: IMFMuxStreamAttributesManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmuxstreamindex: super::DWORD, ppstreamattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMuxStreamAttributesManager_Impl::GetAttributes(this, core::mem::transmute_copy(&dwmuxstreamindex), core::mem::transmute_copy(&ppstreamattributes)).into()
+                match IMFMuxStreamAttributesManager_Impl::GetAttributes(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
+                    Ok(ok__) => {
+                        ppstreamattributes.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppstreamattributes.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         Self {
@@ -2332,8 +2344,11 @@ impl IMFMuxStreamMediaTypeManager {
         unsafe { (windows_core::Interface::vtable(self).GetStreamCount)(windows_core::Interface::as_raw(self), pdwmuxstreamcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetMediaType(&self, dwmuxstreamindex: super::DWORD, ppmediatype: *mut Option<IMFMediaType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), dwmuxstreamindex, core::mem::transmute(ppmediatype)) }
+    pub unsafe fn GetMediaType(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFMediaType> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), dwmuxstreamindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStreamConfigurationCount(&self, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
@@ -2384,7 +2399,7 @@ pub struct IMFMuxStreamMediaTypeManager_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFMuxStreamMediaTypeManager_Impl: windows_core::IUnknownImpl {
     fn GetStreamCount(&self, pdwmuxstreamcount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetMediaType(&self, dwmuxstreamindex: super::DWORD, ppmediatype: windows_core::OutRef<IMFMediaType>) -> windows_core::Result<()>;
+    fn GetMediaType(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFMediaType>;
     fn GetStreamConfigurationCount(&self, pdwcount: *mut super::DWORD) -> windows_core::Result<()>;
     fn AddStreamConfiguration(&self, ullstreammask: super::ULONGLONG) -> windows_core::Result<()>;
     fn RemoveStreamConfiguration(&self, ullstreammask: super::ULONGLONG) -> windows_core::Result<()>;
@@ -2402,7 +2417,16 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
         unsafe extern "system" fn GetMediaType<Identity: IMFMuxStreamMediaTypeManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmuxstreamindex: super::DWORD, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMuxStreamMediaTypeManager_Impl::GetMediaType(this, core::mem::transmute_copy(&dwmuxstreamindex), core::mem::transmute_copy(&ppmediatype)).into()
+                match IMFMuxStreamMediaTypeManager_Impl::GetMediaType(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
+                    Ok(ok__) => {
+                        ppmediatype.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppmediatype.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn GetStreamConfigurationCount<Identity: IMFMuxStreamMediaTypeManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::DWORD) -> windows_core::HRESULT {
@@ -2453,8 +2477,11 @@ impl IMFMuxStreamSampleManager {
         unsafe { (windows_core::Interface::vtable(self).GetStreamCount)(windows_core::Interface::as_raw(self), pdwmuxstreamcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetSample(&self, dwmuxstreamindex: super::DWORD, ppsample: *mut Option<IMFSample>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSample)(windows_core::Interface::as_raw(self), dwmuxstreamindex, core::mem::transmute(ppsample)) }
+    pub unsafe fn GetSample(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFSample> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSample)(windows_core::Interface::as_raw(self), dwmuxstreamindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStreamConfiguration(&self) -> super::ULONGLONG {
@@ -2481,7 +2508,7 @@ pub struct IMFMuxStreamSampleManager_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IMFMuxStreamSampleManager_Impl: windows_core::IUnknownImpl {
     fn GetStreamCount(&self, pdwmuxstreamcount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetSample(&self, dwmuxstreamindex: super::DWORD, ppsample: windows_core::OutRef<IMFSample>) -> windows_core::Result<()>;
+    fn GetSample(&self, dwmuxstreamindex: super::DWORD) -> windows_core::Result<IMFSample>;
     fn GetStreamConfiguration(&self) -> super::ULONGLONG;
 }
 #[cfg(feature = "shared")]
@@ -2496,7 +2523,16 @@ impl IMFMuxStreamSampleManager_Vtbl {
         unsafe extern "system" fn GetSample<Identity: IMFMuxStreamSampleManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmuxstreamindex: super::DWORD, ppsample: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMuxStreamSampleManager_Impl::GetSample(this, core::mem::transmute_copy(&dwmuxstreamindex), core::mem::transmute_copy(&ppsample)).into()
+                match IMFMuxStreamSampleManager_Impl::GetSample(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
+                    Ok(ok__) => {
+                        ppsample.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        ppsample.write(core::mem::zeroed());
+                        err.into()
+                    }
+                }
             }
         }
         unsafe extern "system" fn GetStreamConfiguration<Identity: IMFMuxStreamSampleManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::ULONGLONG {

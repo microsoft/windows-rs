@@ -282,7 +282,7 @@ mod Windows {
         }
         #[library("ole32.dll")]
         #[must_use]
-        extern fn RoGetAgileReference(#[in] options: AgileReferenceOptions, #[in] riid: &IID, #[in] pUnk: IUnknown, #[out] #[out_ptr(null_on_failure)] ppAgileReference: *mut IAgileReference) -> HRESULT;
+        extern fn RoGetAgileReference(#[in] options: AgileReferenceOptions, #[in] riid: &IID, #[in] pUnk: IUnknown, #[out] #[out_ptr(null_on_failure)] #[retval] ppAgileReference: *mut IAgileReference) -> HRESULT;
         #[repr(i32)]
         enum STDMSHLFLAGS {
             SMEXF_SERVER = 1,
