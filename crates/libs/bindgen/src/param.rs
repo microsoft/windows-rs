@@ -109,7 +109,7 @@ impl Param {
 
         let returned_pointer = self.attributes().any(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NativeReturnedPointerAttribute"
+                && attribute.name() == "ReturnedPointerAttribute"
         });
         self.buffer_attributes().any(|attribute| {
             if attribute.namespace() != "Windows.Win32.Metadata"
@@ -138,7 +138,7 @@ impl Param {
     fn returned_pointer_flag(&self, name: &str) -> bool {
         self.attributes().any(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NativeReturnedPointerAttribute"
+                && attribute.name() == "ReturnedPointerAttribute"
                 && attribute
                     .value()
                     .iter()

@@ -146,7 +146,6 @@ mod Windows {
         #[guid(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec)]
         interface ID2D1SvgDocument: ID2D1Resource {
             fn SetViewportSize(&self, viewportSize: D2D1_SIZE_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetViewportSize(&self) -> D2D1_SIZE_F;
             fn SetRoot(&self, #[in] #[opt] root: ID2D1SvgElement) -> HRESULT;
             fn GetRoot(&self, #[nullable] #[out] #[out_ptr] root: *mut ID2D1SvgElement);

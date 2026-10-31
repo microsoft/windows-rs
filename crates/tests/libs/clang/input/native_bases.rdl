@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         struct Combined {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base0: Primary,
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base1: IUnknown,
         }
         struct GUID {
@@ -21,9 +21,9 @@ mod Windows {
         }
         #[packed(1)]
         struct PackedCombined {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base0: Primary,
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base1: IUnknown,
         }
         interface Primary {

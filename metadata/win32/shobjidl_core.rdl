@@ -1331,13 +1331,13 @@ mod Windows {
         interface IFolderView2: IFolderView {
             fn SetGroupBy(&self, #[in] key: &PROPERTYKEY, #[in] fAscending: BOOL) -> HRESULT;
             fn GetGroupBy(&self, #[out] pkey: *mut PROPERTYKEY, #[opt] #[out] pfAscending: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+            #[deprecated]
             fn SetViewProperty(&self, #[in] pidl: LPCITEMIDLIST, #[in] propkey: &PROPERTYKEY, #[in] propvar: &PROPVARIANT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+            #[deprecated]
             fn GetViewProperty(&self, #[in] pidl: LPCITEMIDLIST, #[in] propkey: &PROPERTYKEY, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+            #[deprecated]
             fn SetTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+            #[deprecated]
             fn SetExtendedTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR) -> HRESULT;
             fn SetText(&self, #[in] iType: FVTEXTTYPE, #[in] pwszText: LPCWSTR) -> HRESULT;
             fn SetCurrentFolderFlags(&self, #[in] dwMask: DWORD, #[in] dwFlags: DWORD) -> HRESULT;

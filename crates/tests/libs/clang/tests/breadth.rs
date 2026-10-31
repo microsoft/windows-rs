@@ -453,7 +453,7 @@ fn annotation_normalization_residuals() {
             );
             assert_eq!(
                 parameter
-                    .find_attribute("NativeReturnedPointerAttribute")
+                    .find_attribute("ReturnedPointerAttribute")
                     .is_some(),
                 name == "NullableResult"
             );
@@ -856,7 +856,7 @@ fn pointer_parameter_flags() {
                     assert!(parameter.find_attribute("NativeSalAttribute").is_none());
                     assert_eq!(
                         parameter
-                            .find_attribute("NativeReturnedPointerAttribute")
+                            .find_attribute("ReturnedPointerAttribute")
                             .unwrap()
                             .value(),
                         [(
@@ -1261,7 +1261,7 @@ fn rpc_strings() {
                 assert_eq!(parameter.buffer_relationship(), None);
                 assert_eq!(
                     parameter
-                        .find_attribute("NativeNullTerminatedAttribute")
+                        .find_attribute("NullTerminatedAttribute")
                         .unwrap()
                         .value()
                         .into_iter()
@@ -1780,7 +1780,7 @@ fn check_rpc_buffers() {
                             "{name}"
                         );
                     }
-                    let termination = parameter.find_attribute("NativeNullTerminatedAttribute");
+                    let termination = parameter.find_attribute("NullTerminatedAttribute");
                     assert_eq!(termination.is_some(), terminated, "{name}");
                     if let Some(termination) = termination {
                         assert_eq!(
@@ -2431,7 +2431,7 @@ fn buffer_postconditions() {
                         assert_eq!(parameter.is_optional(), current.contains("_opt_"));
                         assert!(parameter.find_attribute("NativeSalAttribute").is_none());
                         assert!(parameter.find_attribute("NativeInputAttribute").is_none());
-                        let terminated = parameter.find_attribute("NativeNullTerminatedAttribute");
+                        let terminated = parameter.find_attribute("NullTerminatedAttribute");
                         assert_eq!(terminated.is_some(), case < 6);
                         if let Some(terminated) = terminated {
                             assert_eq!(
@@ -2628,7 +2628,7 @@ fn buffer_postcondition_residuals() {
                 length,
                 "{name}"
             );
-            let termination = parameter.find_attribute("NativeNullTerminatedAttribute");
+            let termination = parameter.find_attribute("NullTerminatedAttribute");
             assert_eq!(termination.is_some(), entry || success, "{name}");
             if let Some(termination) = termination {
                 assert_eq!(
@@ -3253,12 +3253,6 @@ fn interface_overloads() {
                     1 => vec![MetadataType::F32],
                     _ => vec![],
                 }
-            );
-            assert_eq!(
-                method
-                    .find_attribute("NativeConstMethodAttribute")
-                    .is_some(),
-                i == 0
             );
         }
     });
@@ -4214,7 +4208,7 @@ fn scalar_constant_aliases() {
             .find(|field| field.name() == "SHARED")
             .unwrap();
         assert_eq!(field.ty(), MetadataType::U32);
-        assert!(field.find_attribute("NativeDeprecatedAttribute").is_some());
+        assert!(field.find_attribute("DeprecatedAttribute").is_some());
     });
 }
 
@@ -4346,11 +4340,7 @@ fn aggregate_constants() {
                 windows_metadata::Value::Utf16(value.into())
             );
             assert_eq!(
-                field
-                    .find_attribute("NativeEncodingAttribute")
-                    .unwrap()
-                    .value()[0]
-                    .1,
+                field.find_attribute("EncodingAttribute").unwrap().value()[0].1,
                 windows_metadata::Value::Utf8(encoding.into())
             );
         }
@@ -4413,7 +4403,7 @@ fn aggregate_constants() {
         for (name, message) in [("KEY", "use another key"), ("SELECTED_GUID", "use next")] {
             assert_eq!(
                 field(name)
-                    .find_attribute("NativeDeprecatedAttribute")
+                    .find_attribute("DeprecatedAttribute")
                     .unwrap()
                     .value()[0]
                     .1,
@@ -5038,11 +5028,6 @@ fn cpp_members() {
         assert_eq!(methods.len(), 1);
         let method = methods[0];
         assert_eq!(method.name(), "Inspect");
-        assert!(
-            method
-                .find_attribute("NativeConstMethodAttribute")
-                .is_some()
-        );
         assert_eq!(method.signature(&[]).types.len(), 4);
         assert!(method.params().all(|parameter| {
             parameter
@@ -5090,50 +5075,46 @@ fn deprecations() {
     let input = selected_fixture("deprecations", &[]);
     let output = project(std::slice::from_ref(&input));
     roundtrip("deprecations", &output, |index, _| {
-        let check = |attributes: Vec<(String, windows_metadata::Value)>,
-                     message: &str,
-                     replacement: &str| {
-            assert_eq!(
-                attributes
-                    .into_iter()
-                    .take(2)
-                    .map(|(_, value)| value)
-                    .collect::<Vec<_>>(),
-                [
-                    windows_metadata::Value::Utf8(message.into()),
-                    windows_metadata::Value::Utf8(replacement.into())
-                ]
-            );
+        let check = |attributes: Vec<(String, windows_metadata::Value)>, message: &str| {
+            let positional: Vec<_> = attributes
+                .into_iter()
+                .filter(|(name, _)| name.is_empty())
+                .map(|(_, value)| value)
+                .collect();
+            if message.is_empty() {
+                assert!(positional.is_empty(), "{positional:?}");
+            } else {
+                assert_eq!(positional, [windows_metadata::Value::Utf8(message.into())]);
+            }
         };
-        for (name, message, replacement) in [
-            ("LegacyRecord", "old record", ""),
-            ("OldCount", "old count", "NewCount"),
-            ("LegacyCallback", "old callback", ""),
-            ("ILegacy", "old interface", ""),
+        for (name, message) in [
+            ("LegacyRecord", "old record"),
+            ("OldCount", "old count"),
+            ("LegacyCallback", "old callback"),
+            ("ILegacy", "old interface"),
         ] {
             check(
                 index
                     .expect("Fixture", name)
-                    .find_attribute("NativeDeprecatedAttribute")
+                    .find_attribute("DeprecatedAttribute")
                     .unwrap()
                     .value(),
                 message,
-                replacement,
             );
         }
         let owned = index
             .expect("Fixture", "Owned")
-            .find_attribute("NativeDeprecatedAttribute")
+            .find_attribute("DeprecatedAttribute")
             .unwrap()
             .value();
         assert_eq!(
-            owned[2],
+            owned[1],
             (
                 "TypedefName".into(),
                 windows_metadata::Value::Utf8("Owned".into())
             )
         );
-        check(owned, "old typedef", "");
+        check(owned, "old typedef");
         for (owner, field, message) in [
             ("Apis", "LegacyValue", "old anonymous"),
             ("Apis", "LegacyConstant", ""),
@@ -5146,12 +5127,8 @@ fn deprecations() {
                 .find(|value| value.name() == field)
                 .unwrap();
             check(
-                field
-                    .find_attribute("NativeDeprecatedAttribute")
-                    .unwrap()
-                    .value(),
+                field.find_attribute("DeprecatedAttribute").unwrap().value(),
                 message,
-                "",
             );
         }
         for (owner, method, message) in [
@@ -5165,11 +5142,10 @@ fn deprecations() {
                 .unwrap();
             check(
                 method
-                    .find_attribute("NativeDeprecatedAttribute")
+                    .find_attribute("DeprecatedAttribute")
                     .unwrap()
                     .value(),
                 message,
-                "",
             );
         }
     });

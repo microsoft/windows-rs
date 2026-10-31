@@ -731,12 +731,12 @@ mod Windows {
         type CLUSPROP_DISK_NUMBER = CLUSPROP_DWORD;
         type CLUSPROP_DISK_SIGNATURE = CLUSPROP_DWORD;
         struct CLUSPROP_DWORD {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             dw: DWORD,
         }
         struct CLUSPROP_FILETIME {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             ft: FILETIME,
         }
@@ -747,12 +747,12 @@ mod Windows {
             CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC = 2,
         }
         struct CLUSPROP_LARGE_INTEGER {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             li: LARGE_INTEGER,
         }
         struct CLUSPROP_LONG {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             l: LONG,
         }
@@ -768,7 +768,7 @@ mod Windows {
             CLUSPROP_PIFLAG_UNKNOWN = -2147483648,
         }
         struct CLUSPROP_RESOURCE_CLASS {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             rc: CLUSTER_RESOURCE_CLASS,
         }
@@ -780,7 +780,7 @@ mod Windows {
             },
         }
         struct CLUSPROP_ULARGE_INTEGER {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             li: ULARGE_INTEGER,
         }
@@ -789,7 +789,7 @@ mod Windows {
             cbLength: DWORD,
         }
         struct CLUSPROP_WORD {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CLUSPROP_VALUE,
             w: WORD,
         }

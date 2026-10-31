@@ -5413,7 +5413,7 @@ mod Windows {
         const PCI_CLASS_SIMPLE_COMMS_CTLR: i32 = 7;
         const PCI_CLASS_WIRELESS_CTLR: i32 = 13;
         struct PCI_COMMON_CONFIG {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: PCI_COMMON_HEADER,
             DeviceSpecific: [UCHAR; 192],
         }

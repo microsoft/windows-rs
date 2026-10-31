@@ -13,7 +13,7 @@ mod Windows {
             ai_addr: *mut SOCKADDR,
             ai_next: *mut ADDRINFOA,
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use ADDRINFOEX2W instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use ADDRINFOEX2W instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct ADDRINFOEX2A {
             ai_flags: i32,
             ai_family: i32,
@@ -150,7 +150,7 @@ mod Windows {
             ai_responseflags: ULONG64,
             ai_extraflags: ULONG64,
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use ADDRINFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use ADDRINFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct ADDRINFOEXA {
             ai_flags: i32,
             ai_family: i32,

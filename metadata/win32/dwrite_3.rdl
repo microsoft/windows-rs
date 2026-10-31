@@ -45,7 +45,7 @@ mod Windows {
             DWRITE_COLOR_COMPOSITE_HSL_LUMINOSITY = 27,
         }
         struct DWRITE_COLOR_GLYPH_RUN1 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: DWRITE_COLOR_GLYPH_RUN,
             glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS,
             measuringMode: DWRITE_MEASURING_MODE,
@@ -146,7 +146,7 @@ mod Windows {
             verticalBottomOrigin: D2D1_POINT_2L,
         }
         struct DWRITE_LINE_METRICS1 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: DWRITE_LINE_METRICS,
             leadingBefore: FLOAT,
             leadingAfter: FLOAT,

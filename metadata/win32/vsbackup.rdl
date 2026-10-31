@@ -125,9 +125,9 @@ mod Windows {
             fn GetDependency(&self, #[in] iDependency: UINT, #[out] ppDependency: *mut IVssWMDependency) -> HRESULT;
         }
         struct IVssWriterComponentsExt {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base0: IVssWriterComponents,
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base1: IUnknown,
         }
         #[library("VSSAPI.DLL")]

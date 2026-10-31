@@ -46,7 +46,7 @@ mod Windows {
                 CountUnknown: bool,
                 Indirect: bool,
             }
-            attribute NativeReturnedPointerAttribute {
+            attribute ReturnedPointerAttribute {
                 fn();
                 NullOnFailure: bool,
             }

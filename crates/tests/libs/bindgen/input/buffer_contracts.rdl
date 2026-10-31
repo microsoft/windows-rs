@@ -68,7 +68,7 @@ mod Windows {
             attribute NativeSalAttribute {
                 fn(#[in] version: String, #[in] name: String, #[in] arguments: String, #[in] expanded: String);
             }
-            attribute NativeReturnedPointerAttribute {
+            attribute ReturnedPointerAttribute {
                 fn();
                 NullOnFailure: bool,
             }

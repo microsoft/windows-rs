@@ -408,30 +408,30 @@ mod Windows {
         #[library("WS2_32.dll")]
         #[must_use]
         extern fn WSAAccept(#[in] s: SOCKET, #[opt] #[out] #[readable(success, bytes(if_present(*addrlen)))] #[writable(entry, bytes(if_present(*addrlen)))] addr: *mut SOCKADDR, #[in] #[opt] #[out] addrlen: LPINT, #[in] #[opt] lpfnCondition: LPCONDITIONPROC, #[in] #[opt] dwCallbackData: DWORD_PTR) -> SOCKET;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAAddressToStringW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAAddressToStringW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAddressToStringA(#[in] #[readable(entry, bytes(dwAddressLength))] lpsaAddress: LPSOCKADDR, #[in] dwAddressLength: DWORD, #[in] #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[out] #[readable(success, *lpdwAddressStringLength)] #[writable(entry, *lpdwAddressStringLength)] lpszAddressString: LPSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAAddressToStringW(#[in] #[readable(entry, bytes(dwAddressLength))] lpsaAddress: LPSOCKADDR, #[in] dwAddressLength: DWORD, #[in] #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[out] #[readable(success, *lpdwAddressStringLength)] #[writable(entry, *lpdwAddressStringLength)] lpszAddressString: LPWSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetHostByAddr(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[readable(entry, bytes(len))] addr: *const i8, #[in] len: i32, #[in] r#type: i32, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetHostByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getprotobyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getprotobyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetProtoByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getprotobynumber() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getprotobynumber() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetProtoByNumber(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] number: i32, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getservbyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getservbyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetServByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[in] #[null_terminated(entry)] proto: *const i8, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getservbyport() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getservbyport() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetServByPort(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] port: i32, #[in] proto: *const i8, #[out] #[writable(entry, bytes(buflen))] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAAsyncSelect(#[in] s: SOCKET, #[in] hWnd: HWND, #[in] wMsg: u_int, #[in] lEvent: i32) -> i32;
         struct WSACOMPLETION {
@@ -464,10 +464,10 @@ mod Windows {
             NSP_NOTIFY_PORT = 3,
             NSP_NOTIFY_APC = 4,
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSACancelAsyncRequest(#[in] hAsyncTaskHandle: HANDLE) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSACancelBlockingCall() -> i32;
         #[library("WS2_32.dll")]
@@ -478,7 +478,7 @@ mod Windows {
         extern fn WSAConnect(#[in] s: SOCKET, #[in] #[readable(entry, bytes(namelen))] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] lpCallerData: LPWSABUF, #[opt] #[out] lpCalleeData: LPWSABUF, #[in] #[opt] lpSQOS: LPQOS, #[in] #[opt] lpGQOS: LPQOS) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAConnectByList(#[in] s: SOCKET, #[in] SocketAddress: PSOCKET_ADDRESS_LIST, #[in] #[opt] #[out] LocalAddressLength: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*LocalAddressLength)))] #[writable(entry, bytes(if_present(*LocalAddressLength)))] LocalAddress: LPSOCKADDR, #[in] #[opt] #[out] RemoteAddressLength: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RemoteAddressLength)))] #[writable(entry, bytes(if_present(*RemoteAddressLength)))] RemoteAddress: LPSOCKADDR, #[in] #[opt] timeout: *const timeval, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAConnectByNameW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAConnectByNameW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAConnectByNameA(#[in] s: SOCKET, #[in] nodename: LPCSTR, #[in] servicename: LPCSTR, #[in] #[opt] #[out] LocalAddressLength: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*LocalAddressLength)))] #[writable(entry, bytes(if_present(*LocalAddressLength)))] LocalAddress: LPSOCKADDR, #[in] #[opt] #[out] RemoteAddressLength: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RemoteAddressLength)))] #[writable(entry, bytes(if_present(*RemoteAddressLength)))] RemoteAddress: LPSOCKADDR, #[in] #[opt] timeout: *const timeval, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
         #[library("WS2_32.dll")]
@@ -506,7 +506,7 @@ mod Windows {
             lpVendorInfo: *mut i8,
         }
         const WSADESCRIPTION_LEN: i32 = 256;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSADuplicateSocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSADuplicateSocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSADuplicateSocketA(#[in] s: SOCKET, #[in] dwProcessId: DWORD, #[out] lpProtocolInfo: LPWSAPROTOCOL_INFOA) -> i32;
         #[library("WS2_32.dll")]
@@ -522,10 +522,10 @@ mod Windows {
             RNRSERVICE_DEREGISTER = 1,
             RNRSERVICE_DELETE = 2,
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAEnumNameSpaceProvidersA(#[in] #[out] lpdwBufferLength: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpnspBuffer: LPWSANAMESPACE_INFOA) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAEnumNameSpaceProvidersExA(#[in] #[out] lpdwBufferLength: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpnspBuffer: LPWSANAMESPACE_INFOEXA) -> INT;
         #[library("WS2_32.dll")]
@@ -534,7 +534,7 @@ mod Windows {
         extern fn WSAEnumNameSpaceProvidersW(#[in] #[out] lpdwBufferLength: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpnspBuffer: LPWSANAMESPACE_INFOW) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAEnumNetworkEvents(#[in] s: SOCKET, #[in] hEventObject: HANDLE, #[out] lpNetworkEvents: LPWSANETWORKEVENTS) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumProtocolsW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAEnumProtocolsW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAEnumProtocolsA(#[in] #[opt] lpiProtocols: LPINT, #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpProtocolBuffer: LPWSAPROTOCOL_INFOA, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
@@ -545,15 +545,15 @@ mod Windows {
         extern fn WSAGetLastError() -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAGetOverlappedResult(#[in] s: SOCKET, #[in] lpOverlapped: LPWSAOVERLAPPED, #[out] lpcbTransfer: LPDWORD, #[in] fWait: BOOL, #[out] lpdwFlags: LPDWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAGetQOSByName(#[in] s: SOCKET, #[in] lpQOSName: LPWSABUF, #[out] lpQOS: LPQOS) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAGetServiceClassInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAGetServiceClassInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAGetServiceClassInfoA(#[in] lpProviderId: LPGUID, #[in] lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufSize))] #[writable(entry, bytes(*lpdwBufSize))] lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAGetServiceClassInfoW(#[in] lpProviderId: LPGUID, #[in] lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufSize))] #[writable(entry, bytes(*lpdwBufSize))] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAGetServiceClassNameByClassIdW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAGetServiceClassNameByClassIdW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         #[success(return == 0)]
         extern fn WSAGetServiceClassNameByClassIdA(#[in] lpServiceClassId: LPGUID, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpszServiceClassName: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> INT;
@@ -564,32 +564,32 @@ mod Windows {
         extern fn WSAHtonl(#[in] s: SOCKET, #[in] hostlong: u_long, #[out] lpnetlong: *mut u_long) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAHtons(#[in] s: SOCKET, #[in] hostshort: u_short, #[out] lpnetshort: *mut u_short) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAInstallServiceClassW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAInstallServiceClassW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAInstallServiceClassA(#[in] lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAInstallServiceClassW(#[in] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAIoctl(#[in] s: SOCKET, #[in] dwIoControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBuffer))] lpvInBuffer: LPVOID, #[in] cbInBuffer: DWORD, #[opt] #[out] #[readable(success, bytes(*lpcbBytesReturned))] #[writable(entry, bytes(cbOutBuffer))] lpvOutBuffer: LPVOID, #[in] cbOutBuffer: DWORD, #[out] lpcbBytesReturned: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAIsBlocking() -> BOOL;
         #[library("WS2_32.dll")]
         extern fn WSAJoinLeaf(#[in] s: SOCKET, #[in] #[readable(entry, bytes(namelen))] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] lpCallerData: LPWSABUF, #[opt] #[out] lpCalleeData: LPWSABUF, #[in] #[opt] lpSQOS: LPQOS, #[in] #[opt] lpGQOS: LPQOS, #[in] dwFlags: DWORD) -> SOCKET;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSALookupServiceBeginW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSALookupServiceBeginW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceBeginA(#[in] lpqsRestrictions: LPWSAQUERYSETA, #[in] dwControlFlags: DWORD, #[out] lphLookup: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceBeginW(#[in] lpqsRestrictions: LPWSAQUERYSETW, #[in] dwControlFlags: DWORD, #[out] lphLookup: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceEnd(#[in] hLookup: HANDLE) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSALookupServiceNextW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSALookupServiceNextW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceNextA(#[in] hLookup: HANDLE, #[in] dwControlFlags: DWORD, #[in] #[out] lpdwBufferLength: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpqsResults: LPWSAQUERYSETA) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceNextW(#[in] hLookup: HANDLE, #[in] dwControlFlags: DWORD, #[in] #[out] lpdwBufferLength: LPDWORD, #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpqsResults: LPWSAQUERYSETW) -> INT;
         type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSANAMESPACE_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSANAMESPACE_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSANAMESPACE_INFOA {
             NSProviderId: GUID,
             dwNameSpace: DWORD,
@@ -598,7 +598,7 @@ mod Windows {
             lpszIdentifier: LPSTR,
         }
         type WSANAMESPACE_INFOEX = WSANAMESPACE_INFOEXA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSANAMESPACE_INFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSANAMESPACE_INFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSANAMESPACE_INFOEXA {
             NSProviderId: GUID,
             dwNameSpace: DWORD,
@@ -628,7 +628,7 @@ mod Windows {
         }
         const WSANO_ADDRESS: i32 = 11004;
         type WSANSCLASSINFO = WSANSCLASSINFOA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSANSCLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSANSCLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSANSCLASSINFOA {
             lpszName: LPSTR,
             dwNameSpace: DWORD,
@@ -659,7 +659,7 @@ mod Windows {
             ChainEntries: [DWORD; 7],
         }
         type WSAPROTOCOL_INFO = WSAPROTOCOL_INFOA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAPROTOCOL_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAPROTOCOL_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSAPROTOCOL_INFOA {
             dwServiceFlags1: DWORD,
             dwServiceFlags2: DWORD,
@@ -711,7 +711,7 @@ mod Windows {
         extern fn WSAProviderConfigChange(#[in] #[out] lpNotificationHandle: LPHANDLE, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
         type WSAQUERYSET = WSAQUERYSETA;
         type WSAQUERYSET2 = WSAQUERYSET2A;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAQUERYSET2W instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAQUERYSET2W instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSAQUERYSET2A {
             dwSize: DWORD,
             lpszServiceInstanceName: LPSTR,
@@ -746,7 +746,7 @@ mod Windows {
             dwOutputFlags: DWORD,
             lpBlob: LPBLOB,
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAQUERYSETW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAQUERYSETW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSAQUERYSETA {
             dwSize: DWORD,
             lpszServiceInstanceName: LPSTR,
@@ -789,7 +789,7 @@ mod Windows {
         }
         #[library("WS2_32.dll")]
         extern fn WSARecv(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSARecvDisconnect(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[opt] lpInboundDisconnectData: LPWSABUF) -> i32;
         #[library("WS2_32.dll")]
@@ -799,7 +799,7 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn WSAResetEvent(#[in] hEvent: HANDLE) -> BOOL;
         type WSASERVICECLASSINFO = WSASERVICECLASSINFOA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSASERVICECLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSASERVICECLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         struct WSASERVICECLASSINFOA {
             lpServiceClassId: LPGUID,
             lpszServiceClassName: LPSTR,
@@ -815,26 +815,26 @@ mod Windows {
         const WSASYS_STATUS_LEN: i32 = 128;
         #[library("WS2_32.dll")]
         extern fn WSASend(#[in] s: SOCKET, #[in] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesSent: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSASend() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSASend() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSASendDisconnect(#[in] s: SOCKET, #[in] #[opt] lpOutboundDisconnectData: LPWSABUF) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSASendMsg(#[in] Handle: SOCKET, #[in] lpMsg: LPWSAMSG, #[in] dwFlags: DWORD, #[opt] #[out] lpNumberOfBytesSent: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSASendTo(#[in] s: SOCKET, #[in] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesSent: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[readable(entry, bytes(iTolen))] lpTo: *const SOCKADDR, #[in] iTolen: i32, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSASetBlockingHook(#[in] lpBlockFunc: FARPROC) -> FARPROC;
         #[library("WS2_32.dll")]
         extern fn WSASetEvent(#[in] hEvent: HANDLE) -> BOOL;
         #[library("WS2_32.dll")]
         extern fn WSASetLastError(#[in] iError: i32);
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSASetServiceW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSASetServiceW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSASetServiceA(#[in] lpqsRegInfo: LPWSAQUERYSETA, #[in] essoperation: WSAESETSERVICEOP, #[in] dwControlFlags: DWORD) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSASetServiceW(#[in] lpqsRegInfo: LPWSAQUERYSETW, #[in] essoperation: WSAESETSERVICEOP, #[in] dwControlFlags: DWORD) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSASocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSASocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         #[must_use]
         extern fn WSASocketA(#[in] af: i32, #[in] r#type: i32, #[in] protocol: i32, #[in] #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[in] g: GROUP, #[in] dwFlags: DWORD) -> SOCKET;
@@ -844,12 +844,12 @@ mod Windows {
         #[library("WS2_32.dll")]
         #[must_use]
         extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSAStringToAddressW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSAStringToAddressW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAStringToAddressA(#[in] AddressString: LPSTR, #[in] AddressFamily: INT, #[in] #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[out] #[readable(success, bytes(*lpAddressLength))] #[writable(entry, bytes(*lpAddressLength))] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> INT;
         #[library("WS2_32.dll")]
         extern fn WSAStringToAddressW(#[in] AddressString: LPWSTR, #[in] AddressFamily: INT, #[in] #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[out] #[readable(success, bytes(*lpAddressLength))] #[writable(entry, bytes(*lpAddressLength))] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn WSAUnhookBlockingHook() -> i32;
         struct WSAVERSION {
@@ -914,10 +914,10 @@ mod Windows {
             fd_count: u_int,
             fd_array: [SOCKET; 64],
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn gethostbyaddr(#[in] #[readable(entry, bytes(len))] addr: *const i8, #[in] len: i32, #[in] r#type: i32) -> *mut hostent;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn gethostbyname(#[in] #[null_terminated(entry)] name: *const i8) -> *mut hostent;
         #[library("WS2_32.dll")]
@@ -947,10 +947,10 @@ mod Windows {
         extern fn htonl(#[in] hostlong: u_long) -> u_long;
         #[library("WS2_32.dll")]
         extern fn htons(#[in] hostshort: u_short) -> u_short;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn inet_addr(#[in] #[null_terminated(entry)] cp: *const i8) -> u32;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn inet_ntoa(#[in] r#in: IN_ADDR) -> *mut i8;
         #[library("WS2_32.dll")]

@@ -79,9 +79,7 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                     .params()
                     .next()
                     .unwrap();
-                let attribute = parameter
-                    .find_attribute("NativeNullTerminatedAttribute")
-                    .unwrap();
+                let attribute = parameter.find_attribute("NullTerminatedAttribute").unwrap();
                 assert_eq!(parameter.direction(), reader::ParamDirection::Unspecified);
                 let mut expected = vec![
                     ("OnEntry".into(), Value::Bool(entry)),
@@ -115,7 +113,7 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                     .unwrap();
                 assert!(
                     parameter
-                        .find_attribute("NativeNullTerminatedAttribute")
+                        .find_attribute("NullTerminatedAttribute")
                         .is_none(),
                     "{name}"
                 );

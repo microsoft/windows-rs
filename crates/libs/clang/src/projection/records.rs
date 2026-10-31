@@ -565,10 +565,7 @@ impl Projector<'_, '_> {
                 &self.plan.names[self.plan.family(snapshot_id, base.record)],
             ),
         );
-        Ok((
-            layout,
-            quote! { #[Windows::Win32::Metadata::NativeBase] base: #ty, },
-        ))
+        Ok((layout, quote! { #[base] base: #ty, }))
     }
 
     fn nested_declaration(

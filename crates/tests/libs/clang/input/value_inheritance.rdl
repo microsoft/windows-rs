@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
     struct AliasDerived {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Base,
         extra: i32,
     }
@@ -11,7 +11,7 @@ mod Fixture {
     }
     type BaseAlias = Base;
     struct BaseOnly {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Base,
     }
     struct Container {
@@ -19,24 +19,24 @@ mod Fixture {
         reference: *mut Leaf,
     }
     struct Derived {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Base,
         flags: u32,
     }
     extern fn Inspect(value: *const Derived, other: &mut Leaf);
     struct Leaf {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Derived,
         marker: u8,
     }
     #[packed(1)]
     struct Packed {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Base,
         tag: i8,
     }
     struct Shadow {
-        #[Windows::Win32::Metadata::NativeBase]
+        #[base]
         base: Base,
         count: i32,
     }

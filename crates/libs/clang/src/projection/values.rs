@@ -840,12 +840,9 @@ impl Projector<'_, '_> {
                 written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,
             );
-            let constant = function.method_qualifiers.constant.then(|| {
-                quote! { #[Windows::Win32::Metadata::NativeConstMethod] }
-            });
             let special = resolve::midl_property(method).then(|| quote! { #[special] });
             methods.push(
-                quote! { #override_slot #special #attributes #contracts #constant fn #method_name(&self #(, #parameters)*) #result; },
+                quote! { #override_slot #special #attributes #contracts fn #method_name(&self #(, #parameters)*) #result; },
             );
         }
         let identity = if let Some(uuid) = uuid {

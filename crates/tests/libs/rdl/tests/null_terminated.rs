@@ -2,7 +2,7 @@ use windows_metadata::{HasAttributes, Value, reader};
 
 const SCHEMA: &str = r#"
 #[win32] mod Windows { mod Win32 { mod Metadata {
-    attribute NativeNullTerminatedAttribute {
+    attribute NullTerminatedAttribute {
         fn();
         OnEntry: bool,
         OnSuccess: bool,
@@ -44,8 +44,7 @@ fn writer_references_resolve_without_emitting_definitions() {
         .output(&reference)
         .write()
         .unwrap();
-    let full =
-        "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)]";
+    let full = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = true, OnSuccess = false)]";
     windows_rdl::reader()
         .reference(&reference)
         .input_text(&format!(
@@ -121,7 +120,7 @@ fn writer_references_resolve_without_emitting_definitions() {
         let text = std::fs::read_to_string(&path).unwrap();
         assert_eq!(text.matches("#[null_terminated(").count(), 1, "{text}");
         assert!(text.contains("#[in] #[null_terminated(entry)] text: TextAlias"));
-        assert_eq!(text.matches("::NativeNullTerminated(").count(), 3, "{text}");
+        assert_eq!(text.matches("::NullTerminated(").count(), 3, "{text}");
         assert!(text.contains("LocalMember = 1"));
         assert!(text.contains("struct Colliding"));
         for absent in [
@@ -164,11 +163,11 @@ fn writer_references_resolve_without_emitting_definitions() {
             assert_eq!(before.flags(), after.flags());
             assert_eq!(
                 before
-                    .find_attribute("NativeNullTerminatedAttribute")
+                    .find_attribute("NullTerminatedAttribute")
                     .unwrap()
                     .value(),
                 after
-                    .find_attribute("NativeNullTerminatedAttribute")
+                    .find_attribute("NullTerminatedAttribute")
                     .unwrap()
                     .value()
             );
@@ -208,7 +207,7 @@ fn termination_preserves_phases_and_properties() {
             }
             expected.push(values);
             full.push_str(&format!(
-                "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeNullTerminated({properties})] value: *mut u16);"
+                "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NullTerminated({properties})] value: *mut u16);"
             ));
             compact.push_str(&format!(
                 "extern fn Callback{index}(#[out] #[opt] {short} value: *mut u16);"
@@ -227,7 +226,7 @@ fn termination_preserves_phases_and_properties() {
         .enumerate()
         {
             source.push_str(&format!(
-                "extern fn Full{index}(#[Windows::Win32::Metadata::NativeNullTerminated({properties})] value: *mut u16);"
+                "extern fn Full{index}(#[Windows::Win32::Metadata::NullTerminated({properties})] value: *mut u16);"
             ));
         }
         source.push('}');
@@ -251,7 +250,7 @@ fn termination_preserves_phases_and_properties() {
         let text = std::fs::read_to_string(&rdl).unwrap();
         assert_eq!(text.matches("#[null_terminated(").count(), 8);
         assert_eq!(
-            text.matches("#[Windows::Win32::Metadata::NativeNullTerminated(")
+            text.matches("#[Windows::Win32::Metadata::NullTerminated(")
                 .count(),
             5
         );
@@ -278,7 +277,7 @@ fn termination_preserves_phases_and_properties() {
                 assert_eq!(parameter.direction(), reader::ParamDirection::Output);
                 assert_eq!(
                     &parameter
-                        .find_attribute("NativeNullTerminatedAttribute")
+                        .find_attribute("NullTerminatedAttribute")
                         .unwrap()
                         .value(),
                     expected
@@ -294,7 +293,7 @@ fn termination_preserves_phases_and_properties() {
                         .params()
                         .next()
                         .unwrap()
-                        .find_attribute("NativeNullTerminatedAttribute")
+                        .find_attribute("NullTerminatedAttribute")
                         .unwrap()
                         .value()
                 })
@@ -420,8 +419,8 @@ fn nullable_shorthand_requires_valid_owner() {
 
 #[test]
 fn termination_storage_and_legacy_owners_roundtrip() {
-    let full = "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true, DoubleNullOnSuccess = true)]";
-    let indirect = "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true, Indirect = true)]";
+    let full = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = false, OnSuccess = true, DoubleNullOnSuccess = true)]";
+    let indirect = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = false, OnSuccess = true, Indirect = true)]";
     let source = format!(
         r#"{SCHEMA}
         #[win32] mod Test {{
@@ -461,7 +460,7 @@ fn termination_storage_and_legacy_owners_roundtrip() {
         .unwrap();
     let text = std::fs::read_to_string(&rdl).unwrap();
     assert_eq!(text.matches("#[null_terminated(").count(), 5, "{text}");
-    assert_eq!(text.matches("::NativeNullTerminated(").count(), 6, "{text}");
+    assert_eq!(text.matches("::NullTerminated(").count(), 6, "{text}");
     windows_rdl::reader()
         .input_text(SCHEMA)
         .input(&rdl)
@@ -474,7 +473,7 @@ fn termination_storage_and_legacy_owners_roundtrip() {
         let mut contracts = Vec::new();
         let mut collect = |owner: String, attributes: Vec<reader::Attribute<'_>>| {
             for attr in attributes {
-                if attr.name() == "NativeNullTerminatedAttribute" {
+                if attr.name() == "NullTerminatedAttribute" {
                     contracts.push((owner.clone(), attr.value()));
                 }
             }

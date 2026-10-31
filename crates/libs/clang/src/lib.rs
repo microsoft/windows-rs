@@ -299,8 +299,8 @@ pub struct SalAnnotation {
 
 #[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct Deprecation {
+    /// Empty when the declaration gives no message.
     pub message: String,
-    pub replacement: String,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -717,9 +717,7 @@ impl Snapshot {
                                 + value.expanded.capacity()
                         }
                         AttributeKind::Deprecated(value) => {
-                            size_of::<Deprecation>()
-                                + value.message.capacity()
-                                + value.replacement.capacity()
+                            size_of::<Deprecation>() + value.message.capacity()
                         }
                     })
                     .sum::<usize>()

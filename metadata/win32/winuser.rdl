@@ -3107,12 +3107,12 @@ mod Windows {
         }
         type MONITORINFOEX = MONITORINFOEXA;
         struct MONITORINFOEXA {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: MONITORINFO,
             szDevice: [CHAR; 32],
         }
         struct MONITORINFOEXW {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: MONITORINFO,
             szDevice: [WCHAR; 32],
         }
@@ -3141,7 +3141,7 @@ mod Windows {
             dwExtraInfo: ULONG_PTR,
         }
         struct MOUSEHOOKSTRUCTEX {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: MOUSEHOOKSTRUCT,
             mouseData: DWORD,
         }
@@ -5087,7 +5087,7 @@ mod Windows {
             rightClickZoneHeight: UINT,
         }
         struct TOUCHPAD_PARAMETERS_V2 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: TOUCHPAD_PARAMETERS_V1,
             _bitfield: i32 {
                 button1Supported: BOOL: 1,

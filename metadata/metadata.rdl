@@ -4,6 +4,10 @@
 // scraper cannot derive them. They are the `Windows.Win32.Metadata` attributes
 // that the converter emits and that bindgen consumes, making the merged
 // `Windows.Win32.winmd` self-contained without an upstream reference winmd.
+//
+// `Native` attributes preserve C/C++ declaration details: typedef identity, anonymous records,
+// bitfields, 64-bit pointers, base storage, vtable slots and uninterpreted SAL.
+// Unprefixed attributes state language-neutral API facts.
 #[win32]
 mod Windows {
     mod Win32 {
@@ -29,12 +33,13 @@ mod Windows {
             // Conditions ordinary postconditions, not complete-operation success or infallibility.
             // On a callable this overrides its return type's default; on a value typedef it
             // supplies that default. Zero means null for pointer results.
+            // RDL: `#[success(return >= 0)]`.
             attribute SuccessConditionAttribute {
                 fn(#[in] condition: SuccessCondition);
             }
-            // Records the native character encoding of a string constant or field.
+            // Records the character encoding of a string constant or field.
             // RDL: `#[encoding("...")]`.
-            attribute NativeEncodingAttribute {
+            attribute EncodingAttribute {
                 fn(#[in] encoding: String);
             }
             // Marks a typedef of a primitive that should retain its distinct identity.
@@ -98,6 +103,7 @@ mod Windows {
             // pointer on entry, or the returned pointer on success.
             // An indirect pointer is non-null at the contract phase unless NullableAttribute is
             // present, even with an unavailable optional count.
+            // RDL: `#[readable(...)]`, `#[writable(...)]`.
             attribute BufferExtentAttribute {
                 fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
                 CountConst: u64,
@@ -125,7 +131,8 @@ mod Windows {
             // phase; absence means single zero termination. The corresponding phase must be true.
             // Indirect selects the pointer stored in the parameter at each specified phase.
             // Termination applies when that pointer is non-null; nullability is a separate contract.
-            attribute NativeNullTerminatedAttribute {
+            // RDL: `#[null_terminated(entry, double_success)]`.
+            attribute NullTerminatedAttribute {
                 fn();
                 OnEntry: bool,
                 OnSuccess: bool,
@@ -136,8 +143,9 @@ mod Windows {
             // A pointer the API gives the caller may be null: on an output parameter, the pointer
             // stored through it; on a return, the returned value; on a field, the field. Argument
             // storage the caller may omit is the separate Optional param flag. Absence leaves
-            // nullability unspecified unless an indirect BufferExtent or NativeReturnedPointer
+            // nullability unspecified unless an indirect BufferExtent or ReturnedPointer
             // promises a non-null pointer. This does not promise initialized/readable storage.
+            // RDL: `#[nullable]`.
             attribute NullableAttribute {
                 fn();
             }
@@ -145,8 +153,8 @@ mod Windows {
             // successful completion initializes it to a non-null pointer to one readable element,
             // unless NullableAttribute is present. NullOnFailure requires a null result on failure.
             // Success/failure follows the callable's contract. This specifies no allocator or
-            // ownership transfer.
-            attribute NativeReturnedPointerAttribute {
+            // ownership transfer. RDL: `#[out_ptr]`, `#[out_ptr(null_on_failure)]`.
+            attribute ReturnedPointerAttribute {
                 fn();
                 NullOnFailure: bool,
             }
@@ -188,14 +196,12 @@ mod Windows {
                 // Space-separated raw SAL qualifiers in source order, scoped to this annotation.
                 Modifiers: String,
             }
-            // Native deprecation diagnostics, including relocated typedef ownership.
-            attribute NativeDeprecatedAttribute {
-                fn(#[in] message: String, #[in] replacement: String);
-                TypedefName: String,
-            }
-            // Native C++ method qualification, not a cross-language immutability guarantee.
-            attribute NativeConstMethodAttribute {
+            // Declaration deprecation with an optional message and relocated typedef ownership.
+            // RDL: `#[deprecated]` or `#[deprecated("message")]`.
+            attribute DeprecatedAttribute {
                 fn();
+                fn(#[in] message: String);
+                TypedefName: String,
             }
             // Absolute inherited vtable slot. RDL: `#[override_slot(N)]`.
             attribute NativeOverrideSlotAttribute {
@@ -203,6 +209,7 @@ mod Windows {
             }
             // Marks native base storage, not an owning interface reference. Interface bases
             // contain one vptr; sequential fields and record packing determine their offsets.
+            // RDL: `#[base]`.
             attribute NativeBaseAttribute {
                 fn();
             }

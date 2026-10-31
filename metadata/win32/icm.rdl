@@ -372,10 +372,10 @@ mod Windows {
         }
         #[library("mscms.dll")]
         extern fn GetCMMInfo(#[in] hColorTransform: HTRANSFORM, #[in] param1: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryW is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
+        #[deprecated("GetColorDirectoryW is deprecated and might not work on all platforms. For more info, see MSDN.")]
         #[library("mscms.dll")]
         extern fn GetColorDirectoryA(#[in] #[opt] pMachineName: PCSTR, #[opt] #[out] #[readable(success, bytes(*pdwSize))] #[writable(entry, bytes(*pdwSize))] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryA is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
+        #[deprecated("GetColorDirectoryA is deprecated and might not work on all platforms. For more info, see MSDN.")]
         #[library("mscms.dll")]
         extern fn GetColorDirectoryW(#[in] #[opt] pMachineName: PCWSTR, #[opt] #[out] #[readable(success, bytes(*pdwSize))] #[writable(entry, bytes(*pdwSize))] pBuffer: PWSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]

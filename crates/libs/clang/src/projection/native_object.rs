@@ -74,7 +74,7 @@ impl Projector<'_, '_> {
                 self.namespace,
                 &self.interface_type(snapshot_id, base.record),
             );
-            fields.push(quote! { #[Windows::Win32::Metadata::NativeBase] #field: #ty, });
+            fields.push(quote! { #[base] #field: #ty, });
         }
         let layout = Layout {
             size: definition.bases.len() as u64 * pointer,

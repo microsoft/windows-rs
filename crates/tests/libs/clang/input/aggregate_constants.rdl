@@ -29,7 +29,7 @@ mod Fixture {
     }
     const GUID_MACRO: GUID = 0x12345678_0000_0000_0000_000000000000;
     type IID = GUID;
-    #[Windows::Win32::Metadata::NativeDeprecated("use another key", "")]
+    #[deprecated("use another key")]
     #[guid(0x12345678_9abc_def0_0102_030405060708)]
     const KEY: PROPERTYKEY = 42;
     #[encoding("ansi")]
@@ -38,7 +38,7 @@ mod Fixture {
         fmtid: GUID,
         pid: u32,
     }
-    #[Windows::Win32::Metadata::NativeDeprecated("use next", "")]
+    #[deprecated("use next")]
     const SELECTED_GUID: GUID = 0x00000010_0005_0006_0700_000000000000;
     #[encoding("utf-16")]
     const UTF16_TEXT: String = "wide";

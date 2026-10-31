@@ -913,12 +913,9 @@ fn write_custom_attributes_with_names<'a>(
             }
 
             if attr_ns == METADATA_NAMESPACE
-                && matches!(
-                    attr.name(),
-                    "NativeNullTerminatedAttribute" | "NullableAttribute"
-                )
+                && matches!(attr.name(), "NullTerminatedAttribute" | "NullableAttribute")
             {
-                let termination = attr.name() == "NativeNullTerminatedAttribute";
+                let termination = attr.name() == "NullTerminatedAttribute";
                 if !termination
                     && values.is_empty()
                     && extent_owner.is_some_and(|owner| owner.accepts_nullable(index))
@@ -957,7 +954,7 @@ fn write_custom_attributes_with_names<'a>(
             }
 
             if attr_ns == METADATA_NAMESPACE
-                && attr.name() == "NativeReturnedPointerAttribute"
+                && attr.name() == "ReturnedPointerAttribute"
                 && let [(name, metadata::Value::Bool(null_on_failure))] = values.as_slice()
                 && name == "NullOnFailure"
             {

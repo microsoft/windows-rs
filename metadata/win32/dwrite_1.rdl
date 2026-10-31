@@ -19,7 +19,7 @@ mod Windows {
             offset: INT16,
         }
         struct DWRITE_FONT_METRICS1 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: DWRITE_FONT_METRICS,
             glyphBoxLeft: INT16,
             glyphBoxTop: INT16,

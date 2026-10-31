@@ -196,7 +196,7 @@ mod Windows {
             timeout: INT,
             fdArray: [WSAPOLLFD; 0],
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("MSWSOCK.dll")]
         extern fn WSARecvEx(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "len,return", "len,return")] #[out] #[writable(entry, bytes(len))] buf: *mut CHAR, #[in] len: INT, #[in] #[out] flags: *mut INT) -> INT;
         struct WSASENDMSG {

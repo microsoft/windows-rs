@@ -24,7 +24,7 @@ mod Windows {
             DWRITE_OPTICAL_ALIGNMENT_NO_SIDE_BEARINGS = 1,
         }
         struct DWRITE_TEXT_METRICS1 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: DWRITE_TEXT_METRICS,
             heightIncludingTrailingWhitespace: FLOAT,
         }

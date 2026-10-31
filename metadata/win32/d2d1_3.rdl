@@ -133,11 +133,8 @@ mod Windows {
         }
         #[guid(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee)]
         interface ID2D1ColorContext1: ID2D1ColorContext {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetColorContextType(&self) -> D2D1_COLOR_CONTEXT_TYPE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetDXGIColorSpace(&self) -> DXGI_COLOR_SPACE_TYPE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSimpleColorProfile(&self, #[out] simpleProfile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> HRESULT;
         }
         #[guid(0x3bab440e_417e_47df_a2e2_bc0be6a00916)]
@@ -172,7 +169,6 @@ mod Windows {
         interface ID2D1Device4: ID2D1Device3 {
             fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext4: *mut ID2D1DeviceContext4) -> HRESULT;
             fn SetMaximumColorGlyphCacheMemory(&self, maximumInBytes: UINT64);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMaximumColorGlyphCacheMemory(&self) -> UINT64;
         }
         #[guid(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4)]
@@ -195,7 +191,6 @@ mod Windows {
             fn CreateImageSourceFromWic(&self, #[in] wicBitmapSource: IWICBitmapSource, loadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphaMode: D2D1_ALPHA_MODE, #[out] #[out_ptr(null_on_failure)] #[retval] imageSource: *mut ID2D1ImageSourceFromWic) -> HRESULT;
             fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, #[in] #[readable(entry, 3)] extents: *const UINT32, #[in] #[readable(entry, dataCount)] data: *const BYTE, dataCount: UINT32, #[in] #[readable(entry, 2)] strides: *const UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] lookupTable: *mut ID2D1LookupTable3D) -> HRESULT;
             fn CreateImageSourceFromDxgi(&self, #[in] #[readable(entry, surfaceCount)] surfaces: *mut IDXGISurface, surfaceCount: UINT32, colorSpace: DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] imageSource: *mut ID2D1ImageSource) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetGradientMeshWorldBounds(&self, #[in] gradientMesh: ID2D1GradientMesh, #[out] pBounds: *mut D2D1_RECT_F) -> HRESULT;
             fn DrawInk(&self, #[in] ink: ID2D1Ink, #[in] brush: ID2D1Brush, #[in] #[opt] inkStyle: ID2D1InkStyle);
             fn DrawGradientMesh(&self, #[in] gradientMesh: ID2D1GradientMesh);
@@ -269,9 +264,7 @@ mod Windows {
         }
         #[guid(0xf292e401_c050_4cde_83d7_04962d3b23c2)]
         interface ID2D1GradientMesh: ID2D1Resource {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPatchCount(&self) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPatches(&self, startIndex: UINT32, #[out] #[writable(entry, patchesCount)] patches: *mut D2D1_GRADIENT_MESH_PATCH, patchesCount: UINT32) -> HRESULT;
         }
         #[guid(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8)]
@@ -283,34 +276,26 @@ mod Windows {
         interface ID2D1ImageSourceFromWic: ID2D1ImageSource {
             fn EnsureCached(&self, #[in] #[opt] rectangleToFill: *const D2D1_RECT_U) -> HRESULT;
             fn TrimCache(&self, #[in] #[opt] rectangleToPreserve: *const D2D1_RECT_U) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSource(&self, #[nullable] #[out] #[out_ptr] wicBitmapSource: *mut IWICBitmapSource);
         }
         #[guid(0xb499923b_7029_478f_a8b3_432c7c5f5312)]
         interface ID2D1Ink: ID2D1Resource {
             fn SetStartPoint(&self, #[in] startPoint: *const D2D1_INK_POINT);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetStartPoint(&self) -> D2D1_INK_POINT;
             fn AddSegments(&self, #[in] #[readable(entry, segmentsCount)] segments: *const D2D1_INK_BEZIER_SEGMENT, segmentsCount: UINT32) -> HRESULT;
             fn RemoveSegmentsAtEnd(&self, segmentsCount: UINT32) -> HRESULT;
             fn SetSegments(&self, startSegment: UINT32, #[in] #[readable(entry, segmentsCount)] segments: *const D2D1_INK_BEZIER_SEGMENT, segmentsCount: UINT32) -> HRESULT;
             fn SetSegmentAtEnd(&self, #[in] segment: *const D2D1_INK_BEZIER_SEGMENT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSegmentCount(&self) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSegments(&self, startSegment: UINT32, #[out] #[writable(entry, segmentsCount)] segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentsCount: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn StreamAsGeometry(&self, #[in] #[opt] inkStyle: ID2D1InkStyle, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[in] geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetBounds(&self, #[in] #[opt] inkStyle: ID2D1InkStyle, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, #[out] bounds: *mut D2D1_RECT_F) -> HRESULT;
         }
         #[guid(0xbae8b344_23fc_4071_8cb5_d05d6f073848)]
         interface ID2D1InkStyle: ID2D1Resource {
             fn SetNibTransform(&self, #[in] transform: *const D2D1_MATRIX_3X2_F);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetNibTransform(&self, #[out] transform: *mut D2D1_MATRIX_3X2_F);
             fn SetNibShape(&self, nibShape: D2D1_INK_NIB_SHAPE);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetNibShape(&self) -> D2D1_INK_NIB_SHAPE;
         }
         #[guid(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797)]
@@ -319,9 +304,7 @@ mod Windows {
         interface ID2D1SpriteBatch: ID2D1Resource {
             fn AddSprites(&self, spriteCount: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(D2D1_RECT_F) + (spriteCount - 1) * destinationRectanglesStride", "sizeof(D2D1_RECT_F) + (spriteCount - 1) * destinationRectanglesStride")] #[in] destinationRectangles: *const D2D1_RECT_F, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_RECT_U) + (spriteCount - 1) * sourceRectanglesStride", "sizeof(D2D1_RECT_U) + (spriteCount - 1) * sourceRectanglesStride")] #[in] #[opt] sourceRectangles: *const D2D1_RECT_U, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_COLOR_F) + (spriteCount - 1) * colorsStride", "sizeof(D2D1_COLOR_F) + (spriteCount - 1) * colorsStride")] #[in] #[opt] colors: *const D2D1_COLOR_F, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_MATRIX_3X2_F) + (spriteCount - 1) * transformsStride", "sizeof(D2D1_MATRIX_3X2_F) + (spriteCount - 1) * transformsStride")] #[in] #[opt] transforms: *const D2D1_MATRIX_3X2_F, destinationRectanglesStride: UINT32, sourceRectanglesStride: UINT32, colorsStride: UINT32, transformsStride: UINT32) -> HRESULT;
             fn SetSprites(&self, startIndex: UINT32, spriteCount: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_RECT_F) + (spriteCount - 1) * destinationRectanglesStride", "sizeof(D2D1_RECT_F) + (spriteCount - 1) * destinationRectanglesStride")] #[in] #[opt] destinationRectangles: *const D2D1_RECT_F, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_RECT_U) + (spriteCount - 1) * sourceRectanglesStride", "sizeof(D2D1_RECT_U) + (spriteCount - 1) * sourceRectanglesStride")] #[in] #[opt] sourceRectangles: *const D2D1_RECT_U, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_COLOR_F) + (spriteCount - 1) * colorsStride", "sizeof(D2D1_COLOR_F) + (spriteCount - 1) * colorsStride")] #[in] #[opt] colors: *const D2D1_COLOR_F, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(D2D1_MATRIX_3X2_F) + (spriteCount - 1) * transformsStride", "sizeof(D2D1_MATRIX_3X2_F) + (spriteCount - 1) * transformsStride")] #[in] #[opt] transforms: *const D2D1_MATRIX_3X2_F, destinationRectanglesStride: UINT32, sourceRectanglesStride: UINT32, colorsStride: UINT32, transformsStride: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSprites(&self, startIndex: UINT32, spriteCount: UINT32, #[opt] #[out] #[writable(entry, spriteCount)] destinationRectangles: *mut D2D1_RECT_F, #[opt] #[out] #[writable(entry, spriteCount)] sourceRectangles: *mut D2D1_RECT_U, #[opt] #[out] #[writable(entry, spriteCount)] colors: *mut D2D1_COLOR_F, #[opt] #[out] #[writable(entry, spriteCount)] transforms: *mut D2D1_MATRIX_3X2_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSpriteCount(&self) -> UINT32;
             fn Clear(&self);
         }
@@ -335,9 +318,7 @@ mod Windows {
         }
         #[guid(0x7f1f79e5_2796_416c_8f55_700f911445e5)]
         interface ID2D1TransformedImageSource: ID2D1Image {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSource(&self, #[nullable] #[out] #[out_ptr] imageSource: *mut ID2D1ImageSource);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetProperties(&self, #[out] properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
         }
     }
