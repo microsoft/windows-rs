@@ -1,0 +1,2 @@
+error: duplicate `deprecated` attribute
+ --> errors/input/pseudo_repeated_function.rdl:5:5

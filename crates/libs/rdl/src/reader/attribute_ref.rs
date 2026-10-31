@@ -917,12 +917,29 @@ impl Encoder<'_> {
         Some(ty)
     }
 
+    /// Short spellings name single-valued contracts, so a repeat is an error rather than a merge.
+    pub fn reject_repeated_pseudo_attributes(&self, attrs: &[syn::Attribute]) -> Result<(), Error> {
+        for (index, attr) in attrs.iter().enumerate() {
+            if let Some(pseudo) = PSEUDO_ATTRS
+                .iter()
+                .find(|pseudo| attr.path().is_ident(pseudo.short))
+                && attrs[..index]
+                    .iter()
+                    .any(|prior| prior.path().is_ident(pseudo.short))
+            {
+                return self.err(attr, &format!("duplicate `{}` attribute", pseudo.short));
+            }
+        }
+        Ok(())
+    }
+
     pub fn encode_attrs(
         &mut self,
         has_attribute: metadata::writer::HasAttribute,
         attrs: &[syn::Attribute],
         skip: &[&str],
     ) -> Result<(), Error> {
+        self.reject_repeated_pseudo_attributes(attrs)?;
         for attr in attrs {
             let path = attr.path();
 

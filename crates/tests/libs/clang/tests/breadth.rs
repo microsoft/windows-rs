@@ -5157,6 +5157,17 @@ fn deprecations() {
     .unwrap();
     assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
     assert_eq!(partial.output, output);
+    let mut redeclared = selected_fixture("deprecations", &["OtherSum"]);
+    redeclared.source.push_str(
+        "extern \"C\" __declspec(deprecated(\"other function\")) int __stdcall OtherSum(int value) __attribute__((deprecated(\"another function\")));\n",
+    );
+    let conflict = projection::generate_partial(&[redeclared], "Fixture").unwrap();
+    assert_eq!(
+        conflict.omissions,
+        [
+            "Value(\"OtherSum\"): projection: conflicting deprecation messages: [\"another function\", \"other function\"]"
+        ]
+    );
     for root in ["LegacyRecord", "OldCount", "ILegacy", "NativeSum", "Mode"] {
         let mut inputs = [
             selected_fixture("deprecations", &[root]),

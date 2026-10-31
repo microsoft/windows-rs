@@ -590,19 +590,26 @@ fn write_with_sal<'a>(
         let expanded = sal::transport::expression(expanded)?;
         Ok(quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner #modifiers)] })
     }).collect::<Result<Vec<_>, Error>>()?;
-    let deprecated =
-        resolve::deprecations(attributes)
-            .into_iter()
-            .map(|Deprecation { message }| {
-                let message = (!message.is_empty()).then(|| quote! { #message });
-                let owner = typedef.map(|name| quote! { TypedefName = #name });
-                let arguments: Vec<_> = message.into_iter().chain(owner).collect();
-                if arguments.is_empty() {
-                    quote! { #[deprecated] }
-                } else {
-                    quote! { #[deprecated(#(#arguments),*)] }
-                }
-            });
+    let deprecations = resolve::deprecations(attributes);
+    if deprecations.len() > 1 {
+        return Err(Error(format!(
+            "conflicting deprecation messages: {:?}",
+            deprecations
+                .iter()
+                .map(|value| value.message.as_str())
+                .collect::<Vec<_>>()
+        )));
+    }
+    let deprecated = deprecations.into_iter().map(|Deprecation { message }| {
+        let message = (!message.is_empty()).then(|| quote! { #message });
+        let owner = typedef.map(|name| quote! { TypedefName = #name });
+        let arguments: Vec<_> = message.into_iter().chain(owner).collect();
+        if arguments.is_empty() {
+            quote! { #[deprecated] }
+        } else {
+            quote! { #[deprecated(#(#arguments),*)] }
+        }
+    });
     Ok(quote! { #(#sal)* #(#deprecated)* })
 }
 
