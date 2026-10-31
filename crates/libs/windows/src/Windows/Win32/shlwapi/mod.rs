@@ -2852,15 +2852,21 @@ pub unsafe fn WhichPlatform() -> super::UINT {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn wvnsprintfA(pszdest: windows_core::PSTR, cchdest: i32, pszfmt: windows_core::PCSTR, arglist: super::va_list) -> i32 {
+pub unsafe fn wvnsprintfA<P2>(pszdest: windows_core::PSTR, cchdest: i32, pszfmt: P2, arglist: super::va_list) -> i32
+where
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR, arglist : super::va_list) -> i32);
-    unsafe { wvnsprintfA(pszdest, cchdest, pszfmt, arglist) }
+    unsafe { wvnsprintfA(pszdest, cchdest, pszfmt.param().abi(), arglist) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn wvnsprintfW(pszdest: windows_core::PWSTR, cchdest: i32, pszfmt: windows_core::PCWSTR, arglist: super::va_list) -> i32 {
+pub unsafe fn wvnsprintfW<P2>(pszdest: windows_core::PWSTR, cchdest: i32, pszfmt: P2, arglist: super::va_list) -> i32
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR, arglist : super::va_list) -> i32);
-    unsafe { wvnsprintfW(pszdest, cchdest, pszfmt, arglist) }
+    unsafe { wvnsprintfW(pszdest, cchdest, pszfmt.param().abi(), arglist) }
 }
 pub type ASSOCDATA = i32;
 pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = 5;

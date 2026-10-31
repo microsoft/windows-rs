@@ -1534,7 +1534,7 @@ mod Windows {
         #[arch(X86)]
         const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u32 = 16;
         extern fn DRIVER_ADD_DEVICE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] PhysicalDeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
-        extern fn DRIVER_CANCEL(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[incomplete] #[out] Irp: *mut IRP);
+        extern fn DRIVER_CANCEL(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP);
         extern fn DRIVER_CONTROL(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP, #[in] MapRegisterBase: PVOID, #[in] Context: PVOID) -> IO_ALLOCATION_ACTION;
         #[repr(i32)]
         enum DRIVER_DIRECTORY_TYPE {
@@ -1645,11 +1645,11 @@ mod Windows {
         const DRVO_UNLOAD_INVOKED: i32 = 1;
         const DUPLICATE_SAME_ATTRIBUTES: i32 = 4;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrint(#[in] #[incomplete] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrint(#[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[incomplete] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintReturnControlC(#[in] #[incomplete] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
+        extern "C" fn DbgPrintReturnControlC(#[in] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
         #[library("ntdll.dll")]
         extern fn DbgQueryDebugFilterState(#[in] ComponentId: ULONG, #[in] Level: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -6164,7 +6164,7 @@ mod Windows {
         type PDOMAIN_CONFIGURATION_X64 = *mut DOMAIN_CONFIGURATION_X64;
         type PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK = *mut DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK;
         extern fn PDRIVER_ADD_DEVICE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] PhysicalDeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
-        extern fn PDRIVER_CANCEL(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[incomplete] #[out] Irp: *mut IRP);
+        extern fn PDRIVER_CANCEL(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP);
         extern fn PDRIVER_CONTROL(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP, #[in] MapRegisterBase: PVOID, #[in] Context: PVOID) -> IO_ALLOCATION_ACTION;
         type PDRIVER_DIRECTORY_TYPE = *mut DRIVER_DIRECTORY_TYPE;
         extern fn PDRIVER_DISPATCH(#[in] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP) -> NTSTATUS;

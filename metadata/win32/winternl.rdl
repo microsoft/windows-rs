@@ -129,7 +129,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtRenameKey(#[in] KeyHandle: HANDLE, #[in] NewName: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtSetInformationKey(#[in] KeyHandle: HANDLE, #[in] #[incomplete] KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[in] #[readable(entry, bytes(KeySetInformationLength))] KeySetInformation: PVOID, #[in] KeySetInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationKey(#[in] KeyHandle: HANDLE, #[in] KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[in] #[readable(entry, bytes(KeySetInformationLength))] KeySetInformation: PVOID, #[in] KeySetInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]

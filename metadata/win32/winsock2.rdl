@@ -784,12 +784,12 @@ mod Windows {
             lpBlob: LPBLOB,
         }
         #[library("WS2_32.dll")]
-        extern fn WSARecv(#[in] s: SOCKET, #[in] #[incomplete] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSARecv(#[in] s: SOCKET, #[in] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[deprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
-        extern fn WSARecvDisconnect(#[in] s: SOCKET, #[in] #[incomplete] #[opt] lpInboundDisconnectData: LPWSABUF) -> i32;
+        extern fn WSARecvDisconnect(#[in] s: SOCKET, #[in] #[opt] lpInboundDisconnectData: LPWSABUF) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSARecvFrom(#[in] s: SOCKET, #[in] #[incomplete] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpFromlen)))] #[writable(entry, bytes(if_present(*lpFromlen)))] lpFrom: *mut SOCKADDR, #[in] #[opt] #[out] lpFromlen: LPINT, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSARecvFrom(#[in] s: SOCKET, #[in] #[readable(entry, dwBufferCount)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[opt] #[out] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpFromlen)))] #[writable(entry, bytes(if_present(*lpFromlen)))] lpFrom: *mut SOCKADDR, #[in] #[opt] #[out] lpFromlen: LPINT, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSARemoveServiceClass(#[in] lpServiceClassId: LPGUID) -> INT;
         #[library("WS2_32.dll")]

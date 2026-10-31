@@ -1175,12 +1175,12 @@ mod Windows {
             SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS = 2,
         }
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCSTR, ...) -> i32;
+        extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] pszFmt: PCSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCWSTR, ...) -> i32;
+        extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] pszFmt: PCWSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] pszFmt: PCSTR, #[in] arglist: va_list) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCWSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] pszFmt: PCWSTR, #[in] arglist: va_list) -> i32;
     }
 }

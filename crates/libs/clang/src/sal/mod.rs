@@ -1051,6 +1051,7 @@ pub(crate) fn parameters<'a>(
     }
     let mut result: Vec<_> = values
         .into_iter()
+        .filter(|value| !value.unscoped().is_some_and(analysis_only))
         .map(|value| {
             // Only matching returned-buffer/pointer facts can share a combined contract.
             if !distinct
@@ -1079,6 +1080,24 @@ pub(crate) fn parameters<'a>(
     result.sort_unstable();
     result.dedup();
     result
+}
+
+// Static-analysis directives that state no contract a caller can observe.
+fn analysis_only(value: &SalAnnotation) -> bool {
+    let arguments = !value.arguments.trim().is_empty();
+    match (value.version.as_str(), value.name.as_str()) {
+        ("L", "__in_data_source" | "__out_data_source")
+        | ("2", "_Printf_format_string_params_") => arguments,
+        (
+            "2",
+            "_Printf_format_string_"
+            | "_Scanf_format_string_"
+            | "_Scanf_s_format_string_"
+            | "_IRQL_uses_cancel_"
+            | "_Strict_type_match",
+        ) => !arguments && value.expanded.trim().is_empty(),
+        _ => false,
+    }
 }
 
 fn result_null_on_failure(value: &Annotation<'_>) -> bool {
