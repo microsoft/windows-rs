@@ -252,6 +252,43 @@ impl CppMethod {
         write_method_cfg(&self.dependencies, config, parent, not)
     }
 
+    /// Projects `MustUseAttribute` unless the wrapper already returns `()` or a `#[must_use]` type.
+    pub fn write_must_use(&self, reader: &Reader) -> TokenStream {
+        if !self.def.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "MustUseAttribute"
+        }) {
+            return quote! {};
+        }
+        let is_must_use_type = |ty: Type| {
+            matches!(
+                ty,
+                Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS
+            )
+        };
+        let projected_must_use = match self.return_hint {
+            ReturnHint::Query(..)
+            | ReturnHint::QueryOptional(..)
+            | ReturnHint::ResultValue
+            | ReturnHint::HResult => true,
+            ReturnHint::ReturnValue => {
+                let param = self.signature.params.last().unwrap();
+                let ty = param.projection_pointee(reader).projection_type(reader);
+                (ty.is_interface_with_reader(reader) && !param.result_may_be_null())
+                    || is_must_use_type(ty)
+            }
+            ReturnHint::ReturnStruct | ReturnHint::None => {
+                let ty = self.signature.return_type.projection_type(reader);
+                ty == Type::Void || is_must_use_type(ty)
+            }
+        };
+        if projected_must_use {
+            quote! {}
+        } else {
+            quote! { #[must_use] }
+        }
+    }
+
     pub fn write_generics(&self) -> TokenStream {
         let mut tokens = quote! {};
 
@@ -303,8 +340,9 @@ impl CppMethod {
         let result = config.write_core();
 
         let vis = config.item_vis();
+        let must_use = self.write_must_use(config.reader);
 
-        match self.return_hint {
+        let wrapper = match self.return_hint {
             ReturnHint::Query(object, _) => {
                 let where_clause = self.write_where(config, true);
                 let param = &self.signature.params[object];
@@ -425,6 +463,11 @@ impl CppMethod {
                     }
                 }
             }
+        };
+
+        quote! {
+            #must_use
+            #wrapper
         }
     }
 

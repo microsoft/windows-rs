@@ -34,6 +34,7 @@ pub unsafe fn GetErrorMode() -> super::UINT {
     windows_core::link!("kernel32.dll" "system" fn GetErrorMode() -> super::UINT);
     unsafe { GetErrorMode() }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetLastError() -> super::DWORD {

@@ -1,21 +1,25 @@
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: Option<windows_core::PSTR>, usize: super::UINT, imagefilemachinetype: super::WORD) -> super::UINT {
     windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2A(lpbuffer : windows_core::PSTR, usize : super::UINT, imagefilemachinetype : super::WORD) -> super::UINT);
     unsafe { GetSystemWow64Directory2A(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize, imagefilemachinetype) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: Option<windows_core::PWSTR>, usize: super::UINT, imagefilemachinetype: super::WORD) -> super::UINT {
     windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : super::UINT, imagefilemachinetype : super::WORD) -> super::UINT);
     unsafe { GetSystemWow64Directory2W(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize, imagefilemachinetype) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: Option<windows_core::PSTR>, usize: super::UINT) -> super::UINT {
     windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PSTR, usize : super::UINT) -> super::UINT);
     unsafe { GetSystemWow64DirectoryA(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: Option<windows_core::PWSTR>, usize: super::UINT) -> super::UINT {

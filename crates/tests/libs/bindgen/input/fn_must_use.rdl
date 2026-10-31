@@ -1,0 +1,45 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    #[must_use]
+    extern fn Count() -> u32;
+
+    #[library("test.dll")]
+    #[must_use]
+    extern fn Hresult() -> HRESULT;
+
+    #[library("test.dll")]
+    #[must_use]
+    extern fn Bool() -> Windows::Win32::BOOL;
+
+    #[library("test.dll")]
+    #[must_use]
+    extern fn Status() -> Windows::Win32::NTSTATUS;
+
+    #[guid(0x10000000_0000_0000_0000_000000000001)]
+    interface Value: Windows::Win32::IUnknown {
+        #[must_use]
+        fn Count(&self) -> u32;
+        #[must_use]
+        fn Get(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
+        #[must_use]
+        fn Flag(&self, #[out] #[retval] value: *mut Windows::Win32::BOOL);
+        #[must_use]
+        fn Size(&self, #[out] #[retval] value: *mut u32);
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        type BOOL = i32;
+        type NTSTATUS = i32;
+
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {}
+        mod Metadata {
+            attribute MustUseAttribute { fn(); }
+        }
+    }
+}

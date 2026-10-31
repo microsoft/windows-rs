@@ -3566,6 +3566,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn lstrcpyW(lpstring1 : windows_core::PWSTR, lpstring2 : windows_core::PCWSTR) -> windows_core::PWSTR);
     unsafe { lstrcpyW(lpstring1, lpstring2.param().abi()) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn lstrcpynA<P1>(lpstring1: windows_core::PSTR, lpstring2: P1, imaxlength: i32) -> windows_core::PSTR
 where
@@ -3574,6 +3575,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn lstrcpynA(lpstring1 : windows_core::PSTR, lpstring2 : windows_core::PCSTR, imaxlength : i32) -> windows_core::PSTR);
     unsafe { lstrcpynA(lpstring1, lpstring2.param().abi(), imaxlength) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn lstrcpynW<P1>(lpstring1: windows_core::PWSTR, lpstring2: P1, imaxlength: i32) -> windows_core::PWSTR
 where

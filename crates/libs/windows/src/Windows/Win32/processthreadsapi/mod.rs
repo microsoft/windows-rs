@@ -536,6 +536,7 @@ pub unsafe fn TerminateThread(hthread: super::HANDLE, dwexitcode: super::DWORD) 
     windows_core::link!("kernel32.dll" "system" fn TerminateThread(hthread : super::HANDLE, dwexitcode : super::DWORD) -> windows_core::BOOL);
     unsafe { TerminateThread(hthread, dwexitcode) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn TlsAlloc() -> super::DWORD {

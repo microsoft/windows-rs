@@ -119,12 +119,14 @@ where
     windows_core::link!("oleaut32.dll" "system" fn GetRecordInfoFromTypeInfo(ptypeinfo : *mut core::ffi::c_void, pprecinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { GetRecordInfoFromTypeInfo(ptypeinfo.param().abi(), pprecinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn LHashValOfNameSys(syskind: super::SYSKIND, lcid: super::LCID, szname: *const super::OLECHAR) -> super::ULONG {
     windows_core::link!("oleaut32.dll" "system" fn LHashValOfNameSys(syskind : super::SYSKIND, lcid : super::LCID, szname : *const super::OLECHAR) -> super::ULONG);
     unsafe { LHashValOfNameSys(syskind, lcid, szname) }
 }
+#[must_use]
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
 pub unsafe fn LHashValOfNameSysA<P2>(syskind: super::SYSKIND, lcid: super::LCID, szname: P2) -> super::ULONG
@@ -446,6 +448,7 @@ pub unsafe fn SysReAllocString(pbstr: *mut windows_core::BSTR, psz: Option<*cons
     windows_core::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut *mut core::ffi::c_void, psz : *const super::OLECHAR) -> super::INT);
     unsafe { SysReAllocString(core::mem::transmute(pbstr), psz.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SysReAllocStringLen(pbstr: *mut windows_core::BSTR, psz: Option<*const super::OLECHAR>, len: u32) -> super::INT {

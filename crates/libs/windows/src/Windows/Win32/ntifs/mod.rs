@@ -250,6 +250,7 @@ pub unsafe fn NtWriteFile(filehandle: super::HANDLE, event: Option<super::HANDLE
     windows_core::link!("ntdll.dll" "system" fn NtWriteFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG, byteoffset : super::PLARGE_INTEGER, key : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtWriteFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn PfxFindPrefix(prefixtable: PPREFIX_TABLE, fullname: super::PSTRING) -> PPREFIX_TABLE_ENTRY {
@@ -310,6 +311,7 @@ pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: super::PSID_IDE
     windows_core::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : super::PSID_IDENTIFIER_AUTHORITY, subauthoritycount : super::UCHAR, subauthorities : super::PULONG, sid : *mut super::PSID) -> windows_core::NTSTATUS);
     unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), core::mem::transmute(subauthorities.as_ptr()), sid as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlAllocateHeap(heaphandle: super::PVOID, flags: Option<super::ULONG>, size: super::SIZE_T) -> super::PVOID {
@@ -328,6 +330,7 @@ pub unsafe fn RtlCompareAltitudes(altitude1: super::PCUNICODE_STRING, altitude2:
     windows_core::link!("ntdll.dll" "system" fn RtlCompareAltitudes(altitude1 : super::PCUNICODE_STRING, altitude2 : super::PCUNICODE_STRING) -> super::LONG);
     unsafe { RtlCompareAltitudes(altitude1, altitude2) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCompareMemoryUlong(source: super::PVOID, length: super::SIZE_T, pattern: super::ULONG) -> super::SIZE_T {
@@ -358,6 +361,7 @@ pub unsafe fn RtlCreateAcl(acl: super::PACL, acllength: super::ULONG, aclrevisio
     windows_core::link!("ntdll.dll" "system" fn RtlCreateAcl(acl : super::PACL, acllength : super::ULONG, aclrevision : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { RtlCreateAcl(acl as _, acllength, aclrevision) }
 }
+#[must_use]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCreateHeap(flags: super::ULONG, heapbase: Option<super::PVOID>, reservesize: Option<super::SIZE_T>, commitsize: Option<super::SIZE_T>, lock: Option<super::PVOID>, parameters: PRTL_HEAP_PARAMETERS) -> super::PVOID {
@@ -376,6 +380,7 @@ pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: super::PCUN
     windows_core::link!("ntdll.dll" "system" fn RtlCreateSystemVolumeInformationFolder(volumerootpath : super::PCUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlCreateSystemVolumeInformationFolder(volumerootpath) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlCreateUnicodeString<P1>(destinationstring: super::PUNICODE_STRING, sourcestring: P1) -> super::BOOLEAN
@@ -439,12 +444,14 @@ pub unsafe fn RtlDuplicateUnicodeString(flags: super::ULONG, stringin: super::PC
     windows_core::link!("ntdll.dll" "system" fn RtlDuplicateUnicodeString(flags : super::ULONG, stringin : super::PCUNICODE_STRING, stringout : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlDuplicateUnicodeString(flags, stringin, stringout as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEqualPrefixSid(sid1: super::PSID, sid2: super::PSID) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : super::PSID, sid2 : super::PSID) -> super::BOOLEAN);
     unsafe { RtlEqualPrefixSid(sid1, sid2) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEqualSid(sid1: super::PSID, sid2: super::PSID) -> super::BOOLEAN {
@@ -666,6 +673,7 @@ pub unsafe fn RtlOemToUnicodeN(unicodestring: super::PWCH, maxbytesinunicodestri
     windows_core::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : super::PWCH, maxbytesinunicodestring : super::ULONG, bytesinunicodestring : super::PULONG, oemstring : super::PCCH, bytesinoemstring : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { RtlOemToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlPrefixString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
@@ -828,6 +836,7 @@ pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: super::PCHAR, maxbytesinoemstrin
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : super::PCHAR, maxbytesinoemstring : super::ULONG, bytesinoemstring : super::PULONG, unicodestring : super::PCWCH, bytesinunicodestring : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { RtlUpcaseUnicodeToOemN(oemstring as _, maxbytesinoemstring, bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlValidSid(sid: super::PSID) -> super::BOOLEAN {

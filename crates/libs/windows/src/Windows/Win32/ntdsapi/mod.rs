@@ -1,3 +1,4 @@
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsAddSidHistoryA<P2, P3, P4, P6, P7>(hds: super::HANDLE, flags: Option<super::DWORD>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> super::DWORD
@@ -11,6 +12,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::HANDLE, flags : super::DWORD, srcdomain : windows_core::PCSTR, srcprincipal : windows_core::PCSTR, srcdomaincontroller : windows_core::PCSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> super::DWORD);
     unsafe { DsAddSidHistoryA(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsAddSidHistoryW<P2, P3, P4, P6, P7>(hds: super::HANDLE, flags: Option<super::DWORD>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> super::DWORD
@@ -24,6 +26,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::HANDLE, flags : super::DWORD, srcdomain : windows_core::PCWSTR, srcprincipal : windows_core::PCWSTR, srcdomaincontroller : windows_core::PCWSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DsAddSidHistoryW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, phds: *mut super::HANDLE) -> super::DWORD
@@ -34,6 +37,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindByInstanceA<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<super::DWORD>, phds: *mut super::HANDLE) -> super::DWORD
@@ -46,6 +50,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_core::PCSTR, annotation : windows_core::PCSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindByInstanceA(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindByInstanceW<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<super::DWORD>, phds: *mut super::HANDLE) -> super::DWORD
@@ -58,6 +63,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_core::PCWSTR, annotation : windows_core::PCWSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindByInstanceW(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindToISTGA<P0>(sitename: P0, phds: *mut super::HANDLE) -> super::DWORD
@@ -67,6 +73,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindToISTGA(sitename.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindToISTGW<P0>(sitename: P0, phds: *mut super::HANDLE) -> super::DWORD
@@ -76,6 +83,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindToISTGW(sitename.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, phds: *mut super::HANDLE) -> super::DWORD
@@ -86,6 +94,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::HANDLE) -> super::DWORD
@@ -96,6 +105,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithCredA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::HANDLE) -> super::DWORD
@@ -106,6 +116,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithCredW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithSpnA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::HANDLE) -> super::DWORD
@@ -117,6 +128,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithSpnA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithSpnExA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<super::DWORD>, phds: *mut super::HANDLE) -> super::DWORD
@@ -128,6 +140,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithSpnExA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithSpnExW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<super::DWORD>, phds: *mut super::HANDLE) -> super::DWORD
@@ -139,6 +152,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithSpnExW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindWithSpnW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::HANDLE) -> super::DWORD
@@ -150,12 +164,14 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
     unsafe { DsBindWithSpnW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsBindingSetTimeout(hds: super::HANDLE, ctimeoutsecs: super::ULONG) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::HANDLE, ctimeoutsecs : super::ULONG) -> super::DWORD);
     unsafe { DsBindingSetTimeout(hds, ctimeoutsecs) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerA<P0, P1>(serviceclass: P0, servicename: P1, pcspnlength: *mut super::DWORD, pszspn: windows_core::PSTR) -> super::DWORD
@@ -166,6 +182,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_core::PCSTR, servicename : windows_core::PCSTR, pcspnlength : *mut super::DWORD, pszspn : windows_core::PSTR) -> super::DWORD);
     unsafe { DsClientMakeSpnForTargetServerA(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, pszspn) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerW<P0, P1>(serviceclass: P0, servicename: P1, pcspnlength: *mut super::DWORD, pszspn: windows_core::PWSTR) -> super::DWORD
@@ -176,12 +193,14 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_core::PCWSTR, servicename : windows_core::PCWSTR, pcspnlength : *mut super::DWORD, pszspn : windows_core::PWSTR) -> super::DWORD);
     unsafe { DsClientMakeSpnForTargetServerW(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, pszspn) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsCrackNamesA(hds: Option<super::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCSTR], ppresult: *mut PDS_NAME_RESULTA) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : super::DWORD, rpnames : *const windows_core::PCSTR, ppresult : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsCrackNamesA(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), rpnames.as_ptr(), ppresult as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsCrackNamesW(hds: Option<super::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCWSTR], ppresult: *mut PDS_NAME_RESULTW) -> super::DWORD {
@@ -254,6 +273,7 @@ pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [windows_core::PWSTR]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : super::DWORD, rpszspn : *mut windows_core::PWSTR));
     unsafe { DsFreeSpnArrayW(rpszspn.len().try_into().unwrap(), rpszspn.as_mut_ptr()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoA<P1>(hds: super::HANDLE, domainname: P1, infolevel: super::DWORD, pcout: *mut super::DWORD, ppinfo: *mut *mut core::ffi::c_void) -> super::DWORD
@@ -263,6 +283,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::HANDLE, domainname : windows_core::PCSTR, infolevel : super::DWORD, pcout : *mut super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
     unsafe { DsGetDomainControllerInfoA(hds, domainname.param().abi(), infolevel, pcout as _, ppinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoW<P1>(hds: super::HANDLE, domainname: P1, infolevel: super::DWORD, pcout: *mut super::DWORD, ppinfo: *mut *mut core::ffi::c_void) -> super::DWORD
@@ -272,6 +293,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::HANDLE, domainname : windows_core::PCWSTR, infolevel : super::DWORD, pcout : *mut super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
     unsafe { DsGetDomainControllerInfoW(hds, domainname.param().abi(), infolevel, pcout as _, ppinfo as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsGetSpnA<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: super::USHORT, cinstancenames: super::USHORT, pinstancenames: Option<*const windows_core::PCSTR>, pinstanceports: Option<*const super::USHORT>, pcspn: *mut super::DWORD, prpszspn: *mut *mut windows_core::PSTR) -> super::DWORD
@@ -282,6 +304,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_core::PCSTR, servicename : windows_core::PCSTR, instanceport : super::USHORT, cinstancenames : super::USHORT, pinstancenames : *const windows_core::PCSTR, pinstanceports : *const super::USHORT, pcspn : *mut super::DWORD, prpszspn : *mut *mut windows_core::PSTR) -> super::DWORD);
     unsafe { DsGetSpnA(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames.unwrap_or(core::mem::zeroed()) as _, pinstanceports.unwrap_or(core::mem::zeroed()) as _, pcspn as _, prpszspn as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsGetSpnW<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: super::USHORT, cinstancenames: super::USHORT, pinstancenames: Option<*const windows_core::PCWSTR>, pinstanceports: Option<*const super::USHORT>, pcspn: *mut super::DWORD, prpszspn: *mut *mut windows_core::PWSTR) -> super::DWORD
@@ -292,6 +315,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_core::PCWSTR, servicename : windows_core::PCWSTR, instanceport : super::USHORT, cinstancenames : super::USHORT, pinstancenames : *const windows_core::PCWSTR, pinstanceports : *const super::USHORT, pcspn : *mut super::DWORD, prpszspn : *mut *mut windows_core::PWSTR) -> super::DWORD);
     unsafe { DsGetSpnW(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames.unwrap_or(core::mem::zeroed()) as _, pinstanceports.unwrap_or(core::mem::zeroed()) as _, pcspn as _, prpszspn as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityA<P2, P3>(hds: super::HANDLE, flags: Option<super::DWORD>, srcprincipal: P2, dstprincipal: P3) -> super::DWORD
@@ -302,6 +326,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::HANDLE, flags : super::DWORD, srcprincipal : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> super::DWORD);
     unsafe { DsInheritSecurityIdentityA(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcprincipal.param().abi(), dstprincipal.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityW<P2, P3>(hds: super::HANDLE, flags: Option<super::DWORD>, srcprincipal: P2, dstprincipal: P3) -> super::DWORD
@@ -312,6 +337,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::HANDLE, flags : super::DWORD, srcprincipal : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DsInheritSecurityIdentityW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcprincipal.param().abi(), dstprincipal.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListDomainsInSiteA<P1>(hds: super::HANDLE, site: P1, ppdomains: *mut PDS_NAME_RESULTA) -> super::DWORD
@@ -321,6 +347,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::HANDLE, site : windows_core::PCSTR, ppdomains : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListDomainsInSiteA(hds, site.param().abi(), ppdomains as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListDomainsInSiteW<P1>(hds: super::HANDLE, site: P1, ppdomains: *mut PDS_NAME_RESULTW) -> super::DWORD
@@ -330,6 +357,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::HANDLE, site : windows_core::PCWSTR, ppdomains : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListDomainsInSiteW(hds, site.param().abi(), ppdomains as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListInfoForServerA<P1>(hds: super::HANDLE, server: P1, ppinfo: *mut PDS_NAME_RESULTA) -> super::DWORD
@@ -339,6 +367,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::HANDLE, server : windows_core::PCSTR, ppinfo : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListInfoForServerA(hds, server.param().abi(), ppinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListInfoForServerW<P1>(hds: super::HANDLE, server: P1, ppinfo: *mut PDS_NAME_RESULTW) -> super::DWORD
@@ -348,18 +377,21 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::HANDLE, server : windows_core::PCWSTR, ppinfo : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListInfoForServerW(hds, server.param().abi(), ppinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListRolesA(hds: super::HANDLE, pproles: *mut PDS_NAME_RESULTA) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListRolesA(hds, pproles as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListRolesW(hds: super::HANDLE, pproles: *mut PDS_NAME_RESULTW) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListRolesW(hds, pproles as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteA<P1, P2>(hds: super::HANDLE, domain: P1, site: P2, ppservers: *mut PDS_NAME_RESULTA) -> super::DWORD
@@ -370,6 +402,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::HANDLE, domain : windows_core::PCSTR, site : windows_core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListServersForDomainInSiteA(hds, domain.param().abi(), site.param().abi(), ppservers as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteW<P1, P2>(hds: super::HANDLE, domain: P1, site: P2, ppservers: *mut PDS_NAME_RESULTW) -> super::DWORD
@@ -380,6 +413,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::HANDLE, domain : windows_core::PCWSTR, site : windows_core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListServersForDomainInSiteW(hds, domain.param().abi(), site.param().abi(), ppservers as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListServersInSiteA<P1>(hds: super::HANDLE, site: P1, ppservers: *mut PDS_NAME_RESULTA) -> super::DWORD
@@ -389,6 +423,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::HANDLE, site : windows_core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListServersInSiteA(hds, site.param().abi(), ppservers as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListServersInSiteW<P1>(hds: super::HANDLE, site: P1, ppservers: *mut PDS_NAME_RESULTW) -> super::DWORD
@@ -398,18 +433,21 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::HANDLE, site : windows_core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListServersInSiteW(hds, site.param().abi(), ppservers as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListSitesA(hds: super::HANDLE, ppsites: *mut PDS_NAME_RESULTA) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTA) -> super::DWORD);
     unsafe { DsListSitesA(hds, ppsites as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsListSitesW(hds: super::HANDLE, ppsites: *mut PDS_NAME_RESULTW) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> super::DWORD);
     unsafe { DsListSitesW(hds, ppsites as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared"))]
 #[inline]
 pub unsafe fn DsMakePasswordCredentialsA<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD
@@ -421,6 +459,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_core::PCSTR, domain : windows_core::PCSTR, password : windows_core::PCSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD);
     unsafe { DsMakePasswordCredentialsA(user.param().abi(), domain.param().abi(), password.param().abi(), pauthidentity as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared"))]
 #[inline]
 pub unsafe fn DsMakePasswordCredentialsW<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD
@@ -432,18 +471,21 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_core::PCWSTR, domain : windows_core::PCWSTR, password : windows_core::PCWSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD);
     unsafe { DsMakePasswordCredentialsW(user.param().abi(), domain.param().abi(), password.param().abi(), pauthidentity as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsA(hds: super::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::HANDLE, cguids : super::DWORD, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> super::DWORD);
     unsafe { DsMapSchemaGuidsA(hds, rguids.len().try_into().unwrap(), rguids.as_ptr(), ppguidmap as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsW(hds: super::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::HANDLE, cguids : super::DWORD, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> super::DWORD);
     unsafe { DsMapSchemaGuidsW(hds, rguids.len().try_into().unwrap(), rguids.as_ptr(), ppguidmap as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsQuerySitesByCostA<P1>(hds: super::HANDLE, pszfromsite: P1, rgsztosites: &[windows_core::PCSTR], dwflags: Option<super::DWORD>, prgsiteinfo: *mut PDS_SITE_COST_INFO) -> super::DWORD
@@ -453,6 +495,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::HANDLE, pszfromsite : windows_core::PCSTR, rgsztosites : *const windows_core::PCSTR, ctosites : super::DWORD, dwflags : super::DWORD, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> super::DWORD);
     unsafe { DsQuerySitesByCostA(hds, pszfromsite.param().abi(), rgsztosites.as_ptr(), rgsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsQuerySitesByCostW<P1>(hds: super::HANDLE, pwszfromsite: P1, rgwsztosites: &[windows_core::PCWSTR], dwflags: Option<super::DWORD>, prgsiteinfo: *mut PDS_SITE_COST_INFO) -> super::DWORD
@@ -468,6 +511,7 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: PDS_SITE_COST_INFO) {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : PDS_SITE_COST_INFO));
     unsafe { DsQuerySitesFree(rgsiteinfo) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsRemoveDsDomainA<P1>(hds: super::HANDLE, domaindn: P1) -> super::DWORD
@@ -477,6 +521,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::HANDLE, domaindn : windows_core::PCSTR) -> super::DWORD);
     unsafe { DsRemoveDsDomainA(hds, domaindn.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsRemoveDsDomainW<P1>(hds: super::HANDLE, domaindn: P1) -> super::DWORD
@@ -486,6 +531,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::HANDLE, domaindn : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DsRemoveDsDomainW(hds, domaindn.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> super::DWORD
@@ -496,6 +542,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::HANDLE, serverdn : windows_core::PCSTR, domaindn : windows_core::PCSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> super::DWORD);
     unsafe { DsRemoveDsServerA(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> super::DWORD
@@ -506,6 +553,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::HANDLE, serverdn : windows_core::PCWSTR, domaindn : windows_core::PCWSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> super::DWORD);
     unsafe { DsRemoveDsServerW(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
+#[must_use]
 #[cfg(all(feature = "schedule", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaAddA<P1, P2, P3, P4>(hds: super::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<super::PSCHEDULE>, options: super::DWORD) -> super::DWORD
@@ -518,6 +566,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::HANDLE, namecontext : windows_core::PCSTR, sourcedsadn : windows_core::PCSTR, transportdn : windows_core::PCSTR, sourcedsaaddress : windows_core::PCSTR, pschedule : super::PSCHEDULE, options : super::DWORD) -> super::DWORD);
     unsafe { DsReplicaAddA(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, options) }
 }
+#[must_use]
 #[cfg(all(feature = "schedule", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaAddW<P1, P2, P3, P4>(hds: super::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<super::PSCHEDULE>, options: super::DWORD) -> super::DWORD
@@ -530,12 +579,14 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::HANDLE, namecontext : windows_core::PCWSTR, sourcedsadn : windows_core::PCWSTR, transportdn : windows_core::PCWSTR, sourcedsaaddress : windows_core::PCWSTR, pschedule : super::PSCHEDULE, options : super::DWORD) -> super::DWORD);
     unsafe { DsReplicaAddW(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, options) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaConsistencyCheck(hds: super::HANDLE, taskid: DS_KCC_TASKID, dwflags: super::DWORD) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::HANDLE, taskid : DS_KCC_TASKID, dwflags : super::DWORD) -> super::DWORD);
     unsafe { DsReplicaConsistencyCheck(hds, taskid, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaDelA<P1, P2>(hds: super::HANDLE, namecontext: P1, dsasrc: P2, options: super::ULONG) -> super::DWORD
@@ -546,6 +597,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::HANDLE, namecontext : windows_core::PCSTR, dsasrc : windows_core::PCSTR, options : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaDelA(hds, namecontext.param().abi(), dsasrc.param().abi(), options) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaDelW<P1, P2>(hds: super::HANDLE, namecontext: P1, dsasrc: P2, options: super::ULONG) -> super::DWORD
@@ -561,6 +613,7 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const core:
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const core::ffi::c_void));
     unsafe { DsReplicaFreeInfo(infotype, pinfo) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaGetInfo2W<P2, P4, P5>(hds: super::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: Option<*const super::UUID>, pszattributename: P4, pszvalue: P5, dwflags: super::DWORD, dwenumerationcontext: super::DWORD, ppinfo: *mut *mut core::ffi::c_void) -> super::DWORD
@@ -572,6 +625,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_core::PCWSTR, puuidforsourcedsaobjguid : *const super::UUID, pszattributename : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, dwflags : super::DWORD, dwenumerationcontext : super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
     unsafe { DsReplicaGetInfo2W(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid.unwrap_or(core::mem::zeroed()) as _, pszattributename.param().abi(), pszvalue.param().abi(), dwflags, dwenumerationcontext, ppinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaGetInfoW<P2>(hds: super::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: Option<*const super::UUID>, ppinfo: *mut *mut core::ffi::c_void) -> super::DWORD
@@ -581,6 +635,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_core::PCWSTR, puuidforsourcedsaobjguid : *const super::UUID, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
     unsafe { DsReplicaGetInfoW(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid.unwrap_or(core::mem::zeroed()) as _, ppinfo as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "schedule", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaModifyA<P1, P3, P4>(hds: super::HANDLE, namecontext: P1, puuidsourcedsa: Option<*const super::UUID>, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<super::PSCHEDULE>, replicaflags: Option<super::DWORD>, modifyfields: super::DWORD, options: super::DWORD) -> super::DWORD
@@ -592,6 +647,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::HANDLE, namecontext : windows_core::PCSTR, puuidsourcedsa : *const super::UUID, transportdn : windows_core::PCSTR, sourcedsaaddress : windows_core::PCSTR, pschedule : super::PSCHEDULE, replicaflags : super::DWORD, modifyfields : super::DWORD, options : super::DWORD) -> super::DWORD);
     unsafe { DsReplicaModifyA(hds, namecontext.param().abi(), puuidsourcedsa.unwrap_or(core::mem::zeroed()) as _, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, replicaflags.unwrap_or(core::mem::zeroed()) as _, modifyfields, options) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "schedule", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaModifyW<P1, P3, P4>(hds: super::HANDLE, namecontext: P1, puuidsourcedsa: Option<*const super::UUID>, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<super::PSCHEDULE>, replicaflags: super::DWORD, modifyfields: super::DWORD, options: super::DWORD) -> super::DWORD
@@ -603,6 +659,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::HANDLE, namecontext : windows_core::PCWSTR, puuidsourcedsa : *const super::UUID, transportdn : windows_core::PCWSTR, sourcedsaaddress : windows_core::PCWSTR, pschedule : super::PSCHEDULE, replicaflags : super::DWORD, modifyfields : super::DWORD, options : super::DWORD) -> super::DWORD);
     unsafe { DsReplicaModifyW(hds, namecontext.param().abi(), puuidsourcedsa.unwrap_or(core::mem::zeroed()) as _, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, replicaflags, modifyfields, options) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaSyncA<P1>(hds: super::HANDLE, namecontext: P1, puuiddsasrc: *const super::UUID, options: super::ULONG) -> super::DWORD
@@ -612,6 +669,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::HANDLE, namecontext : windows_core::PCSTR, puuiddsasrc : *const super::UUID, options : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaSyncA(hds, namecontext.param().abi(), puuiddsasrc, options) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaSyncAllA<P1>(hds: super::HANDLE, psznamecontext: P1, ulflags: super::ULONG, pfncallback: Option<unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEA) -> windows_core::BOOL>, pcallbackdata: Option<super::LPVOID>, perrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> super::DWORD
@@ -621,6 +679,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::HANDLE, psznamecontext : windows_core::PCSTR, ulflags : super::ULONG, pfncallback : Option < unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEA) -> windows_core::BOOL >, pcallbackdata : super::LPVOID, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOA) -> super::DWORD);
     unsafe { DsReplicaSyncAllA(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata.unwrap_or(core::mem::zeroed()) as _, perrors as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaSyncAllW<P1>(hds: super::HANDLE, psznamecontext: P1, ulflags: super::ULONG, pfncallback: Option<unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEW) -> windows_core::BOOL>, pcallbackdata: Option<super::LPVOID>, perrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> super::DWORD
@@ -630,6 +689,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::HANDLE, psznamecontext : windows_core::PCWSTR, ulflags : super::ULONG, pfncallback : Option < unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEW) -> windows_core::BOOL >, pcallbackdata : super::LPVOID, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOW) -> super::DWORD);
     unsafe { DsReplicaSyncAllW(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata.unwrap_or(core::mem::zeroed()) as _, perrors as _) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaSyncW<P1>(hds: super::HANDLE, namecontext: P1, puuiddsasrc: *const super::UUID, options: super::ULONG) -> super::DWORD
@@ -639,6 +699,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::HANDLE, namecontext : windows_core::PCWSTR, puuiddsasrc : *const super::UUID, options : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaSyncW(hds, namecontext.param().abi(), puuiddsasrc, options) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsA<P1, P2>(hds: super::HANDLE, namecontext: P1, dsadest: P2, puuiddsadest: *const super::UUID, options: super::ULONG) -> super::DWORD
@@ -649,6 +710,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::HANDLE, namecontext : windows_core::PCSTR, dsadest : windows_core::PCSTR, puuiddsadest : *const super::UUID, options : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaUpdateRefsA(hds, namecontext.param().abi(), dsadest.param().abi(), puuiddsadest, options) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsW<P1, P2>(hds: super::HANDLE, namecontext: P1, dsadest: P2, puuiddsadest: *const super::UUID, options: super::ULONG) -> super::DWORD
@@ -659,6 +721,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::HANDLE, namecontext : windows_core::PCWSTR, dsadest : windows_core::PCWSTR, puuiddsadest : *const super::UUID, options : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaUpdateRefsW(hds, namecontext.param().abi(), dsadest.param().abi(), puuiddsadest, options) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsA<P1>(hds: super::HANDLE, namecontext: P1, puuiddsasrc: *const super::UUID, uloptions: super::ULONG) -> super::DWORD
@@ -668,6 +731,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::HANDLE, namecontext : windows_core::PCSTR, puuiddsasrc : *const super::UUID, uloptions : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaVerifyObjectsA(hds, namecontext.param().abi(), puuiddsasrc, uloptions) }
 }
+#[must_use]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsW<P1>(hds: super::HANDLE, namecontext: P1, puuiddsasrc: *const super::UUID, uloptions: super::ULONG) -> super::DWORD
@@ -677,6 +741,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsW(hds : super::HANDLE, namecontext : windows_core::PCWSTR, puuiddsasrc : *const super::UUID, uloptions : super::ULONG) -> super::DWORD);
     unsafe { DsReplicaVerifyObjectsW(hds, namecontext.param().abi(), puuiddsasrc, uloptions) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsServerRegisterSpnA<P1, P2>(operation: DS_SPN_WRITE_OP, serviceclass: P1, userobjectdn: P2) -> super::DWORD
@@ -687,6 +752,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : windows_core::PCSTR, userobjectdn : windows_core::PCSTR) -> super::DWORD);
     unsafe { DsServerRegisterSpnA(operation, serviceclass.param().abi(), userobjectdn.param().abi()) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DsServerRegisterSpnW<P1, P2>(operation: DS_SPN_WRITE_OP, serviceclass: P1, userobjectdn: P2) -> super::DWORD
@@ -709,6 +775,7 @@ pub unsafe fn DsUnBindW(phds: *const super::HANDLE) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnBindW(phds : *const super::HANDLE) -> super::DWORD);
     unsafe { DsUnBindW(phds) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsWriteAccountSpnA<P2>(hds: super::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, rpszspn: &[windows_core::PCSTR]) -> super::DWORD
@@ -718,6 +785,7 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_core::PCSTR, cspn : super::DWORD, rpszspn : *const windows_core::PCSTR) -> super::DWORD);
     unsafe { DsWriteAccountSpnA(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), rpszspn.as_ptr()) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsWriteAccountSpnW<P2>(hds: super::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, rpszspn: &[windows_core::PCWSTR]) -> super::DWORD

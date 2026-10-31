@@ -557,6 +557,7 @@ pub unsafe fn CertOpenServerOcspResponse(pchaincontext: PCCERT_CHAIN_CONTEXT, dw
     windows_core::link!("crypt32.dll" "system" fn CertOpenServerOcspResponse(pchaincontext : PCCERT_CHAIN_CONTEXT, dwflags : super::DWORD, popenpara : PCERT_SERVER_OCSP_RESPONSE_OPEN_PARA) -> HCERT_SERVER_OCSP_RESPONSE);
     unsafe { CertOpenServerOcspResponse(pchaincontext, dwflags, popenpara.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CertOpenStore<P0>(lpszstoreprovider: P0, dwencodingtype: super::DWORD, hcryptprov: Option<HCRYPTPROV_LEGACY>, dwflags: super::DWORD, pvpara: Option<*const core::ffi::c_void>) -> HCERTSTORE

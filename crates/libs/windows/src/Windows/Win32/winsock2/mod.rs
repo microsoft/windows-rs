@@ -9,6 +9,7 @@ pub unsafe fn ProcessSocketNotifications(completionport: super::HANDLE, mut regi
     windows_core::link!("ws2_32.dll" "system" fn ProcessSocketNotifications(completionport : super::HANDLE, registrationcount : super::UINT32, registrationinfos : *mut SOCK_NOTIFY_REGISTRATION, timeoutms : super::UINT32, completioncount : super::ULONG, completionportentries : *mut super::OVERLAPPED_ENTRY, receivedentrycount : *mut super::UINT32) -> super::DWORD);
     unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), registrationinfos.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), timeoutms, completioncount, completionportentries.unwrap_or(core::mem::zeroed()) as _, receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "qos", feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn WSAAccept(s: SOCKET, addr: Option<*mut super::SOCKADDR>, addrlen: Option<super::LPINT>, lpfncondition: LPCONDITIONPROC, dwcallbackdata: Option<super::DWORD_PTR>) -> SOCKET {
@@ -410,18 +411,21 @@ pub unsafe fn WSASetServiceW(lpqsreginfo: LPWSAQUERYSETW, essoperation: WSAESETS
     windows_core::link!("ws2_32.dll" "system" fn WSASetServiceW(lpqsreginfo : LPWSAQUERYSETW, essoperation : WSAESETSERVICEOP, dwcontrolflags : super::DWORD) -> super::INT);
     unsafe { WSASetServiceW(lpqsreginfo, essoperation, dwcontrolflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<LPWSAPROTOCOL_INFOA>, g: GROUP, dwflags: super::DWORD) -> SOCKET {
     windows_core::link!("ws2_32.dll" "system" fn WSASocketA(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : LPWSAPROTOCOL_INFOA, g : GROUP, dwflags : super::DWORD) -> SOCKET);
     unsafe { WSASocketA(af, r#type, protocol, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, g, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<LPWSAPROTOCOL_INFOW>, g: GROUP, dwflags: super::DWORD) -> SOCKET {
     windows_core::link!("ws2_32.dll" "system" fn WSASocketW(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : LPWSAPROTOCOL_INFOW, g : GROUP, dwflags : super::DWORD) -> SOCKET);
     unsafe { WSASocketW(af, r#type, protocol, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, g, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: super::WORD, lpwsadata: LPWSADATA) -> i32 {
@@ -462,6 +466,7 @@ pub unsafe fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn __WSAFDIsSet(fd : SOCKET, param1 : *mut fd_set) -> i32);
     unsafe { __WSAFDIsSet(fd, param1 as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
 pub unsafe fn accept(s: SOCKET, addr: Option<*mut super::SOCKADDR>, addrlen: Option<*mut i32>) -> SOCKET {
@@ -615,6 +620,7 @@ pub unsafe fn shutdown(s: SOCKET, how: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn shutdown(s : SOCKET, how : i32) -> i32);
     unsafe { shutdown(s, how) }
 }
+#[must_use]
 #[inline]
 pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
     windows_core::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : i32, protocol : i32) -> SOCKET);

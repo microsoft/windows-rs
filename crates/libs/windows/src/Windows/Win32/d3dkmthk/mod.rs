@@ -28,6 +28,7 @@ pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVID
     windows_core::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTChangeVideoMemoryReservation(param0) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn D3DKMTCheckExclusiveOwnership() -> super::BOOLEAN {

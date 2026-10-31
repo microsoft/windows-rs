@@ -38,6 +38,7 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: super::DWORD, framestocaptu
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : super::DWORD, framestocapture : super::DWORD, backtrace : *mut PVOID, backtracehash : super::PDWORD) -> super::WORD);
     unsafe { RtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace as _, backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
 #[inline]
@@ -45,6 +46,7 @@ pub unsafe fn RtlCompareDeviceMemory(source1: *const core::ffi::c_void, source2:
     windows_core::link!("ntdll.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
     unsafe { RtlCompareDeviceMemory(source1, source2, length) }
 }
+#[must_use]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
@@ -52,6 +54,7 @@ pub unsafe fn RtlCompareDeviceMemory(source1: *const core::ffi::c_void, source2:
     windows_core::link!("kernel32.dll" "system" "RtlCompareMemory" fn RtlCompareDeviceMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
     unsafe { RtlCompareDeviceMemory(source1, source2, length) }
 }
+#[must_use]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
 #[inline]
@@ -59,6 +62,7 @@ pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *cons
     windows_core::link!("ntdll.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
     unsafe { RtlCompareMemory(source1, source2, length) }
 }
+#[must_use]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
@@ -110,6 +114,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: PCORRELATION_VECTOR)
     windows_core::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> super::DWORD);
     unsafe { RtlExtendCorrelationVector(correlationvector as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> PSLIST_ENTRY {
@@ -289,6 +294,7 @@ pub unsafe fn RtlQueryDepthSList(listhead: PSLIST_HEADER) -> super::WORD {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : PSLIST_HEADER) -> super::WORD);
     unsafe { RtlQueryDepthSList(listhead) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> super::DWORD {

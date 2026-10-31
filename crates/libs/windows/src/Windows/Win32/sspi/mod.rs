@@ -158,6 +158,7 @@ pub unsafe fn FreeCredentialsHandle(phcredential: PCredHandle) -> super::SECURIT
     windows_core::link!("secur32.dll" "system" fn FreeCredentialsHandle(phcredential : PCredHandle) -> super::SECURITY_STATUS);
     unsafe { FreeCredentialsHandle(phcredential) }
 }
+#[must_use]
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ImpersonateSecurityContext(phcontext: PCtxtHandle) -> super::SECURITY_STATUS {

@@ -1,27 +1,32 @@
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
     unsafe { AuditComputeEffectivePolicyBySid(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
     unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: super::PULONG) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditEnumerateCategories(ppauditcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : super::PULONG) -> super::BOOLEAN);
     unsafe { AuditEnumerateCategories(ppauditcategoriesarray as _, pdwcountreturned as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut PPOLICY_AUDIT_SID_ARRAY) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditEnumeratePerUserPolicy(ppauditsidarray : *mut PPOLICY_AUDIT_SID_ARRAY) -> super::BOOLEAN);
     unsafe { AuditEnumeratePerUserPolicy(ppauditsidarray as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn AuditEnumerateSubCategories(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: super::BOOLEAN, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: super::PULONG) -> super::BOOLEAN {
@@ -46,30 +51,35 @@ pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const w
     windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid : *const windows_core::GUID, pauditcategoryid : PPOLICY_AUDIT_EVENT_TYPE) -> super::BOOLEAN);
     unsafe { AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid, pauditcategoryid as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PSTR) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameA(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PSTR) -> super::BOOLEAN);
     unsafe { AuditLookupCategoryNameA(pauditcategoryguid, ppszcategoryname as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PWSTR) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameW(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PWSTR) -> super::BOOLEAN);
     unsafe { AuditLookupCategoryNameW(pauditcategoryguid, ppszcategoryname as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PSTR) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameA(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PSTR) -> super::BOOLEAN);
     unsafe { AuditLookupSubCategoryNameA(pauditsubcategoryguid, ppszsubcategoryname as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PWSTR) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameW(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PWSTR) -> super::BOOLEAN);
     unsafe { AuditLookupSubCategoryNameW(pauditsubcategoryguid, ppszsubcategoryname as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut super::PACL) -> super::BOOLEAN
@@ -79,6 +89,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *mut super::PACL) -> super::BOOLEAN);
     unsafe { AuditQueryGlobalSaclA(objecttypename.param().abi(), acl as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut super::PACL) -> super::BOOLEAN
@@ -88,18 +99,21 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *mut super::PACL) -> super::BOOLEAN);
     unsafe { AuditQueryGlobalSaclW(objecttypename.param().abi(), acl as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy(psid: super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
     unsafe { AuditQueryPerUserPolicy(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuditQuerySecurity(securityinformation: super::SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN);
     unsafe { AuditQuerySecurity(securityinformation, ppsecuritydescriptor as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {

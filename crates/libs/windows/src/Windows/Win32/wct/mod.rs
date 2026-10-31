@@ -9,6 +9,7 @@ pub unsafe fn GetThreadWaitChain(wcthandle: HWCT, context: Option<super::DWORD_P
     windows_core::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : HWCT, context : super::DWORD_PTR, flags : super::DWORD, threadid : super::DWORD, nodecount : super::LPDWORD, nodeinfoarray : PWAITCHAIN_NODE_INFO, iscycle : super::LPBOOL) -> windows_core::BOOL);
     unsafe { GetThreadWaitChain(wcthandle, context.unwrap_or(core::mem::zeroed()) as _, flags, threadid, nodecount as _, nodeinfoarray as _, iscycle as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: super::DWORD, callback: PWAITCHAINCALLBACK) -> HWCT {

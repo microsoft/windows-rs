@@ -291,12 +291,14 @@ where
     windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : super::PUNICODE_STRING, source : windows_core::PCWSTR) -> windows_core::NTSTATUS);
     unsafe { RtlAppendUnicodeToString(destination as _, source.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlAreBitsClear(bitmapheader: PRTL_BITMAP, startingindex: super::ULONG, length: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlAreBitsClear(bitmapheader : PRTL_BITMAP, startingindex : super::ULONG, length : super::ULONG) -> super::BOOLEAN);
     unsafe { RtlAreBitsClear(bitmapheader, startingindex, length) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlAreBitsSet(bitmapheader: PRTL_BITMAP, startingindex: super::ULONG, length: super::ULONG) -> super::BOOLEAN {
@@ -351,12 +353,14 @@ pub unsafe fn RtlCmEncodeMemIoResource(descriptor: PCM_PARTIAL_RESOURCE_DESCRIPT
     windows_core::link!("ntdll.dll" "system" fn RtlCmEncodeMemIoResource(descriptor : PCM_PARTIAL_RESOURCE_DESCRIPTOR, r#type : super::UCHAR, length : super::ULONGLONG, start : super::ULONGLONG) -> windows_core::NTSTATUS);
     unsafe { RtlCmEncodeMemIoResource(descriptor, r#type, length, start) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlCompareUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::LONG {
     windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> super::LONG);
     unsafe { RtlCompareUnicodeString(string1, string2, caseinsensitive) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: super::BOOLEAN) -> super::LONG {
@@ -406,6 +410,7 @@ pub unsafe fn RtlDowncaseUnicodeChar(sourcecharacter: super::WCHAR) -> super::WC
     windows_core::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeChar(sourcecharacter : super::WCHAR) -> super::WCHAR);
     unsafe { RtlDowncaseUnicodeChar(sourcecharacter) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlEqualUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
@@ -439,6 +444,7 @@ pub unsafe fn RtlExtractBitMap(source: PRTL_BITMAP, destination: PRTL_BITMAP, ta
     windows_core::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : PRTL_BITMAP, destination : PRTL_BITMAP, targetbit : super::ULONG, numberofbits : super::ULONG));
     unsafe { RtlExtractBitMap(source, destination, targetbit, numberofbits) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlFindClearBits(bitmapheader: PRTL_BITMAP, numbertofind: super::ULONG, hintindex: super::ULONG) -> super::ULONG {
@@ -469,6 +475,7 @@ pub unsafe fn RtlFindLastBackwardRunClear(bitmapheader: PRTL_BITMAP, fromindex: 
     windows_core::link!("ntdll.dll" "system" fn RtlFindLastBackwardRunClear(bitmapheader : PRTL_BITMAP, fromindex : super::ULONG, startingrunindex : super::PULONG) -> super::ULONG);
     unsafe { RtlFindLastBackwardRunClear(bitmapheader, fromindex, startingrunindex as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlFindLeastSignificantBit(set: super::ULONGLONG) -> super::CCHAR {
@@ -481,6 +488,7 @@ pub unsafe fn RtlFindLongestRunClear(bitmapheader: PRTL_BITMAP, startingindex: s
     windows_core::link!("ntdll.dll" "system" fn RtlFindLongestRunClear(bitmapheader : PRTL_BITMAP, startingindex : super::PULONG) -> super::ULONG);
     unsafe { RtlFindLongestRunClear(bitmapheader, startingindex as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlFindMostSignificantBit(set: super::ULONGLONG) -> super::CCHAR {
@@ -493,6 +501,7 @@ pub unsafe fn RtlFindNextForwardRunClear(bitmapheader: PRTL_BITMAP, fromindex: s
     windows_core::link!("ntdll.dll" "system" fn RtlFindNextForwardRunClear(bitmapheader : PRTL_BITMAP, fromindex : super::ULONG, startingrunindex : super::PULONG) -> super::ULONG);
     unsafe { RtlFindNextForwardRunClear(bitmapheader, fromindex, startingrunindex as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlFindSetBits(bitmapheader: PRTL_BITMAP, numbertofind: super::ULONG, hintindex: super::ULONG) -> super::ULONG {
@@ -646,6 +655,7 @@ pub unsafe fn RtlStringFromGUID(guid: *const windows_core::GUID, guidstring: sup
     windows_core::link!("ntdll.dll" "system" fn RtlStringFromGUID(guid : *const windows_core::GUID, guidstring : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlStringFromGUID(guid, guidstring as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlTestBit(bitmapheader: PRTL_BITMAP, bitnumber: super::ULONG) -> super::BOOLEAN {
@@ -676,12 +686,14 @@ pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: super::WCHAR) -> super::WCHA
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeChar(sourcecharacter : super::WCHAR) -> super::WCHAR);
     unsafe { RtlUpcaseUnicodeChar(sourcecharacter) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput: super::PSECURITY_DESCRIPTOR, securitydescriptorlength: super::ULONG, requiredinformation: super::SECURITY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput : super::PSECURITY_DESCRIPTOR, securitydescriptorlength : super::ULONG, requiredinformation : super::SECURITY_INFORMATION) -> super::BOOLEAN);
     unsafe { RtlValidRelativeSecurityDescriptor(securitydescriptorinput, securitydescriptorlength, requiredinformation) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlValidSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN {

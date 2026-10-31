@@ -1,9 +1,11 @@
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: super::DWORD, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: Option<super::PBYTE>, cbclaimblob: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : super::DWORD, pparameterlist : *const NCryptBufferDesc, pbclaimblob : super::PBYTE, cbclaimblob : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptCreateClaim(hsubjectkey.unwrap_or(core::mem::zeroed()) as _, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbclaimblob.unwrap_or(core::mem::zeroed()) as _, cbclaimblob, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptCreatePersistedKey<P2, P3>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -14,12 +16,14 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptCreatePersistedKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszalgid : windows_core::PCWSTR, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptCreatePersistedKey(hprovider, phkey as _, pszalgid.param().abi(), pszkeyname.param().abi(), dwlegacykeyspec, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptDecapsulate(hkey: NCRYPT_KEY_HANDLE, pbciphertext: &[u8], pbsecretkey: Option<super::PBYTE>, cbsecretkey: super::ULONG, pcbsecretkey: *mut super::ULONG, dwflags: super::ULONG) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDecapsulate(hkey : NCRYPT_KEY_HANDLE, pbciphertext : super::PBYTE, cbciphertext : super::ULONG, pbsecretkey : super::PBYTE, cbsecretkey : super::ULONG, pcbsecretkey : *mut super::ULONG, dwflags : super::ULONG) -> SECURITY_STATUS);
     unsafe { NCryptDecapsulate(hkey, core::mem::transmute(pbciphertext.as_ptr()), pbciphertext.len().try_into().unwrap(), pbsecretkey.unwrap_or(core::mem::zeroed()) as _, cbsecretkey, pcbsecretkey as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<super::PBYTE>, cboutput: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS {
@@ -32,6 +36,7 @@ pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: super::DWORD) ->
     windows_core::link!("ncrypt.dll" "system" fn NCryptDeleteKey(hkey : NCRYPT_KEY_HANDLE, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptDeleteKey(hkey, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptDeriveKey<P1>(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: Option<super::PBYTE>, cbderivedkey: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::ULONG) -> SECURITY_STATUS
@@ -41,24 +46,28 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pbderivedkey : super::PBYTE, cbderivedkey : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::ULONG) -> SECURITY_STATUS);
     unsafe { NCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.unwrap_or(core::mem::zeroed()) as _, cbderivedkey, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptEncapsulate(hkey: NCRYPT_KEY_HANDLE, pbsecretkey: Option<super::PBYTE>, cbsecretkey: super::ULONG, pcbsecretkey: *mut super::ULONG, pbciphertext: Option<super::PBYTE>, cbciphertext: super::ULONG, pcbciphertext: *mut super::ULONG, dwflags: super::ULONG) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncapsulate(hkey : NCRYPT_KEY_HANDLE, pbsecretkey : super::PBYTE, cbsecretkey : super::ULONG, pcbsecretkey : *mut super::ULONG, pbciphertext : super::PBYTE, cbciphertext : super::ULONG, pcbciphertext : *mut super::ULONG, dwflags : super::ULONG) -> SECURITY_STATUS);
     unsafe { NCryptEncapsulate(hkey, pbsecretkey.unwrap_or(core::mem::zeroed()) as _, cbsecretkey, pcbsecretkey as _, pbciphertext.unwrap_or(core::mem::zeroed()) as _, cbciphertext, pcbciphertext as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<super::PBYTE>, cboutput: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : super::PBYTE, cbinput : super::DWORD, ppaddinginfo : *const core::ffi::c_void, pboutput : super::PBYTE, cboutput : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptEncrypt(hkey, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: super::DWORD, pdwalgcount: *mut super::DWORD, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEnumAlgorithms(hprovider : NCRYPT_PROV_HANDLE, dwalgoperations : super::DWORD, pdwalgcount : *mut super::DWORD, ppalglist : *mut *mut NCryptAlgorithmName, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptEnumAlgorithms(hprovider, dwalgoperations, pdwalgcount as _, ppalglist as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptEnumKeys<P1>(hprovider: NCRYPT_PROV_HANDLE, pszscope: P1, ppkeyname: *mut *mut NCryptKeyName, ppenumstate: *mut super::PVOID, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -68,12 +77,14 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptEnumKeys(hprovider : NCRYPT_PROV_HANDLE, pszscope : windows_core::PCWSTR, ppkeyname : *mut *mut NCryptKeyName, ppenumstate : *mut super::PVOID, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptEnumKeys(hprovider, pszscope.param().abi(), ppkeyname as _, ppenumstate as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut super::DWORD, ppproviderlist: *mut *mut NCryptProviderName, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEnumStorageProviders(pdwprovidercount : *mut super::DWORD, ppproviderlist : *mut *mut NCryptProviderName, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptEnumStorageProviders(pdwprovidercount as _, ppproviderlist as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptExportKey<P2>(hkey: NCRYPT_KEY_HANDLE, hexportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, pboutput: Option<super::PBYTE>, cboutput: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -83,6 +94,7 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pboutput : super::PBYTE, cboutput : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: super::DWORD) -> SECURITY_STATUS {
@@ -100,6 +112,7 @@ pub unsafe fn NCryptFreeObject(hobject: NCRYPT_HANDLE) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : NCRYPT_HANDLE) -> SECURITY_STATUS);
     unsafe { NCryptFreeObject(hobject) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptGetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pboutput: Option<super::PBYTE>, cboutput: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -109,6 +122,7 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : super::PBYTE, cboutput : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptImportKey<P2>(hprovider: NCRYPT_PROV_HANDLE, himportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, phkey: *mut NCRYPT_KEY_HANDLE, pbdata: &[u8], dwflags: super::DWORD) -> SECURITY_STATUS
@@ -118,6 +132,7 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptImportKey(hprovider : NCRYPT_PROV_HANDLE, himportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, phkey : *mut NCRYPT_KEY_HANDLE, pbdata : super::PBYTE, cbdata : super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptImportKey(hprovider, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, phkey as _, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptIsAlgSupported<P1>(hprovider: NCRYPT_PROV_HANDLE, pszalgid: P1, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -132,18 +147,21 @@ pub unsafe fn NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE) -> windows_core::BOOL {
     windows_core::link!("ncrypt.dll" "system" fn NCryptIsKeyHandle(hkey : NCRYPT_KEY_HANDLE) -> windows_core::BOOL);
     unsafe { NCryptIsKeyHandle(hkey) }
 }
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: super::PUCHAR, cbderivedkey: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::ULONG) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::ULONG) -> SECURITY_STATUS);
     unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey as _, cbderivedkey, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptNotifyChangeKey(hprovider: NCRYPT_PROV_HANDLE, phevent: *mut super::HANDLE, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptNotifyChangeKey(hprovider : NCRYPT_PROV_HANDLE, phevent : *mut super::HANDLE, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptNotifyChangeKey(hprovider, phevent as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptOpenKey<P2>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszkeyname: P2, dwlegacykeyspec: Option<super::DWORD>, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -153,6 +171,7 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptOpenKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptOpenKey(hprovider, phkey as _, pszkeyname.param().abi(), dwlegacykeyspec.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptOpenStorageProvider<P1>(phprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P1, dwflags: super::DWORD) -> SECURITY_STATUS
@@ -162,12 +181,14 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptOpenStorageProvider(phprovider : *mut NCRYPT_PROV_HANDLE, pszprovidername : windows_core::PCWSTR, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptOpenStorageProvider(phprovider as _, pszprovidername.param().abi(), dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptSecretAgreement(hprivkey: NCRYPT_KEY_HANDLE, hpubkey: NCRYPT_KEY_HANDLE, phagreedsecret: *mut NCRYPT_SECRET_HANDLE, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptSecretAgreement(hprivkey : NCRYPT_KEY_HANDLE, hpubkey : NCRYPT_KEY_HANDLE, phagreedsecret : *mut NCRYPT_SECRET_HANDLE, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptSecretAgreement(hprivkey, hpubkey, phagreedsecret as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptSetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pbinput: &[u8], dwflags: super::DWORD) -> SECURITY_STATUS
@@ -177,24 +198,28 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptSetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pbinput : super::PBYTE, cbinput : super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptSetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<super::PBYTE>, cbsignature: super::DWORD, pcbresult: *mut super::DWORD, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : super::PBYTE, cbhashvalue : super::DWORD, pbsignature : super::PBYTE, cbsignature : super::DWORD, pcbresult : *mut super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), pbsignature.unwrap_or(core::mem::zeroed()) as _, cbsignature, pcbresult as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>, phkey: *mut NCRYPT_KEY_HANDLE, hlegacyprov: super::HCRYPTPROV, hlegacykey: Option<super::HCRYPTKEY>, dwlegacykeyspec: Option<super::DWORD>, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptTranslateHandle(phprovider : *mut NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, hlegacyprov : super::HCRYPTPROV, hlegacykey : super::HCRYPTKEY, dwlegacykeyspec : super::DWORD, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptTranslateHandle(phprovider.unwrap_or(core::mem::zeroed()) as _, phkey as _, hlegacyprov, hlegacykey.unwrap_or(core::mem::zeroed()) as _, dwlegacykeyspec.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
+#[must_use]
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: super::DWORD, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: &[u8], poutput: *mut NCryptBufferDesc, dwflags: super::DWORD) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : super::DWORD, pparameterlist : *const NCryptBufferDesc, pbclaimblob : super::PBYTE, cbclaimblob : super::DWORD, poutput : *mut NCryptBufferDesc, dwflags : super::DWORD) -> SECURITY_STATUS);
     unsafe { NCryptVerifyClaim(hsubjectkey, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbclaimblob.as_ptr()), pbclaimblob.len().try_into().unwrap(), poutput as _, dwflags) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: super::DWORD) -> SECURITY_STATUS {

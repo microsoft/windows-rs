@@ -61,6 +61,7 @@ pub unsafe fn ControlServiceExW(hservice: SC_HANDLE, dwcontrol: super::DWORD, dw
     windows_core::link!("advapi32.dll" "system" fn ControlServiceExW(hservice : SC_HANDLE, dwcontrol : super::DWORD, dwinfolevel : super::DWORD, pcontrolparams : super::PVOID) -> windows_core::BOOL);
     unsafe { ControlServiceExW(hservice, dwcontrol, dwinfolevel, pcontrolparams as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn CreateServiceA<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: super::DWORD, dwservicetype: super::DWORD, dwstarttype: super::DWORD, dwerrorcontrol: super::DWORD, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
@@ -76,6 +77,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn CreateServiceA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR, dwdesiredaccess : super::DWORD, dwservicetype : super::DWORD, dwstarttype : super::DWORD, dwerrorcontrol : super::DWORD, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : super::LPDWORD, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR) -> SC_HANDLE);
     unsafe { CreateServiceA(hscmanager, lpservicename.param().abi(), lpdisplayname.param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), lpdwtagid.unwrap_or(core::mem::zeroed()) as _, lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi()) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn CreateServiceW<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: super::DWORD, dwservicetype: super::DWORD, dwstarttype: super::DWORD, dwerrorcontrol: super::DWORD, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
@@ -138,6 +140,7 @@ pub unsafe fn EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: super::D
     windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusW(hscmanager : SC_HANDLE, dwservicetype : super::DWORD, dwservicestate : super::DWORD, lpservices : LPENUM_SERVICE_STATUSW, cbbufsize : super::DWORD, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD, lpresumehandle : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumServicesStatusW(hscmanager, dwservicetype, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: Option<super::PWCHAR>, cchpathbufferlength: super::DWORD, lpcchrequiredbufferlength: *mut super::DWORD) -> super::DWORD {
@@ -180,18 +183,21 @@ where
     windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCWSTR, lpservicename : windows_core::PWSTR, lpcchbuffer : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetServiceKeyNameW(hscmanager, lpdisplayname.param().abi(), lpservicename.unwrap_or(core::mem::zeroed()) as _, lpcchbuffer as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: super::DWORD, servicestatekey: *mut super::HKEY) -> super::DWORD {
     windows_core::link!("api-ms-win-service-core-l1-1-3.dll" "system" fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : super::DWORD, servicestatekey : *mut super::HKEY) -> super::DWORD);
     unsafe { GetServiceRegistryStateKey(servicestatushandle, statetype, accessmask, servicestatekey as _) }
 }
+#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: Option<super::PWCHAR>, pathbufferlength: super::DWORD, requiredbufferlength: *mut super::DWORD) -> super::DWORD {
     windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceDirectory(servicehandle : SC_HANDLE, directorytype : SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer : super::PWCHAR, pathbufferlength : super::DWORD, requiredbufferlength : *mut super::DWORD) -> super::DWORD);
     unsafe { GetSharedServiceDirectory(servicehandle, directorytype, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbufferlength, requiredbufferlength as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetSharedServiceRegistryStateKey(servicehandle: SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: super::DWORD, servicestatekey: *mut super::HKEY) -> super::DWORD {
@@ -220,6 +226,7 @@ pub unsafe fn NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: supe
     windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeW(hservice : SC_HANDLE, dwnotifymask : super::DWORD, pnotifybuffer : PSERVICE_NOTIFYW) -> super::DWORD);
     unsafe { NotifyServiceStatusChangeW(hservice, dwnotifymask, pnotifybuffer) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn OpenSCManagerA<P0, P1>(lpmachinename: P0, lpdatabasename: P1, dwdesiredaccess: super::DWORD) -> SC_HANDLE
@@ -230,6 +237,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn OpenSCManagerA(lpmachinename : windows_core::PCSTR, lpdatabasename : windows_core::PCSTR, dwdesiredaccess : super::DWORD) -> SC_HANDLE);
     unsafe { OpenSCManagerA(lpmachinename.param().abi(), lpdatabasename.param().abi(), dwdesiredaccess) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn OpenSCManagerW<P0, P1>(lpmachinename: P0, lpdatabasename: P1, dwdesiredaccess: super::DWORD) -> SC_HANDLE
@@ -240,6 +248,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn OpenSCManagerW(lpmachinename : windows_core::PCWSTR, lpdatabasename : windows_core::PCWSTR, dwdesiredaccess : super::DWORD) -> SC_HANDLE);
     unsafe { OpenSCManagerW(lpmachinename.param().abi(), lpdatabasename.param().abi(), dwdesiredaccess) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn OpenServiceA<P1>(hscmanager: SC_HANDLE, lpservicename: P1, dwdesiredaccess: super::DWORD) -> SC_HANDLE
@@ -249,6 +258,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn OpenServiceA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, dwdesiredaccess : super::DWORD) -> SC_HANDLE);
     unsafe { OpenServiceA(hscmanager, lpservicename.param().abi(), dwdesiredaccess) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn OpenServiceW<P1>(hscmanager: SC_HANDLE, lpservicename: P1, dwdesiredaccess: super::DWORD) -> SC_HANDLE
@@ -318,6 +328,7 @@ pub unsafe fn QueryServiceStatusEx(hservice: SC_HANDLE, infolevel: SC_STATUS_TYP
     windows_core::link!("advapi32.dll" "system" fn QueryServiceStatusEx(hservice : SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : super::LPBYTE, cbbufsize : super::DWORD, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceStatusEx(hservice, infolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerA<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE
@@ -327,6 +338,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerA(lpservicename : windows_core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
     unsafe { RegisterServiceCtrlHandlerA(lpservicename.param().abi(), lphandlerproc) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerExA<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: Option<super::LPVOID>) -> SERVICE_STATUS_HANDLE
@@ -336,6 +348,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExA(lpservicename : windows_core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : super::LPVOID) -> SERVICE_STATUS_HANDLE);
     unsafe { RegisterServiceCtrlHandlerExA(lpservicename.param().abi(), lphandlerproc, lpcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerExW<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: Option<super::LPVOID>) -> SERVICE_STATUS_HANDLE
@@ -345,6 +358,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : windows_core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : super::LPVOID) -> SERVICE_STATUS_HANDLE);
     unsafe { RegisterServiceCtrlHandlerExW(lpservicename.param().abi(), lphandlerproc, lpcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerW<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE

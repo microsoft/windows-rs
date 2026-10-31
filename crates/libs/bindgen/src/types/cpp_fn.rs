@@ -202,6 +202,7 @@ impl CppFn {
         let generics = method.write_generics();
         let abi_return_type = method.write_return(config);
         let result = config.write_core();
+        let must_use = method.write_must_use(config.reader);
 
         let wrapper = match method.return_hint {
             ReturnHint::Query(object, _) => {
@@ -322,6 +323,7 @@ impl CppFn {
         };
 
         quote! {
+            #must_use
             #wrapper
             #window_long
         }
