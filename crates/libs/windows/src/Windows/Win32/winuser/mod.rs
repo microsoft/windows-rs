@@ -4659,15 +4659,21 @@ pub unsafe fn mouse_event(dwflags: super::DWORD, dx: super::DWORD, dy: super::DW
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn wvsprintfA(param0: windows_core::PSTR, param1: windows_core::PCSTR, arglist: super::va_list) -> i32 {
+pub unsafe fn wvsprintfA<P1>(param0: windows_core::PSTR, param1: P1, arglist: super::va_list) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR, arglist : super::va_list) -> i32);
-    unsafe { wvsprintfA(param0, param1, arglist) }
+    unsafe { wvsprintfA(param0, param1.param().abi(), arglist) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn wvsprintfW(param0: windows_core::PWSTR, param1: windows_core::PCWSTR, arglist: super::va_list) -> i32 {
+pub unsafe fn wvsprintfW<P1>(param0: windows_core::PWSTR, param1: P1, arglist: super::va_list) -> i32
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
     windows_core::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR, arglist : super::va_list) -> i32);
-    unsafe { wvsprintfW(param0, param1, arglist) }
+    unsafe { wvsprintfW(param0, param1.param().abi(), arglist) }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

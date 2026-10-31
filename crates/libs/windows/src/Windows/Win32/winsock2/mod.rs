@@ -330,9 +330,9 @@ pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: super::LPHANDLE, lpo
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn WSARecv(s: SOCKET, lpbuffers: super::LPWSABUF, dwbuffercount: super::DWORD, lpnumberofbytesrecvd: Option<super::LPDWORD>, lpflags: super::LPDWORD, lpoverlapped: Option<LPWSAOVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
+pub unsafe fn WSARecv(s: SOCKET, lpbuffers: &[super::WSABUF], lpnumberofbytesrecvd: Option<super::LPDWORD>, lpflags: super::LPDWORD, lpoverlapped: Option<LPWSAOVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecv(s : SOCKET, lpbuffers : super::LPWSABUF, dwbuffercount : super::DWORD, lpnumberofbytesrecvd : super::LPDWORD, lpflags : super::LPDWORD, lpoverlapped : LPWSAOVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecv(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecv(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
@@ -342,9 +342,9 @@ pub unsafe fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: Option<super
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn WSARecvFrom(s: SOCKET, lpbuffers: super::LPWSABUF, dwbuffercount: super::DWORD, lpnumberofbytesrecvd: Option<super::LPDWORD>, lpflags: super::LPDWORD, lpfrom: Option<*mut super::SOCKADDR>, lpfromlen: Option<super::LPINT>, lpoverlapped: Option<LPWSAOVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
+pub unsafe fn WSARecvFrom(s: SOCKET, lpbuffers: &[super::WSABUF], lpnumberofbytesrecvd: Option<super::LPDWORD>, lpflags: super::LPDWORD, lpfrom: Option<*mut super::SOCKADDR>, lpfromlen: Option<super::LPINT>, lpoverlapped: Option<LPWSAOVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecvFrom(s : SOCKET, lpbuffers : super::LPWSABUF, dwbuffercount : super::DWORD, lpnumberofbytesrecvd : super::LPDWORD, lpflags : super::LPDWORD, lpfrom : *mut super::SOCKADDR, lpfromlen : super::LPINT, lpoverlapped : LPWSAOVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecvFrom(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecvFrom(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]

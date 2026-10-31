@@ -1,8 +1,12 @@
 #define SAL(name, args) __attribute__((annotate("windows_clang:sal:2:" name "\n(" args ")\n(" args ")")))
+#define SAL_L(name, args) __attribute__((annotate("windows_clang:sal:L:" name "\n(" args ")\n(" args ")")))
 
 struct __declspec(uuid("11111111-2222-3333-4444-555555555555")) IObject {
     virtual void __stdcall Run() = 0;
 };
+typedef void (*AnalysisFormat)(SAL("_In_z_", "") SAL("_Printf_format_string_", "") const char* value);
+typedef void (*AnalysisSource)(SAL("_Out_", "") SAL_L("__out_data_source", "FILE") int* value);
+typedef void (*AnalysisUnexpected)(SAL("_In_z_", "") SAL("_Printf_format_string_", "unexpected") const char* value);
 typedef void (*Conditional)(SAL("_When_", "ready,_In_") int* value, int ready);
 typedef void (*Mixed)(SAL("_In_", "") SAL("_Out_", "") int* value);
 typedef void (*NullableResult)(SAL("_Outptr_result_maybenull_", "") void** value);

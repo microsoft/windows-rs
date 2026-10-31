@@ -422,6 +422,9 @@ fn annotation_normalization_residuals() {
     let output = projection::generate(&[input], "Fixture").unwrap();
     roundtrip("annotation_residuals", &output, |index, _| {
         for (name, count, direction) in [
+            ("AnalysisFormat", 0, reader::ParamDirection::Input),
+            ("AnalysisSource", 0, reader::ParamDirection::Output),
+            ("AnalysisUnexpected", 1, reader::ParamDirection::Input),
             ("Conditional", 1, reader::ParamDirection::Unspecified),
             ("Mixed", 1, reader::ParamDirection::InputOutput),
             ("NullableResult", 0, reader::ParamDirection::Output),

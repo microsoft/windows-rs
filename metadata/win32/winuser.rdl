@@ -6061,12 +6061,12 @@ mod Windows {
             PT_TOUCHPAD = 5,
         }
         #[library("USER32.dll")]
-        extern "C" fn wsprintfA(#[out] param0: LPSTR, #[in] #[incomplete] param1: LPCSTR, ...) -> i32;
+        extern "C" fn wsprintfA(#[out] param0: LPSTR, #[in] param1: LPCSTR, ...) -> i32;
         #[library("USER32.dll")]
-        extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[in] #[incomplete] param1: LPCWSTR, ...) -> i32;
+        extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[in] param1: LPCWSTR, ...) -> i32;
         #[library("USER32.dll")]
-        extern fn wvsprintfA(#[out] param0: LPSTR, #[in] #[incomplete] param1: LPCSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvsprintfA(#[out] param0: LPSTR, #[in] param1: LPCSTR, #[in] arglist: va_list) -> i32;
         #[library("USER32.dll")]
-        extern fn wvsprintfW(#[out] param0: LPWSTR, #[in] #[incomplete] param1: LPCWSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvsprintfW(#[out] param0: LPWSTR, #[in] param1: LPCWSTR, #[in] arglist: va_list) -> i32;
     }
 }

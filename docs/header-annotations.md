@@ -204,6 +204,20 @@ Other SAL is not published. This covers static-analysis directives such as `_IRQ
 `_Function_class_` and locking annotations, and SAL on owners without a family, such as `_In_` on a
 field or `_Null_terminated_` on a typedef.
 
+These parameter directives state no caller-visible contract and do not mark the parameter
+`incomplete`:
+
+| Header | Purpose |
+| --- | --- |
+| `__in_data_source`, `__out_data_source` | Taint tracking |
+| `_Printf_format_string_`, `_Printf_format_string_params_` | Format string checking |
+| `_Scanf_format_string_`, `_Scanf_s_format_string_` | Format string checking |
+| `_IRQL_uses_cancel_` | Driver cancel-lock checking |
+| `_Strict_type_match` | Argument type checking |
+
+Value ranges, null-state and validity annotations are contracts; when they cannot be published they
+still mark the parameter `incomplete`.
+
 ## Bindgen boundary
 
 Metadata never authorizes a projection on its own. Bindgen applies these rules:

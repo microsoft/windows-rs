@@ -1,5 +1,8 @@
 #[win32]
 mod Fixture {
+    extern "C" fn AnalysisFormat(#[in] #[null_terminated(entry)] value: *const i8);
+    extern "C" fn AnalysisSource(#[out] value: *mut i32);
+    extern "C" fn AnalysisUnexpected(#[in] #[incomplete] #[null_terminated(entry)] value: *const i8);
     extern "C" fn Conditional(#[incomplete] value: *mut i32, ready: i32);
     struct FieldOwner {
         value: *mut i32,
