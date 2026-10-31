@@ -473,14 +473,12 @@ pub unsafe fn ImpersonateAnonymousToken(threadhandle: super::HANDLE) -> windows_
     windows_core::link!("advapi32.dll" "system" fn ImpersonateAnonymousToken(threadhandle : super::HANDLE) -> windows_core::BOOL);
     unsafe { ImpersonateAnonymousToken(threadhandle) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateLoggedOnUser(htoken: super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ImpersonateLoggedOnUser(htoken : super::HANDLE) -> windows_core::BOOL);
     unsafe { ImpersonateLoggedOnUser(htoken) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateSelf(impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL) -> windows_core::BOOL {

@@ -184,7 +184,6 @@ pub unsafe fn InitializeCriticalSection(lpcriticalsection: super::LPCRITICAL_SEC
     windows_core::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : super::LPCRITICAL_SECTION));
     unsafe { InitializeCriticalSection(lpcriticalsection as _) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: super::LPCRITICAL_SECTION, dwspincount: super::DWORD) -> windows_core::BOOL {

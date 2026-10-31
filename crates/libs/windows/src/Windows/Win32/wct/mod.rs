@@ -3,7 +3,6 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: HWCT) {
     windows_core::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : HWCT));
     unsafe { CloseThreadWaitChainSession(wcthandle) }
 }
-#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: HWCT, context: Option<super::DWORD_PTR>, flags: super::DWORD, threadid: super::DWORD, nodecount: super::LPDWORD, nodeinfoarray: PWAITCHAIN_NODE_INFO, iscycle: super::LPBOOL) -> windows_core::BOOL {

@@ -1690,14 +1690,12 @@ pub unsafe fn CryptUnregisterOIDInfo(pinfo: PCCRYPT_OID_INFO) -> windows_core::B
     windows_core::link!("crypt32.dll" "system" fn CryptUnregisterOIDInfo(pinfo : PCCRYPT_OID_INFO) -> windows_core::BOOL);
     unsafe { CryptUnregisterOIDInfo(pinfo) }
 }
-#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, pbencoded: &[u8], ppublickey: PCERT_PUBLIC_KEY_INFO) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignature(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : super::DWORD, pbencoded : *const super::BYTE, cbencoded : super::DWORD, ppublickey : PCERT_PUBLIC_KEY_INFO) -> windows_core::BOOL);
     unsafe { CryptVerifyCertificateSignature(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), ppublickey) }
 }
-#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CryptVerifyCertificateSignatureEx(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, dwsubjecttype: super::DWORD, pvsubject: *const core::ffi::c_void, dwissuertype: super::DWORD, pvissuer: Option<*const core::ffi::c_void>, dwflags: super::DWORD, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {

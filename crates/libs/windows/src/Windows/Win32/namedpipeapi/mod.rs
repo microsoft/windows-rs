@@ -52,7 +52,6 @@ pub unsafe fn GetNamedPipeInfo(hnamedpipe: super::HANDLE, lpflags: Option<super:
     windows_core::link!("kernel32.dll" "system" fn GetNamedPipeInfo(hnamedpipe : super::HANDLE, lpflags : super::LPDWORD, lpoutbuffersize : super::LPDWORD, lpinbuffersize : super::LPDWORD, lpmaxinstances : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetNamedPipeInfo(hnamedpipe, lpflags.unwrap_or(core::mem::zeroed()) as _, lpoutbuffersize.unwrap_or(core::mem::zeroed()) as _, lpinbuffersize.unwrap_or(core::mem::zeroed()) as _, lpmaxinstances.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateNamedPipeClient(hnamedpipe: super::HANDLE) -> windows_core::BOOL {

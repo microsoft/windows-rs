@@ -275,7 +275,7 @@ impl CppMethod {
             }
             ReturnHint::ReturnStruct | ReturnHint::None => matches!(
                 self.signature.return_type.projection_type(reader),
-                Type::Void | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS
+                Type::Void | Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS
             ),
         };
         if projected_must_use {

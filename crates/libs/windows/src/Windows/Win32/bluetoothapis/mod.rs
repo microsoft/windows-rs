@@ -31,14 +31,12 @@ pub unsafe fn BluetoothEnableDiscovery(hradio: Option<super::HANDLE>, fenabled: 
     windows_core::link!("bthprops.cpl" "system" fn BluetoothEnableDiscovery(hradio : super::HANDLE, fenabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { BluetoothEnableDiscovery(hradio.unwrap_or(core::mem::zeroed()) as _, fenabled.into()) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn BluetoothEnableIncomingConnections(hradio: Option<super::HANDLE>, fenabled: bool) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothEnableIncomingConnections(hradio : super::HANDLE, fenabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { BluetoothEnableIncomingConnections(hradio.unwrap_or(core::mem::zeroed()) as _, fenabled.into()) }
 }
-#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn BluetoothEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
@@ -71,14 +69,12 @@ pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS
     windows_core::link!("bthprops.cpl" "system" fn BluetoothFindFirstRadio(pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS, phradio : *mut super::HANDLE) -> HBLUETOOTH_RADIO_FIND);
     unsafe { BluetoothFindFirstRadio(pbtfrp, phradio as _) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn BluetoothFindNextDevice(hfind: HBLUETOOTH_DEVICE_FIND, pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothFindNextDevice(hfind : HBLUETOOTH_DEVICE_FIND, pbtdi : *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL);
     unsafe { BluetoothFindNextDevice(hfind, pbtdi as _) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn BluetoothFindNextRadio(hfind: HBLUETOOTH_RADIO_FIND, phradio: *mut super::HANDLE) -> windows_core::BOOL {
@@ -104,21 +100,18 @@ pub unsafe fn BluetoothGetRadioInfo(hradio: super::HANDLE, pradioinfo: PBLUETOOT
     windows_core::link!("bthprops.cpl" "system" fn BluetoothGetRadioInfo(hradio : super::HANDLE, pradioinfo : PBLUETOOTH_RADIO_INFO) -> super::DWORD);
     unsafe { BluetoothGetRadioInfo(hradio, pradioinfo as _) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn BluetoothIsConnectable(hradio: Option<super::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothIsConnectable(hradio : super::HANDLE) -> windows_core::BOOL);
     unsafe { BluetoothIsConnectable(hradio.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn BluetoothIsDiscoverable(hradio: Option<super::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothIsDiscoverable(hradio : super::HANDLE) -> windows_core::BOOL);
     unsafe { BluetoothIsDiscoverable(hradio.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[must_use]
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn BluetoothIsVersionAvailable(majorversion: super::UCHAR, minorversion: super::UCHAR) -> windows_core::BOOL {
@@ -145,7 +138,6 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS_STRUCT) -
     windows_core::link!("bthprops.cpl" "system" fn BluetoothRemoveDevice(paddress : *const BLUETOOTH_ADDRESS_STRUCT) -> super::DWORD);
     unsafe { BluetoothRemoveDevice(paddress) }
 }
-#[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
@@ -180,7 +172,6 @@ pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<PS
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetString(precordstream : super::LPBYTE, cbrecordlength : super::ULONG, pstringdata : PSDP_STRING_TYPE_DATA, usstringoffset : super::USHORT, pszstring : windows_core::PWSTR, pcchstringlength : super::PULONG) -> super::DWORD);
     unsafe { BluetoothSdpGetString(core::mem::transmute(precordstream.as_ptr()), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> windows_core::BOOL {

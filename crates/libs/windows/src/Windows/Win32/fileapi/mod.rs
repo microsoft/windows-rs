@@ -630,21 +630,18 @@ where
     windows_core::link!("kernel32.dll" "system" fn QueryDosDeviceW(lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PWSTR, ucchmax : super::DWORD) -> super::DWORD);
     unsafe { QueryDosDeviceW(lpdevicename.param().abi(), lptargetpath.unwrap_or(core::mem::zeroed()) as _, ucchmax) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadFile(hfile: super::HANDLE, lpbuffer: Option<super::LPVOID>, nnumberofbytestoread: super::DWORD, lpnumberofbytesread: Option<super::LPDWORD>, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadFile(hfile : super::HANDLE, lpbuffer : super::LPVOID, nnumberofbytestoread : super::DWORD, lpnumberofbytesread : super::LPDWORD, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { ReadFile(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestoread, lpnumberofbytesread.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadFileEx(hfile: super::HANDLE, lpbuffer: Option<super::LPVOID>, nnumberofbytestoread: super::DWORD, lpoverlapped: super::LPOVERLAPPED, lpcompletionroutine: super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::HANDLE, lpbuffer : super::LPVOID, nnumberofbytestoread : super::DWORD, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
     unsafe { ReadFileEx(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestoread, lpoverlapped as _, lpcompletionroutine) }
 }
-#[must_use]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadFileScatter(hfile: super::HANDLE, asegmentarray: *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestoread: super::DWORD, lpreserved: Option<super::LPDWORD>, lpoverlapped: super::LPOVERLAPPED) -> windows_core::BOOL {

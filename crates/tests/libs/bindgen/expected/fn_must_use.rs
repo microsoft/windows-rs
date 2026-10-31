@@ -1,3 +1,8 @@
+#[inline]
+pub unsafe fn Bool() -> windows_core::BOOL {
+    windows_core::link!("test.dll" "system" fn Bool() -> windows_core::BOOL);
+    unsafe { Bool() }
+}
 #[must_use]
 #[inline]
 pub unsafe fn Count() -> u32 {
@@ -8,6 +13,11 @@ pub unsafe fn Count() -> u32 {
 pub unsafe fn Hresult() -> windows_core::HRESULT {
     windows_core::link!("test.dll" "system" fn Hresult() -> windows_core::HRESULT);
     unsafe { Hresult() }
+}
+#[inline]
+pub unsafe fn Status() -> windows_core::NTSTATUS {
+    windows_core::link!("test.dll" "system" fn Status() -> windows_core::NTSTATUS);
+    unsafe { Status() }
 }
 windows_core::imp::define_interface!(Value, Value_Vtbl, 0x10000000_0000_0000_0000_000000000001);
 windows_core::imp::interface_hierarchy!(Value, windows_core::IUnknown);

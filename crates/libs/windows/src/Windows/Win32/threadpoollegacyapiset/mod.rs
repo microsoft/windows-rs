@@ -1,4 +1,3 @@
-#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ChangeTimerQueueTimer(timerqueue: Option<super::HANDLE>, timer: super::HANDLE, duetime: super::ULONG, period: super::ULONG) -> windows_core::BOOL {
@@ -17,21 +16,18 @@ pub unsafe fn CreateTimerQueueTimer(phnewtimer: super::PHANDLE, timerqueue: Opti
     windows_core::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : super::PHANDLE, timerqueue : super::HANDLE, callback : super::WAITORTIMERCALLBACK, parameter : super::PVOID, duetime : super::DWORD, period : super::DWORD, flags : super::ULONG) -> windows_core::BOOL);
     unsafe { CreateTimerQueueTimer(phnewtimer as _, timerqueue.unwrap_or(core::mem::zeroed()) as _, callback, parameter.unwrap_or(core::mem::zeroed()) as _, duetime, period, flags) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DeleteTimerQueue(timerqueue: super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn DeleteTimerQueue(timerqueue : super::HANDLE) -> windows_core::BOOL);
     unsafe { DeleteTimerQueue(timerqueue) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DeleteTimerQueueEx(timerqueue: super::HANDLE, completionevent: Option<super::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn DeleteTimerQueueEx(timerqueue : super::HANDLE, completionevent : super::HANDLE) -> windows_core::BOOL);
     unsafe { DeleteTimerQueueEx(timerqueue, completionevent.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DeleteTimerQueueTimer(timerqueue: Option<super::HANDLE>, timer: super::HANDLE, completionevent: Option<super::HANDLE>) -> windows_core::BOOL {
@@ -44,7 +40,6 @@ pub unsafe fn QueueUserWorkItem(function: super::LPTHREAD_START_ROUTINE, context
     windows_core::link!("kernel32.dll" "system" fn QueueUserWorkItem(function : super::LPTHREAD_START_ROUTINE, context : super::PVOID, flags : super::ULONG) -> windows_core::BOOL);
     unsafe { QueueUserWorkItem(function, context.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[must_use]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn UnregisterWaitEx(waithandle: super::HANDLE, completionevent: Option<super::HANDLE>) -> windows_core::BOOL {

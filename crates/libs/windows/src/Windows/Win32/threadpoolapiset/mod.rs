@@ -196,7 +196,6 @@ pub unsafe fn SubmitThreadpoolWork(pwk: super::PTP_WORK) {
     windows_core::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : super::PTP_WORK));
     unsafe { SubmitThreadpoolWork(pwk as _) }
 }
-#[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: super::PTP_SIMPLE_CALLBACK, pv: Option<super::PVOID>, pcbe: Option<super::PTP_CALLBACK_ENVIRON>) -> windows_core::BOOL {

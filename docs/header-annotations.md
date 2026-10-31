@@ -50,7 +50,7 @@ pub unsafe fn ReadPayload(
 
 `values` becomes a slice because its count is a direct entry parameter. `buffer` keeps a pointer
 because its count is read through `*size`. `success` is preserved in metadata without changing the
-Rust signature, and `must_use` adds `#[must_use]` to the wrapper.
+Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[must_use]`.
 
 ## Principles
 
@@ -159,7 +159,7 @@ promotions apply; signed overflow is not mathematical arithmetic.
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
 | Success predicate | `_Success_`, `_Return_type_success_` | `success(return >= 0)` | `SuccessCondition` | - ; does not drive `Result` conversion |
-| Inspect result | `_Check_return_`, `_Must_inspect_result_` | `must_use` | `MustUse` | `#[must_use]` unless the wrapper returns `()`, `Result` or a status type |
+| Inspect result | `_Check_return_`, `_Must_inspect_result_` | `must_use` | `MustUse` | `#[must_use]` unless the wrapper returns `()`, `Result` or a type that is already `#[must_use]` |
 | Never returns | `__declspec(noreturn)`, `[[noreturn]]` | `noreturn` | `DoesNotReturn` | `-> !` |
 | Calling convention | Compiler ABI | `extern fn` (system), `extern "C" fn` | Signature and ImplMap | `extern "system"` or `extern "C"` |
 | Import library | Import library evidence | `library("dll", import = "name")` | ImplMap `ImportScope`, `ImportName` | `link!` target |
