@@ -91,16 +91,16 @@ mod Windows {
         extern fn GetTickCount() -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetTickCount64() -> ULONGLONG;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"")]
+        #[deprecated]
         #[library("KERNEL32.dll")]
         extern fn GetVersion() -> DWORD;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"")]
+        #[deprecated]
         #[library("KERNEL32.dll")]
         extern fn GetVersionExA(#[in] #[out] lpVersionInformation: LPOSVERSIONINFOA) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"", "\"IsWindows*\",\"Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.\"")]
+        #[deprecated]
         #[library("KERNEL32.dll")]
         extern fn GetVersionExW(#[in] #[out] lpVersionInformation: LPOSVERSIONINFOW) -> BOOL;
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]

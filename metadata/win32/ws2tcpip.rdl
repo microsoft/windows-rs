@@ -17,7 +17,7 @@ mod Windows {
         const EAI_SOCKTYPE: i32 = 10044;
         #[library("WS2_32.dll", import = "freeaddrinfo")]
         extern fn FreeAddrInfoA(#[in] #[opt] pAddrInfo: PADDRINFOA);
-        #[Windows::Win32::Metadata::NativeDeprecated("Use FreeAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use FreeAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn FreeAddrInfoEx(#[in] #[opt] pAddrInfoEx: PADDRINFOEXA);
         #[library("WS2_32.dll")]
@@ -27,7 +27,7 @@ mod Windows {
         const GAI_STRERROR_BUFFER_SIZE: i32 = 1024;
         #[library("WS2_32.dll", import = "getaddrinfo")]
         extern fn GetAddrInfoA(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] #[out_ptr] ppResult: *mut PADDRINFOA) -> INT;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn GetAddrInfoExA(#[in] #[opt] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXA, #[out] #[out_ptr] ppResult: *mut PADDRINFOEXA, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpNameHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
@@ -54,7 +54,7 @@ mod Windows {
         extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] dwBytes: DWORD, #[in] lpOverlapped: LPWSAOVERLAPPED);
         type PADDRINFOEX = *mut ADDRINFOEXA;
         type PADDRINFOT = *mut ADDRINFOA;
-        #[Windows::Win32::Metadata::NativeDeprecated("Use SetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+        #[deprecated("Use SetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
         extern fn SetAddrInfoExA(#[in] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pAddresses: *mut SOCKET_ADDRESS, #[in] dwAddressCount: DWORD, #[in] #[opt] lpBlob: LPBLOB, #[in] dwFlags: DWORD, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpNameHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]

@@ -698,7 +698,7 @@ mod Windows {
             pSslInfo: PHTTP_SSL_INFO,
         }
         struct HTTP_REQUEST_V2 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: HTTP_REQUEST_V1,
             RequestInfoCount: USHORT,
             pRequestInfo: PHTTP_REQUEST_INFO,
@@ -737,7 +737,7 @@ mod Windows {
             pEntityChunks: PHTTP_DATA_CHUNK,
         }
         struct HTTP_RESPONSE_V2 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: HTTP_RESPONSE_V1,
             ResponseInfoCount: USHORT,
             pResponseInfo: PHTTP_RESPONSE_INFO,

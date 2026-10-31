@@ -966,7 +966,7 @@ mod Windows {
         const FSRTL_ADD_TC_CASE_SENSITIVE: i32 = 1;
         const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: i32 = 2;
         struct FSRTL_ADVANCED_FCB_HEADER {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: FSRTL_COMMON_FCB_HEADER,
             FastMutex: PFAST_MUTEX,
             FilterContexts: LIST_ENTRY,

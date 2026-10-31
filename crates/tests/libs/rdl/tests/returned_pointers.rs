@@ -2,7 +2,7 @@ use windows_metadata::{HasAttributes, Value, reader};
 
 const SCHEMA: &str = r#"
 #[win32] mod Windows { mod Win32 { mod Metadata {
-    attribute NativeReturnedPointerAttribute {
+    attribute ReturnedPointerAttribute {
         fn();
         NullOnFailure: bool,
         Future: bool,
@@ -17,7 +17,7 @@ fn returned_pointer_spelling_preserves_properties() {
     for (index, null_on_failure) in [false, true].into_iter().enumerate() {
         let short = windows_rdl::emit::write_returned_pointer(null_on_failure);
         explicit.push_str(&format!(
-            "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
+            "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::ReturnedPointer(NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
         ));
         compact.push_str(&format!(
             "extern fn Callback{index}(#[out] #[opt] {short} value: *mut *mut u8);"
@@ -26,8 +26,8 @@ fn returned_pointer_spelling_preserves_properties() {
     for source in [&mut explicit, &mut compact] {
         source.push_str(
             r#"
-            extern fn Missing(#[Windows::Win32::Metadata::NativeReturnedPointer()] value: *mut *mut u8);
-            extern fn Future(#[Windows::Win32::Metadata::NativeReturnedPointer(NullOnFailure = true, Future = true)] value: *mut *mut u8);
+            extern fn Missing(#[Windows::Win32::Metadata::ReturnedPointer()] value: *mut *mut u8);
+            extern fn Future(#[Windows::Win32::Metadata::ReturnedPointer(NullOnFailure = true, Future = true)] value: *mut *mut u8);
             }"#,
         );
     }
@@ -53,7 +53,7 @@ fn returned_pointer_spelling_preserves_properties() {
             assert_eq!(parameter.direction(), reader::ParamDirection::Output);
             assert_eq!(
                 parameter
-                    .find_attribute("NativeReturnedPointerAttribute")
+                    .find_attribute("ReturnedPointerAttribute")
                     .unwrap()
                     .value(),
                 vec![("NullOnFailure".into(), Value::Bool(null_on_failure))]
@@ -67,7 +67,7 @@ fn returned_pointer_spelling_preserves_properties() {
         let text = std::fs::read_to_string(&rdl).unwrap();
         assert_eq!(text.matches("#[out_ptr").count(), 2);
         assert_eq!(
-            text.matches("#[Windows::Win32::Metadata::NativeReturnedPointer")
+            text.matches("#[Windows::Win32::Metadata::ReturnedPointer")
                 .count(),
             2
         );

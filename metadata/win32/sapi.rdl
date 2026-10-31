@@ -2041,7 +2041,7 @@ mod Windows {
         }
         type SPPHONEID = u16;
         struct SPPHRASE {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: SPPHRASE_53,
             SemanticTagFormat: SPSEMANTICFORMAT,
         }
@@ -2125,7 +2125,7 @@ mod Windows {
             pSREnginePrivateData: *const BYTE,
         }
         struct SPPHRASE_53 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: SPPHRASE_50,
             pSML: LPWSTR,
             pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,

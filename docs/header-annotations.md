@@ -64,6 +64,7 @@ Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[m
 | Closed vocabulary | Unknown names, bad arguments, wrong owners and repeated annotations fail |
 | Keep native types | Associations are added beside the native type, never by retyping |
 | Residual stays residual | Facts without a canonical family remain `NativeSal` with their owner intact |
+| Native prefix | `Native` attributes preserve C/C++ declaration details; unprefixed attributes state language-neutral API facts |
 | Separate stages | Metadata describes contracts; bindgen decides independently what Rust to generate |
 
 ## Parameters
@@ -74,7 +75,7 @@ Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[m
 | Optional argument | SAL `_opt_` forms; MIDL `[optional]` | `opt` | Param flag `Optional` | `Option` for pointer parameters |
 | Reserved argument | `_Reserved_` | `reserved` | `Reserved` | Handled like an optional argument; the value is not enforced |
 | Result parameter | MIDL `[retval]`; trailing `_COM_Outptr_`, or `_Outptr_` to an interface, when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result, subject to eligibility checks |
-| Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(null_on_failure)` | `NativeReturnedPointer` | Result and query eligibility |
+| Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer` | Result and query eligibility |
 | COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection when eligible |
 | Nullable pointer | `_Outptr_` and `_COM_Outptr_` `maybenull` forms; `__deref_[opt_]out_opt`, `_Deref_[opt_]out_opt_`; `__RPC__deref_out_opt_string`, `__RPC__deref_out_ecount_*_opt`; `_Ret_maybenull_`; `_Maybenull_` on fields | `nullable` | `Nullable` | `Option<T>` for COM query results |
 | Integer range | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `_Ret_range_`, `_Field_range_`; `__RPC__in_range` | `range(entry, 0..=15)` | `IntegerRange` | - |
@@ -92,8 +93,8 @@ transfer.
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
 | Buffer extent | `_In_reads_`, `_Out_writes_`, `_Inout_updates_` and their `_bytes_`, `_to_`, `_opt_` forms; `_Field_size_`; RPC `__RPC__in_ecount_full` and related | `readable(...)`, `writable(...)` | `BufferExtent` | Slices for direct entry counts; blocks scalar-result and query inference |
-| Termination | `_z_` forms, `_NullNull_terminated_`; RPC `__RPC__in_string` and related | `null_terminated(entry, double_success)` | `NativeNullTerminated` | - |
-| String encoding | Character type of a string constant or field | `encoding("ansi")` | `NativeEncoding` | `"ansi"` selects narrow string constants |
+| Termination | `_z_` forms, `_NullNull_terminated_`; RPC `__RPC__in_string` and related | `null_terminated(entry, double_success)` | `NullTerminated` | - |
+| String encoding | Character type of a string constant or field | `encoding("ansi")` | `Encoding` | `"ansi"` selects narrow string constants |
 
 ### Extent model
 
@@ -167,8 +168,7 @@ promotions apply; signed overflow is not mathematical arithmetic.
 | Raw result | **Proposed** `_Win32_PreserveResult_` | **Proposed** `preserve_sig` | MethodImpl flag `PreserveSig` | - |
 | Property accessor | MIDL `[propget]`, `[propput]` | `special` | MethodDef flag `SpecialName` | Accessor names |
 | Vtable slot | C++ overrides of inherited slots | `override_slot(N)` | `NativeOverrideSlot` | Slot validation and overrides |
-| Const method | C++ `const` method | Named | `NativeConstMethod` | - ; not a Rust borrowing guarantee |
-| Deprecation | `__declspec(deprecated)`, `[[deprecated]]` | Named | `NativeDeprecated` | - |
+| Deprecation | `__declspec(deprecated)`, `[[deprecated]]` | `deprecated`, `deprecated("message")` | `Deprecated` | - |
 | Architecture | Per-target parse results | `arch(X64 \| Arm64)` | `SupportedArchitecture` | Architecture gating |
 | Minimum OS | **Proposed** `_Win32_SupportedOS_*_` | **Proposed** `supported_os("...")` | **Proposed** `SupportedOSPlatform` | - |
 
@@ -185,7 +185,7 @@ promotions apply; signed overflow is not mathematical arithmetic.
 | Raised alignment | `__declspec(align)`, `alignas` | `align(N)` | `Alignment` | Layout, padding and underaligned fields |
 | Bitfields | Bitfield members | Bitfield blocks | `NativeBitfield` | Accessors |
 | Anonymous records | Unnamed nested members | Inline record or `anonymous(N)` | `NativeAnonymous` | Nested type names |
-| Base storage | C++ base classes | Named | `NativeBase` | Native object and interface bases |
+| Base storage | C++ base classes | `base` | `NativeBase` | Native object and interface bases |
 | 64-bit pointer | `__ptr64` | `ptr64<*mut T>` | `NativePointer64` modifier | 64-bit pointer storage |
 | Callback ABI | Function pointer typedef | `extern fn` (system), `extern "C" fn` | `System.Runtime.InteropServices.UnmanagedFunctionPointer` | Callback calling convention |
 

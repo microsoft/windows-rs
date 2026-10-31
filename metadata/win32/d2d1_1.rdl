@@ -269,11 +269,8 @@ mod Windows {
         type D2D1_VECTOR_4F = D2D_VECTOR_4F;
         #[guid(0xa898a84c_3873_4588_b08b_ebbf978df041)]
         interface ID2D1Bitmap1: ID2D1Bitmap {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetColorContext(&self, #[nullable] #[out] #[out_ptr] colorContext: *mut ID2D1ColorContext);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSurface(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] dxgiSurface: *mut IDXGISurface) -> HRESULT;
             fn Map(&self, options: D2D1_MAP_OPTIONS, #[out] mappedRect: *mut D2D1_MAPPED_RECT) -> HRESULT;
             fn Unmap(&self) -> HRESULT;
@@ -281,16 +278,12 @@ mod Windows {
         #[guid(0x41343a53_e41a_49a2_91cd_21793bbb62e5)]
         interface ID2D1BitmapBrush1: ID2D1BitmapBrush {
             fn SetInterpolationMode1(&self, interpolationMode: D2D1_INTERPOLATION_MODE);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInterpolationMode1(&self) -> D2D1_INTERPOLATION_MODE;
         }
         #[guid(0x1c4820bb_5771_4518_a581_2fe4dd0ec657)]
         interface ID2D1ColorContext: ID2D1Resource {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetColorSpace(&self) -> D2D1_COLOR_SPACE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetProfileSize(&self) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetProfile(&self, #[out] #[writable(entry, profileSize)] profile: *mut BYTE, profileSize: UINT32) -> HRESULT;
         }
         #[guid(0xb4f34a19_2383_4d76_94f6_ec343657c3dc)]
@@ -331,7 +324,6 @@ mod Windows {
             fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, #[out] #[out_ptr(null_on_failure)] #[retval] deviceContext: *mut ID2D1DeviceContext) -> HRESULT;
             fn CreatePrintControl(&self, #[in] wicFactory: IWICImagingFactory, #[in] documentTarget: *mut IPrintDocumentPackageTarget, #[in] #[opt] printControlProperties: *const D2D1_PRINT_CONTROL_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] printControl: *mut ID2D1PrintControl) -> HRESULT;
             fn SetMaximumTextureMemory(&self, maximumInBytes: UINT64);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMaximumTextureMemory(&self) -> UINT64;
             fn ClearResources(&self, millisecondsSinceUse: UINT32);
         }
@@ -348,29 +340,19 @@ mod Windows {
             fn CreateImageBrush(&self, #[in] #[opt] image: ID2D1Image, #[in] imageBrushProperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] imageBrush: *mut ID2D1ImageBrush) -> HRESULT;
             fn CreateBitmapBrush(&self, #[in] #[opt] bitmap: ID2D1Bitmap, #[in] #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, #[in] #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, #[out] #[out_ptr(null_on_failure)] #[retval] bitmapBrush: *mut ID2D1BitmapBrush1) -> HRESULT;
             fn CreateCommandList(&self, #[out] #[out_ptr(null_on_failure)] #[retval] commandList: *mut ID2D1CommandList) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn IsDxgiFormatSupported(&self, format: DXGI_FORMAT) -> BOOL;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn IsBufferPrecisionSupported(&self, bufferPrecision: D2D1_BUFFER_PRECISION) -> BOOL;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetImageLocalBounds(&self, #[in] image: ID2D1Image, #[out] localBounds: *mut D2D1_RECT_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetImageWorldBounds(&self, #[in] image: ID2D1Image, #[out] worldBounds: *mut D2D1_RECT_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetGlyphRunWorldBounds(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, #[out] bounds: *mut D2D1_RECT_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetDevice(&self, #[out] #[out_ptr] device: *mut ID2D1Device);
             fn SetTarget(&self, #[in] #[opt] image: ID2D1Image);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTarget(&self, #[nullable] #[out] #[out_ptr] image: *mut ID2D1Image);
             fn SetRenderingControls(&self, #[in] renderingControls: *const D2D1_RENDERING_CONTROLS);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetRenderingControls(&self, #[out] renderingControls: *mut D2D1_RENDERING_CONTROLS);
             fn SetPrimitiveBlend(&self, primitiveBlend: D2D1_PRIMITIVE_BLEND);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPrimitiveBlend(&self) -> D2D1_PRIMITIVE_BLEND;
             fn SetUnitMode(&self, unitMode: D2D1_UNIT_MODE);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetUnitMode(&self) -> D2D1_UNIT_MODE;
             fn DrawGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[in] foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
             fn DrawImage(&self, #[in] image: ID2D1Image, #[in] #[opt] targetOffset: *const D2D1_POINT_2F, #[in] #[opt] imageRectangle: *const D2D1_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE, compositeMode: D2D1_COMPOSITE_MODE);
@@ -385,7 +367,6 @@ mod Windows {
         }
         #[guid(0x689f1f85_c72e_4e33_8f19_85754efd5ace)]
         interface ID2D1DrawingStateBlock1: ID2D1DrawingStateBlock {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetDescription(&self, #[out] stateDescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1);
             fn SetDescription(&self, #[in] stateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION1);
         }
@@ -393,11 +374,8 @@ mod Windows {
         interface ID2D1Effect: ID2D1Properties {
             fn SetInput(&self, index: UINT32, #[in] #[opt] input: ID2D1Image, invalidate: BOOL);
             fn SetInputCount(&self, inputCount: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInput(&self, index: UINT32, #[nullable] #[out] #[out_ptr] input: *mut ID2D1Image);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInputCount(&self) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetOutput(&self, #[out] #[out_ptr] outputImage: *mut ID2D1Image);
         }
         #[guid(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f)]
@@ -410,9 +388,7 @@ mod Windows {
             fn RegisterEffectFromStream(&self, #[in] classId: &IID, #[in] propertyXml: IStream, #[in] #[opt] #[readable(entry, bindingsCount)] bindings: *const D2D1_PROPERTY_BINDING, bindingsCount: UINT32, #[in] effectFactory: PD2D1_EFFECT_FACTORY) -> HRESULT;
             fn RegisterEffectFromString(&self, #[in] classId: &IID, #[in] propertyXml: PCWSTR, #[in] #[opt] #[readable(entry, bindingsCount)] bindings: *const D2D1_PROPERTY_BINDING, bindingsCount: UINT32, #[in] effectFactory: PD2D1_EFFECT_FACTORY) -> HRESULT;
             fn UnregisterEffect(&self, #[in] classId: &IID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetRegisteredEffects(&self, #[opt] #[out] #[readable(success, if_present(*effectsReturned))] #[writable(entry, effectsCount)] effects: *mut CLSID, effectsCount: UINT32, #[opt] #[out] effectsReturned: *mut UINT32, #[opt] #[out] effectsRegistered: *mut UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetEffectProperties(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] #[retval] properties: *mut ID2D1Properties) -> HRESULT;
         }
         #[guid(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395)]
@@ -426,15 +402,10 @@ mod Windows {
         }
         #[guid(0xae1572f4_5dd0_4777_998b_9279472ae63b)]
         interface ID2D1GradientStopCollection1: ID2D1GradientStopCollection {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetGradientStops1(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")")] #[out] #[writable(entry, gradientStopsCount)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: UINT32);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPreInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPostInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetBufferPrecision(&self) -> D2D1_BUFFER_PRECISION;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetColorInterpolationMode(&self) -> D2D1_COLOR_INTERPOLATION_MODE;
         }
         #[guid(0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c)]
@@ -444,27 +415,20 @@ mod Windows {
             fn SetExtendModeY(&self, extendModeY: D2D1_EXTEND_MODE);
             fn SetInterpolationMode(&self, interpolationMode: D2D1_INTERPOLATION_MODE);
             fn SetSourceRectangle(&self, #[in] sourceRectangle: *const D2D1_RECT_F);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetImage(&self, #[nullable] #[out] #[out_ptr] image: *mut ID2D1Image);
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInterpolationMode(&self) -> D2D1_INTERPOLATION_MODE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSourceRectangle(&self, #[out] sourceRectangle: *mut D2D1_RECT_F);
         }
         #[guid(0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3)]
         interface ID2D1Multithread: IUnknown {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMultithreadProtected(&self) -> BOOL;
             fn Enter(&self);
             fn Leave(&self);
         }
         #[guid(0x62baa2d2_ab54_41b7_b872_787e0106a421)]
         interface ID2D1PathGeometry1: ID2D1PathGeometry {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn ComputePointAndSegmentAtLength(&self, length: FLOAT, startSegment: UINT32, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[out] pointDescription: *mut D2D1_POINT_DESCRIPTION) -> HRESULT;
         }
         #[guid(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5)]
@@ -474,30 +438,20 @@ mod Windows {
         }
         #[guid(0x483473d7_cd46_4f9d_9d3a_3112aa80159d)]
         interface ID2D1Properties: IUnknown {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPropertyCount(&self) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPropertyName(&self, index: UINT32, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPropertyNameLength(&self, index: UINT32) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetType(&self, index: UINT32) -> D2D1_PROPERTY_TYPE;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPropertyIndex(&self, #[in] name: PCWSTR) -> UINT32;
             fn SetValueByName(&self, #[in] name: PCWSTR, r#type: D2D1_PROPERTY_TYPE, #[in] #[readable(entry, dataSize)] data: *const BYTE, dataSize: UINT32) -> HRESULT;
             fn SetValue(&self, index: UINT32, r#type: D2D1_PROPERTY_TYPE, #[in] #[readable(entry, dataSize)] data: *const BYTE, dataSize: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetValueByName(&self, #[in] name: PCWSTR, r#type: D2D1_PROPERTY_TYPE, #[out] #[writable(entry, dataSize)] data: *mut BYTE, dataSize: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetValue(&self, index: UINT32, r#type: D2D1_PROPERTY_TYPE, #[out] #[writable(entry, dataSize)] data: *mut BYTE, dataSize: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetValueSize(&self, index: UINT32) -> UINT32;
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetSubProperties(&self, index: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] subProperties: *mut ID2D1Properties) -> HRESULT;
         }
         #[guid(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a)]
         interface ID2D1StrokeStyle1: ID2D1StrokeStyle {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetStrokeTransformType(&self) -> D2D1_STROKE_TRANSFORM_TYPE;
         }
         struct IPrintDocumentPackageTarget {}

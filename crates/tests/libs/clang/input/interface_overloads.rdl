@@ -2,7 +2,6 @@
 mod Fixture {
     #[guid(0xfedcba98_1234_5678_90ab_cdef01234567)]
     interface IOverloaded: IBase {
-        #[Windows::Win32::Metadata::NativeConstMethod]
         fn Read(&self, value: i32) -> i32;
         fn Read(&self, value: f32) -> i32;
         fn Read(&self, value: i32) -> i32;

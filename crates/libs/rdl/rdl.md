@@ -709,7 +709,7 @@ it to a non-null pointer to one readable element. It does not specify an allocat
 ownership, or turn the parameter into a COM return value.
 
 `#[out_ptr(null_on_failure)]` adds that failure sets the returned pointer to null. These forms
-encode the `NullOnFailure` property of `NativeReturnedPointerAttribute`. Unknown and duplicate flags
+encode the `NullOnFailure` property of `ReturnedPointerAttribute`. Unknown and duplicate flags
 are errors. Full attributes with missing or additional properties retain their explicit spelling
 rather than silently acquiring defaults. `#[nullable]` separately permits a null returned pointer,
 and outer `#[opt]` permits omitting the output storage itself; `#[out]` is still needed to
@@ -742,6 +742,11 @@ reader. Unknown enum values or additional metadata properties retain full attrib
 `#[align(N)]` on a field encodes the existing `AlignmentAttribute` without changing the field type;
 record alignment uses the same spelling.
 
+| Spelling | Encodes |
+| --- | --- |
+| `#[deprecated]`, `#[deprecated("message")]` | `DeprecatedAttribute`; `TypedefName = "..."` names a relocated typedef owner |
+| `#[base]` | `NativeBaseAttribute` on a field holding C++ base class storage |
+
 #### Null termination
 
 `#[null_terminated(...)]` specifies trailing zero elements in parameter storage, independently of
@@ -764,7 +769,7 @@ callback values are not buffer storage. Fields, return rows and declarations hav
 termination contract; their explicit full attributes remain readable and retain full spelling.
 An empty list, repeated phase or unknown flag is an error. Direction is not inferred from these
 flags. The short form preserves the phase properties and true double-termination/indirection
-properties of `NativeNullTerminatedAttribute`. The writer also retains full spelling for unsupported
+properties of `NullTerminatedAttribute`. The writer also retains full spelling for unsupported
 storage and other payload shapes, including explicitly false double-termination properties.
 
 ### Array types

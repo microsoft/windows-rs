@@ -1087,9 +1087,10 @@ impl Capture<'_> {
                         &format!("deprecation query failed: {status}"),
                     ));
                 }
+                // Clang's fix-it replacement is a diagnostic hint, not published metadata.
+                text(replacement);
                 AttributeKind::Deprecated(Box::new(Deprecation {
                     message: text(message),
-                    replacement: text(replacement),
                 }))
             }
             "Uuid" => {

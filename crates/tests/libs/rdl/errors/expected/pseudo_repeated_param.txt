@@ -1,0 +1,2 @@
+error: duplicate `deprecated` attribute
+ --> errors/input/pseudo_repeated_param.rdl:4:41

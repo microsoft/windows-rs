@@ -131,7 +131,7 @@ mod Windows {
         const CF_RTFNOOBJS: String = "Rich Text Format Without Objects";
         #[packed(4)]
         struct CHARFORMAT2A {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CHARFORMATA,
             wWeight: WORD,
             sSpacing: SHORT,
@@ -150,7 +150,7 @@ mod Windows {
         }
         #[packed(4)]
         struct CHARFORMAT2W {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: CHARFORMATW,
             wWeight: WORD,
             sSpacing: SHORT,
@@ -650,7 +650,7 @@ mod Windows {
         }
         #[packed(4)]
         struct PARAFORMAT2 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: PARAFORMAT,
             dySpaceBefore: LONG,
             dySpaceAfter: LONG,

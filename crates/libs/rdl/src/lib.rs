@@ -71,7 +71,7 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     },
     PseudoAttr {
         short: "encoding",
-        metadata: "NativeEncodingAttribute",
+        metadata: "EncodingAttribute",
     },
     PseudoAttr {
         short: "override_slot",
@@ -80,6 +80,14 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "align",
         metadata: "AlignmentAttribute",
+    },
+    PseudoAttr {
+        short: "deprecated",
+        metadata: "DeprecatedAttribute",
+    },
+    PseudoAttr {
+        short: "base",
+        metadata: "NativeBaseAttribute",
     },
 ];
 

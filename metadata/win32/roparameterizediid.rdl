@@ -2,7 +2,6 @@
 mod Windows {
     mod Win32 {
         interface IRoMetaDataLocator {
-            #[Windows::Win32::Metadata::NativeConstMethod]
             fn Locate(&self, nameElement: PCWSTR, #[in] metaDataDestination: IRoSimpleMetaDataBuilder) -> HRESULT;
         }
         interface IRoSimpleMetaDataBuilder {

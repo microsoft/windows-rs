@@ -16,12 +16,12 @@ mod Windows {
         #[arch(X86)]
         #[library("ODBC32.dll")]
         extern fn SQLBindCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[in] #[opt] #[out] TargetValue: SQLPOINTER, BufferLength: SQLINTEGER, #[in] #[opt] #[out] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLBindParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLULEN, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X86)]
+        #[deprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLBindParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLUINTEGER, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
@@ -80,7 +80,7 @@ mod Windows {
         extern fn SQLFreeStmt(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLGetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLengthPtr: *mut SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLGetConnectOption is deprecated. Please use SQLGetConnectAttr instead.", "")]
+        #[deprecated("ODBC API: SQLGetConnectOption is deprecated. Please use SQLGetConnectAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLGetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
@@ -112,7 +112,7 @@ mod Windows {
         extern fn SQLGetInfo(ConnectionHandle: SQLHDBC, InfoType: SQLUSMALLINT, #[opt] #[out] #[writable(entry, bytes(BufferLength))] InfoValue: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLGetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLength: *mut SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLGetStmtOption is deprecated. Please use SQLGetStmtAttr instead.", "")]
+        #[deprecated("ODBC API: SQLGetStmtOption is deprecated. Please use SQLGetStmtAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLGetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
@@ -137,12 +137,12 @@ mod Windows {
         extern fn SQLRowCount(#[in] StatementHandle: SQLHSTMT, #[out] RowCount: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLSetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[in] #[opt] #[readable(entry, bytes(StringLength))] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLULEN) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.", "")]
         #[arch(X86)]
+        #[deprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
@@ -157,22 +157,22 @@ mod Windows {
         extern fn SQLSetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, Type: SQLSMALLINT, SubType: SQLSMALLINT, Length: SQLINTEGER, Precision: SQLSMALLINT, Scale: SQLSMALLINT, #[in] #[opt] #[out] #[writable(entry, bytes(Length))] Data: SQLPOINTER, #[in] #[opt] #[out] StringLength: *mut SQLINTEGER, #[in] #[opt] #[out] Indicator: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLSetEnvAttr(EnvironmentHandle: SQLHENV, Attribute: SQLINTEGER, #[in] #[opt] #[readable(entry, bytes(StringLength))] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLULEN, ParameterScale: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(*StrLen_or_Ind)", "_Inexpressible_(*StrLen_or_Ind)")] #[in] ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X86)]
+        #[deprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLUINTEGER, ParameterScale: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(*StrLen_or_Ind)", "_Inexpressible_(*StrLen_or_Ind)")] #[in] ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLSetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(StringLength)", "_Inexpressible_(StringLength)")] #[in] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLULEN) -> SQLRETURN;
-        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.", "")]
         #[arch(X86)]
+        #[deprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.")]
         #[library("ODBC32.dll")]
         extern fn SQLSetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]

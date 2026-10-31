@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn Method(#[deprecated("a")] #[deprecated("b")] value: i32);
+}

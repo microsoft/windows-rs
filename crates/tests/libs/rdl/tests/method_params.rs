@@ -366,7 +366,7 @@ fn write_attribute_definitions(path: &Path) {
     define_attribute(&mut file, "ScopedEnumAttribute", &[], &[]);
     define_attribute(
         &mut file,
-        "NativeEncodingAttribute",
+        "EncodingAttribute",
         &[metadata::Type::String],
         &[],
     );
@@ -483,7 +483,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
                 marker("DoesNotReturnAttribute"),
                 marker("ScopedEnumAttribute"),
                 positional(
-                    "NativeEncodingAttribute",
+                    "EncodingAttribute",
                     metadata::Value::Utf8("utf-16".to_string()),
                 ),
             ],
@@ -495,7 +495,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
             attributes: vec![
                 marker("DoesNotReturnAttribute"),
                 positional(
-                    "NativeEncodingAttribute",
+                    "EncodingAttribute",
                     metadata::Value::Utf8("ansi".to_string()),
                 ),
             ],
@@ -623,7 +623,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert_attribute(decorated, "ScopedEnumAttribute", &[]);
     assert_attribute(
         decorated,
-        "NativeEncodingAttribute",
+        "EncodingAttribute",
         &[(String::new(), metadata::Value::Utf8("utf-16".to_string()))],
     );
 
@@ -632,7 +632,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert_attribute(return_param, "DoesNotReturnAttribute", &[]);
     assert_attribute(
         return_param,
-        "NativeEncodingAttribute",
+        "EncodingAttribute",
         &[(String::new(), metadata::Value::Utf8("ansi".to_string()))],
     );
 }

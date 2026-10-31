@@ -113,10 +113,10 @@ mod Windows {
         extern fn FindExecutableImageEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
         extern fn FindExecutableImageExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[out] #[writable(entry, 261)] ImageFilePath: PWSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn FindFileInPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn FindFileInSearchPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] one: DWORD, #[in] two: DWORD, #[in] three: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1240,7 +1240,7 @@ mod Windows {
         extern fn SymEnumSourceLines(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCSTR, #[in] #[opt] File: PCSTR, #[in] #[opt] Line: DWORD, #[in] Flags: DWORD, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymEnumSourceLinesW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCWSTR, #[in] #[opt] File: PCWSTR, #[in] #[opt] Line: DWORD, #[in] Flags: DWORD, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn SymEnumSym(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1273,26 +1273,26 @@ mod Windows {
         extern fn SymEnumerateModules64(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymEnumerateModulesW64(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACKW64, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated]
         #[library("dbghelp.dll", import = "SymEnumerateSymbols64")]
         extern fn SymEnumerateSymbols(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X86)]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn SymEnumerateSymbols(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn SymEnumerateSymbols64(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X64 | Arm64)]
+        #[deprecated]
         #[library("dbghelp.dll", import = "SymEnumerateSymbolsW64")]
         extern fn SymEnumerateSymbolsW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X86)]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn SymEnumerateSymbolsW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("dbghelp.dll")]
         extern fn SymEnumerateSymbolsW64(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]

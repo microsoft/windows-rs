@@ -91,12 +91,12 @@ mod Windows {
         }
         #[library("ADVAPI32.dll")]
         extern fn EncryptionDisable(#[in] DirPath: LPCWSTR, Disable: BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("ADVAPI32.dll")]
         extern fn FreeEncryptedFileMetadata(#[in] pbMetadata: PBYTE);
         #[library("ADVAPI32.dll")]
         extern fn FreeEncryptionCertificateHashList(#[in] pUsers: PENCRYPTION_CERTIFICATE_HASH_LIST);
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("ADVAPI32.dll")]
         extern fn GetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[out] pcbMetadata: PDWORD, #[out] #[writable(success, bytes(*pcbMetadata), indirect)] ppbMetadata: *mut PBYTE) -> DWORD;
         const MAX_SID_SIZE: i32 = 256;
@@ -122,7 +122,7 @@ mod Windows {
         extern fn QueryUsersOnEncryptedFile(#[in] lpFileName: LPCWSTR, #[out] #[out_ptr] pUsers: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn RemoveUsersFromEncryptedFile(#[in] lpFileName: LPCWSTR, #[in] pHashes: PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
-        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[deprecated]
         #[library("ADVAPI32.dll")]
         extern fn SetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[in] #[opt] pbOldMetadata: PBYTE, #[in] pbNewMetadata: PBYTE, #[in] pOwnerHash: PENCRYPTION_CERTIFICATE_HASH, dwOperation: DWORD, #[in] #[opt] pCertificatesAdded: PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
         #[library("ADVAPI32.dll")]

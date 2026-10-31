@@ -50,7 +50,7 @@ mod Windows {
         }
         #[packed(8)]
         struct BIND_OPTS2 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: BIND_OPTS,
             dwTrackFlags: DWORD,
             dwClassContext: DWORD,
@@ -59,7 +59,7 @@ mod Windows {
         }
         #[packed(8)]
         struct BIND_OPTS3 {
-            #[Windows::Win32::Metadata::NativeBase]
+            #[base]
             base: BIND_OPTS2,
             hwnd: HWND,
         }
