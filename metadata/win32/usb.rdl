@@ -20,7 +20,6 @@ mod Windows {
         type PIRP = *mut void;
         type PMDL = *mut void;
         type POS_STRING = *mut OS_STRING;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "UrbHeader.Length", "UrbHeader.Length")]
         type PURB = *mut URB;
         type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
         type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut _USBD_ENDPOINT_OFFLOAD_INFORMATION;
@@ -31,7 +30,6 @@ mod Windows {
         type PUSBD_PIPE_INFORMATION = *mut USBD_PIPE_INFORMATION;
         type PUSBD_STREAM_INFORMATION = *mut USBD_STREAM_INFORMATION;
         type PUSBD_VERSION_INFORMATION = *mut USBD_VERSION_INFORMATION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "UrbHeader.Length", "UrbHeader.Length", TypedefName = "URB")]
         struct URB {
             Anonymous: union {
                 UrbHeader: _URB_HEADER,

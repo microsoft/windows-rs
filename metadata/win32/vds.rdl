@@ -456,8 +456,8 @@ mod Windows {
         #[guid(0xb481498c_8354_45f9_84a0_0bdd2832a91f)]
         interface IVdsVdProvider: IUnknown {
             fn QueryVDisks(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
-            fn CreateVDisk(&self, #[in] VirtualDeviceType: PVIRTUAL_STORAGE_TYPE, #[in] #[null_terminated(entry)] pPath: LPWSTR, #[in] #[null_terminated(entry)] #[opt] pStringSecurityDescriptor: LPWSTR, #[in] Flags: CREATE_VIRTUAL_DISK_FLAG, #[in] ProviderSpecificFlags: ULONG, #[in] Reserved: ULONG, #[in] pCreateDiskParameters: PVDS_CREATE_VDISK_PARAMETERS, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppAsync: *mut IVdsAsync) -> HRESULT;
-            fn AddVDisk(&self, #[in] VirtualDeviceType: PVIRTUAL_STORAGE_TYPE, #[in] #[null_terminated(entry)] pPath: LPWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppVDisk: *mut IVdsVDisk) -> HRESULT;
+            fn CreateVDisk(&self, #[in] VirtualDeviceType: PVIRTUAL_STORAGE_TYPE, #[in] #[null_terminated(entry)] pPath: LPWSTR, #[in] #[null_terminated(entry)] #[opt] pStringSecurityDescriptor: LPWSTR, #[in] Flags: CREATE_VIRTUAL_DISK_FLAG, #[in] ProviderSpecificFlags: ULONG, #[in] Reserved: ULONG, #[in] pCreateDiskParameters: PVDS_CREATE_VDISK_PARAMETERS, #[in] #[incomplete] #[opt] #[out] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn AddVDisk(&self, #[in] VirtualDeviceType: PVIRTUAL_STORAGE_TYPE, #[in] #[null_terminated(entry)] pPath: LPWSTR, #[in] #[incomplete] #[opt] #[out] ppVDisk: *mut IVdsVDisk) -> HRESULT;
             fn GetDiskFromVDisk(&self, #[in] #[opt] pVDisk: IVdsVDisk, #[out] #[out_ptr] #[retval] ppDisk: *mut IVdsDisk) -> HRESULT;
             fn GetVDiskFromDisk(&self, #[in] #[opt] pDisk: IVdsDisk, #[out] #[out_ptr] #[retval] ppVDisk: *mut IVdsVDisk) -> HRESULT;
         }

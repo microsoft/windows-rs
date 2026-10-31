@@ -209,7 +209,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFConvertToFP16Array(#[out] #[writable(entry, dwCount)] pDest: *mut WORD, #[in] #[readable(entry, dwCount)] pSrc: *const f32, dwCount: DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCopyImage(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "_Inexpressible_(abs(lDestStride) * dwLines)", "_Inexpressible_(abs(lDestStride) * dwLines)")] #[out] pDest: *mut BYTE, lDestStride: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "_Inexpressible_(abs(lSrcStride) * dwLines)", "_Inexpressible_(abs(lSrcStride) * dwLines)")] #[in] pSrc: *const BYTE, lSrcStride: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "<=,_Inexpressible_((((abs(lSrcStride)) < (abs(lDestStride))) ? (abs(lSrcStride)) : (abs(lDestStride))))", "<=,_Inexpressible_((((abs(lSrcStride)) < (abs(lDestStride))) ? (abs(lSrcStride)) : (abs(lDestStride))))")] dwWidthInBytes: DWORD, dwLines: DWORD) -> HRESULT;
+        extern fn MFCopyImage(#[incomplete] #[out] pDest: *mut BYTE, lDestStride: LONG, #[in] #[incomplete] pSrc: *const BYTE, lSrcStride: LONG, #[incomplete] dwWidthInBytes: DWORD, dwLines: DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreate2DMediaBuffer(#[in] dwWidth: DWORD, #[in] dwHeight: DWORD, #[in] dwFourCC: DWORD, #[in] fBottomUp: BOOL, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -317,7 +317,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetDXGIDeviceManageMode(#[in] pDeviceManager: IUnknown, #[out] mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetMFTMerit(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pMFT: IUnknown, #[in] cbVerifier: UINT32, #[in] #[readable(entry, bytes(cbVerifier))] verifier: *const BYTE, #[out] merit: *mut DWORD) -> HRESULT;
+        extern fn MFGetMFTMerit(#[in] #[incomplete] pMFT: IUnknown, #[in] cbVerifier: UINT32, #[in] #[readable(entry, bytes(cbVerifier))] verifier: *const BYTE, #[out] merit: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetPlaneSize(format: DWORD, dwWidth: DWORD, dwHeight: DWORD, #[out] pdwPlaneSize: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]

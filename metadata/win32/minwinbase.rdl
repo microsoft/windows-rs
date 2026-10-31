@@ -305,9 +305,7 @@ mod Windows {
             nFileSizeLow: DWORD,
             dwReserved0: DWORD,
             dwReserved1: DWORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             cFileName: [CHAR; 260],
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             cAlternateFileName: [CHAR; 14],
         }
         struct WIN32_FIND_DATAW {
@@ -319,9 +317,7 @@ mod Windows {
             nFileSizeLow: DWORD,
             dwReserved0: DWORD,
             dwReserved1: DWORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             cFileName: [WCHAR; 260],
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             cAlternateFileName: [WCHAR; 14],
         }
     }

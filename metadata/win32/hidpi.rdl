@@ -207,34 +207,27 @@ mod Windows {
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetButtonArray(#[in] ReportType: HIDP_REPORT_TYPE, #[in] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[in] Usage: USAGE, #[out] #[readable(success, *ButtonDataLength)] #[writable(entry, *ButtonDataLength)] ButtonData: PHIDP_BUTTON_ARRAY_DATA, #[in] #[out] ButtonDataLength: PUSHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[in] #[readable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetButtonCaps(#[in] ReportType: HIDP_REPORT_TYPE, #[out] #[readable(success, *ButtonCapsLength)] #[writable(entry, *ButtonCapsLength)] ButtonCaps: PHIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: PUSHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetCaps(#[in] PreparsedData: PHIDP_PREPARSED_DATA, #[out] Capabilities: PHIDP_CAPS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetData(#[in] ReportType: HIDP_REPORT_TYPE, #[out] #[readable(success, *DataLength)] #[writable(entry, *DataLength)] DataList: PHIDP_DATA, #[in] #[out] DataLength: PULONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[out] #[writable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetExtendedAttributes(#[in] ReportType: HIDP_REPORT_TYPE, #[in] DataIndex: USHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[out] #[readable(success, *LengthAttributes)] #[writable(entry, *LengthAttributes)] Attributes: PHIDP_EXTENDED_ATTRIBUTES, #[in] #[out] LengthAttributes: PULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetLinkCollectionNodes(#[out] #[readable(success, *LinkCollectionNodesLength)] #[writable(entry, *LinkCollectionNodesLength)] LinkCollectionNodes: PHIDP_LINK_COLLECTION_NODE, #[in] #[out] LinkCollectionNodesLength: PULONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetScaledUsageValue(#[in] ReportType: HIDP_REPORT_TYPE, #[in] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[in] Usage: USAGE, #[out] UsageValue: PLONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[in] #[readable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetSpecificButtonCaps(#[in] ReportType: HIDP_REPORT_TYPE, #[in] #[opt] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[in] #[opt] Usage: USAGE, #[out] #[readable(success, *ButtonCapsLength)] #[writable(entry, *ButtonCapsLength)] ButtonCaps: PHIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: PUSHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetSpecificValueCaps(#[in] ReportType: HIDP_REPORT_TYPE, #[in] #[opt] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[in] #[opt] Usage: USAGE, #[out] #[readable(success, *ValueCapsLength)] #[writable(entry, *ValueCapsLength)] ValueCaps: PHIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: PUSHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
@@ -247,22 +240,17 @@ mod Windows {
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetUsages(#[in] ReportType: HIDP_REPORT_TYPE, #[in] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[out] #[readable(success, *UsageLength)] #[writable(entry, *UsageLength)] UsageList: PUSAGE, #[in] #[out] UsageLength: PULONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[out] #[writable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetUsagesEx(#[in] ReportType: HIDP_REPORT_TYPE, #[in] #[opt] LinkCollection: USHORT, #[in] #[out] #[readable(entry, *UsageLength)] #[readable(success, *UsageLength)] #[writable(entry, *UsageLength)] ButtonList: PUSAGE_AND_PAGE, #[in] #[out] UsageLength: *mut ULONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[in] #[readable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_GetValueCaps(#[in] ReportType: HIDP_REPORT_TYPE, #[out] #[readable(success, *ValueCapsLength)] #[writable(entry, *ValueCapsLength)] ValueCaps: PHIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: PUSHORT, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_InitializeReportForID(#[in] ReportType: HIDP_REPORT_TYPE, #[in] ReportID: UCHAR, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[out] #[writable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         extern fn HidP_MaxDataListLength(#[in] ReportType: HIDP_REPORT_TYPE, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> ULONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("HID.DLL")]
         extern fn HidP_MaxUsageListLength(#[in] ReportType: HIDP_REPORT_TYPE, #[in] #[opt] UsagePage: USAGE, #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> ULONG;
         #[library("HID.DLL")]
@@ -289,7 +277,6 @@ mod Windows {
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_UnsetUsages(#[in] ReportType: HIDP_REPORT_TYPE, #[in] UsagePage: USAGE, #[in] #[opt] LinkCollection: USHORT, #[in] #[out] #[readable(entry, *UsageLength)] #[readable(success, *UsageLength)] #[writable(entry, *UsageLength)] UsageList: PUSAGE, #[in] #[out] UsageLength: PULONG, #[in] PreparsedData: PHIDP_PREPARSED_DATA, #[in] #[readable(entry, bytes(ReportLength))] Report: PCHAR, #[in] ReportLength: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("HID.DLL")]
         #[must_use]
         extern fn HidP_UsageListDifference(#[in] #[readable(entry, UsageListLength)] PreviousUsageList: PUSAGE, #[in] #[readable(entry, UsageListLength)] CurrentUsageList: PUSAGE, #[out] #[writable(entry, UsageListLength)] BreakUsageList: PUSAGE, #[out] #[writable(entry, UsageListLength)] MakeUsageList: PUSAGE, #[in] UsageListLength: ULONG) -> NTSTATUS;

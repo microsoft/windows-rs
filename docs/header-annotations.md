@@ -63,7 +63,8 @@ Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[m
 | Checked against evidence | Facts the compiler can confirm must agree with it or publication fails |
 | Closed vocabulary | Unknown names, bad arguments, wrong owners and repeated annotations fail |
 | Keep native types | Associations are added beside the native type, never by retyping |
-| Residual stays residual | Facts without a canonical family remain `NativeSal` with their owner intact |
+| Publish what consumers can act on | Facts without a canonical family are not published; the header remains their source |
+| Absent means unspecified | A missing fact is not a promise; `incomplete` marks parameters whose header says more |
 | Native prefix | `Native` attributes preserve C/C++ declaration details; unprefixed attributes state language-neutral API facts |
 | Separate stages | Metadata describes contracts; bindgen decides independently what Rust to generate |
 
@@ -122,8 +123,8 @@ initialized length are separate extents of the same family.
 | `_Outptr_result_maybenull_z_` | `#[out] #[out_ptr] #[nullable] #[null_terminated(success, indirect)]` |
 | `_Field_size_(capacity)` on a field | `#[writable(capacity)]` |
 
-Counts outside this grammar, such as casts or unresolved names, remain `NativeSal`. Conflicting
-supported counts fail rather than selecting one.
+Counts outside this grammar, such as casts or unresolved names, mark the parameter `incomplete`.
+Conflicting supported counts fail rather than selecting one.
 
 ### Count encoding
 
@@ -193,14 +194,15 @@ Flags come from compiler-observed declarations, not from macro, enum or constant
 `NativeAnonymous` stores the native field position, which can differ from the metadata position
 after bitfield lowering.
 
-## Residual and native-only
+## Incomplete contracts
 
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
-| Uninterpreted SAL | `_IRQL_*_`, `_When_`, locking, ownership, unsupported counts | Named | `NativeSal` | Blocks slice, scalar-result and query inference on the parameter |
+| Incomplete contract | Parameter SAL without a canonical family: `_When_`, `_At_`, unsupported counts | `incomplete` | `Incomplete` | Blocks slice, scalar-result and query inference on the parameter |
 
-`NativeSal` keeps the annotation name, its written and expanded arguments, and the owning typedef
-when the annotation was relocated.
+Other SAL is not published. This covers static-analysis directives such as `_IRQL_*_`,
+`_Function_class_` and locking annotations, and SAL on owners without a family, such as `_In_` on a
+field or `_Null_terminated_` on a typedef.
 
 ## Bindgen boundary
 
@@ -211,7 +213,7 @@ Metadata never authorizes a projection on its own. Bindgen applies these rules:
 | `BufferExtent` with a direct entry count, matching direction and type | Slice, with the count parameter hidden |
 | Any other `BufferExtent` | Raw pointer, except interface inputs; excluded from scalar-result inference |
 | `readable(success, unknown(), indirect)` | Query projection still allowed |
-| `NativeSal` | Raw pointer, except interface inputs; no slice, scalar-result or query inference |
+| `incomplete` | Raw pointer, except interface inputs; no slice, scalar-result or query inference |
 | `opt` or `reserved` | `Option` for pointers, independently of any buffer contract |
 
 ## `_Win32_*` macros

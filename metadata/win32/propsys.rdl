@@ -173,7 +173,6 @@ mod Windows {
         }
         const InMemoryPropertyStore: GUID = 0x9a02e012_6303_4e1e_b9a1_630f802592c5;
         const InMemoryPropertyStoreMarshalByValue: GUID = 0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPROPERTYSTORE = IPropertyStore;
         const PDFF_PREFERFRIENDLY: PROPDESC_FORMAT_FLAGS = 268435456;
         type PERSIST_SPROPSTORE_FLAGS = i32;

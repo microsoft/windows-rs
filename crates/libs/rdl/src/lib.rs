@@ -89,6 +89,10 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         short: "base",
         metadata: "NativeBaseAttribute",
     },
+    PseudoAttr {
+        short: "incomplete",
+        metadata: "IncompleteAttribute",
+    },
 ];
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {

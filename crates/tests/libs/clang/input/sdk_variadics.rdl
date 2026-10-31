@@ -520,9 +520,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCSTR, ...) -> i32;
+    extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCSTR, ...) -> i32;
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCWSTR, ...) -> i32;
+    extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCWSTR, ...) -> i32;
 }
 #[win32]
 mod Fixture {
@@ -543,28 +543,20 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPCSTR = *const i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPCWSTR = *const u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPSTR = *mut i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPWSTR = *mut u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type PCSTR = *const i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type PCWSTR = *const u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type PSTR = *mut i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type PWSTR = *mut u16;
     type WCHAR = u16;
 }
 #[win32]
 mod Fixture {
     #[library("USER32.dll")]
-    extern "C" fn wsprintfA(#[out] param0: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCSTR, ...) -> i32;
+    extern "C" fn wsprintfA(#[out] param0: LPSTR, #[in] #[incomplete] param1: LPCSTR, ...) -> i32;
     #[library("USER32.dll")]
-    extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCWSTR, ...) -> i32;
+    extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[in] #[incomplete] param1: LPCWSTR, ...) -> i32;
 }

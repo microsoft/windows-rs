@@ -2652,7 +2652,6 @@ mod Windows {
         const CRYPT_ASYNC_RETRIEVAL: i32 = 16;
         struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
             pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_opt_", "", "")]
             pvCompletion: LPVOID,
         }
         struct CRYPT_ATTRIBUTE {
@@ -2951,7 +2950,6 @@ mod Windows {
         const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: i32 = 32;
         const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: i32 = 65535;
         struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "sizeof(CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE),sizeof(CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE)", "sizeof(CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE),sizeof(CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE)")]
             cbSize: DWORD,
             pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
             pfnRelease: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE,
@@ -3645,9 +3643,9 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertGetIssuerCertificateFromStore(#[in] hCertStore: HCERTSTORE, #[in] pSubjectContext: PCCERT_CONTEXT, #[in] #[opt] pPrevIssuerContext: PCCERT_CONTEXT, #[in] #[out] pdwFlags: *mut DWORD) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertGetNameStringA(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchNameString,return", "cchNameString,return")] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPSTR, #[in] cchNameString: DWORD) -> DWORD;
+        extern fn CertGetNameStringA(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[incomplete] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPSTR, #[in] cchNameString: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertGetNameStringW(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchNameString,return", "cchNameString,return")] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPWSTR, #[in] cchNameString: DWORD) -> DWORD;
+        extern fn CertGetNameStringW(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[incomplete] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPWSTR, #[in] cchNameString: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertGetPublicKeyLength(#[in] dwCertEncodingType: DWORD, #[in] pPublicKey: PCERT_PUBLIC_KEY_INFO) -> DWORD;
         #[library("CRYPT32.dll")]
@@ -3681,9 +3679,9 @@ mod Windows {
             KeyTypeSelfSigned = 8,
         }
         #[library("CRYPT32.dll")]
-        extern fn CertNameToStrA(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "csz,return", "csz,return")] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertNameToStrA(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertNameToStrW(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "csz,return", "csz,return")] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertNameToStrW(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertOIDToAlgId(#[in] pszObjId: LPCSTR) -> DWORD;
         #[library("CRYPT32.dll")]
@@ -3696,9 +3694,9 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertOpenSystemStoreW(#[in] #[opt] hProv: HCRYPTPROV_LEGACY, #[in] szSubsystemProtocol: LPCWSTR) -> HCERTSTORE;
         #[library("CRYPT32.dll")]
-        extern fn CertRDNValueToStrA(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "csz,return", "csz,return")] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertRDNValueToStrA(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertRDNValueToStrW(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "csz,return", "csz,return")] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertRDNValueToStrW(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertRegisterPhysicalStore(#[in] pvSystemStore: *const void, #[in] dwFlags: DWORD, #[in] pwszStoreName: LPCWSTR, #[in] pStoreInfo: PCERT_PHYSICAL_STORE_INFO, #[reserved] pvReserved: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3848,7 +3846,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptFindOIDInfo(#[in] dwKeyType: DWORD, #[in] pvKey: *mut void, #[in] dwGroupId: DWORD) -> PCCRYPT_OID_INFO;
         #[library("CRYPT32.dll")]
-        extern fn CryptFormatObject(#[in] dwCertEncodingType: DWORD, #[in] dwFormatType: DWORD, #[in] dwFormatStrType: DWORD, #[in] #[opt] pFormatStruct: *mut void, #[in] #[opt] lpszStructType: LPCSTR, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(WCHAR *)pbFormat,_Out_writes_bytes_to_opt_(*pcbFormat, *pcbFormat)", "(WCHAR *)pbFormat, _Out_writes_bytes_to_opt_(*pcbFormat,*pcbFormat)")] pbFormat: *mut void, #[in] #[out] pcbFormat: *mut DWORD) -> BOOL;
+        extern fn CryptFormatObject(#[in] dwCertEncodingType: DWORD, #[in] dwFormatType: DWORD, #[in] dwFormatStrType: DWORD, #[in] #[opt] pFormatStruct: *mut void, #[in] #[opt] lpszStructType: LPCSTR, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[incomplete] pbFormat: *mut void, #[in] #[out] pcbFormat: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptFreeOIDFunctionAddress(#[in] hFuncAddr: HCRYPTOIDFUNCADDR, #[in] dwFlags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -4014,10 +4012,10 @@ mod Windows {
         extern fn CryptSignMessageWithKey(#[in] pSignPara: PCRYPT_KEY_SIGN_MESSAGE_PARA, #[in] #[readable(entry, bytes(cbToBeSigned))] pbToBeSigned: *const BYTE, #[in] cbToBeSigned: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSignedBlob))] #[writable(entry, bytes(*pcbSignedBlob))] pbSignedBlob: *mut BYTE, #[in] #[out] pcbSignedBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         #[success(return != 0)]
-        extern fn CryptStringToBinaryA(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFlags != CRYPT_STRING_BINARY,_In_reads_(cchString)", "dwFlags != CRYPT_STRING_BINARY, _In_reads_(cchString)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFlags == CRYPT_STRING_BINARY,_In_reads_bytes_(cchString)", "dwFlags == CRYPT_STRING_BINARY, _In_reads_bytes_(cchString)")] pszString: LPCSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
+        extern fn CryptStringToBinaryA(#[incomplete] pszString: LPCSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         #[success(return != 0)]
-        extern fn CryptStringToBinaryW(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFlags != CRYPT_STRING_BINARY,_In_reads_(cchString)", "dwFlags != CRYPT_STRING_BINARY, _In_reads_(cchString)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFlags == CRYPT_STRING_BINARY,_In_reads_bytes_(cchString)", "dwFlags == CRYPT_STRING_BINARY, _In_reads_bytes_(cchString)")] pszString: LPCWSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
+        extern fn CryptStringToBinaryW(#[incomplete] pszString: LPCWSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("CRYPTNET.dll")]
         extern fn CryptUninstallCancelRetrieval(#[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]

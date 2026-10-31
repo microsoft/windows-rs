@@ -4,7 +4,6 @@ mod Windows {
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
         #[success(return != 0)]
         extern fn CallEnclave(#[in] lpRoutine: LPENCLAVE_ROUTINE, #[in] lpParameter: LPVOID, #[in] fWaitForThread: BOOL, #[out] lpReturnValue: *mut LPVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
         #[library("KERNEL32.dll")]
         extern fn CreateEnclave(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwInitialCommitment: SIZE_T, #[in] flEnclaveType: DWORD, #[in] #[readable(entry, bytes(dwInfoLength))] lpEnclaveInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[opt] #[out] lpEnclaveError: LPDWORD) -> #[nullable] LPVOID;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]

@@ -596,7 +596,7 @@ mod Windows {
             fn put_SupportHighContrastInk(&self, #[in] Support: VARIANT_BOOL) -> HRESULT;
             fn SetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[in] Listen: VARIANT_BOOL) -> HRESULT;
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
+            fn GetWindowInputRectangle(&self, #[in] #[incomplete] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
             fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;
@@ -858,7 +858,7 @@ mod Windows {
             fn Draw(&self, #[in] #[opt] Rect: IInkRectangle) -> HRESULT;
             fn SetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[in] Listen: VARIANT_BOOL) -> HRESULT;
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
+            fn GetWindowInputRectangle(&self, #[in] #[incomplete] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
             fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;
@@ -957,7 +957,7 @@ mod Windows {
             fn HitTestSelection(&self, #[in] x: i32, #[in] y: i32, #[out] #[retval] SelArea: *mut SelectionHitResult) -> HRESULT;
             fn SetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[in] Listen: VARIANT_BOOL) -> HRESULT;
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
+            fn GetWindowInputRectangle(&self, #[in] #[incomplete] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
             fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;

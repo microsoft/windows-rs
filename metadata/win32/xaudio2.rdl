@@ -36,8 +36,8 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn GetProcessingQuantum(&self, #[out] quantumNumerator: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] quantumDenominator: *mut UINT32);
-            fn GetProcessor(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] processor: *mut XAUDIO2_PROCESSOR);
+            fn GetProcessingQuantum(&self, #[out] quantumNumerator: *mut UINT32, #[incomplete] quantumDenominator: *mut UINT32);
+            fn GetProcessor(&self, #[incomplete] processor: *mut XAUDIO2_PROCESSOR);
         }
         interface IXAudio2MasteringVoice: IXAudio2Voice {
             #[override_slot(0)]

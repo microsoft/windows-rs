@@ -40,7 +40,7 @@ mod Windows {
             fn GetVisibility(&self, #[out] peVisibility: *mut WPCFLAG_VISIBILITY) -> HRESULT;
             fn GetUserSettings(&self, #[in] #[null_terminated(entry)] #[opt] pcszSID: LPCWSTR, #[out] #[out_ptr] #[retval] ppSettings: *mut IWPCSettings) -> HRESULT;
             fn GetWebSettings(&self, #[in] #[null_terminated(entry)] #[opt] pcszSID: LPCWSTR, #[out] #[out_ptr] #[retval] ppSettings: *mut IWPCWebSettings) -> HRESULT;
-            fn GetWebFilterInfo(&self, #[out] pguidID: *mut GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszName: *mut LPWSTR) -> HRESULT;
+            fn GetWebFilterInfo(&self, #[out] pguidID: *mut GUID, #[in] #[incomplete] #[opt] #[out] ppszName: *mut LPWSTR) -> HRESULT;
         }
         #[repr(i32)]
         enum WPCFLAG_OVERRIDE {

@@ -7,7 +7,6 @@ mod Windows {
             fn GetRuntimeClassName(&self, #[out] #[out_ptr] className: *mut HSTRING) -> HRESULT;
             fn GetTrustLevel(&self, #[out] trustLevel: *mut TrustLevel) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPINSPECTABLE = IInspectable;
         #[repr(i32)]
         enum TrustLevel {

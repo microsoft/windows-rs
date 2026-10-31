@@ -37,7 +37,7 @@ mod Windows {
         }
         #[guid(0x49353c93_516b_11d1_aea6_00c04fb68820)]
         interface IWbemHiPerfProvider: IUnknown {
-            fn QueryInstances(&self, #[in] pNamespace: IWbemServices, #[in] wszClass: *mut WCHAR, #[in] lFlags: i32, #[in] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[in] pSink: IWbemObjectSink) -> HRESULT;
+            fn QueryInstances(&self, #[in] pNamespace: IWbemServices, #[in] wszClass: *mut WCHAR, #[in] lFlags: i32, #[in] pCtx: IWbemContext, #[in] #[incomplete] pSink: IWbemObjectSink) -> HRESULT;
             fn CreateRefresher(&self, #[in] pNamespace: IWbemServices, #[in] lFlags: i32, #[out] ppRefresher: *mut IWbemRefresher) -> HRESULT;
             fn CreateRefreshableObject(&self, #[in] pNamespace: IWbemServices, #[in] pTemplate: IWbemObjectAccess, #[in] pRefresher: IWbemRefresher, #[in] lFlags: i32, #[in] pContext: IWbemContext, #[out] ppRefreshable: *mut IWbemObjectAccess, #[out] plId: *mut i32) -> HRESULT;
             fn StopRefreshing(&self, #[in] pRefresher: IWbemRefresher, #[in] lId: i32, #[in] lFlags: i32) -> HRESULT;
@@ -71,7 +71,6 @@ mod Windows {
             WBEM_FLAG_MUST_BATCH = 1,
             WBEM_FLAG_MUST_NOT_BATCH = 2,
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
         type WBEM_CWSTR = *const u16;
         #[repr(i32)]
         enum WBEM_EXTRA_RETURN_CODES {
@@ -93,7 +92,6 @@ mod Windows {
             WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS = 2,
         }
         type WBEM_VARIANT = tagVARIANT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
         type WBEM_WSTR = *mut u16;
         const WbemAdministrativeLocator: GUID = 0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff;
         const WbemAuthenticatedLocator: GUID = 0xcd184336_9128_11d1_ad9b_00c04fd8fdff;

@@ -45,9 +45,7 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPWSTR = *mut u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type PCWSTR = *const u16;
     type WCHAR = u16;
 }

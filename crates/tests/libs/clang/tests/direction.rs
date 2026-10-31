@@ -83,35 +83,26 @@ fn check_output(output: &projection::Output, partition: &str, namespace: &str) {
                 vec![reader::File::read(path).unwrap()],
                 architecture,
             );
-            let check =
-                |owner, method, parameter, direction, optional, conditions| {
-                    let method = index
-                        .expect(namespace, owner)
-                        .methods()
-                        .find(|value| value.name() == method)
-                        .unwrap();
-                    let parameter = method
-                        .params()
-                        .find(|value| value.name() == parameter)
-                        .unwrap();
-                    assert_eq!(
-                        parameter.direction(),
-                        direction,
-                        "{}::{}",
-                        method.name(),
-                        parameter.name()
-                    );
-                    assert_eq!(parameter.is_optional(), optional, "{}", method.name());
-                    assert_eq!(
-                        parameter
-                            .attributes()
-                            .filter(|value| value.name() == "NativeSalAttribute")
-                            .filter(|value| value.value().iter().any(|(_, value)| *value
-                                == windows_metadata::Value::Utf8("_When_".into())))
-                            .count(),
-                        conditions
-                    );
-                };
+            let check = |owner, method, parameter, direction, optional, incomplete| {
+                let method = index
+                    .expect(namespace, owner)
+                    .methods()
+                    .find(|value| value.name() == method)
+                    .unwrap();
+                let parameter = method
+                    .params()
+                    .find(|value| value.name() == parameter)
+                    .unwrap();
+                assert_eq!(
+                    parameter.direction(),
+                    direction,
+                    "{}::{}",
+                    method.name(),
+                    parameter.name()
+                );
+                assert_eq!(parameter.is_optional(), optional, "{}", method.name());
+                assert_eq!(parameter.has_attribute("IncompleteAttribute"), incomplete);
+            };
             use reader::ParamDirection::*;
             for (owner, method) in [
                 ("Apis", "Unknown"),
@@ -126,7 +117,7 @@ fn check_output(output: &projection::Output, partition: &str, namespace: &str) {
                     "reference",
                     "object",
                 ] {
-                    check(owner, method, name, Unspecified, false, 0);
+                    check(owner, method, name, Unspecified, false, false);
                 }
             }
             for (name, direction, optional) in [
@@ -135,7 +126,7 @@ fn check_output(output: &projection::Output, partition: &str, namespace: &str) {
                 ("both", InputOutput, false),
                 ("object", Input, true),
             ] {
-                check("Apis", "Known", name, direction, optional, 0);
+                check("Apis", "Known", name, direction, optional, false);
             }
             for (owner, method) in [
                 ("Apis", "Query"),
@@ -143,13 +134,13 @@ fn check_output(output: &projection::Output, partition: &str, namespace: &str) {
                 ("IDirections", "Query"),
                 ("Apis", "Reversed"),
             ] {
-                check(owner, method, "size", Output, true, 2);
+                check(owner, method, "size", Output, true, true);
             }
             for name in ["MixedOptional", "Required"] {
-                check("Apis", name, "size", Output, false, 2);
+                check("Apis", name, "size", Output, false, true);
             }
-            check("Apis", "Disjoint", "size", Unspecified, true, 2);
-            check("Apis", "Partial", "size", Unspecified, false, 1);
+            check("Apis", "Disjoint", "size", Unspecified, true, true);
+            check("Apis", "Partial", "size", Unspecified, false, true);
             for name in [
                 "NonComplementary",
                 "DifferentSubjects",
@@ -158,7 +149,7 @@ fn check_output(output: &projection::Output, partition: &str, namespace: &str) {
                 "UnknownBranch",
                 "Scoped",
             ] {
-                check("Apis", name, "size", Unspecified, false, 2);
+                check("Apis", name, "size", Unspecified, false, true);
             }
         }
     }

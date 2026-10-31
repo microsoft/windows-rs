@@ -555,16 +555,12 @@ mod Windows {
         }
         #[library("ADVAPI32.dll")]
         extern fn OpenTraceA(#[in] #[out] Logfile: PEVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != INVALID_PROCESSTRACE_HANDLE", "return != INVALID_PROCESSTRACE_HANDLE")]
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromBufferStream(#[in] Options: *const ETW_OPEN_TRACE_OPTIONS, #[in] BufferCompletionCallback: PETW_BUFFER_COMPLETION_CALLBACK, #[in] #[opt] BufferCompletionContext: *mut void) -> PROCESSTRACE_HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != INVALID_PROCESSTRACE_HANDLE", "return != INVALID_PROCESSTRACE_HANDLE")]
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromFile(#[in] LogFileName: PCWSTR, #[in] Options: *const ETW_OPEN_TRACE_OPTIONS, #[opt] #[out] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != INVALID_PROCESSTRACE_HANDLE", "return != INVALID_PROCESSTRACE_HANDLE")]
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromRealTimeLogger(#[in] LoggerName: PCWSTR, #[in] Options: *const ETW_OPEN_TRACE_OPTIONS, #[opt] #[out] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != INVALID_PROCESSTRACE_HANDLE", "return != INVALID_PROCESSTRACE_HANDLE")]
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromRealTimeLoggerWithAllocationOptions(#[in] LoggerName: PCWSTR, #[in] Options: *const ETW_OPEN_TRACE_OPTIONS, #[in] AllocationSize: ULONG_PTR, #[in] #[opt] MemoryPartitionHandle: HANDLE, #[opt] #[out] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
         #[library("ADVAPI32.dll")]

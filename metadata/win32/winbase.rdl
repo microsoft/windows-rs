@@ -93,7 +93,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AddAtomW(#[in] #[opt] lpString: LPCWSTR) -> ATOM;
         #[library("ADVAPI32.dll")]
-        extern fn AddConditionalAce(#[in] #[out] pAcl: PACL, #[in] dwAceRevision: DWORD, #[in] AceFlags: DWORD, #[in] AceType: UCHAR, #[in] AccessMask: DWORD, #[in] pSid: PSID, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] ConditionStr: PWCHAR, #[out] ReturnLength: *mut DWORD) -> BOOL;
+        extern fn AddConditionalAce(#[in] #[out] pAcl: PACL, #[in] dwAceRevision: DWORD, #[in] AceFlags: DWORD, #[in] AceType: UCHAR, #[in] AccessMask: DWORD, #[in] pSid: PSID, #[in] #[incomplete] ConditionStr: PWCHAR, #[out] ReturnLength: *mut DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn AddIntegrityLabelToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, #[in] IntegrityLabel: PSID) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -432,7 +432,7 @@ mod Windows {
         extern fn CancelTimerQueueTimer(#[in] #[opt] TimerQueue: HANDLE, #[in] Timer: HANDLE) -> BOOL;
         #[library("KERNEL32.dll", import = "RtlCaptureStackBackTrace")]
         #[success(return != 0)]
-        extern fn CaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "FramesToCapture,return", "FramesToCapture,return")] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
+        extern fn CaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[incomplete] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
         #[library("KERNEL32.dll")]
         extern fn CheckNameLegalDOS8Dot3A(#[in] lpName: LPCSTR, #[opt] #[out] #[writable(entry, OemNameSize)] lpOemName: LPSTR, #[in] OemNameSize: DWORD, #[opt] #[out] pbNameContainsSpaces: PBOOL, #[out] pbNameLegal: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -470,9 +470,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CopyFileA(#[in] lpExistingFileName: LPCSTR, #[in] lpNewFileName: LPCSTR, #[in] bFailIfExists: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CopyFileExA(#[in] lpExistingFileName: LPCSTR, #[in] lpNewFileName: LPCSTR, #[in] #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[in] #[opt] lpData: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pbCancel != NULL,_Pre_satisfies_(*pbCancel == FALSE)", "pbCancel != 0, _Pre_satisfies_(*pbCancel == 0)")] #[in] #[opt] #[out] pbCancel: LPBOOL, #[in] dwCopyFlags: DWORD) -> BOOL;
+        extern fn CopyFileExA(#[in] lpExistingFileName: LPCSTR, #[in] lpNewFileName: LPCSTR, #[in] #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[in] #[opt] lpData: LPVOID, #[in] #[incomplete] #[opt] #[out] pbCancel: LPBOOL, #[in] dwCopyFlags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CopyFileExW(#[in] lpExistingFileName: LPCWSTR, #[in] lpNewFileName: LPCWSTR, #[in] #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[in] #[opt] lpData: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pbCancel != NULL,_Pre_satisfies_(*pbCancel == FALSE)", "pbCancel != 0, _Pre_satisfies_(*pbCancel == 0)")] #[in] #[opt] #[out] pbCancel: LPBOOL, #[in] dwCopyFlags: DWORD) -> BOOL;
+        extern fn CopyFileExW(#[in] lpExistingFileName: LPCWSTR, #[in] lpNewFileName: LPCWSTR, #[in] #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[in] #[opt] lpData: LPVOID, #[in] #[incomplete] #[opt] #[out] pbCancel: LPBOOL, #[in] dwCopyFlags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn CopyFileTransactedA(#[in] lpExistingFileName: LPCSTR, #[in] lpNewFileName: LPCSTR, #[in] #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[in] #[opt] lpData: LPVOID, #[in] #[opt] pbCancel: LPBOOL, #[in] dwCopyFlags: DWORD, #[in] hTransaction: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -994,11 +994,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn FindFirstFileNameTransactedW(#[in] lpFileName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[out] StringLength: LPDWORD, #[out] #[writable(entry, *StringLength)] LinkName: PWSTR, #[in] #[opt] hTransaction: HANDLE) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileTransactedA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_DATAA)", "sizeof(WIN32_FIND_DATAA)")] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
+        extern fn FindFirstFileTransactedA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[incomplete] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileTransactedW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_DATAW)", "sizeof(WIN32_FIND_DATAW)")] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
+        extern fn FindFirstFileTransactedW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[incomplete] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstStreamTransactedW(#[in] lpFileName: LPCWSTR, #[in] InfoLevel: STREAM_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_STREAM_DATA)", "sizeof(WIN32_FIND_STREAM_DATA)")] #[out] lpFindStreamData: LPVOID, #[reserved] dwFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
+        extern fn FindFirstStreamTransactedW(#[in] lpFileName: LPCWSTR, #[in] InfoLevel: STREAM_INFO_LEVELS, #[incomplete] #[out] lpFindStreamData: LPVOID, #[reserved] dwFlags: DWORD, #[in] hTransaction: HANDLE) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn FindFirstVolumeA(#[out] #[writable(entry, cchBufferLength)] lpszVolumeName: LPSTR, #[in] cchBufferLength: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
@@ -1019,10 +1019,10 @@ mod Windows {
         extern fn FindVolumeMountPointClose(#[in] hFindVolumeMountPoint: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn FormatMessageA(#[in] dwFlags: DWORD, #[in] #[opt] lpSource: LPCVOID, #[in] dwMessageId: DWORD, #[in] dwLanguageId: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwFlags & FORMAT_MESSAGE_ALLOCATE_BUFFER) != 0,_At_((LPSTR*)lpBuffer, _Outptr_result_z_)", "(dwFlags & 0x00000100) != 0, _At_((LPSTR*)lpBuffer, _Outptr_result_z_)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwFlags & FORMAT_MESSAGE_ALLOCATE_BUFFER) == 0,_Out_writes_z_(nSize)", "(dwFlags & 0x00000100) == 0, _Out_writes_z_(nSize)")] lpBuffer: LPSTR, #[in] nSize: DWORD, #[in] #[opt] Arguments: *mut va_list) -> DWORD;
+        extern fn FormatMessageA(#[in] dwFlags: DWORD, #[in] #[opt] lpSource: LPCVOID, #[in] dwMessageId: DWORD, #[in] dwLanguageId: DWORD, #[incomplete] lpBuffer: LPSTR, #[in] nSize: DWORD, #[in] #[opt] Arguments: *mut va_list) -> DWORD;
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn FormatMessageW(#[in] dwFlags: DWORD, #[in] #[opt] lpSource: LPCVOID, #[in] dwMessageId: DWORD, #[in] dwLanguageId: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwFlags & FORMAT_MESSAGE_ALLOCATE_BUFFER) != 0,_At_((LPWSTR*)lpBuffer, _Outptr_result_z_)", "(dwFlags & 0x00000100) != 0, _At_((LPWSTR*)lpBuffer, _Outptr_result_z_)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwFlags & FORMAT_MESSAGE_ALLOCATE_BUFFER) == 0,_Out_writes_z_(nSize)", "(dwFlags & 0x00000100) == 0, _Out_writes_z_(nSize)")] lpBuffer: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] Arguments: *mut va_list) -> DWORD;
+        extern fn FormatMessageW(#[in] dwFlags: DWORD, #[in] #[opt] lpSource: LPCVOID, #[in] dwMessageId: DWORD, #[in] dwLanguageId: DWORD, #[incomplete] lpBuffer: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] Arguments: *mut va_list) -> DWORD;
         #[encoding("ansi")]
         const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: String = "GetSystemWow64DirectoryA";
         #[encoding("ansi")]
@@ -1070,9 +1070,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetApplicationRestartSettings(#[in] hProcess: HANDLE, #[opt] #[out] #[writable(entry, *pcchSize)] pwzCommandline: PWSTR, #[in] #[out] pcchSize: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetAtomNameA(#[in] nAtom: ATOM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,return + 1", "nSize,return + 1")] #[out] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: i32) -> UINT;
+        extern fn GetAtomNameA(#[in] nAtom: ATOM, #[incomplete] #[out] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetAtomNameW(#[in] nAtom: ATOM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,return + 1", "nSize,return + 1")] #[out] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: i32) -> UINT;
+        extern fn GetAtomNameW(#[in] nAtom: ATOM, #[incomplete] #[out] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
         extern fn GetBinaryTypeA(#[in] lpApplicationName: LPCSTR, #[out] lpBinaryType: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1117,21 +1117,19 @@ mod Windows {
         extern fn GetDefaultCommConfigW(#[in] lpszName: LPCWSTR, #[out] #[readable(success, bytes(*lpdwSize))] #[writable(entry, bytes(*lpdwSize))] lpCC: LPCOMMCONFIG, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetDevicePowerState(#[in] hDevice: HANDLE, #[out] pfOn: *mut BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetDllDirectoryA(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
+        extern fn GetDllDirectoryA(#[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetDllDirectoryW(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
+        extern fn GetDllDirectoryW(#[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetEnabledXStateFeatures() -> DWORD64;
         #[library("ADVAPI32.dll")]
         #[success(return != 0)]
         extern fn GetEventLogInformation(#[in] hEventLog: HANDLE, #[in] dwInfoLevel: DWORD, #[out] #[readable(success, bytes(*pcbBytesNeeded))] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPVOID, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesTransactedA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)")] #[out] lpFileInformation: LPVOID, #[in] hTransaction: HANDLE) -> BOOL;
+        extern fn GetFileAttributesTransactedA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[incomplete] #[out] lpFileInformation: LPVOID, #[in] hTransaction: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesTransactedW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)")] #[out] lpFileInformation: LPVOID, #[in] hTransaction: HANDLE) -> BOOL;
+        extern fn GetFileAttributesTransactedW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[incomplete] #[out] lpFileInformation: LPVOID, #[in] hTransaction: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetFileBandwidthReservation(#[in] hFile: HANDLE, #[out] lpPeriodMilliseconds: LPDWORD, #[out] lpBytesPerPeriod: LPDWORD, #[out] pDiscardable: LPBOOL, #[out] lpTransferSize: LPDWORD, #[out] lpNumOutstandingRequests: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1141,30 +1139,25 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetFileSecurityA(#[in] lpFileName: LPCSTR, #[in] RequestedInformation: SECURITY_INFORMATION, #[opt] #[out] #[readable(success, bytes(*lpnLengthNeeded))] #[writable(entry, bytes(nLength))] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFirmwareEnvironmentVariableA(#[in] lpName: LPCSTR, #[in] lpGuid: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "nSize,return", "nSize,return")] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetFirmwareEnvironmentVariableA(#[in] lpName: LPCSTR, #[in] lpGuid: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFirmwareEnvironmentVariableExA(#[in] lpName: LPCSTR, #[in] lpGuid: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "nSize,return", "nSize,return")] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD, #[opt] #[out] pdwAttribubutes: PDWORD) -> DWORD;
+        extern fn GetFirmwareEnvironmentVariableExA(#[in] lpName: LPCSTR, #[in] lpGuid: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD, #[opt] #[out] pdwAttribubutes: PDWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFirmwareEnvironmentVariableExW(#[in] lpName: LPCWSTR, #[in] lpGuid: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "nSize,return", "nSize,return")] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD, #[opt] #[out] pdwAttribubutes: PDWORD) -> DWORD;
+        extern fn GetFirmwareEnvironmentVariableExW(#[in] lpName: LPCWSTR, #[in] lpGuid: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD, #[opt] #[out] pdwAttribubutes: PDWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFirmwareEnvironmentVariableW(#[in] lpName: LPCWSTR, #[in] lpGuid: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "nSize,return", "nSize,return")] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetFirmwareEnvironmentVariableW(#[in] lpName: LPCWSTR, #[in] lpGuid: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nSize))] pBuffer: PVOID, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetFirmwareType(#[in] #[out] FirmwareType: PFIRMWARE_TYPE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameTransactedA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPSTR, #[in] hTransaction: HANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
+        extern fn GetFullPathNameTransactedA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPSTR, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameTransactedW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPWSTR, #[in] hTransaction: HANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return <= nBufferLength", "return != 0 && return <= nBufferLength")]
+        extern fn GetFullPathNameTransactedW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPWSTR, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetLogicalDriveStringsA(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
+        extern fn GetLogicalDriveStringsA(#[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetLongPathNameTransactedA(#[in] lpszShortPath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPSTR, #[in] cchBuffer: DWORD, #[in] hTransaction: HANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
+        extern fn GetLongPathNameTransactedA(#[in] lpszShortPath: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPSTR, #[in] cchBuffer: DWORD, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetLongPathNameTransactedW(#[in] lpszShortPath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPWSTR, #[in] cchBuffer: DWORD, #[in] hTransaction: HANDLE) -> DWORD;
+        extern fn GetLongPathNameTransactedW(#[in] lpszShortPath: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPWSTR, #[in] cchBuffer: DWORD, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetMailslotInfo(#[in] hMailslot: HANDLE, #[opt] #[out] lpMaxMessageSize: LPDWORD, #[opt] #[out] lpNextSize: LPDWORD, #[opt] #[out] lpMessageCount: LPDWORD, #[opt] #[out] lpReadTimeout: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1211,17 +1204,17 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetPrivateProfileIntW(#[in] lpAppName: LPCWSTR, #[in] lpKeyName: LPCWSTR, #[in] nDefault: INT, #[in] #[opt] lpFileName: LPCWSTR) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileSectionA(#[in] lpAppName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
+        extern fn GetPrivateProfileSectionA(#[in] lpAppName: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileSectionNamesA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpszReturnBuffer: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
+        extern fn GetPrivateProfileSectionNamesA(#[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpszReturnBuffer: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileSectionNamesW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpszReturnBuffer: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
+        extern fn GetPrivateProfileSectionNamesW(#[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpszReturnBuffer: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileSectionW(#[in] lpAppName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
+        extern fn GetPrivateProfileSectionW(#[in] lpAppName: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileStringA(#[in] #[opt] lpAppName: LPCSTR, #[in] #[opt] lpKeyName: LPCSTR, #[in] #[opt] lpDefault: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
+        extern fn GetPrivateProfileStringA(#[in] #[opt] lpAppName: LPCSTR, #[in] #[opt] lpKeyName: LPCSTR, #[in] #[opt] lpDefault: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetPrivateProfileStringW(#[in] #[opt] lpAppName: LPCWSTR, #[in] #[opt] lpKeyName: LPCWSTR, #[in] #[opt] lpDefault: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
+        extern fn GetPrivateProfileStringW(#[in] #[opt] lpAppName: LPCWSTR, #[in] #[opt] lpKeyName: LPCWSTR, #[in] #[opt] lpDefault: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD, #[in] #[opt] lpFileName: LPCWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetPrivateProfileStructA(#[in] lpszSection: LPCSTR, #[in] lpszKey: LPCSTR, #[opt] #[out] #[writable(entry, bytes(uSizeStruct))] lpStruct: LPVOID, #[in] uSizeStruct: UINT, #[in] #[opt] szFile: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1237,16 +1230,15 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetProfileIntW(#[in] lpAppName: LPCWSTR, #[in] lpKeyName: LPCWSTR, #[in] nDefault: INT) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetProfileSectionA(#[in] lpAppName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetProfileSectionA(#[in] lpAppName: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetProfileSectionW(#[in] lpAppName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetProfileSectionW(#[in] lpAppName: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetProfileStringA(#[in] #[opt] lpAppName: LPCSTR, #[in] #[opt] lpKeyName: LPCSTR, #[in] #[opt] lpDefault: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetProfileStringA(#[in] #[opt] lpAppName: LPCSTR, #[in] #[opt] lpKeyName: LPCSTR, #[in] #[opt] lpDefault: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetProfileStringW(#[in] #[opt] lpAppName: LPCWSTR, #[in] #[opt] lpKeyName: LPCWSTR, #[in] #[opt] lpDefault: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
+        extern fn GetProfileStringW(#[in] #[opt] lpAppName: LPCWSTR, #[in] #[opt] lpKeyName: LPCWSTR, #[in] #[opt] lpDefault: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpReturnedString: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetShortPathNameA(#[in] lpszLongPath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszShortPath: LPSTR, #[in] cchBuffer: DWORD) -> DWORD;
+        extern fn GetShortPathNameA(#[in] lpszLongPath: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, cchBuffer)] lpszShortPath: LPSTR, #[in] cchBuffer: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetStartupInfoA(#[out] lpStartupInfo: LPSTARTUPINFOA);
         #[library("KERNEL32.dll")]
@@ -1292,7 +1284,6 @@ mod Windows {
         extern fn GlobalAddAtomExW(#[in] #[opt] lpString: LPCWSTR, #[in] Flags: DWORD) -> ATOM;
         #[library("KERNEL32.dll")]
         extern fn GlobalAddAtomW(#[in] #[opt] lpString: LPCWSTR) -> ATOM;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn GlobalAlloc(#[in] uFlags: UINT, #[in] dwBytes: SIZE_T) -> HGLOBAL;
@@ -1310,23 +1301,19 @@ mod Windows {
         extern fn GlobalFlags(#[in] hMem: HGLOBAL) -> UINT;
         #[library("KERNEL32.dll")]
         #[success(return == 0)]
-        extern fn GlobalFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HGLOBAL) -> #[nullable] HGLOBAL;
+        extern fn GlobalFree(#[incomplete] hMem: HGLOBAL) -> #[nullable] HGLOBAL;
         #[library("KERNEL32.dll")]
-        extern fn GlobalGetAtomNameA(#[in] nAtom: ATOM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,return + 1", "nSize,return + 1")] #[out] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: i32) -> UINT;
+        extern fn GlobalGetAtomNameA(#[in] nAtom: ATOM, #[incomplete] #[out] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GlobalGetAtomNameW(#[in] nAtom: ATOM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,return + 1", "nSize,return + 1")] #[out] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: i32) -> UINT;
+        extern fn GlobalGetAtomNameW(#[in] nAtom: ATOM, #[incomplete] #[out] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
         extern fn GlobalHandle(#[in] pMem: LPCVOID) -> #[nullable] HGLOBAL;
         #[library("KERNEL32.dll")]
         extern fn GlobalLock(#[in] hMem: HGLOBAL) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"GlobalMemoryStatusEx\",\"Deprecated. See MSDN for details\"", "\"GlobalMemoryStatusEx\",\"Deprecated. See MSDN for details\"")]
         #[library("KERNEL32.dll")]
         extern fn GlobalMemoryStatus(#[out] lpBuffer: LPMEMORYSTATUS);
-        #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(_Curr_),_Post_maybenull_ _Post_writable_byte_size_(dwBytes) _When_(((hMem) == NULL || (dwBytes) > 0), _Must_inspect_result_)", "(_Curr_), _Post_maybenull_ _Post_writable_byte_size_(dwBytes) _When_(((hMem) == 0 || (dwBytes) > 0), _Must_inspect_result_)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(hMem),_Post_ptr_invalid_ __drv_freesMem(Mem)", "(hMem), _Post_ptr_invalid_ __drv_freesMem(Mem)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "(_Curr_) != 0 || (dwBytes) == 0", "(_Curr_) != 0 || (dwBytes) == 0")]
         #[library("KERNEL32.dll")]
-        extern fn GlobalReAlloc(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_", "", "")] hMem: HGLOBAL, #[in] dwBytes: SIZE_T, #[in] uFlags: UINT) -> HGLOBAL;
+        extern fn GlobalReAlloc(#[incomplete] hMem: HGLOBAL, #[in] dwBytes: SIZE_T, #[in] uFlags: UINT) -> HGLOBAL;
         #[library("KERNEL32.dll")]
         extern fn GlobalSize(#[in] hMem: HGLOBAL) -> SIZE_T;
         #[library("KERNEL32.dll")]
@@ -1457,7 +1444,6 @@ mod Windows {
         extern fn LoadModule(#[in] lpModuleName: LPCSTR, #[in] lpParameterBlock: LPVOID) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn LoadPackagedLibrary(#[in] lpwLibFileName: LPCWSTR, #[reserved] Reserved: DWORD) -> #[nullable] HMODULE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "uBytes", "uBytes")]
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn LocalAlloc(#[in] uFlags: UINT, #[in] uBytes: SIZE_T) -> HLOCAL;
@@ -1467,16 +1453,13 @@ mod Windows {
         extern fn LocalFlags(#[in] hMem: HLOCAL) -> UINT;
         #[library("KERNEL32.dll")]
         #[success(return == 0)]
-        extern fn LocalFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HLOCAL) -> #[nullable] HLOCAL;
+        extern fn LocalFree(#[incomplete] hMem: HLOCAL) -> #[nullable] HLOCAL;
         #[library("KERNEL32.dll")]
         extern fn LocalHandle(#[in] pMem: LPCVOID) -> #[nullable] HLOCAL;
         #[library("KERNEL32.dll")]
         extern fn LocalLock(#[in] hMem: HLOCAL) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(_Curr_),_Post_maybenull_ _Post_writable_byte_size_(uBytes) _When_(((hMem) == NULL || (uBytes) > 0), _Must_inspect_result_)", "(_Curr_), _Post_maybenull_ _Post_writable_byte_size_(uBytes) _When_(((hMem) == 0 || (uBytes) > 0), _Must_inspect_result_)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(hMem),_Post_ptr_invalid_ __drv_freesMem(Mem)", "(hMem), _Post_ptr_invalid_ __drv_freesMem(Mem)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "(_Curr_) != 0 || (uBytes) == 0", "(_Curr_) != 0 || (uBytes) == 0")]
         #[library("KERNEL32.dll")]
-        extern fn LocalReAlloc(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HLOCAL, #[in] uBytes: SIZE_T, #[in] uFlags: UINT) -> HLOCAL;
+        extern fn LocalReAlloc(#[incomplete] hMem: HLOCAL, #[in] uBytes: SIZE_T, #[in] uFlags: UINT) -> HLOCAL;
         #[library("KERNEL32.dll")]
         extern fn LocalShrink(#[in] hMem: HLOCAL, #[in] cbNewSize: UINT) -> SIZE_T;
         #[library("KERNEL32.dll")]
@@ -1549,7 +1532,6 @@ mod Windows {
         const MS_RLSD_ON: DWORD = 128;
         #[library("KERNEL32.dll")]
         extern fn MapUserPhysicalPagesScatter(#[in] #[readable(entry, NumberOfPages)] VirtualAddresses: *mut PVOID, #[in] NumberOfPages: ULONG_PTR, #[in] #[opt] #[readable(entry, NumberOfPages)] PageArray: PULONG_PTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFileExNuma(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] lpBaseAddress: LPVOID, #[in] nndPreferred: DWORD) -> #[nullable] LPVOID;
         #[library("KERNEL32.dll")]
@@ -1723,8 +1705,8 @@ mod Windows {
         type PFILE_STANDARD_INFO = *mut FILE_STANDARD_INFO;
         type PFILE_STORAGE_INFO = *mut FILE_STORAGE_INFO;
         type PFILE_STREAM_INFO = *mut FILE_STREAM_INFO;
-        extern fn PGET_SYSTEM_WOW64_DIRECTORY_A(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
-        extern fn PGET_SYSTEM_WOW64_DIRECTORY_W(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
+        extern fn PGET_SYSTEM_WOW64_DIRECTORY_A(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
+        extern fn PGET_SYSTEM_WOW64_DIRECTORY_W(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
         const PIPE_ACCEPT_REMOTE_CLIENTS: i32 = 0;
         const PIPE_ACCESS_DUPLEX: i32 = 3;
         const PIPE_ACCESS_INBOUND: i32 = 1;
@@ -2037,7 +2019,6 @@ mod Windows {
         const PST_X25: DWORD = 259;
         type PUMS_COMPLETION_LIST = *mut void;
         type PUMS_CONTEXT = *mut void;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_UMS_SCHEDULER_ENTRY_POINT", "RTL_UMS_SCHEDULER_ENTRY_POINT", TypedefName = "RTL_UMS_SCHEDULER_ENTRY_POINT")]
         extern fn PUMS_SCHEDULER_ENTRY_POINT(#[in] Reason: RTL_UMS_SCHEDULER_REASON, #[in] ActivationPayload: ULONG_PTR, #[in] SchedulerParam: PVOID);
         type PUMS_SCHEDULER_STARTUP_INFO = *mut UMS_SCHEDULER_STARTUP_INFO;
         type PUMS_SYSTEM_THREAD_INFORMATION = *mut UMS_SYSTEM_THREAD_INFORMATION;
@@ -2070,7 +2051,7 @@ mod Windows {
         #[success(return != 0)]
         extern fn QueryActCtxW(#[in] dwFlags: DWORD, #[in] hActCtx: HANDLE, #[in] #[opt] pvSubInstance: PVOID, #[in] ulInfoClass: ULONG, #[opt] #[out] #[readable(success, bytes(if_present(*pcbWrittenOrRequired)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: PVOID, #[in] cbBuffer: SIZE_T, #[opt] #[out] pcbWrittenOrRequired: *mut SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryDosDeviceA(#[in] #[opt] lpDeviceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "ucchMax,return", "ucchMax,return")] #[opt] #[out] #[writable(entry, ucchMax)] lpTargetPath: LPSTR, #[in] ucchMax: DWORD) -> DWORD;
+        extern fn QueryDosDeviceA(#[in] #[opt] lpDeviceName: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, ucchMax)] lpTargetPath: LPSTR, #[in] ucchMax: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn QueryFullProcessImageNameA(#[in] hProcess: HANDLE, #[in] dwFlags: DWORD, #[out] #[readable(success, *lpdwSize)] #[writable(entry, *lpdwSize)] lpExeName: LPSTR, #[in] #[out] lpdwSize: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -2449,7 +2430,6 @@ mod Windows {
         extern fn WaitCommEvent(#[in] hFile: HANDLE, #[in] #[out] lpEvtMask: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn WaitNamedPipeA(#[in] lpNamedPipeName: LPCSTR, #[in] nTimeOut: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"CreateProcess\",\"Deprecated. See MSDN for details\"", "\"CreateProcess\",\"Deprecated. See MSDN for details\"")]
         #[library("KERNEL32.dll")]
         extern fn WinExec(#[in] lpCmdLine: LPCSTR, #[in] uCmdShow: UINT) -> UINT;
         #[library("KERNEL32.dll")]
@@ -2481,7 +2461,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ZombifyActCtx(#[in] #[out] hActCtx: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn _hread(#[in] hFile: HFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "lBytes,return", "lBytes,return")] #[out] #[writable(entry, bytes(lBytes))] lpBuffer: LPVOID, #[in] lBytes: i32) -> i32;
+        extern fn _hread(#[in] hFile: HFILE, #[incomplete] #[out] #[writable(entry, bytes(lBytes))] lpBuffer: LPVOID, #[in] lBytes: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn _hwrite(#[in] hFile: HFILE, #[in] #[readable(entry, bytes(lBytes))] lpBuffer: LPCCH, #[in] lBytes: i32) -> i32;
         #[library("KERNEL32.dll")]
@@ -2493,13 +2473,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn _lopen(#[in] lpPathName: LPCSTR, #[in] iReadWrite: i32) -> HFILE;
         #[library("KERNEL32.dll")]
-        extern fn _lread(#[in] hFile: HFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "uBytes,return", "uBytes,return")] #[out] #[writable(entry, bytes(uBytes))] lpBuffer: LPVOID, #[in] uBytes: UINT) -> UINT;
+        extern fn _lread(#[in] hFile: HFILE, #[incomplete] #[out] #[writable(entry, bytes(uBytes))] lpBuffer: LPVOID, #[in] uBytes: UINT) -> UINT;
         #[library("KERNEL32.dll")]
         extern fn _lwrite(#[in] hFile: HFILE, #[in] #[readable(entry, bytes(uBytes))] lpBuffer: LPCCH, #[in] uBytes: UINT) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn lstrcatA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_z_", "_String_length_(lpString1) + _String_length_(lpString2) + 1", "_String_length_(lpString1) + _String_length_(lpString2) + 1")] #[in] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
+        extern fn lstrcatA(#[in] #[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("KERNEL32.dll")]
-        extern fn lstrcatW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_z_", "_String_length_(lpString1) + _String_length_(lpString2) + 1", "_String_length_(lpString1) + _String_length_(lpString2) + 1")] #[in] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR) -> LPWSTR;
+        extern fn lstrcatW(#[in] #[incomplete] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR) -> LPWSTR;
         #[library("KERNEL32.dll")]
         extern fn lstrcmpA(#[in] lpString1: LPCSTR, #[in] lpString2: LPCSTR) -> i32;
         #[library("KERNEL32.dll")]
@@ -2509,15 +2489,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn lstrcmpiW(#[in] lpString1: LPCWSTR, #[in] lpString2: LPCWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn lstrcpyA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_String_length_(lpString2) + 1", "_String_length_(lpString2) + 1")] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
+        extern fn lstrcpyA(#[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("KERNEL32.dll")]
-        extern fn lstrcpyW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_String_length_(lpString2) + 1", "_String_length_(lpString2) + 1")] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR) -> LPWSTR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
+        extern fn lstrcpyW(#[incomplete] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR) -> LPWSTR;
         #[library("KERNEL32.dll")]
         #[must_use]
         #[success(return != 0)]
         extern fn lstrcpynA(#[out] #[writable(entry, iMaxLength)] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> #[nullable] LPSTR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
         #[library("KERNEL32.dll")]
         #[must_use]
         #[success(return != 0)]

@@ -54,7 +54,6 @@ mod Windows {
         extern fn NCryptCloseProtectionDescriptor(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptCreateProtectionDescriptor(#[in] pwszDescriptorString: LPCWSTR, dwFlags: DWORD, #[out] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoType == NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING,_At_((LPWSTR*)ppvInfo, _Outptr_result_nullonfailure_)", "dwInfoType == 0x00000001, _At_((LPWSTR*)ppvInfo, _Outptr_result_nullonfailure_)")]
         #[library("ncrypt.dll")]
         #[success(return == 0)]
         extern fn NCryptGetProtectionDescriptorInfo(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, dwInfoType: DWORD, #[out] #[out_ptr] ppvInfo: *mut *mut void) -> SECURITY_STATUS;

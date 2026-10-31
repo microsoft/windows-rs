@@ -6,7 +6,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateJobObjectW(#[in] #[opt] lpJobAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FreeMemoryJobObject(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_", "", "")] #[in] Buffer: *mut void);
+        extern fn FreeMemoryJobObject(#[in] #[incomplete] Buffer: *mut void);
         struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
             MaxIops: LONG64,
             MaxBandwidth: LONG64,

@@ -219,7 +219,6 @@ mod Windows {
             ascenderOffset: FLOAT,
         }
         struct DWRITE_GLYPH_RUN {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Notnull_", "", "")]
             fontFace: IDWriteFontFace,
             fontEmSize: FLOAT,
             glyphCount: UINT32,
@@ -235,7 +234,6 @@ mod Windows {
             bidiLevel: UINT32,
         }
         struct DWRITE_GLYPH_RUN_DESCRIPTION {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             localeName: *const WCHAR,
             #[writable(stringLength)]
             string: *const WCHAR,
@@ -401,7 +399,6 @@ mod Windows {
             offset: FLOAT,
             readingDirection: DWRITE_READING_DIRECTION,
             flowDirection: DWRITE_FLOW_DIRECTION,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             localeName: *const WCHAR,
             measuringMode: DWRITE_MEASURING_MODE,
         }
@@ -455,7 +452,6 @@ mod Windows {
             runHeight: FLOAT,
             readingDirection: DWRITE_READING_DIRECTION,
             flowDirection: DWRITE_FLOW_DIRECTION,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             localeName: *const WCHAR,
             measuringMode: DWRITE_MEASURING_MODE,
         }

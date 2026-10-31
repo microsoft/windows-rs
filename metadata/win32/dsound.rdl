@@ -536,26 +536,26 @@ mod Windows {
         const DS_OK: HRESULT = 0;
         const DS_UNCERTIFIED: i32 = 1;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC: *mut LPDIRECTSOUNDCAPTURE, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCaptureCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC: *mut LPDIRECTSOUNDCAPTURE, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC8: *mut LPDIRECTSOUNDCAPTURE8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCaptureCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC8: *mut LPDIRECTSOUNDCAPTURE8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureEnumerateA(#[in] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureEnumerateW(#[in] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         #[must_use]
-        extern fn DirectSoundCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS: *mut LPDIRECTSOUND, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS: *mut LPDIRECTSOUND, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS8: *mut LPDIRECTSOUND8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS8: *mut LPDIRECTSOUND8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundEnumerateA(#[in] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundEnumerateW(#[in] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundFullDuplexCreate(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll", import = "DirectSoundFullDuplexCreate")]
-        extern fn DirectSoundFullDuplexCreate8(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate8(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         const GUID_All_Objects: GUID = 0xaa114de5_c262_4169_a1c8_23d698cc73b5;
         const GUID_DSCFX_CLASS_AEC: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const GUID_DSCFX_CLASS_NS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
@@ -582,7 +582,7 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] #[out_ptr] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] #[out_ptr] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
             fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
             fn DuplicateSoundBuffer(&self, #[in] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[out_ptr] #[retval] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
             fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: DWORD) -> HRESULT;
@@ -651,7 +651,7 @@ mod Windows {
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             #[override_slot(3)]
-            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
             #[override_slot(4)]
             fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
             #[override_slot(5)]
@@ -751,7 +751,7 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn CreateCaptureBuffer(&self, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[out] #[out_ptr] ppDSCBuffer: *mut LPDIRECTSOUNDCAPTUREBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            fn CreateCaptureBuffer(&self, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[out] #[out_ptr] ppDSCBuffer: *mut LPDIRECTSOUNDCAPTUREBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
             fn GetCaps(&self, #[out] pDSCCaps: LPDSCCAPS) -> HRESULT;
             fn Initialize(&self, #[in] #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
         }

@@ -34,7 +34,7 @@ mod Windows {
         extern fn CoFreeLibrary(#[in] hInst: HINSTANCE);
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwszName: *mut OLECHAR, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] grfMode: DWORD, #[in] #[incomplete] pwszName: *mut OLECHAR, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetInstanceFromIStorage(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] pstg: IStorage, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
@@ -125,7 +125,7 @@ mod Windows {
         const STG_TOEND: u32 = 4294967295;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgGetIFillLockBytesOnFile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsName: *const OLECHAR, #[out] #[out_ptr] #[retval] ppflb: *mut IFillLockBytes) -> HRESULT;
+        extern fn StgGetIFillLockBytesOnFile(#[in] #[incomplete] pwcsName: *const OLECHAR, #[out] #[out_ptr] #[retval] ppflb: *mut IFillLockBytes) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn StgGetIFillLockBytesOnILockBytes(#[in] pilb: ILockBytes, #[out] #[out_ptr] #[retval] ppflb: *mut IFillLockBytes) -> HRESULT;
@@ -134,6 +134,6 @@ mod Windows {
         extern fn StgOpenAsyncDocfileOnIFillLockBytes(#[in] pflb: IFillLockBytes, #[in] grfMode: DWORD, #[in] asyncFlags: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("dflayout.dll")]
         #[must_use]
-        extern fn StgOpenLayoutDocfile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsDfName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgOpenLayoutDocfile(#[in] #[incomplete] pwcsDfName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
     }
 }

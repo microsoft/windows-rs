@@ -1832,7 +1832,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn MakeDragList(hLB: HWND) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn MenuHelp(uMsg: UINT, wParam: WPARAM, lParam: LPARAM, hMainMenu: HMENU, hInst: HINSTANCE, hwndStatus: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2 + 2n && n >= 1)", "_Inexpressible_(2 + 2n && n >= 1)")] #[in] lpwIDs: *mut UINT);
+        extern fn MenuHelp(uMsg: UINT, wParam: WPARAM, lParam: LPARAM, hMainMenu: HMENU, hInst: HINSTANCE, hwndStatus: HWND, #[in] #[incomplete] lpwIDs: *mut UINT);
         const NFS_ALL: i32 = 16;
         const NFS_BUTTON: i32 = 8;
         const NFS_EDIT: i32 = 1;

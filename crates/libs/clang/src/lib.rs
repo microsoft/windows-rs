@@ -293,7 +293,7 @@ pub struct SalAnnotation {
     pub name: String,
     /// Arguments supplied to the hook, possibly already substituted by outer SAL macros.
     pub arguments: String,
-    /// Arguments after further expansion, including nested annotation transport.
+    /// Arguments after further expansion, with nested annotations decoded to SAL spelling.
     pub expanded: String,
 }
 

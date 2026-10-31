@@ -37,17 +37,17 @@ mod Windows {
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchCombineEx(#[out] #[writable(entry, cchPathOut)] pszPathOut: PWSTR, #[in] cchPathOut: size_t, #[in] #[opt] pszPathIn: PCWSTR, #[in] #[opt] pszMore: PCWSTR, #[in] dwFlags: ULONG) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchFindExtension(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(cchPath)", "_Inexpressible_(cchPath)")] #[in] pszPath: PCWSTR, #[in] cchPath: size_t, #[out] #[out_ptr] ppszExt: *mut PCWSTR) -> HRESULT;
+        extern fn PathCchFindExtension(#[in] #[incomplete] pszPath: PCWSTR, #[in] cchPath: size_t, #[out] #[out_ptr] ppszExt: *mut PCWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchIsRoot(#[in] #[opt] pszPath: PCWSTR) -> BOOL;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchRemoveBackslash(#[in] #[out] #[writable(entry, cchPath)] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchRemoveBackslashEx(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "_Inexpressible_(cchPath)", "_Inexpressible_(cchPath)")] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t, #[opt] #[out] #[writable(success, if_present(*pcchRemaining), indirect)] ppszEnd: *mut PWSTR, #[opt] #[out] pcchRemaining: *mut size_t) -> HRESULT;
+        extern fn PathCchRemoveBackslashEx(#[in] #[incomplete] #[out] pszPath: PWSTR, #[in] cchPath: size_t, #[opt] #[out] #[writable(success, if_present(*pcchRemaining), indirect)] ppszEnd: *mut PWSTR, #[opt] #[out] pcchRemaining: *mut size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchRemoveExtension(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "_Inexpressible_(cchPath)", "_Inexpressible_(cchPath)")] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
+        extern fn PathCchRemoveExtension(#[in] #[incomplete] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchRemoveFileSpec(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "_Inexpressible_(cchPath)", "_Inexpressible_(cchPath)")] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
+        extern fn PathCchRemoveFileSpec(#[in] #[incomplete] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchRenameExtension(#[in] #[out] #[writable(entry, cchPath)] pszPath: PWSTR, #[in] cchPath: size_t, #[in] pszExt: PCWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
@@ -55,7 +55,7 @@ mod Windows {
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchStripPrefix(#[in] #[out] #[writable(entry, cchPath)] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchStripToRoot(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "_Inexpressible_(cchPath)", "_Inexpressible_(cchPath)")] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
+        extern fn PathCchStripToRoot(#[in] #[incomplete] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathIsUNCEx(#[in] pszPath: PCWSTR, #[opt] #[out] #[out_ptr] ppszServer: *mut PCWSTR) -> BOOL;
         #[encoding("utf-16")]

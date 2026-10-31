@@ -120,8 +120,6 @@ mod Windows {
             ScopeIsSystem: BOOL,
             PackageFamilyName: PCWSTR,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*bufferLength)", "_Unchanged_(*bufferLength)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*count)", "_Unchanged_(*count)")]
         #[library("KERNEL32.dll")]
         #[must_use]
         #[success(return == 0)]
@@ -202,8 +200,6 @@ mod Windows {
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
         #[success(return == 0)]
         extern fn GetPackagePathByFullName2(#[in] packageFullName: PCWSTR, #[in] packagePathType: PackagePathType, #[in] #[out] pathLength: *mut UINT32, #[opt] #[out] #[writable(entry, *pathLength)] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*bufferLength)", "_Unchanged_(*bufferLength)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*count)", "_Unchanged_(*count)")]
         #[library("KERNEL32.dll")]
         #[must_use]
         #[success(return == 0)]
@@ -218,7 +214,6 @@ mod Windows {
         #[must_use]
         #[success(return == 0)]
         extern fn GetStagedPackageOrigin(#[in] packageFullName: PCWSTR, #[out] origin: *mut PackageOrigin) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "(((HRESULT)(return)) >= 0)", "(((HRESULT)(return)) >= 0)")]
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
         #[must_use]
         extern fn GetStagedPackageOrigin2(#[in] packageFullName: PCWSTR, #[out] origin: *mut PackageOrigin2) -> HRESULT;

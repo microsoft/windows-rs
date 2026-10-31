@@ -595,9 +595,7 @@ mod Windows {
         }
         #[packed(1)]
         struct D3DKMT_NODEMETADATA {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NodeOrdinalAndAdapterIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             NodeData: DXGK_NODEMETADATA,
         }
         #[packed(1)]
@@ -609,11 +607,8 @@ mod Windows {
         }
         #[packed(1)]
         struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             PhysicalAdapterIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             EngineType: DXGK_ENGINE_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Support: BOOL,
         }
         struct D3DKMT_WDDM_1_2_CAPS {

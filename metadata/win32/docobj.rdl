@@ -79,19 +79,12 @@ mod Windows {
         interface IZoomEvents: IUnknown {
             fn OnZoomPercentChanged(&self, #[in] ulZoomPercent: ULONG) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPCONTINUECALLBACK = IContinueCallback;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMOLEDOCUMENTVIEWS = IEnumOleDocumentViews;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECOMMANDTARGET = IOleCommandTarget;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEDOCUMENT = IOleDocument;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEDOCUMENTSITE = IOleDocumentSite;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEDOCUMENTVIEW = IOleDocumentView;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPRINT = IPrint;
         #[repr(i32)]
         enum MEDIAPLAYBACK_STATE {

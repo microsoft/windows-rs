@@ -146,11 +146,8 @@ mod Windows {
         const IIS_ControlAccessible: GUID = 0x38c682a6_9731_43f2_9fae_e901e641b101;
         const IIS_IsOleaccProxy: GUID = 0x902697fa_80e4_4560_802a_a13f22a64709;
         const LIBID_Accessibility: GUID = 0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPACCESSIBLE = IAccessible;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPACCESSIBLEHANDLER = IAccessibleHandler;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPACCESSIBLEWINDOWLESSSITE = IAccessibleWindowlessSite;
         extern fn LPFNACCESSIBLECHILDREN(paccContainer: IAccessible, iChildStart: LONG, cChildren: LONG, rgvarChildren: *mut VARIANT, pcObtained: *mut LONG) -> HRESULT;
         extern fn LPFNACCESSIBLEOBJECTFROMPOINT(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;

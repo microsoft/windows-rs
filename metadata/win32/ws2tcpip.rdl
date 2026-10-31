@@ -47,9 +47,9 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn InetNtopW(#[in] Family: INT, #[in] pAddr: *const void, #[out] #[writable(entry, StringBufSize)] pStringBuf: PWSTR, #[in] StringBufSize: size_t) -> PCWSTR;
         #[library("WS2_32.dll", import = "inet_pton")]
-        extern fn InetPtonA(#[in] Family: INT, #[in] pszAddrString: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+        extern fn InetPtonA(#[in] Family: INT, #[in] pszAddrString: PCSTR, #[incomplete] pAddrBuf: PVOID) -> INT;
         #[library("WS2_32.dll")]
-        extern fn InetPtonW(#[in] Family: INT, #[in] pszAddrString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+        extern fn InetPtonW(#[in] Family: INT, #[in] pszAddrString: PCWSTR, #[incomplete] pAddrBuf: PVOID) -> INT;
         type LPADDRINFO = *mut ADDRINFOA;
         extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] dwBytes: DWORD, #[in] lpOverlapped: LPWSAOVERLAPPED);
         type PADDRINFOEX = *mut ADDRINFOEXA;
@@ -70,7 +70,7 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn inet_ntop(#[in] Family: INT, #[in] pAddr: *const void, #[out] #[writable(entry, StringBufSize)] pStringBuf: PSTR, #[in] StringBufSize: size_t) -> PCSTR;
         #[library("WS2_32.dll")]
-        extern fn inet_pton(#[in] Family: INT, #[in] pszAddrString: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+        extern fn inet_pton(#[in] Family: INT, #[in] pszAddrString: PCSTR, #[incomplete] pAddrBuf: PVOID) -> INT;
         type socklen_t = i32;
     }
 }

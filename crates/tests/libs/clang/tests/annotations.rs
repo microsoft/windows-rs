@@ -1,30 +1,6 @@
 use windows_clang::*;
-use windows_metadata::{Value, reader, reader::HasAttributes};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
-
-fn attributes<'a>(value: impl HasAttributes<'a>) -> Vec<Vec<Value>> {
-    value
-        .attributes()
-        .filter(|attribute| attribute.name() == "NativeSalAttribute")
-        .map(|attribute| {
-            attribute
-                .value()
-                .into_iter()
-                .map(|(_, value)| value)
-                .collect()
-        })
-        .collect()
-}
-
-fn annotation(name: &str, arguments: &str, expanded: &str) -> Vec<Value> {
-    vec![
-        Value::Utf8("2".into()),
-        Value::Utf8(name.into()),
-        Value::Utf8(arguments.into()),
-        Value::Utf8(expanded.into()),
-    ]
-}
 
 #[test]
 fn alias_annotation_reconciliation() {
@@ -48,7 +24,6 @@ fn alias_annotation_reconciliation() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert_eq!(text.matches("NativeSal(").count(), 1);
         assert!(text.contains("#[success(return >= 0)]"));
         if let Some(expected) = &expected {
             assert_eq!(&output, expected);
@@ -89,23 +64,6 @@ fn expanded_annotation_owner_is_not_discarded() {
         .map(|part| part.rdl.as_str())
         .collect();
     assert!(text.contains("value: *mut AnnotatedVoid,"));
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let winmd = root.join("target\\test-clang-annotation-void-owner.winmd");
-    windows_rdl::reader()
-        .input(root.join("metadata\\metadata.rdl"))
-        .input_text(&text)
-        .output(&winmd)
-        .write()
-        .unwrap();
-    let index = reader::Index::read(&winmd).unwrap();
-    assert_eq!(
-        attributes(index.expect("Fixture", "AnnotatedVoid")),
-        [annotation(
-            "_Return_type_success_",
-            "return >= 0",
-            "return >= 0"
-        )]
-    );
 
     input.roots = vec!["UsesConstVoid".into()];
     let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
@@ -178,24 +136,7 @@ fn nested_annotation_transport() {
     let expanded = format!("1'000, {ordinary_literal}, {raw_literal}, {native}");
     let expected = format!("1'000, {ordinary_literal}, {raw_literal}, _In_reads_(16)");
     let snapshots = capture(&[input(&expanded)], &TARGETS).unwrap();
-    let evidence = format!("{snapshots:?}");
-    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
-    assert_eq!(format!("{snapshots:?}"), evidence);
-    let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let path = root.join("target\\test-clang-nested-transport.winmd");
-    windows_rdl::reader()
-        .input(root.join("metadata\\metadata.rdl"))
-        .input_text(&text)
-        .output(&path)
-        .write()
-        .unwrap();
-    let index = reader::Index::read(&path).unwrap();
-    assert_eq!(
-        attributes(index.expect("Fixture", "Annotated")),
-        vec![annotation("_When_", "n > 0,_In_reads_(LIMIT)", &expected)]
-    );
-    std::fs::remove_file(path).unwrap();
+    assert!(format!("{snapshots:?}").contains(&format!("{expected:?}")));
 
     for malformed in [
         native.replace("sal:2:", "sal:3:"),
@@ -203,8 +144,10 @@ fn nested_annotation_transport() {
         native.replace("\\n", "\\t"),
     ] {
         let input = input(&malformed);
-        let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
-        assert!(projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err());
+        let error = capture(std::slice::from_ref(&input), &TARGETS)
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("SAL"), "{error}");
         let partial = projection::generate_partial(&[input], "Fixture").unwrap();
         assert_eq!(partial.output.records, 0);
         assert!(partial.omissions.iter().any(|error| error.contains("SAL")));
@@ -213,8 +156,7 @@ fn nested_annotation_transport() {
     inputs[1].name = "other.h".into();
     for _ in 0..2 {
         let snapshots = capture(&inputs, &TARGETS).unwrap();
-        assert!(merge(&snapshots).is_err());
-        assert!(capture_partial(&inputs, &TARGETS).is_err());
+        projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
         inputs.reverse();
     }
 }

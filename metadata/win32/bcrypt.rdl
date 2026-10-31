@@ -116,7 +116,6 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_DH_PARAMETERS: String = "DHParameters";
         const BCRYPT_DH_PARAMETERS_MAGIC: i32 = 1297107012;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbLength", "cbLength", TypedefName = "BCRYPT_DH_PARAMETER_HEADER")]
         struct BCRYPT_DH_PARAMETER_HEADER {
             cbLength: ULONG,
             dwMagic: ULONG,
@@ -877,7 +876,7 @@ mod Windows {
         extern fn BCryptQueryContextFunctionConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[opt] #[out] ppbValue: *mut PUCHAR) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[incomplete] #[opt] #[out] ppbValue: *mut PUCHAR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptQueryProviderRegistration(#[in] #[null_terminated(entry)] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[nullable] #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect)] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;

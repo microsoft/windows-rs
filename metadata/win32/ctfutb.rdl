@@ -86,7 +86,7 @@ mod Windows {
         }
         #[guid(0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8)]
         interface ITfMenu: IUnknown {
-            fn AddMenuItem(&self, #[in] uId: UINT, #[in] dwFlags: DWORD, #[in] hbmp: HBITMAP, #[in] hbmpMask: HBITMAP, #[in] #[opt] #[readable(entry, cch)] pch: *const WCHAR, #[in] cch: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppMenu: *mut ITfMenu) -> HRESULT;
+            fn AddMenuItem(&self, #[in] uId: UINT, #[in] dwFlags: DWORD, #[in] hbmp: HBITMAP, #[in] hbmpMask: HBITMAP, #[in] #[opt] #[readable(entry, cch)] pch: *const WCHAR, #[in] cch: ULONG, #[in] #[incomplete] #[opt] #[out] ppMenu: *mut ITfMenu) -> HRESULT;
         }
         #[guid(0x45672eb9_9059_46a2_838d_4530355f6a77)]
         interface ITfSystemDeviceTypeLangBarItem: IUnknown {

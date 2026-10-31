@@ -10,10 +10,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn BSTR_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut BSTR);
         #[library("OLEAUT32.dll")]
-        extern fn BSTR_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
+        extern fn BSTR_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn BSTR_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
+        extern fn BSTR_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
         #[library("OLEAUT32.dll")]
         extern fn BSTR_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
         #[arch(X64 | Arm64)]
@@ -35,10 +35,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CLIPFORMAT_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut CLIPFORMAT);
         #[library("ole32.dll")]
-        extern fn CLIPFORMAT_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
+        extern fn CLIPFORMAT_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn CLIPFORMAT_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
+        extern fn CLIPFORMAT_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
         #[library("ole32.dll")]
         extern fn CLIPFORMAT_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut CLIPFORMAT) -> u32;
         #[arch(X64 | Arm64)]
@@ -118,10 +118,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HACCEL_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HACCEL);
         #[library("ole32.dll")]
-        extern fn HACCEL_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
+        extern fn HACCEL_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HACCEL_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
+        extern fn HACCEL_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HACCEL_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HACCEL) -> u32;
         #[arch(X64 | Arm64)]
@@ -138,10 +138,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HBITMAP_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HBITMAP);
         #[library("ole32.dll")]
-        extern fn HBITMAP_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
+        extern fn HBITMAP_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HBITMAP_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
+        extern fn HBITMAP_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HBITMAP_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HBITMAP) -> u32;
         #[arch(X64 | Arm64)]
@@ -159,10 +159,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HDC_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HDC);
         #[library("ole32.dll")]
-        extern fn HDC_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
+        extern fn HDC_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HDC_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
+        extern fn HDC_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HDC_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HDC) -> u32;
         #[arch(X64 | Arm64)]
@@ -179,10 +179,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HGLOBAL_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HGLOBAL);
         #[library("ole32.dll")]
-        extern fn HGLOBAL_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
+        extern fn HGLOBAL_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HGLOBAL_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
+        extern fn HGLOBAL_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HGLOBAL_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HGLOBAL) -> u32;
         #[arch(X64 | Arm64)]
@@ -199,10 +199,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HICON_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HICON);
         #[library("ole32.dll")]
-        extern fn HICON_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
+        extern fn HICON_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HICON_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
+        extern fn HICON_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HICON_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HICON) -> u32;
         #[arch(X64 | Arm64)]
@@ -225,10 +225,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HMENU_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HMENU);
         #[library("ole32.dll")]
-        extern fn HMENU_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
+        extern fn HMENU_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HMENU_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
+        extern fn HMENU_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HMENU_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMENU) -> u32;
         #[arch(X64 | Arm64)]
@@ -245,10 +245,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HMONITOR_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HMONITOR);
         #[library("ole32.dll")]
-        extern fn HMONITOR_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
+        extern fn HMONITOR_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HMONITOR_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
+        extern fn HMONITOR_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HMONITOR_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMONITOR) -> u32;
         #[arch(X64 | Arm64)]
@@ -262,7 +262,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HPALETTE_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HPALETTE_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
         #[library("ole32.dll")]
@@ -275,10 +275,10 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn HSTRING_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HSTRING);
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
+        extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[in] #[incomplete] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
         #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn HSTRING_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HSTRING) -> *mut u8;
+        extern fn HSTRING_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HSTRING) -> *mut u8;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn HSTRING_UserSize(#[in] pFlags: *mut ULONG, StartingSize: ULONG, #[in] ppidl: *mut HSTRING) -> ULONG;
         #[arch(X64 | Arm64)]
@@ -296,10 +296,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HWND_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HWND);
         #[library("ole32.dll")]
-        extern fn HWND_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
+        extern fn HWND_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HWND_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
+        extern fn HWND_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HWND_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HWND) -> u32;
         #[arch(X64 | Arm64)]
@@ -367,10 +367,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn LPSAFEARRAY_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut LPSAFEARRAY);
         #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
+        extern fn LPSAFEARRAY_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
+        extern fn LPSAFEARRAY_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
         #[library("OLEAUT32.dll")]
         extern fn LPSAFEARRAY_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut LPSAFEARRAY) -> u32;
         #[arch(X64 | Arm64)]
@@ -403,7 +403,6 @@ mod Windows {
         type PBYTE = *mut u8;
         type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
         type PHYSICAL_ADDRESS = LARGE_INTEGER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
         type PNTSTATUS = *mut i32;
         type PROPERTYID = i32;
         #[arch(X64 | Arm64)]
@@ -463,10 +462,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn STGMEDIUM_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut STGMEDIUM);
         #[library("ole32.dll")]
-        extern fn STGMEDIUM_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
+        extern fn STGMEDIUM_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn STGMEDIUM_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
+        extern fn STGMEDIUM_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
         #[library("ole32.dll")]
         extern fn STGMEDIUM_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut STGMEDIUM) -> u32;
         #[arch(X64 | Arm64)]
@@ -499,10 +498,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn VARIANT_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut VARIANT);
         #[library("OLEAUT32.dll")]
-        extern fn VARIANT_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
+        extern fn VARIANT_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn VARIANT_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
+        extern fn VARIANT_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
         #[library("OLEAUT32.dll")]
         extern fn VARIANT_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut VARIANT) -> u32;
         #[arch(X64 | Arm64)]

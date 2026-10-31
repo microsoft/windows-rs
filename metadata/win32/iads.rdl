@@ -919,7 +919,7 @@ mod Windows {
         #[guid(0x3d35553c_d2b0_11d1_b17b_0000f87593a0)]
         interface IADsExtension: IUnknown {
             fn Operate(&self, #[in] dwCode: DWORD, #[in] varData1: VARIANT, #[in] varData2: VARIANT, #[in] varData3: VARIANT) -> HRESULT;
-            fn PrivateGetIDsOfNames(&self, #[in] riid: &IID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] rgszNames: *mut *mut OLECHAR, #[in] cNames: u32, #[in] lcid: LCID, #[out] rgDispid: *mut DISPID) -> HRESULT;
+            fn PrivateGetIDsOfNames(&self, #[in] riid: &IID, #[in] #[incomplete] rgszNames: *mut *mut OLECHAR, #[in] cNames: u32, #[in] lcid: LCID, #[out] rgDispid: *mut DISPID) -> HRESULT;
             fn PrivateInvoke(&self, #[in] dispidMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdispparams: *mut DISPPARAMS, #[out] pvarResult: *mut VARIANT, #[out] pexcepinfo: *mut EXCEPINFO, #[out] puArgErr: *mut u32) -> HRESULT;
         }
         #[guid(0xa910dea9_4680_11d1_a3b4_00c04fb950dc)]
@@ -1799,18 +1799,18 @@ mod Windows {
         #[guid(0xe798de2c_22e4_11d0_84fe_00c04fd8d503)]
         interface IDirectoryObject: IUnknown {
             fn GetObjectInformation(&self, #[out] #[out_ptr] ppObjInfo: *mut PADS_OBJECT_INFO) -> HRESULT;
-            fn GetObjectAttributes(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] pAttributeNames: *mut LPWSTR, #[in] dwNumberAttributes: DWORD, #[out] #[out_ptr] ppAttributeEntries: *mut PADS_ATTR_INFO, #[out] pdwNumAttributesReturned: *mut DWORD) -> HRESULT;
+            fn GetObjectAttributes(&self, #[in] #[incomplete] pAttributeNames: *mut LPWSTR, #[in] dwNumberAttributes: DWORD, #[out] #[out_ptr] ppAttributeEntries: *mut PADS_ATTR_INFO, #[out] pdwNumAttributesReturned: *mut DWORD) -> HRESULT;
             fn SetObjectAttributes(&self, #[in] pAttributeEntries: PADS_ATTR_INFO, #[in] dwNumAttributes: DWORD, #[out] pdwNumAttributesModified: *mut DWORD) -> HRESULT;
             fn CreateDSObject(&self, #[in] pszRDNName: LPWSTR, #[in] pAttributeEntries: PADS_ATTR_INFO, #[in] dwNumAttributes: DWORD, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
             fn DeleteDSObject(&self, #[in] pszRDNName: LPWSTR) -> HRESULT;
         }
         #[guid(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8)]
         interface IDirectorySchemaMgmt: IUnknown {
-            fn EnumAttributes(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppszAttrNames: *mut LPWSTR, dwNumAttributes: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppAttrDefinition: *mut PADS_ATTR_DEF, #[in] pdwNumAttributes: *mut DWORD) -> HRESULT;
+            fn EnumAttributes(&self, #[in] #[incomplete] ppszAttrNames: *mut LPWSTR, dwNumAttributes: DWORD, #[in] #[incomplete] ppAttrDefinition: *mut PADS_ATTR_DEF, #[in] pdwNumAttributes: *mut DWORD) -> HRESULT;
             fn CreateAttributeDefinition(&self, #[in] pszAttributeName: LPWSTR, #[in] pAttributeDefinition: PADS_ATTR_DEF) -> HRESULT;
             fn WriteAttributeDefinition(&self, #[in] pszAttributeName: LPWSTR, #[in] pAttributeDefinition: PADS_ATTR_DEF) -> HRESULT;
             fn DeleteAttributeDefinition(&self, #[in] pszAttributeName: LPWSTR) -> HRESULT;
-            fn EnumClasses(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppszClassNames: *mut LPWSTR, dwNumClasses: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppClassDefinition: *mut PADS_CLASS_DEF, #[in] pdwNumClasses: *mut DWORD) -> HRESULT;
+            fn EnumClasses(&self, #[in] #[incomplete] ppszClassNames: *mut LPWSTR, dwNumClasses: DWORD, #[in] #[incomplete] ppClassDefinition: *mut PADS_CLASS_DEF, #[in] pdwNumClasses: *mut DWORD) -> HRESULT;
             fn WriteClassDefinition(&self, #[in] pszClassName: LPWSTR, #[in] pClassDefinition: PADS_CLASS_DEF) -> HRESULT;
             fn CreateClassDefinition(&self, #[in] pszClassName: LPWSTR, #[in] pClassDefinition: PADS_CLASS_DEF) -> HRESULT;
             fn DeleteClassDefinition(&self, #[in] pszClassName: LPWSTR) -> HRESULT;
@@ -1818,7 +1818,7 @@ mod Windows {
         #[guid(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8)]
         interface IDirectorySearch: IUnknown {
             fn SetSearchPreference(&self, #[in] pSearchPrefs: PADS_SEARCHPREF_INFO, #[in] dwNumPrefs: DWORD) -> HRESULT;
-            fn ExecuteSearch(&self, #[in] pszSearchFilter: LPWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] pAttributeNames: *mut LPWSTR, #[in] dwNumberAttributes: DWORD, #[out] #[out_ptr] phSearchResult: PADS_SEARCH_HANDLE) -> HRESULT;
+            fn ExecuteSearch(&self, #[in] pszSearchFilter: LPWSTR, #[in] #[incomplete] pAttributeNames: *mut LPWSTR, #[in] dwNumberAttributes: DWORD, #[out] #[out_ptr] phSearchResult: PADS_SEARCH_HANDLE) -> HRESULT;
             fn AbandonSearch(&self, #[in] phSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetFirstRow(&self, #[in] hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetNextRow(&self, #[in] hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
@@ -1833,7 +1833,7 @@ mod Windows {
             fn ADSIInitializeDispatchManager(&self, #[in] dwExtensionId: i32) -> HRESULT;
             fn ADSIGetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
             fn ADSIGetTypeInfo(&self, #[in] itinfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] pptinfo: *mut ITypeInfo) -> HRESULT;
-            fn ADSIGetIDsOfNames(&self, #[in] riid: &IID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] rgszNames: *mut *mut OLECHAR, #[in] cNames: UINT, #[in] lcid: LCID, #[out] rgdispid: *mut DISPID) -> HRESULT;
+            fn ADSIGetIDsOfNames(&self, #[in] riid: &IID, #[in] #[incomplete] rgszNames: *mut *mut OLECHAR, #[in] cNames: UINT, #[in] lcid: LCID, #[out] rgdispid: *mut DISPID) -> HRESULT;
             fn ADSIInvoke(&self, #[in] dispidMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdispparams: *mut DISPPARAMS, #[out] pvarResult: *mut VARIANT, #[out] pexcepinfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
         }
         #[guid(0x89126bab_6ead_11d1_8c18_00c04fd8d503)]

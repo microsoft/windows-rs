@@ -1068,7 +1068,7 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn midiStreamPosition(#[in] hms: HMIDISTRM, #[out] #[writable(entry, bytes(cbmmt))] lpmmt: LPMMTIME, #[in] cbmmt: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamProperty(#[in] hms: HMIDISTRM, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(DWORD)+sizeof(DWORD)", "sizeof(DWORD)+sizeof(DWORD)")] #[in] #[out] lppropdata: LPBYTE, #[in] dwProperty: DWORD) -> MMRESULT;
+        extern fn midiStreamProperty(#[in] hms: HMIDISTRM, #[in] #[incomplete] #[out] lppropdata: LPBYTE, #[in] dwProperty: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiStreamRestart(#[in] hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]

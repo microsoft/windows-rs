@@ -18,13 +18,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn FileTimeToSystemTime(#[in] lpFileTime: *const FILETIME, #[out] lpSystemTime: LPSYSTEMTIME) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != ((DWORD)0xFFFFFFFF)", "return != ((DWORD)0xFFFFFFFF)")]
         #[library("KERNEL32.dll")]
         extern fn GetDynamicTimeZoneInformation(#[out] pTimeZoneInformation: PDYNAMIC_TIME_ZONE_INFORMATION) -> DWORD;
         #[library("ADVAPI32.dll")]
         #[success(return == 0)]
         extern fn GetDynamicTimeZoneInformationEffectiveYears(#[in] lpTimeZoneInformation: PDYNAMIC_TIME_ZONE_INFORMATION, #[out] FirstYear: LPDWORD, #[out] LastYear: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != ((DWORD)0xFFFFFFFF)", "return != ((DWORD)0xFFFFFFFF)")]
         #[library("KERNEL32.dll")]
         extern fn GetTimeZoneInformation(#[out] lpTimeZoneInformation: LPTIME_ZONE_INFORMATION) -> DWORD;
         #[library("KERNEL32.dll")]

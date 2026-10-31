@@ -625,21 +625,21 @@ pub(crate) fn common_direction(
     function: &Function,
     attributes: &[Attribute],
     parameters: &[Parameter],
-) -> Result<Option<(bool, bool, bool)>, Error> {
+) -> Option<(bool, bool, bool)> {
     let values = resolve::sal(attributes);
     let conditions: Vec<_> = values
         .iter()
         .filter(|value| value.value.name == "_When_")
         .collect();
     let [first, second] = conditions.as_slice() else {
-        return Ok(None);
+        return None;
     };
-    let branch = |value: &Annotation<'_>, expanded: &str| {
+    let branch = |value: &Annotation<'_>| {
         let value = value.unscoped()?;
         if value.version != "2" || value.arguments.is_empty() {
             return None;
         }
-        let (condition, annotation) = expanded.split_once(',')?;
+        let (condition, annotation) = value.expanded.split_once(',')?;
         let (input, output, optional) = match annotation.trim() {
             "_In_" => (true, false, false),
             "_In_opt_" => (true, false, true),
@@ -671,14 +671,10 @@ pub(crate) fn common_direction(
         }
         Some((position, equal, input, output, optional))
     };
-    let Some(first) = branch(first, &transport::expression(&first.value.expanded)?) else {
-        return Ok(None);
-    };
-    let Some(second) = branch(second, &transport::expression(&second.value.expanded)?) else {
-        return Ok(None);
-    };
+    let first = branch(first)?;
+    let second = branch(second)?;
     if first.0 != second.0 || first.1 == second.1 {
-        return Ok(None);
+        return None;
     }
     // Complementary pointer-null tests cover every entry state. Keep both source conditions;
     // only their shared facts can be published without a conditional contract.
@@ -688,11 +684,11 @@ pub(crate) fn common_direction(
             .and_then(direction)
             .is_some_and(|(_, optional)| !optional)
     });
-    Ok(Some((
+    Some((
         first.2 && second.2,
         first.3 && second.3,
         first.4 && second.4 && !required,
-    )))
+    ))
 }
 
 #[cfg(feature = "projection")]

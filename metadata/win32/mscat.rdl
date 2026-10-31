@@ -4,7 +4,6 @@ mod Windows {
         #[packed(8)]
         struct CATALOG_INFO {
             cbStruct: DWORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             wszCatalogFile: [WCHAR; 260],
         }
         #[packed(8)]

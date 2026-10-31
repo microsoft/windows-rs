@@ -1671,7 +1671,7 @@ mod Windows {
         extern fn UnDecorateSymbolNameW(#[in] name: PCWSTR, #[out] #[writable(entry, maxStringLength)] outputString: PWSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn UnmapDebugInformation(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(unknown)", "_Inexpressible_(unknown)")] #[out] DebugInfo: PIMAGE_DEBUG_INFORMATION) -> BOOL;
+        extern fn UnmapDebugInformation(#[incomplete] #[out] DebugInfo: PIMAGE_DEBUG_INFORMATION) -> BOOL;
         const sevAttn: i32 = 2;
         const sevFatal: i32 = 3;
         const sevInfo: i32 = 0;

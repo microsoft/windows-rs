@@ -79,7 +79,7 @@ fn pointee_extents() {
                 }
             );
             assert_eq!(
-                parameter.has_attribute("NativeSalAttribute"),
+                parameter.has_attribute("IncompleteAttribute"),
                 name == "Conditional"
             );
         }
@@ -93,7 +93,7 @@ fn pointee_extents() {
         ] {
             let method = index.expect("Fixture", name).methods().next().unwrap();
             let parameter = method.params().last().unwrap();
-            assert!(parameter.has_attribute("NativeSalAttribute"), "{name}");
+            assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
             assert!(!parameter.has_attribute("BufferExtentAttribute"), "{name}");
         }
     });

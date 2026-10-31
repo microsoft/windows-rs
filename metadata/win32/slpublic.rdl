@@ -8,13 +8,10 @@ mod Windows {
         type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
         #[library("slcext.dll")]
         extern fn SLAcquireGenuineTicket(#[out] #[writable(success, bytes(*pcbTicketBlob), indirect)] ppTicketBlob: *mut *mut void, #[out] pcbTicketBlob: *mut UINT, #[in] pwszTemplateId: PCWSTR, #[in] pwszServerUrl: PCWSTR, #[in] #[opt] pwszClientToken: PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("slcext.dll")]
         extern fn SLActivateProduct(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[in] #[opt] cbAppSpecificData: UINT, #[in] #[opt] pvAppSpecificData: PVOID, #[in] #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[in] #[opt] pwszProxyServer: PCWSTR, #[in] #[opt] wProxyPort: WORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLClose(#[in] hSLC: HSLC) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLConsumeRight(#[in] hSLC: HSLC, #[in] pAppId: *const SLID, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pwszRightName: PCWSTR, #[reserved] pvReserved: PVOID) -> HRESULT;
         #[repr(i32)]
@@ -26,65 +23,46 @@ mod Windows {
             SL_DATA_MULTI_SZ = 7,
             SL_DATA_SUM = 100,
         }
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLDepositOfflineConfirmationId(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[in] pwszInstallationId: PCWSTR, #[in] pwszConfirmationId: PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLDepositOfflineConfirmationIdEx(#[in] hSLC: HSLC, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[in] pwszInstallationId: PCWSTR, #[in] pwszConfirmationId: PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLFireEvent(#[in] hSLC: HSLC, #[in] pwszEventId: PCWSTR, #[in] pApplicationId: *const SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGenerateOfflineInstallationId(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[out] #[out_ptr] ppwszInstallationId: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGenerateOfflineInstallationIdEx(#[in] hSLC: HSLC, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[out] #[out_ptr] ppwszInstallationId: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetApplicationInformation(#[in] hSLC: HSLC, #[in] pApplicationId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
         #[library("SLC.dll")]
         extern fn SLGetGenuineInformation(#[in] pQueryId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut *mut BYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetInstalledProductKeyIds(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[out] pnProductKeyIds: *mut UINT, #[out] #[writable(success, *pnProductKeyIds, indirect)] ppProductKeyIds: *mut *mut SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetLicense(#[in] hSLC: HSLC, #[in] pLicenseFileId: *const SLID, #[out] pcbLicenseFile: *mut UINT, #[out] #[writable(success, bytes(*pcbLicenseFile), indirect)] ppbLicenseFile: *mut PBYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetLicenseFileId(#[in] hSLC: HSLC, #[in] cbLicenseBlob: UINT, #[in] #[readable(entry, bytes(cbLicenseBlob))] pbLicenseBlob: *const BYTE, #[out] pLicenseFileId: *mut SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetLicenseInformation(#[in] hSLC: HSLC, #[in] pSLLicenseId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetLicensingStatusInformation(#[in] hSLC: HSLC, #[in] #[opt] pAppID: *const SLID, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pwszRightName: PCWSTR, #[out] pnStatusCount: *mut UINT, #[out] #[writable(success, *pnStatusCount, indirect)] ppLicensingStatus: *mut *mut SL_LICENSING_STATUS) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetPKeyId(#[in] hSLC: HSLC, #[in] pwszPKeyAlgorithm: PCWSTR, #[in] pwszPKeyString: PCWSTR, #[in] cbPKeySpecificData: UINT, #[in] #[opt] #[readable(entry, bytes(cbPKeySpecificData))] pbPKeySpecificData: *const BYTE, #[out] pPKeyId: *mut SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetPKeyInformation(#[in] hSLC: HSLC, #[in] pPKeyId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetPolicyInformation(#[in] hSLC: HSLC, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetPolicyInformationDWORD(#[in] hSLC: HSLC, #[in] pwszValueName: PCWSTR, #[out] pdwValue: *mut DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetProductSkuInformation(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
         #[library("slcext.dll")]
         extern fn SLGetReferralInformation(#[in] hSLC: HSLC, #[in] eReferralType: SLREFERRALTYPE, #[in] pSkuOrAppId: *const SLID, #[in] pwszValueName: PCWSTR, #[out] #[out_ptr] ppwszValue: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetSLIDList(#[in] hSLC: HSLC, #[in] eQueryIdType: SLIDTYPE, #[in] #[opt] pQueryId: *const SLID, #[in] eReturnIdType: SLIDTYPE, #[out] pnReturnIds: *mut UINT, #[out] #[writable(success, *pnReturnIds, indirect)] ppReturnIds: *mut *mut SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("slcext.dll")]
         extern fn SLGetServerStatus(#[in] pwszServerURL: PCWSTR, #[in] pwszAcquisitionType: PCWSTR, #[in] #[opt] pwszProxyServer: PCWSTR, #[in] #[opt] wProxyPort: WORD, #[out] phrStatus: *mut HRESULT) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLGetServiceInformation(#[in] hSLC: HSLC, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[out] #[writable(success, bytes(*pcbValue), indirect)] ppbValue: *mut PBYTE) -> HRESULT;
         #[library("SLC.dll")]
@@ -104,10 +82,8 @@ mod Windows {
             SL_ID_STORE_TOKEN = 7,
             SL_ID_LAST = 8,
         }
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLInstallLicense(#[in] hSLC: HSLC, #[in] cbLicenseBlob: UINT, #[in] #[readable(entry, bytes(cbLicenseBlob))] pbLicenseBlob: *const BYTE, #[out] pLicenseFileId: *mut SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLInstallProofOfPurchase(#[in] hSLC: HSLC, #[in] pwszPKeyAlgorithm: PCWSTR, #[in] pwszPKeyString: PCWSTR, #[in] cbPKeySpecificData: UINT, #[in] #[opt] #[readable(entry, bytes(cbPKeySpecificData))] pbPKeySpecificData: PBYTE, #[out] pPkeyId: *mut SLID) -> HRESULT;
         #[library("SLWGA.dll")]
@@ -120,7 +96,6 @@ mod Windows {
             SL_LICENSING_STATUS_NOTIFICATION = 3,
             SL_LICENSING_STATUS_LAST = 4,
         }
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLOpen(#[out] phSLC: *mut HSLC) -> HRESULT;
         #[library("api-ms-win-core-slapi-l1-1-0.dll")]
@@ -133,21 +108,16 @@ mod Windows {
             SL_REFERRALTYPE_OVERRIDE_APPID = 3,
             SL_REFERRALTYPE_BEST_MATCH = 4,
         }
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLRegisterEvent(#[in] #[opt] hSLC: HSLC, #[in] pwszEventId: PCWSTR, #[in] pApplicationId: *const SLID, #[in] hEvent: HANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLSetCurrentProductKey(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[in] pProductKeyId: *const SLID) -> HRESULT;
         #[library("SLC.dll")]
         extern fn SLSetGenuineInformation(#[in] pQueryId: *const SLID, #[in] pwszValueName: PCWSTR, #[in] eDataType: SLDATATYPE, #[in] #[opt] cbValue: UINT, #[in] #[opt] #[readable(entry, bytes(cbValue))] pbValue: *const BYTE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLUninstallLicense(#[in] hSLC: HSLC, #[in] pLicenseFileId: *const SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLUninstallProofOfPurchase(#[in] hSLC: HSLC, #[in] pPKeyId: *const SLID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("SLC.dll")]
         extern fn SLUnregisterEvent(#[in] #[opt] hSLC: HSLC, #[in] pwszEventId: PCWSTR, #[in] pApplicationId: *const SLID, #[in] hEvent: HANDLE) -> HRESULT;
         struct SL_ACTIVATION_INFO_HEADER {

@@ -120,7 +120,6 @@ mod Windows {
         const NCRYPT_CIPHER_NO_PADDING_FLAG: i32 = 0;
         const NCRYPT_CIPHER_OPERATION: i32 = 1;
         const NCRYPT_CIPHER_OTHER_PADDING_FLAG: i32 = 2;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbSize + cbIV + cbOtherInfo", "cbSize + cbIV + cbOtherInfo", TypedefName = "NCRYPT_CIPHER_PADDING_INFO")]
         struct NCRYPT_CIPHER_PADDING_INFO {
             cbSize: ULONG,
             dwFlags: DWORD,
@@ -809,7 +808,7 @@ mod Windows {
         #[must_use]
         extern fn NCryptFinalizeKey(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptFreeBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] pvInput: PVOID) -> SECURITY_STATUS;
+        extern fn NCryptFreeBuffer(#[incomplete] pvInput: PVOID) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptFreeObject(#[in] hObject: NCRYPT_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
@@ -866,7 +865,6 @@ mod Windows {
         extern fn NCryptVerifySignature(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[in] #[readable(entry, bytes(cbHashValue))] pbHashValue: PBYTE, #[in] cbHashValue: DWORD, #[in] #[readable(entry, bytes(cbSignature))] pbSignature: PBYTE, #[in] cbSignature: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         extern fn PFN_NCRYPT_ALLOC(#[in] cbSize: SIZE_T) -> LPVOID;
         extern fn PFN_NCRYPT_FREE(#[in] pv: LPVOID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbSize + cbIV + cbOtherInfo", "cbSize + cbIV + cbOtherInfo")]
         type PNCRYPT_CIPHER_PADDING_INFO = *mut NCRYPT_CIPHER_PADDING_INFO;
         type PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE = *mut NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE;
         type PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER = *mut NCRYPT_EXPORTED_ISOLATED_KEY_HEADER;

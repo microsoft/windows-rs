@@ -402,7 +402,6 @@ mod Windows {
             LIBFLAG_FHASDISKIMAGE = 8,
         }
         type LPBINDPTR = *mut BINDPTR;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPCREATEERRORINFO = ICreateErrorInfo;
         type LPCREATETYPEINFO = ICreateTypeInfo;
         type LPCREATETYPEINFO2 = ICreateTypeInfo2;
@@ -410,12 +409,9 @@ mod Windows {
         type LPCREATETYPELIB2 = ICreateTypeLib2;
         type LPCUSTDATA = *mut CUSTDATA;
         type LPCUSTDATAITEM = *mut CUSTDATAITEM;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPDISPATCH = IDispatch;
         type LPELEMDESC = *mut ELEMDESC;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMVARIANT = IEnumVARIANT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPERRORINFO = IErrorInfo;
         type LPERRORLOG = IErrorLog;
         type LPEXCEPINFO = *mut EXCEPINFO;
@@ -427,20 +423,14 @@ mod Windows {
         type LPRECORDINFO = IRecordInfo;
         type LPSAFEARRAY = *mut SAFEARRAY;
         type LPSAFEARRAYBOUND = *mut SAFEARRAYBOUND;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPSUPPORTERRORINFO = ISupportErrorInfo;
         type LPTLIBATTR = *mut TLIBATTR;
         type LPTYPEATTR = *mut TYPEATTR;
         type LPTYPECHANGEEVENTS = ITypeChangeEvents;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPTYPECOMP = ITypeComp;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPTYPEINFO = ITypeInfo;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPTYPEINFO2 = ITypeInfo2;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPTYPELIB = ITypeLib;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPTYPELIB2 = ITypeLib2;
         type LPVARDESC = *mut VARDESC;
         type LPVARIANT = *mut tagVARIANT;
@@ -787,13 +777,9 @@ mod Windows {
                 decVal: DECIMAL,
             },
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireBRECORD = *mut _wireBRECORD;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wirePSAFEARRAY = *mut *mut _wireSAFEARRAY;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireSAFEARRAY = *mut _wireSAFEARRAY;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireVARIANT = *mut _wireVARIANT;
     }
 }

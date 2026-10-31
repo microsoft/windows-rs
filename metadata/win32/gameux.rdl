@@ -45,7 +45,7 @@ mod Windows {
             fn GetMaxStatsPerCategory(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
             fn SetCategoryTitle(&self, #[in] categoryIndex: WORD, #[in] #[null_terminated(entry)] title: LPCWSTR) -> HRESULT;
             fn GetCategoryTitle(&self, #[in] categoryIndex: WORD, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
-            fn GetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt_string", "", "")] #[in] #[out] pName: *mut LPWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt_string", "", "")] #[in] #[out] pValue: *mut LPWSTR) -> HRESULT;
+            fn GetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[incomplete] #[out] pName: *mut LPWSTR, #[in] #[incomplete] #[out] pValue: *mut LPWSTR) -> HRESULT;
             fn SetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[null_terminated(entry)] name: LPCWSTR, #[in] #[null_terminated(entry)] value: LPCWSTR) -> HRESULT;
             fn Save(&self, #[in] trackChanges: BOOL) -> HRESULT;
             fn SetLastPlayedCategory(&self, #[in] categoryIndex: UINT) -> HRESULT;

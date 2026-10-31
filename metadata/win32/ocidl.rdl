@@ -72,7 +72,7 @@ mod Windows {
         extern fn HPALETTE_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
         extern fn HPALETTE_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
@@ -85,10 +85,10 @@ mod Windows {
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
         #[library("ole32.dll")]
-        extern fn HRGN_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HRGN_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
         #[arch(X64 | Arm64)]

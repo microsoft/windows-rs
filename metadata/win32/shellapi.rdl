@@ -167,10 +167,8 @@ mod Windows {
         const FO_DELETE: i32 = 3;
         const FO_MOVE: i32 = 1;
         const FO_RENAME: i32 = 4;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 32", "return > 32")]
         #[library("SHELL32.dll")]
         extern fn FindExecutableA(#[in] lpFile: LPCSTR, #[in] #[opt] lpDirectory: LPCSTR, #[out] #[writable(entry, 260)] lpResult: LPSTR) -> HINSTANCE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 32", "return > 32")]
         #[library("SHELL32.dll")]
         extern fn FindExecutableW(#[in] lpFile: LPCWSTR, #[in] #[opt] lpDirectory: LPCWSTR, #[out] #[writable(entry, 260)] lpResult: LPWSTR) -> HINSTANCE;
         type HDROP = *mut HDROP__;

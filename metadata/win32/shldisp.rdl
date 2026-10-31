@@ -174,7 +174,7 @@ mod Windows {
         #[guid(0x2d91eea1_9932_11d2_be86_00a0c9a83da1)]
         interface IFileSearchBand: IDispatch {
             fn SetFocus(&self) -> HRESULT;
-            fn SetSearchParameters(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] pbstrSearchID: *mut BSTR, #[in] bNavToResults: VARIANT_BOOL, #[in] #[opt] pvarScope: *mut VARIANT, #[in] #[opt] pvarQueryFile: *mut VARIANT) -> HRESULT;
+            fn SetSearchParameters(&self, #[in] #[incomplete] pbstrSearchID: *mut BSTR, #[in] bNavToResults: VARIANT_BOOL, #[in] #[opt] pvarScope: *mut VARIANT, #[in] #[opt] pvarQueryFile: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_SearchID(&self, #[out] #[out_ptr] #[retval] pbstrSearchID: *mut BSTR) -> HRESULT;
             #[special]
@@ -354,7 +354,6 @@ mod Windows {
         type LPAUTOCOMPLETE = IAutoComplete;
         type LPAUTOCOMPLETE2 = IAutoComplete2;
         type LPENUMACSTRING = IEnumACString;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPFOLDERITEM = FolderItem;
         #[repr(i32)]
         enum OfflineFolderStatus {

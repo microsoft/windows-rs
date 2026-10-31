@@ -192,11 +192,8 @@ mod Windows {
         const DNS_PROTOCOL_UNSPECIFIED: i32 = 0;
         extern fn DNS_PROXY_COMPLETION_ROUTINE(#[in] #[opt] completionContext: *mut void, #[in] status: DNS_STATUS);
         struct DNS_PROXY_INFORMATION {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             version: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_opt_", "", "")]
             proxyName: PWSTR,
         }
         #[repr(i32)]
@@ -277,21 +274,13 @@ mod Windows {
         }
         const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
         struct DNS_QUERY_REQUEST {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Version: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             QueryName: PCWSTR,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             QueryType: WORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             QueryOptions: ULONG64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pDnsServerList: PDNS_ADDR_ARRAY,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             InterfaceIndex: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             pQueryContext: PVOID,
         }
         struct DNS_QUERY_REQUEST3 {
@@ -314,15 +303,10 @@ mod Windows {
         const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
         const DNS_QUERY_RESERVED: u32 = 4026531840;
         struct DNS_QUERY_RESULT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Version: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             QueryStatus: DNS_STATUS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             QueryOptions: ULONG64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pQueryRecords: PDNS_RECORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_opt_", "", "")]
             Reserved: PVOID,
         }
         const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
@@ -484,11 +468,11 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsExtractRecordsFromMessage_W(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] #[out_ptr] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsFree(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_opt_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] pData: PVOID, #[in] FreeType: DNS_FREE_TYPE);
+        extern fn DnsFree(#[incomplete] pData: PVOID, #[in] FreeType: DNS_FREE_TYPE);
         #[library("DNSAPI.dll")]
         extern fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
         #[library("DNSAPI.dll")]
-        extern fn DnsFreeProxyName(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] proxyName: PWSTR);
+        extern fn DnsFreeProxyName(#[incomplete] proxyName: PWSTR);
         const DnsFreeRecordListDeep: DNS_FREE_TYPE = 1;
         #[library("DNSAPI.dll")]
         extern fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[out] #[writable(success, *pcServers, indirect)] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] #[out] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
@@ -513,7 +497,7 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsQueryRaw(#[in] queryRequest: *mut DNS_QUERY_RAW_REQUEST, #[in] #[out] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryRawResultFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] queryResults: *mut DNS_QUERY_RAW_RESULT);
+        extern fn DnsQueryRawResultFree(#[incomplete] queryResults: *mut DNS_QUERY_RAW_RESULT);
         #[library("DNSAPI.dll")]
         extern fn DnsQuery_A(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] #[out_ptr] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]

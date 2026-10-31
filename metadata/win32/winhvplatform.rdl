@@ -111,13 +111,13 @@ mod Windows {
         extern fn WHvPostVirtualProcessorSynicMessage(#[in] Partition: WHV_PARTITION_HANDLE, #[in] VpIndex: UINT32, #[in] SintIndex: UINT32, #[in] #[readable(entry, bytes(MessageSizeInBytes))] Message: *const void, #[in] MessageSizeInBytes: UINT32) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
-        extern fn WHvQueryGpaRangeDirtyBitmap(#[in] Partition: WHV_PARTITION_HANDLE, #[in] GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, #[in] RangeSizeInBytes: UINT64, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "BitmapSizeInBytes,RangeSizeInBytes / 4096 / 64", "BitmapSizeInBytes,RangeSizeInBytes / 4096 / 64")] #[opt] #[out] #[writable(entry, bytes(BitmapSizeInBytes))] Bitmap: *mut UINT64, #[in] BitmapSizeInBytes: UINT32) -> HRESULT;
+        extern fn WHvQueryGpaRangeDirtyBitmap(#[in] Partition: WHV_PARTITION_HANDLE, #[in] GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, #[in] RangeSizeInBytes: UINT64, #[incomplete] #[opt] #[out] #[writable(entry, bytes(BitmapSizeInBytes))] Bitmap: *mut UINT64, #[in] BitmapSizeInBytes: UINT32) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
         extern fn WHvReadGpaRange(#[in] Partition: WHV_PARTITION_HANDLE, #[in] VpIndex: UINT32, #[in] GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, #[in] Controls: WHV_ACCESS_GPA_CONTROLS, #[out] #[writable(entry, bytes(DataSizeInBytes))] Data: PVOID, #[in] DataSizeInBytes: UINT32) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
-        extern fn WHvReadVpciDeviceRegister(#[in] Partition: WHV_PARTITION_HANDLE, #[in] LogicalDeviceId: UINT64, #[in] Register: *const WHV_VPCI_DEVICE_REGISTER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "Register->SizeInBytes", "Register->SizeInBytes")] #[out] Data: *mut void) -> HRESULT;
+        extern fn WHvReadVpciDeviceRegister(#[in] Partition: WHV_PARTITION_HANDLE, #[in] LogicalDeviceId: UINT64, #[in] Register: *const WHV_VPCI_DEVICE_REGISTER, #[incomplete] #[out] Data: *mut void) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
         extern fn WHvRegisterPartitionDoorbellEvent(#[in] Partition: WHV_PARTITION_HANDLE, #[in] MatchData: *const WHV_DOORBELL_MATCH_DATA, #[in] EventHandle: HANDLE) -> HRESULT;
@@ -198,6 +198,6 @@ mod Windows {
         extern fn WHvWriteGpaRange(#[in] Partition: WHV_PARTITION_HANDLE, #[in] VpIndex: UINT32, #[in] GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, #[in] Controls: WHV_ACCESS_GPA_CONTROLS, #[in] #[readable(entry, bytes(DataSizeInBytes))] Data: *const void, #[in] DataSizeInBytes: UINT32) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
-        extern fn WHvWriteVpciDeviceRegister(#[in] Partition: WHV_PARTITION_HANDLE, #[in] LogicalDeviceId: UINT64, #[in] Register: *const WHV_VPCI_DEVICE_REGISTER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "Register->SizeInBytes", "Register->SizeInBytes")] #[in] Data: *const void) -> HRESULT;
+        extern fn WHvWriteVpciDeviceRegister(#[in] Partition: WHV_PARTITION_HANDLE, #[in] LogicalDeviceId: UINT64, #[in] Register: *const WHV_VPCI_DEVICE_REGISTER, #[in] #[incomplete] Data: *const void) -> HRESULT;
     }
 }

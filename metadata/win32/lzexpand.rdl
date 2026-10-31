@@ -44,7 +44,7 @@ mod Windows {
         #[library("LZ32.dll")]
         #[must_use]
         #[success(return >= 0)]
-        extern fn LZRead(#[in] hFile: INT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "cbRead,return", "cbRead,return")] #[out] #[writable(entry, bytes(cbRead))] lpBuffer: *mut CHAR, #[in] cbRead: INT) -> INT;
+        extern fn LZRead(#[in] hFile: INT, #[incomplete] #[out] #[writable(entry, bytes(cbRead))] lpBuffer: *mut CHAR, #[in] cbRead: INT) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
         #[success(return >= 0)]

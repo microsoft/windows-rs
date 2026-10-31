@@ -4,7 +4,7 @@ mod Windows {
         const CLSID_MFByteStreamProxyClassFactory: GUID = 0x770e8e77_4916_441c_a9a7_b342d0eebc71;
         #[guid(0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb)]
         interface IMF2DBuffer: IUnknown {
-            fn Lock2D(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "_Inexpressible_(ComputePlaneSize(*plPitch))", "_Inexpressible_(ComputePlaneSize(*plPitch))")] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
+            fn Lock2D(&self, #[incomplete] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
             fn Unlock2D(&self) -> HRESULT;
             fn GetScanline0AndPitch(&self, #[out] pbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
             fn IsContiguousFormat(&self, #[out] pfIsContiguous: *mut BOOL) -> HRESULT;
@@ -14,7 +14,7 @@ mod Windows {
         }
         #[guid(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec)]
         interface IMF2DBuffer2: IMF2DBuffer {
-            fn Lock2DSize(&self, #[in] lockFlags: MF2DBuffer_LockFlags, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "_Inexpressible_(ComputePlaneSize(*plPitch))", "_Inexpressible_(ComputePlaneSize(*plPitch))")] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG, #[out] #[writable(success, bytes(*pcbBufferLength), indirect)] ppbBufferStart: *mut *mut BYTE, #[out] pcbBufferLength: *mut DWORD) -> HRESULT;
+            fn Lock2DSize(&self, #[in] lockFlags: MF2DBuffer_LockFlags, #[incomplete] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG, #[out] #[writable(success, bytes(*pcbBufferLength), indirect)] ppbBufferStart: *mut *mut BYTE, #[out] pcbBufferLength: *mut DWORD) -> HRESULT;
             fn Copy2DTo(&self, #[in] pDestBuffer: IMF2DBuffer2) -> HRESULT;
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]

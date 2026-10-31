@@ -1531,7 +1531,7 @@ mod Windows {
         }
         #[guid(0x56a8689a_0ad4_11ce_b03a_0020af0ba770)]
         interface IMediaSample: IUnknown {
-            fn GetPointer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_to_", "_Inexpressible_(this->GetSize()), _Inexpressible_(this->GetActualDataLength())", "_Inexpressible_(this->GetSize()), _Inexpressible_(this->GetActualDataLength())")] #[out] ppBuffer: *mut *mut BYTE) -> HRESULT;
+            fn GetPointer(&self, #[incomplete] #[out] ppBuffer: *mut *mut BYTE) -> HRESULT;
             fn GetSize(&self) -> i32;
             fn GetTime(&self, #[out] pTimeStart: *mut REFERENCE_TIME, #[out] pTimeEnd: *mut REFERENCE_TIME) -> HRESULT;
             fn SetTime(&self, #[in] #[opt] pTimeStart: *mut REFERENCE_TIME, #[in] #[opt] pTimeEnd: *mut REFERENCE_TIME) -> HRESULT;

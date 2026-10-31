@@ -150,7 +150,7 @@ mod Windows {
         #[library("USER32.dll", import = "CharPrevA")]
         extern fn AnsiPrev(#[in] lpszStart: LPCSTR, #[in] lpszCurrent: LPCSTR) -> LPSTR;
         #[library("USER32.dll", import = "CharToOemA")]
-        extern fn AnsiToOem(#[in] pSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPSTR) -> BOOL;
+        extern fn AnsiToOem(#[in] pSrc: LPCSTR, #[incomplete] #[out] pDst: LPSTR) -> BOOL;
         #[library("USER32.dll", import = "CharToOemBuffA")]
         extern fn AnsiToOemBuff(#[in] lpszSrc: LPCSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPSTR, #[in] cchDstLength: DWORD) -> BOOL;
         #[library("USER32.dll", import = "CharUpperA")]
@@ -633,13 +633,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn CharPrevW(#[in] lpszStart: LPCWSTR, #[in] lpszCurrent: LPCWSTR) -> LPWSTR;
         #[library("USER32.dll")]
-        extern fn CharToOemA(#[in] pSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPSTR) -> BOOL;
+        extern fn CharToOemA(#[in] pSrc: LPCSTR, #[incomplete] #[out] pDst: LPSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn CharToOemBuffA(#[in] lpszSrc: LPCSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPSTR, #[in] cchDstLength: DWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn CharToOemBuffW(#[in] lpszSrc: LPCWSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPSTR, #[in] cchDstLength: DWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CharToOemW(#[in] pSrc: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPSTR) -> BOOL;
+        extern fn CharToOemW(#[in] pSrc: LPCWSTR, #[incomplete] #[out] pDst: LPSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn CharUpperA(#[in] #[out] lpsz: LPSTR) -> LPSTR;
         #[library("USER32.dll")]
@@ -681,9 +681,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ConvertToInterceptWindow(topLevelWindow: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableA(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableA(#[in] hAccelSrc: HACCEL, #[incomplete] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableW(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableW(#[in] hAccelSrc: HACCEL, #[incomplete] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
         extern fn CopyIcon(#[in] hIcon: HICON) -> HICON;
         #[library("USER32.dll")]
@@ -1102,16 +1102,16 @@ mod Windows {
         extern fn DrawStateW(#[in] hdc: HDC, #[in] #[opt] hbrFore: HBRUSH, #[in] #[opt] qfnCallBack: DRAWSTATEPROC, #[in] lData: LPARAM, #[in] wData: WPARAM, #[in] x: i32, #[in] y: i32, #[in] cx: i32, #[in] cy: i32, #[in] uFlags: UINT) -> BOOL;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn DrawTextA(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_In_bypassable_reads_or_z_(cchText)", "(!(format & 0x00010000)), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_At_((LPSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4))", "(format & 0x00010000), _At_((LPSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4))))")] lpchText: LPCSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
+        extern fn DrawTextA(#[in] hdc: HDC, #[incomplete] lpchText: LPCSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn DrawTextExA(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_At_((LPCSTR)lpchText, _In_bypassable_reads_or_z_(cchText))", "(!(format & 0x00010000)), _At_((LPCSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText)))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cchText) < -1,_Unreferenced_parameter_", "(cchText) < -1, _Unreferenced_parameter_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_Inout_grows_updates_bypassable_or_z_(cchText, 4)", "(format & 0x00010000), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4)))")] lpchText: LPSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
+        extern fn DrawTextExA(#[in] hdc: HDC, #[incomplete] lpchText: LPSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn DrawTextExW(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_At_((LPCWSTR)lpchText, _In_bypassable_reads_or_z_(cchText))", "(!(format & 0x00010000)), _At_((LPCWSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText)))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cchText) < -1,_Unreferenced_parameter_", "(cchText) < -1, _Unreferenced_parameter_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_Inout_grows_updates_bypassable_or_z_(cchText, 4)", "(format & 0x00010000), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4)))")] lpchText: LPWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
+        extern fn DrawTextExW(#[in] hdc: HDC, #[incomplete] lpchText: LPWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn DrawTextW(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_In_bypassable_reads_or_z_(cchText)", "(!(format & 0x00010000)), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_At_((LPWSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4))", "(format & 0x00010000), _At_((LPWSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4))))")] lpchText: LPCWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
+        extern fn DrawTextW(#[in] hdc: HDC, #[incomplete] lpchText: LPCWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
         const EC_LEFTMARGIN: i32 = 1;
         const EC_RIGHTMARGIN: i32 = 2;
         const EC_USEFONTINFO: i32 = 65535;
@@ -1389,7 +1389,6 @@ mod Windows {
         extern fn EvaluateProximityToRect(#[in] controlBoundingBox: *const RECT, #[in] pHitTestingInput: *const TOUCH_HIT_TESTING_INPUT, #[out] pProximityEval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> BOOL;
         #[library("USER32.dll")]
         extern fn ExcludeUpdateRgn(#[in] hDC: HDC, #[in] hWnd: HWND) -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(uFlags&(EWX_POWEROFF|EWX_SHUTDOWN|EWX_FORCE))!=0,__drv_preferredFunction(\"InitiateSystemShutdownEx\", \"Legacy API. Rearchitect to avoid Reboot\")", "(uFlags&(0x00000008|0x00000001|0x00000004))!=0, __drv_preferredFunction(\"InitiateSystemShutdownEx\",\"Legacy API. Rearchitect to avoid Reboot\")")]
         #[library("USER32.dll")]
         extern fn ExitWindowsEx(#[in] uFlags: UINT, #[in] dwReason: DWORD) -> BOOL;
         const FALT: i32 = 16;
@@ -1665,9 +1664,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetClassLongW(#[in] hWnd: HWND, #[in] nIndex: i32) -> DWORD;
         #[library("USER32.dll")]
-        extern fn GetClassNameA(#[in] hWnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nMaxCount,return", "nMaxCount,return")] #[out] #[writable(entry, nMaxCount)] lpClassName: LPSTR, #[in] nMaxCount: i32) -> i32;
+        extern fn GetClassNameA(#[in] hWnd: HWND, #[incomplete] #[out] #[writable(entry, nMaxCount)] lpClassName: LPSTR, #[in] nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn GetClassNameW(#[in] hWnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nMaxCount,return", "nMaxCount,return")] #[out] #[writable(entry, nMaxCount)] lpClassName: LPWSTR, #[in] nMaxCount: i32) -> i32;
+        extern fn GetClassNameW(#[in] hWnd: HWND, #[incomplete] #[out] #[writable(entry, nMaxCount)] lpClassName: LPWSTR, #[in] nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
         extern fn GetClassWord(#[in] hWnd: HWND, #[in] nIndex: i32) -> WORD;
         #[library("USER32.dll")]
@@ -1767,7 +1766,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetKeyboardLayout(#[in] idThread: DWORD) -> HKL;
         #[library("USER32.dll")]
-        extern fn GetKeyboardLayoutList(#[in] nBuff: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBuff,return", "nBuff,return")] #[opt] #[out] #[writable(entry, nBuff)] lpList: *mut HKL) -> i32;
+        extern fn GetKeyboardLayoutList(#[in] nBuff: i32, #[incomplete] #[opt] #[out] #[writable(entry, nBuff)] lpList: *mut HKL) -> i32;
         #[library("USER32.dll")]
         extern fn GetKeyboardLayoutNameA(#[out] #[writable(entry, 9)] pwszKLID: LPSTR) -> BOOL;
         #[library("USER32.dll")]
@@ -1894,7 +1893,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetRawInputBuffer(#[opt] #[out] #[writable(entry, bytes(*pcbSize))] pData: PRAWINPUT, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetRawInputData(#[in] hRawInput: HRAWINPUT, #[in] uiCommand: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,return", "*pcbSize,return")] #[opt] #[out] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
+        extern fn GetRawInputData(#[in] hRawInput: HRAWINPUT, #[in] uiCommand: UINT, #[incomplete] #[opt] #[out] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn GetRawInputDeviceInfoA(#[in] #[opt] hDevice: HANDLE, #[in] uiCommand: UINT, #[in] #[opt] #[out] #[readable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT) -> UINT;
         #[library("USER32.dll")]
@@ -1992,9 +1991,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowLongW(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
         #[library("USER32.dll")]
-        extern fn GetWindowModuleFileNameA(#[in] hwnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchFileNameMax,return", "cchFileNameMax,return")] #[out] #[writable(entry, cchFileNameMax)] pszFileName: LPSTR, #[in] cchFileNameMax: UINT) -> UINT;
+        extern fn GetWindowModuleFileNameA(#[in] hwnd: HWND, #[incomplete] #[out] #[writable(entry, cchFileNameMax)] pszFileName: LPSTR, #[in] cchFileNameMax: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetWindowModuleFileNameW(#[in] hwnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchFileNameMax,return", "cchFileNameMax,return")] #[out] #[writable(entry, cchFileNameMax)] pszFileName: LPWSTR, #[in] cchFileNameMax: UINT) -> UINT;
+        extern fn GetWindowModuleFileNameW(#[in] hwnd: HWND, #[incomplete] #[out] #[writable(entry, cchFileNameMax)] pszFileName: LPWSTR, #[in] cchFileNameMax: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn GetWindowPlacement(#[in] hWnd: HWND, #[in] #[out] lpwndpl: *mut WINDOWPLACEMENT) -> BOOL;
         #[library("USER32.dll")]
@@ -2417,7 +2416,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn InsertMenuW(#[in] hMenu: HMENU, #[in] uPosition: UINT, #[in] uFlags: UINT, #[in] uIDNewItem: UINT_PTR, #[in] #[opt] lpNewItem: LPCWSTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn InternalGetWindowText(#[in] hWnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchMaxCount,return + 1", "cchMaxCount,return + 1")] #[out] #[writable(entry, cchMaxCount)] pString: LPWSTR, #[in] cchMaxCount: i32) -> i32;
+        extern fn InternalGetWindowText(#[in] hWnd: HWND, #[incomplete] #[out] #[writable(entry, cchMaxCount)] pString: LPWSTR, #[in] cchMaxCount: i32) -> i32;
         #[library("USER32.dll")]
         extern fn IntersectRect(#[out] lprcDst: LPRECT, #[in] lprcSrc1: *const RECT, #[in] lprcSrc2: *const RECT) -> BOOL;
         #[library("USER32.dll")]
@@ -2803,9 +2802,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn LogicalToPhysicalPointForPerMonitorDPI(#[in] #[opt] hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn LookupIconIdFromDirectory(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(WORD) * 3", "sizeof(WORD) * 3")] #[in] presbits: PBYTE, #[in] fIcon: BOOL) -> i32;
+        extern fn LookupIconIdFromDirectory(#[in] #[incomplete] presbits: PBYTE, #[in] fIcon: BOOL) -> i32;
         #[library("USER32.dll")]
-        extern fn LookupIconIdFromDirectoryEx(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(WORD) * 3", "sizeof(WORD) * 3")] #[in] presbits: PBYTE, #[in] fIcon: BOOL, #[in] cxDesired: i32, #[in] cyDesired: i32, #[in] Flags: UINT) -> i32;
+        extern fn LookupIconIdFromDirectoryEx(#[in] #[incomplete] presbits: PBYTE, #[in] fIcon: BOOL, #[in] cxDesired: i32, #[in] cyDesired: i32, #[in] Flags: UINT) -> i32;
         const MAPVK_VK_TO_CHAR: i32 = 2;
         const MAPVK_VK_TO_VSC: i32 = 0;
         const MAPVK_VK_TO_VSC_EX: i32 = 4;
@@ -3416,21 +3415,18 @@ mod Windows {
         }
         #[library("USER32.dll")]
         extern fn OemKeyScan(#[in] wOemChar: WORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"OemToCharBuff\",\"Does not validate buffer size\"", "\"OemToCharBuff\",\"Does not validate buffer size\"")]
         #[library("USER32.dll", import = "OemToCharA")]
-        extern fn OemToAnsi(#[in] pSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPSTR) -> BOOL;
+        extern fn OemToAnsi(#[in] pSrc: LPCSTR, #[incomplete] #[out] pDst: LPSTR) -> BOOL;
         #[library("USER32.dll", import = "OemToCharBuffA")]
         extern fn OemToAnsiBuff(#[in] lpszSrc: LPCSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPSTR, #[in] cchDstLength: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"OemToCharBuff\",\"Does not validate buffer size\"", "\"OemToCharBuff\",\"Does not validate buffer size\"")]
         #[library("USER32.dll")]
-        extern fn OemToCharA(#[in] pSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPSTR) -> BOOL;
+        extern fn OemToCharA(#[in] pSrc: LPCSTR, #[incomplete] #[out] pDst: LPSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn OemToCharBuffA(#[in] lpszSrc: LPCSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPSTR, #[in] cchDstLength: DWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn OemToCharBuffW(#[in] lpszSrc: LPCSTR, #[out] #[writable(entry, cchDstLength)] lpszDst: LPWSTR, #[in] cchDstLength: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"OemToCharBuff\",\"Does not validate buffer size\"", "\"OemToCharBuff\",\"Does not validate buffer size\"")]
         #[library("USER32.dll")]
-        extern fn OemToCharW(#[in] pSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(strlen(pSrc) + 1)", "_Inexpressible_(strlen(pSrc) + 1)")] #[out] pDst: LPWSTR) -> BOOL;
+        extern fn OemToCharW(#[in] pSrc: LPCSTR, #[incomplete] #[out] pDst: LPWSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn OffsetRect(#[in] #[out] lprc: LPRECT, #[in] dx: i32, #[in] dy: i32) -> BOOL;
         #[library("USER32.dll")]
@@ -3832,7 +3828,7 @@ mod Windows {
         const QS_TOUCH: i32 = 2048;
         #[library("USER32.dll")]
         #[success(return == 0)]
-        extern fn QueryDisplayConfig(#[in] flags: UINT32, #[in] #[out] numPathArrayElements: *mut UINT32, #[out] #[readable(success, *numPathArrayElements)] #[writable(entry, *numPathArrayElements)] pathArray: *mut DISPLAYCONFIG_PATH_INFO, #[in] #[out] numModeInfoArrayElements: *mut UINT32, #[out] #[readable(success, *numModeInfoArrayElements)] #[writable(entry, *numModeInfoArrayElements)] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "!(flags & QDC_DATABASE_CURRENT),_Pre_null_", "!(flags & 0x00000004), _Pre_null_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "flags & QDC_DATABASE_CURRENT,_Out_", "flags & 0x00000004, _Out_")] currentTopologyId: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> LONG;
+        extern fn QueryDisplayConfig(#[in] flags: UINT32, #[in] #[out] numPathArrayElements: *mut UINT32, #[out] #[readable(success, *numPathArrayElements)] #[writable(entry, *numPathArrayElements)] pathArray: *mut DISPLAYCONFIG_PATH_INFO, #[in] #[out] numModeInfoArrayElements: *mut UINT32, #[out] #[readable(success, *numModeInfoArrayElements)] #[writable(entry, *numModeInfoArrayElements)] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, #[incomplete] currentTopologyId: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> LONG;
         struct RAWHID {
             dwSizeHid: DWORD,
             dwCount: DWORD,
@@ -3998,9 +3994,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn RealChildWindowFromPoint(#[in] hwndParent: HWND, #[in] ptParentClientCoords: POINT) -> HWND;
         #[library("USER32.dll")]
-        extern fn RealGetWindowClassA(#[in] hwnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchClassNameMax,return", "cchClassNameMax,return")] #[out] #[writable(entry, cchClassNameMax)] ptszClassName: LPSTR, #[in] cchClassNameMax: UINT) -> UINT;
+        extern fn RealGetWindowClassA(#[in] hwnd: HWND, #[incomplete] #[out] #[writable(entry, cchClassNameMax)] ptszClassName: LPSTR, #[in] cchClassNameMax: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn RealGetWindowClassW(#[in] hwnd: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchClassNameMax,return", "cchClassNameMax,return")] #[out] #[writable(entry, cchClassNameMax)] ptszClassName: LPWSTR, #[in] cchClassNameMax: UINT) -> UINT;
+        extern fn RealGetWindowClassW(#[in] hwnd: HWND, #[incomplete] #[out] #[writable(entry, cchClassNameMax)] ptszClassName: LPWSTR, #[in] cchClassNameMax: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn RedrawWindow(#[in] #[opt] hWnd: HWND, #[in] #[opt] lprcUpdate: *const RECT, #[in] #[opt] hrgnUpdate: HRGN, #[in] flags: UINT) -> BOOL;
         #[library("USER32.dll")]
@@ -4763,7 +4759,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SendInput(#[in] cInputs: UINT, #[in] #[readable(entry, cInputs)] pInputs: LPINPUT, #[in] cbSize: i32) -> UINT;
         #[library("USER32.dll")]
-        extern fn SendMessageA(#[in] hWnd: HWND, #[in] Msg: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] wParam: WPARAM, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] lParam: LPARAM) -> LRESULT;
+        extern fn SendMessageA(#[in] hWnd: HWND, #[in] Msg: UINT, #[incomplete] wParam: WPARAM, #[incomplete] lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
         extern fn SendMessageCallbackA(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] lpResultCallBack: SENDASYNCPROC, #[in] dwData: ULONG_PTR) -> BOOL;
         #[library("USER32.dll")]
@@ -4773,7 +4769,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SendMessageTimeoutW(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] fuFlags: UINT, #[in] uTimeout: UINT, #[opt] #[out] lpdwResult: PDWORD_PTR) -> LRESULT;
         #[library("USER32.dll")]
-        extern fn SendMessageW(#[in] hWnd: HWND, #[in] Msg: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] wParam: WPARAM, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] lParam: LPARAM) -> LRESULT;
+        extern fn SendMessageW(#[in] hWnd: HWND, #[in] Msg: UINT, #[incomplete] wParam: WPARAM, #[incomplete] lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
         extern fn SendNotifyMessageA(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
@@ -4986,13 +4982,13 @@ mod Windows {
         extern fn SwitchToThisWindow(#[in] hwnd: HWND, #[in] fUnknown: BOOL);
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn SystemParametersInfoA(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
+        extern fn SystemParametersInfoA(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn SystemParametersInfoForDpi(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT, #[in] dpi: UINT) -> BOOL;
+        extern fn SystemParametersInfoForDpi(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT, #[in] dpi: UINT) -> BOOL;
         #[library("USER32.dll")]
         #[success(return != 0)]
-        extern fn SystemParametersInfoW(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
+        extern fn SystemParametersInfoW(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
         extern fn TIMERPROC(param0: HWND, param1: UINT, param2: UINT_PTR, param3: DWORD);
         const TIMERV_COALESCING_MAX: i32 = 2147483637;
         const TIMERV_COALESCING_MIN: i32 = 1;
@@ -6065,12 +6061,12 @@ mod Windows {
             PT_TOUCHPAD = 5,
         }
         #[library("USER32.dll")]
-        extern "C" fn wsprintfA(#[out] param0: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCSTR, ...) -> i32;
+        extern "C" fn wsprintfA(#[out] param0: LPSTR, #[in] #[incomplete] param1: LPCSTR, ...) -> i32;
         #[library("USER32.dll")]
-        extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCWSTR, ...) -> i32;
+        extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[in] #[incomplete] param1: LPCWSTR, ...) -> i32;
         #[library("USER32.dll")]
-        extern fn wvsprintfA(#[out] param0: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvsprintfA(#[out] param0: LPSTR, #[in] #[incomplete] param1: LPCSTR, #[in] arglist: va_list) -> i32;
         #[library("USER32.dll")]
-        extern fn wvsprintfW(#[out] param0: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] param1: LPCWSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvsprintfW(#[out] param0: LPWSTR, #[in] #[incomplete] param1: LPCWSTR, #[in] arglist: va_list) -> i32;
     }
 }

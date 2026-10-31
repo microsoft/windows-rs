@@ -33,26 +33,26 @@ mod Windows {
         #[guid(0x000e0020_0000_0000_c000_000000000046)]
         interface AsyncIMultiQI: IUnknown {
             fn Begin_QueryMultipleInterfaces(&self, #[in] cMQIs: ULONG, #[in] #[out] #[writable(entry, cMQIs)] pMQIs: *mut MULTI_QI) -> HRESULT;
-            fn Finish_QueryMultipleInterfaces(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "cMQIs", "cMQIs")] #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
+            fn Finish_QueryMultipleInterfaces(&self, #[in] #[incomplete] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
         }
         #[guid(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeByte: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
-            fn Finish_Pull(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_xcount_part", "cRequest,*pcReturned", "cRequest,*pcReturned")] #[out] buf: *mut BYTE, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut BYTE, #[out] pcReturned: *mut ULONG) -> HRESULT;
             fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut BYTE, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeDouble: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
-            fn Finish_Pull(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_xcount_part", "cRequest,*pcReturned", "cRequest,*pcReturned")] #[out] buf: *mut DOUBLE, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut DOUBLE, #[out] pcReturned: *mut ULONG) -> HRESULT;
             fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut DOUBLE, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeLong: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
-            fn Finish_Pull(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_xcount_part", "cRequest,*pcReturned", "cRequest,*pcReturned")] #[out] buf: *mut LONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut LONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
             fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut LONG, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
@@ -273,7 +273,7 @@ mod Windows {
             fn Alloc(&self, #[in] cb: SIZE_T) -> *mut void;
             fn Realloc(&self, #[in] #[opt] pv: *mut void, #[in] cb: SIZE_T) -> *mut void;
             fn Free(&self, #[in] #[opt] pv: *mut void);
-            fn GetSize(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "return", "return")] #[in] #[opt] pv: *mut void) -> SIZE_T;
+            fn GetSize(&self, #[in] #[incomplete] #[opt] pv: *mut void) -> SIZE_T;
             fn DidAlloc(&self, #[in] #[opt] pv: *mut void) -> i32;
             fn HeapMinimize(&self);
         }
@@ -468,21 +468,16 @@ mod Windows {
         type LPADDREXCLUSIONCONTROL = IAddrExclusionControl;
         type LPADDRTRACKINGCONTROL = IAddrTrackingControl;
         type LPCANCELMETHODCALLS = ICancelMethodCalls;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMSTRING = IEnumString;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMUNKNOWN = IEnumUnknown;
         type LPEXTERNALCONNECTION = IExternalConnection;
         type LPGLOBALINTERFACETABLE = IGlobalInterfaceTable;
         type LPMALLOC = IMalloc;
         type LPMARSHAL = IMarshal;
         type LPMARSHAL2 = IMarshal2;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPMULTIQI = IMultiQI;
         type LPSTDMARSHALINFO = IStdMarshalInfo;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPSTREAM = IStream;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPSURROGATE = ISurrogate;
         #[packed(8)]
         struct MULTI_QI {

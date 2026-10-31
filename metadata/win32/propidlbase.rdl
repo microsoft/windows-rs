@@ -147,13 +147,9 @@ mod Windows {
             fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
             fn Stat(&self, #[out] pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMSTATPROPSETSTG = IEnumSTATPROPSETSTG;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMSTATPROPSTG = IEnumSTATPROPSTG;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPROPERTYSETSTORAGE = IPropertySetStorage;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPROPERTYSTORAGE = IPropertyStorage;
         type LPPROPVARIANT = *mut tagPROPVARIANT;
         type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;

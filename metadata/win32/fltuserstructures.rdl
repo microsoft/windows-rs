@@ -160,13 +160,11 @@ mod Windows {
                 },
             },
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_BASIC_INFORMATION) * InstanceNameLength", "sizeof(INSTANCE_BASIC_INFORMATION) * InstanceNameLength", TypedefName = "INSTANCE_BASIC_INFORMATION")]
         struct INSTANCE_BASIC_INFORMATION {
             NextEntryOffset: ULONG,
             InstanceNameLength: USHORT,
             InstanceNameBufferOffset: USHORT,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_FULL_INFORMATION) + InstanceNameLength + AltitudeLength + VolumeNameLength + FilterNameLength", "sizeof(INSTANCE_FULL_INFORMATION) + InstanceNameLength + AltitudeLength + VolumeNameLength + FilterNameLength", TypedefName = "INSTANCE_FULL_INFORMATION")]
         struct INSTANCE_FULL_INFORMATION {
             NextEntryOffset: ULONG,
             InstanceNameLength: USHORT,
@@ -190,7 +188,6 @@ mod Windows {
         #[arch(X86)]
         const INSTANCE_NAME_MAX_BYTES: u32 = 510;
         const INSTANCE_NAME_MAX_CHARS: i32 = 255;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_PARTIAL_INFORMATION) + InstanceNameLength + AltitudeLength", "sizeof(INSTANCE_PARTIAL_INFORMATION) + InstanceNameLength + AltitudeLength", TypedefName = "INSTANCE_PARTIAL_INFORMATION")]
         struct INSTANCE_PARTIAL_INFORMATION {
             NextEntryOffset: ULONG,
             InstanceNameLength: USHORT,
@@ -209,12 +206,9 @@ mod Windows {
         type PFILTER_VOLUME_STANDARD_INFORMATION = *mut FILTER_VOLUME_STANDARD_INFORMATION;
         type PFLT_FILESYSTEM_TYPE = *mut FLT_FILESYSTEM_TYPE;
         type PINSTANCE_AGGREGATE_STANDARD_INFORMATION = *mut INSTANCE_AGGREGATE_STANDARD_INFORMATION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_BASIC_INFORMATION) * InstanceNameLength", "sizeof(INSTANCE_BASIC_INFORMATION) * InstanceNameLength")]
         type PINSTANCE_BASIC_INFORMATION = *mut INSTANCE_BASIC_INFORMATION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_FULL_INFORMATION) + InstanceNameLength + AltitudeLength + VolumeNameLength + FilterNameLength", "sizeof(INSTANCE_FULL_INFORMATION) + InstanceNameLength + AltitudeLength + VolumeNameLength + FilterNameLength")]
         type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
         type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "sizeof(INSTANCE_PARTIAL_INFORMATION) + InstanceNameLength + AltitudeLength", "sizeof(INSTANCE_PARTIAL_INFORMATION) + InstanceNameLength + AltitudeLength")]
         type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
         #[arch(X64 | Arm64)]
         const VOLUME_NAME_MAX_BYTES: u64 = 2048;

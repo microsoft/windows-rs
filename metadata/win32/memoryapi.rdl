@@ -10,7 +10,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn AllocateUserPhysicalPagesNuma(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[out] #[readable(success, *NumberOfPages)] #[writable(entry, *NumberOfPages)] PageArray: PULONG_PTR, #[in] nndPreferred: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "BAD_MEMORY_CALLBACK_ROUTINE", "BAD_MEMORY_CALLBACK_ROUTINE")]
         extern fn BAD_MEMORY_CALLBACK_ROUTINE();
         #[library("api-ms-win-core-memory-l1-1-7.dll")]
         extern fn CreateFileMapping2(#[in] File: HANDLE, #[in] #[opt] SecurityAttributes: *mut SECURITY_ATTRIBUTES, #[in] DesiredAccess: ULONG, #[in] PageProtection: ULONG, #[in] AllocationAttributes: ULONG, #[in] MaximumSize: ULONG64, #[in] #[opt] Name: PCWSTR, #[in] #[opt] #[out] #[writable(entry, ParameterCount)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] HANDLE;
@@ -77,22 +76,16 @@ mod Windows {
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn MapUserPhysicalPages(#[in] VirtualAddress: PVOID, #[in] NumberOfPages: ULONG_PTR, #[in] #[opt] #[readable(entry, NumberOfPages)] PageArray: PULONG_PTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFile(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
         extern fn MapViewOfFile3(#[in] FileMapping: HANDLE, #[in] #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] Offset: ULONG64, #[in] ViewSize: SIZE_T, #[in] AllocationType: ULONG, #[in] PageProtection: ULONG, #[in] #[opt] #[out] #[writable(entry, ParameterCount)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
         extern fn MapViewOfFile3FromApp(#[in] FileMapping: HANDLE, #[in] #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] Offset: ULONG64, #[in] ViewSize: SIZE_T, #[in] AllocationType: ULONG, #[in] PageProtection: ULONG, #[in] #[opt] #[out] #[writable(entry, ParameterCount)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFileEx(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] lpBaseAddress: LPVOID) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFileFromApp(#[in] hFileMappingObject: HANDLE, #[in] DesiredAccess: ULONG, #[in] FileOffset: ULONG64, #[in] NumberOfBytesToMap: SIZE_T) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-5.dll")]
         extern fn MapViewOfFileNuma2(#[in] FileMappingHandle: HANDLE, #[in] ProcessHandle: HANDLE, #[in] Offset: ULONG64, #[in] #[opt] BaseAddress: PVOID, #[in] ViewSize: SIZE_T, #[in] AllocationType: ULONG, #[in] PageProtection: ULONG, #[in] PreferredNode: ULONG) -> #[nullable] PVOID;
         struct NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH {
@@ -128,7 +121,6 @@ mod Windows {
         extern fn OpenFileMappingFromApp(#[in] DesiredAccess: ULONG, #[in] InheritHandle: BOOL, #[in] Name: PCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
         extern fn OpenFileMappingW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCWSTR) -> #[nullable] HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "BAD_MEMORY_CALLBACK_ROUTINE", "BAD_MEMORY_CALLBACK_ROUTINE", TypedefName = "BAD_MEMORY_CALLBACK_ROUTINE")]
         extern fn PBAD_MEMORY_CALLBACK_ROUTINE();
         type PWIN32_MEMORY_RANGE_ENTRY = *mut WIN32_MEMORY_RANGE_ENTRY;
         #[library("KERNEL32.dll")]
@@ -171,37 +163,24 @@ mod Windows {
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
         extern fn UnregisterBadMemoryNotification(#[in] RegistrationHandle: PVOID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
         #[library("KERNEL32.dll")]
         extern fn VirtualAlloc(#[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flAllocationType: DWORD, #[in] flProtect: DWORD) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
         extern fn VirtualAlloc2(#[in] #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] Size: SIZE_T, #[in] AllocationType: ULONG, #[in] PageProtection: ULONG, #[in] #[opt] #[out] #[writable(entry, ParameterCount)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
         extern fn VirtualAlloc2FromApp(#[in] #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: PVOID, #[in] Size: SIZE_T, #[in] AllocationType: ULONG, #[in] PageProtection: ULONG, #[in] #[opt] #[out] #[writable(entry, ParameterCount)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
         #[library("KERNEL32.dll")]
         extern fn VirtualAllocEx(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flAllocationType: DWORD, #[in] flProtect: DWORD) -> #[nullable] LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
         #[library("KERNEL32.dll")]
         extern fn VirtualAllocExNuma(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flAllocationType: DWORD, #[in] flProtect: DWORD, #[in] nndPreferred: DWORD) -> LPVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
         extern fn VirtualAllocFromApp(#[in] #[opt] BaseAddress: PVOID, #[in] Size: SIZE_T, #[in] AllocationType: ULONG, #[in] Protection: ULONG) -> #[nullable] PVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&(MEM_RELEASE|MEM_DECOMMIT)))==(MEM_RELEASE|MEM_DECOMMIT),__drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&(0x00008000|0x00004000)))==(0x00008000|0x00004000), __drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_RELEASE))!=0 && dwSize!=0,__drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&0x00008000))!=0 && dwSize!=0, __drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType==0,__drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")", "dwFreeType==0, __drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn VirtualFree(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_DECOMMIT,_Post_invalid_", "dwFreeType == 0x00004000, _Post_invalid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_RELEASE,_Post_ptr_invalid_", "dwFreeType == 0x00008000, _Post_ptr_invalid_")] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&(MEM_RELEASE|MEM_DECOMMIT)))==(MEM_RELEASE|MEM_DECOMMIT),__drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&(0x00008000|0x00004000)))==(0x00008000|0x00004000), __drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_DECOMMIT))!=0,__drv_reportError(\"Calling VirtualFreeEx without the MEM_RELEASE flag frees memory but not address descriptors (VADs); results in address space leaks\")", "((dwFreeType&0x00004000))!=0, __drv_reportError(\"Calling VirtualFreeEx without the MEM_RELEASE flag frees memory but not address descriptors (VADs); results in address space leaks\")")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_RELEASE))!=0 && dwSize!=0,__drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&0x00008000))!=0 && dwSize!=0, __drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType==0,__drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")", "dwFreeType==0, __drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
+        extern fn VirtualFree(#[incomplete] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn VirtualFreeEx(#[in] hProcess: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_DECOMMIT,_Post_invalid_", "dwFreeType == 0x00004000, _Post_invalid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_RELEASE,_Post_ptr_invalid_", "dwFreeType == 0x00008000, _Post_ptr_invalid_")] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
+        extern fn VirtualFreeEx(#[in] hProcess: HANDLE, #[incomplete] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn VirtualLock(#[in] lpAddress: LPVOID, #[in] dwSize: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -214,9 +193,9 @@ mod Windows {
         #[success(return != 0)]
         extern fn VirtualProtectFromApp(#[in] Address: PVOID, #[in] Size: SIZE_T, #[in] NewProtection: ULONG, #[out] OldProtection: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn VirtualQuery(#[in] #[opt] lpAddress: LPCVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "dwLength,return", "dwLength,return")] #[out] #[writable(entry, bytes(dwLength))] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] dwLength: SIZE_T) -> SIZE_T;
+        extern fn VirtualQuery(#[in] #[opt] lpAddress: LPCVOID, #[incomplete] #[out] #[writable(entry, bytes(dwLength))] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] dwLength: SIZE_T) -> SIZE_T;
         #[library("KERNEL32.dll")]
-        extern fn VirtualQueryEx(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPCVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "dwLength,return", "dwLength,return")] #[out] #[writable(entry, bytes(dwLength))] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] dwLength: SIZE_T) -> SIZE_T;
+        extern fn VirtualQueryEx(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPCVOID, #[incomplete] #[out] #[writable(entry, bytes(dwLength))] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] dwLength: SIZE_T) -> SIZE_T;
         #[library("KERNEL32.dll")]
         extern fn VirtualUnlock(#[in] lpAddress: LPVOID, #[in] dwSize: SIZE_T) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-5.dll")]

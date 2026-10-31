@@ -1103,7 +1103,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SspiCompareAuthIdentities(#[in] #[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] #[out] SameSuppliedUser: PBOOLEAN, #[opt] #[out] SameSuppliedIdentity: PBOOLEAN) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiCopyAuthIdentity(#[in] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiCopyAuthIdentity(#[in] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[incomplete] #[out] #[out_ptr] AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiDecryptAuthIdentity(#[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
@@ -1111,7 +1111,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[nullable] #[out] #[out_ptr] ppszUserName: *mut PCWSTR, #[nullable] #[out] #[out_ptr] ppszDomainName: *mut PCWSTR, #[nullable] #[opt] #[out] #[out_ptr] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] pszUserName: PCWSTR, #[in] #[opt] pszDomainName: PCWSTR, #[in] #[opt] pszPackedCredentialsString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] pszUserName: PCWSTR, #[in] #[opt] pszDomainName: PCWSTR, #[in] #[opt] pszPackedCredentialsString: PCWSTR, #[incomplete] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiEncryptAuthIdentity(#[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
@@ -1119,7 +1119,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SspiExcludePackage(#[in] #[opt] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] pszPackageName: PCWSTR, #[out] #[out_ptr] ppNewAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiFreeAuthIdentity(#[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
+        extern fn SspiFreeAuthIdentity(#[in] #[incomplete] #[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
         #[library("Secur32.dll")]
         extern fn SspiGetTargetHostName(#[in] pszTargetName: PCWSTR, #[out] #[out_ptr] pszHostName: *mut PWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -1141,7 +1141,7 @@ mod Windows {
         #[library("SspiCli.dll")]
         extern fn SspiSetChannelBindingFlags(#[in] #[out] pBindings: *mut SecPkgContext_Bindings, flags: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiUnmarshalAuthIdentity(#[in] AuthIdentityLength: u32, #[in] #[readable(entry, bytes(AuthIdentityLength))] AuthIdentityByteArray: *mut i8, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiUnmarshalAuthIdentity(#[in] AuthIdentityLength: u32, #[in] #[readable(entry, bytes(AuthIdentityLength))] AuthIdentityByteArray: *mut i8, #[incomplete] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiValidateAuthIdentity(#[in] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]

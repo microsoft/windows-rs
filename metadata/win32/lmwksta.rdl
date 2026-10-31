@@ -44,23 +44,22 @@ mod Windows {
         type LPWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
         type LPWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaGetInfo(#[in] #[opt] servername: LPWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "_Inexpressible_(\"size varies with level\")", "_Inexpressible_(\"size varies with level\")")] #[opt] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetWkstaGetInfo(#[in] #[opt] servername: LPWSTR, #[in] level: DWORD, #[incomplete] #[opt] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaSetInfo(#[in] #[opt] servername: LPWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buffer: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaSetInfo(#[in] #[opt] servername: LPWSTR, #[in] level: DWORD, #[in] #[incomplete] buffer: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportAdd(#[in] #[opt] servername: LPTSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(WKSTA_TRANSPORT_INFO_0))", "level == 0, _In_reads_bytes_(sizeof(WKSTA_TRANSPORT_INFO_0))")] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaTransportAdd(#[in] #[opt] servername: LPTSTR, #[in] level: DWORD, #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetWkstaTransportDel(#[in] #[opt] servername: LPWSTR, #[in] #[opt] transportname: LPWSTR, ucond: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == NERR_Success || return == 234L", "return == NERR_Success || return == 234L")]
         #[library("NETAPI32.dll")]
         #[must_use]
-        extern fn NetWkstaTransportEnum(#[in] #[opt] servername: LPTSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(WKSTA_TRANSPORT_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(WKSTA_TRANSPORT_INFO_0))")] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetWkstaTransportEnum(#[in] #[opt] servername: LPTSTR, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetWkstaUserEnum(#[in] #[opt] servername: LPWSTR, level: DWORD, #[opt] #[out] bufptr: *mut LPBYTE, prefmaxlen: DWORD, #[opt] #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resumehandle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserGetInfo(#[in] #[opt] reserved: LPWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetWkstaUserGetInfo(#[in] #[opt] reserved: LPWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserSetInfo(#[in] #[opt] reserved: LPWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaUserSetInfo(#[in] #[opt] reserved: LPWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         type PWKSTA_INFO_100 = *mut WKSTA_INFO_100;
         type PWKSTA_INFO_101 = *mut WKSTA_INFO_101;
         type PWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;

@@ -36,7 +36,7 @@ mod Windows {
             fn SetNotifyCmdLine(&self, #[in] #[opt] Program: LPCWSTR, #[in] #[opt] Parameters: LPCWSTR) -> HRESULT;
             fn GetNotifyCmdLine(&self, #[out] #[out_ptr] pProgram: *mut LPWSTR, #[out] #[out_ptr] pParameters: *mut LPWSTR) -> HRESULT;
             fn GetReplyProgress(&self, #[in] #[out] pProgress: *mut BG_JOB_REPLY_PROGRESS) -> HRESULT;
-            fn GetReplyData(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "( unsigned long )*pLength", "( unsigned long )*pLength")] #[out] ppBuffer: *mut *mut byte, #[in] #[opt] #[out] pLength: *mut UINT64) -> HRESULT;
+            fn GetReplyData(&self, #[incomplete] #[out] ppBuffer: *mut *mut byte, #[in] #[opt] #[out] pLength: *mut UINT64) -> HRESULT;
             fn SetReplyFileName(&self, #[in] #[opt] ReplyFileName: LPCWSTR) -> HRESULT;
             fn GetReplyFileName(&self, #[out] #[out_ptr] pReplyFileName: *mut LPWSTR) -> HRESULT;
             fn SetCredentials(&self, #[in] credentials: *mut BG_AUTH_CREDENTIALS) -> HRESULT;

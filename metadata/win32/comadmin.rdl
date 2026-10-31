@@ -328,7 +328,7 @@ mod Windows {
             fn get_MajorVersion(&self, #[out] #[retval] plMajorVersion: *mut i32) -> HRESULT;
             #[special]
             fn get_MinorVersion(&self, #[out] #[retval] plMinorVersion: *mut i32) -> HRESULT;
-            fn GetCollectionByQuery(&self, #[in] bstrCollName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarQuery: *mut *mut SAFEARRAY, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollectionByQuery(&self, #[in] bstrCollName: BSTR, #[in] #[incomplete] ppsaVarQuery: *mut *mut SAFEARRAY, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn ImportComponent(&self, #[in] bstrApplIDOrName: BSTR, #[in] bstrCLSIDOrProgID: BSTR) -> HRESULT;
             fn InstallComponent(&self, #[in] bstrApplIDOrName: BSTR, #[in] bstrDLL: BSTR, #[in] bstrTLB: BSTR, #[in] bstrPSDLL: BSTR) -> HRESULT;
             fn ShutdownApplication(&self, #[in] bstrApplIDOrName: BSTR) -> HRESULT;
@@ -339,15 +339,15 @@ mod Windows {
             fn StartRouter(&self) -> HRESULT;
             fn Reserved1(&self) -> HRESULT;
             fn Reserved2(&self) -> HRESULT;
-            fn InstallMultipleComponents(&self, #[in] bstrApplIDOrName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarCLSIDs: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetMultipleComponentsInfo(&self, #[in] bstrApplIdOrName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarCLSIDs: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarClassNames: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarFileFlags: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarComponentFlags: *mut *mut SAFEARRAY) -> HRESULT;
+            fn InstallMultipleComponents(&self, #[in] bstrApplIDOrName: BSTR, #[in] #[incomplete] ppsaVarFileNames: *mut *mut SAFEARRAY, #[in] #[incomplete] ppsaVarCLSIDs: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetMultipleComponentsInfo(&self, #[in] bstrApplIdOrName: BSTR, #[in] #[incomplete] ppsaVarFileNames: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarCLSIDs: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarClassNames: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarFileFlags: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarComponentFlags: *mut *mut SAFEARRAY) -> HRESULT;
             fn RefreshComponents(&self) -> HRESULT;
             fn BackupREGDB(&self, #[in] bstrBackupFilePath: BSTR) -> HRESULT;
             fn RestoreREGDB(&self, #[in] bstrBackupFilePath: BSTR) -> HRESULT;
             fn QueryApplicationFile(&self, #[in] bstrApplicationFile: BSTR, #[out] #[out_ptr] pbstrApplicationName: *mut BSTR, #[out] #[out_ptr] pbstrApplicationDescription: *mut BSTR, #[out] pbHasUsers: *mut VARIANT_BOOL, #[out] pbIsProxy: *mut VARIANT_BOOL, #[out] #[out_ptr] ppsaVarFileNames: *mut *mut SAFEARRAY) -> HRESULT;
             fn StartApplication(&self, #[in] bstrApplIdOrName: BSTR) -> HRESULT;
             fn ServiceCheck(&self, #[in] lService: i32, #[out] #[retval] plStatus: *mut i32) -> HRESULT;
-            fn InstallMultipleEventClasses(&self, #[in] bstrApplIdOrName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarCLSIDS: *mut *mut SAFEARRAY) -> HRESULT;
+            fn InstallMultipleEventClasses(&self, #[in] bstrApplIdOrName: BSTR, #[in] #[incomplete] ppsaVarFileNames: *mut *mut SAFEARRAY, #[in] #[incomplete] ppsaVarCLSIDS: *mut *mut SAFEARRAY) -> HRESULT;
             fn InstallEventClass(&self, #[in] bstrApplIdOrName: BSTR, #[in] bstrDLL: BSTR, #[in] bstrTLB: BSTR, #[in] bstrPSDLL: BSTR) -> HRESULT;
             fn GetEventClassesForIID(&self, #[in] bstrIID: BSTR, #[out] #[out_ptr] ppsaVarCLSIDs: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarProgIDs: *mut *mut SAFEARRAY, #[out] #[out_ptr] ppsaVarDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
         }

@@ -98,10 +98,6 @@ fn success_contracts() {
                     .find(|method| method.name() == name)
                     .unwrap();
                 assert_eq!(predicate(method), Some(expected), "{name}");
-                assert!(
-                    method.find_attribute("NativeSalAttribute").is_none(),
-                    "{name}"
-                );
             }
             for (name, expected) in [
                 ("Status", Nonnegative),
@@ -111,7 +107,6 @@ fn success_contracts() {
             ] {
                 let ty = index.expect("Fixture", name);
                 assert_eq!(predicate(ty), Some(expected), "{name}");
-                assert!(ty.find_attribute("NativeSalAttribute").is_none());
             }
             for name in ["CopyStatus", "CompetingStatus"] {
                 assert_eq!(
@@ -139,7 +134,6 @@ fn success_contracts() {
             ] {
                 let ty = index.expect("Fixture", name);
                 assert_eq!(predicate(ty), None, "{name}");
-                assert!(ty.find_attribute("NativeSalAttribute").is_some(), "{name}");
             }
             for name in [
                 "UnsignedResult",
@@ -160,10 +154,6 @@ fn success_contracts() {
                     .find(|method| method.name() == name)
                     .unwrap();
                 assert_eq!(predicate(method), None, "{name}");
-                assert!(
-                    method.find_attribute("NativeSalAttribute").is_some(),
-                    "{name}"
-                );
             }
             for name in ["InheritedDefault", "UnresolvedDefault", "Parameter"] {
                 let method = index
@@ -175,7 +165,7 @@ fn success_contracts() {
                 if name == "Parameter" {
                     let parameter = method.params().next().unwrap();
                     assert_eq!(predicate(parameter), None);
-                    assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+                    assert!(parameter.find_attribute("IncompleteAttribute").is_some());
                 }
             }
         }

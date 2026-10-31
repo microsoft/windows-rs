@@ -33,7 +33,6 @@ mod Windows {
             dpiX: FLOAT,
             dpiY: FLOAT,
             bitmapOptions: D2D1_BITMAP_OPTIONS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
             colorContext: ID2D1ColorContext,
         }
         #[repr(i32)]
@@ -129,12 +128,10 @@ mod Windows {
         }
         struct D2D1_LAYER_PARAMETERS1 {
             contentBounds: D2D1_RECT_F,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
             geometricMask: ID2D1Geometry,
             maskAntialiasMode: D2D1_ANTIALIAS_MODE,
             maskTransform: D2D1_MATRIX_3X2_F,
             opacity: FLOAT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
             opacityBrush: ID2D1Brush,
             layerOptions: D2D1_LAYER_OPTIONS1,
         }
@@ -402,7 +399,7 @@ mod Windows {
         }
         #[guid(0xae1572f4_5dd0_4777_998b_9279472ae63b)]
         interface ID2D1GradientStopCollection1: ID2D1GradientStopCollection {
-            fn GetGradientStops1(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")")] #[out] #[writable(entry, gradientStopsCount)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: UINT32);
+            fn GetGradientStops1(&self, #[incomplete] #[out] #[writable(entry, gradientStopsCount)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: UINT32);
             fn GetPreInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
             fn GetPostInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
             fn GetBufferPrecision(&self) -> D2D1_BUFFER_PRECISION;

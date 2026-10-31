@@ -10,7 +10,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
     type HSTRING = *mut HSTRING__;
     struct HSTRING__ {
         unused: i32,
@@ -29,7 +28,7 @@ mod Fixture {
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
     extern fn HSTRING_UserFree(#[in] pFlags: *mut ULONG, #[in] ppidl: *mut HSTRING);
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-    extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
+    extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[incomplete] #[in] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
     extern fn HSTRING_UserSize(#[in] pFlags: *mut ULONG, StartingSize: ULONG, #[in] ppidl: *mut HSTRING) -> ULONG;
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]

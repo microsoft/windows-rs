@@ -88,7 +88,6 @@ mod Windows {
         extern fn PROC() -> INT_PTR;
         #[arch(X86)]
         extern fn PROC() -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PSZ = *mut i8;
         type PUCHAR = *mut u8;
         type PUINT = *mut u32;

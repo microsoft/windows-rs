@@ -282,7 +282,6 @@ mod Windows {
             pNameHost: PWSTR,
         }
         type DNS_RECORD = DNS_RECORDA;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", TypedefName = "DNS_RECORDA")]
         struct DNS_RECORDA {
             pNext: *mut DNS_RECORDA,
             pName: PSTR,
@@ -383,7 +382,6 @@ mod Windows {
                 pDataPtr: PBYTE,
             },
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", TypedefName = "DNS_RECORDW")]
         struct DNS_RECORDW {
             pNext: *mut DNS_RECORDW,
             pName: PWSTR,
@@ -953,9 +951,7 @@ mod Windows {
         type PDNS_PTR_DATAA = *mut DNS_PTR_DATAA;
         type PDNS_PTR_DATAW = *mut DNS_PTR_DATAW;
         type PDNS_RECORD = *mut DNS_RECORDA;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength")]
         type PDNS_RECORDA = *mut DNS_RECORDA;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength")]
         type PDNS_RECORDW = *mut DNS_RECORDW;
         type PDNS_RECORD_OPT = *mut DNS_RECORD_OPTA;
         type PDNS_RECORD_OPTA = *mut DNS_RECORD_OPTA;

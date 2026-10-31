@@ -194,7 +194,7 @@ mod Windows {
         const ACTRL_WIN_WRITE_ATTRIBS: i32 = 64;
         #[library("KERNEL32.dll", import = "LocalFree")]
         #[success(return == 0)]
-        extern fn AccFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HLOCAL) -> #[nullable] HLOCAL;
+        extern fn AccFree(#[incomplete] hMem: HLOCAL) -> #[nullable] HLOCAL;
         type EXPLICIT_ACCESS = _EXPLICIT_ACCESS_A;
         type EXPLICIT_ACCESSA = _EXPLICIT_ACCESS_A;
         type EXPLICIT_ACCESSW = _EXPLICIT_ACCESS_W;

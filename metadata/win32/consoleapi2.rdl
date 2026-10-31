@@ -71,7 +71,7 @@ mod Windows {
         type PCONSOLE_SCREEN_BUFFER_INFO = *mut CONSOLE_SCREEN_BUFFER_INFO;
         type PCONSOLE_SCREEN_BUFFER_INFOEX = *mut CONSOLE_SCREEN_BUFFER_INFOEX;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleOutputA(#[in] hConsoleOutput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "dwBufferSize.X * dwBufferSize.Y", "dwBufferSize.X * dwBufferSize.Y")] #[out] lpBuffer: PCHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpReadRegion: PSMALL_RECT) -> BOOL;
+        extern fn ReadConsoleOutputA(#[in] hConsoleOutput: HANDLE, #[incomplete] #[out] lpBuffer: PCHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpReadRegion: PSMALL_RECT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReadConsoleOutputAttribute(#[in] hConsoleOutput: HANDLE, #[out] #[writable(entry, nLength)] lpAttribute: LPWORD, #[in] nLength: DWORD, #[in] dwReadCoord: COORD, #[out] lpNumberOfAttrsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -79,7 +79,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ReadConsoleOutputCharacterW(#[in] hConsoleOutput: HANDLE, #[out] #[writable(entry, nLength)] lpCharacter: LPWSTR, #[in] nLength: DWORD, #[in] dwReadCoord: COORD, #[out] lpNumberOfCharsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleOutputW(#[in] hConsoleOutput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "dwBufferSize.X * dwBufferSize.Y", "dwBufferSize.X * dwBufferSize.Y")] #[out] lpBuffer: PCHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpReadRegion: PSMALL_RECT) -> BOOL;
+        extern fn ReadConsoleOutputW(#[in] hConsoleOutput: HANDLE, #[incomplete] #[out] lpBuffer: PCHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpReadRegion: PSMALL_RECT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ScrollConsoleScreenBufferA(#[in] hConsoleOutput: HANDLE, #[in] lpScrollRectangle: *const SMALL_RECT, #[in] #[opt] lpClipRectangle: *const SMALL_RECT, #[in] dwDestinationOrigin: COORD, #[in] lpFill: *const CHAR_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -111,7 +111,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WriteConsoleInputW(#[in] hConsoleInput: HANDLE, #[in] #[readable(entry, nLength)] lpBuffer: *const INPUT_RECORD, #[in] nLength: DWORD, #[out] lpNumberOfEventsWritten: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleOutputA(#[in] hConsoleOutput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "dwBufferSize.X * dwBufferSize.Y", "dwBufferSize.X * dwBufferSize.Y")] #[in] lpBuffer: *const CHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: PSMALL_RECT) -> BOOL;
+        extern fn WriteConsoleOutputA(#[in] hConsoleOutput: HANDLE, #[in] #[incomplete] lpBuffer: *const CHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: PSMALL_RECT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn WriteConsoleOutputAttribute(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nLength)] lpAttribute: *const WORD, #[in] nLength: DWORD, #[in] dwWriteCoord: COORD, #[out] lpNumberOfAttrsWritten: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -119,6 +119,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WriteConsoleOutputCharacterW(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nLength)] lpCharacter: LPCWSTR, #[in] nLength: DWORD, #[in] dwWriteCoord: COORD, #[out] lpNumberOfCharsWritten: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleOutputW(#[in] hConsoleOutput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "dwBufferSize.X * dwBufferSize.Y", "dwBufferSize.X * dwBufferSize.Y")] #[in] lpBuffer: *const CHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: PSMALL_RECT) -> BOOL;
+        extern fn WriteConsoleOutputW(#[in] hConsoleOutput: HANDLE, #[in] #[incomplete] lpBuffer: *const CHAR_INFO, #[in] dwBufferSize: COORD, #[in] dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: PSMALL_RECT) -> BOOL;
     }
 }

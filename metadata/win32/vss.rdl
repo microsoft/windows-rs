@@ -12,7 +12,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut VSS_OBJECT_PROP, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;
+            fn Clone(&self, #[in] #[incomplete] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;
         }
         type PVSS_APPLICATION_LEVEL = *mut VSS_APPLICATION_LEVEL;
         type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
@@ -146,8 +146,6 @@ mod Windows {
             VSS_PROV_HARDWARE = 3,
             VSS_PROV_FILESHARE = 4,
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type VSS_PWSZ = *mut u16;
         #[repr(i32)]
         enum VSS_RECOVERY_OPTIONS {

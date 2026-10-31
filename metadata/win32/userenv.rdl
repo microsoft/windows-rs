@@ -5,7 +5,7 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn CreateAppContainerProfile(#[in] pszAppContainerName: PCWSTR, #[in] pszDisplayName: PCWSTR, #[in] pszDescription: PCWSTR, #[in] #[opt] #[readable(entry, dwCapabilityCount)] pCapabilities: PSID_AND_ATTRIBUTES, #[in] dwCapabilityCount: DWORD, #[out] #[out_ptr] ppSidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn CreateEnvironmentBlock(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "(PZZWSTR *)lpEnvironment,_Outptr_", "(PZZWSTR *)lpEnvironment, _Outptr_")] lpEnvironment: *mut LPVOID, #[in] #[opt] hToken: HANDLE, #[in] bInherit: BOOL) -> BOOL;
+        extern fn CreateEnvironmentBlock(#[incomplete] lpEnvironment: *mut LPVOID, #[in] #[opt] hToken: HANDLE, #[in] bInherit: BOOL) -> BOOL;
         #[library("USERENV.dll")]
         extern fn CreateProfile(#[in] pszUserSid: LPCWSTR, #[in] pszUserName: LPCWSTR, #[out] #[writable(entry, cchProfilePath)] pszProfilePath: LPWSTR, #[in] cchProfilePath: DWORD) -> HRESULT;
         #[library("USERENV.dll")]

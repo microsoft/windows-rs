@@ -435,7 +435,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetLocaleInfoA(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] LCType: LCTYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchData,return", "cchData,return")] #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
+        extern fn GetLocaleInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] LCType: LCTYPE, #[incomplete] #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetLocaleInfoW(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
@@ -548,14 +548,11 @@ mod Windows {
         const LCMAP_TRADITIONAL_CHINESE: i32 = 67108864;
         const LCMAP_UPPERCASE: i32 = 512;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringA(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[opt] #[out] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV | LCMAP_HASH | LCMAP_SORTHANDLE)) != 0,_At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))", "(dwMapFlags & (0x00000400 | 0x00000800 | 0x00040000 | 0x20000000)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchDest != -1,_At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))", "cchDest != -1, _At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchSrc != -1,_At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))", "cchSrc != -1, _At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))")]
+        extern fn LCMapStringA(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[incomplete] #[opt] #[out] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn LCMapStringEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[opt] #[out] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32, #[in] #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: LPVOID, #[in] #[opt] sortHandle: LPARAM) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringW(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[opt] #[out] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
+        extern fn LCMapStringW(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[incomplete] #[opt] #[out] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
         type LCTYPE = u32;
         type LGRPID = u32;
         const LGRPID_ARABIC: i32 = 13;

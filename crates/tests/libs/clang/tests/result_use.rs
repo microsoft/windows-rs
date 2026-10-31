@@ -100,7 +100,7 @@ fn callable_result_use() {
                     );
                     if method.name() == "Outputs" {
                         let parameter = method.params().next().unwrap();
-                        assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+                        assert!(parameter.find_attribute("IncompleteAttribute").is_some());
                         assert!(parameter.find_attribute("MustUseAttribute").is_none());
                         assert_eq!(parameter.direction(), reader::ParamDirection::Output);
                     }
@@ -123,16 +123,10 @@ fn callable_result_use() {
                     1
                 );
             }
+            let status = index.expect("Fixture", "Status");
+            assert!(status.find_attribute("SuccessConditionAttribute").is_some());
             for name in ["Status", "InspectedValue"] {
                 let ty = index.expect("Fixture", name);
-                assert!(
-                    ty.find_attribute(if name == "Status" {
-                        "SuccessConditionAttribute"
-                    } else {
-                        "NativeSalAttribute"
-                    })
-                    .is_some()
-                );
                 assert!(ty.find_attribute("MustUseAttribute").is_none());
             }
             for field in index
@@ -140,7 +134,6 @@ fn callable_result_use() {
                 .fields()
                 .chain(index.expect("Fixture", "Apis").fields())
             {
-                assert!(field.find_attribute("NativeSalAttribute").is_some());
                 assert!(field.find_attribute("MustUseAttribute").is_none());
             }
         }

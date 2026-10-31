@@ -22,9 +22,9 @@ mod Windows {
         #[library("d3d12.dll")]
         extern fn D3D12GetInterface(#[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppvDebug: *mut *mut void) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12SerializeRootSignature(#[in] pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, #[in] Version: D3D_ROOT_SIGNATURE_VERSION, #[out] ppBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D12SerializeRootSignature(#[in] pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, #[in] Version: D3D_ROOT_SIGNATURE_VERSION, #[out] ppBlob: *mut ID3D10Blob, #[incomplete] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12SerializeVersionedRootSignature(#[in] pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] ppBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D12SerializeVersionedRootSignature(#[in] pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] ppBlob: *mut ID3D10Blob, #[incomplete] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
         const D3D12TiledResourceTier4: GUID = 0xc9c4725f_a81a_4f56_8c5b_c51039d694fb;
         const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: i32 = 65535;
         const D3D12_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295;
@@ -169,11 +169,8 @@ mod Windows {
             Type: D3D12_BARRIER_TYPE,
             NumBarriers: UINT32,
             Anonymous: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumBarriers", "NumBarriers")]
                 pGlobalBarriers: *const D3D12_GLOBAL_BARRIER,
-                #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumBarriers", "NumBarriers")]
                 pTextureBarriers: *const D3D12_TEXTURE_BARRIER,
-                #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumBarriers", "NumBarriers")]
                 pBufferBarriers: *const D3D12_BUFFER_BARRIER,
             },
         }
@@ -299,20 +296,13 @@ mod Windows {
             back: UINT,
         }
         struct D3D12_BROADCASTING_LAUNCH_OVERRIDES {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pLocalRootArgumentsTableIndex: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pProgramEntry: *const BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pNewName: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pShareInputOf: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "3", "3")]
             pDispatchGrid: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "3", "3")]
             pMaxDispatchGrid: *const UINT,
             NumOutputOverrides: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumOutputOverrides", "NumOutputOverrides")]
             pOutputOverrides: *const D3D12_NODE_OUTPUT_OVERRIDES,
         }
         struct D3D12_BUFFER_BARRIER {
@@ -320,7 +310,6 @@ mod Windows {
             SyncAfter: D3D12_BARRIER_SYNC,
             AccessBefore: D3D12_BARRIER_ACCESS,
             AccessAfter: D3D12_BARRIER_ACCESS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             pResource: ID3D12Resource,
             Offset: UINT64,
             Size: UINT64,
@@ -357,7 +346,6 @@ mod Windows {
         struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
             DestAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
             Inputs: D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             SourceAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
             ScratchAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
         }
@@ -399,16 +387,11 @@ mod Windows {
         const D3D12_CLIP_OR_CULL_DISTANCE_COUNT: i32 = 8;
         const D3D12_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: i32 = 2;
         struct D3D12_COALESCING_LAUNCH_OVERRIDES {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pLocalRootArgumentsTableIndex: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pProgramEntry: *const BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pNewName: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pShareInputOf: *const D3D12_NODE_ID,
             NumOutputOverrides: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumOutputOverrides", "NumOutputOverrides")]
             pOutputOverrides: *const D3D12_NODE_OUTPUT_OVERRIDES,
         }
         #[repr(i32)]
@@ -519,16 +502,11 @@ mod Windows {
         const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8;
         const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: i32 = 7;
         struct D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pLocalRootArgumentsTableIndex: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pProgramEntry: *const BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pNewName: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pShareInputOf: *const D3D12_NODE_ID,
             NumOutputOverrides: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumOutputOverrides", "NumOutputOverrides")]
             pOutputOverrides: *const D3D12_NODE_OUTPUT_OVERRIDES,
         }
         #[repr(i32)]
@@ -832,9 +810,7 @@ mod Windows {
             D3D12_DEVICE_FLAG_FORCE_LEGACY_STATE_VALIDATION = 1024,
         }
         struct D3D12_DEVICE_REMOVED_EXTENDED_DATA {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Flags: D3D12_DRED_FLAGS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadAutoBreadcrumbNode: *mut D3D12_AUTO_BREADCRUMB_NODE,
         }
         struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
@@ -855,7 +831,6 @@ mod Windows {
         }
         struct D3D12_DISCARD_REGION {
             NumRects: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumRects", "NumRects")]
             pRects: *const D3D12_RECT,
             FirstSubresource: UINT,
             NumSubresources: UINT,
@@ -954,11 +929,9 @@ mod Windows {
             D3D12_DRED_ALLOCATION_TYPE_INVALID = -1,
         }
         struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE,
         }
         struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE1,
         }
         struct D3D12_DRED_BREADCRUMB_CONTEXT {
@@ -992,23 +965,17 @@ mod Windows {
         }
         struct D3D12_DRED_PAGE_FAULT_OUTPUT {
             PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
         }
         struct D3D12_DRED_PAGE_FAULT_OUTPUT1 {
             PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
         }
         struct D3D12_DRED_PAGE_FAULT_OUTPUT2 {
             PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
             PageFaultFlags: D3D12_DRED_PAGE_FAULT_FLAGS,
         }
@@ -1073,13 +1040,11 @@ mod Windows {
         struct D3D12_DXIL_LIBRARY_DESC {
             DXILLibrary: D3D12_SHADER_BYTECODE,
             NumExports: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumExports", "NumExports")]
             pExports: *const D3D12_EXPORT_DESC,
         }
         struct D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
             SubobjectToAssociate: LPCWSTR,
             NumExports: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumExports", "NumExports")]
             pExports: *mut LPCWSTR,
         }
         #[repr(i32)]
@@ -1095,12 +1060,10 @@ mod Windows {
         struct D3D12_EXISTING_COLLECTION_DESC {
             pExistingCollection: ID3D12StateObject,
             NumExports: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumExports", "NumExports")]
             pExports: *const D3D12_EXPORT_DESC,
         }
         struct D3D12_EXPORT_DESC {
             Name: LPCWSTR,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             ExportToRename: LPCWSTR,
             Flags: D3D12_EXPORT_FLAGS,
         }
@@ -1161,41 +1124,27 @@ mod Windows {
             D3D12_FEATURE_SHADER_CACHE_ABI_SUPPORT = 61,
         }
         struct D3D12_FEATURE_DATA_APPLICATION_SPECIFIC_DRIVER_STATE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_ARCHITECTURE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NodeIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TileBasedRenderer: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             UMA: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CacheCoherentUMA: BOOL,
         }
         struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NodeIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TileBasedRenderer: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             UMA: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CacheCoherentUMA: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             IsolatedMMU: BOOL,
         }
         struct D3D12_FEATURE_DATA_BYTECODE_BYPASS_HASH_SUPPORTED {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             CommandListType: D3D12_COMMAND_LIST_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Priority: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             PriorityForTypeIsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_CROSS_NODE {
@@ -1203,111 +1152,68 @@ mod Windows {
             AtomicShaderInstructions: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DoublePrecisionFloatShaderOps: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             OutputMergerLogicOp: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MinPrecisionSupport: D3D12_SHADER_MIN_PRECISION_SUPPORT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TiledResourcesTier: D3D12_TILED_RESOURCES_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ResourceBindingTier: D3D12_RESOURCE_BINDING_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             PSSpecifiedStencilRefSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TypedUAVLoadAdditionalFormats: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ROVsSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ConservativeRasterizationTier: D3D12_CONSERVATIVE_RASTERIZATION_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MaxGPUVirtualAddressBitsPerResource: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             StandardSwizzle64KBSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CrossNodeSharingTier: D3D12_CROSS_NODE_SHARING_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CrossAdapterRowMajorTextureSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ResourceHeapTier: D3D12_RESOURCE_HEAP_TIER,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WaveOps: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WaveLaneCountMin: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WaveLaneCountMax: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TotalLaneCount: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ExpandedComputeResourceStates: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Int64ShaderOps: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             VariableRateShadingSumCombinerSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MeshShaderPerPrimitiveShadingRateSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AtomicInt64OnDescriptorHeapResourceSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MSPrimitivesPipelineStatisticIncludesCulledPrimitives: D3D12_TRI_STATE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             EnhancedBarriersSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             RelaxedFormatCastingSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             UnrestrictedBufferTextureCopyPitchSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             UnrestrictedVertexElementAlignmentSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             InvertedViewportHeightFlipsYSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             InvertedViewportDepthFlipsZSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TextureCopyBetweenDimensionsSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AlphaBlendFactorSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AdvancedTextureOpsSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WriteableMSAATexturesSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             IndependentFrontAndBackStencilRefMaskSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             TriangleFanSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DynamicIndexBufferStripCutSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DynamicDepthBiasSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             GPUUploadHeapSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             NonNormalizedCoordinateSamplersSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ManualWriteTrackingResourceSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             RenderPassesValid: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
@@ -1320,110 +1226,71 @@ mod Windows {
             MaxSamplerDescriptorHeapSize: UINT,
             MaxSamplerDescriptorHeapSizeWithStaticSamplers: UINT,
             MaxViewDescriptorHeapSize: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ComputeOnlyCustomHeapSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DepthBoundsTestSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ProgrammableSamplePositionsTier: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ComputeOnlyWriteWatchSupported: BOOL,
             RecreateAtTier: D3D12_RECREATE_AT_TIER,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WorkGraphsTier: D3D12_WORK_GRAPHS_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ExecuteIndirectTier: D3D12_EXECUTE_INDIRECT_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SampleCmpGradientAndBiasSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ExtendedCommandInfoSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CopyQueueTimestampQueriesSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             CastingFullyTypedFormatSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WriteBufferImmediateSupportFlags: D3D12_COMMAND_LIST_SUPPORT_FLAGS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ViewInstancingTier: D3D12_VIEW_INSTANCING_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             BarycentricsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MSAA64KBAlignedTextureSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Native16BitShaderOpsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SRVOnlyTiledResourceTier3: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             RenderPassesTier: D3D12_RENDER_PASS_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             RaytracingTier: D3D12_RAYTRACING_TIER,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AdditionalShadingRatesSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             PerPrimitiveShadingRateSupportedWithViewportIndexing: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             VariableShadingRateTier: D3D12_VARIABLE_SHADING_RATE_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             ShadingRateImageTileSize: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             BackgroundProcessingSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MeshShaderTier: D3D12_MESH_SHADER_TIER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SamplerFeedbackTier: D3D12_SAMPLER_FEEDBACK_TIER,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             UnalignedBlockTexturesSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MeshShaderPipelineStatsSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MeshShaderSupportsFullRangeRenderTargetArrayIndex: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AtomicInt64OnTypedResourceSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             AtomicInt64OnGroupSharedSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DerivativesInMeshAndAmplificationShadersSupported: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             WaveMMATier: D3D12_WAVE_MMA_TIER,
         }
         struct D3D12_FEATURE_DATA_DISPLAYABLE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DisplayableTexture: BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
         }
         struct D3D12_FEATURE_DATA_EXISTING_HEAPS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_FEATURE_LEVELS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NumFeatureLevels: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumFeatureLevels", "NumFeatureLevels")]
             pFeatureLevelsRequested: *const D3D_FEATURE_LEVEL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MaxSupportedFeatureLevel: D3D_FEATURE_LEVEL,
         }
         struct D3D12_FEATURE_DATA_FORMAT_INFO {
@@ -1431,11 +1298,8 @@ mod Windows {
             PlaneCount: UINT8,
         }
         struct D3D12_FEATURE_DATA_FORMAT_SUPPORT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Format: DXGI_FORMAT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Support1: D3D12_FORMAT_SUPPORT1,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Support2: D3D12_FORMAT_SUPPORT2,
         }
         struct D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
@@ -1443,31 +1307,21 @@ mod Windows {
             MaxGPUVirtualAddressBitsPerProcess: UINT,
         }
         struct D3D12_FEATURE_DATA_HARDWARE_COPY {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Format: DXGI_FORMAT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             SampleCount: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Flags: D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             NumQualityLevels: UINT,
         }
         struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Format: DXGI_FORMAT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Dimension: D3D12_RESOURCE_DIMENSION,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             DestHeapProperties: D3D12_HEAP_PROPERTIES,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_PREDICATION {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Supported: BOOL,
         }
         struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
@@ -1484,30 +1338,23 @@ mod Windows {
             Count: UINT,
         }
         struct D3D12_FEATURE_DATA_QUERY_META_COMMAND {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             CommandId: GUID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NodeMask: UINT,
             #[nullable]
             #[readable(bytes(QueryInputDataSizeInBytes))]
             #[writable(bytes(QueryInputDataSizeInBytes))]
             pQueryInputData: *const void,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             QueryInputDataSizeInBytes: SIZE_T,
             #[readable(bytes(QueryOutputDataSizeInBytes))]
             #[writable(bytes(QueryOutputDataSizeInBytes))]
             pQueryOutputData: *mut void,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             QueryOutputDataSizeInBytes: SIZE_T,
         }
         struct D3D12_FEATURE_DATA_ROOT_SIGNATURE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")]
             HighestVersion: D3D_ROOT_SIGNATURE_VERSION,
         }
         struct D3D12_FEATURE_DATA_SERIALIZATION {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             NodeIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             HeapSerializationTier: D3D12_HEAP_SERIALIZATION_TIER,
         }
         struct D3D12_FEATURE_DATA_SHADERCACHE_ABI_SUPPORT {
@@ -1518,15 +1365,12 @@ mod Windows {
             ApplicationProfileVersion: D3D12_VERSION_NUMBER,
         }
         struct D3D12_FEATURE_DATA_SHADER_CACHE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SupportFlags: D3D12_SHADER_CACHE_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_SHADER_MODEL {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")]
             HighestShaderModel: D3D_SHADER_MODEL,
         }
         struct D3D12_FEATURE_DATA_TIGHT_ALIGNMENT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             SupportTier: D3D12_TIGHT_ALIGNMENT_TIER,
         }
         #[flags]
@@ -1668,10 +1512,8 @@ mod Windows {
         struct D3D12_GENERIC_PROGRAM_DESC {
             ProgramName: LPCWSTR,
             NumExports: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumExports", "NumExports")]
             pExports: *mut LPCWSTR,
             NumSubobjects: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumSubobjects", "NumSubobjects")]
             ppSubobjects: *const *const D3D12_STATE_SUBOBJECT,
         }
         struct D3D12_GLOBAL_BARRIER {
@@ -1820,11 +1662,8 @@ mod Windows {
         struct D3D12_HIT_GROUP_DESC {
             HitGroupExport: LPCWSTR,
             Type: D3D12_HIT_GROUP_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             AnyHitShaderImport: LPCWSTR,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             ClosestHitShaderImport: LPCWSTR,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             IntersectionShaderImport: LPCWSTR,
         }
         #[repr(i32)]
@@ -2194,13 +2033,9 @@ mod Windows {
         }
         struct D3D12_NODE_OUTPUT_OVERRIDES {
             OutputIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pNewName: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pAllowSparseNodes: *const BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pMaxRecords: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pMaxRecordsSharedWithOutputIndex: *const UINT,
         }
         #[repr(i32)]
@@ -2234,9 +2069,7 @@ mod Windows {
             D3D12_PIPELINE_STATE_FLAG_DYNAMIC_INDEX_BUFFER_STRIP_CUT = 8,
         }
         struct D3D12_PIPELINE_STATE_STREAM_DESC {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             SizeInBytes: SIZE_T,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"Dependent on size of subobjects\")", "_Inexpressible_(\"Dependent on size of subobjects\")")]
             pPipelineStateSubobjectStream: *mut void,
         }
         #[repr(i32)]
@@ -3486,7 +3319,6 @@ mod Windows {
         struct D3D12_STATE_OBJECT_DESC {
             Type: D3D12_STATE_OBJECT_TYPE,
             NumSubobjects: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumSubobjects", "NumSubobjects")]
             pSubobjects: *const D3D12_STATE_SUBOBJECT,
         }
         #[flags]
@@ -3612,7 +3444,6 @@ mod Windows {
         struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
             pSubobjectToAssociate: *const D3D12_STATE_SUBOBJECT,
             NumExports: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "NumExports", "NumExports")]
             pExports: *mut LPCWSTR,
         }
         const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
@@ -3802,7 +3633,6 @@ mod Windows {
             AccessAfter: D3D12_BARRIER_ACCESS,
             LayoutBefore: D3D12_BARRIER_LAYOUT,
             LayoutAfter: D3D12_BARRIER_LAYOUT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             pResource: ID3D12Resource,
             Subresources: D3D12_BARRIER_SUBRESOURCE_RANGE,
             Flags: D3D12_TEXTURE_BARRIER_FLAGS,
@@ -3836,16 +3666,11 @@ mod Windows {
             D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE = 3,
         }
         struct D3D12_THREAD_LAUNCH_OVERRIDES {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pLocalRootArgumentsTableIndex: *const UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pProgramEntry: *const BOOL,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pNewName: *const D3D12_NODE_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pShareInputOf: *const D3D12_NODE_ID,
             NumOutputOverrides: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumOutputOverrides", "NumOutputOverrides")]
             pOutputOverrides: *const D3D12_NODE_OUTPUT_OVERRIDES,
         }
         const D3D12_TIGHT_ALIGNMENT_MIN_COMMITTED_RESOURCE_ALIGNMENT: i32 = 4096;
@@ -4046,10 +3871,8 @@ mod Windows {
             ProgramName: LPCWSTR,
             Flags: D3D12_WORK_GRAPH_FLAGS,
             NumEntrypoints: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumEntrypoints", "NumEntrypoints")]
             pEntrypoints: *const D3D12_NODE_ID,
             NumExplicitlyDefinedNodes: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "NumExplicitlyDefinedNodes", "NumExplicitlyDefinedNodes")]
             pExplicitlyDefinedNodes: *const D3D12_NODE,
         }
         #[flags]
@@ -4259,7 +4082,7 @@ mod Windows {
         interface ID3D12DeviceConfiguration: IUnknown {
             fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC;
             fn GetEnabledExperimentalFeatures(&self, #[out] #[writable(entry, NumGuids)] pGuids: *mut GUID, NumGuids: UINT) -> HRESULT;
-            fn SerializeVersionedRootSignature(&self, #[in] pDesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] #[out_ptr(null_on_failure)] ppResult: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppError: *mut ID3D10Blob) -> HRESULT;
+            fn SerializeVersionedRootSignature(&self, #[in] pDesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] #[out_ptr(null_on_failure)] ppResult: *mut ID3D10Blob, #[incomplete] ppError: *mut ID3D10Blob) -> HRESULT;
             fn CreateVersionedRootSignatureDeserializer(&self, #[in] #[readable(entry, bytes(Size))] pBlob: *const void, Size: SIZE_T, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvDeserializer: *mut *mut void) -> HRESULT;
         }
         #[guid(0xed342442_6343_4e16_bb82_a3a577874e56)]
@@ -4361,8 +4184,8 @@ mod Windows {
             fn SetGraphicsRootDescriptorTable(&self, #[in] RootParameterIndex: UINT, #[in] BaseDescriptor: D3D12_GPU_DESCRIPTOR_HANDLE);
             fn SetComputeRoot32BitConstant(&self, #[in] RootParameterIndex: UINT, #[in] SrcData: UINT, #[in] DestOffsetIn32BitValues: UINT);
             fn SetGraphicsRoot32BitConstant(&self, #[in] RootParameterIndex: UINT, #[in] SrcData: UINT, #[in] DestOffsetIn32BitValues: UINT);
-            fn SetComputeRoot32BitConstants(&self, #[in] RootParameterIndex: UINT, #[in] Num32BitValuesToSet: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "Num32BitValuesToSet*sizeof(UINT)", "Num32BitValuesToSet*sizeof(UINT)")] #[in] pSrcData: *const void, #[in] DestOffsetIn32BitValues: UINT);
-            fn SetGraphicsRoot32BitConstants(&self, #[in] RootParameterIndex: UINT, #[in] Num32BitValuesToSet: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "Num32BitValuesToSet*sizeof(UINT)", "Num32BitValuesToSet*sizeof(UINT)")] #[in] pSrcData: *const void, #[in] DestOffsetIn32BitValues: UINT);
+            fn SetComputeRoot32BitConstants(&self, #[in] RootParameterIndex: UINT, #[in] Num32BitValuesToSet: UINT, #[in] #[incomplete] pSrcData: *const void, #[in] DestOffsetIn32BitValues: UINT);
+            fn SetGraphicsRoot32BitConstants(&self, #[in] RootParameterIndex: UINT, #[in] Num32BitValuesToSet: UINT, #[in] #[incomplete] pSrcData: *const void, #[in] DestOffsetIn32BitValues: UINT);
             fn SetComputeRootConstantBufferView(&self, #[in] RootParameterIndex: UINT, #[in] BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS);
             fn SetGraphicsRootConstantBufferView(&self, #[in] RootParameterIndex: UINT, #[in] BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS);
             fn SetComputeRootShaderResourceView(&self, #[in] RootParameterIndex: UINT, #[in] BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS);
@@ -4513,7 +4336,7 @@ mod Windows {
         interface ID3D12QueryHeap: ID3D12Pageable {}
         #[guid(0x696442be_a72e_4059_bc79_5b5c98040fad)]
         interface ID3D12Resource: ID3D12Pageable {
-            fn Map(&self, Subresource: UINT, #[in] #[opt] pReadRange: *const D3D12_RANGE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_", "_Inexpressible_(\"Dependent on resource\")", "_Inexpressible_(\"Dependent on resource\")")] #[opt] #[out] ppData: *mut *mut void) -> HRESULT;
+            fn Map(&self, Subresource: UINT, #[in] #[opt] pReadRange: *const D3D12_RANGE, #[incomplete] #[opt] #[out] ppData: *mut *mut void) -> HRESULT;
             fn Unmap(&self, Subresource: UINT, #[in] #[opt] pWrittenRange: *const D3D12_RANGE);
             fn GetDesc(&self) -> D3D12_RESOURCE_DESC;
             fn GetGPUVirtualAddress(&self) -> D3D12_GPU_VIRTUAL_ADDRESS;
@@ -4704,7 +4527,7 @@ mod Windows {
         extern fn PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER_FROM_SUBOBJECT_IN_LIBRARY(#[in] #[readable(entry, bytes(SrcDataSizeInBytes))] pSrcData: LPCVOID, #[in] SrcDataSizeInBytes: SIZE_T, #[in] RootSignatureSubobjectName: LPCWSTR, #[in] pRootSignatureDeserializerInterface: &IID, #[out] ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
         extern fn PFN_D3D12_GET_DEBUG_INTERFACE(#[in] param0: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] param1: *mut *mut void) -> HRESULT;
         extern fn PFN_D3D12_GET_INTERFACE(#[in] param0: &IID, #[in] param1: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] param2: *mut *mut void) -> HRESULT;
-        extern fn PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(#[in] pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, #[in] Version: D3D_ROOT_SIGNATURE_VERSION, #[out] ppBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
-        extern fn PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(#[in] pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] ppBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(#[in] pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, #[in] Version: D3D_ROOT_SIGNATURE_VERSION, #[out] ppBlob: *mut ID3D10Blob, #[incomplete] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(#[in] pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, #[out] ppBlob: *mut ID3D10Blob, #[incomplete] ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
     }
 }

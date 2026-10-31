@@ -156,8 +156,8 @@ mod Windows {
         }
         #[guid(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6)]
         interface ID3D11Device3: ID3D11Device2 {
-            fn CreateTexture2D1(&self, #[in] pDesc1: *const D3D11_TEXTURE2D_DESC1, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDesc1->MipLevels * pDesc1->ArraySize)", "_Inexpressible_(pDesc1->MipLevels * pDesc1->ArraySize)")] #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture2D: *mut ID3D11Texture2D1) -> HRESULT;
-            fn CreateTexture3D1(&self, #[in] pDesc1: *const D3D11_TEXTURE3D_DESC1, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDesc1->MipLevels)", "_Inexpressible_(pDesc1->MipLevels)")] #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture3D: *mut ID3D11Texture3D1) -> HRESULT;
+            fn CreateTexture2D1(&self, #[in] pDesc1: *const D3D11_TEXTURE2D_DESC1, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture2D: *mut ID3D11Texture2D1) -> HRESULT;
+            fn CreateTexture3D1(&self, #[in] pDesc1: *const D3D11_TEXTURE3D_DESC1, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture3D: *mut ID3D11Texture3D1) -> HRESULT;
             fn CreateRasterizerState2(&self, #[in] pRasterizerDesc: *const D3D11_RASTERIZER_DESC2, #[opt] #[out] #[out_ptr(null_on_failure)] ppRasterizerState: *mut ID3D11RasterizerState2) -> HRESULT;
             fn CreateShaderResourceView1(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, #[opt] #[out] #[out_ptr(null_on_failure)] ppSRView1: *mut ID3D11ShaderResourceView1) -> HRESULT;
             fn CreateUnorderedAccessView1(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, #[opt] #[out] #[out_ptr(null_on_failure)] ppUAView1: *mut ID3D11UnorderedAccessView1) -> HRESULT;

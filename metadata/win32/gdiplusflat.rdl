@@ -80,7 +80,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipBitmapCreateApplyEffect(inputBitmaps: *mut *mut GpBitmap, numInputs: INT, effect: *mut CGpEffect, roi: *mut RECT, outputRect: *mut RECT, outputBitmap: *mut *mut GpBitmap, useAuxData: BOOL, auxData: *mut *mut void, auxDataSize: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, NumberOfEntries: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel0: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel1: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel2: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel3: *mut UINT) -> GpStatus;
+        extern fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, NumberOfEntries: UINT, #[incomplete] #[out] channel0: *mut UINT, #[incomplete] #[out] channel1: *mut UINT, #[incomplete] #[out] channel2: *mut UINT, #[incomplete] #[out] channel3: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipBitmapGetHistogramSize(format: HistogramFormat, NumberOfEntries: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -160,7 +160,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipCreateBitmapFromResource(hInstance: HINSTANCE, lpBitmapName: *const WCHAR, bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipCreateBitmapFromScan0(width: INT, height: INT, stride: INT, format: PixelFormat, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"height * stride\")", "_Inexpressible_(\"height * stride\")")] #[in] #[opt] scan0: *mut BYTE, #[out] #[out_ptr] bitmap: *mut *mut GpBitmap) -> GpStatus;
+        extern fn GdipCreateBitmapFromScan0(width: INT, height: INT, stride: INT, format: PixelFormat, #[in] #[incomplete] #[opt] scan0: *mut BYTE, #[out] #[out_ptr] bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipCreateBitmapFromStream(stream: IStream, bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -398,7 +398,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipDrawString(graphics: *mut GpGraphics, string: *const WCHAR, length: INT, font: *const GpFont, layoutRect: *const RectF, stringFormat: *const GpStringFormat, brush: *const GpBrush) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipEmfToWmfBits(hemf: HENHMETAFILE, cbData16: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cbData16,return", "cbData16,return")] #[opt] #[out] #[writable(entry, cbData16)] pData16: LPBYTE, iMapMode: INT, eFlags: INT) -> UINT;
+        extern fn GdipEmfToWmfBits(hemf: HENHMETAFILE, cbData16: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cbData16)] pData16: LPBYTE, iMapMode: INT, eFlags: INT) -> UINT;
         #[library("gdiplus.dll")]
         extern fn GdipEndContainer(graphics: *mut GpGraphics, state: GraphicsContainer) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -558,13 +558,13 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetImageDecoders(#[in] numDecoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] decoders: *mut ImageCodecInfo) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetImageDecodersSize(#[out] numDecoders: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", ">=,(*numDecoders) * sizeof(ImageCodecInfo)", ">=,(*numDecoders) * sizeof(ImageCodecInfo)")] #[out] size: *mut UINT) -> GpStatus;
+        extern fn GdipGetImageDecodersSize(#[out] numDecoders: *mut UINT, #[incomplete] #[out] size: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageDimension(image: *mut GpImage, width: *mut REAL, height: *mut REAL) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageEncoders(#[in] numEncoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] encoders: *mut ImageCodecInfo) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetImageEncodersSize(#[out] numEncoders: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", ">=,(*numEncoders) * sizeof(ImageCodecInfo)", ">=,(*numEncoders) * sizeof(ImageCodecInfo)")] #[out] size: *mut UINT) -> GpStatus;
+        extern fn GdipGetImageEncodersSize(#[out] numEncoders: *mut UINT, #[incomplete] #[out] size: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageFlags(image: *mut GpImage, flags: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
