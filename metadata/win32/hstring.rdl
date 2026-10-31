@@ -1,7 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type HSTRING = *mut HSTRING__;
         type HSTRING_BUFFER = *mut HSTRING_BUFFER__;
         struct HSTRING_BUFFER__ {

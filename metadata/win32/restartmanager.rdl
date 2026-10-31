@@ -100,7 +100,7 @@ mod Windows {
         #[library("RstrtMgr.DLL")]
         extern fn RmGetList(#[in] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[in] #[opt] #[out] #[writable(entry, *pnProcInfo)] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmJoinSession(#[out] pSessionHandle: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "sizeof(GUID)*2+1", "sizeof(GUID)*2+1")] #[in] strSessionKey: *const WCHAR) -> DWORD;
+        extern fn RmJoinSession(#[out] pSessionHandle: *mut DWORD, #[in] #[incomplete] strSessionKey: *const WCHAR) -> DWORD;
         #[library("RstrtMgr.DLL")]
         extern fn RmRegisterResources(#[in] dwSessionHandle: DWORD, #[in] nFiles: UINT, #[in] #[opt] #[readable(entry, nFiles)] rgsFileNames: *mut LPCWSTR, #[in] nApplications: UINT, #[in] #[opt] #[readable(entry, nApplications)] rgApplications: *mut RM_UNIQUE_PROCESS, #[in] nServices: UINT, #[in] #[opt] #[readable(entry, nServices)] rgsServiceNames: *mut LPCWSTR) -> DWORD;
         #[library("RstrtMgr.DLL")]
@@ -110,6 +110,6 @@ mod Windows {
         #[library("RstrtMgr.DLL")]
         extern fn RmShutdown(#[in] dwSessionHandle: DWORD, #[in] lActionFlags: ULONG, #[in] #[opt] fnStatus: RM_WRITE_STATUS_CALLBACK) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmStartSession(#[out] pSessionHandle: *mut DWORD, #[reserved] dwSessionFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "sizeof(GUID)*2+1", "sizeof(GUID)*2+1")] #[out] strSessionKey: *mut WCHAR) -> DWORD;
+        extern fn RmStartSession(#[out] pSessionHandle: *mut DWORD, #[reserved] dwSessionFlags: DWORD, #[incomplete] #[out] strSessionKey: *mut WCHAR) -> DWORD;
     }
 }

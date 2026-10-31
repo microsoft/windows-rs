@@ -1151,7 +1151,7 @@ mod Windows {
         #[library("HTTPAPI.dll")]
         extern fn HttpFlushResponseCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, Flags: ULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpGetExtension(#[in] Version: HTTPAPI_VERSION, #[in] Extension: ULONG, #[Windows::Win32::Metadata::NativeSal("1", "__bcount", "BufferSize", "BufferSize")] #[out] Buffer: PVOID, #[in] BufferSize: ULONG) -> ULONG;
+        extern fn HttpGetExtension(#[in] Version: HTTPAPI_VERSION, #[in] Extension: ULONG, #[incomplete] #[out] Buffer: PVOID, #[in] BufferSize: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
         extern fn HttpInitialize(Version: HTTPAPI_VERSION, Flags: ULONG, #[reserved] pReserved: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]

@@ -1491,7 +1491,7 @@ mod Windows {
             fn SetPropertyNumber(&self, #[in] Name: BSTR, #[in] Value: i32, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetPropertyNumber(&self, #[in] Name: BSTR, #[in] #[out] Value: *mut i32, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn SetPropertyString(&self, #[in] Name: BSTR, #[in] Value: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetPropertyString(&self, #[in] Name: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] Value: *mut BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetPropertyString(&self, #[in] Name: BSTR, #[in] #[incomplete] #[out] Value: *mut BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT) -> HRESULT;
             fn GetRecognizers(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;

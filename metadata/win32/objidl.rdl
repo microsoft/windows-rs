@@ -40,7 +40,6 @@ mod Windows {
             BIND_MAYBOTHERUSER = 1,
             BIND_JUSTTESTEXISTENCE = 2,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbStruct", "cbStruct", TypedefName = "BIND_OPTS")]
         #[packed(8)]
         struct BIND_OPTS {
             cbStruct: DWORD,
@@ -266,7 +265,7 @@ mod Windows {
         interface IMoniker: IPersistStream {
             fn BindToObject(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riidResult: &IID, #[iid_is] #[out] #[out_ptr] ppvResult: *mut *mut void) -> HRESULT;
             fn BindToStorage(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
-            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] #[retval] ppmkReduced: *mut IMoniker) -> HRESULT;
+            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[in] #[incomplete] #[opt] #[out] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] #[retval] ppmkReduced: *mut IMoniker) -> HRESULT;
             fn ComposeWith(&self, #[in] #[opt] pmkRight: IMoniker, #[in] fOnlyIfNotGeneric: BOOL, #[out] #[out_ptr] #[retval] ppmkComposite: *mut IMoniker) -> HRESULT;
             fn Enum(&self, #[in] fForward: BOOL, #[out] #[out_ptr] #[retval] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
             fn IsEqual(&self, #[in] #[opt] pmkOtherMoniker: IMoniker) -> HRESULT;
@@ -359,7 +358,7 @@ mod Windows {
             fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
             fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
             fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
-            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
+            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[incomplete] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
             fn CopyTo(&self, #[in] ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
             fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
@@ -394,54 +393,35 @@ mod Windows {
             fn AsyncGetClassBits(&self, #[in] rclsid: &IID, #[in] #[opt] pszTYPE: LPCWSTR, #[in] #[opt] pszExt: LPCWSTR, #[in] dwFileVersionMS: DWORD, #[in] dwFileVersionLS: DWORD, #[in] #[opt] pszCodeBase: LPCWSTR, #[in] #[opt] pbc: IBindCtx, #[in] dwClassContext: DWORD, #[in] riid: &IID, #[in] flags: DWORD) -> HRESULT;
         }
         type LPADVISESINK = IAdviseSink;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPADVISESINK2 = IAdviseSink2;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPBC = IBindCtx;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPBINDCTX = IBindCtx;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbStruct", "cbStruct")]
         type LPBIND_OPTS = *mut BIND_OPTS;
         type LPBIND_OPTS2 = *mut BIND_OPTS2;
         type LPBIND_OPTS3 = *mut BIND_OPTS3;
         type LPCLIPFORMAT = *mut u16;
         type LPDATAADVISEHOLDER = IDataAdviseHolder;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPDATAOBJECT = IDataObject;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMFORMATETC = IEnumFORMATETC;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMMONIKER = IEnumMoniker;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMSTATDATA = IEnumSTATDATA;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMSTATSTG = IEnumSTATSTG;
         type LPFORMATETC = *mut FORMATETC;
         type LPINITIALIZESPY = IInitializeSpy;
         type LPINTERFACEINFO = *mut INTERFACEINFO;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPLOCKBYTES = ILockBytes;
         type LPMALLOCSPY = IMallocSpy;
         type LPMESSAGEFILTER = IMessageFilter;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPMONIKER = IMoniker;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPERSIST = IPersist;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPERSISTFILE = IPersistFile;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPERSISTSTORAGE = IPersistStorage;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPERSISTSTREAM = IPersistStream;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPROOTSTORAGE = IRootStorage;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPRUNNABLEOBJECT = IRunnableObject;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPRUNNINGOBJECTTABLE = IRunningObjectTable;
         type LPSTATDATA = *mut STATDATA;
         type LPSTGMEDIUM = *mut uSTGMEDIUM;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPSTORAGE = IStorage;
         #[repr(i32)]
         enum MKRREDUCE {
@@ -495,7 +475,6 @@ mod Windows {
             SERVERCALL_REJECTED = 1,
             SERVERCALL_RETRYLATER = 2,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type SNB = *mut *mut u16;
         #[library("ole32.dll")]
         extern fn SNB_UserFree(#[in] param0: *mut u32, #[in] param1: *mut SNB);
@@ -503,10 +482,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn SNB_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut SNB);
         #[library("ole32.dll")]
-        extern fn SNB_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
+        extern fn SNB_UserMarshal(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn SNB_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
+        extern fn SNB_UserMarshal64(#[in] param0: *mut u32, #[in] #[incomplete] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
         #[library("ole32.dll")]
         extern fn SNB_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut SNB) -> u32;
         #[arch(X64 | Arm64)]
@@ -587,13 +566,9 @@ mod Windows {
             }
             pUnkForRelease: IUnknown,
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireASYNC_STGMEDIUM = *mut userSTGMEDIUM;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireFLAG_STGMEDIUM = *mut userFLAG_STGMEDIUM;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireSNB = *mut RemSNB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireSTGMEDIUM = *mut userSTGMEDIUM;
     }
 }

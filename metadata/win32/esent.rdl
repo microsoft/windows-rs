@@ -1469,18 +1469,14 @@ mod Windows {
         const JET_OnlineDefragDatabases: i32 = 2;
         const JET_OnlineDefragDisable: i32 = 0;
         const JET_OnlineDefragSpaceTrees: i32 = 4;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PCSTR = *const i8;
         type JET_PCVOID = *const void;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PCWSTR = *const u16;
         extern fn JET_PFNDURABLECOMMITCALLBACK(#[in] instance: JET_INSTANCE, #[in] pCommitIdSeen: *mut JET_COMMIT_ID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         extern fn JET_PFNREALLOC(#[in] #[opt] pvContext: JET_PVOID, #[in] #[opt] pv: JET_PVOID, #[in] cb: JET_UINT32) -> JET_PVOID;
         extern fn JET_PFNSTATUS(#[in] sesid: JET_SESID, #[in] snp: JET_SNP, #[in] snt: JET_SNT, #[in] #[opt] pv: JET_PVOID) -> JET_ERR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PSTR = *mut i8;
         type JET_PVOID = *mut void;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PWSTR = *mut u16;
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -2228,14 +2224,12 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_UNICODEINDEX2 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             szLocaleName: JET_PWSTR,
             dwMapFlags: JET_UINT32,
         }
         #[arch(X86)]
         #[packed(4)]
         struct JET_UNICODEINDEX2 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             szLocaleName: JET_PWSTR,
             dwMapFlags: JET_UINT32,
         }
@@ -3453,7 +3447,7 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetExternalRestoreW(#[in] szCheckpointFilePath: JET_PWSTR, #[in] szLogPath: JET_PWSTR, #[in] #[opt] #[readable(entry, crstfilemap)] rgrstmap: *mut JET_RSTMAP_W, #[in] crstfilemap: JET_INT32, #[in] szBackupLogPath: JET_PWSTR, #[in] genLow: JET_INT32, #[in] genHigh: JET_INT32, #[in] pfn: JET_PFNSTATUS) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetFreeBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] pbBuf: *mut JET_CHAR) -> JET_ERR;
+        extern fn JetFreeBuffer(#[incomplete] pbBuf: *mut JET_CHAR) -> JET_ERR;
         #[library("ESENT.dll", import = "JetGetAttachInfoA")]
         extern fn JetGetAttachInfo(#[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzDatabases: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3719,7 +3713,7 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetRestoreW(#[in] szSource: JET_PCWSTR, #[in] #[opt] pfn: JET_PFNSTATUS) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetRetrieveColumn(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))")] #[opt] #[out] #[writable(entry, bytes(cbData))] pvData: JET_PVOID, #[in] cbData: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT, #[in] #[opt] #[out] pretinfo: *mut JET_RETINFO) -> JET_ERR;
+        extern fn JetRetrieveColumn(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[incomplete] #[opt] #[out] #[writable(entry, bytes(cbData))] pvData: JET_PVOID, #[in] cbData: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT, #[in] #[opt] #[out] pretinfo: *mut JET_RETINFO) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetRetrieveColumns(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[opt] #[out] #[writable(entry, cretrievecolumn)] pretrievecolumn: *mut JET_RETRIEVECOLUMN, #[in] cretrievecolumn: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]

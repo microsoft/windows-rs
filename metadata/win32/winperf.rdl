@@ -180,7 +180,7 @@ mod Windows {
         const PERF_TYPE_TEXT: i32 = 2048;
         const PERF_TYPE_ZERO: i32 = 3072;
         extern fn PM_CLOSE_PROC() -> DWORD;
-        extern fn PM_COLLECT_PROC(#[in] #[opt] pValueName: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppData,_Pre_writable_byte_size_(*pcbTotalBytes) _Post_writable_byte_size_(*pcbTotalBytes)", "*ppData, _Pre_writable_byte_size_(*pcbTotalBytes) _Post_writable_byte_size_(*pcbTotalBytes)")] #[Windows::Win32::Metadata::NativeSal("2", "_At_", "_Old_(*ppData),_Post_writable_byte_size_(*pcbTotalBytes)", "_Old_(*ppData), _Post_writable_byte_size_(*pcbTotalBytes)")] #[in] #[out] ppData: *mut *mut void, #[in] #[out] pcbTotalBytes: *mut DWORD, #[out] pNumObjectTypes: *mut DWORD) -> DWORD;
+        extern fn PM_COLLECT_PROC(#[in] #[opt] pValueName: LPWSTR, #[in] #[incomplete] #[out] ppData: *mut *mut void, #[in] #[out] pcbTotalBytes: *mut DWORD, #[out] pNumObjectTypes: *mut DWORD) -> DWORD;
         extern fn PM_OPEN_PROC(#[in] #[opt] pContext: LPWSTR) -> DWORD;
         type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
         type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;

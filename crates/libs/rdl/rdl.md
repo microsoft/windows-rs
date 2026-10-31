@@ -737,6 +737,11 @@ conversion. For example, partial-result postconditions may apply even when an AP
 `ERROR_MORE_DATA`. Other expressions and parameter/field owners are rejected by the short-form
 reader. Unknown enum values or additional metadata properties retain full attribute spelling.
 
+`#[incomplete]` marks a parameter whose header states contracts that metadata does not express. It
+encodes the parameterless `Windows.Win32.Metadata.IncompleteAttribute`. Consumers must not infer
+contracts, such as a buffer shape or a returned value, from facts that are absent on such a
+parameter.
+
 `#[override_slot(N)]` marks a Win32 interface method that reuses absolute inherited virtual slot
 `N`. It encodes `NativeOverrideSlotAttribute` and clears the method's `NewSlot` flag.
 `#[align(N)]` on a field encodes the existing `AlignmentAttribute` without changing the field type;

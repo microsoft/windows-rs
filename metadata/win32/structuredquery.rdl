@@ -45,7 +45,7 @@ mod Windows {
         #[guid(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117)]
         interface IConditionGenerator: IUnknown {
             fn Initialize(&self, #[in] #[opt] pSchemaProvider: ISchemaProvider) -> HRESULT;
-            fn RecognizeNamedEntities(&self, #[in] pszInputString: LPCWSTR, #[in] lcidUserLocale: LCID, #[in] #[opt] pTokenCollection: ITokenCollection, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt", "", "")] #[in] #[opt] pNamedEntities: INamedEntityCollector) -> HRESULT;
+            fn RecognizeNamedEntities(&self, #[in] pszInputString: LPCWSTR, #[in] lcidUserLocale: LCID, #[in] #[opt] pTokenCollection: ITokenCollection, #[in] #[incomplete] #[opt] pNamedEntities: INamedEntityCollector) -> HRESULT;
             fn GenerateForLeaf(&self, #[in] #[opt] pConditionFactory: IConditionFactory, #[in] #[opt] pszPropertyName: LPCWSTR, #[in] cop: CONDITION_OPERATION, #[in] #[opt] pszValueType: LPCWSTR, #[in] pszValue: LPCWSTR, #[in] #[opt] pszValue2: LPCWSTR, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] automaticWildcard: BOOL, #[out] pNoStringQuery: *mut BOOL, #[out] #[out_ptr] #[retval] ppQueryExpression: *mut ICondition) -> HRESULT;
             fn DefaultPhrase(&self, #[in] pszValueType: LPCWSTR, #[in] ppropvar: *const PROPVARIANT, #[in] fUseEnglish: BOOL, #[opt] #[out] #[out_ptr] #[retval] ppszPhrase: *mut LPWSTR) -> HRESULT;
         }

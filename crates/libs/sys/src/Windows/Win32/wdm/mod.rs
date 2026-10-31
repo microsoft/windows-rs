@@ -8,12 +8,8 @@ windows_link::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : super::PC
 windows_link::link!("ntdll.dll" "system" fn DbgQueryDebugFilterState(componentid : super::ULONG, level : super::ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "shared")]
 windows_link::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : super::ULONG, level : super::ULONG, state : super::BOOLEAN) -> windows_sys::core::NTSTATUS);
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "evntprov", feature = "shared"))]
 windows_link::link!("ntdll.dll" "system" fn EtwEventEnabled(reghandle : super::REGHANDLE, eventdescriptor : super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "evntprov", feature = "shared"))]
-windows_link::link!("ntdll.dll" "C" fn EtwEventEnabled(reghandle : super::REGHANDLE, eventdescriptor : super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtCommitComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4319,10 +4315,7 @@ pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: PIOMMU_D
 pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_sys::core::NTSTATUS>;
 pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_sys::core::NTSTATUS>;
 pub type IOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_sys::core::NTSTATUS>;
-#[cfg(target_arch = "x86")]
 pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_sys::core::NTSTATUS>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "shared")]
@@ -7722,12 +7715,8 @@ impl Default for KGATE {
 pub type KGUARDED_MUTEX = _FAST_MUTEX;
 pub type KINTERRUPT_MODE = i32;
 pub type KINTERRUPT_POLARITY = i32;
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
 pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "shared")]
-pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
@@ -7762,12 +7751,8 @@ impl Default for KSEMAPHORE {
 pub const KSEMAPHORE_ACTUAL_LENGTH: u32 = 20;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KSEMAPHORE_ACTUAL_LENGTH: u64 = 28;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
@@ -7782,12 +7767,8 @@ pub type KSPIN_LOCK_QUEUE_NUMBER = super::ULONG64;
 pub type KSPIN_LOCK_QUEUE_NUMBER = i32;
 #[cfg(feature = "winnt")]
 pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: super::PVOID)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
@@ -10728,10 +10709,7 @@ pub type PIOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: PIOMMU_
 pub type PIOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: super::ULONG) -> windows_sys::core::NTSTATUS>;
 pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_sys::core::NTSTATUS>;
 pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "system" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_sys::core::NTSTATUS>;
-#[cfg(target_arch = "x86")]
 pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_sys::core::NTSTATUS>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: super::ULONG, valist: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "shared")]
@@ -10952,12 +10930,8 @@ pub type PKGATE = *mut KGATE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKGUARDED_MUTEX = *mut _FAST_MUTEX;
 pub type PKINTERRUPT_POLARITY = *mut KINTERRUPT_POLARITY;
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
 pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "shared")]
-pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: super::ULONG_PTR) -> super::ULONG_PTR>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 pub type PKLOCK_QUEUE_HANDLE = *mut KLOCK_QUEUE_HANDLE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -10969,12 +10943,8 @@ pub type PKMUTEX = *mut _KMUTANT;
 pub type PKRESOURCEMANAGER = *mut _KRESOURCEMANAGER;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSEMAPHORE = *mut KSEMAPHORE;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(feature = "winnt")]
 pub type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
@@ -10982,12 +10952,8 @@ pub type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
 pub type PKSPIN_LOCK_QUEUE_NUMBER = *mut KSPIN_LOCK_QUEUE_NUMBER;
 #[cfg(feature = "winnt")]
 pub type PKSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: super::PVOID)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: super::PVOID) -> super::BOOLEAN>;
 #[cfg(feature = "shared")]
 pub type PKSYSTEM_TIME = *mut KSYSTEM_TIME;
 #[cfg(feature = "shared")]
@@ -11389,12 +11355,8 @@ pub struct PO_EPM_HANDLE__ {
 pub type PO_FX_COMPONENT = PO_FX_COMPONENT_V1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
 pub const PO_FX_COMPONENT_FLAG_F0_ON_CHILD_D0: i32 = 4;
 pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: i32 = 1;
 pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: i32 = 2;
@@ -11863,12 +11825,8 @@ pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mo
 pub type PPO_FX_COMPONENT = *mut PO_FX_COMPONENT_V1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, active: super::BOOLEAN)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG)>;
 #[cfg(feature = "shared")]

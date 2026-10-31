@@ -350,7 +350,7 @@ fn annotation_normalization() {
                         _ => reader::ParamDirection::InputOutput,
                     }
                 );
-                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                assert!(parameter.find_attribute("IncompleteAttribute").is_none());
             }
         }
     });
@@ -423,7 +423,7 @@ fn annotation_normalization_residuals() {
     roundtrip("annotation_residuals", &output, |index, _| {
         for (name, count, direction) in [
             ("Conditional", 1, reader::ParamDirection::Unspecified),
-            ("Mixed", 2, reader::ParamDirection::InputOutput),
+            ("Mixed", 1, reader::ParamDirection::InputOutput),
             ("NullableResult", 0, reader::ParamDirection::Output),
             ("ObjectInput", 0, reader::ParamDirection::Input),
             ("ObjectOutput", 1, reader::ParamDirection::Input),
@@ -446,7 +446,7 @@ fn annotation_normalization_residuals() {
             assert_eq!(
                 parameter
                     .attributes()
-                    .filter(|attribute| attribute.name() == "NativeSalAttribute")
+                    .filter(|attribute| attribute.name() == "IncompleteAttribute")
                     .count(),
                 count,
                 "{name}"
@@ -458,12 +458,6 @@ fn annotation_normalization_residuals() {
                 name == "NullableResult"
             );
         }
-        let field = index
-            .expect("Fixture", "FieldOwner")
-            .fields()
-            .next()
-            .unwrap();
-        assert!(field.find_attribute("NativeSalAttribute").is_some());
     });
     let mut inputs = [
         selected_fixture("annotation_residuals", &["Mixed"]),
@@ -555,7 +549,7 @@ fn buffer_normalization() {
                         reader::BufferRelationship::BytesParam(1)
                     })
                 );
-                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                 assert!(parameter.find_attribute("NativeInputAttribute").is_none());
             }
         });
@@ -694,7 +688,7 @@ fn buffer_full() {
     for count in ["capacity / 2", "0x10u"] {
         let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
-        assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
+        assert!(rdl.contains("#[incomplete]") && rdl.contains("#[out]"));
         assert!(!rdl.contains("NativeInitializedLength"));
         roundtrip_metadata("buffer_full_residual", rdl, |index, _| {
             for name in ["Apis", "Buffer", "IBuffer"] {
@@ -719,7 +713,7 @@ fn buffer_full() {
         text.contains("#[readable(success, bytes(on_entry(*written)))]"),
         "{text}"
     );
-    assert!(!text.contains("NativeSal("), "{text}");
+    assert!(!text.contains("#[incomplete]"), "{text}");
 }
 
 fn returned_buffer_contracts() -> Vec<(String, String, bool)> {
@@ -769,7 +763,7 @@ fn returned_buffer_flags() {
             if optional { 3 } else { 0 },
             "{name}"
         );
-        assert!(!rdl.contains("NativeSal("), "{name}: {rdl}");
+        assert!(!rdl.contains("#[incomplete]"), "{name}: {rdl}");
         assert!(!rdl.contains("out_ptr"), "{name}: {rdl}");
         assert!(!rdl.contains("NativeInitializedLength"), "{rdl}");
         let check = |index: &reader::Index, _| {
@@ -853,7 +847,7 @@ fn pointer_parameter_flags() {
                 assert_eq!(parameter.direction(), direction, "{name}");
                 assert_eq!(parameter.is_optional(), optional, "{name}");
                 if direction == reader::ParamDirection::Output {
-                    assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                    assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                     assert_eq!(
                         parameter
                             .find_attribute("ReturnedPointerAttribute")
@@ -872,12 +866,7 @@ fn pointer_parameter_flags() {
                         "{name}"
                     );
                 } else {
-                    let evidence = parameter
-                        .find_attribute("NativeSalAttribute")
-                        .unwrap()
-                        .value();
-                    assert_eq!(evidence[0].1, windows_metadata::Value::Utf8(version.into()));
-                    assert_eq!(evidence[1].1, windows_metadata::Value::Utf8(name.into()));
+                    assert!(parameter.find_attribute("IncompleteAttribute").is_some());
                 }
             }
         });
@@ -889,7 +878,7 @@ fn pointer_parameter_flags() {
                 .next()
                 .unwrap()
                 .rdl;
-            assert!(text.contains("NativeSal("), "{text}");
+            assert!(text.contains("#[incomplete]"), "{text}");
             for flag in ["#[in]", "#[out]", "#[opt]"] {
                 assert!(!text.contains(flag), "{text}");
             }
@@ -1041,7 +1030,7 @@ fn input_contracts() {
             projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
                 .unwrap();
         let text = &output.partitions.values().next().unwrap().rdl;
-        assert!(!text.contains("NativeSal("), "{text}");
+        assert!(!text.contains("#[incomplete]"), "{text}");
         let check = |index: &reader::Index, _| {
             for (owner, method) in [
                 ("Apis", "BufferFunction"),
@@ -1080,7 +1069,7 @@ fn input_contracts() {
         .next()
         .unwrap()
         .rdl;
-    assert_eq!(text.matches("NativeSal(").count(), 6);
+    assert_eq!(text.matches("#[incomplete]").count(), 3);
     assert!(!text.contains("NativeInput("));
 }
 
@@ -1204,9 +1193,7 @@ fn returned_pointer_contracts() {
     );
     let output = project(&[mixed]);
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert_eq!(text.matches("NativeSal(").count(), 6);
-    assert_eq!(text.matches("\"_Inout_\"").count(), 3);
-    assert_eq!(text.matches("\"_Outptr_opt_\"").count(), 3);
+    assert_eq!(text.matches("#[incomplete]").count(), 3);
     assert!(!text.contains("#[out_ptr"));
     roundtrip("returned_pointer_mixed", &output, |_, _| {});
     for ty in ["unsigned short", "unsigned short*", "unsigned short&"] {
@@ -1254,7 +1241,7 @@ fn rpc_strings() {
                 );
                 assert_eq!(parameter.is_optional(), position % 2 == 1);
                 assert_eq!(
-                    parameter.find_attribute("NativeSalAttribute").is_some(),
+                    parameter.find_attribute("IncompleteAttribute").is_some(),
                     position >= 2
                 );
                 assert!(parameter.find_attribute("NativeInputAttribute").is_none());
@@ -1297,7 +1284,7 @@ fn rpc_strings_residuals() {
         input.source.insert_str(0, change);
         let output = project(&[input]);
         let text = &output.partitions.values().next().unwrap().rdl;
-        assert!(text.contains("NativeSal("), "{text}");
+        assert!(text.contains("#[incomplete]"), "{text}");
         for flag in ["#[null_terminated(", "#[in]", "#[out]", "#[opt]"] {
             assert!(!text.contains(flag), "{text}");
         }
@@ -1372,7 +1359,7 @@ fn conditional_length() {
                 parameter.buffer_relationship(),
                 Some(reader::BufferRelationship::ElementsParam(0))
             );
-            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+            assert!(parameter.find_attribute("IncompleteAttribute").is_none());
             assert_eq!(
                 buffer_extent(parameter, BufferAccess::Write, BufferPhase::Success)
                     .unwrap()
@@ -1410,7 +1397,7 @@ fn conditional_length() {
         let output = project(&[input]);
         let text = &output.partitions["conditional_length"].rdl;
         assert!(
-            text.contains("NativeSal(") && text.contains("#[writable(success, capacity)]"),
+            text.contains("#[incomplete]") && text.contains("#[writable(success, capacity)]"),
             "{text}"
         );
         assert!(!text.contains("#[readable(success,"), "{text}");
@@ -1470,7 +1457,7 @@ fn rpc_buffers() {
                 parameter.buffer_relationship(),
                 Some(reader::BufferRelationship::ElementsParam(1))
             );
-            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+            assert!(parameter.find_attribute("IncompleteAttribute").is_none());
             assert_eq!(
                 buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap(),
                 windows_metadata::BufferExtent::new(
@@ -1530,7 +1517,7 @@ fn rpc_input_buffer_agreement() {
         for arguments in ["capacity / 2", "0x2au"] {
             let output = project(&[rpc_buffer_input(name, arguments, true)]);
             let text = &output.partitions.values().next().unwrap().rdl;
-            assert!(text.contains("NativeSal("), "{text}");
+            assert!(text.contains("#[incomplete]"), "{text}");
             assert!(text.contains("#[in]"), "{text}");
             for attribute in ["NativeInput(", "#[readable(", "#[writable("] {
                 assert!(!text.contains(attribute), "{text}");
@@ -1748,7 +1735,7 @@ fn check_rpc_buffers() {
                     let input = direction == Input && !name.contains("_part");
                     let output_buffer = direction != Input && name.contains("_ecount");
                     assert_eq!(
-                        parameter.find_attribute("NativeSalAttribute").is_some(),
+                        parameter.find_attribute("IncompleteAttribute").is_some(),
                         !input && !output_buffer,
                         "{name}"
                     );
@@ -1859,7 +1846,7 @@ fn rpc_output_buffer_agreement() {
             true,
         )]);
         let text = &output.partitions.values().next().unwrap().rdl;
-        assert!(text.contains("NativeSal("), "{text}");
+        assert!(text.contains("#[incomplete]"), "{text}");
         assert!(!text.contains("#[writable(success,"), "{text}");
         assert!(text.contains("#[null_terminated(success)]"), "{text}");
     }
@@ -1905,7 +1892,11 @@ fn rpc_buffer_residuals() {
             indirect,
         )]);
         let text = &output.partitions.values().next().unwrap().rdl;
-        assert_eq!(text.contains("NativeSal("), !(capacity && length), "{text}");
+        assert_eq!(
+            text.contains("#[incomplete]"),
+            !(capacity && length),
+            "{text}"
+        );
         assert_eq!(
             text.contains("#[writable(entry, capacity)]"),
             capacity,
@@ -1929,7 +1920,7 @@ fn rpc_buffer_residuals() {
             );
             let output = project(&[input]);
             let text = &output.partitions.values().next().unwrap().rdl;
-            assert!(text.contains("NativeSal("), "{text}");
+            assert!(text.contains("#[incomplete]"), "{text}");
             for flag in ["#[in]", "#[out]", "#[opt]", "NativeInitializedLength("] {
                 assert!(!text.contains(flag), "{text}");
             }
@@ -2019,7 +2010,7 @@ fn reserved_parameters() {
             for (index, parameter) in parameters.iter().enumerate() {
                 assert_eq!(parameter.is_reserved(), index < 3);
                 assert!(!parameter.is_optional());
-                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                 assert_eq!(
                     parameter.direction(),
                     if index == 2 {
@@ -2112,7 +2103,7 @@ fn reserved_parameter_residuals() {
                 .next()
                 .unwrap();
             assert!(!parameter.is_reserved());
-            assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+            assert!(parameter.find_attribute("IncompleteAttribute").is_some());
         });
     }
     for root in ["BufferFunction", "Reserved", "IReserved"] {
@@ -2147,11 +2138,6 @@ fn reserved_parameter_residuals() {
     roundtrip_metadata("reserved_typedef", &text, |index, _| {
         let alias = index.expect("Fixture", "ReservedPointer");
         assert!(alias.find_attribute("ReservedAttribute").is_none());
-        let annotation = alias.find_attribute("NativeSalAttribute").unwrap();
-        assert_eq!(
-            annotation.value()[1].1,
-            windows_metadata::Value::Utf8("_Reserved_".into())
-        );
     });
 }
 
@@ -2253,7 +2239,7 @@ fn rpc_annotation_normalization() {
                                 .params()
                                 .next()
                                 .unwrap()
-                                .find_attribute("NativeSalAttribute")
+                                .find_attribute("IncompleteAttribute")
                                 .is_none()
                         );
                     }
@@ -2293,7 +2279,7 @@ fn rpc_annotation_residuals() {
             .rdl;
         let typed_input = rpc == "__RPC__in" || rpc == "__RPC__in_opt";
         assert_eq!(
-            text.contains(&format!("NativeSal(\"1.2\", \"{rpc}\"")),
+            text.contains("#[incomplete]"),
             !typed_input && rpc != "__RPC__out_ecount",
             "{text}"
         );
@@ -2322,7 +2308,7 @@ fn rpc_annotation_residuals() {
                     let parameter = method.params().next().unwrap();
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), rpc == "__RPC__in_opt");
-                    assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                    assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                     assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                 }
             });
@@ -2346,7 +2332,7 @@ fn rpc_annotation_residuals() {
                 .insert_str(0, &format!("#define VERSION \"{version}\"\n"));
             let output = project(&[input]);
             let text = &output.partitions.values().next().unwrap().rdl;
-            assert!(text.contains("NativeSal("), "{text}");
+            assert!(text.contains("#[incomplete]"), "{text}");
             assert!(
                 !text.contains("#[in]") && !text.contains("#[opt]"),
                 "{text}"
@@ -2429,7 +2415,7 @@ fn buffer_postconditions() {
                             }
                         );
                         assert_eq!(parameter.is_optional(), current.contains("_opt_"));
-                        assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                        assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                         assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                         let terminated = parameter.find_attribute("NullTerminatedAttribute");
                         assert_eq!(terminated.is_some(), case < 6);
@@ -2595,8 +2581,8 @@ fn buffer_postcondition_residuals() {
             ("PointerDifference", 1, false, false, false, false),
             ("ExtraArguments", 1, true, false, false, false),
             ("UnexpectedArguments", 1, false, false, false, false),
-            ("EntryOnly", 2, false, true, false, false),
-            ("EntryAndSuccess", 2, true, true, true, false),
+            ("EntryOnly", 1, false, true, false, false),
+            ("EntryAndSuccess", 1, true, true, true, false),
             ("OptionalCount", 0, true, false, false, true),
             ("Successful", 0, true, false, false, true),
         ] {
@@ -2609,7 +2595,7 @@ fn buffer_postcondition_residuals() {
             assert_eq!(
                 parameter
                     .attributes()
-                    .filter(|attribute| attribute.name() == "NativeSalAttribute")
+                    .filter(|attribute| attribute.name() == "IncompleteAttribute")
                     .count(),
                 raw,
                 "{name}"
@@ -2756,7 +2742,7 @@ fn function_typedefs() {
             let parameter = invoke(name).params().next().unwrap();
             assert_eq!(parameter.name(), "value");
             assert_eq!(parameter.direction(), reader::ParamDirection::Input);
-            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+            assert!(parameter.find_attribute("IncompleteAttribute").is_none());
         }
         assert_eq!(invoke("Factory").signature(&[]).return_type, bare);
         assert_eq!(
@@ -5760,7 +5746,7 @@ fn field_buffers() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert!(!text.contains("NativeSal("), "{text}");
+        assert!(!text.contains("#[incomplete]"), "{text}");
         let check = |index: &reader::Index, _| {
             let field = index
                 .expect("Fixture", "FieldBuffers")
@@ -5865,7 +5851,6 @@ fn field_buffer_residuals() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert!(text.contains("NativeSal("), "{text}");
         assert!(!text.contains("#[writable("), "{text}");
     }
     for (change, reason) in [
@@ -5939,7 +5924,6 @@ fn field_buffer_residuals() {
     }
     let output = project(&[input]);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
-    assert!(text.contains("NativeSal("), "{text}");
     assert!(!text.contains("#[writable("), "{text}");
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input.source.replace("        COUNT_TYPE capacity;", "");
@@ -5954,7 +5938,6 @@ fn field_buffer_residuals() {
             .fields()
             .find(|field| field.name() == "values")
             .unwrap();
-        assert!(values.find_attribute("NativeSalAttribute").is_some());
         assert!(buffer_extent(values, BufferAccess::Write, BufferPhase::Value).is_none());
     });
 }

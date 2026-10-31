@@ -18,7 +18,6 @@ mod Windows {
             u32Normalization: AMBISONICS_NORMALIZATION,
             u32Order: UINT32,
             u32NumChannels: UINT32,
-            #[Windows::Win32::Metadata::NativeSal("1", "__field_ecount", "u32NumChannels", "u32NumChannels")]
             pu32ChannelMap: *mut UINT32,
         }
         const AMBISONICS_PARAM_VERSION_1: i32 = 1;
@@ -116,7 +115,7 @@ mod Windows {
         }
         #[guid(0xc8adbd64_e71e_48a0_a4de_185c395cd317)]
         interface IAudioCaptureClient: IUnknown {
-            fn GetBuffer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"*pNumFramesToRead * pFormat->nBlockAlign\")", "_Inexpressible_(\"*pNumFramesToRead * pFormat->nBlockAlign\")")] #[out] ppData: *mut *mut BYTE, #[out] pNumFramesToRead: *mut UINT32, #[out] pdwFlags: *mut DWORD, #[opt] #[out] pu64DevicePosition: *mut UINT64, #[opt] #[out] pu64QPCPosition: *mut UINT64) -> HRESULT;
+            fn GetBuffer(&self, #[incomplete] #[out] ppData: *mut *mut BYTE, #[out] pNumFramesToRead: *mut UINT32, #[out] pdwFlags: *mut DWORD, #[opt] #[out] pu64DevicePosition: *mut UINT64, #[opt] #[out] pu64QPCPosition: *mut UINT64) -> HRESULT;
             fn ReleaseBuffer(&self, #[in] NumFramesRead: UINT32) -> HRESULT;
             fn GetNextPacketSize(&self, #[out] pNumFramesInNextPacket: *mut UINT32) -> HRESULT;
         }
@@ -178,7 +177,7 @@ mod Windows {
         }
         #[guid(0xf294acfc_3146_4483_a7bf_addca7c260e2)]
         interface IAudioRenderClient: IUnknown {
-            fn GetBuffer(&self, #[in] NumFramesRequested: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"NumFramesRequested * pFormat->nBlockAlign\")", "_Inexpressible_(\"NumFramesRequested * pFormat->nBlockAlign\")")] #[out] ppData: *mut *mut BYTE) -> HRESULT;
+            fn GetBuffer(&self, #[in] NumFramesRequested: UINT32, #[incomplete] #[out] ppData: *mut *mut BYTE) -> HRESULT;
             fn ReleaseBuffer(&self, #[in] NumFramesWritten: UINT32, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x93014887_242d_4068_8a15_cf5e93b90fe3)]

@@ -131,7 +131,7 @@ impl Param {
     pub fn has_unresolved_contracts(&self) -> bool {
         self.attributes().any(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NativeSalAttribute"
+                && attribute.name() == "IncompleteAttribute"
         })
     }
 

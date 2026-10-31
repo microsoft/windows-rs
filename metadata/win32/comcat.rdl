@@ -41,13 +41,9 @@ mod Windows {
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumGUID) -> HRESULT;
         }
         type LPCATEGORYINFO = *mut CATEGORYINFO;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPCATINFORMATION = ICatInformation;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPCATREGISTER = ICatRegister;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMCATEGORYINFO = IEnumCATEGORYINFO;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMGUID = IEnumGUID;
     }
 }

@@ -209,7 +209,7 @@ mod Windows {
             fn SetPalette(&self, #[in] #[opt] pIPalette: IWICPalette) -> HRESULT;
             fn SetThumbnail(&self, #[in] #[opt] pIThumbnail: IWICBitmapSource) -> HRESULT;
             fn SetPreview(&self, #[in] #[opt] pIPreview: IWICBitmapSource) -> HRESULT;
-            fn CreateNewFrame(&self, #[out] #[out_ptr] ppIFrameEncode: *mut IWICBitmapFrameEncode, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
+            fn CreateNewFrame(&self, #[out] #[out_ptr] ppIFrameEncode: *mut IWICBitmapFrameEncode, #[in] #[incomplete] #[opt] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn GetMetadataQueryWriter(&self, #[out] #[out_ptr] #[retval] ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
         }
@@ -228,7 +228,7 @@ mod Windows {
         }
         #[guid(0x40d9ea28_4768_47b3_8c12_558a48e98e38)]
         interface IWICBitmapFrameChainWriter: IUnknown {
-            fn AppendFrameToChain(&self, #[in] chainType: WICBitmapChainType, #[out] #[out_ptr] ppIFrameEncode: *mut IWICBitmapFrameEncode, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
+            fn AppendFrameToChain(&self, #[in] chainType: WICBitmapChainType, #[out] #[out_ptr] ppIFrameEncode: *mut IWICBitmapFrameEncode, #[in] #[incomplete] #[opt] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
             fn DoesSupportChainType(&self, #[in] chainType: WICBitmapChainType, #[out] pfIsSupported: *mut BOOL) -> HRESULT;
         }
         #[guid(0x3b16811b_6a43_4ec9_a813_3d930c13b940)]

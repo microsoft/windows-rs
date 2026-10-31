@@ -820,28 +820,20 @@ mod Windows {
             KS_SEEKING_ReturnTime = 8,
         }
         const KS_TYPE_DONT_CARE: GUID = 0x00000000_0000_0000_0000_000000000000;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateAllocator(#[in] ConnectionHandle: HANDLE, #[in] AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateAllocator2(#[in] ConnectionHandle: HANDLE, #[in] AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateClock(#[in] ConnectionHandle: HANDLE, #[in] ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateClock2(#[in] ConnectionHandle: HANDLE, #[in] ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreatePin(#[in] FilterHandle: HANDLE, #[in] Connect: PKSPIN_CONNECT, #[in] DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreatePin2(#[in] FilterHandle: HANDLE, #[in] Connect: PKSPIN_CONNECT, #[in] DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateTopologyNode(#[in] ParentHandle: HANDLE, #[in] NodeCreate: PKSNODE_CREATE, #[in] DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
         extern fn KsCreateTopologyNode2(#[in] ParentHandle: HANDLE, #[in] NodeCreate: PKSNODE_CREATE, #[in] DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> HRESULT;
         union MF_MDL_SHARED_PAYLOAD_KEY {

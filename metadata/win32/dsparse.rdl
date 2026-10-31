@@ -28,7 +28,7 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         #[must_use]
         #[success(return == 0)]
-        extern fn DsGetRdnW(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppDN,_Pre_readable_size_(*pcDN) _Post_readable_size_(*pcDN)", "*ppDN, _Pre_readable_size_(*pcDN) _Post_readable_size_(*pcDN)")] #[in] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut DWORD, #[out] #[writable(success, *pcKey, indirect)] ppKey: *mut LPCWCH, #[out] pcKey: *mut DWORD, #[out] #[writable(success, *pcVal, indirect)] ppVal: *mut LPCWCH, #[out] pcVal: *mut DWORD) -> DWORD;
+        extern fn DsGetRdnW(#[in] #[incomplete] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut DWORD, #[out] #[writable(success, *pcKey, indirect)] ppKey: *mut LPCWCH, #[out] pcKey: *mut DWORD, #[out] #[writable(success, *pcVal, indirect)] ppVal: *mut LPCWCH, #[out] pcVal: *mut DWORD) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsIsMangledDnA(#[in] pszDn: LPCSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]

@@ -388,7 +388,6 @@ mod Windows {
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
             NodeIndex: UINT,
             CommandId: GUID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_full_", "CreationParametersDataSizeInBytes", "CreationParametersDataSizeInBytes")]
             pCreationParameters: *const void,
             CreationParametersSizeInBytes: SIZE_T,
             MemoryPoolL0Size: UINT64,

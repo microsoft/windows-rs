@@ -406,7 +406,6 @@ mod Windows {
             dwFirmwareIssueId: DWORD,
             szIssueDescriptionString: [BYTE; 132],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize", TypedefName = "DEVICEDUMP_STORAGEDEVICE_DATA")]
         #[packed(1)]
         struct DEVICEDUMP_STORAGEDEVICE_DATA {
             Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
@@ -417,7 +416,6 @@ mod Windows {
             RestrictedData: DEVICEDUMP_SUBSECTION_POINTER,
             PrivateData: DEVICEDUMP_SUBSECTION_POINTER,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize", TypedefName = "DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP")]
         #[packed(1)]
         struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
             Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
@@ -1726,7 +1724,6 @@ mod Windows {
         const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: i32 = 590592;
         const FSCTL_QUERY_SPARING_INFO: i32 = 590136;
         const FSCTL_QUERY_STORAGE_CLASSES: i32 = 590572;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "FSCTL_QUERY_STORAGE_CLASSES_OUTPUT")]
         struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
             Version: DWORD,
             Size: DWORD,
@@ -2703,9 +2700,7 @@ mod Windows {
         type PDEVICEDUMP_PUBLIC_SUBSECTION = *mut DEVICEDUMP_PUBLIC_SUBSECTION;
         type PDEVICEDUMP_RESTRICTED_SUBSECTION = *mut DEVICEDUMP_RESTRICTED_SUBSECTION;
         type PDEVICEDUMP_SECTION_HEADER = *mut DEVICEDUMP_SECTION_HEADER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize")]
         type PDEVICEDUMP_STORAGEDEVICE_DATA = *mut DEVICEDUMP_STORAGEDEVICE_DATA;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize")]
         type PDEVICEDUMP_STORAGESTACK_PUBLIC_DUMP = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP;
         type PDEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD;
         type PDEVICEDUMP_STRUCTURE_VERSION = *mut DEVICEDUMP_STRUCTURE_VERSION;
@@ -2888,7 +2883,6 @@ mod Windows {
         type PFSCTL_QUERY_FAT_BPB_BUFFER = *mut FSCTL_QUERY_FAT_BPB_BUFFER;
         type PFSCTL_QUERY_REGION_INFO_INPUT = *mut FSCTL_QUERY_REGION_INFO_INPUT;
         type PFSCTL_QUERY_REGION_INFO_OUTPUT = *mut FSCTL_QUERY_REGION_INFO_OUTPUT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PFSCTL_QUERY_STORAGE_CLASSES_OUTPUT = *mut FSCTL_QUERY_STORAGE_CLASSES_OUTPUT;
         type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER;
         type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX;
@@ -3085,11 +3079,8 @@ mod Windows {
         type PSTARTING_LCN_INPUT_BUFFER = *mut STARTING_LCN_INPUT_BUFFER;
         type PSTARTING_LCN_INPUT_BUFFER_EX = *mut STARTING_LCN_INPUT_BUFFER_EX;
         type PSTARTING_VCN_INPUT_BUFFER = *mut STARTING_VCN_INPUT_BUFFER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR = *mut STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_ADAPTER_DESCRIPTOR = *mut STORAGE_ADAPTER_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_ADAPTER_SERIAL_NUMBER = *mut STORAGE_ADAPTER_SERIAL_NUMBER;
         type PSTORAGE_ALLOCATE_BC_STREAM_INPUT = *mut STORAGE_ALLOCATE_BC_STREAM_INPUT;
         type PSTORAGE_ALLOCATE_BC_STREAM_OUTPUT = *mut STORAGE_ALLOCATE_BC_STREAM_OUTPUT;
@@ -3101,7 +3092,6 @@ mod Windows {
         type PSTORAGE_BUS_TYPE = *mut STORAGE_BUS_TYPE;
         type PSTORAGE_COMPONENT_HEALTH_STATUS = *mut STORAGE_COMPONENT_HEALTH_STATUS;
         type PSTORAGE_COUNTER = *mut STORAGE_COUNTER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_COUNTERS = *mut STORAGE_COUNTERS;
         type PSTORAGE_COUNTER_TYPE = *mut STORAGE_COUNTER_TYPE;
         type PSTORAGE_CRYPTO_ALGORITHM_ID = *mut STORAGE_CRYPTO_ALGORITHM_ID;
@@ -3110,21 +3100,14 @@ mod Windows {
         type PSTORAGE_CRYPTO_DESCRIPTOR = *mut STORAGE_CRYPTO_DESCRIPTOR;
         type PSTORAGE_CRYPTO_DESCRIPTOR_V2 = *mut STORAGE_CRYPTO_DESCRIPTOR_V2;
         type PSTORAGE_CRYPTO_KEY_SIZE = *mut STORAGE_CRYPTO_KEY_SIZE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DESCRIPTOR_HEADER = *mut STORAGE_DESCRIPTOR_HEADER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR = *mut STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_DESCRIPTOR = *mut STORAGE_DEVICE_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR = *mut STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR;
         type PSTORAGE_DEVICE_FORM_FACTOR = *mut STORAGE_DEVICE_FORM_FACTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_ID_DESCRIPTOR = *mut STORAGE_DEVICE_ID_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR = *mut STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR;
         type PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR = *mut STORAGE_DEVICE_LED_STATE_DESCRIPTOR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_LOCATION_DESCRIPTOR = *mut STORAGE_DEVICE_LOCATION_DESCRIPTOR;
         type PSTORAGE_DEVICE_MANAGEMENT_STATUS = *mut STORAGE_DEVICE_MANAGEMENT_STATUS;
         type PSTORAGE_DEVICE_NUMA_PROPERTY = *mut STORAGE_DEVICE_NUMA_PROPERTY;
@@ -3133,11 +3116,9 @@ mod Windows {
         type PSTORAGE_DEVICE_NUMBER_EX = *mut STORAGE_DEVICE_NUMBER_EX;
         type PSTORAGE_DEVICE_POWER_CAP = *mut STORAGE_DEVICE_POWER_CAP;
         type PSTORAGE_DEVICE_POWER_CAP_UNITS = *mut STORAGE_DEVICE_POWER_CAP_UNITS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_RESILIENCY_DESCRIPTOR = *mut STORAGE_DEVICE_RESILIENCY_DESCRIPTOR;
         type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
         type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_DEVICE_TIERING_DESCRIPTOR = *mut STORAGE_DEVICE_TIERING_DESCRIPTOR;
         type PSTORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT = *mut STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT;
         type PSTORAGE_DIAGNOSTIC_DATA = *mut STORAGE_DIAGNOSTIC_DATA;
@@ -3176,7 +3157,6 @@ mod Windows {
         type PSTORAGE_LB_PROVISIONING_MAP_RESOURCES = *mut STORAGE_LB_PROVISIONING_MAP_RESOURCES;
         type PSTORAGE_MEDIA_SERIAL_NUMBER_DATA = *mut STORAGE_MEDIA_SERIAL_NUMBER_DATA;
         type PSTORAGE_MEDIA_TYPE = *mut STORAGE_MEDIA_TYPE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR = *mut STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR;
         type PSTORAGE_MINIPORT_DESCRIPTOR = *mut STORAGE_MINIPORT_DESCRIPTOR;
         type PSTORAGE_OFFLOAD_READ_OUTPUT = *mut STORAGE_OFFLOAD_READ_OUTPUT;
@@ -3209,7 +3189,6 @@ mod Windows {
         type PSTORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY = *mut STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY;
         type PSTORAGE_QUERY_DEPENDENT_VOLUME_REQUEST = *mut STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST;
         type PSTORAGE_QUERY_TYPE = *mut STORAGE_QUERY_TYPE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_READ_CAPACITY = *mut STORAGE_READ_CAPACITY;
         type PSTORAGE_REINITIALIZE_MEDIA = *mut STORAGE_REINITIALIZE_MEDIA;
         type PSTORAGE_RESERVE_ID = *mut STORAGE_RESERVE_ID;
@@ -3220,7 +3199,6 @@ mod Windows {
         type PSTORAGE_SANITIZE_METHOD = *mut STORAGE_SANITIZE_METHOD;
         type PSTORAGE_SET_TYPE = *mut STORAGE_SET_TYPE;
         type PSTORAGE_SPEC_VERSION = *mut STORAGE_SPEC_VERSION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_STACK_DESCRIPTOR = *mut STORAGE_STACK_DESCRIPTOR;
         type PSTORAGE_STACK_TYPE = *mut STORAGE_STACK_TYPE;
         type PSTORAGE_TEMPERATURE_DATA_DESCRIPTOR = *mut STORAGE_TEMPERATURE_DATA_DESCRIPTOR;
@@ -3230,9 +3208,7 @@ mod Windows {
         type PSTORAGE_TIER_CLASS = *mut STORAGE_TIER_CLASS;
         type PSTORAGE_TIER_MEDIA_TYPE = *mut STORAGE_TIER_MEDIA_TYPE;
         type PSTORAGE_TIER_REGION = *mut STORAGE_TIER_REGION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_WRITE_CACHE_PROPERTY = *mut STORAGE_WRITE_CACHE_PROPERTY;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size")]
         type PSTORAGE_ZONED_DEVICE_DESCRIPTOR = *mut STORAGE_ZONED_DEVICE_DESCRIPTOR;
         type PSTORAGE_ZONED_DEVICE_TYPES = *mut STORAGE_ZONED_DEVICE_TYPES;
         type PSTORAGE_ZONES_ATTRIBUTES = *mut STORAGE_ZONES_ATTRIBUTES;
@@ -3351,11 +3327,8 @@ mod Windows {
             FilterType: QUERY_FILE_LAYOUT_FILTER_TYPE,
             Reserved: DWORD,
             Filter: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS),_Field_size_(FilterEntryCount)", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS), _Field_size_(FilterEntryCount)")]
                 ClusterRanges: [CLUSTER_RANGE; 1],
-                #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID),_Field_size_(FilterEntryCount)", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID), _Field_size_(FilterEntryCount)")]
                 FileReferenceRanges: [FILE_REFERENCE_RANGE; 1],
-                #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID),_Field_size_(FilterEntryCount)", "(FilterType == QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID), _Field_size_(FilterEntryCount)")]
                 StorageReserveIds: [STORAGE_RESERVE_ID; 1],
             },
         }
@@ -4163,7 +4136,6 @@ mod Windows {
         struct STARTING_VCN_INPUT_BUFFER {
             StartingVcn: LARGE_INTEGER,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR")]
         struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4173,7 +4145,6 @@ mod Windows {
             BytesPerPhysicalSector: DWORD,
             BytesOffsetForSectorAlignment: DWORD,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_ADAPTER_DESCRIPTOR")]
         struct STORAGE_ADAPTER_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4190,7 +4161,6 @@ mod Windows {
             SrbType: BYTE,
             AddressType: BYTE,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_ADAPTER_SERIAL_NUMBER")]
         struct STORAGE_ADAPTER_SERIAL_NUMBER {
             Version: DWORD,
             Size: DWORD,
@@ -4302,7 +4272,6 @@ mod Windows {
                 AsUlonglong: DWORDLONG,
             },
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_COUNTERS")]
         struct STORAGE_COUNTERS {
             Version: DWORD,
             Size: DWORD,
@@ -4422,18 +4391,15 @@ mod Windows {
             },
             AsUchar: BYTE,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DESCRIPTOR_HEADER")]
         struct STORAGE_DESCRIPTOR_HEADER {
             Version: DWORD,
             Size: DWORD,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR")]
         struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
             Attributes: DWORD64,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_DESCRIPTOR")]
         struct STORAGE_DEVICE_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4449,7 +4415,6 @@ mod Windows {
             RawPropertiesLength: DWORD,
             RawDeviceProperties: [BYTE; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR")]
         struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4474,14 +4439,12 @@ mod Windows {
             FormFactorPCIeBoard = 9,
             FormFactorDimm = 10,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_ID_DESCRIPTOR")]
         struct STORAGE_DEVICE_ID_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
             NumberOfIdentifiers: DWORD,
             Identifiers: [BYTE; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR")]
         struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4493,7 +4456,6 @@ mod Windows {
             Size: DWORD,
             State: DWORDLONG,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_LOCATION_DESCRIPTOR")]
         struct STORAGE_DEVICE_LOCATION_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4548,7 +4510,6 @@ mod Windows {
             StorageDevicePowerCapUnitsMilliwatts = 1,
         }
         const STORAGE_DEVICE_POWER_CAP_VERSION_V1: i32 = 1;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_RESILIENCY_DESCRIPTOR")]
         struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4572,7 +4533,6 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const STORAGE_DEVICE_TELEMETRY_REGKEY: String = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry";
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_DEVICE_TIERING_DESCRIPTOR")]
         struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -4747,7 +4707,6 @@ mod Windows {
             Header: STORAGE_DESCRIPTOR_HEADER,
             NumKeysSupported: DWORD,
             NumCryptoCapabilities: DWORD,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "sizeof(struct _STORAGE_HW_CRYPTO_DESCRIPTOR),Header.Size", "sizeof(struct _STORAGE_HW_CRYPTO_DESCRIPTOR),Header.Size")]
             OffsetToCryptoCapabilities: DWORD,
             SizeOfCryptoCapability: DWORD,
             IceType: STORAGE_ICE_TYPE,
@@ -4988,7 +4947,6 @@ mod Windows {
             SAIT = 93,
             VXATape = 94,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR")]
         struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -5370,7 +5328,6 @@ mod Windows {
             PropertyMaskQuery = 2,
             PropertyQueryMaxDefined = 3,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_READ_CAPACITY")]
         struct STORAGE_READ_CAPACITY {
             Version: DWORD,
             Size: DWORD,
@@ -5469,7 +5426,6 @@ mod Windows {
             },
             AsUlong: DWORD,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_STACK_DESCRIPTOR")]
         struct STORAGE_STACK_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,
@@ -5549,7 +5505,6 @@ mod Windows {
             Offset: DWORDLONG,
             Length: DWORDLONG,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_WRITE_CACHE_PROPERTY")]
         struct STORAGE_WRITE_CACHE_PROPERTY {
             Version: DWORD,
             Size: DWORD,
@@ -5561,7 +5516,6 @@ mod Windows {
             UserDefinedPowerProtection: BOOLEAN,
             NVCacheEnabled: BOOLEAN,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Size", "Size", TypedefName = "STORAGE_ZONED_DEVICE_DESCRIPTOR")]
         struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
             Version: DWORD,
             Size: DWORD,

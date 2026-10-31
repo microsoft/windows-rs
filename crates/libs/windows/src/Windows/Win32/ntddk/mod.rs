@@ -10551,18 +10551,10 @@ pub const PCI_LNKINTRF_VERSION: i32 = 1;
 pub type PCI_OSC_CONTROL_BITS = i32;
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
 pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: super::PVOID, pcidata: super::PPCI_COMMON_CONFIG)>;
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: super::PVOID)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "C" fn(context: super::PVOID)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: super::PVOID, busoffset: super::ULONG, slot: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "C" fn(context: super::PVOID, busoffset: super::ULONG, slot: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 pub const PCI_RECOVERY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdd060800_f6e1_4204_ac27_c4bca9568402);
 pub const PCI_RESERVED_VENDOR_ID: i32 = 1;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -11469,18 +11461,10 @@ pub type PPCI_LINK_WIDTH = *mut PCI_LINK_WIDTH;
 pub type PPCI_OSC_CONTROL_BITS = *mut PCI_OSC_CONTROL_BITS;
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
 pub type PPCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: super::PVOID, pcidata: super::PPCI_COMMON_CONFIG)>;
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 pub type PPCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: super::PVOID)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type PPCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "C" fn(context: super::PVOID)>;
-#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: super::PVOID, busoffset: super::ULONG, slot: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "shared", feature = "winnt"))]
-pub type PPCI_READ_WRITE_CONFIG = Option<unsafe extern "C" fn(context: super::PVOID, busoffset: super::ULONG, slot: super::ULONG, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn(context: super::PVOID, hardwarecapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
 #[cfg(feature = "shared")]

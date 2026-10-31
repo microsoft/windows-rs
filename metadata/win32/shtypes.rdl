@@ -121,7 +121,6 @@ mod Windows {
             STRRET_CSTR = 2,
         }
         type TASKOWNERID = GUID;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wirePIDL = *mut BYTE_BLOB;
     }
 }

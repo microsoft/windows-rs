@@ -32,13 +32,12 @@ pub(crate) fn read(payload: &str) -> Result<Option<SalAnnotation>, Error> {
         version: version.into(),
         name: (*name).into(),
         arguments: arguments.into(),
-        expanded: expanded.into(),
+        expanded: expression(expanded)?,
     }))
 }
 
 // Decode only the serialization emitted by the SAL hooks. Other expression text is opaque.
-#[cfg(feature = "projection")]
-pub(crate) fn expression(mut text: &str) -> Result<String, Error> {
+fn expression(mut text: &str) -> Result<String, Error> {
     if !text.contains("windows_clang:sal:") {
         return Ok(text.into());
     }
@@ -58,10 +57,9 @@ pub(crate) fn expression(mut text: &str) -> Result<String, Error> {
             let value = read(&payload)?.ok_or_else(invalid)?;
             text = tail.strip_prefix(")))").ok_or_else(invalid)?;
             result.push_str(&value.name);
-            let expanded = expression(&value.expanded)?;
-            if !expanded.is_empty() {
+            if !value.expanded.is_empty() {
                 result.push('(');
-                result.push_str(&expanded);
+                result.push_str(&value.expanded);
                 result.push(')');
             }
         } else if let Some(prefix) = ["R\"", "u8R\"", "uR\"", "UR\"", "LR\""]
@@ -105,7 +103,6 @@ pub(crate) fn expression(mut text: &str) -> Result<String, Error> {
     Ok(result)
 }
 
-#[cfg(feature = "projection")]
 fn string(text: &str) -> Result<(String, &str), Error> {
     let mut value = String::new();
     let mut chars = text[1..].char_indices();

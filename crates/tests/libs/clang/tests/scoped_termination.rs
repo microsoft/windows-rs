@@ -92,7 +92,7 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                     expected.push(("DoubleNullOnSuccess".into(), Value::Bool(true)));
                 }
                 assert_eq!(attribute.value(), expected, "{owner}::{method}");
-                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                assert!(parameter.find_attribute("IncompleteAttribute").is_none());
             }
             for name in [
                 "OtherProperty",
@@ -117,24 +117,7 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                         .is_none(),
                     "{name}"
                 );
-                let evidence: Vec<_> = parameter
-                    .attributes()
-                    .filter(|attribute| attribute.name() == "NativeSalAttribute")
-                    .flat_map(|attribute| attribute.value())
-                    .collect();
-                assert!(!evidence.is_empty(), "{name}");
-                let modifiers = match name {
-                    "OtherProperty" | "Grouped" | "QualifiedContract" => Some("_Post_"),
-                    "Modified" => Some("_Post_ _Notref_"),
-                    _ => None,
-                };
-                assert_eq!(
-                    evidence
-                        .iter()
-                        .find(|(name, _)| name == "Modifiers")
-                        .map(|(_, value)| value),
-                    modifiers.map(|value| Value::Utf8(value.into())).as_ref(),
-                );
+                assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
             }
         }
     }

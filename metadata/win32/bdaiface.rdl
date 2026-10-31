@@ -76,7 +76,7 @@ mod Windows {
         interface IBDA_DRIWMDRMSession: IUnknown {
             fn AcknowledgeLicense(&self, #[in] hrLicenseAck: HRESULT) -> HRESULT;
             fn ProcessLicenseChallenge(&self, #[in] dwcbLicenseMessage: DWORD, #[in] #[readable(entry, dwcbLicenseMessage)] pbLicenseMessage: *mut BYTE, #[in] #[out] pdwcbLicenseResponse: *mut DWORD, #[in] #[out] #[readable(entry, *pdwcbLicenseResponse)] #[readable(success, *pdwcbLicenseResponse)] #[writable(entry, *pdwcbLicenseResponse)] ppbLicenseResponse: *mut *mut BYTE) -> HRESULT;
-            fn ProcessRegistrationChallenge(&self, #[in] dwcbRegistrationMessage: DWORD, #[in] #[readable(entry, dwcbRegistrationMessage)] pbRegistrationMessage: *mut BYTE, #[in] #[out] pdwcbRegistrationResponse: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppbRegistrationResponse: *mut *mut BYTE) -> HRESULT;
+            fn ProcessRegistrationChallenge(&self, #[in] dwcbRegistrationMessage: DWORD, #[in] #[readable(entry, dwcbRegistrationMessage)] pbRegistrationMessage: *mut BYTE, #[in] #[out] pdwcbRegistrationResponse: *mut DWORD, #[in] #[incomplete] #[out] ppbRegistrationResponse: *mut *mut BYTE) -> HRESULT;
             fn SetRevInfo(&self, #[in] dwRevInfoLen: DWORD, #[in] #[readable(entry, dwRevInfoLen)] pbRevInfo: *mut BYTE, #[in] #[out] pdwResponse: *mut DWORD) -> HRESULT;
             fn SetCrl(&self, #[in] dwCrlLen: DWORD, #[in] #[readable(entry, dwCrlLen)] pbCrlLen: *mut BYTE, #[in] #[out] pdwResponse: *mut DWORD) -> HRESULT;
             fn GetHMSAssociationData(&self) -> HRESULT;
@@ -147,7 +147,7 @@ mod Windows {
         }
         #[guid(0xd806973d_3ebe_46de_8fbb_6358fe784208)]
         interface IBDA_EasMessage: IUnknown {
-            fn get_EasMessage(&self, #[in] ulEventID: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppEASObject: *mut IUnknown) -> HRESULT;
+            fn get_EasMessage(&self, #[in] ulEventID: ULONG, #[in] #[incomplete] #[out] ppEASObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x3a8bad59_59fe_4559_a0ba_396cfaa98ae3)]
         interface IBDA_Encoder: IUnknown {
@@ -205,8 +205,8 @@ mod Windows {
         }
         #[guid(0x3f4dc8e2_4050_11d3_8f4b_00c04f7971e2)]
         interface IBDA_IPSinkControl: IUnknown {
-            fn GetMulticastList(&self, #[in] #[out] pulcbSize: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] pbBuffer: *mut *mut BYTE) -> HRESULT;
-            fn GetAdapterIPAddress(&self, #[in] #[out] pulcbSize: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] pbBuffer: *mut *mut BYTE) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbSize: *mut u32, #[in] #[incomplete] #[out] pbBuffer: *mut *mut BYTE) -> HRESULT;
+            fn GetAdapterIPAddress(&self, #[in] #[out] pulcbSize: *mut u32, #[in] #[incomplete] #[out] pbBuffer: *mut *mut BYTE) -> HRESULT;
         }
         #[guid(0xa750108f_492e_4d51_95f7_649b23ff7ad7)]
         interface IBDA_IPSinkInfo: IUnknown {
@@ -309,7 +309,7 @@ mod Windows {
             fn SetMediaType(&self, #[in] ulPinId: ULONG, #[in] pMediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn SetMedium(&self, #[in] ulPinId: ULONG, #[in] pMedium: *mut REGPINMEDIUM) -> HRESULT;
             fn CreateTopology(&self, #[in] ulInputPinId: ULONG, #[in] ulOutputPinId: ULONG) -> HRESULT;
-            fn GetControlNode(&self, #[in] ulInputPinId: ULONG, #[in] ulOutputPinId: ULONG, #[in] ulNodeType: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppControlNode: *mut IUnknown) -> HRESULT;
+            fn GetControlNode(&self, #[in] ulInputPinId: ULONG, #[in] ulOutputPinId: ULONG, #[in] ulNodeType: ULONG, #[in] #[incomplete] #[out] ppControlNode: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x8e882535_5f86_47ab_86cf_c281a72a0549)]
         interface IBDA_TransportStreamInfo: IUnknown {

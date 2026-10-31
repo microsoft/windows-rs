@@ -13,7 +13,7 @@ mod Windows {
         extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(#[in] CQ: RIO_CQ);
         extern fn LPFN_RIOCREATECOMPLETIONQUEUE(#[in] QueueSize: DWORD, #[in] #[opt] NotificationCompletion: PRIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
         extern fn LPFN_RIOCREATEREQUESTQUEUE(#[in] Socket: SOCKET, #[in] MaxOutstandingReceive: ULONG, #[in] MaxReceiveDataBuffers: ULONG, #[in] MaxOutstandingSend: ULONG, #[in] MaxSendDataBuffers: ULONG, #[in] ReceiveCQ: RIO_CQ, #[in] SendCQ: RIO_CQ, #[in] #[opt] SocketContext: PVOID) -> RIO_RQ;
-        extern fn LPFN_RIODEQUEUECOMPLETION(#[in] CQ: RIO_CQ, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "ArraySize,return", "ArraySize,return")] #[out] #[writable(entry, ArraySize)] Array: PRIORESULT, #[in] ArraySize: ULONG) -> ULONG;
+        extern fn LPFN_RIODEQUEUECOMPLETION(#[in] CQ: RIO_CQ, #[incomplete] #[out] #[writable(entry, ArraySize)] Array: PRIORESULT, #[in] ArraySize: ULONG) -> ULONG;
         extern fn LPFN_RIODEREGISTERBUFFER(#[in] BufferId: RIO_BUFFERID);
         extern fn LPFN_RIONOTIFY(#[in] CQ: RIO_CQ) -> INT;
         extern fn LPFN_RIORECEIVE(#[in] SocketQueue: RIO_RQ, #[in] #[readable(entry, DataBufferCount)] pData: PRIO_BUF, #[in] DataBufferCount: ULONG, #[in] Flags: DWORD, #[in] #[opt] RequestContext: PVOID) -> BOOL;
@@ -198,7 +198,7 @@ mod Windows {
         }
         #[deprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("MSWSOCK.dll")]
-        extern fn WSARecvEx(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "len,return", "len,return")] #[out] #[writable(entry, bytes(len))] buf: *mut CHAR, #[in] len: INT, #[in] #[out] flags: *mut INT) -> INT;
+        extern fn WSARecvEx(#[in] s: SOCKET, #[incomplete] #[out] #[writable(entry, bytes(len))] buf: *mut CHAR, #[in] len: INT, #[in] #[out] flags: *mut INT) -> INT;
         struct WSASENDMSG {
             lpMsg: LPWSAMSG,
             dwFlags: DWORD,

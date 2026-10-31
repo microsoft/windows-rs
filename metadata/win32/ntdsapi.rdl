@@ -739,15 +739,9 @@ mod Windows {
         extern fn DsFreeSpnArrayA(#[in] cSpn: DWORD, #[in] #[out] #[readable(entry, cSpn)] #[readable(success, 0)] #[writable(entry, cSpn)] rpszSpn: *mut LPSTR);
         #[library("NTDSAPI.dll")]
         extern fn DsFreeSpnArrayW(#[in] cSpn: DWORD, #[in] #[out] #[readable(entry, cSpn)] #[readable(success, 0)] #[writable(entry, cSpn)] rpszSpn: *mut LPWSTR);
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))")]
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsGetDomainControllerInfoA(#[in] hDs: HANDLE, #[in] DomainName: LPCSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))")]
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsGetDomainControllerInfoW(#[in] hDs: HANDLE, #[in] DomainName: LPCWSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;

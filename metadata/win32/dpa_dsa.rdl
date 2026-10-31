@@ -75,7 +75,7 @@ mod Windows {
         extern fn DSA_EnumCallback(#[in] hdsa: HDSA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
         #[library("COMCTL32.dll")]
         #[success(return != 0)]
-        extern fn DSA_GetItem(#[in] hdsa: HDSA, #[in] i: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(pdsa->cbItem)", "_Inexpressible_(pdsa->cbItem)")] #[out] pitem: *mut void) -> BOOL;
+        extern fn DSA_GetItem(#[in] hdsa: HDSA, #[in] i: i32, #[incomplete] #[out] pitem: *mut void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DSA_GetItemPtr(#[in] hdsa: HDSA, #[in] i: i32) -> PVOID;
         #[library("COMCTL32.dll")]

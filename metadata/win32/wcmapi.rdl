@@ -98,7 +98,7 @@ mod Windows {
             LastSyncTime: FILETIME,
         }
         #[library("wcmapi.dll")]
-        extern fn WcmFreeMemory(#[Windows::Win32::Metadata::NativeSal("L", "__deallocate", "Mem", "Mem")] pMemory: *mut void);
+        extern fn WcmFreeMemory(#[incomplete] pMemory: *mut void);
         #[library("wcmapi.dll")]
         extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, #[out] #[out_ptr] ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> DWORD;
         #[library("wcmapi.dll")]

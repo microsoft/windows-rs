@@ -81,7 +81,7 @@ mod Windows {
         #[library("api-ms-win-security-base-l1-2-2.dll")]
         extern fn DeriveCapabilitySidsFromName(#[in] CapName: LPCWSTR, #[nullable] #[out] #[writable(success, *CapabilityGroupSidCount, indirect)] CapabilityGroupSids: *mut *mut PSID, #[out] CapabilityGroupSidCount: *mut DWORD, #[nullable] #[out] #[writable(success, *CapabilitySidCount, indirect)] CapabilitySids: *mut *mut PSID, #[out] CapabilitySidCount: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn DestroyPrivateObjectSecurity(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_valid_", "", "")] ObjectDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOL;
+        extern fn DestroyPrivateObjectSecurity(#[incomplete] ObjectDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn DuplicateToken(#[in] ExistingTokenHandle: HANDLE, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[out] #[out_ptr] DuplicateTokenHandle: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -109,10 +109,8 @@ mod Windows {
         extern fn GetFileSecurityW(#[in] lpFileName: LPCWSTR, #[in] RequestedInformation: SECURITY_INFORMATION, #[opt] #[out] #[readable(success, bytes(*lpnLengthNeeded))] #[writable(entry, bytes(nLength))] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetKernelObjectSecurity(#[in] Handle: HANDLE, #[in] RequestedInformation: SECURITY_INFORMATION, #[opt] #[out] #[writable(entry, bytes(nLength))] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return >= 8 && return <= (sizeof(SID) - sizeof(DWORD) + ((15) * sizeof(DWORD)))", "return >= 8 && return <= (sizeof(SID) - sizeof(DWORD) + ((15) * sizeof(DWORD)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "1", "1")]
         #[library("ADVAPI32.dll")]
-        extern fn GetLengthSid(#[Windows::Win32::Metadata::NativeSal("2", "_Post_readable_byte_size_", "return", "return")] #[in] pSid: PSID) -> DWORD;
+        extern fn GetLengthSid(#[in] #[incomplete] pSid: PSID) -> DWORD;
         #[library("ADVAPI32.dll")]
         #[success(return != 0)]
         extern fn GetPrivateObjectSecurity(#[in] ObjectDescriptor: PSECURITY_DESCRIPTOR, #[in] SecurityInformation: SECURITY_INFORMATION, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(DescriptorLength))] ResultantDescriptor: PSECURITY_DESCRIPTOR, #[in] DescriptorLength: DWORD, #[out] ReturnLength: PDWORD) -> BOOL;
@@ -156,7 +154,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn InitializeSecurityDescriptor(#[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] dwRevision: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn InitializeSid(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "_Inexpressible_(GetSidLengthRequired(nSubAuthorityCount))", "_Inexpressible_(GetSidLengthRequired(nSubAuthorityCount))")] #[out] Sid: PSID, #[in] pIdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] nSubAuthorityCount: BYTE) -> BOOL;
+        extern fn InitializeSid(#[incomplete] #[out] Sid: PSID, #[in] pIdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] nSubAuthorityCount: BYTE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn IsTokenRestricted(#[in] TokenHandle: HANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]

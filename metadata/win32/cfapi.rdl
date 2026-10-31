@@ -340,14 +340,12 @@ mod Windows {
                 TransferData: struct {
                     Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
                     CompletionStatus: NTSTATUS,
-                    #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "Length.QuadPart", "Length.QuadPart")]
                     Buffer: LPCVOID,
                     Offset: LARGE_INTEGER,
                     Length: LARGE_INTEGER,
                 },
                 RetrieveData: struct {
                     Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
-                    #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "Length.QuadPart", "Length.QuadPart")]
                     Buffer: LPVOID,
                     Offset: LARGE_INTEGER,
                     Length: LARGE_INTEGER,
@@ -668,9 +666,9 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetCorrelationVector(#[in] FileHandle: HANDLE, #[out] CorrelationVector: PCORRELATION_VECTOR) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_INFO_CLASS, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_INFO_CLASS, #[incomplete] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[incomplete] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderRangeInfoForHydration(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] TransferKey: CF_TRANSFER_KEY, #[in] FileId: LARGE_INTEGER, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] RangeLength: LARGE_INTEGER, #[out] #[readable(success, bytes(if_present(*InfoBufferWritten)))] #[writable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[in] InfoBufferSize: DWORD, #[opt] #[out] InfoBufferWritten: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]

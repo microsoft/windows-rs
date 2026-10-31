@@ -181,7 +181,7 @@ mod Windows {
         extern fn CoQueryAuthenticationServices(#[out] pcAuthSvc: *mut DWORD, #[out] #[writable(success, *pcAuthSvc, indirect)] asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoQueryClientBlanket(#[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] #[out_ptr] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "_Inexpressible_(\"depends on pAuthnSvc\")", "_Inexpressible_(\"depends on pAuthnSvc\")")] #[opt] #[out] pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
+        extern fn CoQueryClientBlanket(#[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] #[out_ptr] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[incomplete] #[opt] #[out] pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoQueryProxyBlanket(#[in] pProxy: IUnknown, #[opt] #[out] pwAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] #[out_ptr] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[opt] #[out] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
@@ -227,19 +227,13 @@ mod Windows {
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoSwitchCallContext(#[in] #[opt] pNewObject: IUnknown, #[out] #[out_ptr] #[retval] ppOldObject: *mut IUnknown) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("1.1", "_Ret_opt_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "cb", "cb")]
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_allocatesMem", "Mem", "Mem")]
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoTaskMemAlloc(#[in] cb: SIZE_T) -> LPVOID;
         #[library("ole32.dll")]
-        extern fn CoTaskMemFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] pv: LPVOID);
-        #[Windows::Win32::Metadata::NativeSal("1.1", "_Ret_opt_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "cb", "cb")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cb > 0,__drv_allocatesMem(Mem) _Check_return_", "cb > 0, __drv_allocatesMem(Mem) _Check_return_")]
+        extern fn CoTaskMemFree(#[incomplete] pv: LPVOID);
         #[library("ole32.dll")]
-        extern fn CoTaskMemRealloc(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] pv: LPVOID, #[in] cb: SIZE_T) -> LPVOID;
+        extern fn CoTaskMemRealloc(#[incomplete] pv: LPVOID, #[in] cb: SIZE_T) -> LPVOID;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoTestCancel() -> HRESULT;
@@ -299,7 +293,7 @@ mod Windows {
         extern fn StringFromCLSID(#[in] rclsid: &IID, #[out] #[out_ptr] lplpsz: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StringFromGUID2(#[in] rguid: &GUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchMax,return", "cchMax,return")] #[out] #[writable(entry, cchMax)] lpsz: LPOLESTR, #[in] cchMax: i32) -> i32;
+        extern fn StringFromGUID2(#[in] rguid: &GUID, #[incomplete] #[out] #[writable(entry, cchMax)] lpsz: LPOLESTR, #[in] cchMax: i32) -> i32;
         #[library("ole32.dll")]
         #[must_use]
         extern fn StringFromIID(#[in] rclsid: &IID, #[out] #[out_ptr] lplpsz: *mut LPOLESTR) -> HRESULT;

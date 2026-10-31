@@ -117,7 +117,7 @@ mod Windows {
             grui1_attributes: DWORD,
         }
         #[library("NETAPI32.dll")]
-        extern fn I_NetLogonControl2(#[in] #[opt] ServerName: LPCWSTR, #[in] FunctionCode: DWORD, #[in] QueryLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] Data: LPBYTE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn I_NetLogonControl2(#[in] #[opt] ServerName: LPCWSTR, #[in] FunctionCode: DWORD, #[in] QueryLevel: DWORD, #[in] #[incomplete] Data: LPBYTE, #[incomplete] #[out] Buffer: *mut LPBYTE) -> DWORD;
         const LG_INCLUDE_INDIRECT: i32 = 1;
         const LOCALGROUP_COMMENT_PARMNUM: i32 = 2;
         struct LOCALGROUP_INFO_0 {
@@ -387,31 +387,31 @@ mod Windows {
         #[encoding("ansi")]
         const NULL_USERSETINFO_PASSWD: String = "              ";
         #[library("NETAPI32.dll")]
-        extern fn NetAccessAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetAccessAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetAccessDel(servername: LPCWSTR, resource: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessEnum(#[in] #[opt] servername: LPCWSTR, #[in] BasePath: LPCWSTR, #[in] Recursive: DWORD, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetAccessEnum(#[in] #[opt] servername: LPCWSTR, #[in] BasePath: LPCWSTR, #[in] Recursive: DWORD, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] resource: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetAccessGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] resource: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetAccessGetUserPerms(servername: LPCWSTR, UGname: LPCWSTR, resource: LPCWSTR, Perms: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] resource: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetAccessSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] resource: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetAddServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Password: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         extern fn NetEnumerateServiceAccounts(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[out] #[writable(success, *AccountsCount, indirect)] Accounts: *mut PZPWSTR) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         #[success(return == 0)]
-        extern fn NetGetAnyDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPWSTR *)Buffer,_Outptr_result_z_", "(LPWSTR *)Buffer, _Outptr_result_z_")] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn NetGetAnyDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         #[success(return == 0)]
-        extern fn NetGetDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPWSTR *)Buffer,_Outptr_result_z_", "(LPWSTR *)Buffer, _Outptr_result_z_")] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn NetGetDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetGetDisplayInformationIndex(ServerName: LPCWSTR, Level: DWORD, Prefix: LPCWSTR, Index: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetGroupAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetGroupAddUser(#[in] #[opt] servername: LPCWSTR, #[in] GroupName: LPCWSTR, #[in] username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
@@ -419,41 +419,41 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetGroupDelUser(#[in] #[opt] servername: LPCWSTR, #[in] GroupName: LPCWSTR, #[in] Username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: PDWORD_PTR) -> DWORD;
+        extern fn NetGroupEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetGroupGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupGetUsers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] ResumeHandle: PDWORD_PTR) -> DWORD;
+        extern fn NetGroupGetUsers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] ResumeHandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetGroupSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetUsers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
+        extern fn NetGroupSetUsers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetIsServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         extern fn NetIsServiceAccount2(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[out] IsService: *mut BOOL, #[out] AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetLocalGroupAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupAddMember(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] membersid: PSID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAddMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
+        extern fn NetLocalGroupAddMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupDel(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupDelMember(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] membersid: PSID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupDelMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
+        extern fn NetLocalGroupDelMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resumehandle: PDWORD_PTR) -> DWORD;
+        extern fn NetLocalGroupEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resumehandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetLocalGroupGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupGetMembers(#[in] #[opt] servername: LPCWSTR, #[in] localgroupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resumehandle: PDWORD_PTR) -> DWORD;
+        extern fn NetLocalGroupGetMembers(#[in] #[opt] servername: LPCWSTR, #[in] localgroupname: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resumehandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetLocalGroupSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
+        extern fn NetLocalGroupSetMembers(#[in] #[opt] servername: LPCWSTR, #[in] groupname: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[in] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetQueryDisplayInformation(ServerName: LPCWSTR, Level: DWORD, Index: DWORD, EntriesRequested: DWORD, PreferredMaximumLength: DWORD, ReturnedEntryCount: LPDWORD, SortedBuffer: *mut PVOID) -> DWORD;
         #[library("NETAPI32.dll")]
@@ -461,27 +461,27 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetRemoveServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(USER_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(USER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(USER_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(USER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 3,_In_reads_bytes_(sizeof(USER_INFO_3))", "level == 3, _In_reads_bytes_(sizeof(USER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 4,_In_reads_bytes_(sizeof(USER_INFO_4))", "level == 4, _In_reads_bytes_(sizeof(USER_INFO_4))")] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetUserAdd(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetUserChangePassword(#[in] #[opt] domainname: LPCWSTR, #[in] #[opt] username: LPCWSTR, #[in] oldpassword: LPCWSTR, #[in] newpassword: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetUserDel(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] filter: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: PDWORD) -> DWORD;
+        extern fn NetUserEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] filter: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: PDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
+        extern fn NetUserGetGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetUserGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetLocalGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[in] flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
+        extern fn NetUserGetLocalGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[in] flags: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserModalsGet(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetUserModalsGet(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserModalsSet(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetUserModalsSet(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] num_entries: DWORD) -> DWORD;
+        extern fn NetUserSetGroups(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[in] num_entries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
+        extern fn NetUserSetInfo(#[in] #[opt] servername: LPCWSTR, #[in] username: LPCWSTR, #[in] level: DWORD, #[in] #[incomplete] buf: LPBYTE, #[opt] #[out] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetValidatePasswordPolicy(ServerName: LPCWSTR, Qualifier: LPVOID, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: LPVOID, OutputArg: *mut LPVOID) -> DWORD;
         #[library("NETAPI32.dll")]

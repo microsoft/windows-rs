@@ -549,7 +549,7 @@ mod Windows {
             fn Release(&self) -> ULONG;
             fn Cut(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn Copy(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
-            fn Paste(&self, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
+            fn Paste(&self, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[in] #[incomplete] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
@@ -607,10 +607,8 @@ mod Windows {
         struct ICCOMPRESS {
             dwFlags: DWORD,
             lpbiOutput: LPBITMAPINFOHEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "lpbiOutput->biSizeImage", "lpbiOutput->biSizeImage")]
             lpOutput: LPVOID,
             lpbiInput: LPBITMAPINFOHEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "lpbiInput->biSizeImage", "lpbiInput->biSizeImage")]
             lpInput: LPVOID,
             lpckid: LPDWORD,
             lpdwFlags: LPDWORD,
@@ -618,7 +616,6 @@ mod Windows {
             dwFrameSize: DWORD,
             dwQuality: DWORD,
             lpbiPrev: LPBITMAPINFOHEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "lpbiPrev->biSizeImage", "lpbiPrev->biSizeImage")]
             lpPrev: LPVOID,
         }
         const ICCOMPRESSFRAMES_PADDING: i32 = 1;
@@ -626,7 +623,7 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn ICClose(#[in] hic: HIC) -> LRESULT;
         #[library("MSVFW32.dll")]
-        extern "C" fn ICCompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiOutput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "lpbiOutput->biSizeImage", "lpbiOutput->biSizeImage")] #[out] lpData: LPVOID, #[in] lpbiInput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "lpbiInput->biSizeImage", "lpbiInput->biSizeImage")] #[in] lpBits: LPVOID, #[opt] #[out] lpckid: LPDWORD, #[opt] #[out] lpdwFlags: LPDWORD, #[in] lFrameNum: LONG, #[in] dwFrameSize: DWORD, #[in] dwQuality: DWORD, #[in] #[opt] lpbiPrev: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "lpbiPrev->biSizeImage", "lpbiPrev->biSizeImage")] #[in] #[opt] lpPrev: LPVOID) -> DWORD;
+        extern "C" fn ICCompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiOutput: LPBITMAPINFOHEADER, #[incomplete] #[out] lpData: LPVOID, #[in] lpbiInput: LPBITMAPINFOHEADER, #[in] #[incomplete] lpBits: LPVOID, #[opt] #[out] lpckid: LPDWORD, #[opt] #[out] lpdwFlags: LPDWORD, #[in] lFrameNum: LONG, #[in] dwFrameSize: DWORD, #[in] dwQuality: DWORD, #[in] #[opt] lpbiPrev: LPBITMAPINFOHEADER, #[in] #[incomplete] #[opt] lpPrev: LPVOID) -> DWORD;
         #[library("MSVFW32.dll")]
         extern fn ICCompressorChoose(#[in] #[opt] hwnd: HWND, #[in] uiFlags: UINT, #[in] #[opt] pvIn: LPVOID, #[in] #[opt] lpData: LPVOID, #[in] #[out] pc: PCOMPVARS, #[in] #[opt] lpszTitle: LPSTR) -> BOOL;
         #[library("MSVFW32.dll")]
@@ -634,10 +631,8 @@ mod Windows {
         struct ICDECOMPRESS {
             dwFlags: DWORD,
             lpbiInput: LPBITMAPINFOHEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "lpbiInput->biSizeImage", "lpbiInput->biSizeImage")]
             lpInput: LPVOID,
             lpbiOutput: LPBITMAPINFOHEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "lpbiOutput->biSizeImage", "lpbiOutput->biSizeImage")]
             lpOutput: LPVOID,
             ckid: DWORD,
         }
@@ -709,7 +704,7 @@ mod Windows {
         const ICDRAW_UPDATE: i32 = 1073741824;
         const ICDRAW_UPDATING: i32 = 64;
         #[library("MSVFW32.dll")]
-        extern "C" fn ICDecompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiFormat: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "lpbiFormat->biSizeImage", "lpbiFormat->biSizeImage")] #[in] lpData: LPVOID, #[in] lpbi: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "lpbi->biSizeImage", "lpbi->biSizeImage")] #[out] lpBits: LPVOID) -> DWORD;
+        extern "C" fn ICDecompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiFormat: LPBITMAPINFOHEADER, #[in] #[incomplete] lpData: LPVOID, #[in] lpbi: LPBITMAPINFOHEADER, #[incomplete] #[out] lpBits: LPVOID) -> DWORD;
         #[library("MSVFW32.dll")]
         extern "C" fn ICDraw(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpFormat: LPVOID, #[in] #[opt] #[readable(entry, bytes(cbData))] lpData: LPVOID, #[in] cbData: DWORD, #[in] lTime: LONG) -> DWORD;
         #[library("MSVFW32.dll")]
@@ -737,7 +732,7 @@ mod Windows {
         extern fn ICGetDisplayFormat(#[in] #[opt] hic: HIC, #[in] lpbiIn: LPBITMAPINFOHEADER, #[out] lpbiOut: LPBITMAPINFOHEADER, #[in] BitDepth: i32, #[in] dx: i32, #[in] dy: i32) -> HIC;
         #[library("MSVFW32.dll")]
         #[success(return != 0)]
-        extern fn ICGetInfo(#[in] hic: HIC, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "cb,return", "cb,return")] #[out] #[writable(entry, bytes(cb))] picinfo: *mut ICINFO, #[in] cb: DWORD) -> LRESULT;
+        extern fn ICGetInfo(#[in] hic: HIC, #[incomplete] #[out] #[writable(entry, bytes(cb))] picinfo: *mut ICINFO, #[in] cb: DWORD) -> LRESULT;
         struct ICINFO {
             dwSize: DWORD,
             fccType: DWORD,

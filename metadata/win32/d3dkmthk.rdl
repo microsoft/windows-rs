@@ -596,7 +596,6 @@ mod Windows {
             Key: UINT64,
             pTimeout: PLARGE_INTEGER,
             FenceValue: UINT64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_all_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
         }
@@ -1005,15 +1004,12 @@ mod Windows {
             PrivateRuntimeDataSize: UINT,
             Anonymous: union {
                 pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "PrivateDriverDataSize", "PrivateDriverDataSize")]
                 pPrivateDriverData: *const void,
             },
             PrivateDriverDataSize: UINT,
             NumAllocations: UINT,
             Anonymous2: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "NumAllocations", "NumAllocations")]
                 pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "NumAllocations", "NumAllocations")]
                 pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
             },
             Flags: D3DKMT_CREATEALLOCATIONFLAGS,
@@ -1114,7 +1110,6 @@ mod Windows {
             EngineAffinity: UINT,
             Flags: D3DDDI_CREATEHWCONTEXTFLAGS,
             PrivateDriverDataSize: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")]
             #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *mut void,
             hHwContext: D3DKMT_HANDLE,
@@ -1123,7 +1118,6 @@ mod Windows {
             hHwContext: D3DKMT_HANDLE,
             Flags: D3DDDI_CREATEHWQUEUEFLAGS,
             PrivateDriverDataSize: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")]
             #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *mut void,
             hHwQueue: D3DKMT_HANDLE,
@@ -1154,7 +1148,6 @@ mod Windows {
             InitialValue: UINT64,
             hSharedHandle: D3DKMT_HANDLE,
             hKeyedMutex: D3DKMT_HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
             Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
@@ -1521,13 +1514,9 @@ mod Windows {
             D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS = 14,
         }
         struct D3DKMT_DMM_ESCAPE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Type: D3DKMT_DMMESCAPETYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             ProvidedBufferSize: D3DKMT_SIZE_T,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             MinRequiredBufferSize: D3DKMT_SIZE_T,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "ProvidedBufferSize", "ProvidedBufferSize")]
             Data: [UCHAR; 1],
         }
         struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
@@ -1558,7 +1547,6 @@ mod Windows {
             DriverDescription: [WCHAR; 4096],
         }
         struct D3DKMT_ENUMADAPTERS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,16", "0,16")]
             NumAdapters: ULONG,
             Adapters: [D3DKMT_ADAPTERINFO; 16],
         }
@@ -2450,14 +2438,12 @@ mod Windows {
         struct D3DKMT_OPENKEYEDMUTEX2 {
             hSharedHandle: D3DKMT_HANDLE,
             hKeyedMutex: D3DKMT_HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
         }
         struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
             hNtHandle: HANDLE,
             hKeyedMutex: D3DKMT_HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
         }
@@ -2485,9 +2471,7 @@ mod Windows {
             hGlobalShare: D3DKMT_HANDLE,
             NumAllocations: UINT,
             Anonymous: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "NumAllocations", "NumAllocations")]
                 pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "NumAllocations", "NumAllocations")]
                 pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
             },
             #[writable(bytes(PrivateRuntimeDataSize))]
@@ -2518,7 +2502,6 @@ mod Windows {
             pTotalPrivateDriverDataBuffer: *mut void,
             hResource: D3DKMT_HANDLE,
             hKeyedMutex: D3DKMT_HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pKeyedMutexPrivateRuntimeData: *mut void,
             KeyedMutexPrivateRuntimeDataSize: UINT,
             hSyncObject: D3DKMT_HANDLE,
@@ -2680,7 +2663,6 @@ mod Windows {
             NumVidPnSources: UINT,
             NumOutputDuplContexts: UINT,
             Padding: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "Size - sizeof(_D3DKMT_OUTPUTDUPL_SNAPSHOT)", "Size - sizeof(_D3DKMT_OUTPUTDUPL_SNAPSHOT)")]
             OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 0],
         }
         struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
@@ -3060,13 +3042,9 @@ mod Windows {
             Value: UINT,
         }
         struct D3DKMT_QUERYPROCESSOFFERINFO {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             cbSize: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             hProcess: HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DecommitUniqueness: UINT64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             DecommittableBytes: UINT64,
         }
         struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
@@ -3604,7 +3582,6 @@ mod Windows {
         struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
             PhysicalAdapterIndex: UINT,
             PnPKeyType: D3DKMT_PNP_KEY_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "*pCchDest", "*pCchDest")]
             pDest: *mut WCHAR,
             pCchDest: *mut UINT,
         }
@@ -3657,7 +3634,6 @@ mod Windows {
             hKeyedMutex: D3DKMT_HANDLE,
             Key: UINT64,
             FenceValue: UINT64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "PrivateRuntimeDataSize", "PrivateRuntimeDataSize")]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
         }
@@ -3867,16 +3843,11 @@ mod Windows {
             pVidPnSourceNtHandles: *const D3DKMT_PTR_TYPE,
         }
         struct D3DKMT_SET_COLORSPACE_TRANSFORM {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             AdapterLuid: LUID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Type: D3DDDI_GAMMARAMP_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Size: UINT,
             Anonymous: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "Size", "Size")]
                 pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
             },
         }
@@ -3931,7 +3902,6 @@ mod Windows {
             #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
             Anonymous: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "ObjectCount", "ObjectCount")]
                 MonitoredFenceValueArray: *const UINT64,
                 Reserved: [UINT64; 8],
             },
@@ -3947,7 +3917,6 @@ mod Windows {
             Anonymous: union {
                 FenceValue: UINT64,
                 CpuEventHandle: HANDLE,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "ObjectCount", "ObjectCount")]
                 MonitoredFenceValueArray: *const UINT64,
                 Reserved: [UINT64; 8],
             },
@@ -4005,7 +3974,6 @@ mod Windows {
             PrivatePresentData: D3DKMT_PRESENT,
         }
         struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "PrivatePresentData.BroadcastContextCount + 1", "PrivatePresentData.BroadcastContextCount + 1")]
             hHwQueues: *mut D3DKMT_HANDLE,
             PrivatePresentData: D3DKMT_PRESENT,
         }
@@ -4055,15 +4023,10 @@ mod Windows {
             NumBytesToTrim: UINT64,
         }
         struct D3DKMT_TRIMPROCESSCOMMITMENT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             cbSize: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             hProcess: HANDLE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Flags: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             DecommitRequested: UINT64,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             NumBytesDecommitted: UINT64,
         }
         union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
@@ -4428,7 +4391,6 @@ mod Windows {
             #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
             Anonymous: union {
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "ObjectCount", "ObjectCount")]
                 MonitoredFenceValueArray: *const UINT64,
                 FenceValue: UINT64,
                 Reserved: [UINT64; 8],
@@ -4649,21 +4611,15 @@ mod Windows {
         type PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS;
         type PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS;
         type PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS = *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         extern "C" fn PDXGK_FSTATE_NOTIFICATION(GraphicsDeviceHandle: PVOID, ComponentIndex: ULONG, NewFState: UINT, PreNotification: BOOLEAN, PrivateHandle: PVOID);
         type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
         type PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
         type PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[must_use]
         extern "C" fn PDXGK_GRAPHICSPOWER_UNREGISTER(DeviceHandle: PVOID, PrivateHandle: PVOID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "2", "2")]
         extern "C" fn PDXGK_INITIAL_COMPONENT_STATE(GraphicsDeviceHandle: PVOID, PrivateHandle: PVOID, ComponentIndex: ULONG, IsBlockingType: BOOLEAN, InitialFState: UINT, ComponentGuid: GUID, PowerComponentMappingFlag: UINT);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         extern "C" fn PDXGK_POWER_NOTIFICATION(GraphicsDeviceHandle: PVOID, NewGrfxPowerState: DEVICE_POWER_STATE, PreNotification: BOOLEAN, PrivateHandle: PVOID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         extern "C" fn PDXGK_REMOVAL_NOTIFICATION(GraphicsDeviceHandle: PVOID, PrivateHandle: PVOID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[must_use]
         extern "C" fn PDXGK_SET_SHARED_POWER_COMPONENT_STATE(DeviceHandle: PVOID, PrivateHandle: PVOID, ComponentIndex: ULONG, Active: BOOLEAN) -> NTSTATUS;
         #[must_use]

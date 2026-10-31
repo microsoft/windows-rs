@@ -222,14 +222,10 @@ mod Windows {
         type LPENUMHLITEM = IEnumHLITEM;
         type LPEXTENSIONSERVICES = IExtensionServices;
         type LPHLBWINFO = *mut HLBWINFO;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPHLINK = IHlink;
         type LPHLINKBROWSECONTEXT = IHlinkBrowseContext;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPHLINKFRAME = IHlinkFrame;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPHLINKSITE = IHlinkSite;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPHLINKTARGET = IHlinkTarget;
         type LPHLITEM = *mut HLITEM;
         #[library("hlink.dll")]

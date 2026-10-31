@@ -421,7 +421,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrConformantVaryingStructUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
-        extern fn NdrContextHandleInitialize(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2)", "_Inexpressible_(2)")] #[in] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
+        extern fn NdrContextHandleInitialize(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[in] #[incomplete] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
         extern fn NdrContextHandleSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
@@ -568,7 +568,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrServerContextNewMarshall(pStubMsg: PMIDL_STUB_MESSAGE, ContextHandle: NDR_SCONTEXT, RundownRoutine: NDR_RUNDOWN, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
-        extern fn NdrServerContextNewUnmarshall(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2)", "_Inexpressible_(2)")] #[in] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
+        extern fn NdrServerContextNewUnmarshall(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[in] #[incomplete] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
         extern fn NdrServerContextUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]

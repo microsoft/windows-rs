@@ -202,9 +202,9 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[guid(0x0000010d_0000_0000_c000_000000000046)]
         interface IViewObject: IUnknown {
-            fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: extern fn(ULONG_PTR) -> BOOL, #[in] dwContinue: ULONG_PTR) -> HRESULT;
-            fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
-            fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
+            fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: extern fn(ULONG_PTR) -> BOOL, #[in] dwContinue: ULONG_PTR) -> HRESULT;
+            fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
+            fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
             fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] #[retval] ppAdvSink: *mut IAdviseSink) -> HRESULT;
@@ -212,9 +212,9 @@ mod Windows {
         #[arch(X86)]
         #[guid(0x0000010d_0000_0000_c000_000000000046)]
         interface IViewObject: IUnknown {
-            fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: PFN_TERMINATEEXTENSION, #[in] dwContinue: ULONG_PTR) -> HRESULT;
-            fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
-            fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
+            fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: PFN_TERMINATEEXTENSION, #[in] dwContinue: ULONG_PTR) -> HRESULT;
+            fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
+            fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[in] #[incomplete] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
             fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] #[retval] ppAdvSink: *mut IAdviseSink) -> HRESULT;
@@ -227,51 +227,32 @@ mod Windows {
         type LPBORDERWIDTHS = *mut RECT;
         type LPCBORDERWIDTHS = *const RECT;
         type LPDROPSOURCE = IDropSource;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPDROPTARGET = IDropTarget;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPENUMOLEVERB = IEnumOLEVERB;
         type LPLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
         type LPOBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
         type LPOLEADVISEHOLDER = IOleAdviseHolder;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECACHE = IOleCache;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECACHE2 = IOleCache2;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECACHECONTROL = IOleCacheControl;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECLIENTSITE = IOleClientSite;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLECONTAINER = IOleContainer;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEINPLACEACTIVEOBJECT = IOleInPlaceActiveObject;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEINPLACEFRAME = IOleInPlaceFrame;
         type LPOLEINPLACEFRAMEINFO = *mut OLEINPLACEFRAMEINFO;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEINPLACEOBJECT = IOleInPlaceObject;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEINPLACESITE = IOleInPlaceSite;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEINPLACEUIWINDOW = IOleInPlaceUIWindow;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEITEMCONTAINER = IOleItemContainer;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLELINK = IOleLink;
         type LPOLEMENUGROUPWIDTHS = *mut OLEMENUGROUPWIDTHS;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEOBJECT = IOleObject;
         type LPOLERENDER = *mut OLERENDER;
         type LPOLEUPDATE = *mut OLEUPDATE;
         type LPOLEVERB = *mut OLEVERB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPOLEWINDOW = IOleWindow;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPPARSEDISPLAYNAME = IParseDisplayName;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPVIEWOBJECT = IViewObject;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPVIEWOBJECT2 = IViewObject2;
         const MK_ALT: i32 = 32;
         #[packed(8)]

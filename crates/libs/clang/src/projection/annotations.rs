@@ -45,8 +45,6 @@ pub(super) fn write_callable(
         attributes,
         None,
         &mut must_use,
-        success.is_some(),
-        nullable,
         |value| integer_expression::return_range(value, result_type, parameters, snapshot),
         names,
     )?;
@@ -116,14 +114,11 @@ fn write_result_owned(
     attributes: &[Attribute],
     typedef: Option<&str>,
     must_use: &mut bool,
-    success: bool,
-    nullable: bool,
     range: impl Fn(&sal::Annotation<'_>) -> Option<windows_metadata::IntegerRange>,
     names: &[&str],
 ) -> Result<CallableAttributes, Error> {
     let sal = resolve::sal(attributes);
     *must_use |= sal.iter().any(result_check);
-    let mut native = Vec::new();
     let mut result = TokenStream::new();
     for value in sal {
         if let Some(range) = range(&value) {
@@ -131,19 +126,9 @@ fn write_result_owned(
                 windows_rdl::write_integer_range(&range, names)
                     .ok_or_else(|| Error("cannot render return integer range".into()))?,
             );
-        } else {
-            native.push(value);
         }
     }
-    let declaration = write_with_sal(
-        attributes,
-        typedef,
-        native.into_iter().filter(|value| {
-            !result_check(value)
-                && !(success && is_success(value.value))
-                && !(nullable && returned_nullable(value))
-        }),
-    )?;
+    let declaration = write_owned(attributes, typedef)?;
     Ok(CallableAttributes {
         declaration,
         result,
@@ -257,13 +242,7 @@ pub(super) fn write_value_typedef(
             true,
         ) == Some(*condition)
     });
-    let native = write_with_sal(
-        attributes,
-        None,
-        resolve::sal(attributes)
-            .into_iter()
-            .filter(|value| !(success.is_some() && is_success(value.value))),
-    )?;
+    let native = write(attributes)?;
     let success = success.map(write_success);
     Ok(quote! { #native #success })
 }
@@ -342,16 +321,7 @@ pub(super) fn field(
         && normalized.iter().any(
             |value| matches!(value, sal::FieldAnnotation::Evidence(value) if field_nullable(value)),
         );
-    let mut result = write_with_sal(
-        &field.attributes,
-        None,
-        normalized.iter().filter_map(|value| match value {
-            sal::FieldAnnotation::Evidence(value) => ((!nullable || !field_nullable(value))
-                && integer_expression::field_range(value, field, fields, snapshot).is_none())
-            .then(|| value.clone()),
-            sal::FieldAnnotation::Contract(_) => None,
-        }),
-    )?;
+    let mut result = write(&field.attributes)?;
     // Inline array storage cannot be null, so `_opt_` only applies to pointer fields.
     let optional = data_pointer(snapshot, field.canonical)
         && normalized.iter().any(
@@ -546,8 +516,6 @@ pub(super) fn write_callback(
             owner,
             typedef,
             &mut must_use,
-            success.is_some(),
-            nullable,
             |value| integer_expression::return_range(value, result_type, parameters, snapshot),
             &names,
         )?;
@@ -566,30 +534,6 @@ pub(super) fn write_callback(
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
-    write_with_sal(attributes, typedef, resolve::sal(attributes))
-}
-
-fn write_with_sal<'a>(
-    attributes: &[Attribute],
-    typedef: Option<&str>,
-    sal: impl IntoIterator<Item = sal::Annotation<'a>>,
-) -> Result<TokenStream, Error> {
-    let owner = typedef.map(|name| quote! { , TypedefName = #name });
-    let sal = sal.into_iter().map(|value| {
-        let modifiers = (!value.modifiers.is_empty()).then(|| {
-            let names = value.modifiers.iter().map(|value| value.name.as_str()).collect::<Vec<_>>().join(" ");
-            quote! { , Modifiers = #names }
-        });
-        let SalAnnotation {
-            version,
-            name,
-            arguments,
-            expanded,
-        } = value.value;
-        let arguments = sal::transport::expression(arguments)?;
-        let expanded = sal::transport::expression(expanded)?;
-        Ok(quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner #modifiers)] })
-    }).collect::<Result<Vec<_>, Error>>()?;
     let deprecations = resolve::deprecations(attributes);
     if deprecations.len() > 1 {
         return Err(Error(format!(
@@ -610,7 +554,7 @@ fn write_with_sal<'a>(
             quote! { #[deprecated(#(#arguments),*)] }
         }
     });
-    Ok(quote! { #(#sal)* #(#deprecated)* })
+    Ok(quote! { #(#deprecated)* })
 }
 
 pub(super) fn only_contracts(attributes: &[Attribute]) -> bool {
@@ -643,7 +587,7 @@ fn parameter_direction(
         }
     }
     if let Some((common_input, common_output, common_optional)) =
-        sal::common_direction(snapshot, function, attributes, parameters)?
+        sal::common_direction(snapshot, function, attributes, parameters)
     {
         input |= common_input;
         output |= common_output;
@@ -712,20 +656,14 @@ pub(super) fn parameter(
                     || !count_expressions_supported(snapshot, function, contract)
         )
     });
-    let mut residual = Vec::new();
-    for value in &normalized {
-        if let sal::ParameterAnnotation::Evidence(value) = value
-            && integer_expression::range(value, parameter, parameters, snapshot).is_none()
-            && pointee_readable(value, parameter, parameters)?.is_none()
-        {
-            residual.push(value.clone());
-        }
-    }
-    let native = if preserve {
-        write(attributes)
-    } else {
-        write_with_sal(attributes, None, residual)
-    }?;
+    let incomplete = preserve
+        || normalized.iter().any(|value| {
+            matches!(value, sal::ParameterAnnotation::Evidence(value)
+                if integer_expression::range(value, parameter, parameters, snapshot).is_none()
+                    && pointee_readable(value, parameter, parameters).is_none())
+        });
+    let native = write(attributes)?;
+    let incomplete = incomplete.then(|| quote! { #[incomplete] });
     // A by-value interface reference supplies an existing object, not a replaceable pointer.
     if matches!(canonical, MetadataType::ClassName(_)) {
         input |= output;
@@ -764,7 +702,7 @@ pub(super) fn parameter(
             }
         }
     }
-    Ok(quote! { #native #direction #optional #reserved #retval #(#returned)* #ranges })
+    Ok(quote! { #native #incomplete #direction #optional #reserved #retval #(#returned)* #ranges })
 }
 
 pub(super) fn buffer(
@@ -779,7 +717,7 @@ pub(super) fn buffer(
     let mut size = None;
     let mut attributes = TokenStream::new();
     for value in resolve::sal(&parameters[index].attributes) {
-        if let Some(units) = pointee_readable(&value, &parameters[index], parameters)? {
+        if let Some(units) = pointee_readable(&value, &parameters[index], parameters) {
             returned_storage(snapshot, function, index, canonical_ty)?;
             let mut extent = windows_metadata::BufferExtent::new(
                 windows_metadata::BufferAccess::Read,
@@ -1146,7 +1084,7 @@ fn pointee_readable(
     annotation: &sal::Annotation<'_>,
     parameter: &Parameter,
     parameters: &[Parameter],
-) -> Result<Option<windows_metadata::BufferUnits>, Error> {
+) -> Option<windows_metadata::BufferUnits> {
     use proc_macro2::{Delimiter, TokenTree};
     use windows_metadata::BufferUnits;
 
@@ -1162,32 +1100,26 @@ fn pointee_readable(
         }
     }
 
-    let Some(value) = annotation.unscoped() else {
-        return Ok(None);
-    };
+    let value = annotation.unscoped()?;
     if value.version != "2" || value.name != "_At_" {
-        return Ok(None);
+        return None;
     }
-    let text = sal::transport::expression(&value.expanded)?;
-    let Ok(tokens) = text.parse::<TokenStream>() else {
-        return Ok(None);
+    let Ok(tokens) = value.expanded.parse::<TokenStream>() else {
+        return None;
     };
     let tokens: Vec<_> = tokens.into_iter().collect();
-    let Some(comma) = tokens
+    let comma = tokens
         .iter()
-        .position(|token| matches!(token, TokenTree::Punct(value) if value.as_char() == ','))
-    else {
-        return Ok(None);
-    };
+        .position(|token| matches!(token, TokenTree::Punct(value) if value.as_char() == ','))?;
     let subject = tokens[..comma].iter().cloned().collect::<TokenStream>();
     let names: Vec<_> = parameters.iter().map(|value| value.name.as_str()).collect();
     let Some(sal::Expression::Dereference(index)) =
         sal::Expression::parse(&subject.to_string(), &names)
     else {
-        return Ok(None);
+        return None;
     };
     if parameters[index].name != parameter.name {
-        return Ok(None);
+        return None;
     }
     let postcondition: TokenStream = tokens[comma + 1..].iter().cloned().collect();
     for (name, units) in [
@@ -1197,10 +1129,10 @@ fn pointee_readable(
         if let Some(count) = call(postcondition.clone(), name)
             && call(count, "_Inexpressible_").is_some_and(|reason| !reason.is_empty())
         {
-            return Ok(Some(units));
+            return Some(units);
         }
     }
-    Ok(None)
+    None
 }
 
 fn returned_storage(

@@ -215,12 +215,10 @@ mod Windows {
         }
         struct D2D1_LAYER_PARAMETERS {
             contentBounds: D2D1_RECT_F,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
             geometricMask: ID2D1Geometry,
             maskAntialiasMode: D2D1_ANTIALIAS_MODE,
             maskTransform: D2D1_MATRIX_3X2_F,
             opacity: FLOAT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
             opacityBrush: ID2D1Brush,
             layerOptions: D2D1_LAYER_OPTIONS,
         }
@@ -436,7 +434,7 @@ mod Windows {
         #[guid(0x2cd906a7_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1GradientStopCollection: ID2D1Resource {
             fn GetGradientStopCount(&self) -> UINT32;
-            fn GetGradientStops(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")", "gradientStopsCount,_Inexpressible_(\"Retrieved through GetGradientStopCount()\")")] #[out] #[writable(entry, gradientStopsCount)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: UINT32);
+            fn GetGradientStops(&self, #[incomplete] #[out] #[writable(entry, gradientStopsCount)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: UINT32);
             fn GetColorInterpolationGamma(&self) -> D2D1_GAMMA;
             fn GetExtendMode(&self) -> D2D1_EXTEND_MODE;
         }
@@ -528,7 +526,7 @@ mod Windows {
             fn PushLayer(&self, #[in] layerParameters: *const D2D1_LAYER_PARAMETERS, #[in] #[opt] layer: ID2D1Layer);
             fn PopLayer(&self);
             fn Flush(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG) -> HRESULT;
-            fn SaveDrawingState(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] drawingStateBlock: ID2D1DrawingStateBlock);
+            fn SaveDrawingState(&self, #[in] #[incomplete] drawingStateBlock: ID2D1DrawingStateBlock);
             fn RestoreDrawingState(&self, #[in] drawingStateBlock: ID2D1DrawingStateBlock);
             fn PushAxisAlignedClip(&self, #[in] clipRect: *const D2D1_RECT_F, antialiasMode: D2D1_ANTIALIAS_MODE);
             fn PopAxisAlignedClip(&self);

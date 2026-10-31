@@ -24,17 +24,17 @@ mod Windows {
         #[library("prntvpt.dll")]
         extern fn PTCloseProvider(#[in] hProvider: HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertDevModeToPrintTicket(#[in] hProvider: HPTPROVIDER, cbDevmode: ULONG, #[in] pDevmode: PDEVMODE, #[in] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pPrintTicket: IStream) -> HRESULT;
+        extern fn PTConvertDevModeToPrintTicket(#[in] hProvider: HPTPROVIDER, cbDevmode: ULONG, #[in] pDevmode: PDEVMODE, #[in] scope: EPrintTicketScope, #[in] #[incomplete] pPrintTicket: IStream) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTConvertPrintTicketToDevMode(#[in] hProvider: HPTPROVIDER, #[in] pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, #[in] scope: EPrintTicketScope, #[out] pcbDevmode: *mut ULONG, #[out] #[writable(success, bytes(*pcbDevmode), indirect)] ppDevmode: *mut PDEVMODE, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pCapabilities: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[in] #[incomplete] pCapabilities: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceCapabilities: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[in] #[incomplete] pDeviceCapabilities: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceResources(#[in] hProvider: HPTPROVIDER, #[in] pszLocaleName: LPCWSTR, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceResources: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceResources(#[in] hProvider: HPTPROVIDER, #[in] pszLocaleName: LPCWSTR, #[in] #[opt] pPrintTicket: IStream, #[in] #[incomplete] pDeviceResources: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTMergeAndValidatePrintTicket(#[in] hProvider: HPTPROVIDER, #[in] pBaseTicket: IStream, #[in] #[opt] pDeltaTicket: IStream, #[in] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pResultTicket: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTMergeAndValidatePrintTicket(#[in] hProvider: HPTPROVIDER, #[in] pBaseTicket: IStream, #[in] #[opt] pDeltaTicket: IStream, #[in] scope: EPrintTicketScope, #[in] #[incomplete] pResultTicket: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTOpenProvider(#[in] pszPrinterName: PCWSTR, dwVersion: DWORD, #[out] phProvider: *mut HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]

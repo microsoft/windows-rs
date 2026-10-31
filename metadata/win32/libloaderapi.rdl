@@ -56,20 +56,16 @@ mod Windows {
         const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,((return < nSize) ? (return + 1) : nSize)", "nSize,((return < nSize) ? (return + 1) : nSize)")] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,((return < nSize) ? (return + 1) : nSize)", "nSize,((return < nSize) ? (return + 1) : nSize)")] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName != NULL,_Ret_maybenull_", "lpModuleName != 0, _Ret_maybenull_")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName == NULL,_Ret_notnull_", "lpModuleName == 0, _Ret_notnull_")]
+        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleA(#[in] #[opt] lpModuleName: LPCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleExA(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCSTR, #[out] phModule: *mut HMODULE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleExW(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCWSTR, #[out] phModule: *mut HMODULE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName != NULL,_Ret_maybenull_", "lpModuleName != 0, _Ret_maybenull_")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName == NULL,_Ret_notnull_", "lpModuleName == 0, _Ret_notnull_")]
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleW(#[in] #[opt] lpModuleName: LPCWSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
@@ -99,9 +95,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn LoadResource(#[in] #[opt] hModule: HMODULE, #[in] hResInfo: HRSRC) -> #[nullable] HGLOBAL;
         #[library("USER32.dll")]
-        extern fn LoadStringA(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchBufferMax,return + 1", "cchBufferMax,return + 1")] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPSTR, #[in] cchBufferMax: i32) -> i32;
+        extern fn LoadStringA(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[incomplete] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPSTR, #[in] cchBufferMax: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn LoadStringW(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchBufferMax,return + 1", "cchBufferMax,return + 1")] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPWSTR, #[in] cchBufferMax: i32) -> i32;
+        extern fn LoadStringW(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[incomplete] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPWSTR, #[in] cchBufferMax: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn LockResource(#[in] hResData: HGLOBAL) -> LPVOID;
         type PCREDIRECTION_DESCRIPTOR = *const REDIRECTION_DESCRIPTOR;

@@ -125,12 +125,8 @@ mod Windows {
         extern fn SleepConditionVariableSRW(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] SRWLock: PSRWLOCK, #[in] dwMilliseconds: DWORD, #[in] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SleepEx(#[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_exclusive_lock_(*SRWLock)", "return!=0,")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockExclusive(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_shared_lock_(*SRWLock)", "return!=0,")]
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockShared(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
         #[library("KERNEL32.dll")]

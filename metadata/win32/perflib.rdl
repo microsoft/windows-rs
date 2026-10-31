@@ -163,7 +163,7 @@ mod Windows {
         type PPERF_STRING_COUNTER_HEADER = *mut PERF_STRING_COUNTER_HEADER;
         #[library("ADVAPI32.dll")]
         #[success(return == 0)]
-        extern fn PerfAddCounters(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_bytecount_", "cbCounters", "cbCounters")] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
+        extern fn PerfAddCounters(#[in] hQuery: HANDLE, #[incomplete] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
         #[success(return == 0)]
         extern fn PerfCloseQueryHandle(#[in] hQuery: HANDLE) -> ULONG;
@@ -183,7 +183,7 @@ mod Windows {
         extern fn PerfDecrementULongLongCounterValue(#[in] Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, #[in] CounterId: ULONG, #[in] Value: ULONGLONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         #[success(return == 0)]
-        extern fn PerfDeleteCounters(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_bytecount_", "cbCounters", "cbCounters")] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
+        extern fn PerfDeleteCounters(#[in] hQuery: HANDLE, #[incomplete] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfDeleteInstance(#[in] Provider: HANDLE, #[in] InstanceBlock: PPERF_COUNTERSET_INSTANCE) -> ULONG;
         #[library("ADVAPI32.dll")]

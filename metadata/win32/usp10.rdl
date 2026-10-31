@@ -201,7 +201,7 @@ mod Windows {
         extern fn ScriptCacheGetHeight(hdc: HDC, #[in] #[out] #[writable(entry, 1)] psc: *mut SCRIPT_CACHE, #[out] #[writable(entry, 1)] tmHeight: *mut i32) -> HRESULT;
         #[library("USP10.dll")]
         #[must_use]
-        extern fn ScriptFreeCache(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*psc,_Post_null_", "*psc, _Post_null_")] #[in] #[out] #[writable(entry, 1)] psc: *mut SCRIPT_CACHE) -> HRESULT;
+        extern fn ScriptFreeCache(#[in] #[incomplete] #[out] #[writable(entry, 1)] psc: *mut SCRIPT_CACHE) -> HRESULT;
         #[library("USP10.dll")]
         #[must_use]
         extern fn ScriptGetCMap(hdc: HDC, #[in] #[out] #[writable(entry, 1)] psc: *mut SCRIPT_CACHE, #[in] #[readable(entry, cChars)] pwcInChars: *const WCHAR, cChars: i32, dwFlags: DWORD, #[out] #[writable(entry, cChars)] pwOutGlyphs: *mut WORD) -> HRESULT;

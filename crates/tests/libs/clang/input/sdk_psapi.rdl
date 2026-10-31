@@ -44,10 +44,10 @@ mod Fixture {
     extern fn GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
     #[success(return != 0)]
-    extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
     #[success(return != 0)]
-    extern fn GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleInformation")]
     extern fn GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32GetPerformanceInfo")]
@@ -96,10 +96,10 @@ mod Fixture {
     extern fn K32GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
     #[success(return != 0)]
-    extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
     #[library("KERNEL32.dll")]
     #[success(return != 0)]
-    extern fn K32GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn K32GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
     #[library("KERNEL32.dll")]
     extern fn K32GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll")]
@@ -197,13 +197,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     type HANDLE = *mut void;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPCSTR = *const i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPCWSTR = *const u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPSTR = *mut i8;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPWSTR = *mut u16;
     type PVOID = *mut void;
     type WCHAR = u16;

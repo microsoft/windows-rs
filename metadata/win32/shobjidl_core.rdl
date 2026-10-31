@@ -872,7 +872,7 @@ mod Windows {
         interface IContextMenu: IUnknown {
             fn QueryContextMenu(&self, #[in] hmenu: HMENU, #[in] indexMenu: UINT, #[in] idCmdFirst: UINT, #[in] idCmdLast: UINT, #[in] uFlags: UINT) -> HRESULT;
             fn InvokeCommand(&self, #[in] pici: *mut CMINVOKECOMMANDINFO) -> HRESULT;
-            fn GetCommandString(&self, #[in] idCmd: UINT_PTR, #[in] uType: UINT, #[in] #[reserved] pReserved: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "(uType & 0x00000004) ? (cchMax * sizeof(wchar_t)) : cchMax", "(uType & 0x00000004) ? (cchMax * sizeof(wchar_t)) : cchMax")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "!(uType & (GCS_VALIDATEA | GCS_VALIDATEW)),_Null_terminated_", "!(uType & (0x00000002 | 0x00000006)), _Null_terminated_")] #[out] pszName: *mut CHAR, #[in] cchMax: UINT) -> HRESULT;
+            fn GetCommandString(&self, #[in] idCmd: UINT_PTR, #[in] uType: UINT, #[in] #[reserved] pReserved: *mut UINT, #[incomplete] #[out] pszName: *mut CHAR, #[in] cchMax: UINT) -> HRESULT;
         }
         #[guid(0x000214f4_0000_0000_c000_000000000046)]
         interface IContextMenu2: IContextMenu {

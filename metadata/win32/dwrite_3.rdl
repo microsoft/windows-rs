@@ -97,9 +97,7 @@ mod Windows {
         }
         struct DWRITE_FONT_PROPERTY {
             propertyId: DWRITE_FONT_PROPERTY_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             propertyValue: *const WCHAR,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             #[nullable]
             localeName: *const WCHAR,
         }
@@ -304,8 +302,8 @@ mod Windows {
         #[guid(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856)]
         interface IDWriteFactory4: IDWriteFactory3 {
             fn TranslateColorGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, measuringMode: DWRITE_MEASURING_MODE, #[in] #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] colorLayers: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
-            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, baselineOrigin: D2D1_POINT_2F, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "glyphRun->glyphCount", "glyphRun->glyphCount")] #[out] glyphOrigins: *mut D2D1_POINT_2F) -> HRESULT;
-            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: D2D1_POINT_2F, #[in] #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "glyphRun->glyphCount", "glyphRun->glyphCount")] #[out] glyphOrigins: *mut D2D1_POINT_2F) -> HRESULT;
+            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, baselineOrigin: D2D1_POINT_2F, #[incomplete] #[out] glyphOrigins: *mut D2D1_POINT_2F) -> HRESULT;
+            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: D2D1_POINT_2F, #[in] #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, #[incomplete] #[out] glyphOrigins: *mut D2D1_POINT_2F) -> HRESULT;
         }
         #[guid(0x958db99a_be2a_4f09_af7d_65189803d1d3)]
         interface IDWriteFactory5: IDWriteFactory4 {
@@ -517,7 +515,7 @@ mod Windows {
         }
         #[guid(0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82)]
         interface IDWriteFontSet4: IDWriteFontSet3 {
-            fn ConvertWeightStretchStyleToFontAxisValues(&self, #[in] #[opt] #[readable(entry, inputAxisCount)] inputAxisValues: *const DWRITE_FONT_AXIS_VALUE, inputAxisCount: UINT32, fontWeight: DWRITE_FONT_WEIGHT, fontStretch: DWRITE_FONT_STRETCH, fontStyle: DWRITE_FONT_STYLE, fontSize: f32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "5,return", "5,return")] #[out] #[writable(entry, 5)] outputAxisValues: *mut DWRITE_FONT_AXIS_VALUE) -> UINT32;
+            fn ConvertWeightStretchStyleToFontAxisValues(&self, #[in] #[opt] #[readable(entry, inputAxisCount)] inputAxisValues: *const DWRITE_FONT_AXIS_VALUE, inputAxisCount: UINT32, fontWeight: DWRITE_FONT_WEIGHT, fontStretch: DWRITE_FONT_STRETCH, fontStyle: DWRITE_FONT_STYLE, fontSize: f32, #[incomplete] #[out] #[writable(entry, 5)] outputAxisValues: *mut DWRITE_FONT_AXIS_VALUE) -> UINT32;
             fn GetMatchingFonts(&self, #[in] #[null_terminated(entry)] familyName: *const WCHAR, #[in] #[readable(entry, fontAxisValueCount)] fontAxisValues: *const DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, allowedSimulations: DWRITE_FONT_SIMULATIONS, #[out] #[out_ptr(null_on_failure)] #[retval] matchingFonts: *mut IDWriteFontSet4) -> HRESULT;
         }
         #[guid(0x2f642afe_9c68_4f40_b8be_457401afcb3d)]
@@ -569,7 +567,7 @@ mod Windows {
         #[guid(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c)]
         interface IDWriteRemoteFontFileStream: IDWriteFontFileStream {
             fn GetLocalFileSize(&self, #[out] localFileSize: *mut UINT64) -> HRESULT;
-            fn GetFileFragmentLocality(&self, fileOffset: UINT64, fragmentSize: UINT64, #[out] isLocal: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,fragmentSize", "0,fragmentSize")] partialSize: *mut UINT64) -> HRESULT;
+            fn GetFileFragmentLocality(&self, fileOffset: UINT64, fragmentSize: UINT64, #[out] isLocal: *mut BOOL, #[incomplete] partialSize: *mut UINT64) -> HRESULT;
             fn GetLocality(&self) -> DWRITE_LOCALITY;
             fn BeginDownload(&self, #[in] downloadOperationID: *const UUID, #[in] #[readable(entry, fragmentCount)] fileFragments: *const DWRITE_FILE_FRAGMENT, fragmentCount: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] asyncResult: *mut IDWriteAsyncResult) -> HRESULT;
         }

@@ -30,8 +30,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn VerLanguageNameW(#[in] wLang: DWORD, #[out] #[writable(entry, cchLang)] szLang: LPWSTR, #[in] cchLang: DWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueA(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueA(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCSTR, #[incomplete] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueW(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueW(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCWSTR, #[incomplete] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
     }
 }

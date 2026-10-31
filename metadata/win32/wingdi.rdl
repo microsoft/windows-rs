@@ -343,7 +343,7 @@ mod Windows {
         extern fn CreateDIBPatternBrushPt(#[in] lpPackedDIB: *const void, #[in] iUsage: UINT) -> HBRUSH;
         #[library("GDI32.dll")]
         #[success(return != 0)]
-        extern fn CreateDIBSection(#[in] #[opt] hdc: HDC, #[in] pbmi: *const BITMAPINFO, #[in] usage: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(pbmi->bmiHeader.biBitCount != 0),_Outptr_result_bytebuffer_(_Inexpressible_(GDI_DIBSIZE((pbmi->bmiHeader))))", "(pbmi->bmiHeader.biBitCount != 0), _Outptr_result_bytebuffer_(_Inexpressible_((((pbmi->bmiHeader)).biHeight < 0 ? (-1)*(((DWORD)((DWORD)((((DWORD)((pbmi->bmiHeader)).biWidth * (DWORD)((pbmi->bmiHeader)).biBitCount)+31) & (~31)) / 8) * (DWORD)((pbmi->bmiHeader)).biHeight)) : ((DWORD)((DWORD)((((DWORD)((pbmi->bmiHeader)).biWidth * (DWORD)((pbmi->bmiHeader)).biBitCount)+31) & (~31)) / 8) * (DWORD)((pbmi->bmiHeader)).biHeight))))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(pbmi->bmiHeader.biBitCount == 0),_Outptr_result_bytebuffer_((pbmi->bmiHeader).biSizeImage)", "(pbmi->bmiHeader.biBitCount == 0), _Outptr_result_bytebuffer_((pbmi->bmiHeader).biSizeImage)")] ppvBits: *mut *mut void, #[in] #[opt] hSection: HANDLE, #[in] offset: DWORD) -> HBITMAP;
+        extern fn CreateDIBSection(#[in] #[opt] hdc: HDC, #[in] pbmi: *const BITMAPINFO, #[in] usage: UINT, #[incomplete] ppvBits: *mut *mut void, #[in] #[opt] hSection: HANDLE, #[in] offset: DWORD) -> HBITMAP;
         #[library("GDI32.dll")]
         extern fn CreateDIBitmap(#[in] hdc: HDC, #[in] #[opt] pbmih: *const BITMAPINFOHEADER, #[in] flInit: DWORD, #[in] #[opt] pjBits: *const void, #[in] #[opt] pbmi: *const BITMAPINFO, #[in] iUsage: UINT) -> HBITMAP;
         #[library("GDI32.dll")]
@@ -381,7 +381,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CreateMetaFileW(#[in] #[opt] pszFile: LPCWSTR) -> HDC;
         #[library("GDI32.dll")]
-        extern fn CreatePalette(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2*sizeof(WORD) + plpal->palNumEntries * sizeof(PALETTEENTRY))", "_Inexpressible_(2*sizeof(WORD) + plpal->palNumEntries * sizeof(PALETTEENTRY))")] #[in] plpal: *const LOGPALETTE) -> HPALETTE;
+        extern fn CreatePalette(#[in] #[incomplete] plpal: *const LOGPALETTE) -> HPALETTE;
         #[library("GDI32.dll")]
         extern fn CreatePatternBrush(#[in] hbm: HBITMAP) -> HBRUSH;
         #[library("GDI32.dll")]
@@ -1292,9 +1292,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn DescribePixelFormat(#[in] hdc: HDC, #[in] iPixelFormat: i32, #[in] nBytes: UINT, #[opt] #[out] #[writable(entry, bytes(nBytes))] ppfd: LPPIXELFORMATDESCRIPTOR) -> i32;
         #[library("WINSPOOL.DRV")]
-        extern fn DeviceCapabilitiesA(#[in] pDevice: LPCSTR, #[in] #[opt] pPort: LPCSTR, #[in] fwCapability: WORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(1)", "_Inexpressible_(1)")] #[opt] #[out] pOutput: LPSTR, #[in] #[opt] pDevMode: *const DEVMODEA) -> i32;
+        extern fn DeviceCapabilitiesA(#[in] pDevice: LPCSTR, #[in] #[opt] pPort: LPCSTR, #[in] fwCapability: WORD, #[incomplete] #[opt] #[out] pOutput: LPSTR, #[in] #[opt] pDevMode: *const DEVMODEA) -> i32;
         #[library("WINSPOOL.DRV")]
-        extern fn DeviceCapabilitiesW(#[in] pDevice: LPCWSTR, #[in] #[opt] pPort: LPCWSTR, #[in] fwCapability: WORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(1)", "_Inexpressible_(1)")] #[opt] #[out] pOutput: LPWSTR, #[in] #[opt] pDevMode: *const DEVMODEW) -> i32;
+        extern fn DeviceCapabilitiesW(#[in] pDevice: LPCWSTR, #[in] #[opt] pPort: LPCWSTR, #[in] fwCapability: WORD, #[incomplete] #[opt] #[out] pOutput: LPWSTR, #[in] #[opt] pDevMode: *const DEVMODEW) -> i32;
         #[library("GDI32.dll")]
         extern fn DrawEscape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjIn: i32, #[in] #[opt] #[readable(entry, bytes(cjIn))] lpIn: LPCSTR) -> i32;
         const EASTEUROPE_CHARSET: i32 = 238;
@@ -2380,9 +2380,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetDCPenColor(#[in] hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cEntries,return", "cEntries,return")] #[out] #[writable(entry, cEntries)] prgbq: *mut RGBQUAD) -> #[range(success, 0..=cEntries)] UINT;
+        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[out] #[writable(entry, cEntries)] prgbq: *mut RGBQUAD) -> #[range(success, 0..=cEntries)] UINT;
         #[library("GDI32.dll")]
-        extern fn GetDIBits(#[in] hdc: HDC, #[in] hbm: HBITMAP, #[in] start: UINT, #[in] cLines: UINT, #[opt] #[out] lpvBits: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPBITMAPINFOHEADER)lpbmi,_Inout_", "(LPBITMAPINFOHEADER)lpbmi, _Inout_")] lpbmi: LPBITMAPINFO, #[in] usage: UINT) -> i32;
+        extern fn GetDIBits(#[in] hdc: HDC, #[in] hbm: HBITMAP, #[in] start: UINT, #[in] cLines: UINT, #[opt] #[out] lpvBits: LPVOID, #[incomplete] lpbmi: LPBITMAPINFO, #[in] usage: UINT) -> i32;
         #[library("GDI32.dll")]
         extern fn GetDeviceCaps(#[in] #[opt] hdc: HDC, #[in] index: i32) -> i32;
         #[library("GDI32.dll")]
@@ -2403,9 +2403,8 @@ mod Windows {
         extern fn GetEnhMetaFilePixelFormat(#[in] hemf: HENHMETAFILE, #[in] cbBuffer: UINT, #[opt] #[out] #[writable(entry, bytes(cbBuffer))] ppfd: *mut PIXELFORMATDESCRIPTOR) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileW(#[in] lpName: LPCWSTR) -> HENHMETAFILE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != (0xFFFFFFFFL)", "return != (0xFFFFFFFFL)")]
         #[library("GDI32.dll")]
-        extern fn GetFontData(#[in] hdc: HDC, #[in] dwTable: DWORD, #[in] dwOffset: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cjBuffer,return", "cjBuffer,return")] #[opt] #[out] #[writable(entry, bytes(cjBuffer))] pvBuffer: PVOID, #[in] cjBuffer: DWORD) -> DWORD;
+        extern fn GetFontData(#[in] hdc: HDC, #[in] dwTable: DWORD, #[in] dwOffset: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, bytes(cjBuffer))] pvBuffer: PVOID, #[in] cjBuffer: DWORD) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetFontLanguageInfo(#[in] hdc: HDC) -> DWORD;
         #[library("GDI32.dll")]
@@ -2425,9 +2424,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetICMProfileW(#[in] hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[opt] #[out] #[writable(entry, *pBufSize)] pszFilename: LPWSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsA(#[in] hdc: HDC, #[in] nPairs: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nPairs,return", "nPairs,return")] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
+        extern fn GetKerningPairsA(#[in] hdc: HDC, #[in] nPairs: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsW(#[in] hdc: HDC, #[in] nPairs: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nPairs,return", "nPairs,return")] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
+        extern fn GetKerningPairsW(#[in] hdc: HDC, #[in] nPairs: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetLayout(#[in] hdc: HDC) -> DWORD;
         #[library("GDI32.dll")]
@@ -2452,7 +2451,6 @@ mod Windows {
         extern fn GetNearestPaletteIndex(#[in] h: HPALETTE, #[in] color: COLORREF) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetObjectA(#[in] h: HANDLE, #[in] c: i32, #[opt] #[out] #[writable(entry, bytes(c))] pv: LPVOID) -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "(return == 0) || (return >= 1 && return <= 14)", "(return == 0) || (return >= 1 && return <= 14)")]
         #[library("GDI32.dll")]
         extern fn GetObjectType(#[in] h: HGDIOBJ) -> DWORD;
         #[library("GDI32.dll")]
@@ -2462,7 +2460,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetOutlineTextMetricsW(#[in] hdc: HDC, #[in] cjCopy: UINT, #[opt] #[out] #[writable(entry, bytes(cjCopy))] potm: LPOUTLINETEXTMETRICW) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cEntries,return", "cEntries,return")] #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> #[range(success, 0..=cEntries)] UINT;
+        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> #[range(success, 0..=cEntries)] UINT;
         #[library("GDI32.dll")]
         extern fn GetPath(#[in] hdc: HDC, #[opt] #[out] #[writable(entry, cpt)] apt: LPPOINT, #[opt] #[out] #[writable(entry, cpt)] aj: LPBYTE, cpt: i32) -> i32;
         #[library("GDI32.dll")]
@@ -2478,7 +2476,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetRasterizerCaps(#[out] #[writable(entry, bytes(cjBytes))] lpraststat: LPRASTERIZER_STATUS, #[in] cjBytes: UINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetRegionData(#[in] hrgn: HRGN, #[in] nCount: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "nCount,return", "nCount,return")] #[opt] #[out] #[writable(entry, bytes(nCount))] lpRgnData: LPRGNDATA) -> DWORD;
+        extern fn GetRegionData(#[in] hrgn: HRGN, #[in] nCount: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nCount))] lpRgnData: LPRGNDATA) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetRgnBox(#[in] hrgn: HRGN, #[out] lprc: LPRECT) -> i32;
         #[library("GDI32.dll")]
@@ -2516,9 +2514,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetTextExtentPointW(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpString: LPCWSTR, #[in] c: i32, #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextFaceA(#[in] hdc: HDC, #[in] c: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "c,return", "c,return")] #[opt] #[out] #[writable(entry, c)] lpName: LPSTR) -> i32;
+        extern fn GetTextFaceA(#[in] hdc: HDC, #[in] c: i32, #[incomplete] #[opt] #[out] #[writable(entry, c)] lpName: LPSTR) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetTextFaceW(#[in] hdc: HDC, #[in] c: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "c,return", "c,return")] #[opt] #[out] #[writable(entry, c)] lpName: LPWSTR) -> i32;
+        extern fn GetTextFaceW(#[in] hdc: HDC, #[in] c: i32, #[incomplete] #[opt] #[out] #[writable(entry, c)] lpName: LPWSTR) -> i32;
         #[library("GDI32.dll")]
         extern fn GetTextMetricsA(#[in] hdc: HDC, #[out] lptm: LPTEXTMETRICA) -> BOOL;
         #[library("GDI32.dll")]

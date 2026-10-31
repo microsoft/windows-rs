@@ -1434,7 +1434,6 @@ mod Windows {
         }
         struct DXGK_NATIVE_FENCE_LOG_BUFFER {
             Header: DXGK_NATIVE_FENCE_LOG_HEADER,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "Header.NumberOfEntries", "Header.NumberOfEntries")]
             Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
         }
         struct DXGK_NATIVE_FENCE_LOG_ENTRY {

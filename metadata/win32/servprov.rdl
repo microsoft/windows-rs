@@ -5,7 +5,6 @@ mod Windows {
         interface IServiceProvider: IUnknown {
             fn QueryService(&self, #[in] guidService: &GUID, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut *mut void) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type LPSERVICEPROVIDER = IServiceProvider;
     }
 }

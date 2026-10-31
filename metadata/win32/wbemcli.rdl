@@ -164,20 +164,20 @@ mod Windows {
         }
         #[guid(0x9556dc99_828c_11cf_a37e_00aa003240c7)]
         interface IWbemServices: IUnknown {
-            fn OpenNamespace(&self, #[in] strNamespace: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppWorkingNamespace: *mut IWbemServices, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResult: *mut IWbemCallResult) -> HRESULT;
+            fn OpenNamespace(&self, #[in] strNamespace: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppWorkingNamespace: *mut IWbemServices, #[in] #[incomplete] #[opt] #[out] ppResult: *mut IWbemCallResult) -> HRESULT;
             fn CancelAsyncCall(&self, #[in] #[opt] pSink: IWbemObjectSink) -> HRESULT;
             fn QueryObjectSink(&self, #[in] lFlags: i32, #[out] #[out_ptr] #[retval] ppResponseHandler: *mut IWbemObjectSink) -> HRESULT;
-            fn GetObject(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppObject: *mut IWbemClassObject, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn GetObject(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppObject: *mut IWbemClassObject, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn GetObjectAsync(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
-            fn PutClass(&self, #[in] #[opt] pObject: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn PutClass(&self, #[in] #[opt] pObject: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn PutClassAsync(&self, #[in] #[opt] pObject: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
-            fn DeleteClass(&self, #[in] strClass: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn DeleteClass(&self, #[in] strClass: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn DeleteClassAsync(&self, #[in] strClass: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
             fn CreateClassEnum(&self, #[in] strSuperclass: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
             fn CreateClassEnumAsync(&self, #[in] strSuperclass: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
-            fn PutInstance(&self, #[in] #[opt] pInst: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn PutInstance(&self, #[in] #[opt] pInst: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn PutInstanceAsync(&self, #[in] #[opt] pInst: IWbemClassObject, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
-            fn DeleteInstance(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn DeleteInstance(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn DeleteInstanceAsync(&self, #[in] strObjectPath: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
             fn CreateInstanceEnum(&self, #[in] strFilter: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
             fn CreateInstanceEnumAsync(&self, #[in] strFilter: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
@@ -185,7 +185,7 @@ mod Windows {
             fn ExecQueryAsync(&self, #[in] strQueryLanguage: BSTR, #[in] strQuery: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
             fn ExecNotificationQuery(&self, #[in] strQueryLanguage: BSTR, #[in] strQuery: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
             fn ExecNotificationQueryAsync(&self, #[in] strQueryLanguage: BSTR, #[in] strQuery: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
-            fn ExecMethod(&self, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pInParams: IWbemClassObject, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppOutParams: *mut IWbemClassObject, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn ExecMethod(&self, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pInParams: IWbemClassObject, #[in] #[incomplete] #[opt] #[out] ppOutParams: *mut IWbemClassObject, #[in] #[incomplete] #[opt] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
             fn ExecMethodAsync(&self, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pInParams: IWbemClassObject, #[in] #[opt] pResponseHandler: IWbemObjectSink) -> HRESULT;
         }
         #[guid(0xb7b31df9_d515_11d3_a11c_00105a1f515a)]

@@ -21,7 +21,6 @@ mod Windows {
         }
         struct KCRM_PROTOCOL_BLOB {
             ProtocolId: CRM_PROTOCOL_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,0xffffffffUL/2", "0,0xffffffffUL/2")]
             StaticInfoLength: ULONG,
             TransactionIdInfoLength: ULONG,
             Unused1: ULONG,

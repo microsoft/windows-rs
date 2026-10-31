@@ -216,7 +216,7 @@ mod Windows {
         #[guid(0xe793f6d1_f53d_11cf_a60d_00a0c905416e)]
         interface IRMHelper: IUnknown {
             fn RMCount(&self, #[in] dwcTotalNumberOfRMs: DWORD) -> HRESULT;
-            fn RMInfo(&self, #[in] pXa_Switch: *mut xa_switch_t, #[in] fCDeclCallingConv: BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pszOpenString: *mut i8, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pszCloseString: *mut i8, #[in] guidRMRecovery: GUID) -> HRESULT;
+            fn RMInfo(&self, #[in] pXa_Switch: *mut xa_switch_t, #[in] fCDeclCallingConv: BOOL, #[in] #[incomplete] pszOpenString: *mut i8, #[in] #[incomplete] pszCloseString: *mut i8, #[in] guidRMRecovery: GUID) -> HRESULT;
         }
         #[guid(0xd136c69a_f749_11d1_8f47_00c04f8ee57d)]
         interface IResourceManager2: IResourceManager {

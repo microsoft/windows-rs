@@ -240,8 +240,8 @@ builds, and update commands are documented beside the tools that own them.
   later omitted by partial publication. Conflicts fail; failed observations are omissions, not
   evidence of agreement. A failed definition cannot fall back to an incomplete declaration.
 - Preserve written typedefs, callback identities, annotation owners, qualifiers, and native
-  semantics even when publication does not expose them. Unsupported contracts remain explicit.
-  Do not erase nominal distinctions or contracts to make declarations agree.
+  semantics even when publication does not expose them. Parameters with unpublished contracts are
+  marked `incomplete`. Do not erase nominal distinctions or contracts to make declarations agree.
 - Macro discovery uses active definitions and compiler-evaluated probes in one incremental parse
   per target. Keep failed macro probes separate from native value failures; a probe must not erase
   a valid function with the same name. Do not reintroduce PCH replay, per-macro reparsing, or
@@ -279,8 +279,8 @@ builds, and update commands are documented beside the tools that own them.
 - Use structural C/stdcall function-pointer signatures only when they preserve the callable
   contract. Contracts needing an attribute owner must retain a compatible named callback.
   Dependency traversal includes results, every parameter, and nested function-pointer signatures.
-- Direction, optionality, nullability, success conditions, buffer phases, and residual SAL are
-  separate facts. Missing direction is unspecified. Do not combine conditional facts into a
+- Direction, optionality, nullability, success conditions, buffer phases, and incomplete markers
+  are separate facts. Missing direction is unspecified. Do not combine conditional facts into a
   stronger unconditional contract or infer safe Rust signature transformations from metadata
   markers alone. C++ defaults and exception specifications are native compatibility evidence,
   not portable invocation or unwind contracts.
@@ -318,7 +318,8 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
   `crates/libs/metadata/src/merge/mod.rs` with `write_type` in `merge/remap.rs`; keep signature and
   nominal-reference handling consistent.
 - SAL transport ownership: review the split between the producer in `crates/tools/win32/src/sal.h`
-  and decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them synchronized.
+  and capture-time decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them
+  synchronized.
 - Small duplication candidates: local `combine` helpers in
   `crates/libs/bindgen/src/types/interface.rs` and `cpp_interface.rs`, plus gradient-stop
   construction in `crates/libs/canvas/src/session.rs`.

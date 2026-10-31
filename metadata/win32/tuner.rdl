@@ -769,7 +769,7 @@ mod Windows {
         }
         #[guid(0x04bbd195_0e2d_4593_9bd5_4f908bc33cf5)]
         interface IScanningTunerEx: IScanningTuner {
-            fn GetCurrentLocator(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] pILocator: *mut ILocator) -> HRESULT;
+            fn GetCurrentLocator(&self, #[in] #[incomplete] pILocator: *mut ILocator) -> HRESULT;
             fn PerformExhaustiveScan(&self, #[in] dwLowerFreq: i32, #[in] dwHigherFreq: i32, #[in] bFineTune: VARIANT_BOOL, #[in] hEvent: HEVENT) -> HRESULT;
             fn TerminateCurrentScan(&self, #[out] #[retval] pcurrentFreq: *mut i32) -> HRESULT;
             fn ResumeCurrentScan(&self, #[in] hEvent: HEVENT) -> HRESULT;

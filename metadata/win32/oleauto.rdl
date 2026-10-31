@@ -150,7 +150,7 @@ mod Windows {
         const STDOLE_MAJORVERNUM: i32 = 1;
         const STDOLE_MINORVERNUM: i32 = 0;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAccessData(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(psa->cbElements * product(psa->rgsabound[0..psa->cDims-1]->cElements))", "_Inexpressible_(psa->cbElements * product(psa->rgsabound[0..psa->cDims-1]->cElements))")] #[out] ppvData: *mut *mut void) -> HRESULT;
+        extern fn SafeArrayAccessData(#[in] psa: *mut SAFEARRAY, #[incomplete] #[out] ppvData: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayAddRef(#[in] psa: *mut SAFEARRAY, #[out] ppDataToRelease: *mut PVOID) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -182,7 +182,7 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetDim(#[in] psa: *mut SAFEARRAY) -> UINT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetElement(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(psa->cDims)", "_Inexpressible_(psa->cDims)")] #[in] rgIndices: *mut LONG, #[out] pv: *mut void) -> HRESULT;
+        extern fn SafeArrayGetElement(#[in] psa: *mut SAFEARRAY, #[in] #[incomplete] rgIndices: *mut LONG, #[out] pv: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetElemsize(#[in] psa: *mut SAFEARRAY) -> UINT;
         #[library("OLEAUT32.dll")]
@@ -198,10 +198,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayLock(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayPtrOfIndex(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "psa->cDims", "psa->cDims")] #[in] rgIndices: *mut LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "psa->cbElements", "psa->cbElements")] #[out] ppvData: *mut *mut void) -> HRESULT;
+        extern fn SafeArrayPtrOfIndex(#[in] psa: *mut SAFEARRAY, #[in] #[incomplete] rgIndices: *mut LONG, #[incomplete] #[out] ppvData: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn SafeArrayPutElement(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(psa->cDims)", "_Inexpressible_(psa->cDims)")] #[in] rgIndices: *mut LONG, #[in] pv: *mut void) -> HRESULT;
+        extern fn SafeArrayPutElement(#[in] psa: *mut SAFEARRAY, #[in] #[incomplete] rgIndices: *mut LONG, #[in] pv: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayRedim(#[in] #[out] psa: *mut SAFEARRAY, #[in] psaboundNew: *mut SAFEARRAYBOUND) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -224,22 +224,19 @@ mod Windows {
         extern fn SysAllocString(#[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> BSTR;
         #[library("OLEAUT32.dll")]
         extern fn SysAllocStringByteLen(#[in] #[null_terminated(entry)] #[opt] psz: LPCSTR, #[in] len: UINT) -> BSTR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_writes_maybenull_z_", "ui+1", "ui+1")]
         #[library("OLEAUT32.dll")]
         extern fn SysAllocStringLen(#[in] #[opt] #[readable(entry, ui)] strIn: *const OLECHAR, ui: UINT) -> BSTR;
         #[library("OLEAUT32.dll")]
-        extern fn SysFreeString(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] bstrString: BSTR);
+        extern fn SysFreeString(#[incomplete] bstrString: BSTR);
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocString(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> INT;
+        extern fn SysReAllocString(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> INT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn SysReAllocStringLen(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(len+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(len+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR, #[in] len: u32) -> INT;
+        extern fn SysReAllocStringLen(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR, #[in] len: u32) -> INT;
         #[library("OLEAUT32.dll")]
         extern fn SysReleaseString(#[in] bstrString: BSTR);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_equal_to_", "_String_length_(bstr) * sizeof(OLECHAR)", "_String_length_(bstr) * sizeof(OLECHAR)")]
         #[library("OLEAUT32.dll")]
         extern fn SysStringByteLen(#[in] #[opt] bstr: BSTR) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_equal_to_", "pbstr == 0 ? 0 : _String_length_(pbstr)", "pbstr == 0 ? 0 : _String_length_(pbstr)")]
         #[library("OLEAUT32.dll")]
         extern fn SysStringLen(#[in] #[opt] pbstr: BSTR) -> UINT;
         #[library("OLEAUT32.dll")]
@@ -539,7 +536,7 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn VarFormatDateTime(#[in] pvarIn: LPVARIANT, iNamedFormat: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatFromTokens(#[in] pvarIn: LPVARIANT, #[in] #[opt] pstrFormat: LPOLESTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"from VarTokenizeFormatString\")", "_Inexpressible_(\"from VarTokenizeFormatString\")")] #[in] pbTokCur: LPBYTE, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR, lcid: LCID) -> HRESULT;
+        extern fn VarFormatFromTokens(#[in] pvarIn: LPVARIANT, #[in] #[opt] pstrFormat: LPOLESTR, #[in] #[incomplete] pbTokCur: LPBYTE, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR, lcid: LCID) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarFormatNumber(#[in] pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -724,12 +721,12 @@ mod Windows {
         extern fn VarNot(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn VarNumFromParseNum(#[in] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "pnumprs->cDig", "pnumprs->cDig")] #[in] rgbDig: *mut BYTE, #[in] dwVtBits: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
+        extern fn VarNumFromParseNum(#[in] pnumprs: *mut NUMPARSE, #[in] #[incomplete] rgbDig: *mut BYTE, #[in] dwVtBits: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarOr(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn VarParseNumFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[in] #[out] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "pnumprs->cDig", "pnumprs->cDig")] #[out] rgbDig: *mut BYTE) -> HRESULT;
+        extern fn VarParseNumFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[in] #[out] pnumprs: *mut NUMPARSE, #[incomplete] #[out] rgbDig: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarPow(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]

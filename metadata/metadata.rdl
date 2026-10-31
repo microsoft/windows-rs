@@ -6,7 +6,7 @@
 // `Windows.Win32.winmd` self-contained without an upstream reference winmd.
 //
 // `Native` attributes preserve C/C++ declaration details: typedef identity, anonymous records,
-// bitfields, 64-bit pointers, base storage, vtable slots and uninterpreted SAL.
+// bitfields, 64-bit pointers, base storage and vtable slots.
 // Unprefixed attributes state language-neutral API facts.
 #[win32]
 mod Windows {
@@ -188,13 +188,10 @@ mod Windows {
                 fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
                 MemberType: Type,
             }
-            // Uninterpreted SAL evidence, not permission for signature transformations.
-            // Preserve the annotation owner and scope until a canonical contract is established.
-            attribute NativeSalAttribute {
-                fn(#[in] version: String, #[in] name: String, #[in] arguments: String, #[in] expanded: String);
-                TypedefName: String,
-                // Space-separated raw SAL qualifiers in source order, scoped to this annotation.
-                Modifiers: String,
+            // The header states contracts for this parameter that metadata does not express.
+            // Consumers must not infer contracts from absent facts. RDL: `#[incomplete]`.
+            attribute IncompleteAttribute {
+                fn();
             }
             // Declaration deprecation with an optional message and relocated typedef ownership.
             // RDL: `#[deprecated]` or `#[deprecated("message")]`.

@@ -212,15 +212,9 @@ mod Windows {
             lpLockOwner: LPWSTR,
             dwLockDuration: DWORD,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_DESCRIPTIONA)))", "dwInfoLevel == 1, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_DESCRIPTIONA)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_FAILURE_ACTIONSA)))", "dwInfoLevel == 2, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_FAILURE_ACTIONSA)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOA)))", "dwInfoLevel == 6, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOA)))")]
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn QueryServiceConfig2A(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_DESCRIPTIONW)))", "dwInfoLevel == 1, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_DESCRIPTIONW)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_FAILURE_ACTIONSW)))", "dwInfoLevel == 2, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_FAILURE_ACTIONSW)))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOW)))", "dwInfoLevel == 6, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOW)))")]
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn QueryServiceConfig2W(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;

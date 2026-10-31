@@ -783,7 +783,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHRegGetValueA(#[in] hkey: HKEY, #[in] #[opt] pszSubKey: LPCSTR, #[in] #[opt] pszValue: LPCSTR, #[in] srrfFlags: SRRF, #[opt] #[out] pdwType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbData)))] #[writable(entry, bytes(if_present(*pcbData)))] pvData: *mut void, #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueFromHKCUHKLM(#[in] pwszKey: PCWSTR, #[in] #[opt] pwszValue: PCWSTR, #[in] srrfFlags: SRRF, #[opt] #[out] pdwType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbData)))] #[writable(entry, bytes(if_present(*pcbData)))] pvData: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pvData != 0,_Pre_notnull_", "pvData != 0, _Pre_notnull_")] #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
+        extern fn SHRegGetValueFromHKCUHKLM(#[in] pwszKey: PCWSTR, #[in] #[opt] pwszValue: PCWSTR, #[in] srrfFlags: SRRF, #[opt] #[out] pdwType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbData)))] #[writable(entry, bytes(if_present(*pcbData)))] pvData: *mut void, #[in] #[incomplete] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHRegGetValueW(#[in] hkey: HKEY, #[in] #[opt] pszSubKey: LPCWSTR, #[in] #[opt] pszValue: LPCWSTR, #[in] srrfFlags: SRRF, #[opt] #[out] pdwType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbData)))] #[writable(entry, bytes(if_present(*pcbData)))] pvData: *mut void, #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
@@ -839,7 +839,7 @@ mod Windows {
         #[success(return > 0)]
         extern fn SHUnicodeToUnicode(#[in] pwzSrc: PCWSTR, #[out] #[writable(entry, cwchBuf)] pwzDst: PWSTR, #[in] cwchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHUnlockShared(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"header-preceded\")", "_Inexpressible_(\"header-preceded\")")] #[in] pvData: *mut void) -> BOOL;
+        extern fn SHUnlockShared(#[in] #[incomplete] pvData: *mut void) -> BOOL;
         type SRRF = i32;
         const SRRF_NOEXPAND: i32 = 268435456;
         const SRRF_NOVIRT: i32 = 1073741824;
@@ -882,7 +882,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn StrCSpnW(#[in] pszStr: PCWSTR, #[in] pszSet: PCWSTR) -> i32;
         #[library("KERNEL32.dll", import = "lstrcatA")]
-        extern fn StrCatA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_z_", "_String_length_(lpString1) + _String_length_(lpString2) + 1", "_String_length_(lpString1) + _String_length_(lpString2) + 1")] #[in] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
+        extern fn StrCatA(#[in] #[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
         extern fn StrCatBuffA(#[in] #[out] #[writable(entry, cchDestBuffSize)] pszDest: PSTR, #[in] pszSrc: PCSTR, cchDestBuffSize: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
@@ -938,8 +938,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn StrCmpW(#[in] psz1: PCWSTR, #[in] psz2: PCWSTR) -> i32;
         #[library("KERNEL32.dll", import = "lstrcpyA")]
-        extern fn StrCpyA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_String_length_(lpString2) + 1", "_String_length_(lpString2) + 1")] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
+        extern fn StrCpyA(#[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("KERNEL32.dll", import = "lstrcpynA")]
         #[must_use]
         #[success(return != 0)]
@@ -1176,12 +1175,12 @@ mod Windows {
             SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS = 2,
         }
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCSTR, ...) -> i32;
+        extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCWSTR, ...) -> i32;
+        extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCWSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCSTR, #[in] arglist: va_list) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] pszFmt: PCWSTR, #[in] arglist: va_list) -> i32;
+        extern fn wvnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] #[incomplete] pszFmt: PCWSTR, #[in] arglist: va_list) -> i32;
     }
 }

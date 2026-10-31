@@ -308,39 +308,22 @@ mod Windows {
             fContext: LONG,
             u: userHPALETTE::__MIDL_IWinTypes_0008,
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireBSTR = *mut FLAGGED_WORD_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireCLIPFORMAT = *mut userCLIPFORMAT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHACCEL = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHBITMAP = *mut userHBITMAP;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHBRUSH = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHDC = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHENHMETAFILE = *mut userHENHMETAFILE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHFONT = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHGLOBAL = *mut userHGLOBAL;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHICON = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMENU = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMETAFILE = *mut userHMETAFILE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMETAFILEPICT = *mut userHMETAFILEPICT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMONITOR = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHPALETTE = *mut userHPALETTE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHRGN = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHWND = *mut RemotableHandle;
     }
 }

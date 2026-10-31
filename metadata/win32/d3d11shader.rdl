@@ -167,13 +167,13 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn CreateModuleInstance(&self, #[out] #[out_ptr(null_on_failure)] ppModuleInstance: *mut ID3D11ModuleInstance, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn CreateModuleInstance(&self, #[out] #[out_ptr(null_on_failure)] ppModuleInstance: *mut ID3D11ModuleInstance, #[incomplete] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
             fn SetInputSignature(&self, #[in] #[readable(entry, cInputParameters)] pInputParameters: *const D3D11_PARAMETER_DESC, #[in] cInputParameters: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn SetOutputSignature(&self, #[in] #[readable(entry, cOutputParameters)] pOutputParameters: *const D3D11_PARAMETER_DESC, #[in] cOutputParameters: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn CallFunction(&self, #[in] #[opt] pModuleInstanceNamespace: LPCSTR, #[in] pModuleWithFunctionPrototype: ID3D11Module, #[in] pFunctionName: LPCSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppCallNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn PassValue(&self, #[in] pSrcNode: ID3D11LinkingNode, #[in] SrcParameterIndex: INT, #[in] pDstNode: ID3D11LinkingNode, #[in] DstParameterIndex: INT) -> HRESULT;
             fn PassValueWithSwizzle(&self, #[in] pSrcNode: ID3D11LinkingNode, #[in] SrcParameterIndex: INT, #[in] pSrcSwizzle: LPCSTR, #[in] pDstNode: ID3D11LinkingNode, #[in] DstParameterIndex: INT, #[in] pDstSwizzle: LPCSTR) -> HRESULT;
-            fn GetLastError(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn GetLastError(&self, #[incomplete] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
             fn GenerateHlsl(&self, #[in] uFlags: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppBuffer: *mut ID3D10Blob) -> HRESULT;
         }
         #[guid(0x42757488_334f_47fe_982e_1a65d08cc462)]
@@ -209,7 +209,7 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Link(&self, #[in] pEntry: ID3D11ModuleInstance, #[in] pEntryName: LPCSTR, #[in] pTargetName: LPCSTR, #[in] uFlags: UINT, #[out] #[out_ptr(null_on_failure)] ppShaderBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn Link(&self, #[in] pEntry: ID3D11ModuleInstance, #[in] pEntryName: LPCSTR, #[in] pTargetName: LPCSTR, #[in] uFlags: UINT, #[out] #[out_ptr(null_on_failure)] ppShaderBlob: *mut ID3D10Blob, #[incomplete] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
             fn UseLibrary(&self, #[in] pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
             fn AddClipPlaneFromCBuffer(&self, #[in] uCBufferSlot: UINT, #[in] uCBufferEntry: UINT) -> HRESULT;
         }

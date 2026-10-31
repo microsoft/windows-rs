@@ -51,7 +51,6 @@ mod Windows {
             pcszDescription: LPCWSTR,
         }
         struct BLUETOOTH_DEVICE_INFO_STRUCT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "==,sizeof(BLUETOOTH_DEVICE_INFO_STRUCT)", "==,sizeof(BLUETOOTH_DEVICE_INFO_STRUCT)")]
             dwSize: DWORD,
             Address: BLUETOOTH_ADDRESS_STRUCT,
             ulClassofDevice: ULONG,

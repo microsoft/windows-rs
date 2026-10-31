@@ -3,7 +3,6 @@ mod Windows {
     mod Win32 {
         #[library("RPCNS4.dll")]
         extern fn I_RpcNsGetBuffer(Message: PRPC_MESSAGE) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Analysis_noreturn_", "", "")]
         #[library("RPCNS4.dll")]
         extern fn I_RpcNsRaiseException(Message: PRPC_MESSAGE, Status: RPC_STATUS);
         #[library("RPCNS4.dll")]

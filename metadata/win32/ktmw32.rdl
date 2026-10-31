@@ -30,7 +30,7 @@ mod Windows {
         #[library("ktmw32.dll")]
         extern fn GetTransactionId(TransactionHandle: HANDLE, TransactionId: LPGUID) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn GetTransactionInformation(TransactionHandle: HANDLE, Outcome: PDWORD, IsolationLevel: PDWORD, IsolationFlags: PDWORD, Timeout: PDWORD, #[in] BufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "BufferLength,return + 1", "BufferLength,return + 1")] #[opt] #[out] #[writable(entry, BufferLength)] Description: LPWSTR) -> BOOL;
+        extern fn GetTransactionInformation(TransactionHandle: HANDLE, Outcome: PDWORD, IsolationLevel: PDWORD, IsolationFlags: PDWORD, Timeout: PDWORD, #[in] BufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, BufferLength)] Description: LPWSTR) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn GetTransactionManagerId(TransactionManagerHandle: HANDLE, TransactionManagerId: LPGUID) -> BOOL;
         #[library("ktmw32.dll")]

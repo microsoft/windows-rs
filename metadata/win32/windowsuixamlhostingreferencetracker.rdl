@@ -47,7 +47,6 @@ mod Windows {
             fn SetTrackerValue(&self, #[in] handle: TrackerHandle, #[in] value: IUnknown) -> HRESULT;
             fn TryGetSafeTrackerValue(&self, #[in] handle: TrackerHandle, #[out] #[retval] returnValue: *mut IUnknown) -> boolean;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type TrackerHandle = *mut TrackerHandle__;
         struct TrackerHandle__ {
             unused: i32,

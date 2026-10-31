@@ -197,10 +197,8 @@ mod Windows {
         extern fn CM_Delete_Device_Interface_Key_ExW(#[in] pszDeviceInterface: LPCWSTR, #[in] ulFlags: ULONG, #[in] #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Delete_Range(#[in] ullStartValue: DWORDLONG, #[in] ullEndValue: DWORDLONG, #[in] rlh: RANGE_LIST, #[in] ulFlags: ULONG) -> CONFIGRET;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"CM_Query_Resource_Conflict_List\",\"Obsolete\"", "\"CM_Query_Resource_Conflict_List\",\"Obsolete\"")]
         #[library("SETUPAPI.dll")]
         extern fn CM_Detect_Resource_Conflict(#[in] dnDevInst: DEVINST, #[in] ResourceID: RESOURCEID, #[in] #[readable(entry, bytes(ResourceLen))] ResourceData: PCVOID, #[in] ResourceLen: ULONG, #[out] pbConflictDetected: PBOOL, #[in] ulFlags: ULONG) -> CONFIGRET;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"CM_Query_Resource_Conflict_List\",\"Obsolete\"", "\"CM_Query_Resource_Conflict_List\",\"Obsolete\"")]
         #[library("SETUPAPI.dll")]
         extern fn CM_Detect_Resource_Conflict_Ex(#[in] dnDevInst: DEVINST, #[in] ResourceID: RESOURCEID, #[in] #[readable(entry, bytes(ResourceLen))] ResourceData: PCVOID, #[in] ResourceLen: ULONG, #[out] pbConflictDetected: PBOOL, #[in] ulFlags: ULONG, #[in] #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll", import = "CM_Disable_DevNode")]
@@ -713,10 +711,8 @@ mod Windows {
         extern fn CM_Register_Device_Interface_ExW(#[in] dnDevInst: DEVINST, #[in] InterfaceClassGuid: LPGUID, #[in] #[opt] pszReference: LPCWSTR, #[out] #[writable(entry, *pulLength)] pszDeviceInterface: LPWSTR, #[in] #[out] pulLength: PULONG, #[in] ulFlags: ULONG, #[in] #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("CFGMGR32.dll")]
         extern fn CM_Register_Notification(#[in] pFilter: PCM_NOTIFY_FILTER, #[in] #[opt] pContext: PVOID, #[in] pCallback: PCM_NOTIFY_CALLBACK, #[out] pNotifyContext: PHCMNOTIFICATION) -> CONFIGRET;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"CM_Query_And_Remove_Subtree\",\"Obsolete\"", "\"CM_Query_And_Remove_Subtree\",\"Obsolete\"")]
         #[library("SETUPAPI.dll")]
         extern fn CM_Remove_SubTree(#[in] dnAncestor: DEVINST, #[in] ulFlags: ULONG) -> CONFIGRET;
-        #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"CM_Query_And_Remove_Subtree_Ex\",\"Obsolete\"", "\"CM_Query_And_Remove_Subtree_Ex\",\"Obsolete\"")]
         #[library("SETUPAPI.dll")]
         extern fn CM_Remove_SubTree_Ex(#[in] dnAncestor: DEVINST, #[in] ulFlags: ULONG, #[in] #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -954,15 +950,11 @@ mod Windows {
         }
         type DEVINST = u32;
         type DEVINSTID = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type DEVINSTID_A = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type DEVINSTID_W = *mut u16;
         type DEVNODE = u32;
         type DEVNODEID = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type DEVNODEID_A = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type DEVNODEID_W = *mut u16;
         #[packed(1)]
         struct DEVPRIVATE_DES {
@@ -1207,7 +1199,6 @@ mod Windows {
         const PCD_MAX_IO: i32 = 2;
         const PCD_MAX_MEMORY: i32 = 2;
         type PCM_NOTIFY_ACTION = *mut CM_NOTIFY_ACTION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Pre_satisfies_", "EventDataSize >= sizeof(CM_NOTIFY_EVENT_DATA)", "EventDataSize >= sizeof(CM_NOTIFY_EVENT_DATA)")]
         extern fn PCM_NOTIFY_CALLBACK(#[in] hNotify: HCMNOTIFICATION, #[in] #[opt] Context: PVOID, #[in] Action: CM_NOTIFY_ACTION, #[in] #[readable(entry, bytes(EventDataSize))] EventData: PCM_NOTIFY_EVENT_DATA, #[in] EventDataSize: DWORD) -> DWORD;
         type PCM_NOTIFY_EVENT_DATA = *mut CM_NOTIFY_EVENT_DATA;
         type PCM_NOTIFY_FILTER = *mut CM_NOTIFY_FILTER;

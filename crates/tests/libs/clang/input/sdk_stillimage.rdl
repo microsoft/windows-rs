@@ -190,9 +190,7 @@ mod Fixture {
 #[win32]
 mod Fixture {
     type HANDLE = *mut void;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPCWSTR = *const u16;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPWSTR = *mut u16;
     type PVOID = *mut void;
     type WCHAR = u16;

@@ -1046,7 +1046,6 @@ mod Windows {
             #[writable(bytes(DataLength))]
             Data: [UCHAR; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Length", "Length", TypedefName = "NDIS_STATISTICS_VALUE_EX")]
         struct NDIS_STATISTICS_VALUE_EX {
             Oid: NDIS_OID,
             DataLength: ULONG,
@@ -1206,9 +1205,7 @@ mod Windows {
             NdisWanMediumSubTypeMax = 16,
         }
         struct NDIS_WAN_PROTOCOL_CAPS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Flags: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
             Reserved: ULONG,
         }
         #[repr(i32)]

@@ -617,7 +617,6 @@ mod Windows {
             GroupCount: WORD,
             Anonymous: union {
                 GroupMask: GROUP_AFFINITY,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "GroupCount", "GroupCount")]
                 GroupMasks: [GROUP_AFFINITY; 1],
             },
         }
@@ -1410,12 +1409,8 @@ mod Windows {
             Next: *mut EXCEPTION_REGISTRATION_RECORD,
             Handler: PEXCEPTION_ROUTINE,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EXCEPTION_ROUTINE", "EXCEPTION_ROUTINE")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[arch(Arm64)]
         extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: PVOID, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] DispatcherContext: PVOID) -> EXCEPTION_DISPOSITION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EXCEPTION_ROUTINE", "EXCEPTION_ROUTINE")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[arch(X86 | X64)]
         extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: PVOID, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] DispatcherContext: PVOID) -> EXCEPTION_DISPOSITION;
         const EXCEPTION_SOFTWARE_ORIGINATE: i32 = 128;
@@ -1772,10 +1767,8 @@ mod Windows {
         }
         const GENERIC_READ: u32 = 2147483648;
         const GENERIC_WRITE: i32 = 1073741824;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_RUNTIME_FUNCTION_CALLBACK", "GET_RUNTIME_FUNCTION_CALLBACK")]
         #[arch(Arm64)]
         extern "C" fn GET_RUNTIME_FUNCTION_CALLBACK(#[in] ControlPc: DWORD64, #[in] #[opt] Context: PVOID) -> PARM64_RUNTIME_FUNCTION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_RUNTIME_FUNCTION_CALLBACK", "GET_RUNTIME_FUNCTION_CALLBACK")]
         #[arch(X64)]
         extern "C" fn GET_RUNTIME_FUNCTION_CALLBACK(#[in] ControlPc: DWORD64, #[in] #[opt] Context: PVOID) -> PRUNTIME_FUNCTION;
         struct GROUP_AFFINITY {
@@ -4766,14 +4759,12 @@ mod Windows {
         }
         type LPCCH = *const i8;
         type LPCH = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type LPCSTR = *const i8;
         type LPCTCH = *const i8;
         type LPCTSTR = *const i8;
         type LPCUTSTR = *const i8;
         type LPCWCH = *const u16;
         type LPCWCHAR = *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type LPCWSTR = *const u16;
         extern "C" fn LPENCLAVE_TARGET_FUNCTION(param0: PVOID) -> PVOID;
         type LPOSVERSIONINFO = *mut OSVERSIONINFOA;
@@ -4783,13 +4774,11 @@ mod Windows {
         type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
         type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
         type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type LPSTR = *mut i8;
         type LPTCH = *mut i8;
         type LPTSTR = *mut i8;
         type LPUTSTR = *mut i8;
         type LPWCH = *mut u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type LPWSTR = *mut u16;
         const LTP_PC_SMT: i32 = 1;
         const LUA_TOKEN: i32 = 4;
@@ -5084,7 +5073,6 @@ mod Windows {
         }
         const NO_PROPAGATE_INHERIT_ACE: i32 = 4;
         const NO_SUBGROUP_GUID: GUID = 0xfea3413e_7e05_4911_9a71_700331f1c294;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type NPSTR = *mut i8;
         struct NT_TIB {
             ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
@@ -5128,7 +5116,6 @@ mod Windows {
             GroupCount: WORD,
             Anonymous: union {
                 GroupMask: GROUP_AFFINITY,
-                #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "GroupCount", "GroupCount")]
                 GroupMasks: [GROUP_AFFINITY; 1],
             },
         }
@@ -5137,7 +5124,6 @@ mod Windows {
             BaseAddress: *mut void,
             Length: SIZE_T,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type NWPSTR = *mut u16;
         const N_BTMASK: i32 = 15;
         const N_BTSHFT: i32 = 4;
@@ -5185,10 +5171,8 @@ mod Windows {
             OS_DEPLOYMENT_STANDARD = 1,
             OS_DEPLOYMENT_COMPACT = 2,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK")]
         #[arch(Arm64)]
         extern "C" fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(#[in] Process: HANDLE, #[in] TableAddress: PVOID, #[out] Entries: PDWORD, #[out] Functions: *mut PARM64_RUNTIME_FUNCTION) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK")]
         #[arch(X64)]
         extern "C" fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(#[in] Process: HANDLE, #[in] TableAddress: PVOID, #[out] Entries: PDWORD, #[out] Functions: *mut PRUNTIME_FUNCTION) -> DWORD;
         #[arch(X64 | Arm64)]
@@ -5295,7 +5279,6 @@ mod Windows {
         type PCONTEXT = *mut CONTEXT;
         type PCORRELATION_VECTOR = *mut CORRELATION_VECTOR;
         type PCPU_SET_INFORMATION_TYPE = *mut CPU_SET_INFORMATION_TYPE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCSTR = *const i8;
         type PCTCH = *const i8;
         type PCTSTR = *const i8;
@@ -5307,20 +5290,13 @@ mod Windows {
         type PCUZZTSTR = *const i8;
         type PCWCH = *const u16;
         type PCWCHAR = *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCWSTR = *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCZPCSTR = *const *const i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCZPCWSTR = *const *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCZPSTR = *const *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PCZPWSTR = *const *mut u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         type PCZZSTR = *const i8;
         type PCZZTSTR = *const i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         type PCZZWSTR = *const u16;
         const PDCAP_D0_SUPPORTED: i32 = 1;
         const PDCAP_D1_SUPPORTED: i32 = 2;
@@ -5379,12 +5355,8 @@ mod Windows {
         type PEXCEPTION_RECORD32 = *mut EXCEPTION_RECORD32;
         type PEXCEPTION_RECORD64 = *mut EXCEPTION_RECORD64;
         type PEXCEPTION_REGISTRATION_RECORD = *mut EXCEPTION_REGISTRATION_RECORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EXCEPTION_ROUTINE", "EXCEPTION_ROUTINE", TypedefName = "EXCEPTION_ROUTINE")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "EXCEPTION_ROUTINE")]
         #[arch(Arm64)]
         extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: PVOID, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] DispatcherContext: PVOID) -> EXCEPTION_DISPOSITION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EXCEPTION_ROUTINE", "EXCEPTION_ROUTINE", TypedefName = "EXCEPTION_ROUTINE")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "EXCEPTION_ROUTINE")]
         #[arch(X86 | X64)]
         extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: PVOID, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] DispatcherContext: PVOID) -> EXCEPTION_DISPOSITION;
         type PEXECUTION_STATE = *mut u32;
@@ -5510,10 +5482,8 @@ mod Windows {
         const PF_XMMI_INSTRUCTIONS_AVAILABLE: i32 = 6;
         const PF_XSAVE_ENABLED: i32 = 17;
         type PGENERIC_MAPPING = *mut GENERIC_MAPPING;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_RUNTIME_FUNCTION_CALLBACK", "GET_RUNTIME_FUNCTION_CALLBACK", TypedefName = "GET_RUNTIME_FUNCTION_CALLBACK")]
         #[arch(Arm64)]
         extern "C" fn PGET_RUNTIME_FUNCTION_CALLBACK(#[in] ControlPc: DWORD64, #[in] #[opt] Context: PVOID) -> PARM64_RUNTIME_FUNCTION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_RUNTIME_FUNCTION_CALLBACK", "GET_RUNTIME_FUNCTION_CALLBACK", TypedefName = "GET_RUNTIME_FUNCTION_CALLBACK")]
         #[arch(X64)]
         extern "C" fn PGET_RUNTIME_FUNCTION_CALLBACK(#[in] ControlPc: DWORD64, #[in] #[opt] Context: PVOID) -> PRUNTIME_FUNCTION;
         type PGROUP_AFFINITY = *mut GROUP_AFFINITY;
@@ -5724,10 +5694,8 @@ mod Windows {
         type POSVERSIONINFOEXA = *mut OSVERSIONINFOEXA;
         type POSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
         type POSVERSIONINFOW = *mut _OSVERSIONINFOW;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", TypedefName = "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK")]
         #[arch(Arm64)]
         extern "C" fn POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(#[in] Process: HANDLE, #[in] TableAddress: PVOID, #[out] Entries: PDWORD, #[out] Functions: *mut PARM64_RUNTIME_FUNCTION) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", TypedefName = "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK")]
         #[arch(X64)]
         extern "C" fn POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(#[in] Process: HANDLE, #[in] TableAddress: PVOID, #[out] Entries: PDWORD, #[out] Functions: *mut PRUNTIME_FUNCTION) -> DWORD;
         const POWERBUTTON_ACTION_INDEX_HIBERNATE: i32 = 2;
@@ -7041,7 +7009,6 @@ mod Windows {
         type PRTL_RUN_ONCE = *mut RTL_RUN_ONCE;
         type PRTL_SRWLOCK = *mut RTL_SRWLOCK;
         type PRTL_SYSTEM_GLOBAL_DATA_ID = *mut RTL_SYSTEM_GLOBAL_DATA_ID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_UMS_SCHEDULER_ENTRY_POINT", "RTL_UMS_SCHEDULER_ENTRY_POINT", TypedefName = "RTL_UMS_SCHEDULER_ENTRY_POINT")]
         extern fn PRTL_UMS_SCHEDULER_ENTRY_POINT(#[in] Reason: RTL_UMS_SCHEDULER_REASON, #[in] ActivationPayload: ULONG_PTR, #[in] SchedulerParam: PVOID);
         type PRTL_UMS_SCHEDULER_REASON = *mut RTL_UMS_SCHEDULER_REASON;
         type PRTL_UMS_THREAD_INFO_CLASS = *mut RTL_UMS_THREAD_INFO_CLASS;
@@ -7103,7 +7070,6 @@ mod Windows {
         #[arch(X86)]
         type PSLIST_ENTRY = *mut SINGLE_LIST_ENTRY;
         type PSLIST_HEADER = *mut SLIST_HEADER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PSTR = *mut i8;
         type PSUPPORTED_OS_INFO = *mut SUPPORTED_OS_INFO;
         type PSYSTEM_ACCESS_FILTER_ACE = *mut SYSTEM_ACCESS_FILTER_ACE;
@@ -7225,7 +7191,6 @@ mod Windows {
         type PWOW64_DESCRIPTOR_TABLE_ENTRY = *mut WOW64_DESCRIPTOR_TABLE_ENTRY;
         type PWOW64_FLOATING_SAVE_AREA = *mut WOW64_FLOATING_SAVE_AREA;
         type PWOW64_LDT_ENTRY = *mut WOW64_LDT_ENTRY;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PWSTR = *mut u16;
         #[arch(X64)]
         type PXMM_SAVE_AREA32 = *mut XSAVE_FORMAT;
@@ -7240,19 +7205,13 @@ mod Windows {
         type PXSTATE_CONFIGURATION = *mut XSTATE_CONFIGURATION;
         type PXSTATE_CONTEXT = *mut XSTATE_CONTEXT;
         type PXSTATE_FEATURE = *mut XSTATE_FEATURE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PZPCSTR = *mut *const i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PZPCWSTR = *mut *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PZPSTR = *mut *mut i8;
         type PZPTSTR = *mut *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type PZPWSTR = *mut *mut u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         type PZZSTR = *mut i8;
         type PZZTSTR = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         type PZZWSTR = *mut u16;
         #[arch(X86)]
         const PcTeb: i32 = 24;
@@ -7477,7 +7436,6 @@ mod Windows {
             GlobalDataIdQpcData = 17,
             GlobalDataIdQpcBias = 18,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_UMS_SCHEDULER_ENTRY_POINT", "RTL_UMS_SCHEDULER_ENTRY_POINT")]
         extern fn RTL_UMS_SCHEDULER_ENTRY_POINT(#[in] Reason: RTL_UMS_SCHEDULER_REASON, #[in] ActivationPayload: ULONG_PTR, #[in] SchedulerParam: PVOID);
         #[repr(i32)]
         enum RTL_UMS_SCHEDULER_REASON {
@@ -7583,7 +7541,7 @@ mod Windows {
         extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: PCONTEXT);
         #[library("KERNEL32.dll")]
         #[success(return != 0)]
-        extern fn RtlCaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "FramesToCapture,return", "FramesToCapture,return")] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
+        extern fn RtlCaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[incomplete] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
         #[arch(X64)]
         #[library("KERNEL32.dll", import = "RtlCompareMemory")]
         #[must_use]
@@ -7612,7 +7570,6 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlDeleteGrowableFunctionTable(#[in] DynamicTable: PVOID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlDrainNonVolatileFlush(#[in] NvToken: PVOID) -> DWORD;
@@ -7621,15 +7578,12 @@ mod Windows {
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlFirstEntrySList(#[in] ListHead: *const SLIST_HEADER) -> PSLIST_ENTRY;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlFlushNonVolatileMemory(#[in] NvToken: PVOID, #[in] #[readable(entry, bytes(Size))] NvBuffer: PVOID, #[in] Size: SIZE_T, #[in] Flags: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlFlushNonVolatileMemoryRanges(#[in] NvToken: PVOID, #[in] #[readable(entry, NumRanges)] NvRanges: PNV_MEMORY_RANGE, #[in] NumRanges: SIZE_T, #[in] Flags: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlFreeNonVolatileToken(#[in] NvToken: PVOID) -> DWORD;
@@ -7637,7 +7591,6 @@ mod Windows {
         extern fn RtlGetDeviceFamilyInfoEnum(#[opt] #[out] pullUAPInfo: *mut ULONGLONG, #[opt] #[out] pulDeviceFamily: *mut DWORD, #[opt] #[out] pulDeviceForm: *mut DWORD);
         #[library("ntdll.dll")]
         extern fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlGetNonVolatileToken(#[in] #[readable(entry, bytes(Size))] NvBuffer: PVOID, #[in] Size: SIZE_T, #[out] #[out_ptr] NvToken: *mut PVOID) -> DWORD;
@@ -7667,9 +7620,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInterlockedPopEntrySList(#[in] #[out] ListHead: PSLIST_HEADER) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushEntrySList(#[in] #[out] ListHead: PSLIST_HEADER, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[out] ListEntry: PSLIST_ENTRY) -> PSLIST_ENTRY;
+        extern fn RtlInterlockedPushEntrySList(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[incomplete] #[out] ListEntry: PSLIST_ENTRY) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, #[in] Count: DWORD) -> PSLIST_ENTRY;
+        extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[incomplete] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, #[in] Count: DWORD) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
         extern fn RtlIsZeroMemory(#[in] Buffer: PVOID, #[in] Length: SIZE_T) -> BOOLEAN;
         #[arch(Arm64)]
@@ -7678,7 +7631,6 @@ mod Windows {
         #[arch(X64)]
         #[library("KERNEL32.dll")]
         extern fn RtlLookupFunctionEntry(#[in] ControlPc: DWORD64, #[out] ImageBase: PDWORD64, #[in] #[opt] #[out] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
-        #[Windows::Win32::Metadata::NativeSal("1", "__drv_maxIRQL", "", "")]
         #[library("ntdll.dll")]
         extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: DWORD, #[opt] #[out] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] #[out] NewSecurityDescriptorLength: PDWORD, #[in] CheckOnly: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
@@ -7687,7 +7639,6 @@ mod Windows {
         extern fn RtlPcToFileHeader(#[in] PcValue: PVOID, #[out] BaseOfImage: *mut PVOID) -> PVOID;
         #[library("ntdll.dll")]
         extern fn RtlQueryDepthSList(#[in] ListHead: PSLIST_HEADER) -> WORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlRaiseCustomSystemEventTrigger(#[in] TriggerConfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> DWORD;

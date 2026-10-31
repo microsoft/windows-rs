@@ -13,7 +13,6 @@ mod Windows {
             EffectivePowerModeGameMode = 5,
             EffectivePowerModeMixedReality = 6,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EFFECTIVE_POWER_MODE_CALLBACK", "EFFECTIVE_POWER_MODE_CALLBACK")]
         extern fn EFFECTIVE_POWER_MODE_CALLBACK(#[in] Mode: EFFECTIVE_POWER_MODE, #[in] #[opt] Context: *mut void);
         const EFFECTIVE_POWER_MODE_V1: i32 = 1;
         const EFFECTIVE_POWER_MODE_V2: i32 = 2;

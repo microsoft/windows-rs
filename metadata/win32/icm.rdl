@@ -72,7 +72,7 @@ mod Windows {
         #[library("ICM32.dll")]
         extern fn CMConvertIndexToColorName(#[in] hProfile: HPROFILE, #[in] #[readable(entry, dwCount)] paIndex: PDWORD, #[out] #[writable(entry, dwCount)] paColorName: PCOLOR_NAME, dwCount: DWORD) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCreateDeviceLinkProfile(#[in] #[readable(entry, nProfiles)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntents: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*lpProfileData))", "_Inexpressible_(GlobalSize(*lpProfileData))")] #[out] lpProfileData: *mut LPBYTE) -> BOOL;
+        extern fn CMCreateDeviceLinkProfile(#[in] #[readable(entry, nProfiles)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntents: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[incomplete] #[out] lpProfileData: *mut LPBYTE) -> BOOL;
         #[library("ICM32.dll")]
         extern fn CMCreateMultiProfileTransform(#[in] #[readable(entry, nProfiles)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntents: PDWORD, nIntents: DWORD, dwFlags: DWORD) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
@@ -275,13 +275,13 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn CreateColorTransformW(#[in] pLogColorSpace: LPLOGCOLORSPACEW, #[in] hDestProfile: HPROFILE, #[in] hTargetProfile: HPROFILE, dwFlags: DWORD) -> HTRANSFORM;
         #[library("mscms.dll")]
-        extern fn CreateDeviceLinkProfile(#[in] #[readable(entry, nProfiles)] hProfile: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntent: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfileData))", "_Inexpressible_(GlobalSize(*pProfileData))")] #[out] pProfileData: *mut PBYTE, indexPreferredCMM: DWORD) -> BOOL;
+        extern fn CreateDeviceLinkProfile(#[in] #[readable(entry, nProfiles)] hProfile: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntent: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[incomplete] #[out] pProfileData: *mut PBYTE, indexPreferredCMM: DWORD) -> BOOL;
         #[library("mscms.dll")]
         extern fn CreateMultiProfileTransform(#[in] #[readable(entry, nProfiles)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[readable(entry, nIntents)] padwIntent: PDWORD, nIntents: DWORD, dwFlags: DWORD, indexPreferredCMM: DWORD) -> HTRANSFORM;
         #[library("mscms.dll")]
-        extern fn CreateProfileFromLogColorSpaceA(#[in] pLogColorSpace: LPLOGCOLORSPACEA, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfile))", "_Inexpressible_(GlobalSize(*pProfile))")] #[out] pProfile: *mut PBYTE) -> BOOL;
+        extern fn CreateProfileFromLogColorSpaceA(#[in] pLogColorSpace: LPLOGCOLORSPACEA, #[incomplete] #[out] pProfile: *mut PBYTE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CreateProfileFromLogColorSpaceW(#[in] pLogColorSpace: LPLOGCOLORSPACEW, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfile))", "_Inexpressible_(GlobalSize(*pProfile))")] #[out] pProfile: *mut PBYTE) -> BOOL;
+        extern fn CreateProfileFromLogColorSpaceW(#[in] pLogColorSpace: LPLOGCOLORSPACEW, #[incomplete] #[out] pProfile: *mut PBYTE) -> BOOL;
         const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
         #[library("mscms.dll")]
         extern fn DeleteColorTransform(#[in] #[out] hxform: HTRANSFORM) -> BOOL;
@@ -389,7 +389,7 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn GetCountColorProfileElements(#[in] hProfile: HPROFILE, #[out] pnElementCount: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetNamedProfileInfo(#[in] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(NAMED_PROFILE_INFO)", "sizeof(NAMED_PROFILE_INFO)")] #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
+        extern fn GetNamedProfileInfo(#[in] hProfile: HPROFILE, #[in] #[incomplete] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
         #[library("mscms.dll")]
         extern fn GetPS2ColorRenderingDictionary(#[in] hProfile: HPROFILE, dwIntent: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbPS2ColorRenderingDictionary))] pPS2ColorRenderingDictionary: PBYTE, #[in] #[out] pcbPS2ColorRenderingDictionary: PDWORD, #[in] #[out] pbBinary: PBOOL) -> BOOL;
         #[library("mscms.dll")]
@@ -546,15 +546,15 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn SetColorProfileElementSize(#[in] hProfile: HPROFILE, tagType: TAGTYPE, pcbElement: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetColorProfileHeader(#[in] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(PROFILEHEADER)", "sizeof(PROFILEHEADER)")] #[in] pHeader: PPROFILEHEADER) -> BOOL;
+        extern fn SetColorProfileHeader(#[in] hProfile: HPROFILE, #[in] #[incomplete] pHeader: PPROFILEHEADER) -> BOOL;
         #[library("mscms.dll")]
         extern fn SetStandardColorSpaceProfileA(#[in] #[opt] pMachineName: PCSTR, dwProfileID: DWORD, #[in] pProfilename: PCSTR) -> BOOL;
         #[library("mscms.dll")]
         extern fn SetStandardColorSpaceProfileW(#[in] #[opt] pMachineName: PCWSTR, dwProfileID: DWORD, #[in] pProfileName: PCWSTR) -> BOOL;
         #[library("ICMUI.DLL")]
-        extern fn SetupColorMatchingA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(COLORMATCHSETUPA)", "sizeof(COLORMATCHSETUPA)")] #[in] #[out] pcms: PCOLORMATCHSETUPA) -> BOOL;
+        extern fn SetupColorMatchingA(#[in] #[incomplete] #[out] pcms: PCOLORMATCHSETUPA) -> BOOL;
         #[library("ICMUI.DLL")]
-        extern fn SetupColorMatchingW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(COLORMATCHSETUPW)", "sizeof(COLORMATCHSETUPW)")] #[in] #[out] pcms: PCOLORMATCHSETUPW) -> BOOL;
+        extern fn SetupColorMatchingW(#[in] #[incomplete] #[out] pcms: PCOLORMATCHSETUPW) -> BOOL;
         type TAGTYPE = u32;
         #[library("mscms.dll")]
         extern fn TranslateBitmapBits(#[in] hColorTransform: HTRANSFORM, #[in] pSrcBits: PVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwInputStride: DWORD, #[out] pDestBits: PVOID, bmOutput: BMFORMAT, dwOutputStride: DWORD, #[in] #[opt] pfnCallBack: PBMCALLBACKFN, #[in] #[opt] ulCallbackData: LPARAM) -> BOOL;

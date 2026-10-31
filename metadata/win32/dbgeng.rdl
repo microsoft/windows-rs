@@ -2140,7 +2140,6 @@ mod Windows {
             fn CreateThread(&self, #[in] Handle: ULONG64, #[in] DataOffset: ULONG64, #[in] StartOffset: ULONG64) -> HRESULT;
             fn ExitThread(&self, #[in] ExitCode: ULONG) -> HRESULT;
             fn CreateProcess(&self, #[in] ImageFileHandle: ULONG64, #[in] Handle: ULONG64, #[in] BaseOffset: ULONG64, #[in] ModuleSize: ULONG, #[in] #[opt] ModuleName: PCSTR, #[in] #[opt] ImageName: PCSTR, #[in] CheckSum: ULONG, #[in] TimeDateStamp: ULONG, #[in] InitialThreadHandle: ULONG64, #[in] ThreadDataOffset: ULONG64, #[in] StartOffset: ULONG64) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeSal("2", "_Analysis_noreturn_", "", "")]
             fn ExitProcess(&self, #[in] ExitCode: ULONG) -> HRESULT;
             fn LoadModule(&self, #[in] ImageFileHandle: ULONG64, #[in] BaseOffset: ULONG64, #[in] ModuleSize: ULONG, #[in] #[opt] ModuleName: PCSTR, #[in] #[opt] ImageName: PCSTR, #[in] CheckSum: ULONG, #[in] TimeDateStamp: ULONG) -> HRESULT;
             fn UnloadModule(&self, #[in] #[opt] ImageBaseName: PCSTR, #[in] BaseOffset: ULONG64) -> HRESULT;
@@ -2162,7 +2161,6 @@ mod Windows {
             fn Breakpoint(&self, #[in] Bp: PDEBUG_BREAKPOINT2) -> HRESULT;
             fn Exception(&self, #[in] Exception: PEXCEPTION_RECORD64, #[in] FirstChance: ULONG) -> HRESULT;
             fn CreateThread(&self, #[in] Handle: ULONG64, #[in] DataOffset: ULONG64, #[in] StartOffset: ULONG64) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeSal("2", "_Analysis_noreturn_", "", "")]
             fn ExitThread(&self, #[in] ExitCode: ULONG) -> HRESULT;
             fn CreateProcess(&self, #[in] ImageFileHandle: ULONG64, #[in] Handle: ULONG64, #[in] BaseOffset: ULONG64, #[in] ModuleSize: ULONG, #[in] #[opt] ModuleName: PCWSTR, #[in] #[opt] ImageName: PCWSTR, #[in] CheckSum: ULONG, #[in] TimeDateStamp: ULONG, #[in] InitialThreadHandle: ULONG64, #[in] ThreadDataOffset: ULONG64, #[in] StartOffset: ULONG64) -> HRESULT;
             fn ExitProcess(&self, #[in] ExitCode: ULONG) -> HRESULT;

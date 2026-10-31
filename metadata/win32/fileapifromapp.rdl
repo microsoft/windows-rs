@@ -12,9 +12,9 @@ mod Windows {
         #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
         extern fn DeleteFileFromAppW(#[in] lpFileName: LPCWSTR) -> BOOL;
         #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
-        extern fn FindFirstFileExFromAppW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_DATAW)", "sizeof(WIN32_FIND_DATAW)")] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD) -> HANDLE;
+        extern fn FindFirstFileExFromAppW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[incomplete] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD) -> HANDLE;
         #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
-        extern fn GetFileAttributesExFromAppW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)")] #[out] lpFileInformation: LPVOID) -> BOOL;
+        extern fn GetFileAttributesExFromAppW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[incomplete] #[out] lpFileInformation: LPVOID) -> BOOL;
         #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
         extern fn MoveFileFromAppW(#[in] lpExistingFileName: LPCWSTR, #[in] lpNewFileName: LPCWSTR) -> BOOL;
         #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]

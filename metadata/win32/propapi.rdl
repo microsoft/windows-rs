@@ -2,7 +2,6 @@
 mod Windows {
     mod Win32 {
         type NTPROP = *mut void;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "1", "1")]
         #[library("ole32.dll")]
         extern fn StgPropertyLengthAsVariant(#[in] #[readable(entry, bytes(cbProp))] pProp: *const SERIALIZEDPROPERTYVALUE, #[in] cbProp: ULONG, #[in] CodePage: USHORT, #[reserved] bReserved: BYTE) -> ULONG;
     }

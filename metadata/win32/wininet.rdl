@@ -707,9 +707,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn GopherFindFirstFileW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszLocator: LPCWSTR, #[in] #[opt] lpszSearchString: LPCWSTR, #[opt] #[out] lpFindData: LPGOPHER_FIND_DATAW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn GopherGetAttributeA(#[in] hConnect: HINTERNET, #[in] lpszLocator: LPCSTR, #[in] #[opt] lpszAttributeName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPSTR)lpBuffer,_Out_writes_(dwBufferLength)", "(LPSTR)lpBuffer, _Out_writes_(dwBufferLength)")] lpBuffer: LPBYTE, #[in] dwBufferLength: DWORD, #[out] lpdwCharactersReturned: LPDWORD, #[in] #[opt] lpfnEnumerator: GOPHER_ATTRIBUTE_ENUMERATOR, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
+        extern fn GopherGetAttributeA(#[in] hConnect: HINTERNET, #[in] lpszLocator: LPCSTR, #[in] #[opt] lpszAttributeName: LPCSTR, #[incomplete] lpBuffer: LPBYTE, #[in] dwBufferLength: DWORD, #[out] lpdwCharactersReturned: LPDWORD, #[in] #[opt] lpfnEnumerator: GOPHER_ATTRIBUTE_ENUMERATOR, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GopherGetAttributeW(#[in] hConnect: HINTERNET, #[in] lpszLocator: LPCWSTR, #[in] #[opt] lpszAttributeName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPWSTR)lpBuffer,_Out_writes_(dwBufferLength)", "(LPWSTR)lpBuffer, _Out_writes_(dwBufferLength)")] lpBuffer: LPBYTE, #[in] dwBufferLength: DWORD, #[out] lpdwCharactersReturned: LPDWORD, #[in] #[opt] lpfnEnumerator: GOPHER_ATTRIBUTE_ENUMERATOR, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
+        extern fn GopherGetAttributeW(#[in] hConnect: HINTERNET, #[in] lpszLocator: LPCWSTR, #[in] #[opt] lpszAttributeName: LPCWSTR, #[incomplete] lpBuffer: LPBYTE, #[in] dwBufferLength: DWORD, #[out] lpdwCharactersReturned: LPDWORD, #[in] #[opt] lpfnEnumerator: GOPHER_ATTRIBUTE_ENUMERATOR, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
         extern fn GopherGetLocatorTypeA(#[in] lpszLocator: LPCSTR, #[out] lpdwGopherType: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
@@ -896,9 +896,9 @@ mod Windows {
         #[encoding("utf-16")]
         const HTTP_VERSIONW: String = "HTTP/1.0";
         #[library("WININET.dll")]
-        extern fn HttpAddRequestHeadersA(#[in] hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwHeadersLength != (DWORD)-1,_In_reads_(dwHeadersLength)", "dwHeadersLength != (DWORD)-1, _In_reads_(dwHeadersLength)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwHeadersLength == (DWORD)-1,_In_z_", "dwHeadersLength == (DWORD)-1, _In_z_")] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] dwModifiers: DWORD) -> BOOL;
+        extern fn HttpAddRequestHeadersA(#[in] hRequest: HINTERNET, #[incomplete] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] dwModifiers: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpAddRequestHeadersW(#[in] hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwHeadersLength != (DWORD)-1,_In_reads_(dwHeadersLength)", "dwHeadersLength != (DWORD)-1, _In_reads_(dwHeadersLength)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwHeadersLength == (DWORD)-1,_In_z_", "dwHeadersLength == (DWORD)-1, _In_z_")] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[in] dwModifiers: DWORD) -> BOOL;
+        extern fn HttpAddRequestHeadersW(#[in] hRequest: HINTERNET, #[incomplete] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[in] dwModifiers: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn HttpEndRequestA(#[in] hRequest: HINTERNET, #[opt] #[out] lpBuffersOut: LPINTERNET_BUFFERSA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
@@ -910,9 +910,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn HttpOpenRequestW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCWSTR, #[in] #[opt] lpszObjectName: LPCWSTR, #[in] #[opt] lpszVersion: LPCWSTR, #[in] #[opt] lpszReferrer: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lplpszAcceptTypes: *mut LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn HttpQueryInfoA(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
+        extern fn HttpQueryInfoA(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] #[incomplete] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpQueryInfoW(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
+        extern fn HttpQueryInfoW(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] #[incomplete] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn HttpSendRequestA(#[in] hRequest: HINTERNET, #[in] #[opt] #[readable(entry, dwHeadersLength)] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] #[opt] #[readable(entry, bytes(dwOptionalLength))] lpOptional: LPVOID, #[in] dwOptionalLength: DWORD) -> BOOL;
         #[library("WININET.dll")]
@@ -1805,17 +1805,17 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetOpenW(#[in] #[opt] lpszAgent: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[opt] lpszProxy: LPCWSTR, #[in] #[opt] lpszProxyBypass: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn InternetQueryDataAvailable(#[in] hFile: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[opt] #[out] lpdwNumberOfBytesAvailable: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
+        extern fn InternetQueryDataAvailable(#[in] hFile: HINTERNET, #[incomplete] #[opt] #[out] lpdwNumberOfBytesAvailable: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetQueryOptionA(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetQueryOptionA(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[incomplete] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetQueryOptionW(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetQueryOptionW(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[incomplete] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetReadFile(#[in] hFile: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[writable(entry, bytes(dwNumberOfBytesToRead))] lpBuffer: LPVOID, #[in] dwNumberOfBytesToRead: DWORD, #[out] lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
+        extern fn InternetReadFile(#[in] hFile: HINTERNET, #[incomplete] #[out] #[writable(entry, bytes(dwNumberOfBytesToRead))] lpBuffer: LPVOID, #[in] dwNumberOfBytesToRead: DWORD, #[out] lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetReadFileExA(#[in] hFile: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] lpBuffersOut: LPINTERNET_BUFFERSA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
+        extern fn InternetReadFileExA(#[in] hFile: HINTERNET, #[incomplete] #[out] lpBuffersOut: LPINTERNET_BUFFERSA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetReadFileExW(#[in] hFile: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] lpBuffersOut: LPINTERNET_BUFFERSW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
+        extern fn InternetReadFileExW(#[in] hFile: HINTERNET, #[incomplete] #[out] lpBuffersOut: LPINTERNET_BUFFERSW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetSetCookieA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[in] lpszCookieData: LPCSTR) -> BOOL;
         #[library("WININET.dll")]
@@ -1962,9 +1962,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn PrivacySetZonePreferenceW(#[in] dwZone: DWORD, #[in] dwType: DWORD, #[in] dwTemplate: DWORD, #[in] #[opt] pszPreference: LPCWSTR) -> DWORD;
         #[library("WININET.dll")]
-        extern fn ReadUrlCacheEntryStream(#[in] hUrlCacheStream: HANDLE, #[in] dwLocation: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD, #[reserved] Reserved: DWORD) -> BOOL;
+        extern fn ReadUrlCacheEntryStream(#[in] hUrlCacheStream: HANDLE, #[in] dwLocation: DWORD, #[incomplete] #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD, #[reserved] Reserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn ReadUrlCacheEntryStreamEx(#[in] hUrlCacheStream: HANDLE, #[in] qwLocation: DWORDLONG, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD) -> BOOL;
+        extern fn ReadUrlCacheEntryStreamEx(#[in] hUrlCacheStream: HANDLE, #[in] qwLocation: DWORDLONG, #[incomplete] #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn ResumeSuspendedDownload(#[in] hRequest: HINTERNET, #[in] dwResultCode: DWORD) -> BOOL;
         #[library("WININET.dll")]

@@ -79,7 +79,7 @@ mod Windows {
             fn GetTravelLog(&self, #[out] #[out_ptr] #[retval] pptl: *mut ITravelLog) -> HRESULT;
             fn ShowControlWindow(&self, id: UINT, fShow: BOOL) -> HRESULT;
             fn IsControlWindowShown(&self, id: UINT, #[out] pfShown: *mut BOOL) -> HRESULT;
-            fn IEGetDisplayName(&self, #[in] pidl: LPCITEMIDLIST, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "(32 + sizeof(\"://\") + 2048)", "(32 + sizeof(\"://\") + 2048)")] #[out] pwszName: LPWSTR, uFlags: UINT) -> HRESULT;
+            fn IEGetDisplayName(&self, #[in] pidl: LPCITEMIDLIST, #[incomplete] #[out] pwszName: LPWSTR, uFlags: UINT) -> HRESULT;
             fn IEParseDisplayName(&self, uiCP: UINT, #[in] pwszPath: LPCWSTR, #[out] #[out_ptr] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
             fn DisplayParseError(&self, hres: HRESULT, #[in] pwszPath: LPCWSTR) -> HRESULT;
             fn NavigateToPidl(&self, #[in] pidl: LPCITEMIDLIST, grfHLNF: DWORD) -> HRESULT;

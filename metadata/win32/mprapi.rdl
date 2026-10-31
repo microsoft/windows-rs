@@ -265,12 +265,10 @@ mod Windows {
             IsEKUOID: BOOL,
             pwszEKU: *mut WCHAR,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "dwSize + sizeof(MPR_CREDENTIALSEX_0)", "dwSize + sizeof(MPR_CREDENTIALSEX_0)", TypedefName = "MPR_CREDENTIALSEX_0")]
         struct MPR_CREDENTIALSEX_0 {
             dwSize: DWORD,
             lpbCredentialsInfo: LPBYTE,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "dwSize + sizeof(MPR_CREDENTIALSEX_1)", "dwSize + sizeof(MPR_CREDENTIALSEX_1)", TypedefName = "MPR_CREDENTIALSEX_1")]
         struct MPR_CREDENTIALSEX_1 {
             dwSize: DWORD,
             lpbCredentialsInfo: LPBYTE,
@@ -315,7 +313,6 @@ mod Windows {
             customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
         }
         struct MPR_INTERFACE_0 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             wszInterfaceName: [WCHAR; 257],
             hInterface: HANDLE,
             fEnabled: BOOL,
@@ -525,7 +522,7 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminConnectionClearStats(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] hRasConnection: HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminConnectionEnum(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "(*lpdwEntriesRead)*(dwLevel==0? sizeof(RAS_CONNECTION_0):(dwLevel==1? sizeof(RAS_CONNECTION_1):(dwLevel==2? sizeof(RAS_CONNECTION_2):sizeof(RAS_CONNECTION_3))))", "(*lpdwEntriesRead)*(dwLevel==0? sizeof(RAS_CONNECTION_0):(dwLevel==1? sizeof(RAS_CONNECTION_1):(dwLevel==2? sizeof(RAS_CONNECTION_2):sizeof(RAS_CONNECTION_3))))")] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprAdminConnectionEnum(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] dwLevel: DWORD, #[incomplete] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprAdminConnectionEnumEx(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] pObjectHeader: PMPRAPI_OBJECT_HEADER, #[in] dwPreferedMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[out] ppRasConn: *mut PRAS_CONNECTION_EX, #[in] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -553,11 +550,11 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceDeviceGetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] hInterface: HANDLE, #[in] dwIndex: DWORD, #[in] dwLevel: DWORD, #[out] lplpBuffer: *mut LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceDeviceSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] hInterface: HANDLE, #[in] dwIndex: DWORD, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(MPR_DEVICE_1):sizeof(MPR_DEVICE_0)", "dwLevel==1?sizeof(MPR_DEVICE_1):sizeof(MPR_DEVICE_0)")] #[in] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprAdminInterfaceDeviceSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] hInterface: HANDLE, #[in] dwIndex: DWORD, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceDisconnect(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] hInterface: HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceEnum(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "dwLevel==1?(sizeof(MPR_INTERFACE_1) * (*lpdwEntriesRead)):(sizeof(MPR_INTERFACE_0) * (*lpdwEntriesRead))", "dwLevel==1?(sizeof(MPR_INTERFACE_1) * (*lpdwEntriesRead)):(sizeof(MPR_INTERFACE_0) * (*lpdwEntriesRead))")] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprAdminInterfaceEnum(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[incomplete] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceGetCredentials(#[in] #[opt] lpwsServer: LPWSTR, #[in] lpwsInterfaceName: LPWSTR, #[opt] #[out] #[writable(entry, 257)] lpwsUserName: LPWSTR, #[opt] #[out] #[writable(entry, 257)] lpwsPassword: LPWSTR, #[opt] #[out] #[writable(entry, 16)] lpwsDomainName: LPWSTR) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -619,7 +616,7 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminPortDisconnect(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] hPort: HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminPortEnum(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] hRasConnection: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "(*lpdwEntriesRead)*sizeof(RAS_PORT_0)", "(*lpdwEntriesRead)*sizeof(RAS_PORT_0)")] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprAdminPortEnum(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] hRasConnection: HANDLE, #[incomplete] #[out] lplpbBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprAdminPortGetInfo(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] hPort: HANDLE, #[out] lplpbBuffer: *mut LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -641,7 +638,7 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminServerSetCredentials(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminServerSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(MPR_SERVER_1):sizeof(MPR_SERVER_2)", "dwLevel==1?sizeof(MPR_SERVER_1):sizeof(MPR_SERVER_2)")] #[in] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprAdminServerSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprAdminServerSetInfoEx(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] pServerInfo: *mut MPR_SERVER_SET_CONFIG_EX1) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -653,13 +650,13 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminUpdateConnection(#[in] hRasServer: RAS_SERVER_HANDLE, #[in] hRasConnection: HANDLE, #[in] pRasUpdateConnection: PRAS_UPDATE_CONNECTION) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminUserGetInfo(#[in] lpszServer: LPCWSTR, #[in] lpszUser: LPCWSTR, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "dwLevel==1?sizeof(RAS_USER_1):sizeof(RAS_USER_0)", "dwLevel==1?sizeof(RAS_USER_1):sizeof(RAS_USER_0)")] #[out] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprAdminUserGetInfo(#[in] lpszServer: LPCWSTR, #[in] lpszUser: LPCWSTR, #[in] dwLevel: DWORD, #[incomplete] #[out] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminUserSetInfo(#[in] lpszServer: LPCWSTR, #[in] lpszUser: LPCWSTR, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(RAS_USER_1):sizeof(RAS_USER_0)", "dwLevel==1?sizeof(RAS_USER_1):sizeof(RAS_USER_0)")] #[in] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprAdminUserSetInfo(#[in] lpszServer: LPCWSTR, #[in] lpszUser: LPCWSTR, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigBufferFree(#[in] pBuffer: LPVOID) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigFilterGetInfo(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[in] dwTransportId: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(MPR_FILTER_0)", "sizeof(MPR_FILTER_0)")] #[in] #[out] lpBuffer: LPBYTE) -> DWORD;
+        extern fn MprConfigFilterGetInfo(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[in] dwTransportId: DWORD, #[in] #[incomplete] #[out] lpBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigFilterSetInfo(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[in] dwTransportId: DWORD, #[in] lpBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -667,11 +664,11 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprConfigGetGuidName(#[in] hMprConfig: HANDLE, #[in] pszFriendlyName: PWSTR, #[out] #[writable(entry, bytes(dwBufferSize))] pszBuffer: PWCHAR, #[in] dwBufferSize: DWORD) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceCreate(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(MPR_INTERFACE_1):sizeof(MPR_INTERFACE_0)", "dwLevel==1?sizeof(MPR_INTERFACE_1):sizeof(MPR_INTERFACE_0)")] #[in] lpbBuffer: LPBYTE, #[out] phRouterInterface: *mut HANDLE) -> DWORD;
+        extern fn MprConfigInterfaceCreate(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE, #[out] phRouterInterface: *mut HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceDelete(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceEnum(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_maybenull_", "(*lpdwEntriesRead)*sizeof( MPR_INTERFACE_0)", "(*lpdwEntriesRead)*sizeof( MPR_INTERFACE_0)")] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprConfigInterfaceEnum(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[incomplete] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceGetCustomInfoEx(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[out] pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -681,11 +678,11 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceSetCustomInfoEx(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceSetInfo(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(MPR_INTERFACE_1):sizeof(MPR_INTERFACE_0)", "dwLevel==1?sizeof(MPR_INTERFACE_1):sizeof(MPR_INTERFACE_0)")] #[in] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprConfigInterfaceSetInfo(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceTransportAdd(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwTransportId: DWORD, #[in] #[opt] lpwsTransportName: LPWSTR, #[in] #[readable(entry, bytes(dwInterfaceInfoSize))] pInterfaceInfo: LPBYTE, #[in] dwInterfaceInfoSize: DWORD, #[out] phRouterIfTransport: *mut HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceTransportEnum(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_maybenull_", "(*lpdwEntriesRead)*sizeof(MPR_IFTRANSPORT_0)", "(*lpdwEntriesRead)*sizeof(MPR_IFTRANSPORT_0)")] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprConfigInterfaceTransportEnum(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwLevel: DWORD, #[incomplete] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceTransportGetHandle(#[in] hMprConfig: HANDLE, #[in] hRouterInterface: HANDLE, #[in] dwTransportId: DWORD, #[out] phRouterIfTransport: *mut HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -711,7 +708,7 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerRestore(#[in] hMprConfig: HANDLE, #[in] lpwsPath: LPWSTR) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigServerSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwLevel==1?sizeof(MPR_SERVER_1):sizeof(MPR_SERVER_2)", "dwLevel==1?sizeof(MPR_SERVER_1):sizeof(MPR_SERVER_2)")] #[in] lpbBuffer: LPBYTE) -> DWORD;
+        extern fn MprConfigServerSetInfo(#[in] hMprServer: MPR_SERVER_HANDLE, #[in] dwLevel: DWORD, #[in] #[incomplete] lpbBuffer: LPBYTE) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerSetInfoEx(#[in] hMprConfig: HANDLE, #[in] pSetServerConfig: *mut MPR_SERVER_SET_CONFIG_EX1) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -719,11 +716,11 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprConfigTransportDelete(#[in] hMprConfig: HANDLE, #[in] hRouterTransport: HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportEnum(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_maybenull_", "(*lpdwEntriesRead)*sizeof(MPR_TRANSPORT_0)", "(*lpdwEntriesRead)*sizeof(MPR_TRANSPORT_0)")] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
+        extern fn MprConfigTransportEnum(#[in] hMprConfig: HANDLE, #[in] dwLevel: DWORD, #[incomplete] #[out] lplpBuffer: *mut LPBYTE, #[in] dwPrefMaxLen: DWORD, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[opt] #[out] lpdwResumeHandle: LPDWORD) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigTransportGetHandle(#[in] hMprConfig: HANDLE, #[in] dwTransportId: DWORD, #[out] phRouterTransport: *mut HANDLE) -> DWORD;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportGetInfo(#[in] hMprConfig: HANDLE, #[in] hRouterTransport: HANDLE, #[in] #[opt] #[out] ppGlobalInfo: *mut LPBYTE, #[opt] #[out] lpdwGlobalInfoSize: LPDWORD, #[in] #[opt] #[out] ppClientInterfaceInfo: *mut LPBYTE, #[opt] #[out] lpdwClientInterfaceInfoSize: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[in] #[opt] #[out] lplpwsDLLPath: *mut LPWSTR) -> DWORD;
+        extern fn MprConfigTransportGetInfo(#[in] hMprConfig: HANDLE, #[in] hRouterTransport: HANDLE, #[in] #[opt] #[out] ppGlobalInfo: *mut LPBYTE, #[opt] #[out] lpdwGlobalInfoSize: LPDWORD, #[in] #[opt] #[out] ppClientInterfaceInfo: *mut LPBYTE, #[opt] #[out] lpdwClientInterfaceInfoSize: LPDWORD, #[in] #[incomplete] #[opt] #[out] lplpwsDLLPath: *mut LPWSTR) -> DWORD;
         #[library("MPRAPI.dll")]
         extern fn MprConfigTransportSetInfo(#[in] hMprConfig: HANDLE, #[in] hRouterTransport: HANDLE, #[in] #[opt] #[readable(entry, bytes(dwGlobalInfoSize))] pGlobalInfo: LPBYTE, #[in] #[opt] dwGlobalInfoSize: DWORD, #[in] #[opt] #[readable(entry, bytes(dwClientInterfaceInfoSize))] pClientInterfaceInfo: LPBYTE, #[in] #[opt] dwClientInterfaceInfoSize: DWORD, #[in] #[opt] lpwsDLLPath: LPWSTR) -> DWORD;
         #[library("MPRAPI.dll")]
@@ -785,9 +782,7 @@ mod Windows {
         type PMPRAPI_TUNNEL_CONFIG_PARAMS0 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS0;
         type PMPRAPI_TUNNEL_CONFIG_PARAMS1 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS1;
         type PMPR_CERT_EKU = *mut MPR_CERT_EKU;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "dwSize + sizeof(MPR_CREDENTIALSEX_0)", "dwSize + sizeof(MPR_CREDENTIALSEX_0)")]
         type PMPR_CREDENTIALSEX_0 = *mut MPR_CREDENTIALSEX_0;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "dwSize + sizeof(MPR_CREDENTIALSEX_1)", "dwSize + sizeof(MPR_CREDENTIALSEX_1)")]
         type PMPR_CREDENTIALSEX_1 = *mut MPR_CREDENTIALSEX_1;
         type PMPR_DEVICE_0 = *mut MPR_DEVICE_0;
         type PMPR_DEVICE_1 = *mut MPR_DEVICE_1;

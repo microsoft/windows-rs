@@ -932,29 +932,17 @@ mod Windows {
         type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
         type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
         type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xfffffff", "0,0xfffffff")]
         type ULONG_IMAPI2_ADAPTER_DESCRIPTOR = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10000", "0,0x10000")]
         type ULONG_IMAPI2_ALL_FEATURE_PAGES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x7ffb", "0,0x7ffb")]
         type ULONG_IMAPI2_ALL_MODE_PAGES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x3f", "0,0x3f")]
         type ULONG_IMAPI2_ALL_PROFILES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xfffffff", "0,0xfffffff")]
         type ULONG_IMAPI2_DEVICE_DESCRIPTOR = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10002", "0,0x10002")]
         type ULONG_IMAPI2_DISC_INFORMATION = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xffff", "0,0xffff")]
         type ULONG_IMAPI2_DVD_STRUCTURE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x100", "0,0x100")]
         type ULONG_IMAPI2_FEATURE_PAGE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x101", "0,0x101")]
         type ULONG_IMAPI2_MODE_PAGE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "1,0x7fffffff", "1,0x7fffffff")]
         type ULONG_IMAPI2_NONZERO = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x7fffffff", "0,0x7fffffff")]
         type ULONG_IMAPI2_NOT_NEGATIVE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10002", "0,0x10002")]
         type ULONG_IMAPI2_TRACK_INFORMATION = u32;
     }
 }

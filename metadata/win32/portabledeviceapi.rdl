@@ -40,13 +40,13 @@ mod Windows {
             fn EnumObjects(&self, #[in] dwFlags: DWORD, #[in] pszParentObjectID: LPCWSTR, #[in] #[opt] pFilter: IPortableDeviceValues, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
             fn Properties(&self, #[out] #[out_ptr] #[retval] ppProperties: *mut IPortableDeviceProperties) -> HRESULT;
             fn Transfer(&self, #[out] #[out_ptr] #[retval] ppResources: *mut IPortableDeviceResources) -> HRESULT;
-            fn CreateObjectWithPropertiesOnly(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszObjectID: *mut LPWSTR) -> HRESULT;
-            fn CreateObjectWithPropertiesAndData(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
-            fn Delete(&self, #[in] dwOptions: DWORD, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn CreateObjectWithPropertiesOnly(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[in] #[incomplete] #[opt] #[out] ppszObjectID: *mut LPWSTR) -> HRESULT;
+            fn CreateObjectWithPropertiesAndData(&self, #[in] #[opt] pValues: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[in] #[incomplete] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
+            fn Delete(&self, #[in] dwOptions: DWORD, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] #[incomplete] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
             fn GetObjectIDsFromPersistentUniqueIDs(&self, #[in] #[opt] pPersistentUniqueIDs: IPortableDevicePropVariantCollection, #[out] #[out_ptr] #[retval] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn Move(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn Copy(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn Move(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[in] #[incomplete] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn Copy(&self, #[in] #[opt] pObjectIDs: IPortableDevicePropVariantCollection, #[in] pszDestinationFolderObjectID: LPCWSTR, #[in] #[incomplete] #[opt] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
         }
         #[guid(0x9b4add96_f6bf_4034_8708_eca72bf10554)]
         interface IPortableDeviceContent2: IPortableDeviceContent {
@@ -67,13 +67,13 @@ mod Windows {
         }
         #[guid(0xa1567595_4c2f_4574_a6fa_ecef917b9a40)]
         interface IPortableDeviceManager: IUnknown {
-            fn GetDevices(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
+            fn GetDevices(&self, #[in] #[incomplete] #[opt] #[out] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
             fn RefreshDeviceList(&self) -> HRESULT;
             fn GetDeviceFriendlyName(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] #[opt] #[out] pDeviceFriendlyName: *mut WCHAR, #[in] #[out] pcchDeviceFriendlyName: *mut DWORD) -> HRESULT;
             fn GetDeviceDescription(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] #[opt] #[out] pDeviceDescription: *mut WCHAR, #[in] #[out] pcchDeviceDescription: *mut DWORD) -> HRESULT;
             fn GetDeviceManufacturer(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] #[opt] #[out] pDeviceManufacturer: *mut WCHAR, #[in] #[out] pcchDeviceManufacturer: *mut DWORD) -> HRESULT;
             fn GetDeviceProperty(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] pszDevicePropertyName: LPCWSTR, #[in] #[opt] #[out] pData: *mut BYTE, #[in] #[opt] #[out] pcbData: *mut DWORD, #[in] #[opt] #[out] pdwType: *mut DWORD) -> HRESULT;
-            fn GetPrivateDevices(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
+            fn GetPrivateDevices(&self, #[in] #[incomplete] #[opt] #[out] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
         }
         #[guid(0x7f6d695c_03df_4439_a809_59266beee3a6)]
         interface IPortableDeviceProperties: IUnknown {
@@ -105,7 +105,7 @@ mod Windows {
             fn GetStream(&self, #[in] pszObjectID: LPCWSTR, #[in] Key: &PROPERTYKEY, #[in] dwMode: DWORD, #[in] #[opt] #[out] pdwOptimalBufferSize: *mut DWORD, #[out] #[out_ptr] #[retval] ppStream: *mut IStream) -> HRESULT;
             fn Delete(&self, #[in] pszObjectID: LPCWSTR, #[in] #[opt] pKeys: IPortableDeviceKeyCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn CreateResource(&self, #[in] #[opt] pResourceAttributes: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
+            fn CreateResource(&self, #[in] #[opt] pResourceAttributes: IPortableDeviceValues, #[out] #[out_ptr] ppData: *mut IStream, #[in] #[opt] #[out] pdwOptimalWriteBufferSize: *mut DWORD, #[in] #[incomplete] #[opt] #[out] ppszCookie: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08)]
         interface IPortableDeviceService: IUnknown {
@@ -147,7 +147,7 @@ mod Windows {
         }
         #[guid(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961)]
         interface IPortableDeviceServiceManager: IUnknown {
-            fn GetDeviceServices(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] guidServiceCategory: &GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] pServices: *mut LPWSTR, #[in] #[out] pcServices: *mut DWORD) -> HRESULT;
+            fn GetDeviceServices(&self, #[in] pszPnPDeviceID: LPCWSTR, #[in] guidServiceCategory: &GUID, #[in] #[incomplete] #[opt] #[out] pServices: *mut LPWSTR, #[in] #[out] pcServices: *mut DWORD) -> HRESULT;
             fn GetDeviceForService(&self, #[in] pszPnPServiceID: LPCWSTR, #[out] #[out_ptr] ppszPnPDeviceID: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xc424233c_afce_4828_a756_7ed7a2350083)]
@@ -156,7 +156,7 @@ mod Windows {
         }
         #[guid(0xe20333c9_fd34_412d_a381_cc6f2d820df7)]
         interface IPortableDeviceServiceMethods: IUnknown {
-            fn Invoke(&self, #[in] Method: &GUID, #[in] #[opt] pParameters: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn Invoke(&self, #[in] Method: &GUID, #[in] #[opt] pParameters: IPortableDeviceValues, #[in] #[incomplete] #[opt] #[out] ppResults: *mut IPortableDeviceValues) -> HRESULT;
             fn InvokeAsync(&self, #[in] Method: &GUID, #[in] #[opt] pParameters: IPortableDeviceValues, #[in] #[opt] pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
             fn Cancel(&self, #[in] #[opt] pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
         }

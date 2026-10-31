@@ -19,7 +19,7 @@ mod Windows {
         extern fn HidD_FlushQueue(#[in] HidDeviceObject: HANDLE) -> BOOLEAN;
         #[library("HID.DLL")]
         #[success(return == 1)]
-        extern fn HidD_FreePreparsedData(#[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        extern fn HidD_FreePreparsedData(#[in] #[incomplete] PreparsedData: PHIDP_PREPARSED_DATA) -> BOOLEAN;
         #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
@@ -61,7 +61,7 @@ mod Windows {
         #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        extern fn HidD_GetPreparsedData(#[in] HidDeviceObject: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,__drv_allocatesMem(Mem)", "return!=0, __drv_allocatesMem(Mem)")] #[out] PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        extern fn HidD_GetPreparsedData(#[in] HidDeviceObject: HANDLE, #[incomplete] #[out] PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
         #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]

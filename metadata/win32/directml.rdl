@@ -220,7 +220,6 @@ mod Windows {
         }
         struct DML_BINDING_DESC {
             Type: DML_BINDING_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "_Inexpressible_(\"Dependent on binding type\")", "_Inexpressible_(\"Dependent on binding type\")")]
             Desc: *const void,
         }
         struct DML_BINDING_PROPERTIES {
@@ -857,7 +856,6 @@ mod Windows {
         }
         struct DML_GRAPH_EDGE_DESC {
             Type: DML_GRAPH_EDGE_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on edge type\")", "_Inexpressible_(\"Dependent on edge type\")")]
             Desc: *const void,
         }
         #[repr(i32)]
@@ -869,7 +867,6 @@ mod Windows {
         }
         struct DML_GRAPH_NODE_DESC {
             Type: DML_GRAPH_NODE_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on node type\")", "_Inexpressible_(\"Dependent on node type\")")]
             Desc: *const void,
         }
         #[repr(i32)]
@@ -901,7 +898,6 @@ mod Windows {
             GraphInputIndex: UINT,
             ToNodeIndex: UINT,
             ToNodeInputIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             #[nullable]
             Name: *const i8,
         }
@@ -910,7 +906,6 @@ mod Windows {
             FromNodeOutputIndex: UINT,
             ToNodeIndex: UINT,
             ToNodeInputIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             #[nullable]
             Name: *const i8,
         }
@@ -1122,12 +1117,10 @@ mod Windows {
         }
         struct DML_OPERATOR_DESC {
             Type: DML_OPERATOR_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on operator type\")", "_Inexpressible_(\"Dependent on operator type\")")]
             Desc: *const void,
         }
         struct DML_OPERATOR_GRAPH_NODE_DESC {
             Operator: IDMLOperator,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             #[nullable]
             Name: *const i8,
         }
@@ -1296,7 +1289,6 @@ mod Windows {
             FromNodeIndex: UINT,
             FromNodeOutputIndex: UINT,
             GraphOutputIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             #[nullable]
             Name: *const i8,
         }
@@ -1637,7 +1629,6 @@ mod Windows {
         }
         struct DML_TENSOR_DESC {
             Type: DML_TENSOR_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on tensor type\")", "_Inexpressible_(\"Dependent on tensor type\")")]
             Desc: *const void,
         }
         const DML_TENSOR_DIMENSION_COUNT_MAX: UINT = 5;

@@ -107,7 +107,7 @@ mod Windows {
             fn EnumRegisterEventInfo(&self, #[in] lFlags: LONG, #[in] pEventGUID: *const GUID, #[out] #[out_ptr] #[retval] ppIEnum: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
             fn FindItemByName(&self, #[in] lFlags: LONG, #[in] bstrFullItemName: BSTR, #[out] #[out_ptr] #[retval] ppIWiaItem: *mut IWiaItem) -> HRESULT;
             fn DeviceDlg(&self, #[in] hwndParent: HWND, #[in] lFlags: LONG, #[in] lIntent: LONG, #[out] plItemCount: *mut LONG, #[out] ppIWiaItem: *mut *mut IWiaItem) -> HRESULT;
-            fn DeviceCommand(&self, #[in] lFlags: LONG, #[in] pCmdGUID: *const GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] pIWiaItem: *mut IWiaItem) -> HRESULT;
+            fn DeviceCommand(&self, #[in] lFlags: LONG, #[in] pCmdGUID: *const GUID, #[in] #[incomplete] #[out] pIWiaItem: *mut IWiaItem) -> HRESULT;
             fn GetRootItem(&self, #[out] #[out_ptr] #[retval] ppIWiaItem: *mut IWiaItem) -> HRESULT;
             fn EnumDeviceCapabilities(&self, #[in] lFlags: LONG, #[out] #[out_ptr] #[retval] ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
             fn DumpItemData(&self, #[out] #[out_ptr] bstrData: *mut BSTR) -> HRESULT;
@@ -124,7 +124,7 @@ mod Windows {
             fn GetItemCategory(&self, #[out] pItemCategoryGUID: *mut GUID) -> HRESULT;
             fn GetItemType(&self, #[out] pItemType: *mut LONG) -> HRESULT;
             fn DeviceDlg(&self, #[in] lFlags: LONG, #[in] hwndParent: HWND, #[in] bstrFolderName: BSTR, #[in] bstrFilename: BSTR, #[out] plNumFiles: *mut LONG, #[out] #[writable(success, *plNumFiles, indirect)] ppbstrFilePaths: *mut *mut BSTR, #[in] #[opt] #[out] ppItem: *mut IWiaItem2) -> HRESULT;
-            fn DeviceCommand(&self, #[in] lFlags: LONG, #[in] pCmdGUID: *const GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn DeviceCommand(&self, #[in] lFlags: LONG, #[in] pCmdGUID: *const GUID, #[in] #[incomplete] #[out] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn EnumDeviceCapabilities(&self, #[in] lFlags: LONG, #[out] #[out_ptr] #[retval] ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
             fn CheckExtension(&self, #[in] lFlags: LONG, #[in] bstrName: BSTR, #[in] riidExtensionInterface: &IID, #[out] pbExtensionExists: *mut BOOL) -> HRESULT;
             fn GetExtension(&self, #[in] lFlags: LONG, #[in] bstrName: BSTR, #[in] riidExtensionInterface: &IID, #[iid_is] #[out] ppOut: *mut *mut void) -> HRESULT;
@@ -198,7 +198,7 @@ mod Windows {
         #[guid(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527)]
         interface IWiaTransferCallback: IUnknown {
             fn TransferCallback(&self, #[in] lFlags: LONG, #[in] pWiaTransferParams: *mut WiaTransferParams) -> HRESULT;
-            fn GetNextStream(&self, #[in] lFlags: LONG, #[in] bstrItemName: BSTR, #[in] bstrFullItemName: BSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppDestination,_When_(return == S_OK, _Post_notnull_)", "*ppDestination, _When_(return == ((HRESULT)0L), _Post_notnull_)")] #[nullable] #[out] #[out_ptr] ppDestination: *mut IStream) -> HRESULT;
+            fn GetNextStream(&self, #[in] lFlags: LONG, #[in] bstrItemName: BSTR, #[in] bstrFullItemName: BSTR, #[incomplete] #[nullable] #[out] #[out_ptr] ppDestination: *mut IStream) -> HRESULT;
         }
         type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
         type PWIA_DATA_TRANSFER_INFO = *mut WIA_DATA_TRANSFER_INFO;

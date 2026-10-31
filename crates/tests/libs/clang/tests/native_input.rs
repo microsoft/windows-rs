@@ -114,7 +114,7 @@ fn check_input(rpc: bool) -> String {
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), position == 13);
                     assert!(parameter.find_attribute("NativeInputAttribute").is_none());
-                    assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                    assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                 }
             }
             let method = index

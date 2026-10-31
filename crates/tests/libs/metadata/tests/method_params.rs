@@ -98,7 +98,7 @@ fn parameter_facts_remain_independent() {
             "input_output",
             4,
             ParamAttributes::In | ParamAttributes::Out,
-            &["RetValAttribute", "NativeSalAttribute"],
+            &["RetValAttribute", "IncompleteAttribute"],
         ),
     ]);
     let params = method(&index).params_by_sequence(4).unwrap();
@@ -135,7 +135,7 @@ fn parameter_facts_remain_independent() {
     assert!(!input_output.is_optional());
     assert!(!input_output.is_reserved());
     assert!(input_output.is_retval_attribute());
-    assert!(input_output.has_attribute("NativeSalAttribute"));
+    assert!(input_output.has_attribute("IncompleteAttribute"));
 }
 
 #[test]

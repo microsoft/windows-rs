@@ -176,9 +176,7 @@ mod Windows {
             Privilege: u16,
             AuthFlags: u32,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_CSTR = *mut u8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_CWSTR = *const u16;
         const RPC_C_AUTHN_CLOUD_AP: i32 = 36;
         const RPC_C_AUTHN_DCE_PRIVATE: i32 = 1;
@@ -864,7 +862,6 @@ mod Windows {
             Count: u32,
             Stats: [u32; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_WSTR = *mut u16;
         #[library("RPCRT4.dll")]
         #[must_use]
@@ -1247,26 +1244,20 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
             UserLength: u32,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(DomainLength+1)*sizeof(WCHAR)", "(DomainLength+1)*sizeof(WCHAR)")]
             Domain: *mut u16,
             DomainLength: u32,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(PasswordLength+1)*sizeof(WCHAR)", "(PasswordLength+1)*sizeof(WCHAR)")]
             Password: *mut u16,
             PasswordLength: u32,
             Flags: u32,
         }
         #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
             UserLength: u32,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(DomainLength+1)*sizeof(WCHAR)", "(DomainLength+1)*sizeof(WCHAR)")]
             Domain: *mut u16,
             DomainLength: u32,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(PasswordLength+1)*sizeof(WCHAR)", "(PasswordLength+1)*sizeof(WCHAR)")]
             Password: *mut u16,
             PasswordLength: u32,
             Flags: u32,
