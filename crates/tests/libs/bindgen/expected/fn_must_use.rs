@@ -38,16 +38,41 @@ impl Value {
             .map(|| result__)
         }
     }
+    pub unsafe fn Flag(&self) -> windows_core::BOOL {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Flag)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            result__
+        }
+    }
+    #[must_use]
+    pub unsafe fn Size(&self) -> u32 {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Size)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            result__
+        }
+    }
 }
 #[repr(C)]
 pub struct Value_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Flag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL),
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32),
 }
 pub trait Value_Impl: windows_core::IUnknownImpl {
     fn Count(&self) -> u32;
     fn Get(&self) -> windows_core::Result<u32>;
+    fn Flag(&self, value: *mut windows_core::BOOL);
+    fn Size(&self, value: *mut u32);
 }
 impl Value_Vtbl {
     pub const fn new<Identity: Value_Impl, const OFFSET: isize>() -> Self {
@@ -76,10 +101,32 @@ impl Value_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn Flag<Identity: Value_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Value_Impl::Flag(this, core::mem::transmute_copy(&value));
+            }
+        }
+        unsafe extern "system" fn Size<Identity: Value_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut u32,
+        ) {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Value_Impl::Size(this, core::mem::transmute_copy(&value));
+            }
+        }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, OFFSET>,
             Get: Get::<Identity, OFFSET>,
+            Flag: Flag::<Identity, OFFSET>,
+            Size: Size::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

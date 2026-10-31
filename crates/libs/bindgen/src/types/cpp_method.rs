@@ -260,6 +260,12 @@ impl CppMethod {
         }) {
             return quote! {};
         }
+        let is_must_use_type = |ty: Type| {
+            matches!(
+                ty,
+                Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS
+            )
+        };
         let projected_must_use = match self.return_hint {
             ReturnHint::Query(..)
             | ReturnHint::QueryOptional(..)
@@ -267,16 +273,14 @@ impl CppMethod {
             | ReturnHint::HResult => true,
             ReturnHint::ReturnValue => {
                 let param = self.signature.params.last().unwrap();
-                param
-                    .projection_pointee(reader)
-                    .projection_type(reader)
-                    .is_interface_with_reader(reader)
-                    && !param.result_may_be_null()
+                let ty = param.projection_pointee(reader).projection_type(reader);
+                (ty.is_interface_with_reader(reader) && !param.result_may_be_null())
+                    || is_must_use_type(ty)
             }
-            ReturnHint::ReturnStruct | ReturnHint::None => matches!(
-                self.signature.return_type.projection_type(reader),
-                Type::Void | Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS
-            ),
+            ReturnHint::ReturnStruct | ReturnHint::None => {
+                let ty = self.signature.return_type.projection_type(reader);
+                ty == Type::Void || is_must_use_type(ty)
+            }
         };
         if projected_must_use {
             quote! {}

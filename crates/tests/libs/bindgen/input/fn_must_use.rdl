@@ -23,6 +23,10 @@ mod Test {
         fn Count(&self) -> u32;
         #[must_use]
         fn Get(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
+        #[must_use]
+        fn Flag(&self, #[out] #[retval] value: *mut Windows::Win32::BOOL);
+        #[must_use]
+        fn Size(&self, #[out] #[retval] value: *mut u32);
     }
 }
 
