@@ -76,7 +76,7 @@ mod Windows {
         interface INetworkCostManager: IUnknown {
             fn GetCost(&self, #[out] pCost: *mut DWORD, #[in] #[opt] pDestIPAddr: *mut NLM_SOCKADDR) -> HRESULT;
             fn GetDataPlanStatus(&self, #[out] pDataPlanStatus: *mut NLM_DATAPLAN_STATUS, #[in] #[opt] pDestIPAddr: *mut NLM_SOCKADDR) -> HRESULT;
-            fn SetDestinationAddresses(&self, #[in] #[range(entry, 0..=10)] length: UINT32, #[in] #[opt] #[readable(entry, length)] pDestIPAddrList: *mut NLM_SOCKADDR, #[in] bAppend: VARIANT_BOOL) -> HRESULT;
+            fn SetDestinationAddresses(&self, #[in] length: UINT32, #[in] #[opt] #[readable(entry, length)] pDestIPAddrList: *mut NLM_SOCKADDR, #[in] bAppend: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xdcb00009_570f_4a9b_8d69_199fdba5723b)]
         interface INetworkCostManagerEvents: IUnknown {

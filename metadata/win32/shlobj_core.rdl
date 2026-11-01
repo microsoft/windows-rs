@@ -1034,7 +1034,6 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn PathResolve(#[in] #[out] #[writable(entry, 260)] pszPath: PWSTR, #[in] #[opt] dirs: PZPCWSTR, fFlags: UINT) -> i32;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn PathYetAnotherMakeUniqueName(#[out] #[writable(entry, 260)] pszUniqueName: PWSTR, #[in] pszPath: PCWSTR, #[in] #[opt] pszShort: PCWSTR, #[in] #[opt] pszFileSpec: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn PickIconDlg(#[in] #[opt] hwnd: HWND, #[in] #[out] #[writable(entry, cchIconPath)] pszIconPath: PWSTR, cchIconPath: UINT, #[in] #[opt] #[out] piIconIndex: *mut i32) -> i32;
@@ -1708,12 +1707,10 @@ mod Windows {
         #[must_use]
         extern fn SHGetMalloc(#[out] #[out_ptr] #[retval] ppMalloc: *mut IMalloc) -> HRESULT;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetPathFromIDListA(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, 260)] pszPath: LPSTR) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetPathFromIDListEx(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, cchPath)] pszPath: PWSTR, cchPath: DWORD, uOpts: GPFIDL_FLAGS) -> BOOL;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetPathFromIDListW(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, 260)] pszPath: LPWSTR) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetRealIDL(#[in] psf: IShellFolder, #[in] pidlSimple: LPCITEMIDLIST, #[out] #[out_ptr] ppidlReal: *mut LPITEMIDLIST) -> HRESULT;
@@ -1727,10 +1724,8 @@ mod Windows {
         #[must_use]
         extern fn SHGetSpecialFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetSpecialFolderPathA(#[reserved] hwnd: HWND, #[out] #[writable(entry, 260)] pszPath: LPSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetSpecialFolderPathW(#[reserved] hwnd: HWND, #[out] #[writable(entry, 260)] pszPath: LPWSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHHandleUpdateImage(#[in] pidlExtra: LPCITEMIDLIST) -> i32;

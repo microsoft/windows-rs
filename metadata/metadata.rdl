@@ -22,21 +22,6 @@ mod Windows {
             attribute MustUseAttribute {
                 fn();
             }
-            #[repr(i32)]
-            enum SuccessCondition {
-                EqualZero = 0,
-                NotEqualZero = 1,
-                EqualOne = 2,
-                Nonnegative = 3,
-                Positive = 4,
-            }
-            // Conditions ordinary postconditions, not complete-operation success or infallibility.
-            // On a callable this overrides its return type's default; on a value typedef it
-            // supplies that default. Zero means null for pointer results.
-            // RDL: `#[success(return >= 0)]`.
-            attribute SuccessConditionAttribute {
-                fn(#[in] condition: SuccessCondition);
-            }
             // Records the character encoding of a string constant or field.
             // RDL: `#[encoding("...")]`.
             attribute EncodingAttribute {
@@ -85,17 +70,6 @@ mod Windows {
             enum BufferUnits {
                 Elements = 0,
                 Bytes = 1,
-            }
-            // Typed postfix integer expressions, versioned independently of native SAL text.
-            // Bounds compare the subject using C integer promotions and usual conversions.
-            // RDL: `#[range(entry, 0..=14 - start)]`, `#[range(entry, >0)]`.
-            attribute IntegerRangeAttribute {
-                fn(#[in] phase: BufferPhase);
-                Lower: String,
-                Upper: String,
-                LowerExclusive: bool,
-                UpperExclusive: bool,
-                Indirect: bool,
             }
             // An accessible extent of the annotated buffer, independent of direction and ownership.
             // Exactly one count source is required. Counts use the contract phase unless CountOnEntry.

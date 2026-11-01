@@ -10,7 +10,6 @@ mod Fixture {
     extern "C" fn OptionalCount(#[opt] #[out] #[readable(success, if_present(*written))] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, #[opt] #[out] written: *mut u32);
     extern "C" fn PointerDifference(#[incomplete] buffer: *mut u16, end: *mut u16);
     extern "C" fn ReturnLength(#[incomplete] #[out] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32);
-    #[success(return != 0)]
     extern "C" fn Successful(#[out] #[readable(success, *written)] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, written: *mut u32) -> i32;
     extern "C" fn UnexpectedArguments(#[incomplete] buffer: *mut u16);
 }

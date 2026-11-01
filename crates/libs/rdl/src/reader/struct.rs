@@ -193,11 +193,10 @@ impl Encoder<'_> {
             .collect();
         let extent_names: Vec<_> = extent_names.iter().map(String::as_str).collect();
         let extent_types = if fields.iter().any(|field| {
-            field.attrs.iter().any(|attr| {
-                attr.path().is_ident("readable")
-                    || attr.path().is_ident("writable")
-                    || attr.path().is_ident("range")
-            })
+            field
+                .attrs
+                .iter()
+                .any(|attr| attr.path().is_ident("readable") || attr.path().is_ident("writable"))
         }) {
             fields
                 .iter()
@@ -261,7 +260,7 @@ impl Encoder<'_> {
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
                 &field.attrs,
-                &["readable", "writable", "nullable", "range"],
+                &["readable", "writable", "nullable"],
             )?;
 
             // Anonymous padding advances the bit offset but emits no attribute.

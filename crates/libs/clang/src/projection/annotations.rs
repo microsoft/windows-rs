@@ -1,5 +1,4 @@
 use super::*;
-use windows_rdl::emit::{SuccessCondition, write_success};
 
 pub(super) fn covering<'a>(
     name: &str,
@@ -35,29 +34,15 @@ pub(super) fn write_callable(
     snapshot: &Snapshot,
     result_type: TypeId,
     attributes: &[Attribute],
-    parameters: &[Parameter],
-    names: &[&str],
 ) -> Result<CallableAttributes, Error> {
-    let mut must_use = false;
-    let success = success_condition(snapshot, result_type, [attributes], false);
-    let nullable = nullable_result(snapshot, result_type, [attributes]);
-    let owned = write_result_owned(
-        attributes,
-        None,
-        &mut must_use,
-        |value| integer_expression::return_range(value, result_type, parameters, snapshot),
-        names,
-    )?;
-    let native = owned.declaration;
-    let mut result_attributes = owned.result;
-    if nullable {
-        result_attributes.extend(quote! { #[nullable] });
-    }
+    let must_use = resolve::sal(attributes).iter().any(result_check);
+    let native = write(attributes)?;
     let result = must_use.then(|| quote! { #[must_use] });
-    let success = success.map(write_success);
+    let nullable =
+        nullable_result(snapshot, result_type, [attributes]).then(|| quote! { #[nullable] });
     Ok(CallableAttributes {
-        declaration: quote! { #native #result #success },
-        result: result_attributes,
+        declaration: quote! { #native #result },
+        result: quote! { #nullable },
     })
 }
 
@@ -110,53 +95,35 @@ fn nullable_result<'a>(
     nullable
 }
 
-fn write_result_owned(
-    attributes: &[Attribute],
-    typedef: Option<&str>,
-    must_use: &mut bool,
-    range: impl Fn(&sal::Annotation<'_>) -> Option<windows_metadata::IntegerRange>,
-    names: &[&str],
-) -> Result<CallableAttributes, Error> {
-    let sal = resolve::sal(attributes);
-    *must_use |= sal.iter().any(result_check);
-    let mut result = TokenStream::new();
-    for value in sal {
-        if let Some(range) = range(&value) {
-            result.extend(
-                windows_rdl::write_integer_range(&range, names)
-                    .ok_or_else(|| Error("cannot render return integer range".into()))?,
-            );
-        }
-    }
-    let declaration = write_owned(attributes, typedef)?;
-    Ok(CallableAttributes {
-        declaration,
-        result,
-    })
-}
-
-/// The success condition SAL applies to a callable: its own `_Success_` when present, otherwise
-/// the `_Return_type_success_` inherited from its written result typedefs.
-pub(super) fn callable_success(
+/// Whether the callable's success condition is `return >= 0`: its own `_Success_` when present,
+/// otherwise the `_Return_type_success_` inherited from its written result typedefs. Metadata does
+/// not publish success conditions; this only grounds `#[retval]` inference.
+pub(super) fn nonnegative_success(
     resolution: &Resolution<'_>,
     snapshot: &Snapshot,
     written_result: TypeId,
     result_type: TypeId,
     attributes: &[Attribute],
-) -> Result<Option<SuccessCondition>, Error> {
-    if resolve::sal(attributes)
+) -> Result<bool, Error> {
+    let condition = if resolve::sal(attributes)
         .iter()
         .any(|value| is_success(value.value))
     {
-        return Ok(success_condition(
-            snapshot,
-            result_type,
-            [attributes],
-            false,
-        ));
-    }
-    let inherited = value_alias_attributes(resolution, snapshot, written_result)?;
-    Ok(success_condition(snapshot, result_type, inherited, true))
+        success_condition(snapshot, result_type, [attributes], false)
+    } else {
+        let inherited = value_alias_attributes(resolution, snapshot, written_result)?;
+        success_condition(snapshot, result_type, inherited, true)
+    };
+    Ok(condition == Some(SuccessCondition::Nonnegative))
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum SuccessCondition {
+    EqualZero,
+    NotEqualZero,
+    EqualOne,
+    Nonnegative,
+    Positive,
 }
 
 fn is_success(value: &SalAnnotation) -> bool {
@@ -199,13 +166,14 @@ fn success_condition<'a>(
                 return None;
             }
             let expression: TokenStream = value.arguments.parse().ok()?;
-            let condition = SuccessCondition::from_expression(&expression).or_else(|| {
-                match expression.to_string().as_str() {
-                    "return" | "0 != return" | "return != false" => Some(NotEqualZero),
-                    "0 == return" | "return == 0L" => Some(EqualZero),
-                    _ => None,
-                }
-            })?;
+            let condition = match expression.to_string().as_str() {
+                "return == 0" | "0 == return" | "return == 0L" => EqualZero,
+                "return != 0" | "return" | "0 != return" | "return != false" => NotEqualZero,
+                "return == 1" => EqualOne,
+                "return >= 0" => Nonnegative,
+                "return > 0" => Positive,
+                _ => return None,
+            };
             let valid = match kind {
                 TypeKind::Scalar(Scalar::Bool) => {
                     matches!(condition, EqualZero | NotEqualZero | EqualOne)
@@ -226,25 +194,6 @@ fn success_condition<'a>(
         }
     }
     result
-}
-
-pub(super) fn write_value_typedef(
-    snapshot: &Snapshot,
-    canonical: TypeId,
-    attributes: &[Attribute],
-    inherited: &[&[Attribute]],
-) -> Result<TokenStream, Error> {
-    let success = success_condition(snapshot, canonical, [attributes], true).filter(|condition| {
-        success_condition(
-            snapshot,
-            canonical,
-            std::iter::once(attributes).chain(inherited.iter().copied()),
-            true,
-        ) == Some(*condition)
-    });
-    let native = write(attributes)?;
-    let success = success.map(write_success);
-    Ok(quote! { #native #success })
 }
 
 pub(super) fn value_alias_attributes<'a>(
@@ -329,14 +278,6 @@ pub(super) fn field(
         );
     if nullable || optional {
         result.extend(quote! { #[nullable] });
-    }
-    for value in resolve::sal(&field.attributes) {
-        if let Some(range) = integer_expression::field_range(&value, field, fields, snapshot) {
-            result.extend(
-                windows_rdl::write_integer_range(&range, &[])
-                    .ok_or_else(|| Error("cannot render field integer range".into()))?,
-            );
-        }
     }
     if let Some(alignment) = field_alignment(&field.attributes)? {
         let alignment = proc_macro2::Literal::u16_unsuffixed(alignment);
@@ -470,7 +411,6 @@ pub(super) fn write_callback(
     mut written: TypeId,
     result_type: TypeId,
     attributes: &[Attribute],
-    parameters: &[Parameter],
 ) -> Result<CallableAttributes, Error> {
     let mut owners = vec![(attributes, None)];
     loop {
@@ -495,12 +435,6 @@ pub(super) fn write_callback(
             _ => break,
         }
     }
-    let success = success_condition(
-        snapshot,
-        result_type,
-        owners.iter().map(|(attributes, _)| *attributes),
-        false,
-    );
     let mut must_use = false;
     let nullable = nullable_result(
         snapshot,
@@ -508,28 +442,15 @@ pub(super) fn write_callback(
         owners.iter().map(|(attributes, _)| *attributes),
     );
     let mut attributes = TokenStream::new();
-    let mut result_attributes = TokenStream::new();
-    let names = parameter_names(parameters, true);
-    let names: Vec<_> = names.iter().map(String::as_str).collect();
     for (owner, typedef) in owners {
-        let owned = write_result_owned(
-            owner,
-            typedef,
-            &mut must_use,
-            |value| integer_expression::return_range(value, result_type, parameters, snapshot),
-            &names,
-        )?;
-        attributes.extend(owned.declaration);
-        result_attributes.extend(owned.result);
-    }
-    if nullable {
-        result_attributes.extend(quote! { #[nullable] });
+        must_use |= resolve::sal(owner).iter().any(result_check);
+        attributes.extend(write_owned(owner, typedef)?);
     }
     let result = must_use.then(|| quote! { #[must_use] });
-    let success = success.map(write_success);
+    let nullable = nullable.then(|| quote! { #[nullable] });
     Ok(CallableAttributes {
-        declaration: quote! { #attributes #result #success },
-        result: result_attributes,
+        declaration: quote! { #attributes #result },
+        result: quote! { #nullable },
     })
 }
 
@@ -615,7 +536,7 @@ pub(super) fn parameter(
     parameter: &Parameter,
     parameters: &[Parameter],
     canonical: &MetadataType,
-    success: Option<SuccessCondition>,
+    nonnegative_success: bool,
 ) -> Result<TokenStream, Error> {
     let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
@@ -630,7 +551,7 @@ pub(super) fn parameter(
     let normalized = sal::parameters(attributes, parameters);
     let interface_output = matches!(canonical, MetadataType::PtrMut(target, 1)
         if matches!(**target, MetadataType::ClassName(_) | MetadataType::Object));
-    let com_result = success == Some(SuccessCondition::Nonnegative)
+    let com_result = nonnegative_success
         && parameters
             .last()
             .is_some_and(|last| std::ptr::eq(last, parameter))
@@ -659,8 +580,7 @@ pub(super) fn parameter(
     let incomplete = preserve
         || normalized.iter().any(|value| {
             matches!(value, sal::ParameterAnnotation::Evidence(value)
-                if integer_expression::range(value, parameter, parameters, snapshot).is_none()
-                    && pointee_readable(value, parameter, parameters).is_none())
+                if !integer_expression::range(value) && pointee_readable(value, parameter, parameters).is_none())
         });
     let native = write(attributes)?;
     let incomplete = incomplete.then(|| quote! { #[incomplete] });
@@ -686,23 +606,7 @@ pub(super) fn parameter(
     // trailing output of a `return >= 0` callable meets the MIDL `[retval]` contract: the callee
     // writes a non-null object on every success, and callers read it only on success.
     let retval = (midl.retval || com_result).then(|| quote! { #[retval] });
-    let names: Vec<_> = parameters
-        .iter()
-        .map(|parameter| parameter.name.as_str())
-        .collect();
-    let mut ranges = TokenStream::new();
-    if !preserve {
-        for value in resolve::sal(attributes) {
-            if let Some(range) = integer_expression::range(&value, parameter, parameters, snapshot)
-            {
-                ranges.extend(
-                    windows_rdl::write_integer_range(&range, &names)
-                        .ok_or_else(|| Error("cannot render integer range".into()))?,
-                );
-            }
-        }
-    }
-    Ok(quote! { #native #incomplete #direction #optional #reserved #retval #(#returned)* #ranges })
+    Ok(quote! { #native #incomplete #direction #optional #reserved #retval #(#returned)* })
 }
 
 pub(super) fn buffer(

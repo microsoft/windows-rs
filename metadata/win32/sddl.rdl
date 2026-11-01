@@ -2,28 +2,20 @@
 mod Windows {
     mod Win32 {
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertSecurityDescriptorToStringSecurityDescriptorA(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] RequestedStringSDRevision: DWORD, #[in] SecurityInformation: SECURITY_INFORMATION, #[out] #[out_ptr] StringSecurityDescriptor: *mut LPSTR, #[opt] #[out] StringSecurityDescriptorLen: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertSecurityDescriptorToStringSecurityDescriptorW(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] RequestedStringSDRevision: DWORD, #[in] SecurityInformation: SECURITY_INFORMATION, #[out] #[out_ptr] StringSecurityDescriptor: *mut LPWSTR, #[opt] #[out] StringSecurityDescriptorLen: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertSidToStringSidA(#[in] Sid: PSID, #[out] #[out_ptr] StringSid: *mut LPSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertSidToStringSidW(#[in] Sid: PSID, #[out] #[out_ptr] StringSid: *mut LPWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertStringSecurityDescriptorToSecurityDescriptorA(#[in] StringSecurityDescriptor: LPCSTR, #[in] StringSDRevision: DWORD, #[out] #[out_ptr] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] #[out] SecurityDescriptorSize: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertStringSecurityDescriptorToSecurityDescriptorW(#[in] StringSecurityDescriptor: LPCWSTR, #[in] StringSDRevision: DWORD, #[out] #[out_ptr] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] #[out] SecurityDescriptorSize: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertStringSidToSidA(#[in] StringSid: LPCSTR, #[out] #[out_ptr] Sid: *mut PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn ConvertStringSidToSidW(#[in] StringSid: LPCWSTR, #[out] #[out_ptr] Sid: *mut PSID) -> BOOL;
         #[encoding("ansi")]
         const SDDL_ACCESS_ALLOWED: String = "A";

@@ -28,7 +28,6 @@ mod Windows {
             CloseStatus: struct {
                 #[writable(bytes(ulReasonLength))]
                 pbReason: PBYTE,
-                #[range(0..=123)]
                 ulReasonLength: ULONG,
                 usStatus: USHORT,
             },

@@ -4,20 +4,20 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn Icmp6CreateFile() -> HANDLE;
         #[library("IPHLPAPI.DLL")]
-        extern fn Icmp6ParseReplies(#[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD) -> DWORD;
+        extern fn Icmp6ParseReplies(#[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn Icmp6SendEcho2(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] SourceAddress: *mut SOCKADDR_IN6_LH, #[in] DestinationAddress: *mut SOCKADDR_IN6_LH, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
+        extern fn Icmp6SendEcho2(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] SourceAddress: *mut SOCKADDR_IN6_LH, #[in] DestinationAddress: *mut SOCKADDR_IN6_LH, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
         extern fn IcmpCloseHandle(#[in] IcmpHandle: HANDLE) -> BOOL;
         #[library("IPHLPAPI.DLL")]
         extern fn IcmpCreateFile() -> HANDLE;
         #[library("IPHLPAPI.DLL")]
-        extern fn IcmpParseReplies(#[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD) -> DWORD;
+        extern fn IcmpParseReplies(#[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn IcmpSendEcho(#[in] IcmpHandle: HANDLE, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
+        extern fn IcmpSendEcho(#[in] IcmpHandle: HANDLE, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn IcmpSendEcho2(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
+        extern fn IcmpSendEcho2(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn IcmpSendEcho2Ex(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] SourceAddress: IPAddr, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, #[incomplete] ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
+        extern fn IcmpSendEcho2Ex(#[in] IcmpHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: FARPROC, #[in] #[opt] ApcContext: PVOID, #[in] SourceAddress: IPAddr, #[in] DestinationAddress: IPAddr, #[in] #[readable(entry, bytes(RequestSize))] RequestData: LPVOID, #[in] RequestSize: WORD, #[in] #[opt] RequestOptions: PIP_OPTION_INFORMATION, #[out] #[writable(entry, bytes(ReplySize))] ReplyBuffer: LPVOID, ReplySize: DWORD, #[in] Timeout: DWORD) -> DWORD;
     }
 }

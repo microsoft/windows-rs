@@ -1092,7 +1092,6 @@ mod Windows {
         struct TLS_HYBRID_KEYEXCHANGE_BLOB {
             dwMagic: ULONG,
             dwKeyType: ULONG,
-            #[range(2..=4)]
             NumBlobs: UCHAR,
             #[readable(4)]
             #[writable(NumBlobs)]

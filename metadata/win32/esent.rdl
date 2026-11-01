@@ -757,7 +757,6 @@ mod Windows {
             cbData: JET_UINT32,
             pvData: JET_PVOID,
         }
-        #[success(return >= 0)]
         type JET_ERR = i32;
         #[repr(i32)]
         enum JET_ERRCAT {

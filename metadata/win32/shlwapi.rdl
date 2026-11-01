@@ -557,10 +557,8 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHAllocShared(#[in] #[opt] #[readable(entry, bytes(dwSize))] pvData: *const void, #[in] dwSize: DWORD, #[in] dwProcessId: DWORD) -> HANDLE;
         #[library("SHLWAPI.dll")]
-        #[success(return > 0)]
         extern fn SHAnsiToAnsi(#[in] pszSrc: PCSTR, #[out] #[writable(entry, cchBuf)] pszDst: PSTR, #[in] cchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        #[success(return > 0)]
         extern fn SHAnsiToUnicode(#[in] pszSrc: PCSTR, #[out] #[writable(entry, cwchBuf)] pwszDst: PWSTR, #[in] cwchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
         extern fn SHAutoComplete(#[in] hwndEdit: HWND, dwFlags: DWORD) -> HRESULT;
@@ -833,10 +831,8 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHStripMneumonicW(#[in] #[out] pszMenu: LPWSTR) -> WCHAR;
         #[library("SHLWAPI.dll")]
-        #[success(return > 0)]
         extern fn SHUnicodeToAnsi(#[in] pwszSrc: PCWSTR, #[out] #[writable(entry, cchBuf)] pszDst: PSTR, #[in] cchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        #[success(return > 0)]
         extern fn SHUnicodeToUnicode(#[in] pwzSrc: PCWSTR, #[out] #[writable(entry, cwchBuf)] pwzDst: PWSTR, #[in] cwchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
         extern fn SHUnlockShared(#[in] #[incomplete] pvData: *mut void) -> BOOL;
@@ -941,7 +937,6 @@ mod Windows {
         extern fn StrCpyA(#[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("KERNEL32.dll", import = "lstrcpynA")]
         #[must_use]
-        #[success(return != 0)]
         extern fn StrCpyNA(#[out] #[writable(entry, iMaxLength)] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> #[nullable] LPSTR;
         #[library("SHLWAPI.dll")]
         extern fn StrCpyNW(#[out] #[writable(entry, cchMax)] pszDst: PWSTR, #[in] pszSrc: PCWSTR, cchMax: i32) -> PWSTR;
@@ -956,7 +951,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn StrFormatByteSizeA(dw: DWORD, #[out] #[writable(entry, cchBuf)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatByteSizeEx(ull: ULONGLONG, flags: SFBS_FLAGS, #[out] #[writable(entry, cchBuf)] pszBuf: PWSTR, #[range(entry, >0)] cchBuf: UINT) -> HRESULT;
+        extern fn StrFormatByteSizeEx(ull: ULONGLONG, flags: SFBS_FLAGS, #[out] #[writable(entry, cchBuf)] pszBuf: PWSTR, cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn StrFormatByteSizeW(qdw: LONGLONG, #[out] #[writable(entry, cchBuf)] pszBuf: PWSTR, cchBuf: UINT) -> PWSTR;
         #[library("SHLWAPI.dll")]

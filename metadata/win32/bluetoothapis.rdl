@@ -159,24 +159,20 @@ mod Windows {
         extern fn BluetoothEnumAttributes(#[in] #[readable(entry, bytes(cbStreamSize))] pSDPStream: LPBYTE, #[in] cbStreamSize: ULONG, #[in] pfnCallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, #[in] pvParam: LPVOID) -> BOOL;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return == 0)]
         extern fn BluetoothEnumerateInstalledServices(#[in] #[opt] hRadio: HANDLE, #[in] pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, #[in] #[out] pcServiceInout: *mut DWORD, #[opt] #[out] #[readable(success, *pcServiceInout)] #[writable(entry, *pcServiceInout)] pGuidServices: *mut GUID) -> DWORD;
         #[library("bthprops.cpl")]
         extern fn BluetoothFindDeviceClose(#[in] hFind: HBLUETOOTH_DEVICE_FIND) -> BOOL;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return != 0)]
         extern fn BluetoothFindFirstDevice(#[in] pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, #[in] #[out] pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> HBLUETOOTH_DEVICE_FIND;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return != 0)]
         extern fn BluetoothFindFirstRadio(#[in] pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, #[out] phRadio: *mut HANDLE) -> HBLUETOOTH_RADIO_FIND;
         #[library("bthprops.cpl")]
         #[must_use]
         extern fn BluetoothFindNextDevice(#[in] hFind: HBLUETOOTH_DEVICE_FIND, #[in] #[out] pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> BOOL;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return != 0)]
         extern fn BluetoothFindNextRadio(#[in] hFind: HBLUETOOTH_RADIO_FIND, #[out] phRadio: *mut HANDLE) -> BOOL;
         #[library("bthprops.cpl")]
         extern fn BluetoothFindRadioClose(#[in] hFind: HBLUETOOTH_RADIO_FIND) -> BOOL;
@@ -208,19 +204,15 @@ mod Windows {
         extern fn BluetoothSdpEnumAttributes(#[in] #[readable(entry, bytes(cbStreamSize))] pSDPStream: LPBYTE, #[in] cbStreamSize: ULONG, #[in] pfnCallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, #[in] pvParam: LPVOID) -> BOOL;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return == 0)]
         extern fn BluetoothSdpGetAttributeValue(#[in] #[readable(entry, bytes(cbRecordLength))] pRecordStream: LPBYTE, #[in] cbRecordLength: ULONG, #[in] usAttributeId: USHORT, #[out] pAttributeData: PSDP_ELEMENT_DATA) -> DWORD;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return == 0)]
         extern fn BluetoothSdpGetContainerElementData(#[in] #[readable(entry, bytes(cbContainerLength))] pContainerStream: LPBYTE, #[in] cbContainerLength: ULONG, #[in] #[out] pElement: *mut HBLUETOOTH_CONTAINER_ELEMENT, #[out] pData: PSDP_ELEMENT_DATA) -> DWORD;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return == 0)]
         extern fn BluetoothSdpGetElementData(#[in] #[readable(entry, bytes(cbSdpStreamLength))] pSdpStream: LPBYTE, #[in] cbSdpStreamLength: ULONG, #[out] pData: PSDP_ELEMENT_DATA) -> DWORD;
         #[library("bthprops.cpl")]
         #[must_use]
-        #[success(return == 0)]
         extern fn BluetoothSdpGetString(#[in] #[readable(entry, bytes(cbRecordLength))] pRecordStream: LPBYTE, #[in] cbRecordLength: ULONG, #[in] #[opt] pStringData: PSDP_STRING_TYPE_DATA, #[in] usStringOffset: USHORT, #[out] #[readable(success, *pcchStringLength)] #[writable(entry, *pcchStringLength)] pszString: PWSTR, #[in] #[out] pcchStringLength: PULONG) -> DWORD;
         #[library("bthprops.cpl")]
         #[must_use]

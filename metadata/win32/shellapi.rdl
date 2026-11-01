@@ -120,10 +120,8 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn DragFinish(#[in] hDrop: HDROP);
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn DragQueryFileA(#[in] hDrop: HDROP, #[in] iFile: UINT, #[opt] #[out] #[writable(entry, cch)] lpszFile: LPSTR, #[in] cch: UINT) -> UINT;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn DragQueryFileW(#[in] hDrop: HDROP, #[in] iFile: UINT, #[opt] #[out] #[writable(entry, cch)] lpszFile: LPWSTR, #[in] cch: UINT) -> UINT;
         #[library("SHELL32.dll")]
         extern fn DragQueryPoint(#[in] hDrop: HDROP, #[out] ppt: *mut POINT) -> BOOL;
@@ -759,10 +757,8 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetLocalizedName(#[in] pszPath: PCWSTR, #[out] #[writable(entry, cch)] pszResModule: PWSTR, cch: UINT, #[out] pidsRes: *mut i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetNewLinkInfoA(#[in] pszLinkTo: LPCSTR, #[in] pszDir: LPCSTR, #[out] #[writable(entry, 260)] pszName: LPSTR, #[out] pfMustCopy: *mut BOOL, #[in] uFlags: UINT) -> BOOL;
         #[library("SHELL32.dll")]
-        #[success(return != 0)]
         extern fn SHGetNewLinkInfoW(#[in] pszLinkTo: LPCWSTR, #[in] pszDir: LPCWSTR, #[out] #[writable(entry, 260)] pszName: LPWSTR, #[out] pfMustCopy: *mut BOOL, #[in] uFlags: UINT) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetPropertyStoreForWindow(#[in] hwnd: HWND, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;

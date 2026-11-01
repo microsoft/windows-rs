@@ -10,7 +10,6 @@ mod Windows {
         extern fn NetRemoteComputerSupports(UncServerName: LPCWSTR, OptionsWanted: DWORD, OptionsSupported: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn NetRemoteTOD(#[in] #[opt] UncServerName: LPCWSTR, #[incomplete] #[out] BufferPtr: *mut LPBYTE) -> DWORD;
         type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const SUPPORTS_ANY: u32 = 4294967295;

@@ -9,7 +9,6 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
         #[library("CRYPT32.dll")]
-        #[success(return != 0)]
         extern fn CryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] #[opt] #[readable(entry, dwSig)] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
@@ -166,7 +165,6 @@ mod Windows {
         const SPC_RELAXED_PE_MARKER_CHECK: i32 = 2048;
         extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut DWORD, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         extern fn pCryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
-        #[success(return != 0)]
         extern fn pCryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] #[opt] #[readable(entry, dwSig)] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
         extern fn pCryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         extern fn pCryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: DWORD, pdwIndex: *mut DWORD, cbSignedDataMsg: DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;

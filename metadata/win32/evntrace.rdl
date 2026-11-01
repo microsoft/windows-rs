@@ -615,13 +615,10 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn ProcessTrace(#[in] #[readable(entry, HandleCount)] HandleArray: *mut PROCESSTRACE_HANDLE, #[in] HandleCount: ULONG, #[in] #[opt] StartTime: LPFILETIME, #[in] #[opt] EndTime: LPFILETIME) -> ULONG;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        #[success(return == 0)]
         extern fn ProcessTraceAddBufferToBufferStream(#[in] TraceHandle: PROCESSTRACE_HANDLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: *const ETW_BUFFER_HEADER, #[in] BufferSize: ULONG) -> ULONG;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        #[success(return == 0)]
         extern fn ProcessTraceBufferDecrementReference(#[in] Buffer: *const ETW_BUFFER_HEADER) -> ULONG;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        #[success(return == 0)]
         extern fn ProcessTraceBufferIncrementReference(#[in] TraceHandle: PROCESSTRACE_HANDLE, #[in] Buffer: *const ETW_BUFFER_HEADER) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn QueryAllTracesA(#[out] #[writable(entry, PropertyArrayCount)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, #[in] PropertyArrayCount: ULONG, #[out] LoggerCount: PULONG) -> ULONG;
@@ -985,7 +982,6 @@ mod Windows {
             Reserved: UINT,
         }
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        #[success(return == 0)]
         extern fn TraceConfigureLastBranchRecord(#[in] TraceId: CONTROLTRACE_ID, #[in] LbrConfiguration: TRACE_LBR_CONFIGURATION, #[in] #[readable(entry, EventCount)] Events: *const CLASSIC_EVENT_ID, #[in] EventCount: ULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn TraceEvent(#[in] TraceHandle: TRACELOGGER_HANDLE, #[in] EventTrace: PEVENT_TRACE_HEADER) -> ULONG;

@@ -45,7 +45,6 @@ mod Fixture {
     type OnlyX64 = u64;
     type Pointer = *mut Word;
     type SignedWord = isize;
-    #[success(return >= 0)]
     type Status = isize;
     type Word = usize;
     #[arch(X64)]

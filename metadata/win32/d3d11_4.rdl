@@ -82,7 +82,7 @@ mod Windows {
         }
         #[guid(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e)]
         interface ID3D11VideoContext3: ID3D11VideoContext2 {
-            fn DecoderBeginFrame1(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] pView: ID3D11VideoDecoderOutputView, ContentKeySize: UINT, #[in] #[opt] #[readable(entry, bytes(ContentKeySize))] pContentKey: *const void, #[range(entry, 0..=4)] NumComponentHistograms: UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] pHistogramOffsets: *const UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] ppHistogramBuffers: *const ID3D11Buffer) -> HRESULT;
+            fn DecoderBeginFrame1(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] pView: ID3D11VideoDecoderOutputView, ContentKeySize: UINT, #[in] #[opt] #[readable(entry, bytes(ContentKeySize))] pContentKey: *const void, NumComponentHistograms: UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] pHistogramOffsets: *const UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] ppHistogramBuffers: *const ID3D11Buffer) -> HRESULT;
             fn SubmitDecoderBuffers2(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] NumBuffers: UINT, #[in] #[readable(entry, NumBuffers)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> HRESULT;
         }
         #[guid(0x59c0cb01_35f0_4a70_8f67_87905c906a53)]

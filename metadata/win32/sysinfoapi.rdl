@@ -21,15 +21,12 @@ mod Windows {
             DeveloperDriveDisabledByGroupPolicy = 3,
         }
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn DnsHostnameToComputerNameExW(#[in] Hostname: LPCWSTR, #[opt] #[out] #[readable(success, *nSize + 1)] #[writable(entry, *nSize)] ComputerName: LPWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn EnumSystemFirmwareTables(#[in] FirmwareTableProviderSignature: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, bytes(BufferSize))] pFirmwareTableEnumBuffer: PVOID, #[in] BufferSize: DWORD) -> UINT;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetComputerNameExA(#[in] NameType: COMPUTER_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize + 1)] #[writable(entry, *nSize)] lpBuffer: LPSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetComputerNameExW(#[in] NameType: COMPUTER_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize + 1)] #[writable(entry, *nSize)] lpBuffer: LPWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("api-ms-win-core-sysinfo-l1-2-7.dll")]
         extern fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE;
@@ -48,7 +45,6 @@ mod Windows {
         #[library("api-ms-win-core-sysinfo-l1-2-0.dll")]
         extern fn GetOsSafeBootMode(#[out] Flags: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetPhysicallyInstalledSystemMemory(#[out] TotalMemoryInKilobytes: PULONGLONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetProcessorSystemCycleTime(#[in] Group: USHORT, #[opt] #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(*ReturnedLength))] Buffer: PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, #[in] #[out] ReturnedLength: PDWORD) -> BOOL;
@@ -69,10 +65,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetSystemTime(#[out] lpSystemTime: LPSYSTEMTIME);
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetSystemTimeAdjustment(#[out] lpTimeAdjustment: PDWORD, #[out] lpTimeIncrement: PDWORD, #[out] lpTimeAdjustmentDisabled: PBOOL) -> BOOL;
         #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
-        #[success(return != 0)]
         extern fn GetSystemTimeAdjustmentPrecise(#[out] lpTimeAdjustment: PDWORD64, #[out] lpTimeIncrement: PDWORD64, #[out] lpTimeAdjustmentDisabled: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemTimeAsFileTime(#[out] lpSystemTimeAsFileTime: LPFILETIME);
@@ -154,10 +148,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetSystemTime(#[in] lpSystemTime: *const SYSTEMTIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn SetSystemTimeAdjustment(#[in] dwTimeAdjustment: DWORD, #[in] bTimeAdjustmentDisabled: BOOL) -> BOOL;
         #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
-        #[success(return != 0)]
         extern fn SetSystemTimeAdjustmentPrecise(#[in] dwTimeAdjustment: DWORD64, #[in] bTimeAdjustmentDisabled: BOOL) -> BOOL;
         const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: i32 = 2;
         const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: i32 = 17;

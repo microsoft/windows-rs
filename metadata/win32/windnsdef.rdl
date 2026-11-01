@@ -663,7 +663,6 @@ mod Windows {
             wPort: WORD,
             Pad: WORD,
         }
-        #[success(return == 0)]
         type DNS_STATUS = i32;
         struct DNS_SVCB_DATA {
             wSvcPriority: WORD,

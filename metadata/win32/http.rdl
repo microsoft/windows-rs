@@ -1163,12 +1163,10 @@ mod Windows {
         #[library("HTTPAPI.dll")]
         extern fn HttpQueryRequestQueueProperty(#[in] RequestQueueHandle: HANDLE, #[in] Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, #[in] PropertyInformationLength: ULONG, #[reserved] Reserved1: ULONG, #[opt] #[out] ReturnLength: PULONG, #[reserved] Reserved2: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        #[success(return == 0)]
         extern fn HttpQueryServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
         extern fn HttpQueryServiceConfiguration(#[reserved] ServiceHandle: HANDLE, #[in] ConfigId: HTTP_SERVICE_CONFIG_ID, #[in] #[opt] #[readable(entry, bytes(InputLength))] pInput: PVOID, #[in] InputLength: ULONG, #[opt] #[out] #[readable(success, bytes(if_present(*pReturnLength)))] #[writable(entry, bytes(OutputLength))] pOutput: PVOID, #[in] OutputLength: ULONG, #[opt] #[out] pReturnLength: PULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        #[success(return == 0)]
         extern fn HttpQueryUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
         extern fn HttpReadFragmentFromCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, ByteRange: PHTTP_BYTE_RANGE, #[out] #[readable(success, bytes(if_present(*BytesRead)))] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, BufferLength: ULONG, #[opt] #[out] BytesRead: PULONG, Overlapped: LPOVERLAPPED) -> ULONG;

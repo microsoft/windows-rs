@@ -29,7 +29,6 @@ _Success_(return != 0) _Check_return_ BOOL WINAPI ReadPayload(
 ```rust
 #[library("example.dll")]
 #[must_use]
-#[success(return != 0)]
 extern fn ReadPayload(
     #[in] #[readable(entry, count)] values: *const i32,
     #[in] count: u32,
@@ -49,8 +48,8 @@ pub unsafe fn ReadPayload(
 ```
 
 `values` becomes a slice because its count is a direct entry parameter. `buffer` keeps a pointer
-because its count is read through `*size`. `success` is preserved in metadata without changing the
-Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[must_use]`.
+because its count is read through `*size`. `_Success_` is not published; it only grounds `retval`
+inference. `must_use` adds no attribute here because `BOOL` is already `#[must_use]`.
 
 ## Principles
 
@@ -75,11 +74,10 @@ Rust signature. `must_use` adds no attribute here because `BOOL` is already `#[m
 | Direction | `_In_`, `_Out_`, `_Inout_`; MIDL `[in]`, `[out]` | `in`, `out` | Param flags `In`, `Out` | Input and output projection; missing direction stays unspecified |
 | Optional argument | SAL `_opt_` forms; MIDL `[optional]` | `opt` | Param flag `Optional` | `Option` for pointer parameters |
 | Reserved argument | `_Reserved_` | `reserved` | `Reserved` | Handled like an optional argument; the value is not enforced |
-| Result parameter | MIDL `[retval]`; trailing `_COM_Outptr_`, or `_Outptr_` to an interface, when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result, subject to eligibility checks |
-| Returned pointer | `_Outptr_` forms; `__RPC__deref_out*` | `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer` | Result and query eligibility |
-| COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection when eligible |
-| Nullable pointer | `_Outptr_` and `_COM_Outptr_` `maybenull` forms; `__deref_[opt_]out_opt`, `_Deref_[opt_]out_opt_`; `__RPC__deref_out_opt_string`, `__RPC__deref_out_ecount_*_opt`; `_Ret_maybenull_`; `_Maybenull_` on fields | `nullable` | `Nullable` | `Option<T>` for COM query results |
-| Integer range | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `_Ret_range_`, `_Field_range_`; `__RPC__in_range` | `range(entry, 0..=15)` | `IntegerRange` | - |
+| Result parameter | MIDL `[retval]`; a required non-null `_COM_Outptr_`, or `_Outptr_` to an interface, as the trailing typed `T**` when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result when also `out` only, not `opt` or `reserved`, and free of `BufferExtent` and `incomplete` |
+| Returned pointer | `_Outptr_` forms, `__deref_out`, `_Deref_out_`, `__RPC__deref_out*`; `_COM_Outptr_` and `_Outptr_result_nullonfailure_` add `null_on_failure` | `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer` | `null_on_failure` makes COM implementations clear the output on error |
+| COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection with a trailing `*const GUID` input |
+| Nullable pointer | `_Outptr_` and `_COM_Outptr_` `maybenull` forms; `__deref_[opt_]out_opt`, `_Deref_[opt_]out_opt_`; `__RPC__deref_out_opt_string`, `__RPC__deref_out_ecount_*_opt`; `_Ret_maybenull_`; `_Maybenull_` and `_Field_size_*_opt_` on fields | `nullable` | `Nullable` | `Option<T>` for interface results |
 
 `opt` lets the caller pass a null argument. `nullable` records that the API may produce null: the
 pointer stored through an `out` parameter, a return value, or a field. Absence does not promise
@@ -93,8 +91,8 @@ transfer.
 
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
-| Buffer extent | `_In_reads_`, `_Out_writes_`, `_Inout_updates_` and their `_bytes_`, `_to_`, `_opt_` forms; `_Field_size_`; RPC `__RPC__in_ecount_full` and related | `readable(...)`, `writable(...)` | `BufferExtent` | Slices for direct entry counts; blocks scalar-result and query inference |
-| Termination | `_z_` forms, `_NullNull_terminated_`; RPC `__RPC__in_string` and related | `null_terminated(entry, double_success)` | `NullTerminated` | - |
+| Buffer extent | `_In_reads_`, `_Out_writes_`, `_Inout_updates_` and their `_bytes_`, `_to_`, `_opt_` forms; `_Field_size_`; RPC `__RPC__in_ecount_full` and related | `readable(...)`, `writable(...)` | `BufferExtent` | Slices for direct entry counts; blocks `retval` and query projection |
+| Termination | Parameter `_z_` forms; `_Pre_` or `_Post_` with `_Null_terminated_` or `_NullNull_terminated_`; RPC `__RPC__in_string` and related | `null_terminated(entry, double_success)` | `NullTerminated` | - |
 | String encoding | Character type of a string constant or field | `encoding("ansi")` | `Encoding` | `"ansi"` selects narrow string constants |
 
 ### Extent model
@@ -140,7 +138,7 @@ Conflicting supported counts fail rather than selecting one.
 | `or(..., fallback)` | `NullFallbackParamIndex` |
 | `on_entry(...)` | `CountOnEntry` |
 
-`CountExpression` and `IntegerRange` bounds use versioned postfix text, separated by single spaces
+`CountExpression` uses versioned postfix text, separated by single spaces
 and starting with `v1`. Unknown versions must not be interpreted.
 
 | Token | Meaning |
@@ -160,7 +158,6 @@ promotions apply; signed overflow is not mathematical arithmetic.
 
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
-| Success predicate | `_Success_`, `_Return_type_success_` | `success(return >= 0)` | `SuccessCondition` | - ; does not drive `Result` conversion |
 | Inspect result | `_Check_return_`, `_Must_inspect_result_` | `must_use` | `MustUse` | `#[must_use]` unless the wrapper returns `()`, `Result` or a type that is already `#[must_use]` |
 | Never returns | `__declspec(noreturn)`, `[[noreturn]]` | `noreturn` | `DoesNotReturn` | `-> !` |
 | Calling convention | Compiler ABI | `extern fn` (system), `extern "C" fn` | Signature and ImplMap | `extern "system"` or `extern "C"` |
@@ -198,7 +195,10 @@ after bitfield lowering.
 
 | Fact | Header | RDL | Metadata | Bindgen |
 | --- | --- | --- | --- | --- |
-| Incomplete contract | Parameter SAL without a canonical family: `_When_`, `_At_`, unsupported counts | `incomplete` | `Incomplete` | Blocks slice, scalar-result and query inference on the parameter |
+| Incomplete contract | Parameter SAL without a canonical family: `_When_`, `_At_`, unsupported counts | `incomplete` | `Incomplete` | Raw pointer; blocks slice, `retval` and query projection, including slices counted by the parameter |
+
+`_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` and its byte form are the exception: they
+publish `readable(success, unknown(), indirect)` and do not mark the parameter `incomplete`.
 
 Other SAL is not published. This covers static-analysis directives such as `_IRQL_*_`,
 `_Function_class_` and locking annotations, and SAL on owners without a family, such as `_In_` on a
@@ -214,9 +214,14 @@ These parameter directives state no caller-visible contract and do not mark the 
 | `_Scanf_format_string_`, `_Scanf_s_format_string_` | Format string checking |
 | `_IRQL_uses_cancel_` | Driver cancel-lock checking |
 | `_Strict_type_match` | Argument type checking |
+| `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`; `__RPC__in_range` | Value range checking |
 
-Value ranges, null-state and validity annotations are contracts; when they cannot be published they
-still mark the parameter `incomplete`.
+`_Success_` and `_Return_type_success_` are not published either; a `return >= 0` condition only
+grounds `retval` inference. Return and field ranges, such as `_Ret_range_` and `_Field_range_`, are
+dropped with other SAL on owners without a family. Null-state and validity annotations are
+contracts; when they cannot be published they still mark the parameter `incomplete`.
+`__declspec(nothrow)` and `__declspec(allocator)` must agree across observations but are not
+published.
 
 ## Bindgen boundary
 
@@ -224,10 +229,12 @@ Metadata never authorizes a projection on its own. Bindgen applies these rules:
 
 | Metadata on a parameter | Bindgen |
 | --- | --- |
-| `BufferExtent` with a direct entry count, matching direction and type | Slice, with the count parameter hidden |
-| Any other `BufferExtent` | Raw pointer, except interface inputs; excluded from scalar-result inference |
-| `readable(success, unknown(), indirect)` | Query projection still allowed |
-| `incomplete` | Raw pointer, except interface inputs; no slice, scalar-result or query inference |
+| `BufferExtent` on `entry` with a constant or by-value input count used by no other buffer | Slice, with the count parameter hidden |
+| Signed count on an `opt` buffer, byte count on wider elements, or output-only buffer | Raw pointer |
+| Any other `BufferExtent` | Raw pointer, except interfaces; no `retval` projection |
+| `readable(success, unknown(), indirect)` with `out_ptr` | Query projection still allowed |
+| `incomplete` | Raw pointer, except interfaces; no slice, `retval` or query projection |
+| `retval` | Rust result only when the parameter is also eligible; otherwise ignored |
 | `opt` or `reserved` | `Option` for pointers, independently of any buffer contract |
 
 ## `_Win32_*` macros

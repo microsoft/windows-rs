@@ -1885,7 +1885,6 @@ mod Windows {
         extern fn FAST_IO_ACQUIRE_FILE(#[in] FileObject: *mut FILE_OBJECT);
         extern fn FAST_IO_ACQUIRE_FOR_CCFLUSH(#[in] FileObject: *mut FILE_OBJECT, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
         extern fn FAST_IO_ACQUIRE_FOR_MOD_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] EndingOffset: PLARGE_INTEGER, #[out] ResourceToRelease: *mut *mut ERESOURCE, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
-        #[success(return != 0)]
         extern fn FAST_IO_CHECK_IF_POSSIBLE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[in] CheckForReadOperation: BOOLEAN, #[incomplete] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_DETACH_DEVICE(#[in] SourceDevice: *mut DEVICE_OBJECT, #[in] TargetDevice: *mut DEVICE_OBJECT);
         extern fn FAST_IO_DEVICE_CONTROL(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[in] #[opt] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG, #[in] IoControlCode: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
@@ -1926,12 +1925,9 @@ mod Windows {
         extern fn FAST_IO_MDL_WRITE_COMPLETE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] MdlChain: PMDL, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] MdlChain: PMDL, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_PREPARE_MDL_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn FAST_IO_QUERY_BASIC_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_BASIC_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn FAST_IO_QUERY_NETWORK_OPEN_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: *mut FILE_NETWORK_OPEN_INFORMATION, #[out] IoStatus: *mut IO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_QUERY_OPEN(#[in] #[out] Irp: *mut IRP, #[out] NetworkInformation: PFILE_NETWORK_OPEN_INFORMATION, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn FAST_IO_QUERY_STANDARD_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_STANDARD_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_READ(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
@@ -2349,7 +2345,7 @@ mod Windows {
         extern fn GET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
         extern fn GET_IDLE_WAKE_INFO(#[in] #[incomplete] #[opt] Context: PVOID, #[in] SystemPowerState: SYSTEM_POWER_STATE, #[out] DeepestWakeableDstate: PDEVICE_WAKE_DEPTH) -> NTSTATUS;
         extern fn GET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
-        extern fn GET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[incomplete] Length: ULONG) -> ULONG;
+        extern fn GET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
         extern fn GET_UPDATED_BUS_RESOURCE(#[in] #[incomplete] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
         extern fn GET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn GET_VIRTUAL_DEVICE_LOCATION(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] SegmentNumber: PUINT16, #[out] BusNumber: PUINT8, #[out] FunctionNumber: PUINT8) -> NTSTATUS;
@@ -4259,7 +4255,6 @@ mod Windows {
         type KTRANSACTION = _KTRANSACTION;
         struct KTRIAGE_DUMP_DATA_ARRAY {
             List: LIST_ENTRY,
-            #[range(0..=NumBlocksTotal)]
             NumBlocksUsed: ULONG,
             NumBlocksTotal: ULONG,
             DataSize: ULONG,
@@ -6219,7 +6214,6 @@ mod Windows {
         extern fn PFAST_IO_ACQUIRE_FILE(#[in] FileObject: *mut FILE_OBJECT);
         extern fn PFAST_IO_ACQUIRE_FOR_CCFLUSH(#[in] FileObject: *mut FILE_OBJECT, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
         extern fn PFAST_IO_ACQUIRE_FOR_MOD_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] EndingOffset: PLARGE_INTEGER, #[out] ResourceToRelease: *mut *mut ERESOURCE, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
-        #[success(return != 0)]
         extern fn PFAST_IO_CHECK_IF_POSSIBLE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[in] CheckForReadOperation: BOOLEAN, #[incomplete] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_DETACH_DEVICE(#[in] SourceDevice: *mut DEVICE_OBJECT, #[in] TargetDevice: *mut DEVICE_OBJECT);
         extern fn PFAST_IO_DEVICE_CONTROL(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[in] #[opt] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG, #[in] IoControlCode: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
@@ -6231,12 +6225,9 @@ mod Windows {
         extern fn PFAST_IO_MDL_WRITE_COMPLETE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] MdlChain: PMDL, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] MdlChain: PMDL, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_PREPARE_MDL_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn PFAST_IO_QUERY_BASIC_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_BASIC_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn PFAST_IO_QUERY_NETWORK_OPEN_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: *mut FILE_NETWORK_OPEN_INFORMATION, #[out] IoStatus: *mut IO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_QUERY_OPEN(#[in] #[out] Irp: *mut IRP, #[out] NetworkInformation: PFILE_NETWORK_OPEN_INFORMATION, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        #[success(return != 0)]
         extern fn PFAST_IO_QUERY_STANDARD_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_STANDARD_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_READ(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
@@ -6304,7 +6295,7 @@ mod Windows {
         extern fn PGET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
         extern fn PGET_IDLE_WAKE_INFO(#[in] #[incomplete] #[opt] Context: PVOID, #[in] SystemPowerState: SYSTEM_POWER_STATE, #[out] DeepestWakeableDstate: PDEVICE_WAKE_DEPTH) -> NTSTATUS;
         extern fn PGET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
-        extern fn PGET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[incomplete] Length: ULONG) -> ULONG;
+        extern fn PGET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
         extern fn PGET_UPDATED_BUS_RESOURCE(#[in] #[incomplete] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
         extern fn PGET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn PGET_VIRTUAL_DEVICE_LOCATION(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] SegmentNumber: PUINT16, #[out] BusNumber: PUINT8, #[out] FunctionNumber: PUINT8) -> NTSTATUS;
@@ -7264,7 +7255,6 @@ mod Windows {
         extern fn PTM_DEVICE_QUERY_TIME_SOURCE(#[in] Context: PVOID, #[out] TimeSource: PULONG) -> NTSTATUS;
         extern fn PTM_PROPAGATE_ROUTINE(#[in] PropagationCookie: PVOID, #[in] CallbackData: PVOID, #[in] PropagationStatus: NTSTATUS, #[in] TransactionGuid: GUID) -> NTSTATUS;
         extern fn PTM_RM_NOTIFICATION(#[in] EnlistmentObject: PKENLISTMENT, #[in] RMContext: PVOID, #[in] TransactionContext: PVOID, #[in] TransactionNotification: ULONG, #[in] #[out] TmVirtualClock: PLARGE_INTEGER, #[in] ArgumentLength: ULONG, #[in] Argument: PVOID) -> NTSTATUS;
-        #[success(return != 0)]
         extern fn PTRANSLATE_BUS_ADDRESS(#[in] #[opt] #[out] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
         extern fn PUNREGISTER_FOR_DEVICE_NOTIFICATIONS(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK);
         extern fn PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2(Context: PVOID);
@@ -7670,9 +7660,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlClearAllBits(#[in] BitMapHeader: PRTL_BITMAP);
         #[library("ntdll.dll")]
-        extern fn RtlClearBit(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] BitNumber: ULONG);
+        extern fn RtlClearBit(#[in] BitMapHeader: PRTL_BITMAP, BitNumber: ULONG);
         #[library("ntdll.dll")]
-        extern fn RtlClearBits(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] StartingIndex: ULONG, #[incomplete] NumberToClear: ULONG);
+        extern fn RtlClearBits(#[in] BitMapHeader: PRTL_BITMAP, StartingIndex: ULONG, NumberToClear: ULONG);
         #[library("ntdll.dll")]
         extern fn RtlCmDecodeMemIoResource(#[in] Descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[opt] #[out] Start: PULONGLONG) -> ULONGLONG;
         #[library("ntdll.dll")]
@@ -7684,7 +7674,7 @@ mod Windows {
         #[must_use]
         extern fn RtlCompareUnicodeStrings(#[in] #[readable(entry, String1Length)] String1: PCWCH, #[in] String1Length: SIZE_T, #[in] #[readable(entry, String2Length)] String2: PCWCH, #[in] String2Length: SIZE_T, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlCopyBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, #[incomplete] TargetBit: ULONG);
+        extern fn RtlCopyBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, TargetBit: ULONG);
         #[library("ntdll.dll")]
         extern fn RtlCopyUnicodeString(#[in] #[out] DestinationString: PUNICODE_STRING, #[in] #[opt] SourceString: PCUNICODE_STRING);
         #[library("ntdll.dll")]
@@ -7708,14 +7698,14 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlExtendedMagicDivide(#[in] Dividend: LARGE_INTEGER, #[in] MagicDivisor: LARGE_INTEGER, #[in] ShiftCount: CCHAR) -> LARGE_INTEGER;
         #[library("ntdll.dll")]
-        extern fn RtlExtractBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, #[incomplete] TargetBit: ULONG, #[incomplete] NumberOfBits: ULONG);
+        extern fn RtlExtractBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, TargetBit: ULONG, NumberOfBits: ULONG);
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlFindClearBits(#[in] BitMapHeader: PRTL_BITMAP, #[in] NumberToFind: ULONG, #[in] HintIndex: ULONG) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlFindClearBitsAndSet(#[in] BitMapHeader: PRTL_BITMAP, #[in] NumberToFind: ULONG, #[in] HintIndex: ULONG) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn RtlFindClearRuns(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] #[out] #[writable(entry, SizeOfRunArray)] RunArray: PRTL_BITMAP_RUN, #[range(entry, >0)] SizeOfRunArray: ULONG, #[in] LocateLongestRuns: BOOLEAN) -> ULONG;
+        extern fn RtlFindClearRuns(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] #[out] #[writable(entry, SizeOfRunArray)] RunArray: PRTL_BITMAP_RUN, SizeOfRunArray: ULONG, #[in] LocateLongestRuns: BOOLEAN) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlFindClosestEncodableLength(#[in] SourceLength: ULONGLONG, #[out] TargetLength: PULONGLONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -7775,9 +7765,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlSetAllBits(#[in] BitMapHeader: PRTL_BITMAP);
         #[library("ntdll.dll")]
-        extern fn RtlSetBit(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] BitNumber: ULONG);
+        extern fn RtlSetBit(#[in] BitMapHeader: PRTL_BITMAP, BitNumber: ULONG);
         #[library("ntdll.dll")]
-        extern fn RtlSetBits(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] StartingIndex: ULONG, #[incomplete] NumberToSet: ULONG);
+        extern fn RtlSetBits(#[in] BitMapHeader: PRTL_BITMAP, StartingIndex: ULONG, NumberToSet: ULONG);
         #[library("ntdll.dll")]
         extern fn RtlSetDaclSecurityDescriptor(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] DaclPresent: BOOLEAN, #[in] #[opt] Dacl: PACL, #[in] DaclDefaulted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -7785,9 +7775,8 @@ mod Windows {
         extern fn RtlStringFromGUID(#[in] Guid: &GUID, #[incomplete] #[out] GuidString: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlTestBit(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] BitNumber: ULONG) -> BOOLEAN;
+        extern fn RtlTestBit(#[in] BitMapHeader: PRTL_BITMAP, BitNumber: ULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
-        #[success(return != 0)]
         extern fn RtlTimeFieldsToTime(#[in] TimeFields: PTIME_FIELDS, #[out] Time: PLARGE_INTEGER) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlTimeToTimeFields(#[in] Time: PLARGE_INTEGER, #[out] TimeFields: PTIME_FIELDS);
@@ -8046,7 +8035,6 @@ mod Windows {
             WdfNotifyRoutinesClass = 15,
             MaxTraceInformationClass = 16,
         }
-        #[success(return != 0)]
         extern fn TRANSLATE_BUS_ADDRESS(#[in] #[opt] #[out] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
         const TREE_CONNECT_NO_CLIENT_BUFFERING: i32 = 8;
         const TREE_CONNECT_WRITE_THROUGH: i32 = 2;

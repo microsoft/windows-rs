@@ -29,7 +29,6 @@ mod Windows {
         extern fn InitiateSystemShutdownExW(#[in] #[opt] lpMachineName: LPWSTR, #[in] #[opt] lpMessage: LPWSTR, #[in] dwTimeout: DWORD, #[in] bForceAppsClosed: BOOL, #[in] bRebootAfterShutdown: BOOL, #[in] dwReason: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn InitiateSystemShutdownW(#[in] #[opt] lpMachineName: LPWSTR, #[in] #[opt] lpMessage: LPWSTR, #[in] dwTimeout: DWORD, #[in] bForceAppsClosed: BOOL, #[in] bRebootAfterShutdown: BOOL) -> BOOL;
-        #[success(return == 0)]
         type LSTATUS = i32;
         const MAX_SHUTDOWN_TIMEOUT: i32 = 315360000;
         type PPROVIDER = *mut REG_PROVIDER;

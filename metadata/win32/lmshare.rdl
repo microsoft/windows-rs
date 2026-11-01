@@ -61,7 +61,6 @@ mod Windows {
         extern fn NetFileEnum(#[in] #[opt] servername: LPWSTR, #[in] #[opt] basepath: LPWSTR, #[in] #[opt] username: LPWSTR, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn NetFileGetInfo(#[in] #[opt] servername: LPWSTR, #[in] fileid: DWORD, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]
@@ -80,7 +79,6 @@ mod Windows {
         extern fn NetSessionEnum(#[in] #[opt] servername: LPWSTR, #[in] #[opt] UncClientName: LPWSTR, #[in] #[opt] username: LPWSTR, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn NetSessionGetInfo(#[in] #[opt] servername: LPWSTR, #[in] UncClientName: LPWSTR, #[in] username: LPWSTR, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]

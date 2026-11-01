@@ -74,7 +74,6 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DSA_EnumCallback(#[in] hdsa: HDSA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn DSA_GetItem(#[in] hdsa: HDSA, #[in] i: i32, #[incomplete] #[out] pitem: *mut void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DSA_GetItemPtr(#[in] hdsa: HDSA, #[in] i: i32) -> PVOID;
@@ -83,7 +82,6 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DSA_InsertItem(#[in] #[out] hdsa: HDSA, #[in] i: i32, #[in] pitem: *const void) -> i32;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn DSA_SetItem(#[in] #[out] hdsa: HDSA, #[in] i: i32, #[in] pitem: *const void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DSA_Sort(#[in] #[out] pdsa: HDSA, #[in] pfnCompare: PFNDACOMPARE, #[in] lParam: LPARAM) -> BOOL;

@@ -413,7 +413,6 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn GetMUILanguage() -> LANGID;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn GetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[opt] #[out] pdwRefData: *mut DWORD_PTR) -> BOOL;
         const HBITMAP_CALLBACK: HBITMAP = -1;
         const HDFT_HASNOVALUE: i32 = 32768;
@@ -796,17 +795,14 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetBkColor(#[in] himl: HIMAGELIST) -> COLORREF;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn ImageList_GetDragImage(#[opt] #[out] ppt: *mut POINT, #[opt] #[out] pptHotspot: *mut POINT) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetIcon(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] flags: UINT) -> HICON;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn ImageList_GetIconSize(#[in] himl: HIMAGELIST, #[opt] #[out] cx: *mut i32, #[opt] #[out] cy: *mut i32) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetImageCount(#[in] himl: HIMAGELIST) -> i32;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn ImageList_GetImageInfo(#[in] himl: HIMAGELIST, #[in] i: i32, #[out] pImageInfo: *mut IMAGEINFO) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_LoadImageA(hi: HINSTANCE, lpbmp: LPCSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: UINT, uFlags: UINT) -> HIMAGELIST;
@@ -829,7 +825,6 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn ImageList_SetDragCursorImage(#[in] himlDrag: HIMAGELIST, #[in] iDrag: i32, #[in] dxHotspot: i32, #[in] dyHotspot: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn ImageList_SetIconSize(#[in] himl: HIMAGELIST, #[in] cx: i32, #[in] cy: i32) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_SetImageCount(#[in] himl: HIMAGELIST, #[in] uNewCount: UINT) -> BOOL;
@@ -2782,7 +2777,6 @@ mod Windows {
             himl: HIMAGELIST,
         }
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn RemoveWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR) -> BOOL;
         const SBARS_SIZEGRIP: i32 = 256;
         const SBARS_TOOLTIPS: i32 = 2048;
@@ -2846,7 +2840,6 @@ mod Windows {
         const STD_UNDO: i32 = 3;
         extern fn SUBCLASSPROC(hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM, uIdSubclass: UINT_PTR, dwRefData: DWORD_PTR) -> LRESULT;
         #[library("COMCTL32.dll")]
-        #[success(return != 0)]
         extern fn SetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[in] dwRefData: DWORD_PTR) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated(entry)] lpInfo: LPINT) -> BOOL;

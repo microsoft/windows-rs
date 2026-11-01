@@ -93,36 +93,13 @@ impl Encoder<'_> {
         &mut self,
         return_attrs: &[syn::Attribute],
         result: &metadata::Type,
-        params: &[Param],
     ) -> Result<(), Error> {
         if !return_attrs.is_empty() {
-            let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
-            let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
             let param_id = self
                 .output
                 .Param("", 0, metadata::ParamAttributes::default());
             for attr in return_attrs {
-                if attr.path().is_ident("range") {
-                    let range = integer_range::parse_integer_range(attr, &names, false)
-                        .map_err(|error| self.error(error.span(), &error.to_string()))?;
-                    if range.phase != metadata::BufferPhase::Success || range.indirect {
-                        return self.err(
-                            attr,
-                            "return range requires success phase without indirection",
-                        );
-                    }
-                    self.encode_integer_range(
-                        metadata::writer::HasAttribute::Param(param_id),
-                        attr,
-                        &names,
-                        &attribute_ref::ExtentTypes {
-                            counts: &types,
-                            subject: result,
-                            result: Some(result),
-                        },
-                        &range,
-                    )?;
-                } else if attr.path().is_ident("nullable") {
+                if attr.path().is_ident("nullable") {
                     self.emit_value_nullable(
                         metadata::writer::HasAttribute::Param(param_id),
                         attr,
@@ -136,7 +113,7 @@ impl Encoder<'_> {
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 return_attrs,
-                &["nullable", "range"],
+                &["nullable"],
             )?;
         }
         Ok(())
@@ -182,9 +159,8 @@ impl Encoder<'_> {
                     result: Some(result),
                 },
             )?;
-            let mut skip: Vec<&str> = vec![
-                "r#in", "out", "opt", "readable", "writable", "nullable", "range",
-            ];
+            let mut skip: Vec<&str> =
+                vec!["r#in", "out", "opt", "readable", "writable", "nullable"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),

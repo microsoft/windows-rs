@@ -506,7 +506,6 @@ mod Fixture {
     type CHAR = i8;
     type DWORD = u32;
     type DWORDLONG = u64;
-    #[success(return >= 0)]
     type HRESULT = i32;
     type INT_PTR = isize;
     type LONG_PTR = isize;

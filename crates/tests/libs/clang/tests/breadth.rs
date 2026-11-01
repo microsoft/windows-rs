@@ -2640,18 +2640,6 @@ fn buffer_postcondition_residuals() {
             if name == "OptionalCount" {
                 assert!(method.params().nth(2).unwrap().is_optional());
             }
-            if name == "Successful" {
-                assert_eq!(
-                    owner
-                        .find_attribute("SuccessConditionAttribute")
-                        .unwrap()
-                        .value(),
-                    vec![(
-                        String::new(),
-                        windows_rdl::emit::SuccessCondition::NotEqualZero.to_value()
-                    )]
-                );
-            }
         }
     });
     let mut inputs = [

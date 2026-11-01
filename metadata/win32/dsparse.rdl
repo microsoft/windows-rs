@@ -27,7 +27,6 @@ mod Windows {
         extern fn DsCrackUnquotedMangledRdnW(#[in] #[readable(entry, cchRDN)] pszRDN: LPCWSTR, cchRDN: DWORD, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsGetRdnW(#[in] #[incomplete] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut DWORD, #[out] #[writable(success, *pcKey, indirect)] ppKey: *mut LPCWCH, #[out] pcKey: *mut DWORD, #[out] #[writable(success, *pcVal, indirect)] ppVal: *mut LPCWCH, #[out] pcVal: *mut DWORD) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsIsMangledDnA(#[in] pszDn: LPCSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
@@ -39,27 +38,21 @@ mod Windows {
         extern fn DsIsMangledRdnValueW(#[in] #[readable(entry, cRdn)] pszRdn: LPCWSTR, cRdn: DWORD, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsMakeSpnA(#[in] ServiceClass: LPCSTR, #[in] ServiceName: LPCSTR, #[in] #[opt] InstanceName: LPCSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[opt] #[out] #[readable(success, *pcSpnLength)] #[writable(entry, *pcSpnLength)] pszSpn: LPSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsMakeSpnW(#[in] ServiceClass: LPCWSTR, #[in] ServiceName: LPCWSTR, #[in] #[opt] InstanceName: LPCWSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[opt] #[out] #[readable(success, *pcSpnLength)] #[writable(entry, *pcSpnLength)] pszSpn: LPWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsQuoteRdnValueA(cUnquotedRdnValueLength: DWORD, #[in] #[readable(entry, cUnquotedRdnValueLength)] psUnquotedRdnValue: LPCCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcQuotedRdnValueLength)] #[writable(entry, *pcQuotedRdnValueLength)] psQuotedRdnValue: LPCH) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsQuoteRdnValueW(cUnquotedRdnValueLength: DWORD, #[in] #[readable(entry, cUnquotedRdnValueLength)] psUnquotedRdnValue: LPCWCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcQuotedRdnValueLength)] #[writable(entry, *pcQuotedRdnValueLength)] psQuotedRdnValue: LPWCH) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsUnquoteRdnValueA(cQuotedRdnValueLength: DWORD, #[in] #[readable(entry, cQuotedRdnValueLength)] psQuotedRdnValue: LPCCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcUnquotedRdnValueLength)] #[writable(entry, *pcUnquotedRdnValueLength)] psUnquotedRdnValue: LPCH) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn DsUnquoteRdnValueW(cQuotedRdnValueLength: DWORD, #[in] #[readable(entry, cQuotedRdnValueLength)] psQuotedRdnValue: LPCWCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcUnquotedRdnValueLength)] #[writable(entry, *pcUnquotedRdnValueLength)] psUnquotedRdnValue: LPWCH) -> DWORD;
     }
 }

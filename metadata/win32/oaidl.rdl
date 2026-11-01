@@ -237,7 +237,7 @@ mod Windows {
         interface IDispatch: IUnknown {
             fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
             fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
-            fn GetIDsOfNames(&self, #[in] riid: &IID, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] #[range(entry, 0..=16384)] cNames: UINT, #[in] lcid: LCID, #[out] #[readable(success, cNames)] #[writable(entry, cNames)] #[writable(success, cNames)] rgDispId: *mut DISPID) -> HRESULT;
+            fn GetIDsOfNames(&self, #[in] riid: &IID, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[in] lcid: LCID, #[out] #[readable(success, cNames)] #[writable(entry, cNames)] #[writable(success, cNames)] rgDispId: *mut DISPID) -> HRESULT;
             fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[opt] #[out] pVarResult: *mut VARIANT, #[opt] #[out] pExcepInfo: *mut EXCEPINFO, #[opt] #[out] puArgErr: *mut UINT) -> HRESULT;
         }
         #[guid(0x00020404_0000_0000_c000_000000000046)]

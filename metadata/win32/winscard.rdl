@@ -270,7 +270,6 @@ mod Windows {
         #[library("WinSCard.dll")]
         extern fn SCardAddReaderToGroupW(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCWSTR, #[in] szGroupName: LPCWSTR) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardAudit(#[in] hContext: SCARDCONTEXT, #[in] dwEvent: DWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardBeginTransaction(#[in] hCard: SCARDHANDLE) -> LONG;
@@ -307,16 +306,12 @@ mod Windows {
         #[library("WinSCard.dll")]
         extern fn SCardGetAttrib(#[in] hCard: SCARDHANDLE, #[in] dwAttrId: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbAttrLen))] pbAttr: LPBYTE, #[in] #[out] pcbAttrLen: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetCardTypeProviderNameA(#[in] hContext: SCARDCONTEXT, #[in] szCardName: LPCSTR, #[in] dwProviderId: DWORD, #[incomplete] szProvider: *mut CHAR, #[in] #[out] pcchProvider: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetCardTypeProviderNameW(#[in] hContext: SCARDCONTEXT, #[in] szCardName: LPCWSTR, #[in] dwProviderId: DWORD, #[incomplete] szProvider: *mut WCHAR, #[in] #[out] pcchProvider: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetDeviceTypeIdA(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCSTR, #[in] #[out] pdwDeviceTypeId: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetDeviceTypeIdW(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCWSTR, #[in] #[out] pdwDeviceTypeId: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardGetProviderIdA(#[in] hContext: SCARDCONTEXT, #[in] szCard: LPCSTR, #[out] pguidProviderId: LPGUID) -> LONG;
@@ -325,16 +320,12 @@ mod Windows {
         #[library("WinSCard.dll", import = "SCardGetAttrib")]
         extern fn SCardGetReaderCapabilities(#[in] hCard: SCARDHANDLE, #[in] dwAttrId: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbAttrLen))] pbAttr: LPBYTE, #[in] #[out] pcbAttrLen: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetReaderDeviceInstanceIdA(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCSTR, #[incomplete] szDeviceInstanceId: LPSTR, #[in] #[out] pcchDeviceInstanceId: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetReaderDeviceInstanceIdW(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCWSTR, #[incomplete] szDeviceInstanceId: LPWSTR, #[in] #[out] pcchDeviceInstanceId: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetReaderIconA(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCSTR, #[incomplete] pbIcon: LPBYTE, #[in] #[out] pcbIcon: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardGetReaderIconW(#[in] hContext: SCARDCONTEXT, #[in] szReaderName: LPCWSTR, #[incomplete] pbIcon: LPBYTE, #[in] #[out] pcbIcon: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardGetStatusChangeA(#[in] hContext: SCARDCONTEXT, #[in] dwTimeout: DWORD, #[in] #[out] rgReaderStates: LPSCARD_READERSTATEA, #[in] cReaders: DWORD) -> LONG;
@@ -357,10 +348,8 @@ mod Windows {
         #[library("WinSCard.dll")]
         extern fn SCardIsValidContext(#[in] hContext: SCARDCONTEXT) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListCardsA(#[in] hContext: SCARDCONTEXT, #[in] #[opt] pbAtr: LPCBYTE, #[in] #[opt] #[readable(entry, cguidInterfaceCount)] rgquidInterfaces: LPCGUID, #[in] cguidInterfaceCount: DWORD, #[incomplete] mszCards: *mut CHAR, #[in] #[out] pcchCards: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListCardsW(#[in] hContext: SCARDCONTEXT, #[in] #[opt] pbAtr: LPCBYTE, #[in] #[opt] #[readable(entry, cguidInterfaceCount)] rgquidInterfaces: LPCGUID, #[in] cguidInterfaceCount: DWORD, #[incomplete] mszCards: *mut WCHAR, #[in] #[out] pcchCards: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardListInterfacesA(#[in] hContext: SCARDCONTEXT, #[in] szCard: LPCSTR, #[out] pguidInterfaces: LPGUID, #[in] #[out] pcguidInterfaces: LPDWORD) -> LONG;
@@ -371,16 +360,12 @@ mod Windows {
         #[library("WinSCard.dll")]
         extern fn SCardListReaderGroupsW(#[in] hContext: SCARDCONTEXT, #[null_terminated(double_success)] #[opt] #[out] #[writable(entry, *pcchGroups)] mszGroups: LPWSTR, #[in] #[out] pcchGroups: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListReadersA(#[in] hContext: SCARDCONTEXT, #[in] #[opt] mszGroups: LPCSTR, #[incomplete] mszReaders: LPSTR, #[in] #[out] pcchReaders: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListReadersW(#[in] hContext: SCARDCONTEXT, #[in] #[opt] mszGroups: LPCWSTR, #[incomplete] mszReaders: LPWSTR, #[in] #[out] pcchReaders: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListReadersWithDeviceInstanceIdA(#[in] hContext: SCARDCONTEXT, #[in] szDeviceInstanceId: LPCSTR, #[incomplete] mszReaders: LPSTR, #[in] #[out] pcchReaders: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        #[success(return == 0)]
         extern fn SCardListReadersWithDeviceInstanceIdW(#[in] hContext: SCARDCONTEXT, #[in] szDeviceInstanceId: LPCWSTR, #[incomplete] mszReaders: LPWSTR, #[in] #[out] pcchReaders: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardLocateCardsA(#[in] hContext: SCARDCONTEXT, #[in] mszCards: LPCSTR, #[in] #[out] rgReaderStates: LPSCARD_READERSTATEA, #[in] cReaders: DWORD) -> LONG;

@@ -469,21 +469,16 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhFormatFromRawValue(#[in] dwCounterType: DWORD, #[in] dwFormat: DWORD, #[in] #[opt] pTimeBase: *mut LONGLONG, #[in] pRawValue1: PPDH_RAW_COUNTER, #[in] pRawValue2: PPDH_RAW_COUNTER, #[out] pFmtValue: PPDH_FMT_COUNTERVALUE) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetCounterInfoA(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetCounterInfoW(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_W) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetCounterTimeBase(#[in] hCounter: PDH_HCOUNTER, #[out] pTimeBase: *mut LONGLONG) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetDataSourceTimeRangeA(#[in] #[opt] szDataSource: LPCSTR, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetDataSourceTimeRangeH(#[in] #[opt] #[out] hDataSource: PDH_HLOG, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetDataSourceTimeRangeW(#[in] #[opt] szDataSource: LPCWSTR, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetDefaultPerfCounterA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
@@ -504,10 +499,8 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhGetDllVersion(#[opt] #[out] lpdwVersion: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetFormattedCounterArrayA(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetFormattedCounterArrayW(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_W) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetFormattedCounterValue(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[opt] #[out] lpdwType: LPDWORD, #[out] pValue: PPDH_FMT_COUNTERVALUE) -> PDH_STATUS;
@@ -516,10 +509,8 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhGetLogSetGUID(#[in] hLog: PDH_HLOG, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] pRunId: *mut i32) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetRawCounterArrayA(#[in] hCounter: PDH_HCOUNTER, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_RAW_COUNTER_ITEM_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhGetRawCounterArrayW(#[in] hCounter: PDH_HCOUNTER, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_RAW_COUNTER_ITEM_W) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetRawCounterValue(#[in] hCounter: PDH_HCOUNTER, #[opt] #[out] lpdwType: LPDWORD, #[out] pValue: PPDH_RAW_COUNTER) -> PDH_STATUS;
@@ -548,17 +539,14 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhOpenQueryW(#[in] #[opt] szDataSource: LPCWSTR, #[in] dwUserData: DWORD_PTR, #[out] phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhParseCounterPathA(#[in] szFullPathBuffer: LPCSTR, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_A, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhParseCounterPathW(#[in] szFullPathBuffer: LPCWSTR, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_W, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhParseInstanceNameA(#[in] szInstanceString: LPCSTR, #[opt] #[out] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchParentNameLength)] szParentName: LPSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhParseInstanceNameW(#[in] szInstanceString: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPWSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchParentNameLength)] szParentName: LPWSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        #[success(return == 0)]
         extern fn PdhReadRawLogRecord(#[in] hLog: PDH_HLOG, #[in] ftRecord: FILETIME, #[opt] #[out] #[writable(entry, bytes(*pdwBufferLength))] pRawLogRecord: PPDH_RAW_LOG_RECORD, #[in] #[out] pdwBufferLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhRemoveCounter(#[in] hCounter: PDH_HCOUNTER) -> PDH_STATUS;

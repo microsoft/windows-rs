@@ -416,7 +416,7 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CoInternetParseUrl(pwzUrl: LPCWSTR, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[readable(success, *pcchResult + 1)] #[writable(entry, cchResult)] pszResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CoInternetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[readable(success, bytes(if_present(*pcbBuffer)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: LPVOID, #[incomplete] cbBuffer: DWORD, #[opt] #[out] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
+        extern fn CoInternetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[readable(success, bytes(if_present(*pcbBuffer)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: LPVOID, cbBuffer: DWORD, #[opt] #[out] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CoInternetSetFeatureEnabled(FeatureEntry: INTERNETFEATURELIST, dwFlags: DWORD, fEnable: BOOL) -> HRESULT;
         #[library("urlmon.dll")]
@@ -432,7 +432,7 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CreateAsyncBindCtxEx(#[in] pbc: IBindCtx, dwOptions: DWORD, #[in] pBSCb: IBindStatusCallback, #[in] #[opt] pEnum: IEnumFORMATETC, #[out] #[out_ptr] ppBC: *mut IBindCtx, reserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CreateFormatEnumerator(#[in] #[range(entry, >0)] cfmtetc: UINT, #[in] #[readable(entry, cfmtetc)] rgfmtetc: *mut FORMATETC, #[out] #[out_ptr] #[retval] ppenumfmtetc: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn CreateFormatEnumerator(#[in] cfmtetc: UINT, #[in] #[readable(entry, cfmtetc)] rgfmtetc: *mut FORMATETC, #[out] #[out_ptr] #[retval] ppenumfmtetc: *mut IEnumFORMATETC) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CreateIUriBuilder(#[in] #[opt] pIUri: IUri, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD_PTR, #[out] #[out_ptr] #[retval] ppIUriBuilder: *mut IUriBuilder) -> HRESULT;
         #[library("urlmon.dll")]
@@ -630,7 +630,7 @@ mod Windows {
         }
         #[guid(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4)]
         interface IInternetHostSecurityManager: IUnknown {
-            fn GetSecurityId(&self, #[out] #[writable(entry, *pcbSecurityId)] pbSecurityId: *mut BYTE, #[in] #[incomplete] #[out] #[range(success, 0..=512, indirect)] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
+            fn GetSecurityId(&self, #[out] #[writable(entry, *pcbSecurityId)] pbSecurityId: *mut BYTE, #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
             fn ProcessUrlAction(&self, #[in] dwAction: DWORD, #[out] #[readable(success, cbPolicy)] #[writable(entry, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] #[readable(entry, cbContext)] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
             fn QueryCustomPolicy(&self, #[in] guidKey: &GUID, #[nullable] #[out] #[readable(success, *pcbPolicy, indirect)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] #[readable(entry, cbContext)] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
         }
@@ -1058,7 +1058,7 @@ mod Windows {
         #[library("urlmon.dll", import = "CoInternetParseUrl")]
         extern fn OInetParseUrl(pwzUrl: LPCWSTR, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[readable(success, *pcchResult + 1)] #[writable(entry, cchResult)] pszResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll", import = "CoInternetQueryInfo")]
-        extern fn OInetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[readable(success, bytes(if_present(*pcbBuffer)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: LPVOID, #[incomplete] cbBuffer: DWORD, #[opt] #[out] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
+        extern fn OInetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[readable(success, bytes(if_present(*pcbBuffer)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: LPVOID, cbBuffer: DWORD, #[opt] #[out] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn ObtainUserAgentString(dwOption: DWORD, #[out] #[readable(success, *cbSize)] #[writable(entry, *cbSize)] pszUAOut: LPSTR, #[in] #[out] cbSize: *mut DWORD) -> HRESULT;
         #[repr(i32)]
@@ -1190,9 +1190,9 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn RegisterFormatEnumerator(#[in] pBC: LPBC, #[in] pEFetc: IEnumFORMATETC, reserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn RegisterMediaTypeClass(#[in] pBC: LPBC, #[in] #[range(entry, >0)] ctypes: UINT, #[in] #[readable(entry, ctypes)] rgszTypes: *const LPCSTR, #[in] #[readable(entry, ctypes)] rgclsID: *mut CLSID, reserved: DWORD) -> HRESULT;
+        extern fn RegisterMediaTypeClass(#[in] pBC: LPBC, #[in] ctypes: UINT, #[in] #[readable(entry, ctypes)] rgszTypes: *const LPCSTR, #[in] #[readable(entry, ctypes)] rgclsID: *mut CLSID, reserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn RegisterMediaTypes(#[in] #[range(entry, >0)] ctypes: UINT, #[in] #[readable(entry, ctypes)] rgszTypes: *const LPCSTR, #[out] #[writable(entry, ctypes)] rgcfTypes: *mut CLIPFORMAT) -> HRESULT;
+        extern fn RegisterMediaTypes(#[in] ctypes: UINT, #[in] #[readable(entry, ctypes)] rgszTypes: *const LPCSTR, #[out] #[writable(entry, ctypes)] rgcfTypes: *mut CLIPFORMAT) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn ReleaseBindInfo(#[in] #[out] pbindinfo: *mut BINDINFO);
         #[packed(8)]

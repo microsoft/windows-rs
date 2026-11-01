@@ -23,69 +23,6 @@ pub fn write_item(
     crate::writer::write_items(namespace, item)
 }
 
-/// Bounded predicates for ordinary postconditions on callable results.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-#[repr(i32)]
-pub enum SuccessCondition {
-    EqualZero = 0,
-    NotEqualZero = 1,
-    EqualOne = 2,
-    Nonnegative = 3,
-    Positive = 4,
-}
-
-impl SuccessCondition {
-    /// Recognizes the canonical expression grammar without evaluating arbitrary expressions.
-    pub fn from_expression(expression: &TokenStream) -> Option<Self> {
-        match expression.to_string().as_str() {
-            "return == 0" => Some(Self::EqualZero),
-            "return != 0" => Some(Self::NotEqualZero),
-            "return == 1" => Some(Self::EqualOne),
-            "return >= 0" => Some(Self::Nonnegative),
-            "return > 0" => Some(Self::Positive),
-            _ => None,
-        }
-    }
-
-    /// Encodes the enum-valued metadata constructor argument.
-    pub fn to_value(self) -> metadata::Value {
-        metadata::Value::EnumValue(
-            metadata::TypeName::named("Windows.Win32.Metadata", "SuccessCondition"),
-            Box::new(metadata::Value::I32(self as i32)),
-        )
-    }
-
-    /// Recognizes only the declared enum and supported discriminants.
-    pub fn from_value(value: &metadata::Value) -> Option<Self> {
-        let metadata::Value::EnumValue(name, value) = value else {
-            return None;
-        };
-        if name != ("Windows.Win32.Metadata", "SuccessCondition") {
-            return None;
-        }
-        match value.as_ref() {
-            metadata::Value::I32(0) => Some(Self::EqualZero),
-            metadata::Value::I32(1) => Some(Self::NotEqualZero),
-            metadata::Value::I32(2) => Some(Self::EqualOne),
-            metadata::Value::I32(3) => Some(Self::Nonnegative),
-            metadata::Value::I32(4) => Some(Self::Positive),
-            _ => None,
-        }
-    }
-}
-
-/// Renders a success predicate without changing its owner or return type.
-pub fn write_success(condition: SuccessCondition) -> TokenStream {
-    let expression = match condition {
-        SuccessCondition::EqualZero => quote! { return == 0 },
-        SuccessCondition::NotEqualZero => quote! { return != 0 },
-        SuccessCondition::EqualOne => quote! { return == 1 },
-        SuccessCondition::Nonnegative => quote! { return >= 0 },
-        SuccessCondition::Positive => quote! { return > 0 },
-    };
-    quote! { #[success(#expression)] }
-}
-
 /// Renders the established direction flags without inferring direction from the type.
 pub fn write_param_direction(input: bool, output: bool) -> TokenStream {
     let in_attr = input.then(|| quote! { #[r#in] });

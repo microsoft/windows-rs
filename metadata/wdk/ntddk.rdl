@@ -4648,11 +4648,9 @@ mod Windows {
         extern fn RtlCopyString(#[out] DestinationString: PSTRING, #[in] #[opt] SourceString: *const STRING);
         #[library("ntdll.dll")]
         #[must_use]
-        #[success(return != 0)]
         extern fn RtlCreateHashTable(#[in] #[incomplete] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, #[in] Shift: ULONG, #[reserved] Flags: ULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
         #[must_use]
-        #[success(return != 0)]
         extern fn RtlCreateHashTableEx(#[in] #[incomplete] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, #[in] InitialSize: ULONG, #[in] Shift: ULONG, #[reserved] Flags: ULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlDelete(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;

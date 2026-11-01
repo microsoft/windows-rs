@@ -11,7 +11,6 @@ mod Fixture {
 #[win32]
 mod Fixture {
     type DWORD = u32;
-    #[success(return >= 0)]
     type HRESULT = i32;
     type UINT32 = u32;
     type ULONG = u32;

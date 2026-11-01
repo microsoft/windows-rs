@@ -55,11 +55,9 @@ mod Windows {
         const GET_MODULE_HANDLE_EX_FLAG_PIN: i32 = 1;
         const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
-        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
-        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleA(#[in] #[opt] lpModuleName: LPCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]

@@ -21,10 +21,8 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn GetComputerObjectNameW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        #[success(return != 0)]
         extern fn GetUserNameExA(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        #[success(return != 0)]
         extern fn GetUserNameExW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         type PEXTENDED_NAME_FORMAT = *mut EXTENDED_NAME_FORMAT;
         #[library("Secur32.dll")]

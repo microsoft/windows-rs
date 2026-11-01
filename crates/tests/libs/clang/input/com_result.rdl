@@ -1,6 +1,5 @@
 #[win32]
 mod Fixture {
-    #[success(return == 0)]
     type Code = i32;
     #[library("fixture.dll")]
     extern "C" fn CreateObject(#[out] #[out_ptr(null_on_failure)] #[retval] result: *mut IObject) -> Status;
@@ -16,7 +15,6 @@ mod Fixture {
         fn OutptrMaybeNull(&self, #[nullable] #[out] #[out_ptr] result: *mut IObject) -> Status;
         fn NotLast(&self, #[out] #[out_ptr(null_on_failure)] result: *mut IObject, flags: i32) -> Status;
         fn Untyped(&self, #[iid_is] #[out] #[out_ptr(null_on_failure)] result: *mut *mut void) -> Status;
-        #[success(return == 0)]
         fn Exact(&self, #[out] #[out_ptr(null_on_failure)] result: *mut IObject) -> Status;
         fn Zero(&self, #[out] #[out_ptr(null_on_failure)] result: *mut IObject) -> Code;
         fn Unspecified(&self, #[out] #[out_ptr(null_on_failure)] result: *mut IObject) -> i32;
@@ -26,7 +24,6 @@ mod Fixture {
     interface IObject {
         fn Run(&self);
     }
-    #[success(return >= 0)]
     type Status = i32;
     struct Value {
         value: i32,

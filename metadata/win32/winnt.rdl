@@ -7540,7 +7540,6 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: PCONTEXT);
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn RtlCaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[incomplete] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
         #[arch(X64)]
         #[library("KERNEL32.dll", import = "RtlCompareMemory")]

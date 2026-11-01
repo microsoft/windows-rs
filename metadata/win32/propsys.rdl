@@ -161,7 +161,7 @@ mod Windows {
             fn GetPropertyDescriptionByName(&self, #[in] #[null_terminated(entry)] pszCanonicalName: LPCWSTR, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn GetPropertyDescriptionListFromString(&self, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn EnumeratePropertyDescriptions(&self, #[in] filterOn: PROPDESC_ENUMFILTER, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn FormatForDisplay(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[null_terminated(success)] #[out] #[readable(success, cchText)] #[writable(entry, cchText)] #[writable(success, cchText)] pszText: LPWSTR, #[in] #[range(entry, 0..=32768)] cchText: DWORD) -> HRESULT;
+            fn FormatForDisplay(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[null_terminated(success)] #[out] #[readable(success, cchText)] #[writable(entry, cchText)] #[writable(success, cchText)] pszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn FormatForDisplayAlloc(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszDisplay: *mut LPWSTR) -> HRESULT;
             fn RegisterPropertySchema(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR) -> HRESULT;
             fn UnregisterPropertySchema(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR) -> HRESULT;

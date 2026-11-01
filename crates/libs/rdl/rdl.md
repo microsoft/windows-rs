@@ -663,20 +663,6 @@ expression unavailable. Expressions use the versioned `CountExpression` payload.
 Legacy nonzero `Offset` payloads and unknown expression versions retain full attribute spelling,
 without being reinterpreted as typed arithmetic. No short syntax emits `Offset`.
 
-`#[range(entry, 0..=14 - start)]` constrains an integer parameter at entry.
-`#[range(success, >0)]` constrains its successful-exit value. Bounds can be inclusive or exclusive;
-one-sided forms include `>`, `>=`, `<`, and `<=`. Record fields omit the phase, as in
-`#[range(0..capacity)]`. `#[range(success, 0..=capacity, indirect)]` constrains the pointed-to
-integer rather than the pointer value. These forms encode `IntegerRangeAttribute`, independently of
-direction, readability, and nullability. Each bound compares against the subject using C promotions
-and usual conversions. Unsuffixed literals are `i32`; `i32`, `u32`, `i64`, and `u64` suffixes
-preserve explicit types. Floating-point, pointer, and enum subjects are not supported.
-
-Return values carry their range after the arrow:
-`extern fn Read(capacity: u32) -> #[range(success, 0..=capacity)] u32;`.
-Return ranges require the success phase and no indirection; bounds can refer to the callable's
-parameters.
-
 `success` follows the callable's success condition. Field contracts have no call phase.
 For buffer extents, `indirect` requires pointer-to-pointer storage and selects the initialized pointer
 at the specified phase. `entry` describes the incoming pointer; `success` describes the returned
@@ -720,22 +706,6 @@ It applies to imports, interface methods and named callbacks and encodes the par
 `Windows.Win32.Metadata.MustUseAttribute`. It does not define success, change the return type,
 imply purity or promise a particular language's diagnostics. Message arguments are not supported.
 Output-parameter inspection and conditional result checking are separate contracts.
-
-`#[success(...)]` conditions ordinary postconditions, independently of `must_use`. The supported
-expressions are `return == 0`, `return != 0`, `return == 1`, `return >= 0` and `return > 0`.
-They encode the corresponding `SuccessCondition` enum value in
-`Windows.Win32.Metadata.SuccessConditionAttribute`, not an unevaluated expression string.
-
-On an import, method or named callback, the predicate is an explicit callable condition. On a
-value typedef it supplies a return-type default; the callable's explicit condition overrides that
-default. Alias links retain defaults without copying them onto every function. Competing or
-uninterpreted defaults must not be treated as absent. Zero means null for pointer results; ordered
-pointer comparisons are not supported by clang's lowering.
-
-These predicates are not a complete-operation success/error split and do not request Rust `Result`
-conversion. For example, partial-result postconditions may apply even when an API reports
-`ERROR_MORE_DATA`. Other expressions and parameter/field owners are rejected by the short-form
-reader. Unknown enum values or additional metadata properties retain full attribute spelling.
 
 `#[incomplete]` marks a parameter whose header states contracts that metadata does not express. It
 encodes the parameterless `Windows.Win32.Metadata.IncompleteAttribute`. Consumers must not infer

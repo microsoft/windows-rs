@@ -422,7 +422,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetDurationFormat(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDuration: *const SYSTEMTIME, #[in] ullDuration: ULONGLONG, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchDuration)] lpDurationStr: LPWSTR, #[in] cchDuration: i32) -> i32;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetFileMUIInfo(dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[opt] #[out] #[readable(entry, bytes(*pcbFileMUIInfo))] #[readable(success, bytes(*pcbFileMUIInfo))] #[writable(entry, bytes(*pcbFileMUIInfo))] pFileMUIInfo: PFILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetFileMUIPath(#[in] dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[opt] #[out] #[writable(entry, *pcchLanguage)] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: PULONG, #[opt] #[out] #[writable(entry, *pcchFileMUIPath)] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: PULONG, #[in] #[out] pululEnumerator: PULONGLONG) -> BOOL;

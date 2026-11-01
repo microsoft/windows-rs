@@ -3,21 +3,17 @@ mod Windows {
     mod Win32 {
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn CopyLZFile(#[in] hfSource: INT, #[in] hfDest: INT) -> LONG;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn GetExpandedNameA(#[in] lpszSource: LPSTR, #[out] #[writable(entry, 260)] lpszBuffer: LPSTR) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn GetExpandedNameW(#[in] lpszSource: LPWSTR, #[out] #[writable(entry, 260)] lpszBuffer: LPWSTR) -> INT;
         #[library("LZ32.dll")]
         extern fn LZClose(#[in] hFile: INT);
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZCopy(#[in] hfSource: INT, #[in] hfDest: INT) -> LONG;
         #[library("LZ32.dll")]
         extern fn LZDone();
@@ -31,27 +27,21 @@ mod Windows {
         const LZERROR_WRITE: i32 = -4;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZInit(#[in] hfSource: INT) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZOpenFileA(#[in] lpFileName: LPSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, #[in] wStyle: WORD) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZOpenFileW(#[in] lpFileName: LPWSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, #[in] wStyle: WORD) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZRead(#[in] hFile: INT, #[incomplete] #[out] #[writable(entry, bytes(cbRead))] lpBuffer: *mut CHAR, #[in] cbRead: INT) -> INT;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZSeek(#[in] hFile: INT, #[in] lOffset: LONG, #[in] iOrigin: INT) -> LONG;
         #[library("LZ32.dll")]
         #[must_use]
-        #[success(return >= 0)]
         extern fn LZStart() -> INT;
     }
 }

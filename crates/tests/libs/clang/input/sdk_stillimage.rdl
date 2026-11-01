@@ -39,7 +39,6 @@ mod Fixture {
 mod Fixture {
     type BYTE = u8;
     type DWORD = u32;
-    #[success(return >= 0)]
     type HRESULT = i32;
     type UINT = u32;
     type ULONG = u32;

@@ -29,7 +29,6 @@ mod Windows {
         }
         type IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS_LH;
         struct IF_PHYSICAL_ADDRESS_LH {
-            #[range(0..=32)]
             Length: USHORT,
             Address: [UCHAR; 32],
         }

@@ -342,7 +342,6 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CreateDIBPatternBrushPt(#[in] lpPackedDIB: *const void, #[in] iUsage: UINT) -> HBRUSH;
         #[library("GDI32.dll")]
-        #[success(return != 0)]
         extern fn CreateDIBSection(#[in] #[opt] hdc: HDC, #[in] pbmi: *const BITMAPINFO, #[in] usage: UINT, #[incomplete] ppvBits: *mut *mut void, #[in] #[opt] hSection: HANDLE, #[in] offset: DWORD) -> HBITMAP;
         #[library("GDI32.dll")]
         extern fn CreateDIBitmap(#[in] hdc: HDC, #[in] #[opt] pbmih: *const BITMAPINFOHEADER, #[in] flInit: DWORD, #[in] #[opt] pjBits: *const void, #[in] #[opt] pbmi: *const BITMAPINFO, #[in] iUsage: UINT) -> HBITMAP;
@@ -2380,7 +2379,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetDCPenColor(#[in] hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[out] #[writable(entry, cEntries)] prgbq: *mut RGBQUAD) -> #[range(success, 0..=cEntries)] UINT;
+        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[out] #[writable(entry, cEntries)] prgbq: *mut RGBQUAD) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetDIBits(#[in] hdc: HDC, #[in] hbm: HBITMAP, #[in] start: UINT, #[in] cLines: UINT, #[opt] #[out] lpvBits: LPVOID, #[incomplete] lpbmi: LPBITMAPINFO, #[in] usage: UINT) -> i32;
         #[library("GDI32.dll")]
@@ -2460,7 +2459,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetOutlineTextMetricsW(#[in] hdc: HDC, #[in] cjCopy: UINT, #[opt] #[out] #[writable(entry, bytes(cjCopy))] potm: LPOUTLINETEXTMETRICW) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> #[range(success, 0..=cEntries)] UINT;
+        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetPath(#[in] hdc: HDC, #[opt] #[out] #[writable(entry, cpt)] apt: LPPOINT, #[opt] #[out] #[writable(entry, cpt)] aj: LPBYTE, cpt: i32) -> i32;
         #[library("GDI32.dll")]
