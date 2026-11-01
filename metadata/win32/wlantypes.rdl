@@ -74,7 +74,6 @@ mod Windows {
         const DOT11_OI_MAX_LENGTH: i32 = 5;
         const DOT11_OI_MIN_LENGTH: i32 = 3;
         struct DOT11_SSID {
-            #[range(0..=32)]
             uSSIDLength: ULONG,
             ucSSID: [UCHAR; 32],
         }

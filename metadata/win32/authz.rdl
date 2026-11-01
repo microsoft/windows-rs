@@ -237,7 +237,6 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzOpenObjectAudit(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
         #[library("AUTHZ.dll")]
-        #[success(return != 0)]
         extern fn AuthzRegisterCapChangeNotification(#[out] phCapChangeSubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, #[in] pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[in] #[opt] pCallbackContext: PVOID) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzRegisterSecurityEventSource(#[in] dwFlags: DWORD, #[in] szEventSourceName: PCWSTR, #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;

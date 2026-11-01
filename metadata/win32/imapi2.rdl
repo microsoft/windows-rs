@@ -483,11 +483,11 @@ mod Windows {
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[in] #[readable(entry, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[out] #[readable(success, *BufferFetched)] #[writable(entry, BufferSize)] #[writable(success, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
-            fn ReadDvdStructure(&self, #[in] #[range(entry, 0..=255)] format: ULONG, #[in] address: ULONG, #[in] #[range(entry, 0..=255)] layer: ULONG, #[in] #[range(entry, 0..=3)] agid: ULONG, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn SendDvdStructure(&self, #[in] #[range(entry, 0..=255)] format: ULONG, #[in] #[readable(entry, count)] data: *mut BYTE, #[in] count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendCommandNoData(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[in] #[readable(entry, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[out] #[readable(success, *BufferFetched)] #[writable(entry, BufferSize)] #[writable(success, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn ReadDvdStructure(&self, #[in] format: ULONG, #[in] address: ULONG, #[in] layer: ULONG, #[in] agid: ULONG, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendDvdStructure(&self, #[in] format: ULONG, #[in] #[readable(entry, count)] data: *mut BYTE, #[in] count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
             fn GetAdapterDescriptor(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
             fn GetDeviceDescriptor(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
             fn GetDiscInformation(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
@@ -792,7 +792,7 @@ mod Windows {
             #[special]
             fn get_MediaCatalogNumber(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_StartingTrackNumber(&self, #[in] #[range(entry, 1..=99)] value: LONG) -> HRESULT;
+            fn put_StartingTrackNumber(&self, #[in] value: LONG) -> HRESULT;
             #[special]
             fn get_StartingTrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             #[special]
@@ -828,8 +828,8 @@ mod Windows {
             fn put_AudioHasPreemphasis(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             #[special]
             fn get_TrackIndexes(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn AddTrackIndex(&self, #[in] #[range(entry, 0..=2147483647)] lbaOffset: LONG) -> HRESULT;
-            fn ClearTrackIndex(&self, #[in] #[range(entry, 0..=2147483647)] lbaOffset: LONG) -> HRESULT;
+            fn AddTrackIndex(&self, #[in] lbaOffset: LONG) -> HRESULT;
+            fn ClearTrackIndex(&self, #[in] lbaOffset: LONG) -> HRESULT;
         }
         #[guid(0x27354146_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamConcatenate: IStream {
@@ -840,7 +840,7 @@ mod Windows {
         }
         #[guid(0x27354147_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamInterleave: IStream {
-            fn Initialize(&self, #[in] #[readable(entry, streamCount)] streams: *mut IStream, #[in] #[readable(entry, streamCount)] interleaveSizes: *mut ULONG, #[in] #[range(entry, 1..=2147483647)] streamCount: ULONG) -> HRESULT;
+            fn Initialize(&self, #[in] #[readable(entry, streamCount)] streams: *mut IStream, #[in] #[readable(entry, streamCount)] interleaveSizes: *mut ULONG, #[in] streamCount: ULONG) -> HRESULT;
         }
         #[guid(0x27354145_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamPseudoRandomBased: IStream {

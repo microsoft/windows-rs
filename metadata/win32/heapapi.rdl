@@ -21,14 +21,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn HeapDestroy(#[in] hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn HeapFree(#[in] #[out] hHeap: HANDLE, #[in] dwFlags: DWORD, #[incomplete] lpMem: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn HeapLock(#[in] hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn HeapQueryInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(HeapInformationLength))] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, #[in] dwFlags: DWORD, #[incomplete] lpMem: LPVOID, #[in] dwBytes: SIZE_T) -> #[nullable] LPVOID;
         #[library("KERNEL32.dll")]
         extern fn HeapSetInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[in] #[opt] #[readable(entry, bytes(HeapInformationLength))] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T) -> BOOL;

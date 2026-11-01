@@ -2050,13 +2050,10 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDiAskForOEMDisk(#[in] DeviceInfoSet: HDEVINFO, #[in] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiBuildClassInfoList(#[in] Flags: DWORD, #[opt] #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiBuildClassInfoListExA(#[in] Flags: DWORD, #[opt] #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiBuildClassInfoListExW(#[in] Flags: DWORD, #[opt] #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiBuildDriverInfoList(#[in] DeviceInfoSet: HDEVINFO, #[in] #[opt] #[out] DeviceInfoData: PSP_DEVINFO_DATA, #[in] DriverType: DWORD) -> BOOL;
@@ -2067,16 +2064,12 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDiChangeState(#[in] DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiClassGuidsFromNameA(#[in] ClassName: PCSTR, #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiClassGuidsFromNameExA(#[in] ClassName: PCSTR, #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiClassGuidsFromNameExW(#[in] ClassName: PCWSTR, #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiClassGuidsFromNameW(#[in] ClassName: PCWSTR, #[out] #[readable(success, *RequiredSize)] #[writable(entry, ClassGuidListSize)] ClassGuidList: LPGUID, #[in] ClassGuidListSize: DWORD, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiClassNameFromGuidA(#[in] ClassGuid: *const GUID, #[out] #[writable(entry, ClassNameSize)] ClassName: PSTR, #[in] ClassNameSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
@@ -2202,32 +2195,24 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetClassImageListExW(#[out] ClassImageListData: PSP_CLASSIMAGELIST_DATA, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassInstallParamsA(#[in] DeviceInfoSet: HDEVINFO, #[in] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(ClassInstallParamsSize))] ClassInstallParams: PSP_CLASSINSTALL_HEADER, #[in] ClassInstallParamsSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassInstallParamsW(#[in] DeviceInfoSet: HDEVINFO, #[in] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(ClassInstallParamsSize))] ClassInstallParams: PSP_CLASSINSTALL_HEADER, #[in] ClassInstallParamsSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassPropertyExW(#[in] ClassGuid: *const GUID, #[in] PropertyKey: *const DEVPROPKEY, #[out] PropertyType: *mut DEVPROPTYPE, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] Flags: DWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetClassPropertyKeys(#[in] ClassGuid: *const GUID, #[opt] #[out] #[writable(entry, PropertyKeyCount)] PropertyKeyArray: *mut DEVPROPKEY, #[in] PropertyKeyCount: DWORD, #[opt] #[out] RequiredPropertyKeyCount: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetClassPropertyKeysExW(#[in] ClassGuid: *const GUID, #[opt] #[out] #[writable(entry, PropertyKeyCount)] PropertyKeyArray: *mut DEVPROPKEY, #[in] PropertyKeyCount: DWORD, #[opt] #[out] RequiredPropertyKeyCount: PDWORD, #[in] Flags: DWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassPropertyW(#[in] ClassGuid: *const GUID, #[in] PropertyKey: *const DEVPROPKEY, #[out] PropertyType: *mut DEVPROPTYPE, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassRegistryPropertyA(#[in] ClassGuid: *const GUID, #[in] Property: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetClassRegistryPropertyW(#[in] ClassGuid: *const GUID, #[in] Property: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetCustomDevicePropertyA(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] CustomPropertyName: PCSTR, #[in] Flags: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetCustomDevicePropertyW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] CustomPropertyName: PCWSTR, #[in] Flags: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetDeviceInfoListClass(#[in] DeviceInfoSet: HDEVINFO, #[out] ClassGuid: LPGUID) -> BOOL;
@@ -2246,26 +2231,20 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetDeviceInterfaceAlias(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[in] AliasInterfaceClassGuid: *const GUID, #[out] AliasDeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDeviceInterfaceDetailA(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[in] #[opt] #[out] #[readable(entry, bytes(DeviceInterfaceDetailDataSize))] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(DeviceInterfaceDetailDataSize))] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_A, #[in] DeviceInterfaceDetailDataSize: DWORD, #[incomplete] #[opt] #[out] RequiredSize: PDWORD, #[opt] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDeviceInterfaceDetailW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(DeviceInterfaceDetailDataSize))] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_W, #[in] DeviceInterfaceDetailDataSize: DWORD, #[incomplete] #[opt] #[out] RequiredSize: PDWORD, #[opt] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetDeviceInterfacePropertyKeys(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[opt] #[out] #[writable(entry, PropertyKeyCount)] PropertyKeyArray: *mut DEVPROPKEY, #[in] PropertyKeyCount: DWORD, #[opt] #[out] RequiredPropertyKeyCount: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDeviceInterfacePropertyW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[in] PropertyKey: *const DEVPROPKEY, #[out] PropertyType: *mut DEVPROPTYPE, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetDevicePropertyKeys(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[opt] #[out] #[writable(entry, PropertyKeyCount)] PropertyKeyArray: *mut DEVPROPKEY, #[in] PropertyKeyCount: DWORD, #[opt] #[out] RequiredPropertyKeyCount: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDevicePropertyW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] PropertyKey: *const DEVPROPKEY, #[out] PropertyType: *mut DEVPROPTYPE, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDeviceRegistryPropertyA(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Property: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetDeviceRegistryPropertyW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Property: DWORD, #[opt] #[out] PropertyRegDataType: PDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(PropertyBufferSize))] PropertyBuffer: PBYTE, #[in] PropertyBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetDriverInfoDetailA(#[in] DeviceInfoSet: HDEVINFO, #[in] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[in] DriverInfoData: PSP_DRVINFO_DATA_A, #[in] #[opt] #[out] #[writable(entry, bytes(DriverInfoDetailDataSize))] DriverInfoDetailData: PSP_DRVINFO_DETAIL_DATA_A, #[in] DriverInfoDetailDataSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
@@ -2284,13 +2263,10 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetHwProfileFriendlyNameW(#[in] HwProfile: DWORD, #[out] #[writable(entry, FriendlyNameSize)] FriendlyName: PWSTR, #[in] FriendlyNameSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetHwProfileList(#[out] #[readable(success, *RequiredSize)] #[writable(entry, HwProfileListSize)] HwProfileList: PDWORD, #[in] HwProfileListSize: DWORD, #[out] RequiredSize: PDWORD, #[opt] #[out] CurrentlyActiveIndex: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetHwProfileListExA(#[out] #[readable(success, *RequiredSize)] #[writable(entry, HwProfileListSize)] HwProfileList: PDWORD, #[in] HwProfileListSize: DWORD, #[out] RequiredSize: PDWORD, #[opt] #[out] CurrentlyActiveIndex: PDWORD, #[in] #[opt] MachineName: PCSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupDiGetHwProfileListExW(#[out] #[readable(success, *RequiredSize)] #[writable(entry, HwProfileListSize)] HwProfileList: PDWORD, #[in] HwProfileListSize: DWORD, #[out] RequiredSize: PDWORD, #[opt] #[out] CurrentlyActiveIndex: PDWORD, #[in] #[opt] MachineName: PCWSTR, #[reserved] Reserved: PVOID) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetINFClassA(#[in] InfName: PCSTR, #[out] ClassGuid: LPGUID, #[out] #[writable(entry, ClassNameSize)] ClassName: PSTR, #[in] ClassNameSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
@@ -2299,10 +2275,8 @@ mod Windows {
         #[library("SETUPAPI.dll", import = "SetupDiGetDeviceInterfaceAlias")]
         extern fn SetupDiGetInterfaceDeviceAlias(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[in] AliasInterfaceClassGuid: *const GUID, #[out] AliasDeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll", import = "SetupDiGetDeviceInterfaceDetailA")]
-        #[success(return != 0)]
         extern fn SetupDiGetInterfaceDeviceDetailA(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[in] #[opt] #[out] #[readable(entry, bytes(DeviceInterfaceDetailDataSize))] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(DeviceInterfaceDetailDataSize))] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_A, #[in] DeviceInterfaceDetailDataSize: DWORD, #[incomplete] #[opt] #[out] RequiredSize: PDWORD, #[opt] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll", import = "SetupDiGetDeviceInterfaceDetailW")]
-        #[success(return != 0)]
         extern fn SetupDiGetInterfaceDeviceDetailW(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(DeviceInterfaceDetailDataSize))] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_W, #[in] DeviceInterfaceDetailDataSize: DWORD, #[incomplete] #[opt] #[out] RequiredSize: PDWORD, #[opt] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetSelectedDevice(#[in] DeviceInfoSet: HDEVINFO, #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
@@ -2454,7 +2428,6 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupGetBackupInformationW(#[in] QueueHandle: HSPFILEQ, #[in] #[out] BackupParams: PSP_BACKUP_QUEUE_PARAMS_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupGetBinaryField(#[in] Context: PINFCONTEXT, #[in] FieldIndex: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(ReturnBufferSize))] ReturnBuffer: PBYTE, #[in] ReturnBufferSize: DWORD, #[opt] #[out] RequiredSize: LPDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetFieldCount(#[in] Context: PINFCONTEXT) -> DWORD;
@@ -2479,10 +2452,8 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupGetInfFileListW(#[in] #[opt] DirectoryPath: PCWSTR, #[in] InfStyle: DWORD, #[out] #[writable(entry, ReturnBufferSize)] ReturnBuffer: PWSTR, #[in] ReturnBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupGetInfInformationA(#[in] InfSpec: LPCVOID, #[in] SearchControl: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(ReturnBufferSize))] ReturnBuffer: PSP_INF_INFORMATION, #[in] ReturnBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        #[success(return != 0)]
         extern fn SetupGetInfInformationW(#[in] InfSpec: LPCVOID, #[in] SearchControl: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*RequiredSize)))] #[writable(entry, bytes(ReturnBufferSize))] ReturnBuffer: PSP_INF_INFORMATION, #[in] ReturnBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetInfPublishedNameA(#[in] DriverStoreLocation: PCSTR, #[out] #[writable(entry, ReturnBufferSize)] ReturnBuffer: PSTR, #[in] ReturnBufferSize: DWORD, #[opt] #[out] RequiredSize: PDWORD) -> BOOL;

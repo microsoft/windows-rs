@@ -436,7 +436,7 @@ mod Windows {
         }
         #[guid(0x2397599d_dd0d_4681_bd6a_f4f31eaade77)]
         interface IDWriteFontFallback1: IDWriteFontFallback {
-            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const WCHAR, #[in] #[readable(entry, fontAxisValueCount)] fontAxisValues: *const DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, #[range(success, 0..=textLength, indirect)] mappedLength: *mut UINT32, #[out] scale: *mut FLOAT, #[out] #[out_ptr(null_on_failure)] #[retval] mappedFontFace: *mut IDWriteFontFace5) -> HRESULT;
+            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const WCHAR, #[in] #[readable(entry, fontAxisValueCount)] fontAxisValues: *const DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, mappedLength: *mut UINT32, #[out] scale: *mut FLOAT, #[out] #[out_ptr(null_on_failure)] #[retval] mappedFontFace: *mut IDWriteFontFace5) -> HRESULT;
         }
         #[guid(0xda20d8ef_812a_4c43_9802_62ec4abd7adf)]
         interface IDWriteFontFamily1: IDWriteFontFamily {

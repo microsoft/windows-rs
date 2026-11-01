@@ -928,7 +928,6 @@ impl Projector<'_, '_> {
                 observation.underlying,
                 function.result,
                 attributes,
-                callback_parameters(snapshot, observation).unwrap_or_default(),
             )?;
             return self.callback(
                 snapshot_id,
@@ -982,12 +981,7 @@ impl Projector<'_, '_> {
         let ty = write_type(self.namespace, &ty);
         Ok(Body {
             abi: None,
-            attributes: annotations::write_value_typedef(
-                snapshot,
-                observation.canonical,
-                attributes,
-                &inherited,
-            )?,
+            attributes: annotations::write(attributes)?,
             declaration: quote! { type #name = #ty; },
         })
     }

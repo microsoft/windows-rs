@@ -27,7 +27,7 @@ mod Windows {
             radius: f32,
         }
         #[library("dcomp.dll")]
-        extern fn DCompositionWaitForCompositorClock(#[range(entry, 0..=32)] count: UINT, #[in] #[opt] #[readable(entry, count)] handles: *const HANDLE, #[in] timeoutInMs: DWORD) -> DWORD;
+        extern fn DCompositionWaitForCompositorClock(count: UINT, #[in] #[opt] #[readable(entry, count)] handles: *const HANDLE, #[in] timeoutInMs: DWORD) -> DWORD;
         #[guid(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d)]
         interface IDCompositionAffineTransform2DEffect: IDCompositionFilterEffect {
             fn SetInterpolationMode(&self, #[in] interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;

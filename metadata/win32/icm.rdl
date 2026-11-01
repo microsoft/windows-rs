@@ -397,10 +397,8 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn GetPS2ColorSpaceArray(#[in] hProfile: HPROFILE, dwIntent: DWORD, dwCSAType: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbPS2ColorSpaceArray))] pPS2ColorSpaceArray: PBYTE, #[in] #[out] pcbPS2ColorSpaceArray: PDWORD, #[out] pbBinary: PBOOL) -> BOOL;
         #[library("mscms.dll")]
-        #[success(return != 0)]
         extern fn GetStandardColorSpaceProfileA(#[in] #[opt] pMachineName: PCSTR, #[in] dwSCS: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        #[success(return != 0)]
         extern fn GetStandardColorSpaceProfileW(#[in] #[opt] pMachineName: PCWSTR, #[in] dwSCS: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pBuffer: PWSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
         type HCMTRANSFORM = *mut void;
         type HPROFILE = *mut void;

@@ -175,7 +175,6 @@ mod Windows {
         type PTDH_HANDLE = *mut *mut void;
         type PTRACE_EVENT_INFO = *mut TRACE_EVENT_INFO;
         type PTRACE_PROVIDER_INFO = *mut TRACE_PROVIDER_INFO;
-        #[success(return == 0)]
         type TDHSTATUS = u32;
         struct TDH_CONTEXT {
             ParameterValue: ULONGLONG,
@@ -223,7 +222,6 @@ mod Windows {
                 RelatedActivityIDNameOffset: ULONG,
             },
             PropertyCount: ULONG,
-            #[range(0..=PropertyCount)]
             TopLevelPropertyCount: ULONG,
             Anonymous3: union {
                 Flags: TEMPLATE_FLAGS,

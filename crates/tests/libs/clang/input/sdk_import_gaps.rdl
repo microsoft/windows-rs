@@ -40,7 +40,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[success(return == 0)]
     type DNS_STATUS = i32;
 }
 #[win32]

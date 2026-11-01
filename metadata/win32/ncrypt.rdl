@@ -813,7 +813,6 @@ mod Windows {
         extern fn NCryptFreeObject(#[in] hObject: NCRYPT_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn NCryptGetProperty(#[in] hObject: NCRYPT_HANDLE, #[in] pszProperty: LPCWSTR, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]

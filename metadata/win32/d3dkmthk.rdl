@@ -503,7 +503,7 @@ mod Windows {
         extern fn D3DKMTSetVidPnSourceOwner2(#[in] param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> NTSTATUS;
         #[library("GDI32.dll")]
         #[must_use]
-        extern fn D3DKMTShareObjects(#[range(entry, 1..=3)] cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn D3DKMTShareObjects(cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
         #[library("GDI32.dll")]
         #[must_use]
         extern fn D3DKMTSharedPrimaryLockNotification(#[in] param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> NTSTATUS;
@@ -1244,7 +1244,6 @@ mod Windows {
             hRingBuffer: D3DKMT_HANDLE,
             hRingBufferControl: D3DKMT_HANDLE,
             Flags: D3DKMT_CREATE_DOORBELL_FLAGS,
-            #[range(0..=16)]
             PrivateDriverDataSize: UINT,
             #[writable(PrivateDriverDataSize)]
             PrivateDriverData: *mut void,
@@ -4948,7 +4947,7 @@ mod Windows {
         #[must_use]
         extern fn PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION(#[in] param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> NTSTATUS;
         #[must_use]
-        extern fn PFND3DKMT_SHAREOBJECTS(#[range(entry, 1..=3)] cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_SHAREOBJECTS(cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
         #[must_use]
         extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> NTSTATUS;
         #[must_use]

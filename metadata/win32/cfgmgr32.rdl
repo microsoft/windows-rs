@@ -1270,7 +1270,6 @@ mod Windows {
         type REGDISPOSITION = u32;
         type RESOURCEID = u32;
         type RES_DES = usize;
-        #[success(return == 0)]
         type RETURN_TYPE = u32;
         const RegDisposition_Bits: i32 = 1;
         const RegDisposition_OpenAlways: i32 = 0;

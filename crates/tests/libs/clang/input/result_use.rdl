@@ -45,17 +45,13 @@ mod Fixture {
     extern "C" fn ReadStatus() -> Status;
     #[library("fixture.dll")]
     extern "C" fn Scoped() -> i32;
-    #[success(return >= 0)]
     type Status = i32;
     #[must_use]
-    #[success(return >= 0)]
     extern fn SuccessAlias(value: i32) -> i32;
     #[must_use]
-    #[success(return >= 0)]
     extern fn SuccessCallback(value: i32) -> i32;
     #[library("fixture.dll")]
     #[must_use]
-    #[success(return >= 0)]
     extern "C" fn Successful() -> i32;
     #[library("fixture.dll")]
     extern "C" fn UnexpectedArguments() -> i32;

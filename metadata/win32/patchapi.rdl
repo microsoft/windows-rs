@@ -8,7 +8,6 @@ mod Windows {
         #[library("mspatcha.dll")]
         extern fn ApplyPatchToFileA(#[in] PatchFileName: LPCSTR, #[in] #[opt] OldFileName: LPCSTR, #[in] NewFileName: LPCSTR, #[in] ApplyOptionFlags: ULONG) -> BOOL;
         #[library("mspatcha.dll")]
-        #[success(return != 0)]
         extern fn ApplyPatchToFileByBuffers(#[in] #[readable(entry, bytes(PatchFileSize))] PatchFileMapped: PBYTE, #[in] PatchFileSize: ULONG, #[in] #[opt] #[readable(entry, bytes(OldFileSize))] OldFileMapped: PBYTE, #[in] OldFileSize: ULONG, #[in] #[incomplete] #[out] NewFileBuffer: *mut PBYTE, #[in] NewFileBufferSize: ULONG, #[opt] #[out] NewFileActualSize: *mut ULONG, #[opt] #[out] NewFileTime: *mut FILETIME, #[in] ApplyOptionFlags: ULONG, #[in] #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[in] #[opt] CallbackContext: PVOID) -> BOOL;
         #[library("mspatcha.dll")]
         extern fn ApplyPatchToFileByHandles(#[in] PatchFileHandle: HANDLE, #[in] #[opt] OldFileHandle: HANDLE, #[in] NewFileHandle: HANDLE, #[in] ApplyOptionFlags: ULONG) -> BOOL;

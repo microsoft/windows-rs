@@ -49,7 +49,6 @@ mod Fixture {
     }
     extern "C" fn Scoped(#[incomplete] value: *mut i32, capacity: u32);
     extern "C" fn ScopedBuffer(#[incomplete] value: *mut i32, capacity: u32);
-    #[success(return >= 0)]
     type Status = i32;
     struct Tagged {
         bytes: u32,

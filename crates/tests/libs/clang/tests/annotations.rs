@@ -19,12 +19,6 @@ fn alias_annotation_reconciliation() {
     for _ in 0..inputs.len() {
         let snapshots = capture(&inputs, &TARGETS).unwrap();
         let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
-        let text: String = output
-            .partitions
-            .values()
-            .map(|part| part.rdl.as_str())
-            .collect();
-        assert!(text.contains("#[success(return >= 0)]"));
         if let Some(expected) = &expected {
             assert_eq!(&output, expected);
         } else {

@@ -72,7 +72,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CreateRestrictedToken(#[in] ExistingTokenHandle: HANDLE, #[in] Flags: DWORD, #[in] DisableSidCount: DWORD, #[in] #[opt] #[readable(entry, DisableSidCount)] SidsToDisable: PSID_AND_ATTRIBUTES, #[in] DeletePrivilegeCount: DWORD, #[in] #[opt] #[readable(entry, DeletePrivilegeCount)] PrivilegesToDelete: PLUID_AND_ATTRIBUTES, #[in] RestrictedSidCount: DWORD, #[in] #[opt] #[readable(entry, RestrictedSidCount)] SidsToRestrict: PSID_AND_ATTRIBUTES, #[out] #[out_ptr] NewTokenHandle: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn CreateWellKnownSid(#[in] WellKnownSidType: WELL_KNOWN_SID_TYPE, #[in] #[opt] DomainSid: PSID, #[opt] #[out] #[readable(success, bytes(*cbSid))] #[writable(entry, bytes(*cbSid))] pSid: PSID, #[in] #[out] cbSid: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CveEventWrite(#[in] CveId: PCWSTR, #[in] #[opt] AdditionalDetails: PCWSTR) -> LONG;
@@ -87,7 +86,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn DuplicateTokenEx(#[in] hExistingToken: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] #[opt] lpTokenAttributes: LPSECURITY_ATTRIBUTES, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[in] TokenType: TOKEN_TYPE, #[out] #[out_ptr] phNewToken: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn EqualDomainSid(#[in] pSid1: PSID, #[in] pSid2: PSID, #[out] pfEqual: *mut BOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn EqualPrefixSid(#[in] pSid1: PSID, #[in] pSid2: PSID) -> BOOL;
@@ -112,7 +110,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetLengthSid(#[in] #[incomplete] pSid: PSID) -> DWORD;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn GetPrivateObjectSecurity(#[in] ObjectDescriptor: PSECURITY_DESCRIPTOR, #[in] SecurityInformation: SECURITY_INFORMATION, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(DescriptorLength))] ResultantDescriptor: PSECURITY_DESCRIPTOR, #[in] DescriptorLength: DWORD, #[out] ReturnLength: PDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetSecurityDescriptorControl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] pControl: PSECURITY_DESCRIPTOR_CONTROL, #[out] lpdwRevision: LPDWORD) -> BOOL;
@@ -139,7 +136,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetTokenInformation(#[in] TokenHandle: HANDLE, #[in] TokenInformationClass: TOKEN_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(TokenInformationLength))] TokenInformation: LPVOID, #[in] TokenInformationLength: DWORD, #[out] ReturnLength: PDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn GetWindowsAccountDomainSid(#[in] pSid: PSID, #[opt] #[out] #[readable(success, bytes(*cbDomainSid))] #[writable(entry, bytes(*cbDomainSid))] pDomainSid: PSID, #[in] #[out] cbDomainSid: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn ImpersonateAnonymousToken(#[in] ThreadHandle: HANDLE) -> BOOL;
@@ -166,10 +162,8 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn IsWellKnownSid(#[in] pSid: PSID, #[in] WellKnownSidType: WELL_KNOWN_SID_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn MakeAbsoluteSD(#[in] pSelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] #[out] #[readable(success, bytes(*lpdwAbsoluteSecurityDescriptorSize))] #[writable(entry, bytes(*lpdwAbsoluteSecurityDescriptorSize))] pAbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpdwAbsoluteSecurityDescriptorSize: LPDWORD, #[opt] #[out] #[readable(success, bytes(*lpdwDaclSize))] #[writable(entry, bytes(*lpdwDaclSize))] pDacl: PACL, #[in] #[out] lpdwDaclSize: LPDWORD, #[opt] #[out] #[readable(success, bytes(*lpdwSaclSize))] #[writable(entry, bytes(*lpdwSaclSize))] pSacl: PACL, #[in] #[out] lpdwSaclSize: LPDWORD, #[opt] #[out] #[readable(success, bytes(*lpdwOwnerSize))] #[writable(entry, bytes(*lpdwOwnerSize))] pOwner: PSID, #[in] #[out] lpdwOwnerSize: LPDWORD, #[opt] #[out] #[readable(success, bytes(*lpdwPrimaryGroupSize))] #[writable(entry, bytes(*lpdwPrimaryGroupSize))] pPrimaryGroup: PSID, #[in] #[out] lpdwPrimaryGroupSize: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn MakeSelfRelativeSD(#[in] pAbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] pSelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn MapGenericMask(#[in] #[out] AccessMask: PDWORD, #[in] GenericMapping: PGENERIC_MAPPING);

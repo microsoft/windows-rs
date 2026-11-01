@@ -108,7 +108,6 @@ mod Windows {
         #[library("ODBC32.dll")]
         extern fn SQLGetFunctions(ConnectionHandle: SQLHDBC, FunctionId: SQLUSMALLINT, #[incomplete] #[opt] #[out] Supported: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        #[success(return == 0)]
         extern fn SQLGetInfo(ConnectionHandle: SQLHDBC, InfoType: SQLUSMALLINT, #[opt] #[out] #[writable(entry, bytes(BufferLength))] InfoValue: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLGetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[incomplete] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLength: *mut SQLINTEGER) -> SQLRETURN;

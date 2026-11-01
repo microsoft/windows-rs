@@ -55,7 +55,6 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptCreateProtectionDescriptor(#[in] pwszDescriptorString: LPCWSTR, dwFlags: DWORD, #[out] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        #[success(return == 0)]
         extern fn NCryptGetProtectionDescriptorInfo(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, dwInfoType: DWORD, #[out] #[out_ptr] ppvInfo: *mut *mut void) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptProtectSecret(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwFlags: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: ULONG, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[in] #[opt] hWnd: HWND, #[out] #[writable(success, bytes(*pcbProtectedBlob), indirect)] ppbProtectedBlob: *mut *mut BYTE, #[out] pcbProtectedBlob: *mut ULONG) -> SECURITY_STATUS;

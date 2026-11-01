@@ -43,11 +43,9 @@ mod Fixture {
     #[library("KERNEL32.dll", import = "K32GetModuleBaseNameW")]
     extern fn GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
-    #[success(return != 0)]
-    extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
-    #[success(return != 0)]
-    extern fn GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleInformation")]
     extern fn GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32GetPerformanceInfo")]
@@ -95,11 +93,9 @@ mod Fixture {
     #[library("KERNEL32.dll")]
     extern fn K32GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
-    #[success(return != 0)]
-    extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
-    #[success(return != 0)]
-    extern fn K32GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
+    extern fn K32GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
     extern fn K32GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll")]

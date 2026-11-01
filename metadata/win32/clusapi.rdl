@@ -2683,7 +2683,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterCreateAffinityRule(#[in] hCluster: HCLUSTER, #[in] ruleName: LPCWSTR, #[in] ruleType: CLUS_AFFINITY_RULE_TYPE) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterEnum(#[in] hEnum: HCLUSENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterEnumEx(#[in] hClusterEnum: HCLUSENUMEX, #[in] dwIndex: DWORD, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> DWORD;
@@ -2696,13 +2695,10 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupCloseEnumEx(#[in] hGroupEnumEx: HGROUPENUMEX) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterGroupControl(#[in] hGroup: HGROUP, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterGroupControlEx(#[in] hGroup: HGROUP, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterGroupEnum(#[in] hGroupEnum: HGROUPENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszResourceName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupEnumEx(#[in] hGroupEnumEx: HGROUPENUMEX, #[in] dwIndex: DWORD, #[in] #[out] pItem: PCLUSTER_GROUP_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> DWORD;
@@ -2719,10 +2715,8 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupSetControl(#[in] hGroupSet: HGROUPSET, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterGroupSetControlEx(#[in] hGroupSet: HGROUPSET, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterGroupSetEnum(#[in] hGroupSetEnum: HGROUPSETENUM, #[in] dwIndex: DWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupSetGetEnumCount(hGroupSetEnum: HGROUPSETENUM) -> DWORD;
@@ -2735,7 +2729,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterNetInterfaceControlEx(#[in] hNetInterface: HNETINTERFACE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNetInterfaceEnum(#[in] hNetInterfaceEnum: HNETINTERFACEENUM, #[in] dwIndex: DWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterNetInterfaceOpenEnum(#[in] hCluster: HCLUSTER, #[in] #[opt] lpszNodeName: LPCWSTR, #[in] #[opt] lpszNetworkName: LPCWSTR) -> HNETINTERFACEENUM;
@@ -2746,7 +2739,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterNetworkControlEx(#[in] hNetwork: HNETWORK, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNetworkEnum(#[in] hNetworkEnum: HNETWORKENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterNetworkGetEnumCount(#[in] hNetworkEnum: HNETWORKENUM) -> DWORD;
@@ -2757,13 +2749,10 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterNodeCloseEnumEx(#[in] hNodeEnum: HNODEENUMEX) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNodeControl(#[in] hNode: HNODE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNodeControlEx(#[in] hNode: HNODE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNodeEnum(#[in] hNodeEnum: HNODEENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterNodeEnumEx(#[in] hNodeEnum: HNODEENUMEX, #[in] dwIndex: DWORD, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> DWORD;
@@ -2776,7 +2765,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterNodeOpenEnumEx(#[in] hNode: HNODE, #[in] dwType: DWORD, #[in] #[opt] pOptions: PVOID) -> HNODEENUMEX;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterNodeReplacement(#[in] hCluster: HCLUSTER, #[in] lpszNodeNameCurrent: LPCWSTR, #[in] lpszNodeNameNew: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterOpenEnum(#[in] hCluster: HCLUSTER, #[in] dwType: DWORD) -> HCLUSENUM;
@@ -2821,10 +2809,8 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegDeleteValueEx(#[in] hKey: HKEY, #[in] lpszValueName: LPCWSTR, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterRegEnumKey(#[in] hKey: HKEY, #[in] dwIndex: DWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD, #[opt] #[out] lpftLastWriteTime: PFILETIME) -> LONG;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterRegEnumValue(#[in] hKey: HKEY, #[in] dwIndex: DWORD, #[out] #[readable(success, *lpcchValueName + 1)] #[writable(entry, *lpcchValueName)] lpszValueName: LPWSTR, #[in] #[out] lpcchValueName: LPDWORD, #[opt] #[out] lpdwType: LPDWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpcbData)))] #[writable(entry, bytes(if_present(*lpcbData)))] lpData: LPBYTE, #[in] #[opt] #[out] lpcbData: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegGetBatchNotification(#[in] hBatchNotify: HREGBATCHPORT, #[out] phBatchNotification: *mut HREGBATCHNOTIFICATION) -> LONG;
@@ -2863,19 +2849,14 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterResourceCloseEnumEx(#[in] hResourceEnumEx: HRESENUMEX) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceControl(#[in] hResource: HRESOURCE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceControlAsUser(#[in] hResource: HRESOURCE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceControlAsUserEx(#[in] hResource: HRESOURCE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceControlEx(#[in] hResource: HRESOURCE, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(cbInBufferSize))] lpInBuffer: LPVOID, #[in] cbInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(cbOutBufferSize))] lpOutBuffer: LPVOID, #[in] cbOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceEnum(#[in] hResEnum: HRESENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterResourceEnumEx(#[in] hResourceEnumEx: HRESENUMEX, #[in] dwIndex: DWORD, #[in] #[out] pItem: PCLUSTER_RESOURCE_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> DWORD;
@@ -2890,19 +2871,14 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterResourceTypeCloseEnum(#[in] hResTypeEnum: HRESTYPEENUM) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceTypeControl(#[in] hCluster: HCLUSTER, #[in] lpszResourceTypeName: LPCWSTR, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceTypeControlAsUser(#[in] hCluster: HCLUSTER, #[in] lpszResourceTypeName: LPCWSTR, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceTypeControlAsUserEx(#[in] hCluster: HCLUSTER, #[in] lpszResourceTypeName: LPCWSTR, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceTypeControlEx(#[in] hCluster: HCLUSTER, #[in] lpszResourceTypeName: LPCWSTR, #[in] #[opt] hHostNode: HNODE, #[in] dwControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*lpBytesReturned)))] #[writable(entry, bytes(nOutBufferSize))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn ClusterResourceTypeEnum(#[in] hResTypeEnum: HRESTYPEENUM, #[in] dwIndex: DWORD, #[out] lpdwType: LPDWORD, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn ClusterResourceTypeGetEnumCount(#[in] hResTypeEnum: HRESTYPEENUM) -> DWORD;
@@ -3035,53 +3011,42 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn GetClusterGroupKey(#[in] hGroup: HGROUP, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        #[success(return >= 0)]
         extern fn GetClusterGroupState(#[in] hGroup: HGROUP, #[opt] #[out] #[readable(success, if_present(*lpcchNodeName) + 1)] #[writable(entry, if_present(*lpcchNodeName))] lpszNodeName: LPWSTR, #[in] #[opt] #[out] lpcchNodeName: LPDWORD) -> CLUSTER_GROUP_STATE;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterInformation(#[in] hCluster: HCLUSTER, #[out] #[readable(success, *lpcchClusterName + 1)] #[writable(entry, *lpcchClusterName)] lpszClusterName: LPWSTR, #[in] #[out] lpcchClusterName: LPDWORD, #[opt] #[out] lpClusterInfo: LPCLUSTERVERSIONINFO) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterKey(#[in] hCluster: HCLUSTER, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterNetInterface(#[in] hCluster: HCLUSTER, #[in] lpszNodeName: LPCWSTR, #[in] lpszNetworkName: LPCWSTR, #[out] #[readable(success, *lpcchInterfaceName + 1)] #[writable(entry, *lpcchInterfaceName)] lpszInterfaceName: LPWSTR, #[in] #[out] lpcchInterfaceName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNetInterfaceKey(#[in] hNetInterface: HNETINTERFACE, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNetInterfaceState(#[in] hNetInterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterNetworkId(#[in] hNetwork: HNETWORK, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszNetworkId: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNetworkKey(#[in] hNetwork: HNETWORK, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNetworkState(#[in] hNetwork: HNETWORK) -> CLUSTER_NETWORK_STATE;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterNodeId(#[in] #[opt] hNode: HNODE, #[out] #[readable(success, *lpcchName + 1)] #[writable(entry, *lpcchName)] lpszNodeId: LPWSTR, #[in] #[out] lpcchName: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNodeKey(#[in] hNode: HNODE, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterNodeState(#[in] hNode: HNODE) -> CLUSTER_NODE_STATE;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterNotify(#[in] hChange: HCHANGE, #[out] lpdwNotifyKey: *mut DWORD_PTR, #[out] lpdwFilterType: LPDWORD, #[out] #[writable(entry, *lpcchName)] lpszName: LPWSTR, #[in] #[out] lpcchName: LPDWORD, #[in] dwMilliseconds: DWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterNotifyV2(#[in] hChange: HCHANGE, #[out] lpdwNotifyKey: *mut DWORD_PTR, #[in] #[opt] #[out] pFilterAndType: PNOTIFY_FILTER_AND_TYPE, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*lpbBufferSize)))] buffer: *mut BYTE, #[in] #[opt] #[out] lpbBufferSize: LPDWORD, #[in] #[opt] #[out] #[readable(entry, if_present(*lpcchObjectId))] #[readable(success, if_present(*lpcchObjectId) + 1)] #[writable(entry, if_present(*lpcchObjectId))] lpszObjectId: LPWSTR, #[in] #[opt] #[out] lpcchObjectId: LPDWORD, #[in] #[opt] #[out] #[readable(entry, if_present(*lpcchParentId))] #[readable(success, if_present(*lpcchParentId) + 1)] #[writable(entry, if_present(*lpcchParentId))] lpszParentId: LPWSTR, #[in] #[opt] #[out] lpcchParentId: LPDWORD, #[in] #[opt] #[out] #[readable(entry, if_present(*lpcchName))] #[readable(success, if_present(*lpcchName) + 1)] #[writable(entry, if_present(*lpcchName))] lpszName: LPWSTR, #[in] #[opt] #[out] lpcchName: LPDWORD, #[in] #[opt] #[out] #[readable(entry, if_present(*lpcchType))] #[readable(success, if_present(*lpcchType) + 1)] #[writable(entry, if_present(*lpcchType))] lpszType: LPWSTR, #[in] #[opt] #[out] lpcchType: LPDWORD, #[in] #[opt] dwMilliseconds: DWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterQuorumResource(#[in] hCluster: HCLUSTER, #[out] #[readable(success, *lpcchResourceName + 1)] #[writable(entry, *lpcchResourceName)] lpszResourceName: LPWSTR, #[in] #[out] lpcchResourceName: LPDWORD, #[out] #[readable(success, *lpcchDeviceName + 1)] #[writable(entry, *lpcchDeviceName)] lpszDeviceName: LPWSTR, #[in] #[out] lpcchDeviceName: LPDWORD, #[out] lpdwMaxQuorumLogSize: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn GetClusterResourceDependencyExpression(#[in] hResource: HRESOURCE, #[opt] #[out] #[readable(success, *lpcchDependencyExpression + 1)] #[writable(entry, *lpcchDependencyExpression)] lpszDependencyExpression: LPWSTR, #[in] #[out] lpcchDependencyExpression: LPDWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterResourceKey(#[in] hResource: HRESOURCE, #[in] samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        #[success(return != 0)]
         extern fn GetClusterResourceNetworkName(#[in] hResource: HRESOURCE, #[out] #[readable(success, *nSize + 1)] #[writable(entry, *nSize)] lpBuffer: LPWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("CLUSAPI.dll")]
-        #[success(return >= 0)]
         extern fn GetClusterResourceState(#[in] hResource: HRESOURCE, #[opt] #[out] #[readable(success, if_present(*lpcchNodeName))] #[writable(entry, if_present(*lpcchNodeName))] lpszNodeName: LPWSTR, #[in] #[opt] #[out] lpcchNodeName: LPDWORD, #[opt] #[out] #[readable(success, if_present(*lpcchGroupName))] #[writable(entry, if_present(*lpcchGroupName))] lpszGroupName: LPWSTR, #[in] #[opt] #[out] lpcchGroupName: LPDWORD) -> CLUSTER_RESOURCE_STATE;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterResourceTypeKey(#[in] hCluster: HCLUSTER, #[in] lpszTypeName: LPCWSTR, #[in] samDesired: REGSAM) -> HKEY;
@@ -3786,7 +3751,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn SetClusterName(#[in] hCluster: HCLUSTER, #[in] lpszNewClusterName: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn SetClusterNameEx(#[in] hCluster: HCLUSTER, #[in] lpszNewClusterName: LPCWSTR, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn SetClusterNetworkName(#[in] hNetwork: HNETWORK, #[in] lpszName: LPCWSTR) -> DWORD;
@@ -3797,7 +3761,6 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn SetClusterQuorumResource(#[in] hResource: HRESOURCE, #[in] #[opt] lpszDeviceName: LPCWSTR, #[in] dwMaxQuoLogSize: DWORD) -> DWORD;
         #[library("CLUSAPI.dll")]
-        #[success(return == 0)]
         extern fn SetClusterQuorumResourceEx(#[in] hResource: HRESOURCE, #[in] #[opt] lpszDeviceName: LPCWSTR, #[in] dwMaxQuorumLogSize: DWORD, #[in] #[opt] lpszReason: LPCWSTR) -> DWORD;
         #[library("CLUSAPI.dll")]
         extern fn SetClusterResourceDependencyExpression(#[in] hResource: HRESOURCE, #[in] lpszDependencyExpression: LPCWSTR) -> DWORD;

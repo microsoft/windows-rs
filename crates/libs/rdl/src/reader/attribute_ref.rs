@@ -675,12 +675,6 @@ impl Encoder<'_> {
         types: ExtentTypes<'_>,
     ) -> Result<(), Error> {
         for attr in attrs {
-            if attr.path().is_ident("range") {
-                let range = integer_range::parse_integer_range(attr, names, field)
-                    .map_err(|error| self.error(error.span(), &error.to_string()))?;
-                self.encode_integer_range(target, attr, names, &types, &range)?;
-                continue;
-            }
             if attr.path().is_ident("null_terminated") {
                 let (_, _, indirect) = self.null_terminated_flags(attr)?;
                 if field {
@@ -756,39 +750,6 @@ impl Encoder<'_> {
                 },
             );
         }
-        Ok(())
-    }
-
-    pub(super) fn encode_integer_range(
-        &mut self,
-        target: metadata::writer::HasAttribute,
-        attr: &syn::Attribute,
-        names: &[&str],
-        types: &ExtentTypes<'_>,
-        range: &metadata::IntegerRange,
-    ) -> Result<(), Error> {
-        let mut subject = self.extent_underlying(types.subject.clone());
-        if range.indirect {
-            subject = subject
-                .and_then(extent_pointee)
-                .and_then(|ty| self.extent_underlying(ty));
-        }
-        if !subject.as_ref().is_some_and(extent_integer) {
-            return self.err(
-                attr,
-                "integer range requires an integer subject at the specified indirection",
-            );
-        }
-        for bound in range.lower.iter().chain(&range.upper) {
-            self.validate_integer_expression(attr, &bound.expression, names, types)?;
-        }
-        self.encode_named_attribute(
-            target,
-            &AttributeRef {
-                type_name: metadata::TypeName::named(METADATA_NAMESPACE, "IntegerRangeAttribute"),
-                args: range.to_values(),
-            },
-        );
         Ok(())
     }
 
@@ -960,36 +921,8 @@ impl Encoder<'_> {
             if path.is_ident("readable") || path.is_ident("writable") {
                 return self.err(attr, "buffer extents require a parameter or field owner");
             }
-            if path.is_ident("range") {
-                return self.err(attr, "integer ranges require a parameter or field owner");
-            }
             if path.is_ident("out_ptr") {
                 self.emit_returned_pointer_attribute(has_attribute, attr)?;
-                continue;
-            }
-            if path.is_ident("success") {
-                if !matches!(
-                    has_attribute,
-                    metadata::writer::HasAttribute::TypeDef(_)
-                        | metadata::writer::HasAttribute::MethodDef(_)
-                ) {
-                    return self.err(attr, "success requires a callable or return-type owner");
-                }
-                let expression: TokenStream = attr
-                    .parse_args()
-                    .map_err(|_| self.error(attr, "success requires a return comparison"))?;
-                let condition = SuccessCondition::from_expression(&expression)
-                    .ok_or_else(|| self.error(attr, "unsupported success predicate"))?;
-                self.encode_named_attribute(
-                    has_attribute,
-                    &AttributeRef {
-                        type_name: metadata::TypeName::named(
-                            METADATA_NAMESPACE,
-                            "SuccessConditionAttribute",
-                        ),
-                        args: vec![(String::new(), condition.to_value())],
-                    },
-                );
                 continue;
             }
             if path.is_ident("null_terminated") {

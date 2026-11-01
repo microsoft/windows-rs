@@ -106,13 +106,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EventUnregister(#[in] RegHandle: REGHANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWrite(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[range(entry, 0..=128)] UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWrite(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteEx(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] Filter: ULONG64, #[in] Flags: ULONG, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, #[range(entry, 0..=128)] UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWriteEx(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] Filter: ULONG64, #[in] Flags: ULONG, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn EventWriteString(#[in] RegHandle: REGHANDLE, #[in] Level: UCHAR, #[in] Keyword: ULONGLONG, #[in] String: PCWSTR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteTransfer(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, #[range(entry, 0..=128)] UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWriteTransfer(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
         const MAX_EVENT_FILTERS_COUNT: i32 = 13;
         const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;

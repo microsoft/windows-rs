@@ -284,10 +284,8 @@ mod Fixture {
     extern fn WSAGetServiceClassInfoW(#[in] lpProviderId: LPGUID, #[in] lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[out] #[readable(success, bytes(*lpdwBufSize))] #[writable(entry, bytes(*lpdwBufSize))] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> INT;
     #[deprecated("Use WSAGetServiceClassNameByClassIdW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    #[success(return == 0)]
     extern fn WSAGetServiceClassNameByClassIdA(#[in] lpServiceClassId: LPGUID, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpszServiceClassName: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> INT;
     #[library("WS2_32.dll")]
-    #[success(return == 0)]
     extern fn WSAGetServiceClassNameByClassIdW(#[in] lpServiceClassId: LPGUID, #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpszServiceClassName: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> INT;
     #[library("WS2_32.dll")]
     extern fn WSAHtonl(#[in] s: SOCKET, #[in] hostlong: u_long, #[out] lpnetlong: *mut u_long) -> i32;

@@ -1101,16 +1101,12 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DrawStateW(#[in] hdc: HDC, #[in] #[opt] hbrFore: HBRUSH, #[in] #[opt] qfnCallBack: DRAWSTATEPROC, #[in] lData: LPARAM, #[in] wData: WPARAM, #[in] x: i32, #[in] y: i32, #[in] cx: i32, #[in] cy: i32, #[in] uFlags: UINT) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn DrawTextA(#[in] hdc: HDC, #[incomplete] lpchText: LPCSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn DrawTextExA(#[in] hdc: HDC, #[incomplete] lpchText: LPSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn DrawTextExW(#[in] hdc: HDC, #[incomplete] lpchText: LPWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn DrawTextW(#[in] hdc: HDC, #[incomplete] lpchText: LPCWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
         const EC_LEFTMARGIN: i32 = 1;
         const EC_RIGHTMARGIN: i32 = 2;
@@ -1636,16 +1632,12 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetCaretPos(#[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn GetClassInfoA(#[in] #[opt] hInstance: HINSTANCE, #[in] lpClassName: LPCSTR, #[out] lpWndClass: LPWNDCLASSA) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn GetClassInfoExA(#[in] #[opt] hInstance: HINSTANCE, #[in] lpszClass: LPCSTR, #[out] lpwcx: LPWNDCLASSEXA) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn GetClassInfoExW(#[in] #[opt] hInstance: HINSTANCE, #[in] lpszClass: LPCWSTR, #[out] lpwcx: LPWNDCLASSEXW) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn GetClassInfoW(#[in] #[opt] hInstance: HINSTANCE, #[in] lpClassName: LPCWSTR, #[out] lpWndClass: LPWNDCLASSW) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetClassLongA(#[in] hWnd: HWND, #[in] nIndex: i32) -> DWORD;
@@ -1720,9 +1712,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetDlgItemInt(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[opt] #[out] lpTranslated: *mut BOOL, #[in] bSigned: BOOL) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetDlgItemTextA(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[writable(entry, cchMax)] lpString: LPSTR, #[in] cchMax: i32) -> #[range(success, 0..=cchMax)] UINT;
+        extern fn GetDlgItemTextA(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[writable(entry, cchMax)] lpString: LPSTR, #[in] cchMax: i32) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetDlgItemTextW(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[writable(entry, cchMax)] lpString: LPWSTR, #[in] cchMax: i32) -> #[range(success, 0..=cchMax)] UINT;
+        extern fn GetDlgItemTextW(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[writable(entry, cchMax)] lpString: LPWSTR, #[in] cchMax: i32) -> UINT;
         #[library("USER32.dll")]
         extern fn GetDoubleClickTime() -> UINT;
         #[library("USER32.dll")]
@@ -2003,13 +1995,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowRgnBox(#[in] hWnd: HWND, #[out] lprc: LPRECT) -> i32;
         #[library("USER32.dll")]
-        extern fn GetWindowTextA(#[in] hWnd: HWND, #[out] #[writable(entry, nMaxCount)] lpString: LPSTR, #[in] nMaxCount: i32) -> #[range(success, 0..=nMaxCount)] i32;
+        extern fn GetWindowTextA(#[in] hWnd: HWND, #[out] #[writable(entry, nMaxCount)] lpString: LPSTR, #[in] nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
         extern fn GetWindowTextLengthA(#[in] hWnd: HWND) -> i32;
         #[library("USER32.dll")]
         extern fn GetWindowTextLengthW(#[in] hWnd: HWND) -> i32;
         #[library("USER32.dll")]
-        extern fn GetWindowTextW(#[in] hWnd: HWND, #[out] #[writable(entry, nMaxCount)] lpString: LPWSTR, #[in] nMaxCount: i32) -> #[range(success, 0..=nMaxCount)] i32;
+        extern fn GetWindowTextW(#[in] hWnd: HWND, #[out] #[writable(entry, nMaxCount)] lpString: LPWSTR, #[in] nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
         extern fn GetWindowThreadProcessId(#[in] hWnd: HWND, #[opt] #[out] lpdwProcessId: LPDWORD) -> DWORD;
         #[library("USER32.dll")]
@@ -3827,7 +3819,6 @@ mod Windows {
         const QS_TIMER: i32 = 16;
         const QS_TOUCH: i32 = 2048;
         #[library("USER32.dll")]
-        #[success(return == 0)]
         extern fn QueryDisplayConfig(#[in] flags: UINT32, #[in] #[out] numPathArrayElements: *mut UINT32, #[out] #[readable(success, *numPathArrayElements)] #[writable(entry, *numPathArrayElements)] pathArray: *mut DISPLAYCONFIG_PATH_INFO, #[in] #[out] numModeInfoArrayElements: *mut UINT32, #[out] #[readable(success, *numModeInfoArrayElements)] #[writable(entry, *numModeInfoArrayElements)] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, #[incomplete] currentTopologyId: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> LONG;
         struct RAWHID {
             dwSizeHid: DWORD,
@@ -4981,13 +4972,10 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SwitchToThisWindow(#[in] hwnd: HWND, #[in] fUnknown: BOOL);
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn SystemParametersInfoA(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn SystemParametersInfoForDpi(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT, #[in] dpi: UINT) -> BOOL;
         #[library("USER32.dll")]
-        #[success(return != 0)]
         extern fn SystemParametersInfoW(#[in] uiAction: UINT, #[in] uiParam: UINT, #[incomplete] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
         extern fn TIMERPROC(param0: HWND, param1: UINT, param2: UINT_PTR, param3: DWORD);
         const TIMERV_COALESCING_MAX: i32 = 2147483637;

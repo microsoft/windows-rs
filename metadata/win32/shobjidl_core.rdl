@@ -1024,11 +1024,11 @@ mod Windows {
         const IEI_PRIORITY_MIN: i32 = 0;
         #[guid(0x973810ae_9599_4b88_9e4d_6ee98c9552da)]
         interface IEnumAssocHandlers: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IAssocHandler, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IAssocHandler, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
         }
         #[guid(0xa88826f8_186f_4987_aade_ea0cef8fbfe8)]
         interface IEnumExplorerCommand: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] pUICommand: *mut IExplorerCommand, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] pUICommand: *mut IExplorerCommand, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumExplorerCommand) -> HRESULT;
@@ -1042,21 +1042,21 @@ mod Windows {
         }
         #[guid(0xd0191542_7954_4908_bc06_b2360bbe45ba)]
         interface IEnumFullIDList: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPITEMIDLIST, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPITEMIDLIST, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumFullIDList) -> HRESULT;
         }
         #[guid(0x000214f2_0000_0000_c000_000000000046)]
         interface IEnumIDList: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPITEMIDLIST, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPITEMIDLIST, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumIDList) -> HRESULT;
         }
         #[guid(0x2c1c7e2e_2d0e_4059_831e_1e6f82335c2e)]
         interface IEnumObjects: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut *mut void, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut *mut void, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumObjects) -> HRESULT;
@@ -1070,7 +1070,7 @@ mod Windows {
         }
         #[guid(0x70629033_e363_4a28_a567_0db78006e6d7)]
         interface IEnumShellItems: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IShellItem, #[opt] #[out] #[range(success, 0..=celt, indirect)] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IShellItem, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumShellItems) -> HRESULT;

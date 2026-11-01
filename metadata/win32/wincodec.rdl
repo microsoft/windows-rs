@@ -456,9 +456,9 @@ mod Windows {
             fn DoesSupportIndexing(&self, #[out] pfIndexingSupported: *mut BOOL) -> HRESULT;
             fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalIntervalSize: UINT) -> HRESULT;
             fn ClearIndexing(&self) -> HRESULT;
-            fn GetAcHuffmanTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
-            fn GetDcHuffmanTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
-            fn GetQuantizationTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
+            fn GetAcHuffmanTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetDcHuffmanTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetQuantizationTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
             fn GetFrameHeader(&self, #[out] pFrameHeader: *mut WICJpegFrameHeader) -> HRESULT;
             fn GetScanHeader(&self, scanIndex: UINT, #[out] pScanHeader: *mut WICJpegScanHeader) -> HRESULT;
             fn CopyScan(&self, scanIndex: UINT, scanOffset: UINT, #[in] cbScanData: UINT, #[out] #[readable(success, *pcbScanDataActual)] #[writable(entry, cbScanData)] #[writable(success, cbScanData)] pbScanData: *mut BYTE, #[out] pcbScanDataActual: *mut UINT) -> HRESULT;
@@ -466,9 +466,9 @@ mod Windows {
         }
         #[guid(0x2f0c601f_d2c6_468c_abfa_49495d983ed1)]
         interface IWICJpegFrameEncode: IUnknown {
-            fn GetAcHuffmanTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
-            fn GetDcHuffmanTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
-            fn GetQuantizationTable(&self, scanIndex: UINT, #[range(entry, 0..=3)] tableIndex: UINT, #[out] pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
+            fn GetAcHuffmanTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetDcHuffmanTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetQuantizationTable(&self, scanIndex: UINT, tableIndex: UINT, #[out] pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
             fn WriteScan(&self, #[in] cbScanData: UINT, #[in] #[readable(entry, cbScanData)] pbScanData: *const BYTE) -> HRESULT;
         }
         #[guid(0x30989668_e1c9_4597_b395_458eedb808df)]

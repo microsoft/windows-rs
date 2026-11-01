@@ -3986,7 +3986,7 @@ mod Windows {
             fn Evict(&self, NumObjects: UINT, #[in] #[readable(entry, NumObjects)] ppObjects: *const ID3D12Pageable) -> HRESULT;
             fn CreateFence(&self, InitialValue: UINT64, Flags: D3D12_FENCE_FLAGS, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppFence: *mut *mut void) -> HRESULT;
             fn GetDeviceRemovedReason(&self) -> HRESULT;
-            fn GetCopyableFootprints(&self, #[in] pResourceDesc: *const D3D12_RESOURCE_DESC, #[range(entry, 0..=30720)] FirstSubresource: UINT, #[range(entry, 0..=30720 - FirstSubresource)] NumSubresources: UINT, BaseOffset: UINT64, #[opt] #[out] #[writable(entry, NumSubresources)] pLayouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, #[opt] #[out] #[writable(entry, NumSubresources)] pNumRows: *mut UINT, #[opt] #[out] #[writable(entry, NumSubresources)] pRowSizeInBytes: *mut UINT64, #[opt] #[out] pTotalBytes: *mut UINT64);
+            fn GetCopyableFootprints(&self, #[in] pResourceDesc: *const D3D12_RESOURCE_DESC, FirstSubresource: UINT, NumSubresources: UINT, BaseOffset: UINT64, #[opt] #[out] #[writable(entry, NumSubresources)] pLayouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, #[opt] #[out] #[writable(entry, NumSubresources)] pNumRows: *mut UINT, #[opt] #[out] #[writable(entry, NumSubresources)] pRowSizeInBytes: *mut UINT64, #[opt] #[out] pTotalBytes: *mut UINT64);
             fn CreateQueryHeap(&self, #[in] pDesc: *const D3D12_QUERY_HEAP_DESC, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppvHeap: *mut *mut void) -> HRESULT;
             fn SetStablePowerState(&self, Enable: BOOL) -> HRESULT;
             fn CreateCommandSignature(&self, #[in] pDesc: *const D3D12_COMMAND_SIGNATURE_DESC, #[in] #[opt] pRootSignature: ID3D12RootSignature, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppvCommandSignature: *mut *mut void) -> HRESULT;
@@ -4066,7 +4066,7 @@ mod Windows {
             fn CreateCommittedResource2(&self, #[in] pHeapProperties: *const D3D12_HEAP_PROPERTIES, HeapFlags: D3D12_HEAP_FLAGS, #[in] pDesc: *const D3D12_RESOURCE_DESC1, InitialResourceState: D3D12_RESOURCE_STATES, #[in] #[opt] pOptimizedClearValue: *const D3D12_CLEAR_VALUE, #[in] #[opt] pProtectedSession: ID3D12ProtectedResourceSession, riidResource: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppvResource: *mut *mut void) -> HRESULT;
             fn CreatePlacedResource1(&self, #[in] pHeap: ID3D12Heap, HeapOffset: UINT64, #[in] pDesc: *const D3D12_RESOURCE_DESC1, InitialState: D3D12_RESOURCE_STATES, #[in] #[opt] pOptimizedClearValue: *const D3D12_CLEAR_VALUE, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppvResource: *mut *mut void) -> HRESULT;
             fn CreateSamplerFeedbackUnorderedAccessView(&self, #[in] #[opt] pTargetedResource: ID3D12Resource, #[in] #[opt] pFeedbackResource: ID3D12Resource, #[in] DestDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE);
-            fn GetCopyableFootprints1(&self, #[in] pResourceDesc: *const D3D12_RESOURCE_DESC1, #[range(entry, 0..=30720)] FirstSubresource: UINT, #[range(entry, 0..=30720 - FirstSubresource)] NumSubresources: UINT, BaseOffset: UINT64, #[opt] #[out] #[writable(entry, NumSubresources)] pLayouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, #[opt] #[out] #[writable(entry, NumSubresources)] pNumRows: *mut UINT, #[opt] #[out] #[writable(entry, NumSubresources)] pRowSizeInBytes: *mut UINT64, #[opt] #[out] pTotalBytes: *mut UINT64);
+            fn GetCopyableFootprints1(&self, #[in] pResourceDesc: *const D3D12_RESOURCE_DESC1, FirstSubresource: UINT, NumSubresources: UINT, BaseOffset: UINT64, #[opt] #[out] #[writable(entry, NumSubresources)] pLayouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, #[opt] #[out] #[writable(entry, NumSubresources)] pNumRows: *mut UINT, #[opt] #[out] #[writable(entry, NumSubresources)] pRowSizeInBytes: *mut UINT64, #[opt] #[out] pTotalBytes: *mut UINT64);
         }
         #[guid(0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c)]
         interface ID3D12Device9: ID3D12Device8 {
@@ -4170,8 +4170,8 @@ mod Windows {
             fn CopyTiles(&self, #[in] pTiledResource: ID3D12Resource, #[in] pTileRegionStartCoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, #[in] pTileRegionSize: *const D3D12_TILE_REGION_SIZE, #[in] pBuffer: ID3D12Resource, BufferStartOffsetInBytes: UINT64, Flags: D3D12_TILE_COPY_FLAGS);
             fn ResolveSubresource(&self, #[in] pDstResource: ID3D12Resource, #[in] DstSubresource: UINT, #[in] pSrcResource: ID3D12Resource, #[in] SrcSubresource: UINT, #[in] Format: DXGI_FORMAT);
             fn IASetPrimitiveTopology(&self, #[in] PrimitiveTopology: D3D12_PRIMITIVE_TOPOLOGY);
-            fn RSSetViewports(&self, #[range(entry, 0..=16)] NumViewports: UINT, #[in] #[readable(entry, NumViewports)] pViewports: *const D3D12_VIEWPORT);
-            fn RSSetScissorRects(&self, #[range(entry, 0..=16)] NumRects: UINT, #[in] #[readable(entry, NumRects)] pRects: *const D3D12_RECT);
+            fn RSSetViewports(&self, NumViewports: UINT, #[in] #[readable(entry, NumViewports)] pViewports: *const D3D12_VIEWPORT);
+            fn RSSetScissorRects(&self, NumRects: UINT, #[in] #[readable(entry, NumRects)] pRects: *const D3D12_RECT);
             fn OMSetBlendFactor(&self, #[in] #[opt] #[readable(entry, 4)] BlendFactor: *const FLOAT);
             fn OMSetStencilRef(&self, #[in] StencilRef: UINT);
             fn SetPipelineState(&self, #[in] pPipelineState: ID3D12PipelineState);

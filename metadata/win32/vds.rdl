@@ -72,7 +72,7 @@ mod Windows {
         }
         #[guid(0x8326cd1d_cf59_4936_b786_5efc08798e25)]
         interface IVdsAdviseSink: IUnknown {
-            fn OnNotify(&self, #[in] #[range(entry, 1..=100)] lNumberOfNotifications: LONG, #[in] #[readable(entry, lNumberOfNotifications)] pNotificationArray: *mut VDS_NOTIFICATION) -> HRESULT;
+            fn OnNotify(&self, #[in] lNumberOfNotifications: LONG, #[in] #[readable(entry, lNumberOfNotifications)] pNotificationArray: *mut VDS_NOTIFICATION) -> HRESULT;
         }
         #[guid(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc)]
         interface IVdsAsync: IUnknown {

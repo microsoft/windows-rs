@@ -495,7 +495,6 @@ mod Windows {
         const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: i32 = 4;
         const RPC_IF_ASYNC_CALLBACK: i32 = 256;
         const RPC_IF_AUTOLISTEN: i32 = 1;
-        #[success(return == 0)]
         extern fn RPC_IF_CALLBACK_FN(#[in] InterfaceUuid: RPC_IF_HANDLE, #[in] Context: *mut void) -> RPC_STATUS;
         type RPC_IF_HANDLE = *mut void;
         #[arch(X64 | Arm64)]

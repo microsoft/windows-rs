@@ -1275,7 +1275,6 @@ mod Windows {
             uMediumTimeAdmited: ULONG,
         }
         struct DOT11_RATE_SET {
-            #[range(<=126)]
             uRateSetLength: ULONG,
             #[readable(uRateSetLength)]
             #[writable(126)]
@@ -1967,7 +1966,6 @@ mod Windows {
         struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
             AdvertisementID: ULONG,
             ConfigMethods: USHORT,
-            #[range(0..=255)]
             ServiceNameLength: UCHAR,
             ServiceName: [UCHAR; 255],
         }
@@ -2193,7 +2191,6 @@ mod Windows {
             SessionAddress: DOT11_MAC_ADDRESS,
         }
         struct DOT11_WFD_SESSION_INFO {
-            #[range(<=144)]
             uSessionInfoLength: USHORT,
             #[readable(uSessionInfoLength)]
             #[writable(144)]
@@ -2252,7 +2249,6 @@ mod Windows {
             DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT = 4096,
         }
         struct DOT11_WPS_DEVICE_NAME {
-            #[range(0..=32)]
             uDeviceNameLength: ULONG,
             ucDeviceName: [UCHAR; 32],
         }

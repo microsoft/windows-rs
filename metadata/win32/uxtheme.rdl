@@ -34,7 +34,6 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn BeginBufferedAnimation(#[in] hwnd: HWND, #[in] hdcTarget: HDC, #[in] prcTarget: *const RECT, #[in] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, #[in] pAnimationParams: *mut BP_ANIMATIONPARAMS, #[out] phdcFrom: *mut HDC, #[out] phdcTo: *mut HDC) -> HANIMATIONBUFFER;
         #[library("UxTheme.dll")]
-        #[success(return != 0)]
         extern fn BeginBufferedPaint(#[in] hdcTarget: HDC, #[in] prcTarget: *const RECT, #[in] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, #[out] phdc: *mut HDC) -> HPAINTBUFFER;
         #[library("UxTheme.dll")]
         extern fn BeginPanningFeedback(#[in] hwnd: HWND) -> BOOL;

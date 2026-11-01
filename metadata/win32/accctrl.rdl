@@ -193,7 +193,6 @@ mod Windows {
         const ACTRL_WIN_SCREEN: i32 = 128;
         const ACTRL_WIN_WRITE_ATTRIBS: i32 = 64;
         #[library("KERNEL32.dll", import = "LocalFree")]
-        #[success(return == 0)]
         extern fn AccFree(#[incomplete] hMem: HLOCAL) -> #[nullable] HLOCAL;
         type EXPLICIT_ACCESS = _EXPLICIT_ACCESS_A;
         type EXPLICIT_ACCESSA = _EXPLICIT_ACCESS_A;

@@ -440,21 +440,14 @@ impl Projector<'_, '_> {
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
-        let names = parameter_names(parameters, named);
-        let names: Vec<_> = names.iter().map(String::as_str).collect();
-        let attributes = annotations::write_callable(
-            snapshot,
-            function.result,
-            &observation.attributes,
-            parameters,
-            &names,
-        )?;
+        let attributes =
+            annotations::write_callable(snapshot, function.result, &observation.attributes)?;
         let mut parameters = self.parameter_list(
             snapshot_id,
             function,
             parameters,
             named,
-            annotations::callable_success(
+            annotations::nonnegative_success(
                 self.resolution,
                 snapshot,
                 written.prototype.result,
@@ -487,7 +480,7 @@ impl Projector<'_, '_> {
         function: &Function,
         parameters: &[Parameter],
     ) -> Result<Vec<TokenStream>, Error> {
-        self.parameter_list(snapshot_id, function, parameters, true, None)
+        self.parameter_list(snapshot_id, function, parameters, true, false)
     }
 
     fn parameter_list(
@@ -496,7 +489,7 @@ impl Projector<'_, '_> {
         function: &Function,
         parameters: &[Parameter],
         named: bool,
-        success: Option<windows_rdl::emit::SuccessCondition>,
+        nonnegative_success: bool,
     ) -> Result<Vec<TokenStream>, Error> {
         if parameters.len() != function.parameters.len() {
             return Err(Error(
@@ -531,7 +524,12 @@ impl Projector<'_, '_> {
                 let snapshot = self.resolution.snapshots[snapshot_id];
                 let buffer_ty = self.parameter_ty(snapshot_id, canonical, canonical)?;
                 let attributes = annotations::parameter(
-                    snapshot, function, parameter, parameters, &buffer_ty, success,
+                    snapshot,
+                    function,
+                    parameter,
+                    parameters,
+                    &buffer_ty,
+                    nonnegative_success,
                 )?;
                 let size = annotations::buffer(
                     snapshot,

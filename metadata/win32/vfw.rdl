@@ -731,7 +731,6 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn ICGetDisplayFormat(#[in] #[opt] hic: HIC, #[in] lpbiIn: LPBITMAPINFOHEADER, #[out] lpbiOut: LPBITMAPINFOHEADER, #[in] BitDepth: i32, #[in] dx: i32, #[in] dy: i32) -> HIC;
         #[library("MSVFW32.dll")]
-        #[success(return != 0)]
         extern fn ICGetInfo(#[in] hic: HIC, #[incomplete] #[out] #[writable(entry, bytes(cb))] picinfo: *mut ICINFO, #[in] cb: DWORD) -> LRESULT;
         struct ICINFO {
             dwSize: DWORD,

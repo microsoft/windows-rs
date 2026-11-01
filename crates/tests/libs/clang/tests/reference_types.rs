@@ -1,6 +1,6 @@
 use test_clang::{input_dir, selected_fixture};
 use windows_clang::*;
-use windows_metadata::{HasAttributes, Type, reader};
+use windows_metadata::{Type, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
@@ -28,11 +28,6 @@ fn roundtrip(namespace: &str) {
         .write()
         .unwrap();
     let metadata = reader::Index::read(&reference).unwrap();
-    assert!(
-        metadata
-            .expect(namespace, "HRESULT")
-            .has_attribute("SuccessConditionAttribute")
-    );
     let references = projection::References::new(&metadata);
     let snapshots = capture(
         &[selected_fixture(

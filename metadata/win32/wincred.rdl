@@ -367,7 +367,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CredProtectA(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchCredentials)] pszCredentials: LPSTR, #[in] cchCredentials: DWORD, #[out] #[writable(entry, *pcchMaxChars)] pszProtectedCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[opt] #[out] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn CredProtectW(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchCredentials)] pszCredentials: LPWSTR, #[in] cchCredentials: DWORD, #[out] #[readable(success, *pcchMaxChars)] #[writable(entry, *pcchMaxChars)] pszProtectedCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[opt] #[out] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CredReadA(#[in] TargetName: LPCSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
@@ -416,7 +415,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CredUnprotectA(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchProtectedCredentials)] pszProtectedCredentials: LPSTR, #[in] cchProtectedCredentials: DWORD, #[opt] #[out] #[writable(entry, *pcchMaxChars)] pszCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        #[success(return != 0)]
         extern fn CredUnprotectW(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchProtectedCredentials)] pszProtectedCredentials: LPWSTR, #[in] cchProtectedCredentials: DWORD, #[opt] #[out] #[readable(success, *pcchMaxChars)] #[writable(entry, *pcchMaxChars)] pszCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CredWriteA(#[in] Credential: PCREDENTIALA, #[in] Flags: DWORD) -> BOOL;

@@ -123,8 +123,6 @@ fn callable_result_use() {
                     1
                 );
             }
-            let status = index.expect("Fixture", "Status");
-            assert!(status.find_attribute("SuccessConditionAttribute").is_some());
             for name in ["Status", "InspectedValue"] {
                 let ty = index.expect("Fixture", name);
                 assert!(ty.find_attribute("MustUseAttribute").is_none());

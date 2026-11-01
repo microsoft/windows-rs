@@ -1236,10 +1236,8 @@ mod Windows {
         struct GENERATE_NAME_CONTEXT {
             Checksum: USHORT,
             ChecksumInserted: BOOLEAN,
-            #[range(<=8)]
             NameLength: UCHAR,
             NameBuffer: [WCHAR; 8],
-            #[range(<=4)]
             ExtensionLength: ULONG,
             ExtensionBuffer: [WCHAR; 4],
             LastIndexValue: ULONG,
@@ -1711,7 +1709,7 @@ mod Windows {
         extern fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(#[in] SubsystemName: PUNICODE_STRING, #[in] #[opt] HandleId: PVOID, #[in] ClientToken: HANDLE, #[in] ObjectTypeName: PUNICODE_STRING, #[in] ObjectName: PUNICODE_STRING, #[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] PrincipalSelfSid: PSID, #[in] DesiredAccess: ACCESS_MASK, #[in] AuditType: AUDIT_EVENT_TYPE, #[in] Flags: ULONG, #[in] #[opt] #[readable(entry, ObjectTypeListLength)] ObjectTypeList: POBJECT_TYPE_LIST, #[in] ObjectTypeListLength: ULONG, #[in] GenericMapping: PGENERIC_MAPPING, #[in] ObjectCreation: BOOLEAN, #[out] #[writable(entry, ObjectTypeListLength)] GrantedAccess: PACCESS_MASK, #[out] #[writable(entry, ObjectTypeListLength)] AccessStatus: PNTSTATUS, #[out] GenerateOnClose: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtAdjustGroupsToken(#[in] TokenHandle: HANDLE, #[in] ResetToDefault: BOOLEAN, #[in] #[opt] NewState: PTOKEN_GROUPS, #[incomplete] BufferLength: ULONG, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(BufferLength))] PreviousState: PTOKEN_GROUPS, #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtAdjustGroupsToken(#[in] TokenHandle: HANDLE, #[in] ResetToDefault: BOOLEAN, #[in] #[opt] NewState: PTOKEN_GROUPS, BufferLength: ULONG, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(BufferLength))] PreviousState: PTOKEN_GROUPS, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn NtAdjustPrivilegesToken(#[in] TokenHandle: HANDLE, #[in] DisableAllPrivileges: BOOLEAN, #[in] #[opt] NewState: PTOKEN_PRIVILEGES, #[in] BufferLength: ULONG, #[opt] #[out] #[readable(success, bytes(*ReturnLength))] #[writable(entry, bytes(BufferLength))] PreviousState: PTOKEN_PRIVILEGES, #[incomplete] #[out] ReturnLength: PULONG) -> NTSTATUS;
@@ -2671,7 +2669,6 @@ mod Windows {
         extern fn RtlCreateSystemVolumeInformationFolder(#[in] VolumeRootPath: PCUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        #[success(return != 0)]
         extern fn RtlCreateUnicodeString(#[incomplete] #[out] DestinationString: PUNICODE_STRING, #[in] #[null_terminated(entry)] SourceString: PCWSTR) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlCreateVirtualAccountSid(#[in] Name: PCUNICODE_STRING, #[in] BaseSubAuthority: ULONG, #[out] #[writable(entry, bytes(*SidLength))] Sid: PSID, #[in] #[out] SidLength: PULONG) -> NTSTATUS;
@@ -2682,7 +2679,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlDecompressBufferEx(#[in] CompressionFormat: USHORT, #[out] #[readable(success, bytes(*FinalUncompressedSize))] #[writable(entry, bytes(UncompressedBufferSize))] UncompressedBuffer: PUCHAR, #[in] UncompressedBufferSize: ULONG, #[in] #[readable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PUCHAR, #[in] CompressedBufferSize: ULONG, #[out] FinalUncompressedSize: PULONG, #[in] #[opt] WorkSpace: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlDecompressFragment(#[in] CompressionFormat: USHORT, #[out] #[readable(success, bytes(*FinalUncompressedSize))] #[writable(entry, bytes(UncompressedFragmentSize))] UncompressedFragment: PUCHAR, #[in] UncompressedFragmentSize: ULONG, #[in] #[readable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PUCHAR, #[in] CompressedBufferSize: ULONG, #[range(entry, <CompressedBufferSize)] FragmentOffset: ULONG, #[out] FinalUncompressedSize: PULONG, #[in] WorkSpace: PVOID) -> NTSTATUS;
+        extern fn RtlDecompressFragment(#[in] CompressionFormat: USHORT, #[out] #[readable(success, bytes(*FinalUncompressedSize))] #[writable(entry, bytes(UncompressedFragmentSize))] UncompressedFragment: PUCHAR, #[in] UncompressedFragmentSize: ULONG, #[in] #[readable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PUCHAR, #[in] CompressedBufferSize: ULONG, FragmentOffset: ULONG, #[out] FinalUncompressedSize: PULONG, #[in] WorkSpace: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlDeleteAce(#[in] #[out] Acl: PACL, #[in] AceIndex: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -2705,7 +2702,6 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlFillMemoryUlonglong(#[out] #[readable(success, bytes(Length))] #[writable(entry, bytes(Length))] Destination: PVOID, #[in] Length: SIZE_T, #[in] Pattern: ULONGLONG);
         #[library("ntdll.dll")]
-        #[success(return != 0)]
         extern fn RtlFreeHeap(#[in] HeapHandle: PVOID, #[in] #[opt] Flags: ULONG, #[incomplete] BaseAddress: PVOID) -> LOGICAL;
         #[library("ntdll.dll")]
         extern fn RtlFreeSid(#[in] #[incomplete] Sid: PSID) -> PVOID;
@@ -2782,9 +2778,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlQueryThreadPlaceholderCompatibilityMode() -> CHAR;
         #[library("ntdll.dll")]
-        extern fn RtlRandom(#[in] #[out] Seed: PULONG) -> #[range(success, <=2147483647)] ULONG;
+        extern fn RtlRandom(#[in] #[out] Seed: PULONG) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn RtlRandomEx(#[in] #[out] Seed: PULONG) -> #[range(success, <=2147483647)] ULONG;
+        extern fn RtlRandomEx(#[in] #[out] Seed: PULONG) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlReplaceSidInSd(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] OldSid: PSID, #[in] NewSid: PSID, #[out] NumChanges: *mut ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -2806,7 +2802,6 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlSubAuthoritySid(#[in] Sid: PSID, #[in] SubAuthority: ULONG) -> PULONG;
         #[library("ntdll.dll")]
-        #[success(return != 0)]
         extern fn RtlTimeToSecondsSince1980(#[in] Time: PLARGE_INTEGER, #[out] ElapsedSeconds: PULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
         #[must_use]

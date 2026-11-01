@@ -358,8 +358,8 @@ mod Fixture {
     #[guid(0x00020400_0000_0000_c000_000000000046)]
     interface IDispatch: IUnknown {
         fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
-        fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] riid: &IID, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] #[range(entry, 0..=16384)] cNames: UINT, #[in] lcid: LCID, #[out] #[readable(success, cNames)] #[writable(entry, cNames)] #[writable(success, cNames)] rgDispId: *mut DISPID) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] riid: &IID, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[in] lcid: LCID, #[out] #[readable(success, cNames)] #[writable(entry, cNames)] #[writable(success, cNames)] rgDispId: *mut DISPID) -> HRESULT;
         fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[opt] #[out] pVarResult: *mut VARIANT, #[opt] #[out] pExcepInfo: *mut EXCEPINFO, #[opt] #[out] puArgErr: *mut UINT) -> HRESULT;
     }
     #[repr(i32)]
@@ -396,7 +396,7 @@ mod Fixture {
     #[guid(0x00020401_0000_0000_c000_000000000046)]
     interface ITypeInfo: IUnknown {
         fn GetTypeAttr(&self, #[out] ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
-        fn GetTypeComp(&self, #[out] #[out_ptr] ppTComp: *mut ITypeComp) -> HRESULT;
+        fn GetTypeComp(&self, #[out] #[out_ptr] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
         fn GetFuncDesc(&self, #[in] index: UINT, #[out] ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
         fn GetVarDesc(&self, #[in] index: UINT, #[out] ppVarDesc: *mut *mut VARDESC) -> HRESULT;
         fn GetNames(&self, #[in] memid: MEMBERID, #[out] #[readable(success, *pcNames)] #[writable(entry, cMaxNames)] #[writable(success, cMaxNames)] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
@@ -406,7 +406,7 @@ mod Fixture {
         fn Invoke(&self, #[in] pvInstance: PVOID, #[in] memid: MEMBERID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pExcepInfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
         fn GetDocumentation(&self, #[in] memid: MEMBERID, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
         fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[opt] #[out] #[out_ptr] pBstrDllName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;
-        fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[out_ptr] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
         fn AddressOfMember(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] ppv: *mut PVOID) -> HRESULT;
         fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] riid: &IID, #[iid_is] #[out] ppvObj: *mut PVOID) -> HRESULT;
         fn GetMops(&self, #[in] memid: MEMBERID, #[out] #[out_ptr] pBstrMops: *mut BSTR) -> HRESULT;
@@ -418,11 +418,11 @@ mod Fixture {
     #[guid(0x00020402_0000_0000_c000_000000000046)]
     interface ITypeLib: IUnknown {
         fn GetTypeInfoCount(&self) -> UINT;
-        fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[out_ptr] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
         fn GetTypeInfoType(&self, #[in] index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
-        fn GetTypeInfoOfGuid(&self, #[in] guid: &GUID, #[out] #[out_ptr] ppTinfo: *mut ITypeInfo) -> HRESULT;
+        fn GetTypeInfoOfGuid(&self, #[in] guid: &GUID, #[out] #[out_ptr] #[retval] ppTinfo: *mut ITypeInfo) -> HRESULT;
         fn GetLibAttr(&self, #[out] ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
-        fn GetTypeComp(&self, #[out] #[out_ptr] ppTComp: *mut ITypeComp) -> HRESULT;
+        fn GetTypeComp(&self, #[out] #[out_ptr] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
         fn GetDocumentation(&self, #[in] index: INT, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
         fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] pfName: *mut BOOL) -> HRESULT;
         fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] rgMemId: *mut MEMBERID, #[in] #[out] pcFound: *mut USHORT) -> HRESULT;
@@ -608,7 +608,6 @@ mod Fixture {
     type CHAR = i8;
     type DISPID = i32;
     type DWORD = u32;
-    #[success(return >= 0)]
     type HRESULT = i32;
     type INT = i32;
     type LCID = u32;

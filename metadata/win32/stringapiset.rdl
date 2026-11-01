@@ -14,10 +14,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetStringTypeW(#[in] dwInfoType: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn MultiByteToWideChar(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpMultiByteStr: LPCCH, #[in] cbMultiByte: i32, #[incomplete] #[opt] #[out] #[writable(entry, cchWideChar)] lpWideCharStr: LPWSTR, #[in] cchWideChar: i32) -> i32;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn WideCharToMultiByte(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpWideCharStr: LPCWCH, #[in] cchWideChar: i32, #[incomplete] #[opt] #[out] #[writable(entry, bytes(cbMultiByte))] lpMultiByteStr: LPSTR, #[in] cbMultiByte: i32, #[in] #[opt] lpDefaultChar: LPCCH, #[opt] #[out] lpUsedDefaultChar: LPBOOL) -> i32;
     }
 }

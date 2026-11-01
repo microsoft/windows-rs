@@ -267,7 +267,6 @@ mod Windows {
         extern fn HPALETTE_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
         #[library("ole32.dll")]
         extern fn HPALETTE_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
-        #[success(return >= 0)]
         type HRESULT = i32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn HSTRING_UserFree(#[in] pFlags: *mut ULONG, #[in] ppidl: *mut HSTRING);
@@ -398,7 +397,6 @@ mod Windows {
         const MOUSE_MOVE_RELATIVE: i32 = 0;
         const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
         const MR_BUFFER_SERVICE: GUID = 0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d;
-        #[success(return >= 0)]
         type NTSTATUS = i32;
         type PBYTE = *mut u8;
         type PHID_XFER_PACKET = *mut HID_XFER_PACKET;

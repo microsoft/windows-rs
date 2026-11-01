@@ -123,7 +123,6 @@ mod Windows {
         extern fn NetServerEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] servertype: DWORD, #[in] #[opt] domain: LPCWSTR, #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]
-        #[success(return == 0)]
         extern fn NetServerGetInfo(#[in] #[opt] servername: LPWSTR, #[in] level: DWORD, #[incomplete] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         #[must_use]

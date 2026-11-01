@@ -2,13 +2,10 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn AllocateUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[out] #[readable(success, *NumberOfPages)] #[writable(entry, *NumberOfPages)] PageArray: PULONG_PTR) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        #[success(return != 0)]
         extern fn AllocateUserPhysicalPages2(#[in] ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[out] #[writable(entry, *NumberOfPages)] PageArray: PULONG_PTR, #[in] #[opt] #[out] #[writable(entry, ExtendedParameterCount)] ExtendedParameters: PMEM_EXTENDED_PARAMETER, #[in] ExtendedParameterCount: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn AllocateUserPhysicalPagesNuma(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[out] #[readable(success, *NumberOfPages)] #[writable(entry, *NumberOfPages)] PageArray: PULONG_PTR, #[in] nndPreferred: DWORD) -> BOOL;
         extern fn BAD_MEMORY_CALLBACK_ROUTINE();
         #[library("api-ms-win-core-memory-l1-1-7.dll")]
@@ -38,15 +35,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn FlushViewOfFile(#[in] lpBaseAddress: LPCVOID, #[in] dwNumberOfBytesToFlush: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn FreeUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[in] #[readable(entry, *NumberOfPages)] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetLargePageMinimum() -> SIZE_T;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetMemoryErrorHandlingCapabilities(#[out] Capabilities: PULONG) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        #[success(return != 0)]
         extern fn GetNumaNodeMemoryClosestInitiatorNode(#[in] TargetNodeNumber: USHORT, #[out] InitiatorNodeNumber: *mut USHORT) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
         extern fn GetNumaNodeMemoryReadBandwidth(#[in] TargetNodeNumber: USHORT, #[in] InitiatorNodeNumber: USHORT, #[out] Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
@@ -59,13 +53,10 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetProcessWorkingSetSize(#[in] hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetProcessWorkingSetSizeEx(#[in] hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T, #[out] Flags: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn GetSystemFileCacheSize(#[out] lpMinimumFileCacheSize: PSIZE_T, #[out] lpMaximumFileCacheSize: PSIZE_T, #[out] lpFlags: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return == 0)]
         extern fn GetWriteWatch(#[in] dwFlags: DWORD, #[in] lpBaseAddress: PVOID, #[in] dwRegionSize: SIZE_T, #[opt] #[out] #[readable(success, if_present(*lpdwCount))] #[writable(entry, if_present(*lpdwCount))] lpAddresses: *mut PVOID, #[in] #[opt] #[out] lpdwCount: *mut ULONG_PTR, #[opt] #[out] lpdwGranularity: LPDWORD) -> UINT;
         const MEHC_PATROL_SCRUBBER_PRESENT: i32 = 1;
         #[repr(i32)]
@@ -74,7 +65,6 @@ mod Windows {
             HighMemoryResourceNotification = 1,
         }
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn MapUserPhysicalPages(#[in] VirtualAddress: PVOID, #[in] NumberOfPages: ULONG_PTR, #[in] #[opt] #[readable(entry, NumberOfPages)] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFile(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T) -> #[nullable] LPVOID;
@@ -126,21 +116,16 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn PrefetchVirtualMemory(#[in] hProcess: HANDLE, #[in] NumberOfEntries: ULONG_PTR, #[in] #[readable(entry, NumberOfEntries)] VirtualAddresses: PWIN32_MEMORY_RANGE_ENTRY, #[in] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn QueryMemoryResourceNotification(#[in] ResourceNotificationHandle: HANDLE, #[out] ResourceState: PBOOL) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        #[success(return != 0)]
         extern fn QueryPartitionInformation(#[in] Partition: HANDLE, #[in] PartitionInformationClass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, #[in] #[out] #[writable(entry, bytes(PartitionInformationLength))] PartitionInformation: PVOID, #[in] PartitionInformationLength: ULONG) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-4.dll")]
-        #[success(return != 0)]
         extern fn QueryVirtualMemoryInformation(#[in] Process: HANDLE, #[in] VirtualAddress: *const void, #[in] MemoryInformationClass: WIN32_MEMORY_INFORMATION_CLASS, #[out] #[writable(entry, bytes(MemoryInformationSize))] MemoryInformation: PVOID, #[in] MemoryInformationSize: SIZE_T, #[opt] #[out] ReturnSize: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn ReadProcessMemory(#[in] hProcess: HANDLE, #[in] lpBaseAddress: LPCVOID, #[out] #[readable(success, bytes(if_present(*lpNumberOfBytesRead)))] #[writable(entry, bytes(nSize))] lpBuffer: LPVOID, #[in] nSize: SIZE_T, #[opt] #[out] lpNumberOfBytesRead: *mut SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReclaimVirtualMemory(#[in] #[readable(entry, Size)] VirtualAddress: *const void, #[in] Size: SIZE_T) -> DWORD;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn RegisterBadMemoryNotification(#[in] Callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> PVOID;
         #[library("KERNEL32.dll")]
         extern fn ResetWriteWatch(#[in] lpBaseAddress: LPVOID, #[in] dwRegionSize: SIZE_T) -> UINT;
@@ -161,7 +146,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn UnmapViewOfFileEx(#[in] BaseAddress: PVOID, #[in] UnmapFlags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn UnregisterBadMemoryNotification(#[in] RegistrationHandle: PVOID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn VirtualAlloc(#[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flAllocationType: DWORD, #[in] flProtect: DWORD) -> #[nullable] LPVOID;
@@ -176,21 +160,16 @@ mod Windows {
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
         extern fn VirtualAllocFromApp(#[in] #[opt] BaseAddress: PVOID, #[in] Size: SIZE_T, #[in] AllocationType: ULONG, #[in] Protection: ULONG) -> #[nullable] PVOID;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn VirtualFree(#[incomplete] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn VirtualFreeEx(#[in] hProcess: HANDLE, #[incomplete] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwFreeType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn VirtualLock(#[in] lpAddress: LPVOID, #[in] dwSize: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn VirtualProtect(#[in] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flNewProtect: DWORD, #[out] lpflOldProtect: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn VirtualProtectEx(#[in] hProcess: HANDLE, #[in] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] flNewProtect: DWORD, #[out] lpflOldProtect: PDWORD) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
-        #[success(return != 0)]
         extern fn VirtualProtectFromApp(#[in] Address: PVOID, #[in] Size: SIZE_T, #[in] NewProtection: ULONG, #[out] OldProtection: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn VirtualQuery(#[in] #[opt] lpAddress: LPCVOID, #[incomplete] #[out] #[writable(entry, bytes(dwLength))] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] dwLength: SIZE_T) -> SIZE_T;
@@ -254,7 +233,6 @@ mod Windows {
             CommitSize: SIZE_T,
         }
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn WriteProcessMemory(#[in] hProcess: HANDLE, #[in] lpBaseAddress: LPVOID, #[in] #[readable(entry, bytes(nSize))] lpBuffer: LPCVOID, #[in] nSize: SIZE_T, #[opt] #[out] lpNumberOfBytesWritten: *mut SIZE_T) -> BOOL;
     }
 }

@@ -1049,14 +1049,12 @@ mod Windows {
         #[library("COMDLG32.dll")]
         extern fn PageSetupDlgW(param0: LPPAGESETUPDLGW) -> BOOL;
         #[library("COMDLG32.dll")]
-        #[success(return != 0)]
         extern fn PrintDlgA(#[in] #[out] pPD: LPPRINTDLGA) -> BOOL;
         #[library("COMDLG32.dll")]
         extern fn PrintDlgExA(#[in] #[out] pPD: LPPRINTDLGEXA) -> HRESULT;
         #[library("COMDLG32.dll")]
         extern fn PrintDlgExW(#[in] #[out] pPD: LPPRINTDLGEXW) -> HRESULT;
         #[library("COMDLG32.dll")]
-        #[success(return != 0)]
         extern fn PrintDlgW(#[in] #[out] pPD: LPPRINTDLGW) -> BOOL;
         const REGULAR_FONTTYPE: i32 = 1024;
         #[library("COMDLG32.dll")]

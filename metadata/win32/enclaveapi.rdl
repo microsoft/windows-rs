@@ -2,30 +2,22 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        #[success(return != 0)]
         extern fn CallEnclave(#[in] lpRoutine: LPENCLAVE_ROUTINE, #[in] lpParameter: LPVOID, #[in] fWaitForThread: BOOL, #[out] lpReturnValue: *mut LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn CreateEnclave(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwInitialCommitment: SIZE_T, #[in] flEnclaveType: DWORD, #[in] #[readable(entry, bytes(dwInfoLength))] lpEnclaveInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[opt] #[out] lpEnclaveError: LPDWORD) -> #[nullable] LPVOID;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        #[success(return != 0)]
         extern fn DeleteEnclave(#[in] lpAddress: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn InitializeEnclave(#[in] hProcess: HANDLE, #[in] lpAddress: LPVOID, #[in] #[readable(entry, bytes(dwInfoLength))] lpEnclaveInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[opt] #[out] lpEnclaveError: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn IsEnclaveTypeSupported(#[in] flEnclaveType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        #[success(return != 0)]
         extern fn LoadEnclaveData(#[in] hProcess: HANDLE, #[in] lpAddress: LPVOID, #[in] #[readable(entry, bytes(nSize))] lpBuffer: LPCVOID, #[in] nSize: SIZE_T, #[in] flProtect: DWORD, #[in] #[readable(entry, bytes(dwInfoLength))] lpPageInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[out] lpNumberOfBytesWritten: PSIZE_T, #[opt] #[out] lpEnclaveError: LPDWORD) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        #[success(return != 0)]
         extern fn LoadEnclaveImageA(#[in] lpEnclaveAddress: LPVOID, #[in] lpImageName: LPCSTR) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        #[success(return != 0)]
         extern fn LoadEnclaveImageW(#[in] lpEnclaveAddress: LPVOID, #[in] lpImageName: LPCWSTR) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        #[success(return != 0)]
         extern fn TerminateEnclave(#[in] lpAddress: LPVOID, #[in] fWait: BOOL) -> BOOL;
     }
 }

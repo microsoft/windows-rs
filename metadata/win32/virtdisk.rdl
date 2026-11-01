@@ -333,7 +333,6 @@ mod Windows {
         #[library("VirtDisk.dll")]
         extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[out] #[writable(entry, bytes(*PathsBufferSizeInBytes))] PathsBuffer: PWSTR) -> DWORD;
         #[library("VirtDisk.dll")]
-        #[success(return == 0)]
         extern fn GetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[in] #[out] #[readable(entry, bytes(*VirtualDiskInfoSize))] #[readable(success, bytes(*VirtualDiskInfoSize))] #[writable(entry, bytes(*VirtualDiskInfoSize))] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[opt] #[out] SizeUsed: PULONG) -> DWORD;
         #[library("VirtDisk.dll")]
         extern fn GetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[out] #[writable(entry, bytes(*MetaDataSize))] MetaData: PVOID) -> DWORD;
