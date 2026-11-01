@@ -103,7 +103,7 @@ initialized length are separate extents of the same family.
 | Dimension | Values |
 | --- | --- |
 | Access | `writable` is capacity; `readable` is initialized elements |
-| Phase | `entry` or `success` on parameters; fields describe a valid record and omit the phase |
+| Phase | `entry` or `success` on parameters; `success` holds after the API succeeds, a condition that metadata does not publish; fields describe a valid record and omit the phase |
 | Units | Elements by default; `bytes(count)` selects bytes |
 | Subject | The parameter itself by default; `indirect` selects the pointer stored in it |
 | Count | Constant, parameter, `*parameter`, sibling field, `return`, or `+ - *` of these |

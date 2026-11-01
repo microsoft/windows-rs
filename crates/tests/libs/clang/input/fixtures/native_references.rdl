@@ -1,19 +1,19 @@
 #[win32]
 mod Fixture {
-    #[library("reference.dll")]
+    #[library("fixture.dll")]
     extern fn ApplyReference(value: &ReferenceAlias, total: &mut u32) -> u32;
     interface IReferences {
         fn Apply(&self, value: &ReferenceAlias, total: &mut u32) -> u32;
     }
-    #[library("reference.dll")]
+    #[library("fixture.dll")]
     extern fn InvokeAnonymous(callback: extern "C" fn(&ReferenceAlias, &mut u32, i32) -> u32, value: &ReferenceAlias, total: &mut u32) -> u32;
-    #[library("reference.dll")]
+    #[library("fixture.dll")]
     extern fn InvokeObject(object: IReferences, value: &ReferenceAlias, total: &mut u32) -> u32;
-    #[library("reference.dll")]
+    #[library("fixture.dll")]
     extern fn InvokeReference(callback: ReferenceCallback, value: &ReferenceAlias, total: &mut u32) -> u32;
     type ReferenceAlias = ReferenceValue;
     extern fn ReferenceCallback(param0: &ReferenceAlias, param1: &mut u32) -> u32;
-    #[library("reference.dll")]
+    #[library("fixture.dll")]
     extern fn ReferenceObject() -> *mut void;
     struct ReferenceValue {
         low: u32,

@@ -1,20 +1,13 @@
 use std::path::Path;
 
-// Round-trip test for windows-rdl: reads each `.rdl` file from the `input/`
-// directory, compiles it to a `.winmd` via the RDL reader, then uses the RDL
-// writer to regenerate `.rdl` from that `.winmd`. The output must match the
-// original input exactly (canonical form).
-//
-// If a test fails, the input file is overwritten with the canonical form so
-// you can review the diff and commit it.
+// Round-trip test for windows-rdl: reads each `.rdl` file from the `input/` directory, compiles it
+// to a `.winmd` via the RDL reader, then uses the RDL writer to regenerate `.rdl` from that
+// `.winmd`. The canonical form is written back to the input; CI rejects any resulting `git diff`.
 
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 fn run(name: &str) {
     let input_path = format!("input/{name}.rdl");
-    let original = std::fs::read_to_string(&input_path)
-        .unwrap_or_else(|e| panic!("failed to read {input_path}: {e}"));
-
     let out_dir = Path::new(env!("OUT_DIR"));
     std::fs::create_dir_all(out_dir).unwrap();
 
@@ -37,12 +30,5 @@ fn run(name: &str) {
     let actual = std::fs::read_to_string(&rdl_out_path)
         .unwrap_or_else(|e| panic!("failed to read {}: {e}", rdl_out_path.display()));
 
-    if actual != original {
-        // Overwrite input with canonical form so the user can review the diff.
-        std::fs::write(&input_path, &actual).unwrap();
-        panic!(
-            "{name}: round-trip mismatch — input has been updated to canonical form.\n\
-             Review the diff with `git diff` and commit if correct."
-        );
-    }
+    std::fs::write(&input_path, actual).unwrap();
 }

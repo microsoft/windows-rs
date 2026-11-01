@@ -18,7 +18,7 @@ mod Fixture {
         CodeOk = 0,
         CodeError = -1,
     }
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     extern "C" fn Conditional(#[incomplete] buffer: *mut void, capacity: u32);
     type ContractAddress = *mut AContract;
     extern fn CopiedContract(#[incomplete] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
@@ -29,19 +29,19 @@ mod Fixture {
     interface IAnnotated {
         fn Get(&self, #[iid_is] #[out] #[out_ptr(null_on_failure)] object: *mut *mut void) -> Status;
     }
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     extern "C" fn InspectResult(#[nullable] #[out] #[out_ptr] result: *mut *mut void);
     struct OnlyInferred {
         callback: ZPlain,
     }
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     extern "C" fn OptionalResult(#[opt] #[out] #[out_ptr] result: *mut *mut void);
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     #[must_use]
     extern "C" fn ReadBuffer(#[opt] #[out] #[readable(success, bytes(if_present(*written)))] #[writable(entry, bytes(capacity))] buffer: *mut void, #[in] capacity: u32, #[opt] #[out] written: *mut u32) -> Status;
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     extern "C" fn ReadFixed(#[in] #[readable(entry, 16)] values: *const i32);
-    #[library("example.dll")]
+    #[library("fixture.dll")]
     extern "C" fn ReadHook(#[in] #[readable(entry, 16)] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
