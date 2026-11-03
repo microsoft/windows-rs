@@ -79,9 +79,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetTrusteeTypeW(#[in] #[opt] pTrustee: PTRUSTEE_W) -> TRUSTEE_TYPE;
         #[library("ADVAPI32.dll")]
-        extern fn LookupSecurityDescriptorPartsA(#[opt] #[out] ppOwner: *mut PTRUSTEE_A, #[opt] #[out] ppGroup: *mut PTRUSTEE_A, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[nullable] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_A, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[nullable] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_A, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn LookupSecurityDescriptorPartsA(#[opt] #[out] ppOwner: *mut PTRUSTEE_A, #[opt] #[out] ppGroup: *mut PTRUSTEE_A, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_A, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_A, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn LookupSecurityDescriptorPartsW(#[opt] #[out] ppOwner: *mut PTRUSTEE_W, #[opt] #[out] ppGroup: *mut PTRUSTEE_W, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[nullable] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_W, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[nullable] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_W, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn LookupSecurityDescriptorPartsW(#[opt] #[out] ppOwner: *mut PTRUSTEE_W, #[opt] #[out] ppGroup: *mut PTRUSTEE_W, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_W, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_W, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn SetEntriesInAclA(#[in] cCountOfExplicitEntries: ULONG, #[buffer(cCountOfExplicitEntries)] #[in] #[opt] pListOfExplicitEntries: PEXPLICIT_ACCESS_A, #[in] #[opt] OldAcl: PACL, #[out] NewAcl: *mut PACL) -> DWORD;
         #[library("ADVAPI32.dll")]

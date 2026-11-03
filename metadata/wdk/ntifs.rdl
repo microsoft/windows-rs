@@ -2631,7 +2631,7 @@ mod Windows {
         extern fn RtlAllocateAndInitializeSidEx(#[in] IdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] SubAuthorityCount: UCHAR, #[buffer(SubAuthorityCount)] #[in] SubAuthorities: PULONG, #[out] Sid: *mut PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlAllocateHeap(#[in] HeapHandle: PVOID, #[in] #[opt] Flags: ULONG, #[in] Size: SIZE_T) -> #[nullable] PVOID;
+        extern fn RtlAllocateHeap(#[in] HeapHandle: PVOID, #[in] #[opt] Flags: ULONG, #[in] Size: SIZE_T) -> PVOID;
         #[library("ntdll.dll")]
         extern fn RtlAppendStringToString(#[in] #[out] Destination: PSTRING, #[in] Source: *const STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -2701,11 +2701,11 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlGetCompressionWorkSpaceSize(#[in] CompressionFormatAndEngine: USHORT, #[out] CompressBufferWorkSpaceSize: PULONG, #[out] CompressFragmentWorkSpaceSize: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlGetDaclSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] DaclPresent: PBOOLEAN, #[nullable] #[out] Dacl: *mut PACL, #[incomplete] DaclDefaulted: PBOOLEAN) -> NTSTATUS;
+        extern fn RtlGetDaclSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] DaclPresent: PBOOLEAN, #[out] Dacl: *mut PACL, #[incomplete] DaclDefaulted: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlGetGroupSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[nullable] #[out] Group: *mut PSID, #[incomplete] GroupDefaulted: PBOOLEAN) -> NTSTATUS;
+        extern fn RtlGetGroupSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] Group: *mut PSID, #[incomplete] GroupDefaulted: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlGetOwnerSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[nullable] #[out] Owner: *mut PSID, #[incomplete] OwnerDefaulted: PBOOLEAN) -> NTSTATUS;
+        extern fn RtlGetOwnerSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] Owner: *mut PSID, #[incomplete] OwnerDefaulted: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlGetSaclSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] SaclPresent: PBOOLEAN, #[out] Sacl: *mut PACL, #[out] SaclDefaulted: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]

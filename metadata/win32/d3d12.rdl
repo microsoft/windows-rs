@@ -1336,7 +1336,6 @@ mod Windows {
         struct D3D12_FEATURE_DATA_QUERY_META_COMMAND {
             CommandId: GUID,
             NodeMask: UINT,
-            #[nullable]
             pQueryInputData: *const void,
             QueryInputDataSizeInBytes: SIZE_T,
             pQueryOutputData: *mut void,

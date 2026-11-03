@@ -102,7 +102,6 @@ mod Windows {
         extern fn DxcCreateInstanceProc(#[in] rclsid: &IID, #[in] riid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
         struct DxcDefine {
             Name: LPCWSTR,
-            #[nullable]
             Value: LPCWSTR,
         }
         struct DxcShaderHash {
@@ -188,11 +187,11 @@ mod Windows {
         #[guid(0x319b37a2_a5c2_494a_a5de_4801b2faf989)]
         interface IDxcExtraOutputs: IUnknown {
             fn GetOutputCount(&self) -> UINT32;
-            fn GetOutput(&self, #[in] uIndex: UINT32, #[in] iid: &IID, #[iid_is] #[nullable] #[opt] #[out] ppvObject: *mut *mut void, #[nullable] #[opt] #[out] ppOutputType: *mut IDxcBlobWide, #[nullable] #[opt] #[out] ppOutputName: *mut IDxcBlobWide) -> HRESULT;
+            fn GetOutput(&self, #[in] uIndex: UINT32, #[in] iid: &IID, #[iid_is] #[opt] #[out] ppvObject: *mut *mut void, #[opt] #[out] ppOutputType: *mut IDxcBlobWide, #[opt] #[out] ppOutputName: *mut IDxcBlobWide) -> HRESULT;
         }
         #[guid(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c)]
         interface IDxcIncludeHandler: IUnknown {
-            fn LoadSource(&self, #[in] #[null_terminated(entry)] pFilename: LPCWSTR, #[nullable] #[out] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
+            fn LoadSource(&self, #[in] #[null_terminated(entry)] pFilename: LPCWSTR, #[out] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7)]
         interface IDxcLibrary: IUnknown {
@@ -210,8 +209,8 @@ mod Windows {
         #[guid(0xcedb484a_d4e9_445a_b991_ca21ca157dc2)]
         interface IDxcOperationResult: IUnknown {
             fn GetStatus(&self, #[out] pStatus: *mut HRESULT) -> HRESULT;
-            fn GetResult(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn GetErrorBuffer(&self, #[nullable] #[out] ppErrors: *mut IDxcBlobEncoding) -> HRESULT;
+            fn GetResult(&self, #[out] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetErrorBuffer(&self, #[out] ppErrors: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0x25740e2e_9cba_401b_9119_4fb42f39f270)]
         interface IDxcOptimizer: IUnknown {
@@ -234,24 +233,24 @@ mod Windows {
             fn GetSource(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobEncoding) -> HRESULT;
             fn GetSourceName(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetLibraryPDBCount(&self, pCount: *mut UINT32) -> HRESULT;
-            fn GetLibraryPDB(&self, #[in] uIndex: UINT32, #[out] ppOutPdbUtils: *mut IDxcPdbUtils2, #[nullable] #[opt] #[out] ppLibraryName: *mut IDxcBlobWide) -> HRESULT;
+            fn GetLibraryPDB(&self, #[in] uIndex: UINT32, #[out] ppOutPdbUtils: *mut IDxcPdbUtils2, #[opt] #[out] ppLibraryName: *mut IDxcBlobWide) -> HRESULT;
             fn GetFlagCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
             fn GetFlag(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetArgCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
             fn GetArg(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetArgPairCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetArgPair(&self, #[in] uIndex: UINT32, #[nullable] #[out] ppName: *mut IDxcBlobWide, #[nullable] #[out] ppValue: *mut IDxcBlobWide) -> HRESULT;
+            fn GetArgPair(&self, #[in] uIndex: UINT32, #[out] ppName: *mut IDxcBlobWide, #[out] ppValue: *mut IDxcBlobWide) -> HRESULT;
             fn GetDefineCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
             fn GetDefine(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetTargetProfile(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetEntryPoint(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetMainFileName(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetHash(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn GetName(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetVersionInfo(&self, #[nullable] #[out] ppVersionInfo: *mut IDxcVersionInfo) -> HRESULT;
+            fn GetTargetProfile(&self, #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetEntryPoint(&self, #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetMainFileName(&self, #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetHash(&self, #[out] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetName(&self, #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetVersionInfo(&self, #[out] ppVersionInfo: *mut IDxcVersionInfo) -> HRESULT;
             fn GetCustomToolchainID(&self, #[out] pID: *mut UINT32) -> HRESULT;
-            fn GetCustomToolchainData(&self, #[nullable] #[out] ppBlob: *mut IDxcBlob) -> HRESULT;
-            fn GetWholeDxil(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetCustomToolchainData(&self, #[out] ppBlob: *mut IDxcBlob) -> HRESULT;
+            fn GetWholeDxil(&self, #[out] ppResult: *mut IDxcBlob) -> HRESULT;
             fn IsFullPDB(&self) -> BOOL;
             fn IsPDBRef(&self) -> BOOL;
         }

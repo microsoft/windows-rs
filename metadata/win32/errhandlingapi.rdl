@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredContinueHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
+        extern fn AddVectoredContinueHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> PVOID;
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredExceptionHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
+        extern fn AddVectoredExceptionHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> PVOID;
         #[library("KERNEL32.dll")]
         extern fn FatalAppExitA(#[in] uAction: UINT, #[in] lpMessageText: LPCSTR);
         #[library("KERNEL32.dll")]

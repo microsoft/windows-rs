@@ -1668,7 +1668,6 @@ mod Windows {
             Height: UINT,
             Stride: UINT,
             ReservedBits: UINT,
-            #[nullable]
             pIV: *mut void,
             IVSize: UINT,
             PartialEncryption: BOOL,
@@ -1719,7 +1718,6 @@ mod Windows {
             pPrivateOutputData: *mut void,
             PrivateOutputDataSize: UINT,
             ResourceCount: UINT,
-            #[nullable]
             ppResourceList: *mut ID3D11Resource,
         }
         struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
@@ -1949,7 +1947,6 @@ mod Windows {
             ppPastSurfaces: *mut ID3D11VideoProcessorInputView,
             pInputSurface: ID3D11VideoProcessorInputView,
             ppFutureSurfaces: *mut ID3D11VideoProcessorInputView,
-            #[nullable]
             ppPastSurfacesRight: *mut ID3D11VideoProcessorInputView,
             pInputSurfaceRight: ID3D11VideoProcessorInputView,
             ppFutureSurfacesRight: *mut ID3D11VideoProcessorInputView,
@@ -2169,40 +2166,40 @@ mod Windows {
             fn CSSetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer);
             fn VSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn PSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn PSGetShader(&self, #[nullable] #[out] ppPixelShader: *mut ID3D11PixelShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn PSGetShader(&self, #[out] ppPixelShader: *mut ID3D11PixelShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn VSGetShader(&self, #[nullable] #[out] ppVertexShader: *mut ID3D11VertexShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn VSGetShader(&self, #[out] ppVertexShader: *mut ID3D11VertexShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
-            fn IAGetInputLayout(&self, #[nullable] #[out] ppInputLayout: *mut ID3D11InputLayout);
+            fn IAGetInputLayout(&self, #[out] ppInputLayout: *mut ID3D11InputLayout);
             fn IAGetVertexBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppVertexBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pStrides: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pOffsets: *mut UINT);
-            fn IAGetIndexBuffer(&self, #[nullable] #[opt] #[out] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
+            fn IAGetIndexBuffer(&self, #[opt] #[out] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
             fn GSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
-            fn GSGetShader(&self, #[nullable] #[out] ppGeometryShader: *mut ID3D11GeometryShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn GSGetShader(&self, #[out] ppGeometryShader: *mut ID3D11GeometryShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn IAGetPrimitiveTopology(&self, #[out] pTopology: *mut D3D11_PRIMITIVE_TOPOLOGY);
             fn VSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn VSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn GetPredication(&self, #[nullable] #[opt] #[out] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
+            fn GetPredication(&self, #[opt] #[out] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
             fn GSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn GSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn OMGetRenderTargets(&self, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView);
-            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: UINT, #[buffer(NumRTVs)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, #[nullable] #[opt] #[out] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
-            fn OMGetDepthStencilState(&self, #[nullable] #[opt] #[out] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
+            fn OMGetRenderTargets(&self, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView);
+            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: UINT, #[buffer(NumRTVs)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
+            fn OMGetBlendState(&self, #[opt] #[out] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
+            fn OMGetDepthStencilState(&self, #[opt] #[out] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
             fn SOGetTargets(&self, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppSOTargets: *mut ID3D11Buffer);
-            fn RSGetState(&self, #[nullable] #[out] ppRasterizerState: *mut ID3D11RasterizerState);
+            fn RSGetState(&self, #[out] ppRasterizerState: *mut ID3D11RasterizerState);
             fn RSGetViewports(&self, #[in] #[out] pNumViewports: *mut UINT, #[buffer(*pNumViewports)] #[opt] #[out] pViewports: *mut D3D11_VIEWPORT);
             fn RSGetScissorRects(&self, #[in] #[out] pNumRects: *mut UINT, #[buffer(*pNumRects)] #[opt] #[out] pRects: *mut D3D11_RECT);
             fn HSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn HSGetShader(&self, #[nullable] #[out] ppHullShader: *mut ID3D11HullShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn HSGetShader(&self, #[out] ppHullShader: *mut ID3D11HullShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn HSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn HSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn DSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn DSGetShader(&self, #[nullable] #[out] ppDomainShader: *mut ID3D11DomainShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn DSGetShader(&self, #[out] ppDomainShader: *mut ID3D11DomainShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn DSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn DSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn CSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn CSGetUnorderedAccessViews(&self, StartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn CSGetShader(&self, #[nullable] #[out] ppComputeShader: *mut ID3D11ComputeShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn CSGetShader(&self, #[out] ppComputeShader: *mut ID3D11ComputeShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn CSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn CSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn ClearState(&self);

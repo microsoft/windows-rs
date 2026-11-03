@@ -239,7 +239,7 @@ impl Encoder<'_> {
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
                 &field.attrs,
-                &["nullable"],
+                &[],
             )?;
 
             // Anonymous padding advances the bit offset but emits no attribute.

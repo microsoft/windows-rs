@@ -705,13 +705,7 @@ fn write_params(
                     namespace,
                     method.index(),
                     &[],
-                    Some(ExtentOwner::Parameter(
-                        &names,
-                        ty,
-                        has_out,
-                        &signature_types,
-                        &optional,
-                    )),
+                    Some(ExtentOwner(&names, ty, &signature_types, &optional)),
                 )?,
                 None => Vec::new(),
             };
@@ -736,15 +730,7 @@ fn write_return_type(
         })?;
     let return_attrs: Vec<TokenStream> = params
         .return_param()
-        .map(|p| {
-            write_custom_attributes_with_names(
-                p.attributes(),
-                namespace,
-                method.index(),
-                &[],
-                Some(ExtentOwner::Return(&signature.return_type)),
-            )
-        })
+        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
         .transpose()?
         .unwrap_or_default();
 
@@ -769,15 +755,11 @@ pub(crate) fn write_field_attributes(
     field: metadata::reader::Field<'_>,
     namespace: &str,
 ) -> Result<TokenStream, Error> {
-    Ok(write_custom_attributes_with_names(
-        field.attributes(),
-        namespace,
-        field.index(),
-        &[],
-        Some(ExtentOwner::Field(&field.ty())),
-    )?
-    .into_iter()
-    .collect())
+    Ok(
+        write_custom_attributes(field.attributes(), namespace, field.index())?
+            .into_iter()
+            .collect(),
+    )
 }
 
 fn write_custom_attributes_except<'a>(
@@ -790,46 +772,12 @@ fn write_custom_attributes_except<'a>(
 }
 
 #[derive(Clone, Copy)]
-enum ExtentOwner<'a> {
-    Parameter(
-        &'a [&'a str],
-        &'a metadata::Type,
-        bool,
-        &'a [metadata::Type],
-        &'a [bool],
-    ),
-    Field(&'a metadata::Type),
-    Return(&'a metadata::Type),
-}
-
-impl ExtentOwner<'_> {
-    // Mirrors the reader: `#[nullable]` applies to the pointer an `out` parameter stores, or to a
-    // returned or field pointer.
-    fn accepts_nullable(self, index: &metadata::reader::Index) -> bool {
-        let (ty, indirect) = match self {
-            Self::Parameter(_, ty, true, ..) => (ty, true),
-            Self::Parameter(_, _, false, ..) => return false,
-            Self::Field(ty) | Self::Return(ty) => (ty, false),
-        };
-        let mut subject = metadata_underlying(ty.clone(), index);
-        if indirect {
-            subject = subject
-                .and_then(buffer_info::pointee)
-                .and_then(|ty| metadata_underlying(ty, index));
-        }
-        subject.is_some_and(|ty| {
-            matches!(
-                ty,
-                metadata::Type::PtrMut(..)
-                    | metadata::Type::PtrConst(..)
-                    | metadata::Type::RefMut(_)
-                    | metadata::Type::RefConst(_)
-                    | metadata::Type::ClassName(_)
-                    | metadata::Type::FnPtr(_)
-            )
-        })
-    }
-}
+struct ExtentOwner<'a>(
+    &'a [&'a str],
+    &'a metadata::Type,
+    &'a [metadata::Type],
+    &'a [bool],
+);
 
 fn metadata_underlying(
     ty: metadata::Type,
@@ -910,7 +858,7 @@ fn write_custom_attributes_with_names<'a>(
                 && attr_ns == METADATA_NAMESPACE
                 && attr.name() == "BufferAttribute"
                 && let Some(info) = metadata::BufferInfo::from_values(&values)
-                && let Some(ExtentOwner::Parameter(names, ty, _, counts, optional)) = extent_owner
+                && let Some(ExtentOwner(names, ty, counts, optional)) = extent_owner
                 && buffer_info::is_buffer_count(&info.count, counts, |ty| {
                     metadata_underlying_types(ty, index)
                 })
@@ -924,16 +872,7 @@ fn write_custom_attributes_with_names<'a>(
                 return Ok(tokens);
             }
 
-            if attr_ns == METADATA_NAMESPACE
-                && matches!(attr.name(), "NullTerminatedAttribute" | "NullableAttribute")
-            {
-                let termination = attr.name() == "NullTerminatedAttribute";
-                if !termination
-                    && values.is_empty()
-                    && extent_owner.is_some_and(|owner| owner.accepts_nullable(index))
-                {
-                    return Ok(quote! { #[nullable] });
-                }
+            if attr_ns == METADATA_NAMESPACE && attr.name() == "NullTerminatedAttribute" {
                 let flag = |key| {
                     values.iter().find_map(|(name, value)| match value {
                         metadata::Value::Bool(value) if name == key => Some(*value),
@@ -948,11 +887,10 @@ fn write_custom_attributes_with_names<'a>(
                         == 2 + usize::from(double_entry)
                             + usize::from(double_success)
                             + usize::from(indirect)
-                        && termination
                         && (entry || success)
                         && (!double_entry || entry)
                         && (!double_success || success)
-                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty, ..))
+                        && matches!(extent_owner, Some(ExtentOwner(_, ty, ..))
                             if buffer_info::is_buffer_storage(
                                 ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
                     {

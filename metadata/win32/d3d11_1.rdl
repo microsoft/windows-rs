@@ -89,21 +89,17 @@ mod Windows {
         struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
             pCryptoSession: ID3D11CryptoSession,
             BlobSize: UINT,
-            #[nullable]
             pBlob: *mut void,
             pKeyInfoId: *mut GUID,
             PrivateDataSize: UINT,
-            #[nullable]
             pPrivateData: *mut void,
         }
         struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
             BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
             DataOffset: UINT,
             DataSize: UINT,
-            #[nullable]
             pIV: *mut void,
             IVSize: UINT,
-            #[nullable]
             pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
             SubSampleMappingCount: UINT,
         }

@@ -101,7 +101,7 @@ mod Windows {
         #[library("wcmapi.dll")]
         extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, #[out] ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> DWORD;
         #[library("wcmapi.dll")]
-        extern fn WcmQueryProperty(#[in] #[opt] pInterface: *const GUID, #[in] #[opt] strProfileName: LPCWSTR, #[in] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, #[incomplete] #[nullable] #[out] ppData: *mut PBYTE) -> DWORD;
+        extern fn WcmQueryProperty(#[in] #[opt] pInterface: *const GUID, #[in] #[opt] strProfileName: LPCWSTR, #[in] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, #[incomplete] #[out] ppData: *mut PBYTE) -> DWORD;
         #[library("wcmapi.dll")]
         extern fn WcmSetProfileList(#[in] pProfileList: *mut WCM_PROFILE_INFO_LIST, #[in] dwPosition: DWORD, #[in] fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> DWORD;
         #[library("wcmapi.dll")]

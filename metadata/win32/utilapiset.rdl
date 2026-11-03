@@ -4,16 +4,16 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn Beep(#[in] dwFreq: DWORD, #[in] dwDuration: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DecodePointer(#[in] #[opt] Ptr: PVOID) -> #[nullable] PVOID;
+        extern fn DecodePointer(#[in] #[opt] Ptr: PVOID) -> PVOID;
         #[library("KernelBase.dll")]
         extern fn DecodeRemotePointer(#[in] ProcessHandle: HANDLE, #[in] #[opt] Ptr: PVOID, #[out] DecodedPtr: *mut PVOID) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn DecodeSystemPointer(#[in] #[opt] Ptr: PVOID) -> #[nullable] PVOID;
+        extern fn DecodeSystemPointer(#[in] #[opt] Ptr: PVOID) -> PVOID;
         #[library("KERNEL32.dll")]
-        extern fn EncodePointer(#[in] #[opt] Ptr: PVOID) -> #[nullable] PVOID;
+        extern fn EncodePointer(#[in] #[opt] Ptr: PVOID) -> PVOID;
         #[library("KernelBase.dll")]
         extern fn EncodeRemotePointer(#[in] ProcessHandle: HANDLE, #[in] #[opt] Ptr: PVOID, #[out] EncodedPtr: *mut PVOID) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn EncodeSystemPointer(#[in] #[opt] Ptr: PVOID) -> #[nullable] PVOID;
+        extern fn EncodeSystemPointer(#[in] #[opt] Ptr: PVOID) -> PVOID;
     }
 }

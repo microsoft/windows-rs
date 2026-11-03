@@ -11,8 +11,8 @@ mod Fixture {
         fn NotInterface(&self, #[out] result: *mut *mut Value) -> Status;
         fn Optional(&self, #[opt] #[out] result: *mut IObject) -> Status;
         fn OutptrOptional(&self, #[opt] #[out] result: *mut IObject) -> Status;
-        fn MaybeNull(&self, #[nullable] #[out] result: *mut IObject) -> Status;
-        fn OutptrMaybeNull(&self, #[nullable] #[out] result: *mut IObject) -> Status;
+        fn MaybeNull(&self, #[out] result: *mut IObject) -> Status;
+        fn OutptrMaybeNull(&self, #[out] result: *mut IObject) -> Status;
         fn NotLast(&self, #[out] result: *mut IObject, flags: i32) -> Status;
         fn Untyped(&self, #[iid_is] #[out] result: *mut *mut void) -> Status;
         fn Exact(&self, #[out] result: *mut IObject) -> Status;

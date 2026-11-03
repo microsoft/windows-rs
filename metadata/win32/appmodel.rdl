@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn AddPackageDependency(#[in] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[nullable] #[opt] #[out] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn AddPackageDependency(#[in] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[opt] #[out] packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn AddPackageDependency2(#[in] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions2, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[nullable] #[opt] #[out] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn AddPackageDependency2(#[in] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions2, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[opt] #[out] packageFullName: *mut PWSTR) -> HRESULT;
         #[flags]
         #[repr(i32)]
         enum AddPackageDependencyOptions {
@@ -105,7 +105,7 @@ mod Windows {
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
         extern fn DeletePackageDependency(#[in] packageDependencyId: PCWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn FindPackageDependency(#[in] findPackageDependencyCriteria: *const FindPackageDependencyCriteria, #[out] packageDependencyIdsCount: *mut UINT32, #[incomplete] #[nullable] #[out] packageDependencyIds: *mut *mut PWSTR) -> HRESULT;
+        extern fn FindPackageDependency(#[in] findPackageDependencyCriteria: *const FindPackageDependencyCriteria, #[out] packageDependencyIdsCount: *mut UINT32, #[incomplete] #[out] packageDependencyIds: *mut *mut PWSTR) -> HRESULT;
         struct FindPackageDependencyCriteria {
             User: PSID,
             ScopeIsSystem: BOOL,
@@ -139,11 +139,11 @@ mod Windows {
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
         extern fn GetCurrentPackagePath2(#[in] packagePathType: PackagePathType, #[in] #[out] pathLength: *mut UINT32, #[buffer(*pathLength)] #[opt] #[out] path: PWSTR) -> LONG;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn GetIdForPackageDependencyContext(#[in] packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT, #[nullable] #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
+        extern fn GetIdForPackageDependencyContext(#[in] packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT, #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetPackageApplicationIds(#[in] packageInfoReference: PACKAGE_INFO_REFERENCE, #[in] #[out] bufferLength: *mut UINT32, #[buffer(bytes(*bufferLength))] #[opt] #[out] buffer: *mut BYTE, #[opt] #[out] count: *mut UINT32) -> LONG;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetPackageDependencyInformation(#[in] packageDependencyId: PCWSTR, #[nullable] #[opt] #[out] user: *mut PSID, #[nullable] #[opt] #[out] packageFamilyName: *mut PWSTR, #[opt] #[out] minVersion: *mut PACKAGE_VERSION, #[opt] #[out] packageDependencyProcessorArchitectures: *mut PackageDependencyProcessorArchitectures, #[opt] #[out] lifetimeKind: *mut PackageDependencyLifetimeKind, #[nullable] #[opt] #[out] lifetimeArtifact: *mut PWSTR, #[opt] #[out] options: *mut CreatePackageDependencyOptions, #[opt] #[out] lifetimeExpiration: *mut FILETIME) -> HRESULT;
+        extern fn GetPackageDependencyInformation(#[in] packageDependencyId: PCWSTR, #[opt] #[out] user: *mut PSID, #[opt] #[out] packageFamilyName: *mut PWSTR, #[opt] #[out] minVersion: *mut PACKAGE_VERSION, #[opt] #[out] packageDependencyProcessorArchitectures: *mut PackageDependencyProcessorArchitectures, #[opt] #[out] lifetimeKind: *mut PackageDependencyLifetimeKind, #[opt] #[out] lifetimeArtifact: *mut PWSTR, #[opt] #[out] options: *mut CreatePackageDependencyOptions, #[opt] #[out] lifetimeExpiration: *mut FILETIME) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetPackageFamilyName(#[in] hProcess: HANDLE, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[buffer(*packageFamilyNameLength)] #[opt] #[out] packageFamilyName: PWSTR) -> LONG;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
@@ -172,11 +172,11 @@ mod Windows {
         #[must_use]
         extern fn GetPackagesByPackageFamily(#[in] packageFamilyName: PCWSTR, #[in] #[out] count: *mut UINT32, #[buffer(*count)] #[opt] #[out] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut UINT32, #[buffer(*bufferLength)] #[opt] #[out] buffer: *mut WCHAR) -> LONG;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetProcessesUsingPackageDependency(#[in] packageDependencyId: PCWSTR, #[in] #[opt] user: PSID, #[in] scopeIsSystem: BOOL, #[out] processIdsCount: *mut UINT32, #[incomplete] #[nullable] #[out] processIds: *mut *mut DWORD) -> HRESULT;
+        extern fn GetProcessesUsingPackageDependency(#[in] packageDependencyId: PCWSTR, #[in] #[opt] user: PSID, #[in] scopeIsSystem: BOOL, #[out] processIdsCount: *mut UINT32, #[incomplete] #[out] processIds: *mut *mut DWORD) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn GetResolvedPackageFullNameForPackageDependency(#[in] packageDependencyId: PCWSTR, #[nullable] #[out] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn GetResolvedPackageFullNameForPackageDependency(#[in] packageDependencyId: PCWSTR, #[out] packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetResolvedPackageFullNameForPackageDependency2(#[in] packageDependencyId: PCWSTR, #[nullable] #[out] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn GetResolvedPackageFullNameForPackageDependency2(#[in] packageDependencyId: PCWSTR, #[out] packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
         #[must_use]
         extern fn GetStagedPackageOrigin(#[in] packageFullName: PCWSTR, #[out] origin: *mut PackageOrigin) -> LONG;
@@ -321,9 +321,9 @@ mod Windows {
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
         extern fn RemovePackageDependency(#[in] packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn TryCreatePackageDependency(user: PSID, #[in] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, #[nullable] #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
+        extern fn TryCreatePackageDependency(user: PSID, #[in] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn TryCreatePackageDependency2(user: PSID, #[in] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, lifetimeExpiration: *const FILETIME, #[nullable] #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
+        extern fn TryCreatePackageDependency2(user: PSID, #[in] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, lifetimeExpiration: *const FILETIME, #[out] packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
         #[must_use]
         extern fn VerifyApplicationUserModelId(#[in] applicationUserModelId: PCWSTR) -> LONG;

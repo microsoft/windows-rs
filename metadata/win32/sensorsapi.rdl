@@ -20,7 +20,7 @@ mod Windows {
             fn GetState(&self, #[out] pState: *mut SensorState) -> HRESULT;
             fn GetData(&self, #[out] #[retval] ppDataReport: *mut ISensorDataReport) -> HRESULT;
             fn SupportsEvent(&self, #[in] eventGuid: &GUID, #[out] pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetEventInterest(&self, #[incomplete] #[nullable] #[out] ppValues: *mut *mut GUID, #[out] pCount: *mut ULONG) -> HRESULT;
+            fn GetEventInterest(&self, #[incomplete] #[out] ppValues: *mut *mut GUID, #[out] pCount: *mut ULONG) -> HRESULT;
             fn SetEventInterest(&self, #[buffer(count)] #[in] #[opt] pValues: *mut GUID, #[in] count: ULONG) -> HRESULT;
             fn SetEventSink(&self, #[in] #[opt] pEvents: ISensorEvents) -> HRESULT;
         }

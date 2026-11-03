@@ -637,18 +637,6 @@ signature positions. Absent Boolean properties mean false. Unknown properties, r
 unsupported owners and unrenderable counts retain full attribute spelling rather than acquiring
 different semantics. The short form does not apply to fields, return rows or containing records.
 
-`nullable` permits the API to give the caller a null pointer. It takes no arguments:
-
-| Owner | Permits null for |
-| --- | --- |
-| `#[out] #[nullable] value: *mut *mut T` | The pointer stored through the parameter, at any phase it describes |
-| `-> #[nullable] T` | The returned value, independently of the success condition |
-| `#[nullable]` on a field | The field when the containing value is valid |
-
-A parameter needs `out` and pointer-to-pointer storage. `opt` separately permits the caller to pass
-a null argument. `nullable` does not imply ownership or initialized storage. Without it, nullability
-is unspecified. All forms encode the parameterless `NullableAttribute`.
-
 `#[must_use]` marks a callable result that callers should use rather than accidentally discard.
 It applies to imports, interface methods and named callbacks and encodes the parameterless
 `Windows.Win32.Metadata.MustUseAttribute`. It does not define success, change the return type,

@@ -9,24 +9,24 @@ mod Test {
     type TrackedSlot = *mut Tracked;
     #[guid(0x10000000_0000_0000_0000_000000000002)]
     interface Results: Windows::Win32::IUnknown {
-        fn Nullable(&self, #[out] #[retval] #[nullable] value: *mut ObjectAlias) -> HRESULT;
-        fn Reserved(&self, #[reserved] reserved: usize, #[out] #[retval] #[nullable] value: *mut Tracked) -> HRESULT;
+        fn Object(&self, #[out] #[retval] value: *mut ObjectAlias) -> HRESULT;
+        fn Reserved(&self, #[reserved] reserved: usize, #[out] #[retval] value: *mut Tracked) -> HRESULT;
         fn Required(&self, #[out] #[retval] value: *mut Tracked) -> HRESULT;
         fn Number(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
-        fn NullableVoid(&self, #[out] #[retval] #[nullable] value: *mut Tracked);
-        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[nullable] value: OutputSlot) -> HRESULT;
-        fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] #[nullable] value: *mut *mut void) -> HRESULT;
+        fn ObjectVoid(&self, #[out] #[retval] value: *mut Tracked);
+        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] value: OutputSlot) -> HRESULT;
+        fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] value: *mut *mut void) -> HRESULT;
         fn InOutQuery(&self, #[in] iid: *const GUID, #[in] #[out] #[iid_is] value: *mut *mut void) -> HRESULT;
-        fn Data(&self, #[out] #[retval] #[nullable] value: *mut *mut u8) -> HRESULT;
+        fn Data(&self, #[out] #[retval] value: *mut *mut u8) -> HRESULT;
         fn ReadThenFail(&self, #[in] input: *const *mut void, #[out] #[retval] value: *mut Tracked) -> HRESULT;
         fn TypedefSlot(&self, #[out] #[retval] value: TrackedSlot) -> HRESULT;
     }
     #[library("test.dll")]
-    extern fn Nullable(#[out] #[retval] #[nullable] value: *mut Tracked) -> HRESULT;
+    extern fn Object(#[out] #[retval] value: *mut Tracked) -> HRESULT;
     #[library("test.dll")]
-    extern fn NullableVoid(#[out] #[retval] #[nullable] value: *mut Tracked);
+    extern fn ObjectVoid(#[out] #[retval] value: *mut Tracked);
     #[library("test.dll")]
-    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[nullable] value: *mut RawObject) -> HRESULT;
+    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] value: *mut RawObject) -> HRESULT;
 }
 #[win32]
 mod Windows {
@@ -41,9 +41,6 @@ mod Windows {
                 CountParamIndex: u16,
                 Dereference: bool,
                 Bytes: bool,
-            }
-            attribute NullableAttribute {
-                fn();
             }
             attribute ComOutPtrAttribute { fn(); }
         }

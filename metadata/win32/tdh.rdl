@@ -242,7 +242,7 @@ mod Windows {
         #[library("tdh.dll")]
         extern fn TdhCloseDecodingHandle(#[in] Handle: TDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCreatePayloadFilter(#[in] ProviderGuid: LPCGUID, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] EventMatchANY: BOOLEAN, #[in] PayloadPredicateCount: ULONG, #[buffer(PayloadPredicateCount)] #[in] PayloadPredicates: PPAYLOAD_FILTER_PREDICATE, #[nullable] #[out] PayloadFilter: *mut PVOID) -> TDHSTATUS;
+        extern fn TdhCreatePayloadFilter(#[in] ProviderGuid: LPCGUID, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] EventMatchANY: BOOLEAN, #[in] PayloadPredicateCount: ULONG, #[buffer(PayloadPredicateCount)] #[in] PayloadPredicates: PPAYLOAD_FILTER_PREDICATE, #[out] PayloadFilter: *mut PVOID) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut PVOID) -> TDHSTATUS;
         #[library("tdh.dll")]

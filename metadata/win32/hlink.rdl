@@ -167,9 +167,9 @@ mod Windows {
             fn SetHlinkSite(&self, #[in] #[opt] pihlSite: IHlinkSite, #[in] dwSiteData: DWORD) -> HRESULT;
             fn GetHlinkSite(&self, #[out] ppihlSite: *mut IHlinkSite, #[out] pdwSiteData: *mut DWORD) -> HRESULT;
             fn SetMonikerReference(&self, #[in] grfHLSETF: DWORD, #[in] #[opt] pimkTarget: IMoniker, #[in] #[opt] pwzLocation: LPCWSTR) -> HRESULT;
-            fn GetMonikerReference(&self, #[in] dwWhichRef: DWORD, #[nullable] #[opt] #[out] ppimkTarget: *mut IMoniker, #[nullable] #[opt] #[out] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn GetMonikerReference(&self, #[in] dwWhichRef: DWORD, #[opt] #[out] ppimkTarget: *mut IMoniker, #[opt] #[out] ppwzLocation: *mut LPWSTR) -> HRESULT;
             fn SetStringReference(&self, #[in] grfHLSETF: DWORD, #[in] #[opt] pwzTarget: LPCWSTR, #[in] #[opt] pwzLocation: LPCWSTR) -> HRESULT;
-            fn GetStringReference(&self, #[in] dwWhichRef: DWORD, #[opt] #[out] ppwzTarget: *mut LPWSTR, #[nullable] #[opt] #[out] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn GetStringReference(&self, #[in] dwWhichRef: DWORD, #[opt] #[out] ppwzTarget: *mut LPWSTR, #[opt] #[out] ppwzLocation: *mut LPWSTR) -> HRESULT;
             fn SetFriendlyName(&self, #[in] #[opt] pwzFriendlyName: LPCWSTR) -> HRESULT;
             fn GetFriendlyName(&self, #[in] grfHLFNAMEF: DWORD, #[out] ppwzFriendlyName: *mut LPWSTR) -> HRESULT;
             fn SetTargetFrameName(&self, #[in] #[opt] pwzTargetFrameName: LPCWSTR) -> HRESULT;

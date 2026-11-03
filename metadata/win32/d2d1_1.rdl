@@ -266,9 +266,9 @@ mod Windows {
         type D2D1_VECTOR_4F = D2D_VECTOR_4F;
         #[guid(0xa898a84c_3873_4588_b08b_ebbf978df041)]
         interface ID2D1Bitmap1: ID2D1Bitmap {
-            fn GetColorContext(&self, #[nullable] #[out] colorContext: *mut ID2D1ColorContext);
+            fn GetColorContext(&self, #[out] colorContext: *mut ID2D1ColorContext);
             fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
-            fn GetSurface(&self, #[nullable] #[out] dxgiSurface: *mut IDXGISurface) -> HRESULT;
+            fn GetSurface(&self, #[out] dxgiSurface: *mut IDXGISurface) -> HRESULT;
             fn Map(&self, options: D2D1_MAP_OPTIONS, #[out] mappedRect: *mut D2D1_MAPPED_RECT) -> HRESULT;
             fn Unmap(&self) -> HRESULT;
         }
@@ -344,7 +344,7 @@ mod Windows {
             fn GetGlyphRunWorldBounds(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, #[out] bounds: *mut D2D1_RECT_F) -> HRESULT;
             fn GetDevice(&self, #[out] device: *mut ID2D1Device);
             fn SetTarget(&self, #[in] #[opt] image: ID2D1Image);
-            fn GetTarget(&self, #[nullable] #[out] image: *mut ID2D1Image);
+            fn GetTarget(&self, #[out] image: *mut ID2D1Image);
             fn SetRenderingControls(&self, #[in] renderingControls: *const D2D1_RENDERING_CONTROLS);
             fn GetRenderingControls(&self, #[out] renderingControls: *mut D2D1_RENDERING_CONTROLS);
             fn SetPrimitiveBlend(&self, primitiveBlend: D2D1_PRIMITIVE_BLEND);
@@ -371,7 +371,7 @@ mod Windows {
         interface ID2D1Effect: ID2D1Properties {
             fn SetInput(&self, index: UINT32, #[in] #[opt] input: ID2D1Image, invalidate: BOOL);
             fn SetInputCount(&self, inputCount: UINT32) -> HRESULT;
-            fn GetInput(&self, index: UINT32, #[nullable] #[out] input: *mut ID2D1Image);
+            fn GetInput(&self, index: UINT32, #[out] input: *mut ID2D1Image);
             fn GetInputCount(&self) -> UINT32;
             fn GetOutput(&self, #[out] outputImage: *mut ID2D1Image);
         }
@@ -412,7 +412,7 @@ mod Windows {
             fn SetExtendModeY(&self, extendModeY: D2D1_EXTEND_MODE);
             fn SetInterpolationMode(&self, interpolationMode: D2D1_INTERPOLATION_MODE);
             fn SetSourceRectangle(&self, #[in] sourceRectangle: *const D2D1_RECT_F);
-            fn GetImage(&self, #[nullable] #[out] image: *mut ID2D1Image);
+            fn GetImage(&self, #[out] image: *mut ID2D1Image);
             fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
             fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
             fn GetInterpolationMode(&self) -> D2D1_INTERPOLATION_MODE;
@@ -445,7 +445,7 @@ mod Windows {
             fn GetValueByName(&self, #[in] name: PCWSTR, r#type: D2D1_PROPERTY_TYPE, #[buffer(dataSize)] #[out] data: *mut BYTE, dataSize: UINT32) -> HRESULT;
             fn GetValue(&self, index: UINT32, r#type: D2D1_PROPERTY_TYPE, #[buffer(dataSize)] #[out] data: *mut BYTE, dataSize: UINT32) -> HRESULT;
             fn GetValueSize(&self, index: UINT32) -> UINT32;
-            fn GetSubProperties(&self, index: UINT32, #[nullable] #[out] subProperties: *mut ID2D1Properties) -> HRESULT;
+            fn GetSubProperties(&self, index: UINT32, #[out] subProperties: *mut ID2D1Properties) -> HRESULT;
         }
         #[guid(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a)]
         interface ID2D1StrokeStyle1: ID2D1StrokeStyle {

@@ -452,9 +452,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ConvertFiberToThread() -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ConvertThreadToFiber(#[in] #[opt] lpParameter: LPVOID) -> #[nullable] LPVOID;
+        extern fn ConvertThreadToFiber(#[in] #[opt] lpParameter: LPVOID) -> LPVOID;
         #[library("KERNEL32.dll")]
-        extern fn ConvertThreadToFiberEx(#[in] #[opt] lpParameter: LPVOID, #[in] dwFlags: DWORD) -> #[nullable] LPVOID;
+        extern fn ConvertThreadToFiberEx(#[in] #[opt] lpParameter: LPVOID, #[in] dwFlags: DWORD) -> LPVOID;
         #[library("KERNEL32.dll")]
         #[must_use]
         extern fn CopyContext(#[in] #[out] Destination: PCONTEXT, #[in] ContextFlags: DWORD, #[in] Source: PCONTEXT) -> BOOL;
@@ -477,7 +477,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateActCtxW(#[in] pActCtx: PCACTCTXW) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateBoundaryDescriptorA(#[in] Name: LPCSTR, #[in] Flags: ULONG) -> #[nullable] HANDLE;
+        extern fn CreateBoundaryDescriptorA(#[in] Name: LPCSTR, #[in] Flags: ULONG) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn CreateDirectoryExA(#[in] lpTemplateDirectory: LPCSTR, #[in] lpNewDirectory: LPCSTR, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -487,13 +487,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateDirectoryTransactedW(#[in] #[opt] lpTemplateDirectory: LPCWSTR, #[in] lpNewDirectory: LPCWSTR, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[in] hTransaction: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateFiber(#[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPFIBER_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID) -> #[nullable] LPVOID;
+        extern fn CreateFiber(#[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPFIBER_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID) -> LPVOID;
         #[library("KERNEL32.dll")]
-        extern fn CreateFiberEx(#[in] dwStackCommitSize: SIZE_T, #[in] dwStackReserveSize: SIZE_T, #[in] dwFlags: DWORD, #[in] lpStartAddress: LPFIBER_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID) -> #[nullable] LPVOID;
+        extern fn CreateFiberEx(#[in] dwStackCommitSize: SIZE_T, #[in] dwStackReserveSize: SIZE_T, #[in] dwFlags: DWORD, #[in] lpStartAddress: LPFIBER_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID) -> LPVOID;
         #[library("KERNEL32.dll")]
-        extern fn CreateFileMappingA(#[in] hFile: HANDLE, #[in] #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] flProtect: DWORD, #[in] dwMaximumSizeHigh: DWORD, #[in] dwMaximumSizeLow: DWORD, #[in] #[opt] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn CreateFileMappingA(#[in] hFile: HANDLE, #[in] #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] flProtect: DWORD, #[in] dwMaximumSizeHigh: DWORD, #[in] dwMaximumSizeLow: DWORD, #[in] #[opt] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateFileMappingNumaA(#[in] hFile: HANDLE, #[in] #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] flProtect: DWORD, #[in] dwMaximumSizeHigh: DWORD, #[in] dwMaximumSizeLow: DWORD, #[in] #[opt] lpName: LPCSTR, #[in] nndPreferred: DWORD) -> #[nullable] HANDLE;
+        extern fn CreateFileMappingNumaA(#[in] hFile: HANDLE, #[in] #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] flProtect: DWORD, #[in] dwMaximumSizeHigh: DWORD, #[in] dwMaximumSizeLow: DWORD, #[in] #[opt] lpName: LPCSTR, #[in] nndPreferred: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn CreateFileTransactedA(#[in] lpFileName: LPCSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[in] dwCreationDisposition: DWORD, #[in] dwFlagsAndAttributes: DWORD, #[in] #[opt] hTemplateFile: HANDLE, #[in] hTransaction: HANDLE, #[in] #[opt] pusMiniVersion: PUSHORT, #[reserved] lpExtendedParameter: PVOID) -> HANDLE;
         #[library("KERNEL32.dll")]
@@ -507,7 +507,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateHardLinkW(#[in] lpFileName: LPCWSTR, #[in] lpExistingFileName: LPCWSTR, #[reserved] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateJobObjectA(#[in] #[opt] lpJobAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn CreateJobObjectA(#[in] #[opt] lpJobAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn CreateJobSet(#[in] NumJob: ULONG, #[buffer(NumJob)] #[in] UserJobSet: PJOB_SET_ARRAY, #[in] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -517,7 +517,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateNamedPipeA(#[in] lpName: LPCSTR, #[in] dwOpenMode: DWORD, #[in] dwPipeMode: DWORD, #[in] nMaxInstances: DWORD, #[in] nOutBufferSize: DWORD, #[in] nInBufferSize: DWORD, #[in] nDefaultTimeOut: DWORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreatePrivateNamespaceA(#[in] #[opt] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCSTR) -> #[nullable] HANDLE;
+        extern fn CreatePrivateNamespaceA(#[in] #[opt] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCSTR) -> HANDLE;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn CreateProcessWithLogonW(#[in] lpUsername: LPCWSTR, #[in] #[opt] lpDomain: LPCWSTR, #[in] lpPassword: LPCWSTR, #[in] dwLogonFlags: DWORD, #[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[opt] #[out] lpCommandLine: LPWSTR, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
@@ -525,9 +525,9 @@ mod Windows {
         #[must_use]
         extern fn CreateProcessWithTokenW(#[in] hToken: HANDLE, #[in] dwLogonFlags: DWORD, #[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[opt] #[out] lpCommandLine: LPWSTR, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreA(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn CreateSemaphoreA(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreExA(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCSTR, #[reserved] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
+        extern fn CreateSemaphoreExA(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCSTR, #[reserved] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn CreateSymbolicLinkA(#[in] lpSymlinkFileName: LPCSTR, #[in] lpTargetFileName: LPCSTR, #[in] dwFlags: DWORD) -> BOOLEAN;
         #[library("KERNEL32.dll")]
@@ -546,9 +546,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateUmsThreadContext(#[out] lpUmsThread: *mut PUMS_CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerA(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] #[opt] lpTimerName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn CreateWaitableTimerA(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] #[opt] lpTimerName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerExA(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpTimerName: LPCSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
+        extern fn CreateWaitableTimerExA(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpTimerName: LPCSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> HANDLE;
         const DATABITS_16: WORD = 16;
         const DATABITS_16X: WORD = 32;
         const DATABITS_5: WORD = 1;
@@ -999,9 +999,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn FindNextVolumeMountPointW(#[in] hFindVolumeMountPoint: HANDLE, #[buffer(cchBufferLength)] #[out] lpszVolumeMountPoint: LPWSTR, #[in] cchBufferLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceA(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCSTR, #[in] lpType: LPCSTR) -> #[nullable] HRSRC;
+        extern fn FindResourceA(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCSTR, #[in] lpType: LPCSTR) -> HRSRC;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceExA(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCSTR, #[in] lpName: LPCSTR, #[in] wLanguage: WORD) -> #[nullable] HRSRC;
+        extern fn FindResourceExA(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCSTR, #[in] lpName: LPCSTR, #[in] wLanguage: WORD) -> HRSRC;
         #[library("KERNEL32.dll")]
         extern fn FindVolumeMountPointClose(#[in] hFindVolumeMountPoint: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1051,7 +1051,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetActiveProcessorGroupCount() -> WORD;
         #[library("KERNEL32.dll")]
-        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[nullable] #[opt] #[out] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
+        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[opt] #[out] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetApplicationRestartSettings(#[in] hProcess: HANDLE, #[buffer(*pcchSize)] #[opt] #[out] pwzCommandline: PWSTR, #[in] #[out] pcchSize: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
@@ -1278,15 +1278,15 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GlobalFlags(#[in] hMem: HGLOBAL) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GlobalFree(#[incomplete] hMem: HGLOBAL) -> #[nullable] HGLOBAL;
+        extern fn GlobalFree(#[incomplete] hMem: HGLOBAL) -> HGLOBAL;
         #[library("KERNEL32.dll")]
         extern fn GlobalGetAtomNameA(#[in] nAtom: ATOM, #[buffer(nSize)] #[incomplete] #[out] lpBuffer: LPSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
         extern fn GlobalGetAtomNameW(#[in] nAtom: ATOM, #[buffer(nSize)] #[incomplete] #[out] lpBuffer: LPWSTR, #[in] nSize: i32) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GlobalHandle(#[in] pMem: LPCVOID) -> #[nullable] HGLOBAL;
+        extern fn GlobalHandle(#[in] pMem: LPCVOID) -> HGLOBAL;
         #[library("KERNEL32.dll")]
-        extern fn GlobalLock(#[in] hMem: HGLOBAL) -> #[nullable] LPVOID;
+        extern fn GlobalLock(#[in] hMem: HGLOBAL) -> LPVOID;
         #[library("KERNEL32.dll")]
         extern fn GlobalMemoryStatus(#[out] lpBuffer: LPMEMORYSTATUS);
         #[library("KERNEL32.dll")]
@@ -1418,7 +1418,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn LoadModule(#[in] lpModuleName: LPCSTR, #[in] lpParameterBlock: LPVOID) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn LoadPackagedLibrary(#[in] lpwLibFileName: LPCWSTR, #[reserved] Reserved: DWORD) -> #[nullable] HMODULE;
+        extern fn LoadPackagedLibrary(#[in] lpwLibFileName: LPCWSTR, #[reserved] Reserved: DWORD) -> HMODULE;
         #[library("KERNEL32.dll")]
         extern fn LocalAlloc(#[in] uFlags: UINT, #[in] uBytes: SIZE_T) -> HLOCAL;
         #[library("KERNEL32.dll")]
@@ -1426,11 +1426,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn LocalFlags(#[in] hMem: HLOCAL) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn LocalFree(#[incomplete] hMem: HLOCAL) -> #[nullable] HLOCAL;
+        extern fn LocalFree(#[incomplete] hMem: HLOCAL) -> HLOCAL;
         #[library("KERNEL32.dll")]
-        extern fn LocalHandle(#[in] pMem: LPCVOID) -> #[nullable] HLOCAL;
+        extern fn LocalHandle(#[in] pMem: LPCVOID) -> HLOCAL;
         #[library("KERNEL32.dll")]
-        extern fn LocalLock(#[in] hMem: HLOCAL) -> #[nullable] LPVOID;
+        extern fn LocalLock(#[in] hMem: HLOCAL) -> LPVOID;
         #[library("KERNEL32.dll")]
         extern fn LocalReAlloc(#[incomplete] hMem: HLOCAL, #[in] uBytes: SIZE_T, #[in] uFlags: UINT) -> HLOCAL;
         #[library("KERNEL32.dll")]
@@ -1497,7 +1497,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn MapUserPhysicalPagesScatter(#[buffer(NumberOfPages)] #[in] VirtualAddresses: *mut PVOID, #[in] NumberOfPages: ULONG_PTR, #[buffer(NumberOfPages)] #[in] #[opt] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn MapViewOfFileExNuma(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] lpBaseAddress: LPVOID, #[in] nndPreferred: DWORD) -> #[nullable] LPVOID;
+        extern fn MapViewOfFileExNuma(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] lpBaseAddress: LPVOID, #[in] nndPreferred: DWORD) -> LPVOID;
         #[library("KERNEL32.dll")]
         extern fn MoveFileA(#[in] lpExistingFileName: LPCSTR, #[in] lpNewFileName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -1595,15 +1595,15 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn OpenFileMappingA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenJobObjectA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn OpenJobObjectA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenMutexA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn OpenMutexA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenPrivateNamespaceA(#[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCSTR) -> #[nullable] HANDLE;
+        extern fn OpenPrivateNamespaceA(#[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenSemaphoreA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn OpenSemaphoreA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenWaitableTimerA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpTimerName: LPCSTR) -> #[nullable] HANDLE;
+        extern fn OpenWaitableTimerA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpTimerName: LPCSTR) -> HANDLE;
         #[library("ADVAPI32.dll")]
         extern fn OperationEnd(#[in] OperationEndParams: *mut OPERATION_END_PARAMETERS) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -2445,10 +2445,10 @@ mod Windows {
         extern fn lstrcpyW(#[incomplete] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR) -> LPWSTR;
         #[library("KERNEL32.dll")]
         #[must_use]
-        extern fn lstrcpynA(#[buffer(iMaxLength)] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> #[nullable] LPSTR;
+        extern fn lstrcpynA(#[buffer(iMaxLength)] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> LPSTR;
         #[library("KERNEL32.dll")]
         #[must_use]
-        extern fn lstrcpynW(#[buffer(iMaxLength)] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR, #[in] iMaxLength: i32) -> #[nullable] LPWSTR;
+        extern fn lstrcpynW(#[buffer(iMaxLength)] #[out] lpString1: LPWSTR, #[in] lpString2: LPCWSTR, #[in] iMaxLength: i32) -> LPWSTR;
         #[library("KERNEL32.dll")]
         extern fn lstrlenA(#[in] lpString: LPCSTR) -> i32;
         #[library("KERNEL32.dll")]

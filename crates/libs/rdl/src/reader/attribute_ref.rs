@@ -1,6 +1,5 @@
 use super::guid;
 use super::*;
-use buffer_info::pointee as extent_pointee;
 use syn::ext::IdentExt;
 
 #[derive(PartialEq)]
@@ -707,59 +706,6 @@ impl Encoder<'_> {
                 self.validate_buffer_subject(attr, types.subject, indirect)?;
                 continue;
             }
-            if attr.path().is_ident("nullable") {
-                if !field && !attrs.iter().any(|attr| attr.path().is_ident("out")) {
-                    return self.err(attr, "parameter nullability requires `out`");
-                }
-                self.emit_value_nullable(target, attr, types.subject, !field)?;
-                continue;
-            }
-        }
-        Ok(())
-    }
-
-    pub(super) fn emit_value_nullable(
-        &mut self,
-        target: metadata::writer::HasAttribute,
-        attr: &syn::Attribute,
-        ty: &metadata::Type,
-        indirect: bool,
-    ) -> Result<(), Error> {
-        if !matches!(attr.meta, syn::Meta::Path(_)) {
-            return self.err(attr, "nullable does not accept arguments");
-        }
-        self.validate_nullable_subject(attr, ty, indirect)?;
-        let expanded = syn::parse_quote! { #[Windows::Win32::Metadata::Nullable] };
-        self.encode_attrs(target, &[expanded], &[])
-    }
-
-    pub(super) fn validate_nullable_subject(
-        &self,
-        attr: &syn::Attribute,
-        ty: &metadata::Type,
-        indirect: bool,
-    ) -> Result<(), Error> {
-        let mut subject = self.extent_underlying(ty.clone());
-        if indirect {
-            subject = subject
-                .and_then(extent_pointee)
-                .and_then(|ty| self.extent_underlying(ty));
-        }
-        if !subject.is_some_and(|ty| {
-            matches!(
-                ty,
-                metadata::Type::PtrMut(..)
-                    | metadata::Type::PtrConst(..)
-                    | metadata::Type::RefMut(_)
-                    | metadata::Type::RefConst(_)
-                    | metadata::Type::ClassName(_)
-                    | metadata::Type::FnPtr(_)
-            )
-        }) {
-            return self.err(
-                attr,
-                "nullable requires a pointer at the specified indirection",
-            );
         }
         Ok(())
     }

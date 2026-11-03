@@ -89,31 +89,20 @@ impl Encoder<'_> {
         })
     }
 
-    pub fn encode_return_attrs(
-        &mut self,
-        return_attrs: &[syn::Attribute],
-        result: &metadata::Type,
-    ) -> Result<(), Error> {
+    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
         if !return_attrs.is_empty() {
             let param_id = self
                 .output
                 .Param("", 0, metadata::ParamAttributes::default());
             for attr in return_attrs {
-                if attr.path().is_ident("nullable") {
-                    self.emit_value_nullable(
-                        metadata::writer::HasAttribute::Param(param_id),
-                        attr,
-                        result,
-                        false,
-                    )?;
-                } else if attr.path().is_ident("null_terminated") {
+                if attr.path().is_ident("null_terminated") {
                     return self.err(attr, "termination phases require a parameter owner");
                 }
             }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 return_attrs,
-                &["nullable"],
+                &[],
             )?;
         }
         Ok(())
@@ -163,7 +152,7 @@ impl Encoder<'_> {
                     subject: &param.ty,
                 },
             )?;
-            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "buffer", "nullable"];
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "buffer"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),

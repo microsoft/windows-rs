@@ -564,13 +564,13 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToWinRTPropertyValue<T>(propvar: *const super::PROPVARIANT) -> windows_core::Result<Option<T>>
+pub unsafe fn PropVariantToWinRTPropertyValue<T>(propvar: *const super::PROPVARIANT) -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const super::PROPVARIANT, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { PropVariantToWinRTPropertyValue(propvar, &T::IID, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) }) }
+    unsafe { PropVariantToWinRTPropertyValue(propvar, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

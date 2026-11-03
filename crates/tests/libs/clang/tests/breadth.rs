@@ -764,13 +764,7 @@ fn returned_buffer_flags() {
                 assert!(parameter.buffer_relationship().is_none());
                 assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
                 assert!(!parameter.has_attribute("BufferAttribute"), "{name}");
-                assert_eq!(
-                    parameter
-                        .find_attribute("NullableAttribute")
-                        .map(|attribute| attribute.value()),
-                    name.contains("_maybenull").then(Vec::new),
-                    "{name}"
-                );
+                assert!(!parameter.has_attribute("NullableAttribute"), "{name}");
             }
         };
         if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
@@ -805,11 +799,7 @@ fn pointer_parameter_flags() {
                 if direction == reader::ParamDirection::Output {
                     assert!(parameter.find_attribute("IncompleteAttribute").is_none());
                     assert!(!parameter.has_attribute("ReturnedPointerAttribute"));
-                    assert_eq!(
-                        parameter.find_attribute("NullableAttribute").is_some(),
-                        name.contains("maybenull") || (version == "1" && name.ends_with("_opt")),
-                        "{name}"
-                    );
+                    assert!(!parameter.has_attribute("NullableAttribute"), "{name}");
                 } else {
                     assert!(parameter.find_attribute("IncompleteAttribute").is_some());
                 }
@@ -1124,13 +1114,13 @@ fn returned_pointer_contracts() {
             inputs.reverse();
         }
     }
-    // SAL1's optional returned value is not the RPC alias's non-null result.
+    // Native nullability does not change the published pointer contract.
     let optional = project(&[pointer_contract_input("1", "__deref_out_opt", "")]);
     assert_eq!(
         optional,
         project(&[pointer_contract_input("2", "_Outptr_result_maybenull_", "")])
     );
-    assert_ne!(optional, output);
+    assert_eq!(optional, output);
     let mut mixed = pointer_contract_input("2", "_Outptr_opt_", "");
     mixed.source = mixed.source.replace(
         "BUFFER unsigned short**",
@@ -5585,7 +5575,7 @@ fn field_buffer_input(name: &str, arguments: &str) -> Input {
 #[test]
 fn field_buffers() {
     helpers::ensure_libclang();
-    for (case, (name, _, optional, _, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
+    for (case, (name, _, _, _, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
         let arguments = if partial {
             "capacity, readable"
         } else {
@@ -5606,10 +5596,7 @@ fn field_buffers() {
                 .find(|field| field.name() == "values")
                 .unwrap();
             assert!(!field.has_attribute("BufferAttribute"));
-            assert_eq!(
-                field.find_attribute("NullableAttribute").is_some(),
-                optional
-            );
+            assert!(!field.has_attribute("NullableAttribute"));
         };
         if case == 0 {
             roundtrip("field_buffers", &output, check);

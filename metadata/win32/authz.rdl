@@ -9,7 +9,6 @@ mod Windows {
         struct AUTHZ_ACCESS_REPLY {
             ResultListLength: DWORD,
             GrantedAccessMask: PACCESS_MASK,
-            #[nullable]
             SaclEvaluationResults: PDWORD,
             Error: PDWORD,
         }

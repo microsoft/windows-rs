@@ -140,7 +140,7 @@ mod Windows {
         }
         #[guid(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e)]
         interface ID2D1SvgAttribute: ID2D1Resource {
-            fn GetElement(&self, #[nullable] #[out] element: *mut ID2D1SvgElement);
+            fn GetElement(&self, #[out] element: *mut ID2D1SvgElement);
             fn Clone(&self, #[out] #[retval] attribute: *mut ID2D1SvgAttribute) -> HRESULT;
         }
         #[guid(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec)]
@@ -148,8 +148,8 @@ mod Windows {
             fn SetViewportSize(&self, viewportSize: D2D1_SIZE_F) -> HRESULT;
             fn GetViewportSize(&self) -> D2D1_SIZE_F;
             fn SetRoot(&self, #[in] #[opt] root: ID2D1SvgElement) -> HRESULT;
-            fn GetRoot(&self, #[nullable] #[out] root: *mut ID2D1SvgElement);
-            fn FindElementById(&self, #[in] id: PCWSTR, #[nullable] #[out] svgElement: *mut ID2D1SvgElement) -> HRESULT;
+            fn GetRoot(&self, #[out] root: *mut ID2D1SvgElement);
+            fn FindElementById(&self, #[in] id: PCWSTR, #[out] svgElement: *mut ID2D1SvgElement) -> HRESULT;
             fn Serialize(&self, #[in] outputXmlStream: IStream, #[in] #[opt] subtree: ID2D1SvgElement) -> HRESULT;
             fn Deserialize(&self, #[in] inputXmlStream: IStream, #[out] #[retval] subtree: *mut ID2D1SvgElement) -> HRESULT;
             fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[in] #[opt] color: *const D2D1_COLOR_F, #[in] #[opt] id: PCWSTR, #[out] #[retval] paint: *mut ID2D1SvgPaint) -> HRESULT;
@@ -159,16 +159,16 @@ mod Windows {
         }
         #[guid(0xac7b67a6_183e_49c1_a823_0ebe40b0db29)]
         interface ID2D1SvgElement: ID2D1Resource {
-            fn GetDocument(&self, #[nullable] #[out] document: *mut ID2D1SvgDocument);
+            fn GetDocument(&self, #[out] document: *mut ID2D1SvgDocument);
             fn GetTagName(&self, #[buffer(nameCount)] #[out] name: PWSTR, nameCount: UINT32) -> HRESULT;
             fn GetTagNameLength(&self) -> UINT32;
             fn IsTextContent(&self) -> BOOL;
-            fn GetParent(&self, #[nullable] #[out] parent: *mut ID2D1SvgElement);
+            fn GetParent(&self, #[out] parent: *mut ID2D1SvgElement);
             fn HasChildren(&self) -> BOOL;
-            fn GetTopWindow(&self, #[nullable] #[out] child: *mut ID2D1SvgElement);
-            fn GetLastChild(&self, #[nullable] #[out] child: *mut ID2D1SvgElement);
-            fn GetPreviousChild(&self, #[in] referenceChild: ID2D1SvgElement, #[nullable] #[out] previousChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn GetNextChild(&self, #[in] referenceChild: ID2D1SvgElement, #[nullable] #[out] nextChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn GetTopWindow(&self, #[out] child: *mut ID2D1SvgElement);
+            fn GetLastChild(&self, #[out] child: *mut ID2D1SvgElement);
+            fn GetPreviousChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] previousChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn GetNextChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] nextChild: *mut ID2D1SvgElement) -> HRESULT;
             fn InsertChildBefore(&self, #[in] newChild: ID2D1SvgElement, #[in] #[opt] referenceChild: ID2D1SvgElement) -> HRESULT;
             fn AppendChild(&self, #[in] newChild: ID2D1SvgElement) -> HRESULT;
             fn ReplaceChild(&self, #[in] newChild: ID2D1SvgElement, #[in] oldChild: ID2D1SvgElement) -> HRESULT;
@@ -185,7 +185,7 @@ mod Windows {
             fn SetAttributeValue(&self, #[in] name: PCWSTR, #[in] value: ID2D1SvgAttribute) -> HRESULT;
             fn SetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[buffer(bytes(valueSizeInBytes))] #[in] value: *const void, valueSizeInBytes: UINT32) -> HRESULT;
             fn SetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[in] value: PCWSTR) -> HRESULT;
-            fn GetAttributeValue(&self, #[in] name: PCWSTR, #[in] riid: &IID, #[iid_is] #[nullable] #[out] value: *mut *mut void) -> HRESULT;
+            fn GetAttributeValue(&self, #[in] name: PCWSTR, #[in] riid: &IID, #[iid_is] #[out] value: *mut *mut void) -> HRESULT;
             fn GetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[buffer(bytes(valueSizeInBytes))] #[out] value: *mut void, valueSizeInBytes: UINT32) -> HRESULT;
             fn GetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[buffer(valueCount)] #[out] value: PWSTR, valueCount: UINT32) -> HRESULT;
             fn GetAttributeValueLength(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[out] valueLength: *mut UINT32) -> HRESULT;

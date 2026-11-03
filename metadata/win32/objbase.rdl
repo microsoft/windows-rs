@@ -63,7 +63,7 @@ mod Windows {
         extern fn CoRegisterMallocSpy(#[in] pMallocSpy: LPMALLOCSPY) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoRegisterMessageFilter(#[in] #[opt] lpMessageFilter: LPMESSAGEFILTER, #[nullable] #[opt] #[out] lplpMessageFilter: *mut LPMESSAGEFILTER) -> HRESULT;
+        extern fn CoRegisterMessageFilter(#[in] #[opt] lpMessageFilter: LPMESSAGEFILTER, #[opt] #[out] lplpMessageFilter: *mut LPMESSAGEFILTER) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoRevokeInitializeSpy(#[in] uliCookie: ULARGE_INTEGER) -> HRESULT;

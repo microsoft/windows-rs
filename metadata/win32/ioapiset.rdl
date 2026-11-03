@@ -8,7 +8,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CancelSynchronousIo(#[in] hThread: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateIoCompletionPort(#[in] FileHandle: HANDLE, #[in] #[opt] ExistingCompletionPort: HANDLE, #[in] CompletionKey: ULONG_PTR, #[in] NumberOfConcurrentThreads: DWORD) -> #[nullable] HANDLE;
+        extern fn CreateIoCompletionPort(#[in] FileHandle: HANDLE, #[in] #[opt] ExistingCompletionPort: HANDLE, #[in] CompletionKey: ULONG_PTR, #[in] NumberOfConcurrentThreads: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeviceIoControl(#[in] hDevice: HANDLE, #[in] dwIoControlCode: DWORD, #[buffer(bytes(nInBufferSize))] #[in] #[opt] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[buffer(bytes(nOutBufferSize))] #[opt] #[out] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[opt] #[out] lpBytesReturned: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]

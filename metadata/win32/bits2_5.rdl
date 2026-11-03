@@ -28,7 +28,7 @@ mod Windows {
             fn SetClientCertificateByID(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[buffer(20)] #[in] pCertHashBlob: *mut byte) -> HRESULT;
             fn SetClientCertificateByName(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[in] SubjectName: LPCWSTR) -> HRESULT;
             fn RemoveClientCertificate(&self) -> HRESULT;
-            fn GetClientCertificate(&self, #[out] pStoreLocation: *mut BG_CERT_STORE_LOCATION, #[out] pStoreName: *mut LPWSTR, #[incomplete] #[nullable] #[out] ppCertHashBlob: *mut *mut byte, #[out] pSubjectName: *mut LPWSTR) -> HRESULT;
+            fn GetClientCertificate(&self, #[out] pStoreLocation: *mut BG_CERT_STORE_LOCATION, #[out] pStoreName: *mut LPWSTR, #[incomplete] #[out] ppCertHashBlob: *mut *mut byte, #[out] pSubjectName: *mut LPWSTR) -> HRESULT;
             fn SetCustomHeaders(&self, #[in] #[opt] RequestHeaders: LPCWSTR) -> HRESULT;
             fn GetCustomHeaders(&self, #[out] pRequestHeaders: *mut LPWSTR) -> HRESULT;
             fn SetSecurityFlags(&self, #[in] Flags: ULONG) -> HRESULT;

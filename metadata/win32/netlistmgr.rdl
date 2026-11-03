@@ -21,9 +21,9 @@ mod Windows {
         }
         #[guid(0xdcb00002_570f_4a9b_8d69_199fdba5723b)]
         interface INetwork: IDispatch {
-            fn GetName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[retval] pszNetworkName: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] pszNetworkName: *mut BSTR) -> HRESULT;
             fn SetName(&self, #[in] #[null_terminated(entry)] szNetworkNewName: BSTR) -> HRESULT;
-            fn GetDescription(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            fn GetDescription(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] pszDescription: *mut BSTR) -> HRESULT;
             fn SetDescription(&self, #[in] #[null_terminated(entry)] szDescription: BSTR) -> HRESULT;
             fn GetNetworkId(&self, #[out] #[retval] pgdGuidNetworkId: *mut GUID) -> HRESULT;
             fn GetDomainType(&self, #[out] #[retval] pNetworkType: *mut NLM_DOMAIN_TYPE) -> HRESULT;

@@ -1016,7 +1016,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn LsaAddAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[buffer(CountOfRights)] #[in] UserRights: PLSA_UNICODE_STRING, #[in] CountOfRights: ULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[buffer(bytes(SubmitBufferLength))] #[in] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[incomplete] #[nullable] #[opt] #[out] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[buffer(bytes(SubmitBufferLength))] #[in] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[incomplete] #[opt] #[out] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaClose(#[in] ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[library("Secur32.dll")]

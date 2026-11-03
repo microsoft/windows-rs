@@ -198,7 +198,7 @@ mod Windows {
         #[guid(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527)]
         interface IWiaTransferCallback: IUnknown {
             fn TransferCallback(&self, #[in] lFlags: LONG, #[in] pWiaTransferParams: *mut WiaTransferParams) -> HRESULT;
-            fn GetNextStream(&self, #[in] lFlags: LONG, #[in] bstrItemName: BSTR, #[in] bstrFullItemName: BSTR, #[incomplete] #[nullable] #[out] ppDestination: *mut IStream) -> HRESULT;
+            fn GetNextStream(&self, #[in] lFlags: LONG, #[in] bstrItemName: BSTR, #[in] bstrFullItemName: BSTR, #[incomplete] #[out] ppDestination: *mut IStream) -> HRESULT;
         }
         type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
         type PWIA_DATA_TRANSFER_INFO = *mut WIA_DATA_TRANSFER_INFO;

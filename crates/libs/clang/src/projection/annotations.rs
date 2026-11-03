@@ -25,34 +25,11 @@ pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     write_owned(attributes, None)
 }
 
-pub(super) struct CallableAttributes {
-    pub declaration: TokenStream,
-    pub result: TokenStream,
-}
-
-pub(super) fn write_callable(
-    snapshot: &Snapshot,
-    result_type: TypeId,
-    attributes: &[Attribute],
-) -> Result<CallableAttributes, Error> {
+pub(super) fn write_callable(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     let must_use = resolve::sal(attributes).iter().any(result_check);
     let native = write(attributes)?;
     let result = must_use.then(|| quote! { #[must_use] });
-    let nullable =
-        nullable_result(snapshot, result_type, [attributes]).then(|| quote! { #[nullable] });
-    Ok(CallableAttributes {
-        declaration: quote! { #native #result },
-        result: quote! { #nullable },
-    })
-}
-
-fn returned_nullable(value: &sal::Annotation<'_>) -> bool {
-    value.unscoped().is_some_and(|value| {
-        value.version == "2"
-            && value.name == "_Ret_maybenull_"
-            && value.arguments.is_empty()
-            && value.expanded.is_empty()
-    })
+    Ok(quote! { #native #result })
 }
 
 fn data_pointer(snapshot: &Snapshot, mut ty: TypeId) -> bool {
@@ -75,24 +52,6 @@ fn typed_out_pointer(snapshot: &Snapshot, ty: TypeId) -> bool {
         snapshot.types[target.0].kind,
         TypeKind::Void | TypeKind::Function(_)
     )
-}
-
-fn nullable_result<'a>(
-    snapshot: &Snapshot,
-    result: TypeId,
-    owners: impl IntoIterator<Item = &'a [Attribute]>,
-) -> bool {
-    if !data_pointer(snapshot, result) {
-        return false;
-    }
-    let mut nullable = false;
-    for value in owners.into_iter().flat_map(resolve::sal) {
-        if value.value.name == "_Ret_notnull_" {
-            return false;
-        }
-        nullable |= returned_nullable(&value);
-    }
-    nullable
 }
 
 /// Whether the callable's success condition is `return >= 0`: its own `_Success_` when present,
@@ -262,23 +221,7 @@ pub(super) fn field(
             .map(sal::FieldAnnotation::Evidence)
             .collect();
     }
-    let nullable = data_pointer(snapshot, field.canonical)
-        && normalized.iter().all(|value| match value {
-            sal::FieldAnnotation::Contract(_) => false,
-            sal::FieldAnnotation::Evidence(value) => value.value.name != "_Notnull_",
-        })
-        && normalized.iter().any(
-            |value| matches!(value, sal::FieldAnnotation::Evidence(value) if field_nullable(value)),
-        );
     let mut result = write(&field.attributes)?;
-    // Inline array storage cannot be null, so `_opt_` only applies to pointer fields.
-    let optional = data_pointer(snapshot, field.canonical)
-        && normalized.iter().any(
-            |value| matches!(value, sal::FieldAnnotation::Contract(contract) if contract.optional),
-        );
-    if nullable || optional {
-        result.extend(quote! { #[nullable] });
-    }
     if let Some(alignment) = field_alignment(&field.attributes)? {
         let alignment = proc_macro2::Literal::u16_unsuffixed(alignment);
         result.extend(quote! { #[align(#alignment)] });
@@ -396,9 +339,8 @@ pub(super) fn write_callback(
     resolution: &Resolution<'_>,
     snapshot: &Snapshot,
     mut written: TypeId,
-    result_type: TypeId,
     attributes: &[Attribute],
-) -> Result<CallableAttributes, Error> {
+) -> Result<TokenStream, Error> {
     let mut owners = vec![(attributes, None)];
     loop {
         match snapshot.types[written.0].kind {
@@ -423,22 +365,13 @@ pub(super) fn write_callback(
         }
     }
     let mut must_use = false;
-    let nullable = nullable_result(
-        snapshot,
-        result_type,
-        owners.iter().map(|(attributes, _)| *attributes),
-    );
     let mut attributes = TokenStream::new();
     for (owner, typedef) in owners {
         must_use |= resolve::sal(owner).iter().any(result_check);
         attributes.extend(write_owned(owner, typedef)?);
     }
     let result = must_use.then(|| quote! { #[must_use] });
-    let nullable = nullable.then(|| quote! { #[nullable] });
-    Ok(CallableAttributes {
-        declaration: quote! { #attributes #result },
-        result: quote! { #nullable },
-    })
+    Ok(quote! { #attributes #result })
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
@@ -615,22 +548,15 @@ pub(super) fn buffer(
             indirect_readable = true;
         }
     }
-    let mut nullable = false;
     for value in sal::parameters(&parameters[index].attributes, parameters) {
         let sal::ParameterAnnotation::Contract(contract) = value else {
             continue;
         };
-        let may_be_null = contract
-            .returned_pointer
-            .is_some_and(|pointer| pointer.may_be_null);
-        nullable |= may_be_null;
         returned_pointer |= contract.returned_pointer.is_some();
         if !count_expressions_supported(snapshot, function, &contract) {
             continue;
         }
-        nullable |= contract.returned_nullable_on_entry;
         if let Some(buffer) = &contract.returned_buffer {
-            nullable |= buffer.nullable;
             validate_returned_buffer(snapshot, function, parameters, index, buffer, canonical_ty)?;
             has_buffer_contract = true;
         }
@@ -647,9 +573,6 @@ pub(super) fn buffer(
                 true,
             ));
         }
-    }
-    if nullable {
-        attributes.extend(quote! { #[nullable] });
     }
     let midl = resolve::midl_parameter(&parameters[index]);
     let (input, output, _) =
@@ -848,15 +771,6 @@ pub(super) fn buffer(
     Ok(BufferAttributes {
         attributes,
         incomplete,
-    })
-}
-
-fn field_nullable(value: &sal::Annotation<'_>) -> bool {
-    value.unscoped().is_some_and(|value| {
-        value.version == "2"
-            && value.name == "_Maybenull_"
-            && value.arguments.is_empty()
-            && value.expanded.is_empty()
     })
 }
 
