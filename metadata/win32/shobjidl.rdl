@@ -50,12 +50,12 @@ mod Windows {
         }
         #[guid(0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db)]
         interface IAutoCompleteDropDown: IUnknown {
-            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszString: *mut LPWSTR) -> HRESULT;
+            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppwszString: *mut LPWSTR) -> HRESULT;
             fn ResetEnumerator(&self) -> HRESULT;
         }
         #[guid(0xb9075c7c_d48e_403f_ab99_d6c77a1084ac)]
         interface IBandHost: IUnknown {
-            fn CreateBand(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL, #[in] fVisible: BOOL, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBand(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL, #[in] fVisible: BOOL, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn SetBandAvailability(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL) -> HRESULT;
             fn DestroyBand(&self, #[in] rclsidBand: &IID) -> HRESULT;
         }
@@ -98,7 +98,7 @@ mod Windows {
         }
         #[guid(0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7)]
         interface IDynamicHWHandler: IUnknown {
-            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppszAction: *mut LPWSTR) -> HRESULT;
+            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszAction: *mut LPWSTR) -> HRESULT;
         }
         const IENamespaceTreeControl: GUID = 0xace52d03_e5cd_4b20_82ff_e71b11beae1d;
         #[guid(0x61e00d45_8fff_4e60_924e_6537b61612dd)]
@@ -108,7 +108,7 @@ mod Windows {
         #[guid(0x8c8bf236_1aec_495f_9894_91d57c3c686f)]
         interface IEnumerableView: IUnknown {
             fn SetEnumReadyCallback(&self, #[in] percb: IEnumReadyCallback) -> HRESULT;
-            fn CreateEnumIDListFromContents(&self, #[in] pidlFolder: LPCITEMIDLIST, #[in] dwEnumFlags: DWORD, #[out] #[out_ptr] #[retval] ppEnumIDList: *mut IEnumIDList) -> HRESULT;
+            fn CreateEnumIDListFromContents(&self, #[in] pidlFolder: LPCITEMIDLIST, #[in] dwEnumFlags: DWORD, #[out] #[retval] ppEnumIDList: *mut IEnumIDList) -> HRESULT;
         }
         #[guid(0x61744fc7_85b5_4791_a9b0_272276309b13)]
         interface IFileDialog2: IFileDialog {
@@ -150,7 +150,7 @@ mod Windows {
         }
         #[guid(0x505f1513_6b3e_4892_a272_59f8889a4d3e)]
         interface IImageRecompress: IUnknown {
-            fn RecompressImage(&self, #[in] #[opt] psi: IShellItem, #[in] cx: i32, #[in] cy: i32, #[in] iQuality: i32, #[in] #[opt] pstg: IStorage, #[out] #[out_ptr] #[retval] ppstrmOut: *mut IStream) -> HRESULT;
+            fn RecompressImage(&self, #[in] #[opt] psi: IShellItem, #[in] cx: i32, #[in] cy: i32, #[in] iQuality: i32, #[in] #[opt] pstg: IStorage, #[out] #[retval] ppstrmOut: *mut IStream) -> HRESULT;
         }
         #[guid(0xd2b57227_3d23_4b95_93c0_492bd454c356)]
         interface IInsertItem: IUnknown {
@@ -159,7 +159,7 @@ mod Windows {
         struct IMarkupCallback {}
         #[guid(0x71f312de_43ed_4190_8477_e9536b82350b)]
         interface INameSpaceTreeAccessible: IUnknown {
-            fn OnGetDefaultAccessibilityAction(&self, #[in] psi: IShellItem, #[out] #[out_ptr] pbstrDefaultAction: *mut BSTR) -> HRESULT;
+            fn OnGetDefaultAccessibilityAction(&self, #[in] psi: IShellItem, #[out] pbstrDefaultAction: *mut BSTR) -> HRESULT;
             fn OnDoDefaultAccessibilityAction(&self, #[in] psi: IShellItem) -> HRESULT;
             fn OnGetAccessibilityRole(&self, #[in] psi: IShellItem, #[out] pvarRole: *mut VARIANT) -> HRESULT;
         }
@@ -202,8 +202,8 @@ mod Windows {
             fn OnBeforeItemDelete(&self, #[in] psi: IShellItem) -> HRESULT;
             fn OnItemAdded(&self, #[in] psi: IShellItem, #[in] fIsRoot: BOOL) -> HRESULT;
             fn OnItemDeleted(&self, #[in] psi: IShellItem, #[in] fIsRoot: BOOL) -> HRESULT;
-            fn OnBeforeContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn OnAfterContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] pcmIn: IContextMenu, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn OnBeforeContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn OnAfterContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] pcmIn: IContextMenu, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn OnBeforeStateImageChange(&self, #[in] psi: IShellItem) -> HRESULT;
             fn OnGetDefaultIconIndex(&self, #[in] psi: IShellItem, #[out] piDefaultIcon: *mut i32, #[out] piOpenIcon: *mut i32) -> HRESULT;
         }
@@ -214,7 +214,7 @@ mod Windows {
         #[guid(0xaa9198bb_ccec_472d_beed_19a4f6733f7a)]
         interface IPublishingWizard: IWizardExtension {
             fn Initialize(&self, #[in] #[opt] pdo: IDataObject, #[in] dwOptions: DWORD, #[in] pszServiceScope: LPCWSTR) -> HRESULT;
-            fn GetTransferManifest(&self, #[opt] #[out] phrFromTransfer: *mut HRESULT, #[opt] #[out] #[out_ptr] pdocManifest: *mut IXMLDOMDocument) -> HRESULT;
+            fn GetTransferManifest(&self, #[opt] #[out] phrFromTransfer: *mut HRESULT, #[opt] #[out] pdocManifest: *mut IXMLDOMDocument) -> HRESULT;
         }
         #[guid(0xddefe873_6997_4e68_be26_39b633adbe12)]
         interface IQueryCancelAutoPlay: IUnknown {
@@ -228,15 +228,15 @@ mod Windows {
         #[guid(0x96e5ae6d_6ae1_4b1c_900c_c6480eaa8828)]
         interface IResultsFolder: IUnknown {
             fn AddItem(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
-            fn AddIDList(&self, #[in] pidl: LPCITEMIDLIST, #[opt] #[out] #[out_ptr] ppidlAdded: *mut LPITEMIDLIST) -> HRESULT;
+            fn AddIDList(&self, #[in] pidl: LPCITEMIDLIST, #[opt] #[out] ppidlAdded: *mut LPITEMIDLIST) -> HRESULT;
             fn RemoveItem(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
             fn RemoveIDList(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
             fn RemoveAll(&self) -> HRESULT;
         }
         #[guid(0x6af6e03f_d664_4ef4_9626_f7e0ed36755e)]
         interface ISearchBoxInfo: IUnknown {
-            fn GetCondition(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn GetText(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetCondition(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn GetText(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppsz: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xfce4bde0_4b68_4b80_8e9c_7426315a7388)]
         interface IShellRunDll: IUnknown {
@@ -244,7 +244,7 @@ mod Windows {
         }
         #[guid(0xec39fa88_f8af_41c5_8421_38bed28f4673)]
         interface IShellView3: IShellView2 {
-            fn CreateViewWindow3(&self, #[in] #[opt] psbOwner: IShellBrowser, #[in] #[opt] psvPrev: IShellView, #[in] dwViewFlags: SV3CVW3_FLAGS, #[in] dwMask: FOLDERFLAGS, #[in] dwFlags: FOLDERFLAGS, #[in] fvMode: FOLDERVIEWMODE, #[in] #[opt] pvid: *const SHELLVIEWID, #[in] prcView: *const RECT, #[out] #[out_ptr] phwndView: *mut HWND) -> HRESULT;
+            fn CreateViewWindow3(&self, #[in] #[opt] psbOwner: IShellBrowser, #[in] #[opt] psvPrev: IShellView, #[in] dwViewFlags: SV3CVW3_FLAGS, #[in] dwMask: FOLDERFLAGS, #[in] dwFlags: FOLDERFLAGS, #[in] fvMode: FOLDERVIEWMODE, #[in] #[opt] pvid: *const SHELLVIEWID, #[in] prcView: *const RECT, #[out] phwndView: *mut HWND) -> HRESULT;
         }
         #[guid(0x4cd19ada_25a5_4a32_b3b7_347bee5be36b)]
         interface IStartMenuPinnedList: IUnknown {
@@ -255,7 +255,7 @@ mod Windows {
             fn SetBanner(&self, #[in] providerIdentity: LPCWSTR, #[in] subscriptionId: LPCWSTR, #[in] contentId: LPCWSTR) -> HRESULT;
             fn ClearBanner(&self, #[in] providerIdentity: LPCWSTR, #[in] subscriptionId: LPCWSTR) -> HRESULT;
             fn ClearAllBanners(&self, #[in] providerIdentity: LPCWSTR) -> HRESULT;
-            fn GetBanner(&self, #[in] providerIdentity: LPCWSTR, #[in] subscriptionId: LPCWSTR, #[out] #[out_ptr] contentId: *mut LPWSTR) -> HRESULT;
+            fn GetBanner(&self, #[in] providerIdentity: LPCWSTR, #[in] subscriptionId: LPCWSTR, #[out] contentId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x7bf992a9_af7a_4dba_b2e5_4d080b1ecbc6)]
         interface IStorageProviderCopyHook: IUnknown {
@@ -367,7 +367,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHAddDefaultPropertiesByExt(#[in] pszExt: PCWSTR, #[in] pPropStore: IPropertyStore) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDefaultPropertiesOp(#[in] psi: IShellItem, #[out] #[out_ptr] #[retval] ppFileOp: *mut IFileOperation) -> HRESULT;
+        extern fn SHCreateDefaultPropertiesOp(#[in] psi: IShellItem, #[out] #[retval] ppFileOp: *mut IFileOperation) -> HRESULT;
         const SHPWHF_ANYLOCATION: i32 = 256;
         const SHPWHF_NOFILESELECTOR: i32 = 4;
         const SHPWHF_NONETPLACECREATE: i32 = 2;

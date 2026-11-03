@@ -289,11 +289,11 @@ mod Windows {
         const CRYPT_XML_X509DATA_TYPE_SKI: i32 = 2;
         const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlAddObject(#[in] hSignatureOrObject: HCRYPTXML, dwFlags: DWORD, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[nullable] #[out] #[out_ptr] ppObject: *mut *const CRYPT_XML_OBJECT) -> HRESULT;
+        extern fn CryptXmlAddObject(#[in] hSignatureOrObject: HCRYPTXML, dwFlags: DWORD, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[nullable] #[out] ppObject: *mut *const CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlClose(#[in] hCryptXml: HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlCreateReference(#[in] hCryptXml: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] wszId: LPCWSTR, #[in] #[opt] wszURI: LPCWSTR, #[in] #[opt] wszType: LPCWSTR, #[in] pDigestMethod: *const CRYPT_XML_ALGORITHM, cTransform: ULONG, #[buffer(cTransform)] #[in] #[opt] rgTransform: *const CRYPT_XML_ALGORITHM, #[out] #[out_ptr] phReference: *mut HCRYPTXML) -> HRESULT;
+        extern fn CryptXmlCreateReference(#[in] hCryptXml: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] wszId: LPCWSTR, #[in] #[opt] wszURI: LPCWSTR, #[in] #[opt] wszType: LPCWSTR, #[in] pDigestMethod: *const CRYPT_XML_ALGORITHM, cTransform: ULONG, #[buffer(cTransform)] #[in] #[opt] rgTransform: *const CRYPT_XML_ALGORITHM, #[out] phReference: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlDigestReference(#[in] hReference: HCRYPTXML, dwFlags: DWORD, #[in] pDataProviderIn: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
         extern fn CryptXmlDllCloseDigest(#[in] hDigest: CRYPT_XML_DIGEST) -> HRESULT;
@@ -303,7 +303,7 @@ mod Windows {
         extern fn CryptXmlDllEncodeAlgorithm(#[in] pAlgInfo: *const CRYPT_XML_ALGORITHM_INFO, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, #[in] pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
         extern fn CryptXmlDllEncodeKeyValue(#[in] hKey: NCRYPT_KEY_HANDLE, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, #[in] pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
         extern fn CryptXmlDllFinalizeDigest(#[in] hDigest: CRYPT_XML_DIGEST, #[buffer(bytes(cbDigest))] #[out] pbDigest: *mut BYTE, cbDigest: ULONG) -> HRESULT;
-        extern fn CryptXmlDllGetAlgorithmInfo(#[in] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, #[out] #[out_ptr] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
+        extern fn CryptXmlDllGetAlgorithmInfo(#[in] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, #[out] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
         extern fn CryptXmlDllGetInterface(dwFlags: DWORD, #[in] pMethod: *const CRYPT_XML_ALGORITHM_INFO, #[out] pInterface: *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE) -> HRESULT;
         extern fn CryptXmlDllSignData(#[in] pSignatureMethod: *const CRYPT_XML_ALGORITHM, #[in] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] dwKeySpec: DWORD, #[buffer(bytes(cbInput))] #[in] pbInput: *const BYTE, #[in] cbInput: ULONG, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: *mut BYTE, #[in] cbOutput: ULONG, #[incomplete] pcbResult: *mut ULONG) -> HRESULT;
         extern fn CryptXmlDllVerifySignature(#[in] pSignatureMethod: *const CRYPT_XML_ALGORITHM, #[in] hKey: BCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] pbInput: *const BYTE, #[in] cbInput: ULONG, #[buffer(bytes(cbSignature))] #[in] pbSignature: *const BYTE, #[in] cbSignature: ULONG) -> HRESULT;
@@ -314,23 +314,23 @@ mod Windows {
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlFindAlgorithmInfo(#[in] dwFindByType: DWORD, #[in] pvFindBy: *const void, #[in] dwGroupId: DWORD, dwFlags: DWORD) -> *const CRYPT_XML_ALGORITHM_INFO;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetAlgorithmInfo(#[in] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: DWORD, #[out] #[out_ptr] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
+        extern fn CryptXmlGetAlgorithmInfo(#[in] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: DWORD, #[out] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetDocContext(#[in] hCryptXml: HCRYPTXML, #[out] #[out_ptr] ppStruct: *mut *const CRYPT_XML_DOC_CTXT) -> HRESULT;
+        extern fn CryptXmlGetDocContext(#[in] hCryptXml: HCRYPTXML, #[out] ppStruct: *mut *const CRYPT_XML_DOC_CTXT) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetReference(#[in] hCryptXml: HCRYPTXML, #[out] #[out_ptr] ppStruct: *mut *const CRYPT_XML_REFERENCE) -> HRESULT;
+        extern fn CryptXmlGetReference(#[in] hCryptXml: HCRYPTXML, #[out] ppStruct: *mut *const CRYPT_XML_REFERENCE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetSignature(#[in] hCryptXml: HCRYPTXML, #[out] #[out_ptr] ppStruct: *mut *const CRYPT_XML_SIGNATURE) -> HRESULT;
+        extern fn CryptXmlGetSignature(#[in] hCryptXml: HCRYPTXML, #[out] ppStruct: *mut *const CRYPT_XML_SIGNATURE) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlGetStatus(#[in] hCryptXml: HCRYPTXML, #[out] pStatus: *mut CRYPT_XML_STATUS) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetTransforms(#[out] #[out_ptr] ppConfig: *mut *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
+        extern fn CryptXmlGetTransforms(#[out] ppConfig: *mut *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlImportPublicKey(dwFlags: DWORD, #[in] pKeyValue: *const CRYPT_XML_KEY_VALUE, #[out] phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlOpenToDecode(#[in] #[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[out] #[out_ptr] phCryptXml: *mut HCRYPTXML) -> HRESULT;
+        extern fn CryptXmlOpenToDecode(#[in] #[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] pEncoded: *const CRYPT_XML_BLOB, #[out] phCryptXml: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlOpenToEncode(#[in] #[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[in] #[opt] wszId: LPCWSTR, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] #[opt] pEncoded: *const CRYPT_XML_BLOB, #[out] #[out_ptr] phSignature: *mut HCRYPTXML) -> HRESULT;
+        extern fn CryptXmlOpenToEncode(#[in] #[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[in] #[opt] wszId: LPCWSTR, #[buffer(cProperty)] #[in] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, #[in] cProperty: ULONG, #[in] #[opt] pEncoded: *const CRYPT_XML_BLOB, #[out] phSignature: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlSetHMACSecret(#[in] hSignature: HCRYPTXML, #[buffer(bytes(cbSecret))] #[in] pbSecret: *const BYTE, cbSecret: ULONG) -> HRESULT;
         #[library("CRYPTXML.dll")]

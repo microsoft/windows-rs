@@ -14,7 +14,7 @@ mod Windows {
             fn GetHelperTokenFlags(&self, #[out] pFlags: *mut DWORD) -> HRESULT;
             fn SetHelperToken(&self) -> HRESULT;
             fn ClearHelperToken(&self) -> HRESULT;
-            fn GetHelperTokenSid(&self, #[out] #[out_ptr] pSid: *mut LPWSTR) -> HRESULT;
+            fn GetHelperTokenSid(&self, #[out] pSid: *mut LPWSTR) -> HRESULT;
         }
     }
 }

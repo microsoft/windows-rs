@@ -10,7 +10,7 @@ mod Windows {
         interface IWSDHttpAddress: IWSDTransportAddress {
             fn GetSecure(&self) -> HRESULT;
             fn SetSecure(&self, #[in] fSecure: BOOL) -> HRESULT;
-            fn GetPath(&self, #[out] #[out_ptr] ppszPath: *mut LPCWSTR) -> HRESULT;
+            fn GetPath(&self, #[out] ppszPath: *mut LPCWSTR) -> HRESULT;
             fn SetPath(&self, #[in] pszPath: LPCWSTR) -> HRESULT;
         }
         #[guid(0x0b476df0_8dac_480d_b05c_99781a5884aa)]
@@ -21,26 +21,26 @@ mod Windows {
         #[guid(0x540bd122_5c83_4dec_b396_ea62a2697fdf)]
         interface IWSDHttpMessageParameters: IWSDMessageParameters {
             fn SetInboundHttpHeaders(&self, #[in] #[opt] pszHeaders: LPCWSTR) -> HRESULT;
-            fn GetInboundHttpHeaders(&self, #[out] #[out_ptr] ppszHeaders: *mut LPCWSTR) -> HRESULT;
+            fn GetInboundHttpHeaders(&self, #[out] ppszHeaders: *mut LPCWSTR) -> HRESULT;
             fn SetOutboundHttpHeaders(&self, #[in] #[opt] pszHeaders: LPCWSTR) -> HRESULT;
-            fn GetOutboundHttpHeaders(&self, #[out] #[out_ptr] ppszHeaders: *mut LPCWSTR) -> HRESULT;
+            fn GetOutboundHttpHeaders(&self, #[out] ppszHeaders: *mut LPCWSTR) -> HRESULT;
             fn SetID(&self, #[in] #[opt] pszId: LPCWSTR) -> HRESULT;
-            fn GetID(&self, #[out] #[out_ptr] ppszId: *mut LPCWSTR) -> HRESULT;
+            fn GetID(&self, #[out] ppszId: *mut LPCWSTR) -> HRESULT;
             fn SetContext(&self, #[in] pContext: IUnknown) -> HRESULT;
-            fn GetContext(&self, #[out] #[out_ptr] #[retval] ppContext: *mut IUnknown) -> HRESULT;
+            fn GetContext(&self, #[out] #[retval] ppContext: *mut IUnknown) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c)]
         interface IWSDMessageParameters: IUnknown {
-            fn GetLocalAddress(&self, #[out] #[out_ptr] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn GetLocalAddress(&self, #[out] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
             fn SetLocalAddress(&self, #[in] #[opt] pAddress: IWSDAddress) -> HRESULT;
-            fn GetRemoteAddress(&self, #[out] #[out_ptr] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn GetRemoteAddress(&self, #[out] #[retval] ppAddress: *mut IWSDAddress) -> HRESULT;
             fn SetRemoteAddress(&self, #[in] #[opt] pAddress: IWSDAddress) -> HRESULT;
-            fn GetLowerParameters(&self, #[out] #[out_ptr] #[retval] ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
+            fn GetLowerParameters(&self, #[out] #[retval] ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
         }
         #[guid(0xde105e87_a0da_418e_98ad_27b9eed87bdc)]
         interface IWSDSSLClientCertificate: IUnknown {
-            fn GetClientCertificate(&self, #[in] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
+            fn GetClientCertificate(&self, #[in] #[out] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
             fn GetMappedAccessToken(&self, #[in] #[out] phToken: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x03ce20aa_71c4_45e2_b32e_3766c61c790f)]
@@ -55,8 +55,8 @@ mod Windows {
         interface IWSDTransportAddress: IWSDAddress {
             fn GetPort(&self, #[out] pwPort: *mut WORD) -> HRESULT;
             fn SetPort(&self, #[in] wPort: WORD) -> HRESULT;
-            fn GetTransportAddress(&self, #[out] #[out_ptr] ppszAddress: *mut LPCWSTR) -> HRESULT;
-            fn GetTransportAddressEx(&self, #[in] fSafe: BOOL, #[out] #[out_ptr] ppszAddress: *mut LPCWSTR) -> HRESULT;
+            fn GetTransportAddress(&self, #[out] ppszAddress: *mut LPCWSTR) -> HRESULT;
+            fn GetTransportAddressEx(&self, #[in] fSafe: BOOL, #[out] ppszAddress: *mut LPCWSTR) -> HRESULT;
             fn SetTransportAddress(&self, #[in] #[opt] pszAddress: LPCWSTR) -> HRESULT;
         }
         #[guid(0x74d6124a_a441_4f78_a1eb_97a8d1996893)]
@@ -92,11 +92,11 @@ mod Windows {
         const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: i32 = 8;
         const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: i32 = 4;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpAddress(#[out] #[out_ptr] #[retval] ppAddress: *mut IWSDHttpAddress) -> HRESULT;
+        extern fn WSDCreateHttpAddress(#[out] #[retval] ppAddress: *mut IWSDHttpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpMessageParameters(#[out] #[out_ptr] #[retval] ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
+        extern fn WSDCreateHttpMessageParameters(#[out] #[retval] ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateUdpAddress(#[out] #[out_ptr] #[retval] ppAddress: *mut IWSDUdpAddress) -> HRESULT;
+        extern fn WSDCreateUdpAddress(#[out] #[retval] ppAddress: *mut IWSDUdpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDCreateUdpMessageParameters(ppTxParams: *mut IWSDUdpMessageParameters) -> HRESULT;
         #[repr(i32)]

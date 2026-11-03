@@ -643,7 +643,7 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn GetPrintExecutionData(#[out] pData: *mut PRINT_EXECUTION_DATA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintOutputInfo(#[in] hWnd: HWND, #[in] pszPrinter: PCWSTR, #[out] #[out_ptr] phFile: *mut HANDLE, #[out] #[out_ptr] ppszOutputFile: *mut PWSTR) -> HRESULT;
+        extern fn GetPrintOutputInfo(#[in] hWnd: HWND, #[in] pszPrinter: PCWSTR, #[out] phFile: *mut HANDLE, #[out] ppszOutputFile: *mut PWSTR) -> HRESULT;
         #[library("WINSPOOL.DRV")]
         extern fn GetPrintProcessorDirectoryA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[buffer(bytes(cbBuf))] #[opt] #[out] pPrintProcessorInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]

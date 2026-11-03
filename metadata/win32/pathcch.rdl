@@ -15,9 +15,9 @@ mod Windows {
             PATHCCH_CANONICALIZE_SLASHES = 64,
         }
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathAllocCanonicalize(#[in] pszPathIn: PCWSTR, #[in] dwFlags: ULONG, #[out] #[out_ptr] ppszPathOut: *mut PWSTR) -> HRESULT;
+        extern fn PathAllocCanonicalize(#[in] pszPathIn: PCWSTR, #[in] dwFlags: ULONG, #[out] ppszPathOut: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathAllocCombine(#[in] #[opt] pszPathIn: PCWSTR, #[in] #[opt] pszMore: PCWSTR, #[in] dwFlags: ULONG, #[out] #[out_ptr] ppszPathOut: *mut PWSTR) -> HRESULT;
+        extern fn PathAllocCombine(#[in] #[opt] pszPathIn: PCWSTR, #[in] #[opt] pszMore: PCWSTR, #[in] dwFlags: ULONG, #[out] ppszPathOut: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchAddBackslash(#[buffer(cchPath)] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
@@ -37,7 +37,7 @@ mod Windows {
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchCombineEx(#[buffer(cchPathOut)] #[out] pszPathOut: PWSTR, #[in] cchPathOut: size_t, #[in] #[opt] pszPathIn: PCWSTR, #[in] #[opt] pszMore: PCWSTR, #[in] dwFlags: ULONG) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchFindExtension(#[in] #[incomplete] pszPath: PCWSTR, #[in] cchPath: size_t, #[out] #[out_ptr] ppszExt: *mut PCWSTR) -> HRESULT;
+        extern fn PathCchFindExtension(#[in] #[incomplete] pszPath: PCWSTR, #[in] cchPath: size_t, #[out] ppszExt: *mut PCWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchIsRoot(#[in] #[opt] pszPath: PCWSTR) -> BOOL;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
@@ -51,13 +51,13 @@ mod Windows {
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchRenameExtension(#[buffer(cchPath)] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t, #[in] pszExt: PCWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathCchSkipRoot(#[in] pszPath: PCWSTR, #[out] #[out_ptr] ppszRootEnd: *mut PCWSTR) -> HRESULT;
+        extern fn PathCchSkipRoot(#[in] pszPath: PCWSTR, #[out] ppszRootEnd: *mut PCWSTR) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchStripPrefix(#[buffer(cchPath)] #[in] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
         extern fn PathCchStripToRoot(#[in] #[incomplete] #[out] pszPath: PWSTR, #[in] cchPath: size_t) -> HRESULT;
         #[library("api-ms-win-core-path-l1-1-0.dll")]
-        extern fn PathIsUNCEx(#[in] pszPath: PCWSTR, #[opt] #[out] #[out_ptr] ppszServer: *mut PCWSTR) -> BOOL;
+        extern fn PathIsUNCEx(#[in] pszPath: PCWSTR, #[opt] #[out] ppszServer: *mut PCWSTR) -> BOOL;
         #[encoding("utf-16")]
         const VOLUME_PREFIX: String = "\\\\?\\Volume";
         #[arch(X64 | Arm64)]

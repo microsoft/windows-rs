@@ -55,15 +55,6 @@ pub fn write_bitfield_member(
     quote! { #name: #ty #width, }
 }
 
-/// Renders result-pointer guarantees independently of the output storage's optionality.
-pub fn write_returned_pointer(null_on_failure: bool) -> TokenStream {
-    if null_on_failure {
-        quote! { #[out_ptr(null_on_failure)] }
-    } else {
-        quote! { #[out_ptr] }
-    }
-}
-
 /// Renders zero termination by phase. Each present phase is single (`false`) or double (`true`).
 pub fn write_null_terminated(
     entry: Option<bool>,

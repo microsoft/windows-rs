@@ -89,7 +89,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -241,7 +244,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -261,7 +267,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -281,7 +290,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -309,7 +321,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -465,7 +480,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -487,7 +505,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -728,7 +749,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -749,7 +773,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -771,7 +798,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -793,7 +823,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -820,7 +853,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -989,7 +1025,10 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1010,7 +1049,10 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1218,7 +1260,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1239,7 +1284,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1261,7 +1309,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1563,7 +1614,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1889,7 +1943,10 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2181,7 +2238,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2201,7 +2261,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2222,7 +2285,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2248,7 +2314,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2362,7 +2431,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2525,7 +2597,10 @@ impl IVectorChangedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2544,7 +2619,10 @@ impl IVectorChangedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2720,7 +2798,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2740,7 +2821,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2766,7 +2850,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2796,7 +2883,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

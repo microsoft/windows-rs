@@ -57,7 +57,10 @@ impl IOpcCertificateEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -69,7 +72,10 @@ impl IOpcCertificateEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -81,7 +87,10 @@ impl IOpcCertificateEnumerator_Vtbl {
                         certificate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        certificate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -93,7 +102,10 @@ impl IOpcCertificateEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -172,7 +184,10 @@ impl IOpcCertificateSet_Vtbl {
                         certificateenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        certificateenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -342,7 +357,10 @@ impl IOpcDigitalSignature_Vtbl {
                         signaturepartname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signaturepartname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -360,7 +378,10 @@ impl IOpcDigitalSignature_Vtbl {
                         canonicalizationmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        canonicalizationmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -378,7 +399,10 @@ impl IOpcDigitalSignature_Vtbl {
                         partreferenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partreferenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -390,7 +414,10 @@ impl IOpcDigitalSignature_Vtbl {
                         relationshipreferenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipreferenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -408,7 +435,10 @@ impl IOpcDigitalSignature_Vtbl {
                         timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        timeformat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -420,7 +450,10 @@ impl IOpcDigitalSignature_Vtbl {
                         packageobjectreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageobjectreference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -432,7 +465,10 @@ impl IOpcDigitalSignature_Vtbl {
                         certificateenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        certificateenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -444,7 +480,10 @@ impl IOpcDigitalSignature_Vtbl {
                         customreferenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customreferenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -456,7 +495,10 @@ impl IOpcDigitalSignature_Vtbl {
                         customobjectenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customobjectenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -544,7 +586,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -556,7 +601,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -568,7 +616,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                         digitalsignature.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        digitalsignature.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -580,7 +631,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -717,7 +771,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         signatureoriginpartname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureoriginpartname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -735,7 +792,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         signatureenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -753,7 +813,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         signingoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signingoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -765,7 +828,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         validationresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        validationresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -777,7 +843,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         digitalsignature.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        digitalsignature.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -789,7 +858,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                         digitalsignature.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        digitalsignature.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -923,7 +995,10 @@ impl IOpcFactory_Vtbl {
                         rooturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rooturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -935,7 +1010,10 @@ impl IOpcFactory_Vtbl {
                         parturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -947,7 +1025,10 @@ impl IOpcFactory_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -959,7 +1040,10 @@ impl IOpcFactory_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -971,7 +1055,10 @@ impl IOpcFactory_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -989,7 +1076,10 @@ impl IOpcFactory_Vtbl {
                         signaturemanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signaturemanager.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1047,7 +1137,10 @@ impl IOpcPackage_Vtbl {
                         partset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1059,7 +1152,10 @@ impl IOpcPackage_Vtbl {
                         relationshipset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1142,7 +1238,10 @@ impl IOpcPart_Vtbl {
                         relationshipset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1154,7 +1253,10 @@ impl IOpcPart_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1166,7 +1268,10 @@ impl IOpcPart_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1184,7 +1289,10 @@ impl IOpcPart_Vtbl {
                         compressionoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        compressionoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1256,7 +1364,10 @@ impl IOpcPartEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1268,7 +1379,10 @@ impl IOpcPartEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1280,7 +1394,10 @@ impl IOpcPartEnumerator_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1292,7 +1409,10 @@ impl IOpcPartEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1398,7 +1518,10 @@ impl IOpcPartSet_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1410,7 +1533,10 @@ impl IOpcPartSet_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1428,7 +1554,10 @@ impl IOpcPartSet_Vtbl {
                         partexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partexists.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1440,7 +1569,10 @@ impl IOpcPartSet_Vtbl {
                         partenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1524,7 +1656,10 @@ impl IOpcPartUri_Vtbl {
                         comparisonresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        comparisonresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1536,7 +1671,10 @@ impl IOpcPartUri_Vtbl {
                         sourceuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sourceuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1548,7 +1686,10 @@ impl IOpcPartUri_Vtbl {
                         isrelationshipuri.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isrelationshipuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1642,7 +1783,10 @@ impl IOpcRelationship_Vtbl {
                         sourceuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sourceuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1654,7 +1798,10 @@ impl IOpcRelationship_Vtbl {
                         targeturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        targeturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1666,7 +1813,10 @@ impl IOpcRelationship_Vtbl {
                         targetmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        targetmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1738,7 +1888,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1750,7 +1903,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1762,7 +1918,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                         relationship.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationship.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1774,7 +1933,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1825,7 +1987,10 @@ impl IOpcRelationshipSelector_Vtbl {
                         selector.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selector.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1899,7 +2064,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1911,7 +2079,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1923,7 +2094,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                         relationshipselector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipselector.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1935,7 +2109,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2000,7 +2177,10 @@ impl IOpcRelationshipSelectorSet_Vtbl {
                         relationshipselector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipselector.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2018,7 +2198,10 @@ impl IOpcRelationshipSelectorSet_Vtbl {
                         relationshipselectorenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipselectorenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2135,7 +2318,10 @@ impl IOpcRelationshipSet_Vtbl {
                         relationship.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationship.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2147,7 +2333,10 @@ impl IOpcRelationshipSet_Vtbl {
                         relationship.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationship.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2165,7 +2354,10 @@ impl IOpcRelationshipSet_Vtbl {
                         relationshipexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipexists.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2177,7 +2369,10 @@ impl IOpcRelationshipSet_Vtbl {
                         relationshipenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2189,7 +2384,10 @@ impl IOpcRelationshipSet_Vtbl {
                         relationshipenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2201,7 +2399,10 @@ impl IOpcRelationshipSet_Vtbl {
                         contents.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        contents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2313,7 +2514,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2325,7 +2529,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2337,7 +2544,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                         customobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2349,7 +2559,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2417,7 +2630,10 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
                         customobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2435,7 +2651,10 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
                         customobjectenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customobjectenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2514,7 +2733,10 @@ impl IOpcSignaturePartReference_Vtbl {
                         partname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2544,7 +2766,10 @@ impl IOpcSignaturePartReference_Vtbl {
                         transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transformmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2616,7 +2841,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2628,7 +2856,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2640,7 +2871,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                         partreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partreference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2652,7 +2886,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2724,7 +2961,10 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
                         partreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partreference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2742,7 +2982,10 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
                         partreferenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partreferenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2832,7 +3075,10 @@ impl IOpcSignatureReference_Vtbl {
                         referenceuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        referenceuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2850,7 +3096,10 @@ impl IOpcSignatureReference_Vtbl {
                         transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transformmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2935,7 +3184,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2947,7 +3199,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2959,7 +3214,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                         reference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2971,7 +3229,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3045,7 +3306,10 @@ impl IOpcSignatureReferenceSet_Vtbl {
                         reference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3063,7 +3327,10 @@ impl IOpcSignatureReferenceSet_Vtbl {
                         referenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        referenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3153,7 +3420,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                         sourceuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sourceuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3177,7 +3447,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                         transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transformmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3189,7 +3462,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                         relationshipsigningoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipsigningoption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3201,7 +3477,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                         selectorenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selectorenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3274,7 +3553,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3286,7 +3568,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                         hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasprevious.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3298,7 +3583,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                         relationshipreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipreference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3310,7 +3598,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                         copy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        copy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3391,7 +3682,10 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
                         relationshipreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipreference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3403,7 +3697,10 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
                         selectorset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selectorset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3421,7 +3718,10 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
                         relationshipreferenceenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipreferenceenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3627,7 +3927,10 @@ impl IOpcSigningOptions_Vtbl {
                         embeddingoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        embeddingoption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3645,7 +3948,10 @@ impl IOpcSigningOptions_Vtbl {
                         timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        timeformat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3663,7 +3969,10 @@ impl IOpcSigningOptions_Vtbl {
                         partreferenceset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partreferenceset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3675,7 +3984,10 @@ impl IOpcSigningOptions_Vtbl {
                         relationshipreferenceset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipreferenceset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3687,7 +3999,10 @@ impl IOpcSigningOptions_Vtbl {
                         customobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3699,7 +4014,10 @@ impl IOpcSigningOptions_Vtbl {
                         customreferenceset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customreferenceset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3711,7 +4029,10 @@ impl IOpcSigningOptions_Vtbl {
                         certificateset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        certificateset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3723,7 +4044,10 @@ impl IOpcSigningOptions_Vtbl {
                         signaturepartname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signaturepartname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3824,7 +4148,10 @@ impl IOpcUri_Vtbl {
                         relationshipparturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relationshipparturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3836,7 +4163,10 @@ impl IOpcUri_Vtbl {
                         relativeuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relativeuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3848,7 +4178,10 @@ impl IOpcUri_Vtbl {
                         combineduri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        combineduri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

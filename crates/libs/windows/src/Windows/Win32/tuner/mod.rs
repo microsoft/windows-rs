@@ -188,7 +188,10 @@ impl IATSCChannelTuneRequest_Vtbl {
                         minorchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minorchannel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -257,7 +260,10 @@ impl IATSCComponentType_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -335,7 +341,10 @@ impl IATSCLocator_Vtbl {
                         physicalchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        physicalchannel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -353,7 +362,10 @@ impl IATSCLocator_Vtbl {
                         tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tsid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -424,7 +436,10 @@ impl IATSCLocator2_Vtbl {
                         programnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        programnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -532,7 +547,10 @@ impl IATSCTuningSpace_Vtbl {
                         minminorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minminorchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -550,7 +568,10 @@ impl IATSCTuningSpace_Vtbl {
                         maxminorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxminorchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -568,7 +589,10 @@ impl IATSCTuningSpace_Vtbl {
                         minphysicalchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minphysicalchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -586,7 +610,10 @@ impl IATSCTuningSpace_Vtbl {
                         maxphysicalchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxphysicalchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -669,7 +696,10 @@ impl IAnalogAudioComponentType_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -746,7 +776,10 @@ impl IAnalogLocator_Vtbl {
                         avs.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        avs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -841,7 +874,10 @@ impl IAnalogRadioTuningSpace_Vtbl {
                         minfrequencyval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minfrequencyval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -859,7 +895,10 @@ impl IAnalogRadioTuningSpace_Vtbl {
                         maxfrequencyval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxfrequencyval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -877,7 +916,10 @@ impl IAnalogRadioTuningSpace_Vtbl {
                         stepval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stepval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -950,7 +992,10 @@ impl IAnalogRadioTuningSpace2_Vtbl {
                         countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        countrycodeval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1066,7 +1111,10 @@ impl IAnalogTVTuningSpace_Vtbl {
                         minchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1084,7 +1132,10 @@ impl IAnalogTVTuningSpace_Vtbl {
                         maxchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1102,7 +1153,10 @@ impl IAnalogTVTuningSpace_Vtbl {
                         inputtypeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        inputtypeval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1120,7 +1174,10 @@ impl IAnalogTVTuningSpace_Vtbl {
                         countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        countrycodeval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1225,7 +1282,10 @@ impl IAuxInTuningSpace2_Vtbl {
                         countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        countrycodeval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1340,7 +1400,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1352,7 +1415,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1364,7 +1430,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1376,7 +1445,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1388,7 +1460,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1400,7 +1475,10 @@ impl IBDAComparable_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1455,7 +1533,10 @@ impl IBDACreateTuneRequestEx_Vtbl {
                         tunerequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tunerequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1514,7 +1595,10 @@ impl IChannelIDTuneRequest_Vtbl {
                         channelid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        channelid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1579,7 +1663,10 @@ impl IChannelTuneRequest_Vtbl {
                         channel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        channel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1702,7 +1789,10 @@ impl IComponent_Vtbl {
                         ct.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ct.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1720,7 +1810,10 @@ impl IComponent_Vtbl {
                         langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        langid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1738,7 +1831,10 @@ impl IComponent_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1756,7 +1852,10 @@ impl IComponent_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        description.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1774,7 +1873,10 @@ impl IComponent_Vtbl {
                         newcomponent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcomponent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1971,7 +2073,10 @@ impl IComponentType_Vtbl {
                         category.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        category.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1989,7 +2094,10 @@ impl IComponentType_Vtbl {
                         mediamajortype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediamajortype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2007,7 +2115,10 @@ impl IComponentType_Vtbl {
                         mediamajortypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediamajortypeguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2025,7 +2136,10 @@ impl IComponentType_Vtbl {
                         mediasubtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediasubtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2043,7 +2157,10 @@ impl IComponentType_Vtbl {
                         mediasubtypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediasubtypeguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2061,7 +2178,10 @@ impl IComponentType_Vtbl {
                         mediaformattype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediaformattype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2079,7 +2199,10 @@ impl IComponentType_Vtbl {
                         mediaformattypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediaformattypeguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2097,7 +2220,10 @@ impl IComponentType_Vtbl {
                         mediatype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mediatype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2115,7 +2241,10 @@ impl IComponentType_Vtbl {
                         newct.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newct.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2260,7 +2389,10 @@ impl IComponentTypes_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2272,7 +2404,10 @@ impl IComponentTypes_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2284,7 +2419,10 @@ impl IComponentTypes_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2296,7 +2434,10 @@ impl IComponentTypes_Vtbl {
                         componenttype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        componenttype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2314,7 +2455,10 @@ impl IComponentTypes_Vtbl {
                         newindex.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2332,7 +2476,10 @@ impl IComponentTypes_Vtbl {
                         newlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2468,7 +2615,10 @@ impl IComponents_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2480,7 +2630,10 @@ impl IComponents_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2492,7 +2645,10 @@ impl IComponents_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2504,7 +2660,10 @@ impl IComponents_Vtbl {
                         ppcomponent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcomponent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2516,7 +2675,10 @@ impl IComponents_Vtbl {
                         newindex.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2534,7 +2696,10 @@ impl IComponents_Vtbl {
                         newlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2664,7 +2829,10 @@ impl IComponentsOld_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2676,7 +2844,10 @@ impl IComponentsOld_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2688,7 +2859,10 @@ impl IComponentsOld_Vtbl {
                         ppnewenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2700,7 +2874,10 @@ impl IComponentsOld_Vtbl {
                         ppcomponent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcomponent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2712,7 +2889,10 @@ impl IComponentsOld_Vtbl {
                         newindex.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2730,7 +2910,10 @@ impl IComponentsOld_Vtbl {
                         newlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2896,7 +3079,10 @@ impl IDVBSLocator_Vtbl {
                         polarisationval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        polarisationval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2914,7 +3100,10 @@ impl IDVBSLocator_Vtbl {
                         westlongitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        westlongitude.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2932,7 +3121,10 @@ impl IDVBSLocator_Vtbl {
                         longitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        longitude.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2950,7 +3142,10 @@ impl IDVBSLocator_Vtbl {
                         azimuth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        azimuth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2968,7 +3163,10 @@ impl IDVBSLocator_Vtbl {
                         elevation.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        elevation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3155,7 +3353,10 @@ impl IDVBSLocator2_Vtbl {
                         diseqlnbsourceval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        diseqlnbsourceval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3173,7 +3374,10 @@ impl IDVBSLocator2_Vtbl {
                         localoscillatoroverridelowval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        localoscillatoroverridelowval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3191,7 +3395,10 @@ impl IDVBSLocator2_Vtbl {
                         localoscillatoroverridehighval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        localoscillatoroverridehighval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3209,7 +3416,10 @@ impl IDVBSLocator2_Vtbl {
                         locallnbswitchoverrideval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        locallnbswitchoverrideval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3227,7 +3437,10 @@ impl IDVBSLocator2_Vtbl {
                         localspectralinversionoverrideval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        localspectralinversionoverrideval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3245,7 +3458,10 @@ impl IDVBSLocator2_Vtbl {
                         rolloffval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rolloffval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3263,7 +3479,10 @@ impl IDVBSLocator2_Vtbl {
                         pilotval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pilotval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3404,7 +3623,10 @@ impl IDVBSTuningSpace_Vtbl {
                         lowoscillator.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lowoscillator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3422,7 +3644,10 @@ impl IDVBSTuningSpace_Vtbl {
                         highoscillator.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        highoscillator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3440,7 +3665,10 @@ impl IDVBSTuningSpace_Vtbl {
                         lnbswitch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lnbswitch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3458,7 +3686,10 @@ impl IDVBSTuningSpace_Vtbl {
                         inputrange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        inputrange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3476,7 +3707,10 @@ impl IDVBSTuningSpace_Vtbl {
                         spectralinversionval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        spectralinversionval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3679,7 +3913,10 @@ impl IDVBTLocator_Vtbl {
                         bandwidthval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bandwidthval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3697,7 +3934,10 @@ impl IDVBTLocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3715,7 +3955,10 @@ impl IDVBTLocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3733,7 +3976,10 @@ impl IDVBTLocator_Vtbl {
                         alpha.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        alpha.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3751,7 +3997,10 @@ impl IDVBTLocator_Vtbl {
                         gi.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3769,7 +4018,10 @@ impl IDVBTLocator_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3787,7 +4039,10 @@ impl IDVBTLocator_Vtbl {
                         otherfrequencyinuseval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        otherfrequencyinuseval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3868,7 +4123,10 @@ impl IDVBTLocator2_Vtbl {
                         physicallayerpipeidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        physicallayerpipeidval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3963,7 +4221,10 @@ impl IDVBTuneRequest_Vtbl {
                         onid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        onid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3981,7 +4242,10 @@ impl IDVBTuneRequest_Vtbl {
                         tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tsid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3999,7 +4263,10 @@ impl IDVBTuneRequest_Vtbl {
                         sid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4080,7 +4347,10 @@ impl IDVBTuningSpace_Vtbl {
                         systype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        systype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4149,7 +4419,10 @@ impl IDVBTuningSpace2_Vtbl {
                         networkid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        networkid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4261,7 +4534,10 @@ impl IDigitalCableTuneRequest_Vtbl {
                         pmajorchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmajorchannel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4279,7 +4555,10 @@ impl IDigitalCableTuneRequest_Vtbl {
                         psourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4389,7 +4668,10 @@ impl IDigitalCableTuningSpace_Vtbl {
                         minmajorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minmajorchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4407,7 +4689,10 @@ impl IDigitalCableTuningSpace_Vtbl {
                         maxmajorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxmajorchannelval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4425,7 +4710,10 @@ impl IDigitalCableTuningSpace_Vtbl {
                         minsourceidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minsourceidval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4443,7 +4731,10 @@ impl IDigitalCableTuningSpace_Vtbl {
                         maxsourceidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxsourceidval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4547,7 +4838,10 @@ impl IESCloseMmiEvent_Vtbl {
                         pdialognumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdialognumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4598,7 +4892,10 @@ impl IESEventFactory_Vtbl {
                         ppesevent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppesevent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4866,7 +5163,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         pguidtunerid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pguidtunerid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4878,7 +5178,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pqwexpirydate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4890,7 +5193,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pqwexpirydate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4902,7 +5208,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         dwmaxrenewalcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dwmaxrenewalcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4914,7 +5223,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         pfenttokenpresent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenttokenpresent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4926,7 +5238,10 @@ impl IESFileExpiryDateEvent_Vtbl {
                         pfexpireafterfirstuse.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfexpireafterfirstuse.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5028,7 +5343,10 @@ impl IESIsdbCasResponseEvent_Vtbl {
                         prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prequestid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5040,7 +5358,10 @@ impl IESIsdbCasResponseEvent_Vtbl {
                         pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5052,7 +5373,10 @@ impl IESIsdbCasResponseEvent_Vtbl {
                         prequestlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prequestlength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5064,7 +5388,10 @@ impl IESIsdbCasResponseEvent_Vtbl {
                         pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5232,7 +5559,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pdwcallersid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwcallersid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5244,7 +5574,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pbstrfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrfilename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5256,7 +5589,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pfrenewalsuccessful.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfrenewalsuccessful.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5268,7 +5604,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pfcheckenttokencallneeded.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfcheckenttokencallneeded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5280,7 +5619,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pdescrambledstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdescrambledstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5292,7 +5634,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pdwrenewalresultcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwrenewalresultcode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5304,7 +5649,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pdwcasfailurecode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwcasfailurecode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5316,7 +5664,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         phr.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5328,7 +5679,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwlength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5340,7 +5694,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5352,7 +5709,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                         pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pqwexpirydate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5451,7 +5811,10 @@ impl IESOpenMmiEvent_Vtbl {
                         pdialognumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdialognumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5463,7 +5826,10 @@ impl IESOpenMmiEvent_Vtbl {
                         guiddialogtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        guiddialogtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5475,7 +5841,10 @@ impl IESOpenMmiEvent_Vtbl {
                         pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5487,7 +5856,10 @@ impl IESOpenMmiEvent_Vtbl {
                         pbstrdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5587,7 +5959,10 @@ impl IESRequestTunerEvent_Vtbl {
                         pbypriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbypriority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5599,7 +5974,10 @@ impl IESRequestTunerEvent_Vtbl {
                         pbyreason.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbyreason.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5611,7 +5989,10 @@ impl IESRequestTunerEvent_Vtbl {
                         pbyconsequences.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbyconsequences.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5623,7 +6004,10 @@ impl IESRequestTunerEvent_Vtbl {
                         pdwestimatedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwestimatedtime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5687,7 +6071,10 @@ impl IESValueUpdatedEvent_Vtbl {
                         pbstrnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrnames.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5771,7 +6158,10 @@ impl IEnumComponentTypes_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5861,7 +6251,10 @@ impl IEnumComponents_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5951,7 +6344,10 @@ impl IEnumTuningSpaces_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5998,7 +6394,10 @@ impl IGpnvsCommonBase_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6086,7 +6485,10 @@ impl ILanguageComponentType_Vtbl {
                         langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        langid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6277,7 +6679,10 @@ impl ILocator_Vtbl {
                         frequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        frequency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6295,7 +6700,10 @@ impl ILocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6313,7 +6721,10 @@ impl ILocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6331,7 +6742,10 @@ impl ILocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6349,7 +6763,10 @@ impl ILocator_Vtbl {
                         fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6367,7 +6784,10 @@ impl ILocator_Vtbl {
                         modulation.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        modulation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6385,7 +6805,10 @@ impl ILocator_Vtbl {
                         rate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6403,7 +6826,10 @@ impl ILocator_Vtbl {
                         newlocator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newlocator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6505,7 +6931,10 @@ impl IMPEG2Component_Vtbl {
                         pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6523,7 +6952,10 @@ impl IMPEG2Component_Vtbl {
                         pcrpid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcrpid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6541,7 +6973,10 @@ impl IMPEG2Component_Vtbl {
                         programnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        programnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6622,7 +7057,10 @@ impl IMPEG2ComponentType_Vtbl {
                         mp2streamtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mp2streamtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6704,7 +7142,10 @@ impl IMPEG2TuneRequest_Vtbl {
                         tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tsid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6722,7 +7163,10 @@ impl IMPEG2TuneRequest_Vtbl {
                         progno.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        progno.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6791,7 +7235,10 @@ impl IMPEG2TuneRequestFactory_Vtbl {
                         tunerequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tunerequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6935,7 +7382,10 @@ impl IPersistTuneXmlUtility_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6991,7 +7441,10 @@ impl IPersistTuneXmlUtility2_Vtbl {
                         pstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7248,7 +7701,10 @@ impl IScanningTunerEx_Vtbl {
                         pcurrentfreq.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcurrentfreq.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7374,7 +7830,10 @@ impl ITuneRequest_Vtbl {
                         tuningspace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tuningspace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7386,7 +7845,10 @@ impl ITuneRequest_Vtbl {
                         components.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        components.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7398,7 +7860,10 @@ impl ITuneRequest_Vtbl {
                         newtunerequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newtunerequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7410,7 +7875,10 @@ impl ITuneRequest_Vtbl {
                         locator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        locator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7563,7 +8031,10 @@ impl ITuner_Vtbl {
                         tuningspace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tuningspace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7581,7 +8052,10 @@ impl ITuner_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7593,7 +8067,10 @@ impl ITuner_Vtbl {
                         tunerequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tunerequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7617,7 +8094,10 @@ impl ITuner_Vtbl {
                         componenttypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        componenttypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7635,7 +8115,10 @@ impl ITuner_Vtbl {
                         strength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7773,7 +8256,10 @@ impl ITunerCapEx_Vtbl {
                         pbhascaption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbhascaption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7968,7 +8454,10 @@ impl ITuningSpace_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7986,7 +8475,10 @@ impl ITuningSpace_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8004,7 +8496,10 @@ impl ITuningSpace_Vtbl {
                         spaceclsid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        spaceclsid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8016,7 +8511,10 @@ impl ITuningSpace_Vtbl {
                         networktypeguid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        networktypeguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8034,7 +8532,10 @@ impl ITuningSpace_Vtbl {
                         networktypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        networktypeguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8052,7 +8553,10 @@ impl ITuningSpace_Vtbl {
                         tunerequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tunerequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8064,7 +8568,10 @@ impl ITuningSpace_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8076,7 +8583,10 @@ impl ITuningSpace_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8088,7 +8598,10 @@ impl ITuningSpace_Vtbl {
                         componenttypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        componenttypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8106,7 +8619,10 @@ impl ITuningSpace_Vtbl {
                         pmapping.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmapping.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8124,7 +8640,10 @@ impl ITuningSpace_Vtbl {
                         locatorval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        locatorval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8142,7 +8661,10 @@ impl ITuningSpace_Vtbl {
                         newts.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newts.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8333,7 +8855,10 @@ impl ITuningSpaceContainer_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8345,7 +8870,10 @@ impl ITuningSpaceContainer_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8357,7 +8885,10 @@ impl ITuningSpaceContainer_Vtbl {
                         tuningspace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tuningspace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8375,7 +8906,10 @@ impl ITuningSpaceContainer_Vtbl {
                         newcoll.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcoll.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8387,7 +8921,10 @@ impl ITuningSpaceContainer_Vtbl {
                         newcoll.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcoll.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8399,7 +8936,10 @@ impl ITuningSpaceContainer_Vtbl {
                         newcoll.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcoll.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8411,7 +8951,10 @@ impl ITuningSpaceContainer_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8423,7 +8966,10 @@ impl ITuningSpaceContainer_Vtbl {
                         newindex.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8435,7 +8981,10 @@ impl ITuningSpaceContainer_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8453,7 +9002,10 @@ impl ITuningSpaceContainer_Vtbl {
                         maxcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8556,7 +9108,10 @@ impl ITuningSpaces_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8568,7 +9123,10 @@ impl ITuningSpaces_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8580,7 +9138,10 @@ impl ITuningSpaces_Vtbl {
                         tuningspace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tuningspace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8592,7 +9153,10 @@ impl ITuningSpaces_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

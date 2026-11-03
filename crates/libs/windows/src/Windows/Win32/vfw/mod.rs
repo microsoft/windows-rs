@@ -1358,7 +1358,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1370,7 +1373,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1388,7 +1394,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -1445,13 +1445,13 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymGetSourceFileFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[buffer(Size)] #[out] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileToken(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileToken(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenName(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[in] TokenName: PCSTR, #[in] #[opt] TokenParameters: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenName(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[in] TokenName: PCSTR, #[in] #[opt] TokenParameters: PCSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[in] TokenName: PCWSTR, #[in] #[opt] TokenParameters: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[in] TokenName: PCWSTR, #[in] #[opt] TokenParameters: PCWSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymGetSourceFileW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCWSTR, #[in] FileSpec: PCWSTR, #[buffer(Size)] #[out] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1521,9 +1521,9 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymLoadModuleExW(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCWSTR, #[in] #[opt] ModuleName: PCWSTR, #[in] BaseOfDll: DWORD64, #[in] DllSize: DWORD, #[in] #[opt] Data: PMODLOAD_DATA, #[in] #[opt] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileName(#[in] FileName: PCSTR, #[in] Match: PCSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PSTR) -> BOOL;
+        extern fn SymMatchFileName(#[in] FileName: PCSTR, #[in] Match: PCSTR, #[opt] #[out] FileNameStop: *mut PSTR, #[opt] #[out] MatchStop: *mut PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileNameW(#[in] FileName: PCWSTR, #[in] Match: PCWSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PWSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PWSTR) -> BOOL;
+        extern fn SymMatchFileNameW(#[in] FileName: PCWSTR, #[in] Match: PCWSTR, #[opt] #[out] FileNameStop: *mut PWSTR, #[opt] #[out] MatchStop: *mut PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymMatchString(#[in] string: PCSTR, #[in] expression: PCSTR, #[in] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]

@@ -493,7 +493,10 @@ impl IAudioSessionManager_Vtbl {
                         sessioncontrol.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sessioncontrol.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -505,7 +508,10 @@ impl IAudioSessionManager_Vtbl {
                         audiovolume.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiovolume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -591,7 +597,10 @@ impl IAudioSessionManager2_Vtbl {
                         sessionenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sessionenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

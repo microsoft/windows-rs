@@ -3564,7 +3564,10 @@ impl IErrorRecords_Vtbl {
                         pperrorinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperrorinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6149,7 +6152,10 @@ impl ITransactionJoin_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6225,7 +6231,10 @@ impl ITransactionLocal_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6282,7 +6291,10 @@ impl ITransactionObject_Vtbl {
                         pptransactionobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransactionobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

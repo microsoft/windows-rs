@@ -7,7 +7,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateTimerQueue() -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateTimerQueueTimer(#[out] #[out_ptr] phNewTimer: PHANDLE, #[in] #[opt] TimerQueue: HANDLE, #[in] Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: PVOID, #[in] DueTime: DWORD, #[in] Period: DWORD, #[in] Flags: ULONG) -> BOOL;
+        extern fn CreateTimerQueueTimer(#[out] phNewTimer: PHANDLE, #[in] #[opt] TimerQueue: HANDLE, #[in] Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: PVOID, #[in] DueTime: DWORD, #[in] Period: DWORD, #[in] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         #[must_use]
         extern fn DeleteTimerQueue(#[in] TimerQueue: HANDLE) -> BOOL;

@@ -19,7 +19,7 @@ mod Windows {
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
         interface IMFActivate: IMFAttributes {
-            fn ActivateObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn ShutdownObject(&self) -> HRESULT;
             fn DetachObject(&self) -> HRESULT;
         }
@@ -35,10 +35,10 @@ mod Windows {
         }
         #[guid(0xac6b7889_0740_4d51_8619_905994a55cc6)]
         interface IMFAsyncResult: IUnknown {
-            fn GetState(&self, #[out] #[out_ptr] #[retval] ppunkState: *mut IUnknown) -> HRESULT;
+            fn GetState(&self, #[out] #[retval] ppunkState: *mut IUnknown) -> HRESULT;
             fn GetStatus(&self) -> HRESULT;
             fn SetStatus(&self, #[in] hrStatus: HRESULT) -> HRESULT;
-            fn GetObject(&self, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn GetObject(&self, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn GetStateNoAddRef(&self) -> IUnknown;
         }
         #[guid(0x2cd2d921_c447_44a7_a13c_4adabfc247e3)]
@@ -57,7 +57,7 @@ mod Windows {
             fn GetBlobSize(&self, #[in] guidKey: &GUID, #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
             fn GetBlob(&self, #[in] guidKey: &GUID, #[buffer(cbBufSize)] #[out] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
             fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[incomplete] #[nullable] #[out] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
-            fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
+            fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut LPVOID) -> HRESULT;
             fn SetItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT) -> HRESULT;
             fn DeleteItem(&self, #[in] guidKey: &GUID) -> HRESULT;
             fn DeleteAllItems(&self) -> HRESULT;
@@ -98,36 +98,36 @@ mod Windows {
         }
         #[guid(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f)]
         interface IMFByteStreamProxyClassFactory: IUnknown {
-            fn CreateByteStreamProxy(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateByteStreamProxy(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe)]
         interface IMFCollection: IUnknown {
             fn GetElementCount(&self, #[out] pcElements: *mut DWORD) -> HRESULT;
-            fn GetElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn GetElement(&self, #[in] dwElementIndex: DWORD, #[out] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
             fn AddElement(&self, #[in] #[opt] pUnkElement: IUnknown) -> HRESULT;
-            fn RemoveElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn RemoveElement(&self, #[in] dwElementIndex: DWORD, #[out] #[retval] ppUnkElement: *mut IUnknown) -> HRESULT;
             fn InsertElementAt(&self, #[in] dwIndex: DWORD, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllElements(&self) -> HRESULT;
         }
         #[guid(0xe7174cfa_1c9e_48b1_8866_626226bfc258)]
         interface IMFDXGIBuffer: IUnknown {
-            fn GetResource(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetResource(&self, #[in] riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
             fn GetSubresourceIndex(&self, #[out] puSubresource: *mut UINT) -> HRESULT;
-            fn GetUnknown(&self, #[in] guid: &IID, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetUnknown(&self, #[in] guid: &IID, #[in] riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
             fn SetUnknown(&self, #[in] guid: &IID, #[in] #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
         interface IMFDXGICrossAdapterBuffer: IUnknown {
-            fn GetResourceForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetResourceForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
             fn GetSubresourceIndexForDevice(&self, #[in] pUnkDevice: IUnknown, #[out] puSubresource: *mut UINT) -> HRESULT;
-            fn GetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
             fn SetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
         interface IMFDXGIDeviceManager: IUnknown {
             fn CloseDeviceHandle(&self, #[in] hDevice: HANDLE) -> HRESULT;
-            fn GetVideoService(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] #[out_ptr] ppService: *mut *mut void) -> HRESULT;
-            fn LockDevice(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] #[out_ptr] ppUnkDevice: *mut *mut void, #[in] fBlock: BOOL) -> HRESULT;
+            fn GetVideoService(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] ppService: *mut *mut void) -> HRESULT;
+            fn LockDevice(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] ppUnkDevice: *mut *mut void, #[in] fBlock: BOOL) -> HRESULT;
             fn OpenDeviceHandle(&self, #[out] phDevice: *mut HANDLE) -> HRESULT;
             fn ResetDevice(&self, #[in] pUnkDevice: IUnknown, #[in] resetToken: UINT) -> HRESULT;
             fn TestDevice(&self, #[in] hDevice: HANDLE) -> HRESULT;
@@ -150,7 +150,7 @@ mod Windows {
         }
         #[guid(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d)]
         interface IMFMediaEventGenerator: IUnknown {
-            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] #[retval] ppEvent: *mut IMFMediaEvent) -> HRESULT;
             fn BeginGetEvent(&self, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndGetEvent(&self, #[in] pResult: IMFAsyncResult, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
             fn QueueEvent(&self, #[in] met: MediaEventType, #[in] guidExtendedType: &GUID, #[in] hrStatus: HRESULT, #[in] #[opt] pvValue: *const PROPVARIANT) -> HRESULT;
@@ -176,12 +176,12 @@ mod Windows {
         #[guid(0xce8bd576_e440_43b3_be34_1e53f565f7e8)]
         interface IMFMuxStreamAttributesManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetAttributes(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetAttributes(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[retval] ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8)]
         interface IMFMuxStreamMediaTypeManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetMediaType(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetMediaType(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetStreamConfigurationCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn AddStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
             fn RemoveStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
@@ -190,7 +190,7 @@ mod Windows {
         #[guid(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca)]
         interface IMFMuxStreamSampleManager: IUnknown {
             fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
-            fn GetSample(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppSample: *mut IMFSample) -> HRESULT;
+            fn GetSample(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[retval] ppSample: *mut IMFSample) -> HRESULT;
             fn GetStreamConfiguration(&self) -> ULONGLONG;
         }
         #[guid(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96)]

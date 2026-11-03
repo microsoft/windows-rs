@@ -115,7 +115,7 @@ mod Windows {
             fn Release(&self) -> ULONG;
             fn GetNamespace(&self, dwSection: DWORD, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetFlags(&self, pdwFlags: *mut DWORD) -> HRESULT;
-            fn GetEventLogEntryText(&self, #[in] pszEventSource: LPOLESTR, #[in] pszEventLogName: LPOLESTR, #[in] pszEventTime: LPOLESTR, dwEventID: DWORD, #[out] #[out_ptr] ppszText: *mut LPOLESTR) -> HRESULT;
+            fn GetEventLogEntryText(&self, #[in] pszEventSource: LPOLESTR, #[in] pszEventLogName: LPOLESTR, #[in] pszEventTime: LPOLESTR, dwEventID: DWORD, #[out] ppszText: *mut LPOLESTR) -> HRESULT;
         }
         #[library("GPEDIT.DLL")]
         extern fn ImportRSoPData(#[in] lpNameSpace: LPOLESTR, #[in] lpFileName: LPOLESTR) -> HRESULT;

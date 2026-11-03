@@ -795,7 +795,7 @@ mod Windows {
         extern fn NCryptEnumAlgorithms(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] dwAlgOperations: DWORD, #[out] pdwAlgCount: *mut DWORD, #[incomplete] #[out] ppAlgList: *mut *mut NCryptAlgorithmName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptEnumKeys(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] #[opt] pszScope: LPCWSTR, #[out] #[out_ptr] ppKeyName: *mut *mut NCryptKeyName, #[in] #[out] ppEnumState: *mut PVOID, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptEnumKeys(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] #[opt] pszScope: LPCWSTR, #[out] ppKeyName: *mut *mut NCryptKeyName, #[in] #[out] ppEnumState: *mut PVOID, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptEnumStorageProviders(#[out] pdwProviderCount: *mut DWORD, #[incomplete] #[out] ppProviderList: *mut *mut NCryptProviderName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;

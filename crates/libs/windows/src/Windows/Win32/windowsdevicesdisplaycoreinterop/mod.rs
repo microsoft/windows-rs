@@ -48,7 +48,10 @@ impl IDisplayDeviceInterop_Vtbl {
                         phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -60,7 +63,10 @@ impl IDisplayDeviceInterop_Vtbl {
                         ppvobj.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvobj.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -123,7 +129,10 @@ impl IDisplayPathInterop_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -135,7 +144,10 @@ impl IDisplayPathInterop_Vtbl {
                         psourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

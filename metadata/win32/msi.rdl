@@ -411,9 +411,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiGetFileHashW(#[in] szFilePath: LPCWSTR, #[in] dwOptions: DWORD, #[in] #[out] pHash: PMSIFILEHASHINFO) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationA(#[in] szSignedObjectPath: LPCSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppcCertContext: *mut PCCERT_CONTEXT, #[incomplete] #[opt] #[out] pbHashData: LPBYTE, #[in] #[opt] #[out] pcbHashData: LPDWORD) -> HRESULT;
+        extern fn MsiGetFileSignatureInformationA(#[in] szSignedObjectPath: LPCSTR, #[in] dwFlags: DWORD, #[out] ppcCertContext: *mut PCCERT_CONTEXT, #[incomplete] #[opt] #[out] pbHashData: LPBYTE, #[in] #[opt] #[out] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationW(#[in] szSignedObjectPath: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppcCertContext: *mut PCCERT_CONTEXT, #[incomplete] #[opt] #[out] pbHashData: LPBYTE, #[in] #[opt] #[out] pcbHashData: LPDWORD) -> HRESULT;
+        extern fn MsiGetFileSignatureInformationW(#[in] szSignedObjectPath: LPCWSTR, #[in] dwFlags: DWORD, #[out] ppcCertContext: *mut PCCERT_CONTEXT, #[incomplete] #[opt] #[out] pbHashData: LPBYTE, #[in] #[opt] #[out] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
         extern fn MsiGetFileVersionA(#[in] szFilePath: LPCSTR, #[incomplete] #[opt] #[out] lpVersionBuf: LPSTR, #[in] #[opt] #[out] pcchVersionBuf: LPDWORD, #[incomplete] #[opt] #[out] lpLangBuf: LPSTR, #[in] #[opt] #[out] pcchLangBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]

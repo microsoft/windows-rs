@@ -124,7 +124,7 @@ mod Windows {
         const DxcVersionInfoFlags_None: UINT32 = 0;
         #[guid(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5)]
         interface IDxcAssembler: IUnknown {
-            fn AssembleToContainer(&self, #[in] pShader: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn AssembleToContainer(&self, #[in] pShader: IDxcBlob, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
         }
         #[guid(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102)]
         interface IDxcBlob: IUnknown {
@@ -148,13 +148,13 @@ mod Windows {
         }
         #[guid(0x8c210bf3_011f_4422_8d70_6f9acb8db617)]
         interface IDxcCompiler: IUnknown {
-            fn Compile(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
-            fn Preprocess(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
-            fn Disassemble(&self, #[in] pSource: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppDisassembly: *mut IDxcBlobEncoding) -> HRESULT;
+            fn Compile(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn Preprocess(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn Disassemble(&self, #[in] pSource: IDxcBlob, #[out] #[retval] ppDisassembly: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37)]
         interface IDxcCompiler2: IDxcCompiler {
-            fn CompileWithDebug(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcOperationResult, #[null_terminated(success, indirect)] #[opt] #[out] #[out_ptr] ppDebugBlobName: *mut LPWSTR, #[opt] #[out] #[out_ptr(null_on_failure)] ppDebugBlob: *mut IDxcBlob) -> HRESULT;
+            fn CompileWithDebug(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] ppResult: *mut IDxcOperationResult, #[null_terminated(success, indirect)] #[opt] #[out] ppDebugBlobName: *mut LPWSTR, #[opt] #[out] ppDebugBlob: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0x228b4687_5a6a_4730_900c_9702b2203f54)]
         interface IDxcCompiler3: IUnknown {
@@ -181,103 +181,103 @@ mod Windows {
             fn Load(&self, #[in] pContainer: IDxcBlob) -> HRESULT;
             fn GetPartCount(&self, #[out] pResult: *mut UINT32) -> HRESULT;
             fn GetPartKind(&self, idx: UINT32, #[out] pResult: *mut UINT32) -> HRESULT;
-            fn GetPartContent(&self, idx: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetPartContent(&self, idx: UINT32, #[out] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
             fn FindFirstPartKind(&self, kind: UINT32, #[out] pResult: *mut UINT32) -> HRESULT;
             fn GetPartReflection(&self, idx: UINT32, iid: &IID, ppvObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x319b37a2_a5c2_494a_a5de_4801b2faf989)]
         interface IDxcExtraOutputs: IUnknown {
             fn GetOutputCount(&self) -> UINT32;
-            fn GetOutput(&self, #[in] uIndex: UINT32, #[in] iid: &IID, #[iid_is] #[nullable] #[opt] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void, #[nullable] #[opt] #[out] #[out_ptr(null_on_failure)] ppOutputType: *mut IDxcBlobWide, #[nullable] #[opt] #[out] #[out_ptr(null_on_failure)] ppOutputName: *mut IDxcBlobWide) -> HRESULT;
+            fn GetOutput(&self, #[in] uIndex: UINT32, #[in] iid: &IID, #[iid_is] #[nullable] #[opt] #[out] ppvObject: *mut *mut void, #[nullable] #[opt] #[out] ppOutputType: *mut IDxcBlobWide, #[nullable] #[opt] #[out] ppOutputName: *mut IDxcBlobWide) -> HRESULT;
         }
         #[guid(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c)]
         interface IDxcIncludeHandler: IUnknown {
-            fn LoadSource(&self, #[in] #[null_terminated(entry)] pFilename: LPCWSTR, #[nullable] #[out] #[out_ptr(null_on_failure)] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
+            fn LoadSource(&self, #[in] #[null_terminated(entry)] pFilename: LPCWSTR, #[nullable] #[out] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7)]
         interface IDxcLibrary: IUnknown {
             fn SetMalloc(&self, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
-            fn CreateBlobFromBlob(&self, #[in] pBlob: IDxcBlob, offset: UINT32, length: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn CreateBlobFromFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] codePage: *mut UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateBlobWithEncodingFromPinned(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateBlobWithEncodingOnHeapCopy(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateBlobWithEncodingOnMalloc(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateIncludeHandler(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcIncludeHandler) -> HRESULT;
-            fn CreateStreamFromBlobReadOnly(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IStream) -> HRESULT;
-            fn GetBlobAsUtf8(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn GetBlobAsWide(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlobFromBlob(&self, #[in] pBlob: IDxcBlob, offset: UINT32, length: UINT32, #[out] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn CreateBlobFromFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] codePage: *mut UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlobWithEncodingFromPinned(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlobWithEncodingOnHeapCopy(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlobWithEncodingOnMalloc(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateIncludeHandler(&self, #[out] #[retval] ppResult: *mut IDxcIncludeHandler) -> HRESULT;
+            fn CreateStreamFromBlobReadOnly(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppStream: *mut IStream) -> HRESULT;
+            fn GetBlobAsUtf8(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn GetBlobAsWide(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0xcedb484a_d4e9_445a_b991_ca21ca157dc2)]
         interface IDxcOperationResult: IUnknown {
             fn GetStatus(&self, #[out] pStatus: *mut HRESULT) -> HRESULT;
-            fn GetResult(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn GetErrorBuffer(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppErrors: *mut IDxcBlobEncoding) -> HRESULT;
+            fn GetResult(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetErrorBuffer(&self, #[nullable] #[out] ppErrors: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0x25740e2e_9cba_401b_9119_4fb42f39f270)]
         interface IDxcOptimizer: IUnknown {
             fn GetAvailablePassCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetAvailablePass(&self, index: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOptimizerPass) -> HRESULT;
-            fn RunOptimizer(&self, pBlob: IDxcBlob, #[buffer(optionCount)] #[in] ppOptions: *mut LPCWSTR, optionCount: UINT32, #[out] #[out_ptr(null_on_failure)] pOutputModule: *mut IDxcBlob, #[opt] #[out] #[out_ptr(null_on_failure)] ppOutputText: *mut IDxcBlobEncoding) -> HRESULT;
+            fn GetAvailablePass(&self, index: UINT32, #[out] #[retval] ppResult: *mut IDxcOptimizerPass) -> HRESULT;
+            fn RunOptimizer(&self, pBlob: IDxcBlob, #[buffer(optionCount)] #[in] ppOptions: *mut LPCWSTR, optionCount: UINT32, #[out] pOutputModule: *mut IDxcBlob, #[opt] #[out] ppOutputText: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c)]
         interface IDxcOptimizerPass: IUnknown {
-            fn GetOptionName(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
-            fn GetDescription(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
+            fn GetOptionName(&self, #[out] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
+            fn GetDescription(&self, #[out] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
             fn GetOptionArgCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetOptionArgName(&self, argIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
-            fn GetOptionArgDescription(&self, argIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
+            fn GetOptionArgName(&self, argIndex: UINT32, #[out] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
+            fn GetOptionArgDescription(&self, argIndex: UINT32, #[out] #[retval] ppResult: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x4315d938_f369_4f93_95a2_252017cc3807)]
         interface IDxcPdbUtils2: IUnknown {
             fn Load(&self, #[in] pPdbOrDxil: IDxcBlob) -> HRESULT;
             fn GetSourceCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetSource(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlobEncoding) -> HRESULT;
-            fn GetSourceName(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetSource(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobEncoding) -> HRESULT;
+            fn GetSourceName(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetLibraryPDBCount(&self, pCount: *mut UINT32) -> HRESULT;
-            fn GetLibraryPDB(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] ppOutPdbUtils: *mut IDxcPdbUtils2, #[nullable] #[opt] #[out] #[out_ptr(null_on_failure)] ppLibraryName: *mut IDxcBlobWide) -> HRESULT;
+            fn GetLibraryPDB(&self, #[in] uIndex: UINT32, #[out] ppOutPdbUtils: *mut IDxcPdbUtils2, #[nullable] #[opt] #[out] ppLibraryName: *mut IDxcBlobWide) -> HRESULT;
             fn GetFlagCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetFlag(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetFlag(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetArgCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetArg(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetArg(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
             fn GetArgPairCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetArgPair(&self, #[in] uIndex: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] ppName: *mut IDxcBlobWide, #[nullable] #[out] #[out_ptr(null_on_failure)] ppValue: *mut IDxcBlobWide) -> HRESULT;
+            fn GetArgPair(&self, #[in] uIndex: UINT32, #[nullable] #[out] ppName: *mut IDxcBlobWide, #[nullable] #[out] ppValue: *mut IDxcBlobWide) -> HRESULT;
             fn GetDefineCount(&self, #[out] pCount: *mut UINT32) -> HRESULT;
-            fn GetDefine(&self, #[in] uIndex: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetTargetProfile(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetEntryPoint(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetMainFileName(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetHash(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn GetName(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlobWide) -> HRESULT;
-            fn GetVersionInfo(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppVersionInfo: *mut IDxcVersionInfo) -> HRESULT;
+            fn GetDefine(&self, #[in] uIndex: UINT32, #[out] #[retval] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetTargetProfile(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetEntryPoint(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetMainFileName(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetHash(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetName(&self, #[nullable] #[out] ppResult: *mut IDxcBlobWide) -> HRESULT;
+            fn GetVersionInfo(&self, #[nullable] #[out] ppVersionInfo: *mut IDxcVersionInfo) -> HRESULT;
             fn GetCustomToolchainID(&self, #[out] pID: *mut UINT32) -> HRESULT;
-            fn GetCustomToolchainData(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppBlob: *mut IDxcBlob) -> HRESULT;
-            fn GetWholeDxil(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn GetCustomToolchainData(&self, #[nullable] #[out] ppBlob: *mut IDxcBlob) -> HRESULT;
+            fn GetWholeDxil(&self, #[nullable] #[out] ppResult: *mut IDxcBlob) -> HRESULT;
             fn IsFullPDB(&self) -> BOOL;
             fn IsPDBRef(&self) -> BOOL;
         }
         #[guid(0x4605c4cb_2019_492a_ada4_65f20bb7d67f)]
         interface IDxcUtils: IUnknown {
-            fn CreateBlobFromBlob(&self, #[in] pBlob: IDxcBlob, offset: UINT32, length: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn CreateBlobFromPinned(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn MoveToBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn LoadFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] pCodePage: *mut UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn CreateReadOnlyStreamFromBlob(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IStream) -> HRESULT;
-            fn CreateDefaultIncludeHandler(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcIncludeHandler) -> HRESULT;
-            fn GetBlobAsUtf8(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobUtf8) -> HRESULT;
-            fn GetBlobAsWide(&self, #[in] pBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppBlobEncoding: *mut IDxcBlobWide) -> HRESULT;
-            fn GetDxilContainerPart(&self, #[in] pShader: *const DxcText, #[in] DxcPart: UINT32, #[out] #[out_ptr(null_on_failure)] ppPartData: *mut *mut void, #[out] pPartSizeInBytes: *mut UINT32) -> HRESULT;
+            fn CreateBlobFromBlob(&self, #[in] pBlob: IDxcBlob, offset: UINT32, length: UINT32, #[out] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
+            fn CreateBlobFromPinned(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn MoveToBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn LoadFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] pCodePage: *mut UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateReadOnlyStreamFromBlob(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppStream: *mut IStream) -> HRESULT;
+            fn CreateDefaultIncludeHandler(&self, #[out] #[retval] ppResult: *mut IDxcIncludeHandler) -> HRESULT;
+            fn GetBlobAsUtf8(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobUtf8) -> HRESULT;
+            fn GetBlobAsWide(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobWide) -> HRESULT;
+            fn GetDxilContainerPart(&self, #[in] pShader: *const DxcText, #[in] DxcPart: UINT32, #[out] ppPartData: *mut *mut void, #[out] pPartSizeInBytes: *mut UINT32) -> HRESULT;
             fn CreateReflection(&self, #[in] pData: *const DxcText, iid: &IID, ppvReflection: *mut *mut void) -> HRESULT;
-            fn BuildArguments(&self, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppArgs: *mut IDxcCompilerArgs) -> HRESULT;
-            fn GetPDBContents(&self, #[in] pPDBBlob: IDxcBlob, #[out] #[out_ptr(null_on_failure)] ppHash: *mut IDxcBlob, #[out] #[out_ptr(null_on_failure)] #[retval] ppContainer: *mut IDxcBlob) -> HRESULT;
+            fn BuildArguments(&self, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[out] #[retval] ppArgs: *mut IDxcCompilerArgs) -> HRESULT;
+            fn GetPDBContents(&self, #[in] pPDBBlob: IDxcBlob, #[out] ppHash: *mut IDxcBlob, #[out] #[retval] ppContainer: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0xa6e82bd2_1fd7_4826_9811_2857e797f49a)]
         interface IDxcValidator: IUnknown {
-            fn Validate(&self, #[in] pShader: IDxcBlob, #[in] Flags: UINT32, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn Validate(&self, #[in] pShader: IDxcBlob, #[in] Flags: UINT32, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
         }
         #[guid(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92)]
         interface IDxcValidator2: IDxcValidator {
-            fn ValidateWithDebug(&self, #[in] pShader: IDxcBlob, #[in] Flags: UINT32, #[in] #[opt] pOptDebugBitcode: *mut DxcText, #[out] #[out_ptr(null_on_failure)] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn ValidateWithDebug(&self, #[in] pShader: IDxcBlob, #[in] Flags: UINT32, #[in] #[opt] pOptDebugBitcode: *mut DxcText, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
         }
         #[guid(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e)]
         interface IDxcVersionInfo: IUnknown {
@@ -286,11 +286,11 @@ mod Windows {
         }
         #[guid(0xfb6904c4_42f0_4b62_9c46_983af7da7c83)]
         interface IDxcVersionInfo2: IDxcVersionInfo {
-            fn GetCommitInfo(&self, #[out] pCommitCount: *mut UINT32, #[null_terminated(success, indirect)] #[out] #[out_ptr] pCommitHash: *mut *mut i8) -> HRESULT;
+            fn GetCommitInfo(&self, #[out] pCommitCount: *mut UINT32, #[null_terminated(success, indirect)] #[out] pCommitHash: *mut *mut i8) -> HRESULT;
         }
         #[guid(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e)]
         interface IDxcVersionInfo3: IUnknown {
-            fn GetCustomVersionString(&self, #[null_terminated(success, indirect)] #[out] #[out_ptr] pVersionString: *mut *mut i8) -> HRESULT;
+            fn GetCustomVersionString(&self, #[null_terminated(success, indirect)] #[out] pVersionString: *mut *mut i8) -> HRESULT;
         }
     }
 }

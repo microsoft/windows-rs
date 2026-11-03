@@ -245,7 +245,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        propstore.write(core::mem::zeroed());
+                        propstore.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -260,7 +260,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        propstore.write(core::mem::zeroed());
+                        propstore.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -275,7 +275,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        propstore.write(core::mem::zeroed());
+                        propstore.write_bytes(0, 1);
                         err.into()
                     }
                 }

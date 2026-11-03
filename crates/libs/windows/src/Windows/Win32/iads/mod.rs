@@ -721,7 +721,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -733,7 +736,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -745,7 +751,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -757,7 +766,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -769,7 +781,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -781,7 +796,10 @@ impl IADs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -805,7 +823,10 @@ impl IADs_Vtbl {
                         pvprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -823,7 +844,10 @@ impl IADs_Vtbl {
                         pvprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1005,7 +1029,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1017,7 +1044,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1029,7 +1059,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1041,7 +1074,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1053,7 +1089,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1065,7 +1104,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1077,7 +1119,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1089,7 +1134,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1101,7 +1149,10 @@ impl IADsADSystemInfo_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1113,7 +1164,10 @@ impl IADsADSystemInfo_Vtbl {
                         pszdcname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdcname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1125,7 +1179,10 @@ impl IADsADSystemInfo_Vtbl {
                         pszsitename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszsitename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1143,7 +1200,10 @@ impl IADsADSystemInfo_Vtbl {
                         pvtrees.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvtrees.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1295,7 +1355,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1313,7 +1376,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1331,7 +1397,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1349,7 +1418,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1367,7 +1439,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1385,7 +1460,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1403,7 +1481,10 @@ impl IADsAccessControlEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1529,7 +1610,10 @@ impl IADsAccessControlList_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1547,7 +1631,10 @@ impl IADsAccessControlList_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1577,7 +1664,10 @@ impl IADsAccessControlList_Vtbl {
                         ppaccesscontrollist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaccesscontrollist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1589,7 +1679,10 @@ impl IADsAccessControlList_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1692,7 +1785,10 @@ impl IADsAcl_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1710,7 +1806,10 @@ impl IADsAcl_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1728,7 +1827,10 @@ impl IADsAcl_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1746,7 +1848,10 @@ impl IADsAcl_Vtbl {
                         ppacl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppacl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1960,7 +2065,10 @@ impl IADsBackLink_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1978,7 +2086,10 @@ impl IADsBackLink_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2057,7 +2168,10 @@ impl IADsCaseIgnoreList_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2391,7 +2505,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2403,7 +2520,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2421,7 +2541,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2439,7 +2562,10 @@ impl IADsClass_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2457,7 +2583,10 @@ impl IADsClass_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2475,7 +2604,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2493,7 +2625,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2511,7 +2646,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2529,7 +2667,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2547,7 +2688,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2565,7 +2709,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2583,7 +2730,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2601,7 +2751,10 @@ impl IADsClass_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2619,7 +2772,10 @@ impl IADsClass_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2637,7 +2793,10 @@ impl IADsClass_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2655,7 +2814,10 @@ impl IADsClass_Vtbl {
                         ppqualifiers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppqualifiers.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2767,7 +2929,10 @@ impl IADsCollection_Vtbl {
                         ppenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2791,7 +2956,10 @@ impl IADsCollection_Vtbl {
                         pvitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3062,7 +3230,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3074,7 +3245,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3086,7 +3260,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3104,7 +3281,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3122,7 +3302,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3140,7 +3323,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3158,7 +3344,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3176,7 +3365,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3194,7 +3386,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3212,7 +3407,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3230,7 +3428,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3248,7 +3449,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3266,7 +3470,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3284,7 +3491,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3302,7 +3512,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3320,7 +3533,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3338,7 +3554,10 @@ impl IADsComputer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3441,7 +3660,10 @@ impl IADsComputerOperations_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3588,7 +3810,10 @@ impl IADsContainer_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3600,7 +3825,10 @@ impl IADsContainer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3612,7 +3840,10 @@ impl IADsContainer_Vtbl {
                         pvar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3630,7 +3861,10 @@ impl IADsContainer_Vtbl {
                         pvfilter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvfilter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3648,7 +3882,10 @@ impl IADsContainer_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3660,7 +3897,10 @@ impl IADsContainer_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3678,7 +3918,10 @@ impl IADsContainer_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3690,7 +3933,10 @@ impl IADsContainer_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3783,7 +4029,10 @@ impl IADsDNWithBinary_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3801,7 +4050,10 @@ impl IADsDNWithBinary_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3885,7 +4137,10 @@ impl IADsDNWithString_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3903,7 +4158,10 @@ impl IADsDNWithString_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4122,7 +4380,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4134,7 +4395,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4152,7 +4416,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4170,7 +4437,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4188,7 +4458,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4206,7 +4479,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4224,7 +4500,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4242,7 +4521,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4260,7 +4542,10 @@ impl IADsDomain_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4357,7 +4642,10 @@ impl IADsEmail_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4375,7 +4663,10 @@ impl IADsEmail_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4540,7 +4831,10 @@ impl IADsFaxNumber_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4558,7 +4852,10 @@ impl IADsFaxNumber_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4642,7 +4939,10 @@ impl IADsFileService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4660,7 +4960,10 @@ impl IADsFileService_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4734,7 +5037,10 @@ impl IADsFileServiceOperations_Vtbl {
                         ppsessions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsessions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4746,7 +5052,10 @@ impl IADsFileServiceOperations_Vtbl {
                         ppresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4852,7 +5161,10 @@ impl IADsFileShare_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4864,7 +5176,10 @@ impl IADsFileShare_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4882,7 +5197,10 @@ impl IADsFileShare_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4900,7 +5218,10 @@ impl IADsFileShare_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4918,7 +5239,10 @@ impl IADsFileShare_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5024,7 +5348,10 @@ impl IADsGroup_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5042,7 +5369,10 @@ impl IADsGroup_Vtbl {
                         ppmembers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmembers.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5054,7 +5384,10 @@ impl IADsGroup_Vtbl {
                         bmember.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bmember.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5146,7 +5479,10 @@ impl IADsHold_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5164,7 +5500,10 @@ impl IADsHold_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5248,7 +5587,10 @@ impl IADsLargeInteger_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5266,7 +5608,10 @@ impl IADsLargeInteger_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5384,7 +5729,10 @@ impl IADsLocality_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5402,7 +5750,10 @@ impl IADsLocality_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5420,7 +5771,10 @@ impl IADsLocality_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5438,7 +5792,10 @@ impl IADsLocality_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5537,7 +5894,10 @@ impl IADsMembers_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5549,7 +5909,10 @@ impl IADsMembers_Vtbl {
                         ppenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5561,7 +5924,10 @@ impl IADsMembers_Vtbl {
                         pvfilter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvfilter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5692,7 +6058,10 @@ impl IADsNameTranslate_Vtbl {
                         pbstradspath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstradspath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5710,7 +6079,10 @@ impl IADsNameTranslate_Vtbl {
                         pvar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5778,7 +6150,10 @@ impl IADsNamespaces_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5868,7 +6243,10 @@ impl IADsNetAddress_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5886,7 +6264,10 @@ impl IADsNetAddress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6030,7 +6411,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6048,7 +6432,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6066,7 +6453,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6084,7 +6474,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6102,7 +6495,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6120,7 +6516,10 @@ impl IADsO_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6285,7 +6684,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6303,7 +6705,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6321,7 +6726,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6339,7 +6747,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6357,7 +6768,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6375,7 +6789,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6393,7 +6810,10 @@ impl IADsOU_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6482,7 +6902,10 @@ impl IADsObjectOptions_Vtbl {
                         pvvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6555,7 +6978,10 @@ impl IADsOctetList_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6619,7 +7045,10 @@ impl IADsOpenDSObject_Vtbl {
                         ppoledsobj.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoledsobj.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6704,7 +7133,10 @@ impl IADsPath_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6722,7 +7154,10 @@ impl IADsPath_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6740,7 +7175,10 @@ impl IADsPath_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6885,7 +7323,10 @@ impl IADsPathname_Vtbl {
                         pbstradspath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstradspath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6897,7 +7338,10 @@ impl IADsPathname_Vtbl {
                         plnnumpathelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plnnumpathelements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6909,7 +7353,10 @@ impl IADsPathname_Vtbl {
                         pbstrelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6933,7 +7380,10 @@ impl IADsPathname_Vtbl {
                         ppadspath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppadspath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6945,7 +7395,10 @@ impl IADsPathname_Vtbl {
                         pbstroutstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstroutstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6957,7 +7410,10 @@ impl IADsPathname_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7043,7 +7499,10 @@ impl IADsPostalAddress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7245,7 +7704,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7257,7 +7719,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7269,7 +7734,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7281,7 +7749,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7293,7 +7764,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7305,7 +7779,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7317,7 +7794,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7335,7 +7815,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7353,7 +7836,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7371,7 +7857,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7389,7 +7878,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7407,7 +7899,10 @@ impl IADsPrintJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7526,7 +8021,10 @@ impl IADsPrintJobOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7538,7 +8036,10 @@ impl IADsPrintJobOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7550,7 +8051,10 @@ impl IADsPrintJobOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7562,7 +8066,10 @@ impl IADsPrintJobOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7836,7 +8343,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7854,7 +8364,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7872,7 +8385,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7890,7 +8406,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7908,7 +8427,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7926,7 +8448,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7944,7 +8469,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7962,7 +8490,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7980,7 +8511,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7998,7 +8532,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8016,7 +8553,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8034,7 +8574,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8052,7 +8595,10 @@ impl IADsPrintQueue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8163,7 +8709,10 @@ impl IADsPrintQueueOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8175,7 +8724,10 @@ impl IADsPrintQueueOperations_Vtbl {
                         pobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8327,7 +8879,10 @@ impl IADsProperty_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8345,7 +8900,10 @@ impl IADsProperty_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8363,7 +8921,10 @@ impl IADsProperty_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8381,7 +8942,10 @@ impl IADsProperty_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8399,7 +8963,10 @@ impl IADsProperty_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8417,7 +8984,10 @@ impl IADsProperty_Vtbl {
                         ppqualifiers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppqualifiers.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8547,7 +9117,10 @@ impl IADsPropertyEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8565,7 +9138,10 @@ impl IADsPropertyEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8583,7 +9159,10 @@ impl IADsPropertyEntry_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8601,7 +9180,10 @@ impl IADsPropertyEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8741,7 +9323,10 @@ impl IADsPropertyList_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8753,7 +9338,10 @@ impl IADsPropertyList_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8777,7 +9365,10 @@ impl IADsPropertyList_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8789,7 +9380,10 @@ impl IADsPropertyList_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9053,7 +9647,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9071,7 +9668,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9089,7 +9689,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9107,7 +9710,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9125,7 +9731,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9143,7 +9752,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9161,7 +9773,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9179,7 +9794,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9197,7 +9815,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9215,7 +9836,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9233,7 +9857,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9251,7 +9878,10 @@ impl IADsPropertyValue_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9351,7 +9981,10 @@ impl IADsPropertyValue2_Vtbl {
                         pvprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9480,7 +10113,10 @@ impl IADsReplicaPointer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9498,7 +10134,10 @@ impl IADsReplicaPointer_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9516,7 +10155,10 @@ impl IADsReplicaPointer_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9534,7 +10176,10 @@ impl IADsReplicaPointer_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9552,7 +10197,10 @@ impl IADsReplicaPointer_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9648,7 +10296,10 @@ impl IADsResource_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9660,7 +10311,10 @@ impl IADsResource_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9672,7 +10326,10 @@ impl IADsResource_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9684,7 +10341,10 @@ impl IADsResource_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9912,7 +10572,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9930,7 +10593,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9948,7 +10614,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9966,7 +10635,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9984,7 +10656,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10002,7 +10677,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10020,7 +10698,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10038,7 +10719,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10056,7 +10740,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10074,7 +10761,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10092,7 +10782,10 @@ impl IADsSecurityDescriptor_Vtbl {
                         ppsecuritydescriptor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsecuritydescriptor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10207,7 +10900,10 @@ impl IADsSecurityUtility_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10225,7 +10921,10 @@ impl IADsSecurityUtility_Vtbl {
                         presult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        presult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10237,7 +10936,10 @@ impl IADsSecurityUtility_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10460,7 +11162,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10478,7 +11183,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10496,7 +11204,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10514,7 +11225,10 @@ impl IADsService_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10532,7 +11246,10 @@ impl IADsService_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10550,7 +11267,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10568,7 +11288,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10586,7 +11309,10 @@ impl IADsService_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10604,7 +11330,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10622,7 +11351,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10640,7 +11372,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10658,7 +11393,10 @@ impl IADsService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10769,7 +11507,10 @@ impl IADsServiceOperations_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10901,7 +11642,10 @@ impl IADsSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10913,7 +11657,10 @@ impl IADsSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10925,7 +11672,10 @@ impl IADsSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10937,7 +11687,10 @@ impl IADsSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10949,7 +11702,10 @@ impl IADsSession_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10961,7 +11717,10 @@ impl IADsSession_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11028,7 +11787,10 @@ impl IADsSyntax_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11110,7 +11872,10 @@ impl IADsTimestamp_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11128,7 +11893,10 @@ impl IADsTimestamp_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11225,7 +11993,10 @@ impl IADsTypedName_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11243,7 +12014,10 @@ impl IADsTypedName_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11261,7 +12035,10 @@ impl IADsTypedName_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12088,7 +12865,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12100,7 +12880,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12112,7 +12895,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12124,7 +12910,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12136,7 +12925,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12148,7 +12940,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12160,7 +12955,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12178,7 +12976,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12196,7 +12997,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12214,7 +13018,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12232,7 +13039,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12250,7 +13060,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12268,7 +13081,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12286,7 +13102,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12304,7 +13123,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12322,7 +13144,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12340,7 +13165,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12358,7 +13186,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12376,7 +13207,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12394,7 +13228,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12412,7 +13249,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12430,7 +13270,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12448,7 +13291,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12466,7 +13312,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12484,7 +13333,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12502,7 +13354,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12520,7 +13375,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12538,7 +13396,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12556,7 +13417,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12574,7 +13438,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12592,7 +13459,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12610,7 +13480,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12628,7 +13501,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12646,7 +13522,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12664,7 +13543,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12682,7 +13564,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12700,7 +13585,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12718,7 +13606,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12736,7 +13627,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12754,7 +13648,10 @@ impl IADsUser_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12772,7 +13669,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12790,7 +13690,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12808,7 +13711,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12826,7 +13732,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12844,7 +13753,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12862,7 +13774,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12880,7 +13795,10 @@ impl IADsUser_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12898,7 +13816,10 @@ impl IADsUser_Vtbl {
                         ppgroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppgroups.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13081,7 +14002,10 @@ impl IADsWinNTSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13093,7 +14017,10 @@ impl IADsWinNTSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13105,7 +14032,10 @@ impl IADsWinNTSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13117,7 +14047,10 @@ impl IADsWinNTSystemInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13222,7 +14155,10 @@ impl IDirectoryObject_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13656,7 +14592,10 @@ impl IPrivateDispatch_Vtbl {
                         pptinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

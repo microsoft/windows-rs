@@ -378,7 +378,10 @@ impl IBrowserService_Vtbl {
                         ppipsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -402,7 +405,10 @@ impl IBrowserService_Vtbl {
                         ppobjv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -414,7 +420,10 @@ impl IBrowserService_Vtbl {
                         pptl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -528,7 +537,10 @@ impl IBrowserService_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -540,7 +552,10 @@ impl IBrowserService_Vtbl {
                         ppbc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1774,7 +1789,10 @@ impl IExpDispSupport_Vtbl {
                         ppccp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppccp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2135,7 +2153,10 @@ impl ITravelLog_Vtbl {
                         ppte.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppte.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2159,7 +2180,10 @@ impl ITravelLog_Vtbl {
                         pptl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -184,7 +184,10 @@ impl IStorageFolderHandleAccess_Vtbl {
                         interophandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interophandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -234,7 +237,10 @@ impl IStorageItemHandleAccess_Vtbl {
                         interophandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interophandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -320,7 +326,10 @@ impl IUnbufferedFileHandleProvider_Vtbl {
                         filehandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filehandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

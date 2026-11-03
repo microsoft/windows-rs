@@ -67,7 +67,10 @@ impl IWSMan_Vtbl {
                         session.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        session.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -79,7 +82,10 @@ impl IWSMan_Vtbl {
                         connectionoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        connectionoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -91,7 +97,10 @@ impl IWSMan_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -103,7 +112,10 @@ impl IWSMan_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -173,7 +185,10 @@ impl IWSManConnectionOptions_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -249,7 +264,10 @@ impl IWSManConnectionOptionsEx_Vtbl {
                         thumbprint.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        thumbprint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -372,7 +390,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -384,7 +405,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -396,7 +420,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -408,7 +435,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -420,7 +450,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -432,7 +465,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -444,7 +480,10 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -528,7 +567,10 @@ impl IWSManEnumerator_Vtbl {
                         resource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -540,7 +582,10 @@ impl IWSManEnumerator_Vtbl {
                         eos.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eos.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -552,7 +597,10 @@ impl IWSManEnumerator_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -767,7 +815,10 @@ impl IWSManEx_Vtbl {
                         newresourcelocator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newresourcelocator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -779,7 +830,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -791,7 +845,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -803,7 +860,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -815,7 +875,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -827,7 +890,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -839,7 +905,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -851,7 +920,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -863,7 +935,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -875,7 +950,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -887,7 +965,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -899,7 +980,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -911,7 +995,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -923,7 +1010,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -935,7 +1025,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -947,7 +1040,10 @@ impl IWSManEx_Vtbl {
                         errormessage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        errormessage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -959,7 +1055,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -971,7 +1070,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -983,7 +1085,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -995,7 +1100,10 @@ impl IWSManEx_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1071,7 +1179,10 @@ impl IWSManEx2_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1173,7 +1284,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1185,7 +1299,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1197,7 +1314,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1209,7 +1329,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1221,7 +1344,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1233,7 +1359,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1245,7 +1374,10 @@ impl IWSManEx3_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1315,7 +1447,10 @@ impl IWSManInternal_Vtbl {
                         resource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1455,7 +1590,10 @@ impl IWSManResourceLocator_Vtbl {
                         uri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        uri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1479,7 +1617,10 @@ impl IWSManResourceLocator_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1497,7 +1638,10 @@ impl IWSManResourceLocator_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1527,7 +1671,10 @@ impl IWSManResourceLocator_Vtbl {
                         mustunderstand.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mustunderstand.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1545,7 +1692,10 @@ impl IWSManResourceLocator_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1734,7 +1884,10 @@ impl IWSManSession_Vtbl {
                         resource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1746,7 +1899,10 @@ impl IWSManSession_Vtbl {
                         resultresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1758,7 +1914,10 @@ impl IWSManSession_Vtbl {
                         newuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1776,7 +1935,10 @@ impl IWSManSession_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1788,7 +1950,10 @@ impl IWSManSession_Vtbl {
                         resultset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1800,7 +1965,10 @@ impl IWSManSession_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1812,7 +1980,10 @@ impl IWSManSession_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1824,7 +1995,10 @@ impl IWSManSession_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1842,7 +2016,10 @@ impl IWSManSession_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

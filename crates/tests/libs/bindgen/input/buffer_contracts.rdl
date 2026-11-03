@@ -29,15 +29,15 @@ mod Test {
         fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[iid_is] #[buffer(count)] results: *mut *mut void) -> HRESULT;
         fn ResidualQuery(&self, #[incomplete] #[in] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
         fn ResidualOutput(&self, #[in] riid: *const GUID, #[incomplete] #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn UnknownSlot(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[incomplete] result: *mut *mut void) -> HRESULT;
-        fn UnknownEntry(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[incomplete] result: *mut *mut void) -> HRESULT;
-        fn UnknownWritable(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn UnknownSlot(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn UnknownEntry(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn UnknownWritable(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
         fn UnknownWithoutReturnedContract(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
-        fn UnknownResidual(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[incomplete] result: *mut *mut void) -> HRESULT;
-        fn UnknownMixed(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[buffer(2)] result: *mut *mut void) -> HRESULT;
-        fn KnownPointeeCount(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[incomplete] result: *mut *mut void) -> HRESULT;
-        fn ConstSlot(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] result: *const RawObject) -> HRESULT;
-        fn ConstPointee(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] result: *mut ConstObject) -> HRESULT;
+        fn UnknownResidual(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn UnknownMixed(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[buffer(2)] result: *mut *mut void) -> HRESULT;
+        fn KnownPointeeCount(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn ConstSlot(&self, #[in] iid: *const GUID, #[out] #[iid_is] result: *const RawObject) -> HRESULT;
+        fn ConstPointee(&self, #[in] iid: *const GUID, #[out] #[iid_is] result: *mut ConstObject) -> HRESULT;
     }
     #[library("test.dll")]
     extern fn Output(#[in] count: u32, #[out] #[buffer(count)] values: *mut u32) -> HRESULT;
@@ -58,10 +58,6 @@ mod Windows {
             }
             attribute IncompleteAttribute {
                 fn();
-            }
-            attribute ReturnedPointerAttribute {
-                fn();
-                NullOnFailure: bool,
             }
         }
     }

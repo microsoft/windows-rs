@@ -113,7 +113,10 @@ impl ICertEncodeAltName_Vtbl {
                         pnamecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnamecount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -125,7 +128,10 @@ impl ICertEncodeAltName_Vtbl {
                         pnamechoice.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnamechoice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -137,7 +143,10 @@ impl ICertEncodeAltName_Vtbl {
                         pstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -161,7 +170,10 @@ impl ICertEncodeAltName_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -264,7 +276,10 @@ impl ICertEncodeAltName2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -276,7 +291,10 @@ impl ICertEncodeAltName2_Vtbl {
                         pstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -377,7 +395,10 @@ impl ICertEncodeBitString_Vtbl {
                         pbitcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbitcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -389,7 +410,10 @@ impl ICertEncodeBitString_Vtbl {
                         pstrbitstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbitstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -401,7 +425,10 @@ impl ICertEncodeBitString_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -492,7 +519,10 @@ impl ICertEncodeBitString2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -504,7 +534,10 @@ impl ICertEncodeBitString2_Vtbl {
                         pstrbitstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbitstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -649,7 +682,10 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                         pdistpointcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdistpointcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -661,7 +697,10 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                         pnamecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnamecount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -673,7 +712,10 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                         pnamechoice.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnamechoice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -685,7 +727,10 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                         pstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -715,7 +760,10 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -799,7 +847,10 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -910,7 +961,10 @@ impl ICertEncodeDateArray_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -922,7 +976,10 @@ impl ICertEncodeDateArray_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -946,7 +1003,10 @@ impl ICertEncodeDateArray_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1027,7 +1087,10 @@ impl ICertEncodeDateArray2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1138,7 +1201,10 @@ impl ICertEncodeLongArray_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1150,7 +1216,10 @@ impl ICertEncodeLongArray_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1174,7 +1243,10 @@ impl ICertEncodeLongArray_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1255,7 +1327,10 @@ impl ICertEncodeLongArray2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1378,7 +1453,10 @@ impl ICertEncodeStringArray_Vtbl {
                         pstringtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstringtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1390,7 +1468,10 @@ impl ICertEncodeStringArray_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1402,7 +1483,10 @@ impl ICertEncodeStringArray_Vtbl {
                         pstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1426,7 +1510,10 @@ impl ICertEncodeStringArray_Vtbl {
                         pstrbinary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrbinary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1508,7 +1595,10 @@ impl ICertEncodeStringArray2_Vtbl {
                         pstrencodeddata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodeddata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

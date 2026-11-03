@@ -113,7 +113,10 @@ impl IEnumSearchRoots_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -203,7 +206,10 @@ impl IEnumSearchScopeRules_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -765,7 +771,10 @@ impl ISearchCatalogManager_Vtbl {
                         ppvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -819,7 +828,10 @@ impl ISearchCatalogManager_Vtbl {
                         pdwconnecttimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwconnecttimeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -837,7 +849,10 @@ impl ISearchCatalogManager_Vtbl {
                         pdwdatatimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwdatatimeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -849,7 +864,10 @@ impl ISearchCatalogManager_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -873,7 +891,10 @@ impl ISearchCatalogManager_Vtbl {
                         pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -885,7 +906,10 @@ impl ISearchCatalogManager_Vtbl {
                         ppisearchpersistentitemschangedsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppisearchpersistentitemschangedsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -921,7 +945,10 @@ impl ISearchCatalogManager_Vtbl {
                         ppextensions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppextensions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -933,7 +960,10 @@ impl ISearchCatalogManager_Vtbl {
                         ppsearchqueryhelper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsearchqueryhelper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -951,7 +981,10 @@ impl ISearchCatalogManager_Vtbl {
                         pfdiacriticsensitive.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfdiacriticsensitive.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -963,7 +996,10 @@ impl ISearchCatalogManager_Vtbl {
                         ppcrawlscopemanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcrawlscopemanager.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1083,7 +1119,10 @@ impl ISearchCatalogManager3_Vtbl {
                         iscontainssemanticsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iscontainssemanticsupported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1282,7 +1321,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         ppsearchroots.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsearchroots.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1312,7 +1354,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         ppsearchscoperules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsearchscoperules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1324,7 +1369,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         pfhasparentrule.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfhasparentrule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1336,7 +1384,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         pfhaschildrule.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfhaschildrule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1348,7 +1399,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         pfisincluded.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfisincluded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1378,7 +1432,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                         plscopeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plscopeid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1606,7 +1663,10 @@ impl ISearchLanguageSupport_Vtbl {
                         pfdiacriticsensitive.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfdiacriticsensitive.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1794,7 +1854,10 @@ impl ISearchManager_Vtbl {
                         ppvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1830,7 +1893,10 @@ impl ISearchManager_Vtbl {
                         ppcatalogmanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogmanager.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1854,7 +1920,10 @@ impl ISearchManager_Vtbl {
                         puseproxy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        puseproxy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1866,7 +1935,10 @@ impl ISearchManager_Vtbl {
                         pflocalbypass.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pflocalbypass.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1878,7 +1950,10 @@ impl ISearchManager_Vtbl {
                         pdwportnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwportnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1953,7 +2028,10 @@ impl ISearchManager2_Vtbl {
                         ppcatalogmanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogmanager.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2503,7 +2581,10 @@ impl ISearchQueryHelper_Vtbl {
                         plcid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2521,7 +2602,10 @@ impl ISearchQueryHelper_Vtbl {
                         plcid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2539,7 +2623,10 @@ impl ISearchQueryHelper_Vtbl {
                         pexpandterms.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pexpandterms.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2557,7 +2644,10 @@ impl ISearchQueryHelper_Vtbl {
                         pquerysyntax.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pquerysyntax.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2635,7 +2725,10 @@ impl ISearchQueryHelper_Vtbl {
                         pcmaxresults.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcmaxresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2882,7 +2975,10 @@ impl ISearchRoot_Vtbl {
                         pfishierarchical.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfishierarchical.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2900,7 +2996,10 @@ impl ISearchRoot_Vtbl {
                         pfprovidesnotifications.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfprovidesnotifications.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2918,7 +3017,10 @@ impl ISearchRoot_Vtbl {
                         pfusenotificationsonly.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfusenotificationsonly.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2936,7 +3038,10 @@ impl ISearchRoot_Vtbl {
                         pdwdepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwdepth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2954,7 +3059,10 @@ impl ISearchRoot_Vtbl {
                         pdwdepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwdepth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2972,7 +3080,10 @@ impl ISearchRoot_Vtbl {
                         pffollowdirectories.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pffollowdirectories.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2990,7 +3101,10 @@ impl ISearchRoot_Vtbl {
                         pauthtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pauthtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3112,7 +3226,10 @@ impl ISearchScopeRule_Vtbl {
                         pfisincluded.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfisincluded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3124,7 +3241,10 @@ impl ISearchScopeRule_Vtbl {
                         pfisdefault.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfisdefault.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3136,7 +3256,10 @@ impl ISearchScopeRule_Vtbl {
                         pfollowflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfollowflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3411,7 +3534,10 @@ impl IUrlAccessor_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3423,7 +3549,10 @@ impl IUrlAccessor_Vtbl {
                         ppfilter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfilter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

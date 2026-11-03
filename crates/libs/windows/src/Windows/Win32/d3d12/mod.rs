@@ -13805,7 +13805,7 @@ impl ID3D12DeviceTools1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblob.write(core::mem::zeroed());
+                        ppblob.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -17304,7 +17304,7 @@ impl ID3D12PipelineState_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblob.write(core::mem::zeroed());
+                        ppblob.write_bytes(0, 1);
                         err.into()
                     }
                 }

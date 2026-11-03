@@ -1090,7 +1090,10 @@ impl IDCompositionDesktopDevice_Vtbl {
                         target.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        target.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1102,7 +1105,10 @@ impl IDCompositionDesktopDevice_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1114,7 +1120,10 @@ impl IDCompositionDesktopDevice_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1384,7 +1393,10 @@ impl IDCompositionDevice_Vtbl {
                         target.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        target.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1396,7 +1408,10 @@ impl IDCompositionDevice_Vtbl {
                         visual.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visual.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1408,7 +1423,10 @@ impl IDCompositionDevice_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1420,7 +1438,10 @@ impl IDCompositionDevice_Vtbl {
                         virtualsurface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        virtualsurface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1432,7 +1453,10 @@ impl IDCompositionDevice_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1444,7 +1468,10 @@ impl IDCompositionDevice_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1456,7 +1483,10 @@ impl IDCompositionDevice_Vtbl {
                         translatetransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        translatetransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1468,7 +1498,10 @@ impl IDCompositionDevice_Vtbl {
                         scaletransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scaletransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1480,7 +1513,10 @@ impl IDCompositionDevice_Vtbl {
                         rotatetransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rotatetransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1492,7 +1528,10 @@ impl IDCompositionDevice_Vtbl {
                         skewtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        skewtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1504,7 +1543,10 @@ impl IDCompositionDevice_Vtbl {
                         matrixtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1516,7 +1558,10 @@ impl IDCompositionDevice_Vtbl {
                         transformgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transformgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1528,7 +1573,10 @@ impl IDCompositionDevice_Vtbl {
                         translatetransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        translatetransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1540,7 +1588,10 @@ impl IDCompositionDevice_Vtbl {
                         scaletransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scaletransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1552,7 +1603,10 @@ impl IDCompositionDevice_Vtbl {
                         rotatetransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rotatetransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1564,7 +1618,10 @@ impl IDCompositionDevice_Vtbl {
                         matrixtransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1576,7 +1633,10 @@ impl IDCompositionDevice_Vtbl {
                         transform3dgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform3dgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1588,7 +1648,10 @@ impl IDCompositionDevice_Vtbl {
                         effectgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        effectgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1600,7 +1663,10 @@ impl IDCompositionDevice_Vtbl {
                         clip.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clip.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1612,7 +1678,10 @@ impl IDCompositionDevice_Vtbl {
                         animation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        animation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1879,7 +1948,10 @@ impl IDCompositionDevice2_Vtbl {
                         visual.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visual.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1891,7 +1963,10 @@ impl IDCompositionDevice2_Vtbl {
                         surfacefactory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surfacefactory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1903,7 +1978,10 @@ impl IDCompositionDevice2_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1915,7 +1993,10 @@ impl IDCompositionDevice2_Vtbl {
                         virtualsurface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        virtualsurface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1927,7 +2008,10 @@ impl IDCompositionDevice2_Vtbl {
                         translatetransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        translatetransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1939,7 +2023,10 @@ impl IDCompositionDevice2_Vtbl {
                         scaletransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scaletransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1951,7 +2038,10 @@ impl IDCompositionDevice2_Vtbl {
                         rotatetransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rotatetransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1963,7 +2053,10 @@ impl IDCompositionDevice2_Vtbl {
                         skewtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        skewtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1975,7 +2068,10 @@ impl IDCompositionDevice2_Vtbl {
                         matrixtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1987,7 +2083,10 @@ impl IDCompositionDevice2_Vtbl {
                         transformgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transformgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1999,7 +2098,10 @@ impl IDCompositionDevice2_Vtbl {
                         translatetransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        translatetransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2011,7 +2113,10 @@ impl IDCompositionDevice2_Vtbl {
                         scaletransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scaletransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2023,7 +2128,10 @@ impl IDCompositionDevice2_Vtbl {
                         rotatetransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rotatetransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2035,7 +2143,10 @@ impl IDCompositionDevice2_Vtbl {
                         matrixtransform3d.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform3d.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2047,7 +2158,10 @@ impl IDCompositionDevice2_Vtbl {
                         transform3dgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform3dgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2059,7 +2173,10 @@ impl IDCompositionDevice2_Vtbl {
                         effectgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        effectgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2071,7 +2188,10 @@ impl IDCompositionDevice2_Vtbl {
                         clip.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clip.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2083,7 +2203,10 @@ impl IDCompositionDevice2_Vtbl {
                         animation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        animation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2251,7 +2374,10 @@ impl IDCompositionDevice3_Vtbl {
                         gaussianblureffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gaussianblureffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2263,7 +2389,10 @@ impl IDCompositionDevice3_Vtbl {
                         brightnesseffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        brightnesseffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2275,7 +2404,10 @@ impl IDCompositionDevice3_Vtbl {
                         colormatrixeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colormatrixeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2287,7 +2419,10 @@ impl IDCompositionDevice3_Vtbl {
                         shadoweffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        shadoweffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2299,7 +2434,10 @@ impl IDCompositionDevice3_Vtbl {
                         huerotationeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        huerotationeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2311,7 +2449,10 @@ impl IDCompositionDevice3_Vtbl {
                         saturationeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        saturationeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2323,7 +2464,10 @@ impl IDCompositionDevice3_Vtbl {
                         turbulenceeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        turbulenceeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2335,7 +2479,10 @@ impl IDCompositionDevice3_Vtbl {
                         lineartransfereffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lineartransfereffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2347,7 +2494,10 @@ impl IDCompositionDevice3_Vtbl {
                         tabletransfereffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tabletransfereffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2359,7 +2509,10 @@ impl IDCompositionDevice3_Vtbl {
                         compositeeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        compositeeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2371,7 +2524,10 @@ impl IDCompositionDevice3_Vtbl {
                         blendeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blendeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2383,7 +2539,10 @@ impl IDCompositionDevice3_Vtbl {
                         arithmeticcompositeeffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        arithmeticcompositeeffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2395,7 +2554,10 @@ impl IDCompositionDevice3_Vtbl {
                         affinetransform2deffect.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        affinetransform2deffect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2520,7 +2682,10 @@ impl IDCompositionDevice5_Vtbl {
                         compositiondynamictexture.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        compositiondynamictexture.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4909,7 +5074,10 @@ impl IDCompositionSurfaceFactory_Vtbl {
                         surface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        surface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4921,7 +5089,10 @@ impl IDCompositionSurfaceFactory_Vtbl {
                         virtualsurface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        virtualsurface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

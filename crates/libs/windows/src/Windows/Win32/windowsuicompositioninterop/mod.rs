@@ -205,7 +205,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        value.write(core::mem::zeroed());
+                        value.write_bytes(0, 1);
                         err.into()
                     }
                 }

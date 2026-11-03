@@ -14,7 +14,7 @@ mod Windows {
         }
         #[guid(0x659cdeaa_489e_11d9_a9cd_000d56965251)]
         interface IBackgroundCopyFile3: IBackgroundCopyFile2 {
-            fn GetTemporaryName(&self, #[out] #[out_ptr] pFilename: *mut LPWSTR) -> HRESULT;
+            fn GetTemporaryName(&self, #[out] pFilename: *mut LPWSTR) -> HRESULT;
             fn SetValidationState(&self, #[in] state: BOOL) -> HRESULT;
             fn GetValidationState(&self, #[out] pState: *mut BOOL) -> HRESULT;
             fn IsDownloadedFromPeer(&self, #[out] pVal: *mut BOOL) -> HRESULT;
@@ -30,7 +30,7 @@ mod Windows {
         }
         #[guid(0x659cdea2_489e_11d9_a9cd_000d56965251)]
         interface IBitsPeer: IUnknown {
-            fn GetPeerName(&self, #[out] #[out_ptr] pName: *mut LPWSTR) -> HRESULT;
+            fn GetPeerName(&self, #[out] pName: *mut LPWSTR) -> HRESULT;
             fn IsAuthenticated(&self, #[out] pAuth: *mut BOOL) -> HRESULT;
             fn IsAvailable(&self, #[out] pOnline: *mut BOOL) -> HRESULT;
         }
@@ -42,19 +42,19 @@ mod Windows {
             fn SetMaximumContentAge(&self, Seconds: ULONG) -> HRESULT;
             fn GetConfigurationFlags(&self, #[out] pFlags: *mut DWORD) -> HRESULT;
             fn SetConfigurationFlags(&self, Flags: DWORD) -> HRESULT;
-            fn EnumRecords(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
-            fn GetRecord(&self, #[in] id: &GUID, #[out] #[out_ptr] #[retval] ppRecord: *mut IBitsPeerCacheRecord) -> HRESULT;
+            fn EnumRecords(&self, #[out] #[retval] ppEnum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
+            fn GetRecord(&self, #[in] id: &GUID, #[out] #[retval] ppRecord: *mut IBitsPeerCacheRecord) -> HRESULT;
             fn ClearRecords(&self) -> HRESULT;
             fn DeleteRecord(&self, #[in] id: &GUID) -> HRESULT;
             fn DeleteUrl(&self, #[in] url: LPCWSTR) -> HRESULT;
-            fn EnumPeers(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumBitsPeers) -> HRESULT;
+            fn EnumPeers(&self, #[out] #[retval] ppEnum: *mut IEnumBitsPeers) -> HRESULT;
             fn ClearPeers(&self) -> HRESULT;
             fn DiscoverPeers(&self) -> HRESULT;
         }
         #[guid(0x659cdeaf_489e_11d9_a9cd_000d56965251)]
         interface IBitsPeerCacheRecord: IUnknown {
             fn GetId(&self, #[out] pVal: *mut GUID) -> HRESULT;
-            fn GetOriginUrl(&self, #[out] #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
+            fn GetOriginUrl(&self, #[out] pVal: *mut LPWSTR) -> HRESULT;
             fn GetFileSize(&self, #[out] pVal: *mut UINT64) -> HRESULT;
             fn GetFileModificationTime(&self, #[out] pVal: *mut FILETIME) -> HRESULT;
             fn GetLastAccessTime(&self, #[out] pVal: *mut FILETIME) -> HRESULT;
@@ -66,7 +66,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IBitsPeerCacheRecord, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppenum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
             fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
         }
         #[guid(0x659cdea5_489e_11d9_a9cd_000d56965251)]
@@ -74,7 +74,7 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IBitsPeer, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBitsPeers) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppenum: *mut IEnumBitsPeers) -> HRESULT;
             fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
         }
     }

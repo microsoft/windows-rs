@@ -1157,7 +1157,7 @@ mod Windows {
         #[library("HTTPAPI.dll")]
         extern fn HttpIsFeatureSupported(#[in] FeatureId: HTTP_FEATURE_ID) -> BOOL;
         #[library("HTTPAPI.dll")]
-        extern fn HttpPrepareUrl(#[reserved] Reserved: PVOID, #[reserved] Flags: ULONG, #[in] Url: PCWSTR, #[out] #[out_ptr] PreparedUrl: *mut PWSTR) -> ULONG;
+        extern fn HttpPrepareUrl(#[reserved] Reserved: PVOID, #[reserved] Flags: ULONG, #[in] Url: PCWSTR, #[out] PreparedUrl: *mut PWSTR) -> ULONG;
         #[library("HTTPAPI.dll")]
         extern fn HttpQueryRequestProperty(#[in] RequestQueueHandle: HANDLE, #[in] Id: HTTP_OPAQUE_ID, #[in] PropertyId: HTTP_REQUEST_PROPERTY, #[buffer(bytes(QualifierSize))] #[in] #[opt] Qualifier: *const void, #[in] QualifierSize: ULONG, #[buffer(bytes(OutputBufferSize))] #[opt] #[out] Output: PVOID, #[in] OutputBufferSize: ULONG, #[opt] #[out] BytesReturned: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]

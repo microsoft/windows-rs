@@ -424,9 +424,9 @@ mod Windows {
             DataLength: WORD,
         }
         #[library("DNSAPI.dll")]
-        extern fn DnsAcquireContextHandle_A(#[in] CredentialFlags: DWORD, #[in] #[opt] Credentials: PVOID, #[out] #[out_ptr] pContext: PHANDLE) -> DNS_STATUS;
+        extern fn DnsAcquireContextHandle_A(#[in] CredentialFlags: DWORD, #[in] #[opt] Credentials: PVOID, #[out] pContext: PHANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsAcquireContextHandle_W(#[in] CredentialFlags: DWORD, #[in] #[opt] Credentials: PVOID, #[out] #[out_ptr] pContext: PHANDLE) -> DNS_STATUS;
+        extern fn DnsAcquireContextHandle_W(#[in] CredentialFlags: DWORD, #[in] #[opt] Credentials: PVOID, #[out] pContext: PHANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsCancelQuery(#[in] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
@@ -460,9 +460,9 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsExtractRecordsFromMessage_UTF8(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] #[out_ptr] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        extern fn DnsExtractRecordsFromMessage_UTF8(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsExtractRecordsFromMessage_W(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] #[out_ptr] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        extern fn DnsExtractRecordsFromMessage_W(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsFree(#[incomplete] pData: PVOID, #[in] FreeType: DNS_FREE_TYPE);
         #[library("DNSAPI.dll")]
@@ -495,17 +495,17 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsQueryRawResultFree(#[incomplete] queryResults: *mut DNS_QUERY_RAW_RESULT);
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_A(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] #[out_ptr] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_A(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_UTF8(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] #[out_ptr] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_UTF8(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_W(#[in] pszName: PCWSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] #[out_ptr] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_W(#[in] pszName: PCWSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[nullable] #[out] ppQueryResults: *mut PDNS_RECORD, #[nullable] #[opt] #[out] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordCompare(#[in] pRecord1: PDNS_RECORD, #[in] pRecord2: PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordCopyEx(#[in] pRecord: PDNS_RECORD, #[in] CharSetIn: DNS_CHARSET, #[in] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] ppDiff1: *mut PDNS_RECORD, #[nullable] #[opt] #[out] #[out_ptr] ppDiff2: *mut PDNS_RECORD) -> BOOL;
+        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, #[nullable] #[opt] #[out] ppDiff1: *mut PDNS_RECORD, #[nullable] #[opt] #[out] ppDiff2: *mut PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordSetCopyEx(#[in] pRecordSet: PDNS_RECORD, #[in] CharSetIn: DNS_CHARSET, #[in] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]

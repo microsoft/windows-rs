@@ -50,7 +50,10 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
-                Err(err) => err.into(),
+                Err(err) => {
+                    result__.write_bytes(0, 1);
+                    err.into()
+                }
             }
         }
     }
@@ -184,7 +187,10 @@ impl IKeyCredentialCacheConfigurationFactory_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -377,7 +383,10 @@ impl IWebAccount_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -390,7 +399,10 @@ impl IWebAccount_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -402,7 +414,10 @@ impl IWebAccount_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

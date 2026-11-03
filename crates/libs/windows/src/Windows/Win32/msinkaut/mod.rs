@@ -938,7 +938,10 @@ impl IInkCollector_Vtbl {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -956,7 +959,10 @@ impl IInkCollector_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -974,7 +980,10 @@ impl IInkCollector_Vtbl {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -992,7 +1001,10 @@ impl IInkCollector_Vtbl {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentinkrenderer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1010,7 +1022,10 @@ impl IInkCollector_Vtbl {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1028,7 +1043,10 @@ impl IInkCollector_Vtbl {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        autoredraw.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1046,7 +1064,10 @@ impl IInkCollector_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1058,7 +1079,10 @@ impl IInkCollector_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1076,7 +1100,10 @@ impl IInkCollector_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1094,7 +1121,10 @@ impl IInkCollector_Vtbl {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetguids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1112,7 +1142,10 @@ impl IInkCollector_Vtbl {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mouseicon.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1136,7 +1169,10 @@ impl IInkCollector_Vtbl {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mousepointer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1154,7 +1190,10 @@ impl IInkCollector_Vtbl {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cursors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1166,7 +1205,10 @@ impl IInkCollector_Vtbl {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1184,7 +1226,10 @@ impl IInkCollector_Vtbl {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1202,7 +1247,10 @@ impl IInkCollector_Vtbl {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        singletablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1214,7 +1262,10 @@ impl IInkCollector_Vtbl {
                         support.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        support.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1238,7 +1289,10 @@ impl IInkCollector_Vtbl {
                         listening.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listening.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1274,7 +1328,10 @@ impl IInkCollector_Vtbl {
                         listen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1428,7 +1485,10 @@ impl IInkCursor_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1440,7 +1500,10 @@ impl IInkCursor_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1452,7 +1515,10 @@ impl IInkCursor_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1464,7 +1530,10 @@ impl IInkCursor_Vtbl {
                         attributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1482,7 +1551,10 @@ impl IInkCursor_Vtbl {
                         tablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1494,7 +1566,10 @@ impl IInkCursor_Vtbl {
                         buttons.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        buttons.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1573,7 +1648,10 @@ impl IInkCursorButton_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1585,7 +1663,10 @@ impl IInkCursorButton_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1597,7 +1678,10 @@ impl IInkCursorButton_Vtbl {
                         currentstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1676,7 +1760,10 @@ impl IInkCursorButtons_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1688,7 +1775,10 @@ impl IInkCursorButtons_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1700,7 +1790,10 @@ impl IInkCursorButtons_Vtbl {
                         button.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        button.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1775,7 +1868,10 @@ impl IInkCursors_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1787,7 +1883,10 @@ impl IInkCursors_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1799,7 +1898,10 @@ impl IInkCursors_Vtbl {
                         cursor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cursor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1900,7 +2002,10 @@ impl IInkCustomStrokes_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1912,7 +2017,10 @@ impl IInkCustomStrokes_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1924,7 +2032,10 @@ impl IInkCustomStrokes_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2256,7 +2367,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2268,7 +2382,10 @@ impl IInkDisp_Vtbl {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        properties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2280,7 +2397,10 @@ impl IInkDisp_Vtbl {
                         dirty.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dirty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2298,7 +2418,10 @@ impl IInkDisp_Vtbl {
                         ppunkinkcustomstrokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkinkcustomstrokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2310,7 +2433,10 @@ impl IInkDisp_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2334,7 +2460,10 @@ impl IInkDisp_Vtbl {
                         extractedink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        extractedink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2346,7 +2475,10 @@ impl IInkDisp_Vtbl {
                         extractedink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        extractedink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2364,7 +2496,10 @@ impl IInkDisp_Vtbl {
                         newink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2376,7 +2511,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2388,7 +2526,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2400,7 +2541,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2412,7 +2556,10 @@ impl IInkDisp_Vtbl {
                         stroke.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stroke.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2424,7 +2571,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2442,7 +2592,10 @@ impl IInkDisp_Vtbl {
                         data.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        data.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2460,7 +2613,10 @@ impl IInkDisp_Vtbl {
                         stroke.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stroke.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2472,7 +2628,10 @@ impl IInkDisp_Vtbl {
                         dataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2484,7 +2643,10 @@ impl IInkDisp_Vtbl {
                         dataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2496,7 +2658,10 @@ impl IInkDisp_Vtbl {
                         canpaste.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        canpaste.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2508,7 +2673,10 @@ impl IInkDisp_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2738,7 +2906,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currentcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentcolor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2756,7 +2927,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currentwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2774,7 +2948,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currentheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2792,7 +2969,10 @@ impl IInkDrawingAttributes_Vtbl {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2810,7 +2990,10 @@ impl IInkDrawingAttributes_Vtbl {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2828,7 +3011,10 @@ impl IInkDrawingAttributes_Vtbl {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2846,7 +3032,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currenttransparency.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currenttransparency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2864,7 +3053,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currentrasteroperation.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentrasteroperation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2882,7 +3074,10 @@ impl IInkDrawingAttributes_Vtbl {
                         currentpentip.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentpentip.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2900,7 +3095,10 @@ impl IInkDrawingAttributes_Vtbl {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        properties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2912,7 +3110,10 @@ impl IInkDrawingAttributes_Vtbl {
                         drawingattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        drawingattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3046,7 +3247,10 @@ impl IInkExtendedProperties_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3058,7 +3262,10 @@ impl IInkExtendedProperties_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3070,7 +3277,10 @@ impl IInkExtendedProperties_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3082,7 +3292,10 @@ impl IInkExtendedProperties_Vtbl {
                         inkextendedproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        inkextendedproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3106,7 +3319,10 @@ impl IInkExtendedProperties_Vtbl {
                         doespropertyexist.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        doespropertyexist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3190,7 +3406,10 @@ impl IInkExtendedProperty_Vtbl {
                         guid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        guid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3202,7 +3421,10 @@ impl IInkExtendedProperty_Vtbl {
                         data.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        data.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3280,7 +3502,10 @@ impl IInkGesture_Vtbl {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        confidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3292,7 +3517,10 @@ impl IInkGesture_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3939,7 +4167,10 @@ impl IInkOverlay_Vtbl {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3957,7 +4188,10 @@ impl IInkOverlay_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3975,7 +4209,10 @@ impl IInkOverlay_Vtbl {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3993,7 +4230,10 @@ impl IInkOverlay_Vtbl {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentinkrenderer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4011,7 +4251,10 @@ impl IInkOverlay_Vtbl {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4029,7 +4272,10 @@ impl IInkOverlay_Vtbl {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        autoredraw.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4047,7 +4293,10 @@ impl IInkOverlay_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4059,7 +4308,10 @@ impl IInkOverlay_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4077,7 +4329,10 @@ impl IInkOverlay_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4095,7 +4350,10 @@ impl IInkOverlay_Vtbl {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetguids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4113,7 +4371,10 @@ impl IInkOverlay_Vtbl {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mouseicon.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4137,7 +4398,10 @@ impl IInkOverlay_Vtbl {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mousepointer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4155,7 +4419,10 @@ impl IInkOverlay_Vtbl {
                         editingmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        editingmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4173,7 +4440,10 @@ impl IInkOverlay_Vtbl {
                         selection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4191,7 +4461,10 @@ impl IInkOverlay_Vtbl {
                         erasermode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        erasermode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4209,7 +4482,10 @@ impl IInkOverlay_Vtbl {
                         eraserwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eraserwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4227,7 +4503,10 @@ impl IInkOverlay_Vtbl {
                         attachmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4245,7 +4524,10 @@ impl IInkOverlay_Vtbl {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cursors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4257,7 +4539,10 @@ impl IInkOverlay_Vtbl {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4275,7 +4560,10 @@ impl IInkOverlay_Vtbl {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4293,7 +4581,10 @@ impl IInkOverlay_Vtbl {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        singletablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4305,7 +4596,10 @@ impl IInkOverlay_Vtbl {
                         support.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        support.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4323,7 +4617,10 @@ impl IInkOverlay_Vtbl {
                         support.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        support.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4341,7 +4638,10 @@ impl IInkOverlay_Vtbl {
                         selarea.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selarea.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4365,7 +4665,10 @@ impl IInkOverlay_Vtbl {
                         listening.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listening.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4401,7 +4704,10 @@ impl IInkOverlay_Vtbl {
                         listen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5037,7 +5343,10 @@ impl IInkPicture_Vtbl {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5049,7 +5358,10 @@ impl IInkPicture_Vtbl {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5067,7 +5379,10 @@ impl IInkPicture_Vtbl {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentinkrenderer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5085,7 +5400,10 @@ impl IInkPicture_Vtbl {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5103,7 +5421,10 @@ impl IInkPicture_Vtbl {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        autoredraw.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5121,7 +5442,10 @@ impl IInkPicture_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5133,7 +5457,10 @@ impl IInkPicture_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5151,7 +5478,10 @@ impl IInkPicture_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5169,7 +5499,10 @@ impl IInkPicture_Vtbl {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetguids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5187,7 +5520,10 @@ impl IInkPicture_Vtbl {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mouseicon.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5211,7 +5547,10 @@ impl IInkPicture_Vtbl {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mousepointer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5229,7 +5568,10 @@ impl IInkPicture_Vtbl {
                         editingmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        editingmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5247,7 +5589,10 @@ impl IInkPicture_Vtbl {
                         selection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5265,7 +5610,10 @@ impl IInkPicture_Vtbl {
                         erasermode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        erasermode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5283,7 +5631,10 @@ impl IInkPicture_Vtbl {
                         eraserwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eraserwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5313,7 +5664,10 @@ impl IInkPicture_Vtbl {
                         pppicture.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppicture.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5331,7 +5685,10 @@ impl IInkPicture_Vtbl {
                         smsizemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        smsizemode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5349,7 +5706,10 @@ impl IInkPicture_Vtbl {
                         pcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcolor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5361,7 +5721,10 @@ impl IInkPicture_Vtbl {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cursors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5373,7 +5736,10 @@ impl IInkPicture_Vtbl {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5391,7 +5757,10 @@ impl IInkPicture_Vtbl {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        marginy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5409,7 +5778,10 @@ impl IInkPicture_Vtbl {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        singletablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5421,7 +5793,10 @@ impl IInkPicture_Vtbl {
                         support.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        support.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5439,7 +5814,10 @@ impl IInkPicture_Vtbl {
                         support.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        support.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5457,7 +5835,10 @@ impl IInkPicture_Vtbl {
                         selarea.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selarea.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5475,7 +5856,10 @@ impl IInkPicture_Vtbl {
                         listening.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listening.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5511,7 +5895,10 @@ impl IInkPicture_Vtbl {
                         listen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        listen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5529,7 +5916,10 @@ impl IInkPicture_Vtbl {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collecting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5547,7 +5937,10 @@ impl IInkPicture_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5803,7 +6196,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         recostring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recostring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5815,7 +6211,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        confidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5827,7 +6226,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         baseline.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        baseline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5839,7 +6241,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         midline.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        midline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5851,7 +6256,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         ascender.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ascender.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5863,7 +6271,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         descender.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        descender.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5875,7 +6286,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         linenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        linenumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5887,7 +6301,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5899,7 +6316,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         linealternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        linealternates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5911,7 +6331,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         confidencealternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        confidencealternates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5923,7 +6346,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         getstrokesfromstrokeranges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        getstrokesfromstrokeranges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5935,7 +6361,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         getstrokesfromtextrange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        getstrokesfromtextrange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5953,7 +6382,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         alternateswithconstantpropertyvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        alternateswithconstantpropertyvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5965,7 +6397,10 @@ impl IInkRecognitionAlternate_Vtbl {
                         propertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6060,7 +6495,10 @@ impl IInkRecognitionAlternates_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6072,7 +6510,10 @@ impl IInkRecognitionAlternates_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6084,7 +6525,10 @@ impl IInkRecognitionAlternates_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6096,7 +6540,10 @@ impl IInkRecognitionAlternates_Vtbl {
                         inkrecoalternate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        inkrecoalternate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6201,7 +6648,10 @@ impl IInkRecognitionResult_Vtbl {
                         topstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        topstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6213,7 +6663,10 @@ impl IInkRecognitionResult_Vtbl {
                         topalternate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        topalternate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6225,7 +6678,10 @@ impl IInkRecognitionResult_Vtbl {
                         topconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        topconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6237,7 +6693,10 @@ impl IInkRecognitionResult_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6249,7 +6708,10 @@ impl IInkRecognitionResult_Vtbl {
                         alternatesfromselection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        alternatesfromselection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6384,7 +6846,10 @@ impl IInkRecognizer_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6396,7 +6861,10 @@ impl IInkRecognizer_Vtbl {
                         vendor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        vendor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6408,7 +6876,10 @@ impl IInkRecognizer_Vtbl {
                         capabilitiesflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        capabilitiesflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6420,7 +6891,10 @@ impl IInkRecognizer_Vtbl {
                         languages.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        languages.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6432,7 +6906,10 @@ impl IInkRecognizer_Vtbl {
                         supportedproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6444,7 +6921,10 @@ impl IInkRecognizer_Vtbl {
                         preferredpacketdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        preferredpacketdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6456,7 +6936,10 @@ impl IInkRecognizer_Vtbl {
                         context.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        context.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6531,7 +7014,10 @@ impl IInkRecognizer2_Vtbl {
                         pbstrid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6543,7 +7029,10 @@ impl IInkRecognizer2_Vtbl {
                         unicoderanges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        unicoderanges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6766,7 +7255,10 @@ impl IInkRecognizerContext_Vtbl {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6784,7 +7276,10 @@ impl IInkRecognizerContext_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6802,7 +7297,10 @@ impl IInkRecognizerContext_Vtbl {
                         factoid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factoid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6820,7 +7318,10 @@ impl IInkRecognizerContext_Vtbl {
                         recognizerguide.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognizerguide.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6838,7 +7339,10 @@ impl IInkRecognizerContext_Vtbl {
                         prefix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prefix.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6856,7 +7360,10 @@ impl IInkRecognizerContext_Vtbl {
                         suffix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        suffix.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6874,7 +7381,10 @@ impl IInkRecognizerContext_Vtbl {
                         modes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        modes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6892,7 +7402,10 @@ impl IInkRecognizerContext_Vtbl {
                         wordlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wordlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6910,7 +7423,10 @@ impl IInkRecognizerContext_Vtbl {
                         recognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognizer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6922,7 +7438,10 @@ impl IInkRecognizerContext_Vtbl {
                         recognitionresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognitionresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6958,7 +7477,10 @@ impl IInkRecognizerContext_Vtbl {
                         recocontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recocontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6970,7 +7492,10 @@ impl IInkRecognizerContext_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7063,7 +7588,10 @@ impl IInkRecognizerContext2_Vtbl {
                         unicoderanges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        unicoderanges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7211,7 +7739,10 @@ impl IInkRecognizerGuide_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7229,7 +7760,10 @@ impl IInkRecognizerGuide_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7247,7 +7781,10 @@ impl IInkRecognizerGuide_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7265,7 +7802,10 @@ impl IInkRecognizerGuide_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7283,7 +7823,10 @@ impl IInkRecognizerGuide_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7301,7 +7844,10 @@ impl IInkRecognizerGuide_Vtbl {
                         precoguide.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        precoguide.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7399,7 +7945,10 @@ impl IInkRecognizers_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7411,7 +7960,10 @@ impl IInkRecognizers_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7423,7 +7975,10 @@ impl IInkRecognizers_Vtbl {
                         defaultrecognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        defaultrecognizer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7435,7 +7990,10 @@ impl IInkRecognizers_Vtbl {
                         inkrecognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        inkrecognizer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7570,7 +8128,10 @@ impl IInkRectangle_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7588,7 +8149,10 @@ impl IInkRectangle_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7606,7 +8170,10 @@ impl IInkRectangle_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7624,7 +8191,10 @@ impl IInkRectangle_Vtbl {
                         units.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        units.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7642,7 +8212,10 @@ impl IInkRectangle_Vtbl {
                         rect.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rect.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7915,7 +8488,10 @@ impl IInkRenderer_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7927,7 +8503,10 @@ impl IInkRenderer_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8327,7 +8906,10 @@ impl IInkStrokeDisp_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8339,7 +8921,10 @@ impl IInkStrokeDisp_Vtbl {
                         points.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        points.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8351,7 +8936,10 @@ impl IInkStrokeDisp_Vtbl {
                         drawattrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        drawattrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8369,7 +8957,10 @@ impl IInkStrokeDisp_Vtbl {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8381,7 +8972,10 @@ impl IInkStrokeDisp_Vtbl {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        properties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8393,7 +8987,10 @@ impl IInkStrokeDisp_Vtbl {
                         cusps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cusps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8405,7 +9002,10 @@ impl IInkStrokeDisp_Vtbl {
                         cusps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cusps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8417,7 +9017,10 @@ impl IInkStrokeDisp_Vtbl {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        intersections.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8429,7 +9032,10 @@ impl IInkStrokeDisp_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8441,7 +9047,10 @@ impl IInkStrokeDisp_Vtbl {
                         plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plsize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8453,7 +9062,10 @@ impl IInkStrokeDisp_Vtbl {
                         packetdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8465,7 +9077,10 @@ impl IInkStrokeDisp_Vtbl {
                         deleted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        deleted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8477,7 +9092,10 @@ impl IInkStrokeDisp_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8489,7 +9107,10 @@ impl IInkStrokeDisp_Vtbl {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        intersections.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8501,7 +9122,10 @@ impl IInkStrokeDisp_Vtbl {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        intersections.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8519,7 +9143,10 @@ impl IInkStrokeDisp_Vtbl {
                         intersects.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        intersects.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8531,7 +9158,10 @@ impl IInkStrokeDisp_Vtbl {
                         point.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        point.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8543,7 +9173,10 @@ impl IInkStrokeDisp_Vtbl {
                         newstroke.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newstroke.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8561,7 +9194,10 @@ impl IInkStrokeDisp_Vtbl {
                         points.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        points.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8573,7 +9209,10 @@ impl IInkStrokeDisp_Vtbl {
                         numberofpointsset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofpointsset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8585,7 +9224,10 @@ impl IInkStrokeDisp_Vtbl {
                         packetdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8597,7 +9239,10 @@ impl IInkStrokeDisp_Vtbl {
                         packetvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packetvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8609,7 +9254,10 @@ impl IInkStrokeDisp_Vtbl {
                         numberofpacketsset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofpacketsset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8621,7 +9269,10 @@ impl IInkStrokeDisp_Vtbl {
                         flattenedbezierpoints.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flattenedbezierpoints.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8887,7 +9538,10 @@ impl IInkStrokes_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8899,7 +9553,10 @@ impl IInkStrokes_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8911,7 +9568,10 @@ impl IInkStrokes_Vtbl {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8923,7 +9583,10 @@ impl IInkStrokes_Vtbl {
                         recognitionresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognitionresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8935,7 +9598,10 @@ impl IInkStrokes_Vtbl {
                         tostring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tostring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8947,7 +9613,10 @@ impl IInkStrokes_Vtbl {
                         stroke.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stroke.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8989,7 +9658,10 @@ impl IInkStrokes_Vtbl {
                         boundingbox.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        boundingbox.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9154,7 +9826,10 @@ impl IInkTablet_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9166,7 +9841,10 @@ impl IInkTablet_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9178,7 +9856,10 @@ impl IInkTablet_Vtbl {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9190,7 +9871,10 @@ impl IInkTablet_Vtbl {
                         capabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        capabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9202,7 +9886,10 @@ impl IInkTablet_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9270,7 +9957,10 @@ impl IInkTablet2_Vtbl {
                         kind.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        kind.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9340,7 +10030,10 @@ impl IInkTablet3_Vtbl {
                         pismultitouch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pismultitouch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9352,7 +10045,10 @@ impl IInkTablet3_Vtbl {
                         pmaximumcursors.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmaximumcursors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9446,7 +10142,10 @@ impl IInkTablets_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9458,7 +10157,10 @@ impl IInkTablets_Vtbl {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        _newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9470,7 +10172,10 @@ impl IInkTablets_Vtbl {
                         defaulttablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        defaulttablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9482,7 +10187,10 @@ impl IInkTablets_Vtbl {
                         tablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tablet.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9494,7 +10202,10 @@ impl IInkTablets_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9738,7 +10449,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9756,7 +10470,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9774,7 +10491,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9792,7 +10512,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9810,7 +10533,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9828,7 +10554,10 @@ impl IInkTransform_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9846,7 +10575,10 @@ impl IInkTransform_Vtbl {
                         xform.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        xform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

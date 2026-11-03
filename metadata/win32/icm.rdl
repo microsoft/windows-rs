@@ -257,9 +257,9 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn ColorProfileGetDeviceCapabilities(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[in] capsType: WCS_DEVICE_CAPABILITIES_TYPE, #[out] outputCapabilities: PVOID) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDisplayDefault(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[in] profileType: COLORPROFILETYPE, #[in] profileSubType: COLORPROFILESUBTYPE, #[out] #[out_ptr] profileName: *mut LPWSTR) -> HRESULT;
+        extern fn ColorProfileGetDisplayDefault(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[in] profileType: COLORPROFILETYPE, #[in] profileSubType: COLORPROFILESUBTYPE, #[out] profileName: *mut LPWSTR) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDisplayList(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[out] #[out_ptr] profileList: *mut *mut LPWSTR, #[out] profileCount: PDWORD) -> HRESULT;
+        extern fn ColorProfileGetDisplayList(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[out] profileList: *mut *mut LPWSTR, #[out] profileCount: PDWORD) -> HRESULT;
         #[library("mscms.dll")]
         extern fn ColorProfileGetDisplayUserScope(#[in] targetAdapterID: LUID, #[in] sourceID: UINT32, #[out] scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> HRESULT;
         #[library("mscms.dll")]

@@ -166,7 +166,10 @@ impl IWbemEventConsumerProvider_Vtbl {
                         ppconsumer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppconsumer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -383,7 +386,10 @@ impl IWbemEventSink_Vtbl {
                         ppsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

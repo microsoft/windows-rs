@@ -105,7 +105,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmetadataitems.write(core::mem::zeroed());
+                        ppmetadataitems.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -202,7 +202,7 @@ impl IMFSpatialAudioSample_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppaudioobjbuffer.write(core::mem::zeroed());
+                        ppaudioobjbuffer.write_bytes(0, 1);
                         err.into()
                     }
                 }

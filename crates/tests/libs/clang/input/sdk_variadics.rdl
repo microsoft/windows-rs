@@ -184,7 +184,7 @@ mod Fixture {
         fn GetBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[in] riid: &IID) -> HRESULT;
         fn SendReceive(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[opt] #[out] pStatus: *mut ULONG) -> HRESULT;
         fn FreeBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE) -> HRESULT;
-        fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[nullable] #[out] #[out_ptr] ppvDestContext: *mut *mut void) -> HRESULT;
+        fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[nullable] #[out] ppvDestContext: *mut *mut void) -> HRESULT;
         fn IsConnected(&self) -> HRESULT;
     }
     type RPCOLEDATAREP = u32;
@@ -535,7 +535,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

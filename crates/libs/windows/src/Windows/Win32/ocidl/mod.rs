@@ -367,7 +367,10 @@ impl IConnectionPoint_Vtbl {
                         ppcpc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcpc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -391,7 +394,10 @@ impl IConnectionPoint_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -453,7 +459,10 @@ impl IConnectionPointContainer_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -465,7 +474,10 @@ impl IConnectionPointContainer_Vtbl {
                         ppcp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -553,7 +565,10 @@ impl IEnumConnectionPoints_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -643,7 +658,10 @@ impl IEnumConnections_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -733,7 +751,10 @@ impl IEnumOleUndoUnits_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1050,7 +1071,10 @@ impl IFont_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1410,7 +1434,10 @@ impl IOleControlSite_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1512,7 +1539,10 @@ impl IOleInPlaceObjectWindowless_Vtbl {
                         ppdroptarget.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdroptarget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2072,7 +2102,10 @@ impl IOleUndoManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2084,7 +2117,10 @@ impl IOleUndoManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3715,7 +3751,10 @@ impl IPropertyPageSite_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3774,7 +3813,10 @@ impl IProvideClassInfo_Vtbl {
                         ppti.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppti.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

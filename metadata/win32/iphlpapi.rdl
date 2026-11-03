@@ -202,7 +202,7 @@ mod Windows {
         const NET_STRING_NAMED_ADDRESS: i32 = 256;
         const NET_STRING_NAMED_SERVICE: i32 = 512;
         #[library("IPHLPAPI.DLL")]
-        extern fn NhpAllocateAndGetInterfaceInfoFromStack(#[out] #[out_ptr] ppTable: *mut *mut IP_INTERFACE_NAME_INFO, #[out] pdwCount: PDWORD, #[in] bOrder: BOOL, #[in] hHeap: HANDLE, #[in] dwFlags: DWORD) -> DWORD;
+        extern fn NhpAllocateAndGetInterfaceInfoFromStack(#[out] ppTable: *mut *mut IP_INTERFACE_NAME_INFO, #[out] pdwCount: PDWORD, #[in] bOrder: BOOL, #[in] hHeap: HANDLE, #[in] dwFlags: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
         extern fn NotifyAddrChange(#[out] Handle: PHANDLE, #[in] overlapped: LPOVERLAPPED) -> DWORD;
         #[library("IPHLPAPI.DLL")]

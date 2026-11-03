@@ -74,7 +74,10 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -162,7 +165,10 @@ impl IFsrmAction_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -174,7 +180,10 @@ impl IFsrmAction_Vtbl {
                         actiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        actiontype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -186,7 +195,10 @@ impl IFsrmAction_Vtbl {
                         minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minutes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -366,7 +378,10 @@ impl IFsrmActionCommand_Vtbl {
                         executablepath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        executablepath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -384,7 +399,10 @@ impl IFsrmActionCommand_Vtbl {
                         arguments.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        arguments.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -402,7 +420,10 @@ impl IFsrmActionCommand_Vtbl {
                         account.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        account.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -420,7 +441,10 @@ impl IFsrmActionCommand_Vtbl {
                         workingdirectory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        workingdirectory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -438,7 +462,10 @@ impl IFsrmActionCommand_Vtbl {
                         monitorcommand.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        monitorcommand.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -456,7 +483,10 @@ impl IFsrmActionCommand_Vtbl {
                         minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minutes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -474,7 +504,10 @@ impl IFsrmActionCommand_Vtbl {
                         logresults.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        logresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -633,7 +666,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailfrom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailfrom.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -651,7 +687,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailreplyto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailreplyto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -669,7 +708,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -687,7 +729,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailcc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailcc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -705,7 +750,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailbcc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailbcc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -723,7 +771,10 @@ impl IFsrmActionEmail_Vtbl {
                         mailsubject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailsubject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -741,7 +792,10 @@ impl IFsrmActionEmail_Vtbl {
                         messagetext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        messagetext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -822,7 +876,10 @@ impl IFsrmActionEmail2_Vtbl {
                         attachmentfilelistsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachmentfilelistsize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -912,7 +969,10 @@ impl IFsrmActionEventLog_Vtbl {
                         eventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -930,7 +990,10 @@ impl IFsrmActionEventLog_Vtbl {
                         messagetext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        messagetext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1022,7 +1085,10 @@ impl IFsrmActionReport_Vtbl {
                         reporttypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reporttypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1040,7 +1106,10 @@ impl IFsrmActionReport_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1167,7 +1236,10 @@ impl IFsrmCollection_Vtbl {
                         unknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        unknown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1179,7 +1251,10 @@ impl IFsrmCollection_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1191,7 +1266,10 @@ impl IFsrmCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1203,7 +1281,10 @@ impl IFsrmCollection_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1221,7 +1302,10 @@ impl IFsrmCollection_Vtbl {
                         completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        completed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1233,7 +1317,10 @@ impl IFsrmCollection_Vtbl {
                         entry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        entry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1300,7 +1387,10 @@ impl IFsrmCommittableCollection_Vtbl {
                         results.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        results.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1362,7 +1452,10 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                         derivedobjects.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        derivedobjects.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1374,7 +1467,10 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                         results.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        results.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1493,7 +1589,10 @@ impl IFsrmExportImport_Vtbl {
                         filegroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filegroups.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1511,7 +1610,10 @@ impl IFsrmExportImport_Vtbl {
                         templates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        templates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1529,7 +1631,10 @@ impl IFsrmExportImport_Vtbl {
                         templates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        templates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1632,7 +1737,10 @@ impl IFsrmMutableCollection_Vtbl {
                         collection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        collection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1719,7 +1827,10 @@ impl IFsrmObject_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1731,7 +1842,10 @@ impl IFsrmObject_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        description.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1814,7 +1928,10 @@ impl IFsrmPathMapper_Vtbl {
                         sharepaths.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sharepaths.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1967,7 +2084,10 @@ impl IFsrmSetting_Vtbl {
                         smtpserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        smtpserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1985,7 +2105,10 @@ impl IFsrmSetting_Vtbl {
                         mailfrom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailfrom.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2003,7 +2126,10 @@ impl IFsrmSetting_Vtbl {
                         adminemail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        adminemail.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2021,7 +2147,10 @@ impl IFsrmSetting_Vtbl {
                         disablecommandline.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        disablecommandline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2039,7 +2168,10 @@ impl IFsrmSetting_Vtbl {
                         enablescreeningaudit.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enablescreeningaudit.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2069,7 +2201,10 @@ impl IFsrmSetting_Vtbl {
                         delaytimeminutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        delaytimeminutes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

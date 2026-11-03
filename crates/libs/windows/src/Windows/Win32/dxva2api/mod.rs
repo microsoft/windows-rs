@@ -801,7 +801,10 @@ impl IDirectXVideoDecoder_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -944,7 +947,10 @@ impl IDirectXVideoDecoderService_Vtbl {
                         ppdecode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdecode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1094,7 +1100,10 @@ impl IDirectXVideoProcessor_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1286,7 +1295,10 @@ impl IDirectXVideoProcessorService_Vtbl {
                         ppvidprocess.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvidprocess.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

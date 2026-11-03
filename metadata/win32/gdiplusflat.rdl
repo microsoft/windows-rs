@@ -160,7 +160,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipCreateBitmapFromResource(hInstance: HINSTANCE, lpBitmapName: *const WCHAR, bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipCreateBitmapFromScan0(width: INT, height: INT, stride: INT, format: PixelFormat, #[in] #[incomplete] #[opt] scan0: *mut BYTE, #[out] #[out_ptr] bitmap: *mut *mut GpBitmap) -> GpStatus;
+        extern fn GdipCreateBitmapFromScan0(width: INT, height: INT, stride: INT, format: PixelFormat, #[in] #[incomplete] #[opt] scan0: *mut BYTE, #[out] bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipCreateBitmapFromStream(stream: IStream, bitmap: *mut *mut GpBitmap) -> GpStatus;
         #[library("gdiplus.dll")]

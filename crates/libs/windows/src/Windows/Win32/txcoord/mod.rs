@@ -400,7 +400,10 @@ impl ITipHelper_Vtbl {
                         o_ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        o_ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -412,7 +415,10 @@ impl ITipHelper_Vtbl {
                         o_ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        o_ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -693,7 +699,10 @@ impl ITransactionExportFactory_Vtbl {
                         ppexport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppexport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -201,7 +201,10 @@ impl ITextDocument_Vtbl {
                         pname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -213,7 +216,10 @@ impl ITextDocument_Vtbl {
                         ppsel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -225,7 +231,10 @@ impl ITextDocument_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -237,7 +246,10 @@ impl ITextDocument_Vtbl {
                         ppstories.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstories.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -249,7 +261,10 @@ impl ITextDocument_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -267,7 +282,10 @@ impl ITextDocument_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -303,7 +321,10 @@ impl ITextDocument_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -315,7 +336,10 @@ impl ITextDocument_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -339,7 +363,10 @@ impl ITextDocument_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -351,7 +378,10 @@ impl ITextDocument_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -363,7 +393,10 @@ impl ITextDocument_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -375,7 +408,10 @@ impl ITextDocument_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -740,7 +776,10 @@ impl ITextDocument2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -758,7 +797,10 @@ impl ITextDocument2_Vtbl {
                         ppdisplays.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisplays.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -770,7 +812,10 @@ impl ITextDocument2_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -788,7 +833,10 @@ impl ITextDocument2_Vtbl {
                         pppara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -806,7 +854,10 @@ impl ITextDocument2_Vtbl {
                         pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -818,7 +869,10 @@ impl ITextDocument2_Vtbl {
                         pbstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -836,7 +890,10 @@ impl ITextDocument2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -854,7 +911,10 @@ impl ITextDocument2_Vtbl {
                         ppsel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -866,7 +926,10 @@ impl ITextDocument2_Vtbl {
                         ppstories.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstories.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -878,7 +941,10 @@ impl ITextDocument2_Vtbl {
                         poptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        poptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -890,7 +956,10 @@ impl ITextDocument2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -902,7 +971,10 @@ impl ITextDocument2_Vtbl {
                         phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phwnd.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -926,7 +998,10 @@ impl ITextDocument2_Vtbl {
                         ppvoid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvoid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -950,7 +1025,10 @@ impl ITextDocument2_Vtbl {
                         pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -974,7 +1052,10 @@ impl ITextDocument2_Vtbl {
                         ppstrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -992,7 +1073,10 @@ impl ITextDocument2_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1004,7 +1088,10 @@ impl ITextDocument2_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1076,7 +1163,10 @@ impl ITextDocument2_Vtbl {
                         ppstory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1094,7 +1184,10 @@ impl ITextDocument2_Vtbl {
                         ppstory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1106,7 +1199,10 @@ impl ITextDocument2_Vtbl {
                         ppstory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1118,7 +1214,10 @@ impl ITextDocument2_Vtbl {
                         ppstory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1383,7 +1482,10 @@ impl ITextDocument2Old_Vtbl {
                         pcarettype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcarettype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1401,7 +1503,10 @@ impl ITextDocument2Old_Vtbl {
                         pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1425,7 +1530,10 @@ impl ITextDocument2Old_Vtbl {
                         pmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1449,7 +1557,10 @@ impl ITextDocument2Old_Vtbl {
                         ppsel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1509,7 +1620,10 @@ impl ITextDocument2Old_Vtbl {
                         ppitextfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitextfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1521,7 +1635,10 @@ impl ITextDocument2Old_Vtbl {
                         ppitextpara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitextpara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1533,7 +1650,10 @@ impl ITextDocument2Old_Vtbl {
                         ppvoid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvoid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1976,7 +2096,10 @@ impl ITextFont_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1994,7 +2117,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2006,7 +2132,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2024,7 +2153,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2042,7 +2174,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2060,7 +2195,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2078,7 +2216,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2096,7 +2237,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2114,7 +2258,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2132,7 +2279,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2150,7 +2300,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2168,7 +2321,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2186,7 +2342,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2204,7 +2363,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2222,7 +2384,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2240,7 +2405,10 @@ impl ITextFont_Vtbl {
                         pbstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2258,7 +2426,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2276,7 +2447,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2294,7 +2468,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2312,7 +2489,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2330,7 +2510,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2348,7 +2531,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2366,7 +2552,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2384,7 +2573,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2402,7 +2594,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2420,7 +2615,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2438,7 +2636,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2456,7 +2657,10 @@ impl ITextFont_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2867,7 +3071,10 @@ impl ITextFont2_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2879,7 +3086,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2897,7 +3107,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2915,7 +3128,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2933,7 +3149,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2951,7 +3170,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2969,7 +3191,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2987,7 +3212,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3005,7 +3233,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3023,7 +3254,10 @@ impl ITextFont2_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3041,7 +3275,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3053,7 +3290,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3071,7 +3311,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3089,7 +3332,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3107,7 +3353,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3125,7 +3374,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3143,7 +3395,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3161,7 +3416,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3179,7 +3437,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3197,7 +3458,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3227,7 +3491,10 @@ impl ITextFont2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3245,7 +3512,10 @@ impl ITextFont2_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3675,7 +3945,10 @@ impl ITextPara_Vtbl {
                         pppara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3693,7 +3966,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3705,7 +3981,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3723,7 +4002,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3741,7 +4023,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3759,7 +4044,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3777,7 +4065,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3789,7 +4080,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3807,7 +4101,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3825,7 +4122,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3837,7 +4137,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3849,7 +4152,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3861,7 +4167,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3879,7 +4188,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3897,7 +4209,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3915,7 +4230,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3933,7 +4251,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3951,7 +4272,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3969,7 +4293,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3987,7 +4314,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4017,7 +4347,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4035,7 +4368,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4053,7 +4389,10 @@ impl ITextPara_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4071,7 +4410,10 @@ impl ITextPara_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4301,7 +4643,10 @@ impl ITextPara2_Vtbl {
                         ppborders.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppborders.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4313,7 +4658,10 @@ impl ITextPara2_Vtbl {
                         pppara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4331,7 +4679,10 @@ impl ITextPara2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4349,7 +4700,10 @@ impl ITextPara2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4367,7 +4721,10 @@ impl ITextPara2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4385,7 +4742,10 @@ impl ITextPara2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4409,7 +4769,10 @@ impl ITextPara2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4421,7 +4784,10 @@ impl ITextPara2_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4909,7 +5275,10 @@ impl ITextRange_Vtbl {
                         pbstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4927,7 +5296,10 @@ impl ITextRange_Vtbl {
                         pchar.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pchar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4945,7 +5317,10 @@ impl ITextRange_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4957,7 +5332,10 @@ impl ITextRange_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4975,7 +5353,10 @@ impl ITextRange_Vtbl {
                         pcpfirst.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcpfirst.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4993,7 +5374,10 @@ impl ITextRange_Vtbl {
                         pcplim.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcplim.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5011,7 +5395,10 @@ impl ITextRange_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5029,7 +5416,10 @@ impl ITextRange_Vtbl {
                         pppara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5047,7 +5437,10 @@ impl ITextRange_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5059,7 +5452,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5077,7 +5473,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5089,7 +5488,10 @@ impl ITextRange_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5113,7 +5515,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5125,7 +5530,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5137,7 +5545,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5155,7 +5566,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5167,7 +5581,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5179,7 +5596,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5191,7 +5611,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5203,7 +5626,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5215,7 +5641,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5227,7 +5656,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5239,7 +5671,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5251,7 +5686,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5263,7 +5701,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5275,7 +5716,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5287,7 +5731,10 @@ impl ITextRange_Vtbl {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5299,7 +5746,10 @@ impl ITextRange_Vtbl {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5311,7 +5761,10 @@ impl ITextRange_Vtbl {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5323,7 +5776,10 @@ impl ITextRange_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5353,7 +5809,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5365,7 +5824,10 @@ impl ITextRange_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5401,7 +5863,10 @@ impl ITextRange_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5758,7 +6223,10 @@ impl ITextRange2_Vtbl {
                         pcch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5770,7 +6238,10 @@ impl ITextRange2_Vtbl {
                         ppcells.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcells.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5782,7 +6253,10 @@ impl ITextRange2_Vtbl {
                         ppcolumn.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcolumn.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5794,7 +6268,10 @@ impl ITextRange2_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5806,7 +6283,10 @@ impl ITextRange2_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5818,7 +6298,10 @@ impl ITextRange2_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfont.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5836,7 +6319,10 @@ impl ITextRange2_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5854,7 +6340,10 @@ impl ITextRange2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5872,7 +6361,10 @@ impl ITextRange2_Vtbl {
                         pppara.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppara.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5890,7 +6382,10 @@ impl ITextRange2_Vtbl {
                         pprow.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5902,7 +6397,10 @@ impl ITextRange2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5914,7 +6412,10 @@ impl ITextRange2_Vtbl {
                         pptable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5926,7 +6427,10 @@ impl ITextRange2_Vtbl {
                         pbstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6445,7 +6949,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6463,7 +6970,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6481,7 +6991,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6499,7 +7012,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6517,7 +7033,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6535,7 +7054,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6553,7 +7075,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6571,7 +7096,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6589,7 +7117,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6607,7 +7138,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6619,7 +7153,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6637,7 +7174,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6655,7 +7195,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6673,7 +7216,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6691,7 +7237,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6709,7 +7258,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6727,7 +7279,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6745,7 +7300,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6793,7 +7351,10 @@ impl ITextRow_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6817,7 +7378,10 @@ impl ITextRow_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6997,7 +7561,10 @@ impl ITextSelection_Vtbl {
                         pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7015,7 +7582,10 @@ impl ITextSelection_Vtbl {
                         ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7027,7 +7597,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7039,7 +7612,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7051,7 +7627,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7063,7 +7642,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7075,7 +7657,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7087,7 +7672,10 @@ impl ITextSelection_Vtbl {
                         pdelta.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdelta.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7255,7 +7843,10 @@ impl ITextStory_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7273,7 +7864,10 @@ impl ITextStory_Vtbl {
                         ppdisplay.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisplay.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7285,7 +7879,10 @@ impl ITextStory_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7297,7 +7894,10 @@ impl ITextStory_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7321,7 +7921,10 @@ impl ITextStory_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7333,7 +7936,10 @@ impl ITextStory_Vtbl {
                         pbstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7435,7 +8041,10 @@ impl ITextStoryRanges_Vtbl {
                         ppunkenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7447,7 +8056,10 @@ impl ITextStoryRanges_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7459,7 +8071,10 @@ impl ITextStoryRanges_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7518,7 +8133,10 @@ impl ITextStoryRanges2_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7671,7 +8289,10 @@ impl ITextStrings_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7683,7 +8304,10 @@ impl ITextStrings_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

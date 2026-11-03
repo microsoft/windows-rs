@@ -47,15 +47,15 @@ mod Windows {
         }
         #[guid(0xcd51f1e0_7be9_4123_8482_a2a796c0a6b0)]
         interface IBDA_ConditionalAccess: IUnknown {
-            fn get_SmartCardStatus(&self, #[out] pCardStatus: *mut SmartCardStatusType, #[out] pCardAssociation: *mut SmartCardAssociationType, #[out] #[out_ptr] pbstrCardError: *mut BSTR, #[out] pfOOBLocked: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SmartCardInfo(&self, #[out] #[out_ptr] pbstrCardName: *mut BSTR, #[out] #[out_ptr] pbstrCardManufacturer: *mut BSTR, #[out] pfDaylightSavings: *mut VARIANT_BOOL, #[out] pbyRatingRegion: *mut BYTE, #[out] plTimeZoneOffsetMinutes: *mut LONG, #[out] #[out_ptr] pbstrLanguage: *mut BSTR, #[out] pEALocationCode: *mut EALocationCodeType) -> HRESULT;
+            fn get_SmartCardStatus(&self, #[out] pCardStatus: *mut SmartCardStatusType, #[out] pCardAssociation: *mut SmartCardAssociationType, #[out] pbstrCardError: *mut BSTR, #[out] pfOOBLocked: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_SmartCardInfo(&self, #[out] pbstrCardName: *mut BSTR, #[out] pbstrCardManufacturer: *mut BSTR, #[out] pfDaylightSavings: *mut VARIANT_BOOL, #[out] pbyRatingRegion: *mut BYTE, #[out] plTimeZoneOffsetMinutes: *mut LONG, #[out] pbstrLanguage: *mut BSTR, #[out] pEALocationCode: *mut EALocationCodeType) -> HRESULT;
             fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut ULONG, #[in] ulcApplicationsMax: ULONG, #[buffer(ulcApplicationsMax)] #[in] #[out] rgApplications: *mut SmartCardApplication) -> HRESULT;
             fn get_Entitlement(&self, #[in] usVirtualChannel: USHORT, #[out] pEntitlement: *mut EntitlementType) -> HRESULT;
             fn TuneByChannel(&self, #[in] usVirtualChannel: USHORT) -> HRESULT;
             fn SetProgram(&self, #[in] usProgramNumber: USHORT) -> HRESULT;
             fn AddProgram(&self, #[in] usProgramNumber: USHORT) -> HRESULT;
             fn RemoveProgram(&self, #[in] usProgramNumber: USHORT) -> HRESULT;
-            fn GetModuleUI(&self, #[in] byDialogNumber: BYTE, #[out] #[out_ptr] pbstrURL: *mut BSTR) -> HRESULT;
+            fn GetModuleUI(&self, #[in] byDialogNumber: BYTE, #[out] pbstrURL: *mut BSTR) -> HRESULT;
             fn InformUIClosed(&self, #[in] byDialogNumber: BYTE, #[in] CloseReason: UICloseReasonType) -> HRESULT;
         }
         #[guid(0x497c3418_23cb_44ba_bb62_769f506fcea7)]
@@ -69,7 +69,7 @@ mod Windows {
         #[guid(0x1f9bc2a5_44a3_4c52_aab1_0bbce5a1381d)]
         interface IBDA_DRIDRMService: IUnknown {
             fn SetDRM(&self, #[in] bstrNewDrm: BSTR) -> HRESULT;
-            fn GetDRMStatus(&self, #[out] #[out_ptr] pbstrDrmUuidList: *mut BSTR, #[out] DrmUuid: *mut GUID) -> HRESULT;
+            fn GetDRMStatus(&self, #[out] pbstrDrmUuidList: *mut BSTR, #[out] DrmUuid: *mut GUID) -> HRESULT;
             fn GetPairingStatus(&self, #[in] #[out] penumPairingStatus: *mut BDA_DrmPairingError) -> HRESULT;
         }
         #[guid(0x05c690f8_56db_4bb2_b053_79c12098bb26)]
@@ -90,7 +90,7 @@ mod Windows {
         #[guid(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e)]
         interface IBDA_DRMService: IUnknown {
             fn SetDRM(&self, #[in] puuidNewDrm: *mut GUID) -> HRESULT;
-            fn GetDRMStatus(&self, #[out] #[out_ptr] pbstrDrmUuidList: *mut BSTR, #[out] DrmUuid: *mut GUID) -> HRESULT;
+            fn GetDRMStatus(&self, #[out] pbstrDrmUuidList: *mut BSTR, #[out] DrmUuid: *mut GUID) -> HRESULT;
         }
         #[guid(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0)]
         interface IBDA_DeviceControl: IUnknown {
@@ -171,11 +171,11 @@ mod Windows {
         }
         #[guid(0x138adc7e_58ae_437f_b0b4_c9fe19d5b4ac)]
         interface IBDA_FDC: IUnknown {
-            fn GetStatus(&self, #[out] CurrentBitrate: *mut DWORD, #[out] CarrierLock: *mut BOOL, #[out] CurrentFrequency: *mut DWORD, #[out] CurrentSpectrumInversion: *mut BOOL, #[out] #[out_ptr] CurrentPIDList: *mut BSTR, #[out] #[out_ptr] CurrentTIDList: *mut BSTR, #[out] Overflow: *mut BOOL) -> HRESULT;
+            fn GetStatus(&self, #[out] CurrentBitrate: *mut DWORD, #[out] CarrierLock: *mut BOOL, #[out] CurrentFrequency: *mut DWORD, #[out] CurrentSpectrumInversion: *mut BOOL, #[out] CurrentPIDList: *mut BSTR, #[out] CurrentTIDList: *mut BSTR, #[out] Overflow: *mut BOOL) -> HRESULT;
             fn RequestTables(&self, #[in] TableIDs: BSTR) -> HRESULT;
             fn AddPid(&self, #[in] PidsToAdd: BSTR, #[out] RemainingFilterEntries: *mut DWORD) -> HRESULT;
             fn RemovePid(&self, #[in] PidsToRemove: BSTR) -> HRESULT;
-            fn AddTid(&self, #[in] TidsToAdd: BSTR, #[out] #[out_ptr] CurrentTidList: *mut BSTR) -> HRESULT;
+            fn AddTid(&self, #[in] TidsToAdd: BSTR, #[out] CurrentTidList: *mut BSTR) -> HRESULT;
             fn RemoveTid(&self, #[in] TidsToRemove: BSTR) -> HRESULT;
             fn GetTableSection(&self, #[out] Pid: *mut DWORD, #[in] MaxBufferSize: DWORD, #[out] ActualSize: *mut DWORD, #[out] SecBuffer: *mut BYTE) -> HRESULT;
         }
@@ -199,9 +199,9 @@ mod Windows {
             fn GetGuideDataType(&self, #[out] pguidDataType: *mut GUID) -> HRESULT;
             fn GetGuideData(&self, #[in] #[out] pulcbBufferLen: *mut ULONG, #[out] pbBuffer: *mut BYTE, #[out] pulGuideDataPercentageProgress: *mut ULONG) -> HRESULT;
             fn RequestGuideDataUpdate(&self) -> HRESULT;
-            fn GetTuneXmlFromServiceIdx(&self, #[in] ul64ServiceIdx: ULONG64, #[out] #[out_ptr] pbstrTuneXml: *mut BSTR) -> HRESULT;
+            fn GetTuneXmlFromServiceIdx(&self, #[in] ul64ServiceIdx: ULONG64, #[out] pbstrTuneXml: *mut BSTR) -> HRESULT;
             fn GetServices(&self, #[in] #[out] pulcbBufferLen: *mut ULONG, #[out] pbBuffer: *mut BYTE) -> HRESULT;
-            fn GetServiceInfoFromTuneXml(&self, #[in] bstrTuneXml: BSTR, #[out] #[out_ptr] pbstrServiceDescription: *mut BSTR) -> HRESULT;
+            fn GetServiceInfoFromTuneXml(&self, #[in] bstrTuneXml: BSTR, #[out] pbstrServiceDescription: *mut BSTR) -> HRESULT;
         }
         #[guid(0x3f4dc8e2_4050_11d3_8f4b_00c04f7971e2)]
         interface IBDA_IPSinkControl: IUnknown {
@@ -211,8 +211,8 @@ mod Windows {
         #[guid(0xa750108f_492e_4d51_95f7_649b23ff7ad7)]
         interface IBDA_IPSinkInfo: IUnknown {
             fn get_MulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[buffer(*pulcbAddresses)] #[out] ppbAddressList: *mut *mut BYTE) -> HRESULT;
-            fn get_AdapterIPAddress(&self, #[out] #[out_ptr] pbstrBuffer: *mut BSTR) -> HRESULT;
-            fn get_AdapterDescription(&self, #[out] #[out_ptr] pbstrBuffer: *mut BSTR) -> HRESULT;
+            fn get_AdapterIPAddress(&self, #[out] pbstrBuffer: *mut BSTR) -> HRESULT;
+            fn get_AdapterDescription(&self, #[out] pbstrBuffer: *mut BSTR) -> HRESULT;
         }
         #[guid(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0)]
         interface IBDA_IPV4Filter: IUnknown {
@@ -250,8 +250,8 @@ mod Windows {
         }
         #[guid(0x7f0b3150_7b81_4ad4_98e3_7e9097094301)]
         interface IBDA_NameValueService: IUnknown {
-            fn GetValueNameByIndex(&self, #[in] ulIndex: ULONG, #[out] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
-            fn GetValue(&self, #[in] bstrName: BSTR, #[in] bstrLanguage: BSTR, #[out] #[out_ptr] pbstrValue: *mut BSTR) -> HRESULT;
+            fn GetValueNameByIndex(&self, #[in] ulIndex: ULONG, #[out] pbstrName: *mut BSTR) -> HRESULT;
+            fn GetValue(&self, #[in] bstrName: BSTR, #[in] bstrLanguage: BSTR, #[out] pbstrValue: *mut BSTR) -> HRESULT;
             fn SetValue(&self, #[in] ulDialogRequest: ULONG, #[in] bstrLanguage: BSTR, #[in] bstrName: BSTR, #[in] bstrValue: BSTR, #[in] ulReserved: ULONG) -> HRESULT;
         }
         #[guid(0xfd501041_8ebe_11ce_8183_00aa00577da2)]
@@ -371,8 +371,8 @@ mod Windows {
             fn GetEventId(&self, #[out] #[retval] pdwEventId: *mut DWORD) -> HRESULT;
             fn GetEventType(&self, #[out] #[retval] pguidEventType: *mut GUID) -> HRESULT;
             fn SetCompletionStatus(&self, #[in] dwResult: DWORD) -> HRESULT;
-            fn GetData(&self, #[out] #[out_ptr] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetStringData(&self, #[out] #[out_ptr] #[retval] pbstrData: *mut BSTR) -> HRESULT;
+            fn GetData(&self, #[out] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetStringData(&self, #[out] #[retval] pbstrData: *mut BSTR) -> HRESULT;
         }
         #[guid(0xabd414bf_cfe5_4e5e_af5b_4b4e49c5bfeb)]
         interface IESEvents: IUnknown {
@@ -383,7 +383,7 @@ mod Windows {
             fn Next(&self, #[in] cRequest: ULONG, #[buffer(cRequest)] #[in] #[out] pPIDMap: *mut PID_MAP, #[out] pcReceived: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cRecords: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
         interface IFrequencyMap: IUnknown {
@@ -398,7 +398,7 @@ mod Windows {
         interface IMPEG2PIDMap: IUnknown {
             fn MapPID(&self, #[in] culPID: ULONG, #[in] pulPID: *mut ULONG, #[in] MediaSampleContent: MEDIA_SAMPLE_CONTENT) -> HRESULT;
             fn UnmapPID(&self, #[in] culPID: ULONG, #[in] pulPID: *mut ULONG) -> HRESULT;
-            fn EnumPIDMap(&self, #[out] #[out_ptr] #[retval] pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+            fn EnumPIDMap(&self, #[out] #[retval] pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[repr(i32)]
         enum KSPROPERTY_IPSINK {

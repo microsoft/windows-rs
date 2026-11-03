@@ -379,7 +379,10 @@ impl IWbemLevel1Login_Vtbl {
                         ppnamespace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnamespace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -391,7 +394,10 @@ impl IWbemLevel1Login_Vtbl {
                         ppnamespace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnamespace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

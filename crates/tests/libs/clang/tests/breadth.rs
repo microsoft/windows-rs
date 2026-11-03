@@ -452,12 +452,7 @@ fn annotation_normalization_residuals() {
                 count,
                 "{name}"
             );
-            assert_eq!(
-                parameter
-                    .find_attribute("ReturnedPointerAttribute")
-                    .is_some(),
-                name == "NullableResult"
-            );
+            assert!(!parameter.has_attribute("ReturnedPointerAttribute"));
         }
     });
     let mut inputs = [
@@ -809,18 +804,7 @@ fn pointer_parameter_flags() {
                 assert_eq!(parameter.is_optional(), optional, "{name}");
                 if direction == reader::ParamDirection::Output {
                     assert!(parameter.find_attribute("IncompleteAttribute").is_none());
-                    assert_eq!(
-                        parameter
-                            .find_attribute("ReturnedPointerAttribute")
-                            .unwrap()
-                            .value(),
-                        [(
-                            "NullOnFailure".into(),
-                            windows_metadata::Value::Bool(
-                                name.starts_with("_COM_") || name.contains("nullonfailure"),
-                            ),
-                        )]
-                    );
+                    assert!(!parameter.has_attribute("ReturnedPointerAttribute"));
                     assert_eq!(
                         parameter.find_attribute("NullableAttribute").is_some(),
                         name.contains("maybenull") || (version == "1" && name.ends_with("_opt")),

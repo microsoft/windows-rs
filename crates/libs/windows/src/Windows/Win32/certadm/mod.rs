@@ -159,7 +159,10 @@ impl ICertAdmin_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -171,7 +174,10 @@ impl ICertAdmin_Vtbl {
                         preason.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        preason.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -207,7 +213,10 @@ impl ICertAdmin_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -225,7 +234,10 @@ impl ICertAdmin_Vtbl {
                         pstrcrl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrcrl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -237,7 +249,10 @@ impl ICertAdmin_Vtbl {
                         prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prequestid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -421,7 +436,10 @@ impl ICertAdmin2_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -439,7 +457,10 @@ impl ICertAdmin2_Vtbl {
                         ppropflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppropflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -451,7 +472,10 @@ impl ICertAdmin2_Vtbl {
                         pstrdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -463,7 +487,10 @@ impl ICertAdmin2_Vtbl {
                         pstrarchivedkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrarchivedkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -475,7 +502,10 @@ impl ICertAdmin2_Vtbl {
                         pvarentry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarentry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -499,7 +529,10 @@ impl ICertAdmin2_Vtbl {
                         proles.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        proles.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -511,7 +544,10 @@ impl ICertAdmin2_Vtbl {
                         pcdeleted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcdeleted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -659,7 +695,10 @@ impl IOCSPAdmin_Vtbl {
                         ppval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -671,7 +710,10 @@ impl IOCSPAdmin_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -695,7 +737,10 @@ impl IOCSPAdmin_Vtbl {
                         proles.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        proles.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -719,7 +764,10 @@ impl IOCSPAdmin_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -731,7 +779,10 @@ impl IOCSPAdmin_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -743,7 +794,10 @@ impl IOCSPAdmin_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1022,7 +1076,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1034,7 +1091,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1046,7 +1106,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1064,7 +1127,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1082,7 +1148,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1100,7 +1169,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1118,7 +1190,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1130,7 +1205,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1142,7 +1220,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1154,7 +1235,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1172,7 +1256,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1190,7 +1277,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1202,7 +1292,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1220,7 +1313,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1238,7 +1334,10 @@ impl IOCSPCAConfiguration_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1377,7 +1476,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1389,7 +1491,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1401,7 +1506,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1413,7 +1521,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1425,7 +1536,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                         ppval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1526,7 +1640,10 @@ impl IOCSPProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1538,7 +1655,10 @@ impl IOCSPProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1556,7 +1676,10 @@ impl IOCSPProperty_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1690,7 +1813,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         ppval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1702,7 +1828,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1714,7 +1843,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1726,7 +1858,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1738,7 +1873,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         ppval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1762,7 +1900,10 @@ impl IOCSPPropertyCollection_Vtbl {
                         pvarproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

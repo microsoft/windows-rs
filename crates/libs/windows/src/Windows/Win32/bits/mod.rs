@@ -712,7 +712,10 @@ impl IBackgroundCopyError_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1394,7 +1397,10 @@ impl IBackgroundCopyJob_Vtbl {
                         penum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        penum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1460,7 +1466,10 @@ impl IBackgroundCopyJob_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1532,7 +1541,10 @@ impl IBackgroundCopyJob_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2379,7 +2391,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppjob.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2391,7 +2406,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppjob.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2403,7 +2421,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2692,7 +2713,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2704,7 +2728,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         pprecord.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprecord.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2734,7 +2761,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3073,7 +3103,10 @@ impl IEnumBackgroundCopyFiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3179,7 +3212,10 @@ impl IEnumBackgroundCopyJobs_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3285,7 +3321,10 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3391,7 +3430,10 @@ impl IEnumBitsPeers_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -246,7 +246,7 @@ impl IMFVirtualCamera_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmediasource.write(core::mem::zeroed());
+                        ppmediasource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -267,7 +267,7 @@ impl IMFVirtualCamera_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        camerasyncobject.write(core::mem::zeroed());
+                        camerasyncobject.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -282,7 +282,7 @@ impl IMFVirtualCamera_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        camerasyncobject.write(core::mem::zeroed());
+                        camerasyncobject.write_bytes(0, 1);
                         err.into()
                     }
                 }

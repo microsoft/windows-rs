@@ -123,7 +123,10 @@ impl IMFContentDecryptionModule_Vtbl {
                         notify.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        notify.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -141,7 +144,10 @@ impl IMFContentDecryptionModule_Vtbl {
                         session.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        session.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -159,7 +165,10 @@ impl IMFContentDecryptionModule_Vtbl {
                         trustedinput.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        trustedinput.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -241,7 +250,10 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
                         contentdecryptionmodule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        contentdecryptionmodule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -253,7 +265,10 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
                         configuration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        configuration.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

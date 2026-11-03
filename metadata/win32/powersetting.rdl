@@ -17,14 +17,14 @@ mod Windows {
         const EFFECTIVE_POWER_MODE_V1: i32 = 1;
         const EFFECTIVE_POWER_MODE_V2: i32 = 2;
         #[library("POWRPROF.dll")]
-        extern fn PowerGetActiveScheme(#[in] #[opt] UserRootPowerKey: HKEY, #[out] #[out_ptr] ActivePolicyGuid: *mut *mut GUID) -> DWORD;
+        extern fn PowerGetActiveScheme(#[in] #[opt] UserRootPowerKey: HKEY, #[out] ActivePolicyGuid: *mut *mut GUID) -> DWORD;
         #[library("POWRPROF.dll")]
         extern fn PowerReadACValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] Type: PULONG, #[incomplete] #[opt] #[out] Buffer: LPBYTE, #[in] #[opt] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
         extern fn PowerReadDCValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] Type: PULONG, #[buffer(bytes(*BufferSize))] #[opt] #[out] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
         #[must_use]
-        extern fn PowerRegisterForEffectivePowerModeNotifications(#[in] Version: ULONG, #[in] Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[in] #[opt] Context: PVOID, #[out] #[out_ptr] RegistrationHandle: *mut PVOID) -> HRESULT;
+        extern fn PowerRegisterForEffectivePowerModeNotifications(#[in] Version: ULONG, #[in] Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[in] #[opt] Context: PVOID, #[out] RegistrationHandle: *mut PVOID) -> HRESULT;
         #[library("POWRPROF.dll")]
         extern fn PowerSetActiveScheme(#[in] #[opt] UserRootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID) -> DWORD;
         #[library("POWRPROF.dll")]

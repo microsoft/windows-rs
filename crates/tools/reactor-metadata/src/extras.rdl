@@ -7,7 +7,7 @@ mod extras {
     #[guid(0xeecdbf0e_bae9_4cb6_a68e_9598e1cb57bb)]
     interface IWindowNative : Windows::Win32::IUnknown {
         #[special]
-        fn get_WindowHandle(&self, #[out] #[out_ptr] #[retval] hWnd: *mut Windows::Win32::HWND) -> HRESULT;
+        fn get_WindowHandle(&self, #[out] #[retval] hWnd: *mut Windows::Win32::HWND) -> HRESULT;
     }
 
     #[guid(0x63aad0b8_7c24_40ff_85a8_640d944cc325)]
@@ -18,7 +18,7 @@ mod extras {
     #[guid(0xcb833102_d5d1_448b_a31a_52a9509f24e6)]
     interface ISurfaceImageSourceNativeWithD2D : Windows::Win32::IUnknown {
         fn SetDevice(&self, #[in] device: Windows::Win32::IUnknown) -> HRESULT;
-        fn BeginDraw(&self, #[in] updateRect: &Windows::Win32::RECT, #[in] iid: &GUID, #[iid_is] #[out] #[out_ptr(null_on_failure)] updateObject: *mut *mut void, #[out] offset: *mut Windows::Win32::POINT) -> HRESULT;
+        fn BeginDraw(&self, #[in] updateRect: &Windows::Win32::RECT, #[in] iid: &GUID, #[iid_is] #[out] updateObject: *mut *mut void, #[out] offset: *mut Windows::Win32::POINT) -> HRESULT;
         fn EndDraw(&self) -> HRESULT;
         fn SuspendDraw(&self) -> HRESULT;
         fn ResumeDraw(&self) -> HRESULT;

@@ -396,9 +396,9 @@ mod Windows {
         #[library("wer.dll")]
         extern fn WerStoreClose(#[in] #[incomplete] #[opt] hReportStore: HREPORTSTORE);
         #[library("wer.dll")]
-        extern fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] ppszReportKey: *mut PCWSTR) -> HRESULT;
+        extern fn WerStoreGetFirstReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] ppszReportKey: *mut PCWSTR) -> HRESULT;
+        extern fn WerStoreGetNextReportKey(#[in] hReportStore: HREPORTSTORE, #[null_terminated(success, indirect)] #[nullable] #[out] ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerStoreGetReportCount(#[in] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;
         #[library("wer.dll")]

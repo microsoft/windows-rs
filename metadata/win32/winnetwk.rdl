@@ -311,10 +311,10 @@ mod Windows {
         extern fn WNetGetProviderNameW(#[in] dwNetType: DWORD, #[buffer(*lpBufferSize)] #[out] lpProviderName: LPWSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceInformationA(#[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPSTR) -> DWORD;
+        extern fn WNetGetResourceInformationA(#[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] lplpSystem: *mut LPSTR) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceInformationW(#[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPWSTR) -> DWORD;
+        extern fn WNetGetResourceInformationW(#[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] lplpSystem: *mut LPWSTR) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
         extern fn WNetGetResourceParentA(#[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;

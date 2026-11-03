@@ -18,10 +18,10 @@ mod Windows {
         extern fn FilterClose(#[in] hFilter: HFILTER) -> HRESULT;
         #[library("FLTLIB.DLL")]
         #[must_use]
-        extern fn FilterConnectCommunicationPort(#[in] lpPortName: LPCWSTR, #[in] dwOptions: DWORD, #[buffer(bytes(wSizeOfContext))] #[in] #[opt] lpContext: LPCVOID, #[in] wSizeOfContext: WORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] #[out_ptr] hPort: *mut HANDLE) -> HRESULT;
+        extern fn FilterConnectCommunicationPort(#[in] lpPortName: LPCWSTR, #[in] dwOptions: DWORD, #[buffer(bytes(wSizeOfContext))] #[in] #[opt] lpContext: LPCVOID, #[in] wSizeOfContext: WORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] hPort: *mut HANDLE) -> HRESULT;
         #[library("FLTLIB.DLL")]
         #[must_use]
-        extern fn FilterCreate(#[in] lpFilterName: LPCWSTR, #[out] #[out_ptr] hFilter: *mut HFILTER) -> HRESULT;
+        extern fn FilterCreate(#[in] lpFilterName: LPCWSTR, #[out] hFilter: *mut HFILTER) -> HRESULT;
         #[library("FLTLIB.DLL")]
         #[must_use]
         extern fn FilterDetach(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR) -> HRESULT;
@@ -47,7 +47,7 @@ mod Windows {
         extern fn FilterInstanceClose(#[in] hInstance: HFILTER_INSTANCE) -> HRESULT;
         #[library("FLTLIB.DLL")]
         #[must_use]
-        extern fn FilterInstanceCreate(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[out] #[out_ptr] hInstance: *mut HFILTER_INSTANCE) -> HRESULT;
+        extern fn FilterInstanceCreate(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[out] hInstance: *mut HFILTER_INSTANCE) -> HRESULT;
         #[library("FLTLIB.DLL")]
         #[must_use]
         extern fn FilterInstanceFindClose(#[in] hFilterInstanceFind: HANDLE) -> HRESULT;

@@ -1098,7 +1098,7 @@ mod Windows {
         interface ICaptureGraphBuilder2: IUnknown {
             fn SetFiltergraph(&self, #[in] pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, #[out] ppfg: *mut IGraphBuilder) -> HRESULT;
-            fn SetOutputFileName(&self, #[in] pType: *const GUID, #[in] lpstrFile: LPCOLESTR, #[out] #[out_ptr] ppf: *mut IBaseFilter, #[opt] #[out] #[out_ptr] ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn SetOutputFileName(&self, #[in] pType: *const GUID, #[in] lpstrFile: LPCOLESTR, #[out] ppf: *mut IBaseFilter, #[opt] #[out] ppSink: *mut IFileSinkFilter) -> HRESULT;
             fn FindInterface(&self, #[in] #[opt] pCategory: *const GUID, #[in] #[opt] pType: *const GUID, #[in] pf: IBaseFilter, #[in] riid: &IID, #[out] ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[in] #[opt] pCategory: *const GUID, #[in] pType: *const GUID, #[in] pSource: IUnknown, #[in] pfCompressor: IBaseFilter, #[in] pfRenderer: IBaseFilter) -> HRESULT;
             fn ControlStream(&self, #[in] pCategory: *const GUID, #[in] pType: *const GUID, #[in] pFilter: IBaseFilter, #[in] #[opt] pstart: *mut REFERENCE_TIME, #[in] #[opt] pstop: *mut REFERENCE_TIME, #[in] wStartCookie: WORD, #[in] wStopCookie: WORD) -> HRESULT;
@@ -1523,7 +1523,7 @@ mod Windows {
             fn Run(&self, tStart: REFERENCE_TIME) -> HRESULT;
             fn GetState(&self, #[in] dwMilliSecsTimeout: DWORD, #[out] State: *mut FILTER_STATE) -> HRESULT;
             fn SetSyncSource(&self, #[in] #[opt] pClock: IReferenceClock) -> HRESULT;
-            fn GetSyncSource(&self, #[nullable] #[out] #[out_ptr] pClock: *mut IReferenceClock) -> HRESULT;
+            fn GetSyncSource(&self, #[nullable] #[out] pClock: *mut IReferenceClock) -> HRESULT;
         }
         #[guid(0x6025a880_c0d5_11d0_bd4e_00a0c911ce86)]
         interface IMediaPropertyBag: IPropertyBag {
@@ -1555,7 +1555,7 @@ mod Windows {
         }
         #[guid(0x68961e68_832b_41ea_bc91_63593f3e70e3)]
         interface IMediaSample2Config: IUnknown {
-            fn GetSurface(&self, #[out] #[out_ptr] #[retval] ppDirect3DSurface9: *mut IUnknown) -> HRESULT;
+            fn GetSurface(&self, #[out] #[retval] ppDirect3DSurface9: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x36b73880_c2c8_11cf_8b46_00805f6cef60)]
         interface IMediaSeeking: IUnknown {

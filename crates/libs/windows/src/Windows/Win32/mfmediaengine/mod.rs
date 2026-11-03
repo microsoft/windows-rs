@@ -477,7 +477,10 @@ impl IMFMediaEngine_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -531,7 +534,10 @@ impl IMFMediaEngine_Vtbl {
                         ppbuffered.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbuffered.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -621,7 +627,10 @@ impl IMFMediaEngine_Vtbl {
                         ppplayed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplayed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -633,7 +642,10 @@ impl IMFMediaEngine_Vtbl {
                         ppseekable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppseekable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -900,7 +912,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         ppplayer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplayer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -912,7 +927,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         pptimerange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptimerange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -924,7 +942,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -971,7 +992,7 @@ impl IMFMediaEngineClassFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1020,7 +1041,7 @@ impl IMFMediaEngineClassFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeyaccess.write(core::mem::zeroed());
+                        ppkeyaccess.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1138,7 +1159,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmse.write(core::mem::zeroed());
+                        ppmse.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1153,7 +1174,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1915,7 +1936,10 @@ impl IMFMediaEngineExtension_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2401,7 +2425,7 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmse.write(core::mem::zeroed());
+                        ppmse.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2561,7 +2585,7 @@ impl IMFMediaEngineWebSupport_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsourceprovider.write(core::mem::zeroed());
+                        ppsourceprovider.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2732,7 +2756,7 @@ impl IMFMediaKeySession_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        keysystem.write(core::mem::zeroed());
+                        keysystem.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2747,7 +2771,7 @@ impl IMFMediaKeySession_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        sessionid.write(core::mem::zeroed());
+                        sessionid.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3085,7 +3109,7 @@ impl IMFMediaKeySystemAccess_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3100,7 +3124,7 @@ impl IMFMediaKeySystemAccess_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsupportedconfiguration.write(core::mem::zeroed());
+                        ppsupportedconfiguration.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3185,7 +3209,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsession.write(core::mem::zeroed());
+                        ppsession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3200,7 +3224,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        keysystem.write(core::mem::zeroed());
+                        keysystem.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3221,7 +3245,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        notify.write(core::mem::zeroed());
+                        notify.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3300,7 +3324,7 @@ impl IMFMediaKeys2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsession.write(core::mem::zeroed());
+                        ppsession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3447,7 +3471,10 @@ impl IMFMediaSourceExtension_Vtbl {
                         ppsourcebuffer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsourcebuffer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3817,7 +3844,10 @@ impl IMFSourceBuffer_Vtbl {
                         ppbuffered.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbuffered.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4263,7 +4293,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4296,7 +4326,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        tracks.write(core::mem::zeroed());
+                        tracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4311,7 +4341,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        activetracks.write(core::mem::zeroed());
+                        activetracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4326,7 +4356,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        texttracks.write(core::mem::zeroed());
+                        texttracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4341,7 +4371,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatatracks.write(core::mem::zeroed());
+                        metadatatracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4644,7 +4674,7 @@ impl IMFTimedTextCue_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        line.write(core::mem::zeroed());
+                        line.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4770,7 +4800,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4785,7 +4815,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4800,7 +4830,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5741,7 +5771,7 @@ impl IMFTimedTextTrack_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cues.write(core::mem::zeroed());
+                        cues.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5833,7 +5863,7 @@ impl IMFTimedTextTrackList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5848,7 +5878,7 @@ impl IMFTimedTextTrackList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }

@@ -968,7 +968,10 @@ impl IMFVideoPresenter_Vtbl {
                         ppmediatype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediatype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

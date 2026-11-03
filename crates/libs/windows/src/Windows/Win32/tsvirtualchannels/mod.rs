@@ -58,7 +58,10 @@ impl IWTSBitmapRenderService_Vtbl {
                         ppmappedrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmappedrenderer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -212,7 +215,10 @@ impl IWTSListener_Vtbl {
                         pppropertybag.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppropertybag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -256,7 +262,10 @@ impl IWTSListenerCallback_Vtbl {
                         ppcallback.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcallback.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -376,7 +385,10 @@ impl IWTSPluginServiceProvider_Vtbl {
                         ppunkobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -530,7 +542,10 @@ impl IWTSVirtualChannelManager_Vtbl {
                         pplistener.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplistener.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -658,7 +673,10 @@ impl IWTSWindowInfoService_Vtbl {
                         processid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        processid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -670,7 +688,10 @@ impl IWTSWindowInfoService_Vtbl {
                         sessiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sessiontype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

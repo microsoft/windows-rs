@@ -71,7 +71,10 @@ impl ICertExit_Vtbl {
                         peventmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        peventmask.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -89,7 +92,10 @@ impl ICertExit_Vtbl {
                         pstrdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -152,7 +158,10 @@ impl ICertExit2_Vtbl {
                         ppmanagemodule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmanagemodule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

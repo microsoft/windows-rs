@@ -5400,7 +5400,7 @@ impl ID3D11ClassLinkage_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppinstance.write(core::mem::zeroed());
+                        ppinstance.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5415,7 +5415,7 @@ impl ID3D11ClassLinkage_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppinstance.write(core::mem::zeroed());
+                        ppinstance.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6439,7 +6439,7 @@ impl ID3D11Device_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pplinkage.write(core::mem::zeroed());
+                        pplinkage.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10310,7 +10310,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppinputnode.write(core::mem::zeroed());
+                        ppinputnode.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10325,7 +10325,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutputnode.write(core::mem::zeroed());
+                        ppoutputnode.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10340,7 +10340,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppcallnode.write(core::mem::zeroed());
+                        ppcallnode.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10373,7 +10373,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppbuffer.write(core::mem::zeroed());
+                        ppbuffer.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11383,7 +11383,7 @@ impl ID3D11Module_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmoduleinstance.write(core::mem::zeroed());
+                        ppmoduleinstance.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -13423,7 +13423,7 @@ impl ID3D11ShaderTraceFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppshadertrace.write(core::mem::zeroed());
+                        ppshadertrace.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -15878,7 +15878,7 @@ impl ID3D11VideoDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdecoder.write(core::mem::zeroed());
+                        ppdecoder.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -15893,7 +15893,7 @@ impl ID3D11VideoDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppvideoprocessor.write(core::mem::zeroed());
+                        ppvideoprocessor.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -15908,7 +15908,7 @@ impl ID3D11VideoDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppauthenticatedchannel.write(core::mem::zeroed());
+                        ppauthenticatedchannel.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -15923,7 +15923,7 @@ impl ID3D11VideoDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppcryptosession.write(core::mem::zeroed());
+                        ppcryptosession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -15956,7 +15956,7 @@ impl ID3D11VideoDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppenum.write(core::mem::zeroed());
+                        ppenum.write_bytes(0, 1);
                         err.into()
                     }
                 }

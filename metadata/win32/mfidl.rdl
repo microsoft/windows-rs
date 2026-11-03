@@ -36,9 +36,9 @@ mod Windows {
         const CLSID_WMADecMediaObject: GUID = 0x2eeb4adf_4578_4d10_bca7_bb955f56320a;
         const CLSID_WMVDecoderMFT: GUID = 0x82d353df_90bd_4382_8bc2_3f6192b76e34;
         #[library("MF.dll")]
-        extern fn CreateNamedPropertyStore(#[out] #[out_ptr] #[retval] ppStore: *mut INamedPropertyStore) -> HRESULT;
+        extern fn CreateNamedPropertyStore(#[out] #[retval] ppStore: *mut INamedPropertyStore) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn CreatePropertyStore(#[out] #[out_ptr] #[retval] ppStore: *mut IPropertyStore) -> HRESULT;
+        extern fn CreatePropertyStore(#[out] #[retval] ppStore: *mut IPropertyStore) -> HRESULT;
         struct DetectedFaceBound {
             sizeInBytes: DWORD,
             normalizedXPosition: f32,
@@ -53,9 +53,9 @@ mod Windows {
             fn SetGroupingParam(&self, #[in] rguidClass: &GUID) -> HRESULT;
             fn GetGroupingParam(&self, #[out] pguidClass: *mut GUID) -> HRESULT;
             fn SetDisplayName(&self, #[in] pszName: LPCWSTR) -> HRESULT;
-            fn GetDisplayName(&self, #[out] #[out_ptr] pszName: *mut LPWSTR) -> HRESULT;
+            fn GetDisplayName(&self, #[out] pszName: *mut LPWSTR) -> HRESULT;
             fn SetIconPath(&self, #[in] pszPath: LPCWSTR) -> HRESULT;
-            fn GetIconPath(&self, #[out] #[out_ptr] pszPath: *mut LPWSTR) -> HRESULT;
+            fn GetIconPath(&self, #[out] pszPath: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x76b1bbdb_4ec8_4f36_b106_70a9316df593)]
         interface IMFAudioStreamVolume: IUnknown {
@@ -83,8 +83,8 @@ mod Windows {
         }
         #[guid(0xbb420aa4_765b_4a1f_91fe_d6a8a143924c)]
         interface IMFByteStreamHandler: IUnknown {
-            fn BeginCreateObject(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
-            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObject(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
             fn GetMaxNumberOfBytesRequiredForResolution(&self, #[out] pqwBytes: *mut QWORD) -> HRESULT;
         }
@@ -96,7 +96,7 @@ mod Windows {
         }
         #[guid(0xa624f617_4704_4206_8a6d_ebda4a093985)]
         interface IMFCameraConfigurationManager: IUnknown {
-            fn LoadDefaults(&self, #[in] cameraAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] configurations: *mut IMFCameraControlDefaultsCollection) -> HRESULT;
+            fn LoadDefaults(&self, #[in] cameraAttributes: IMFAttributes, #[out] #[retval] configurations: *mut IMFCameraControlDefaultsCollection) -> HRESULT;
             fn SaveDefaults(&self, #[in] configurations: IMFCameraControlDefaultsCollection) -> HRESULT;
             fn Shutdown(&self);
         }
@@ -110,9 +110,9 @@ mod Windows {
         #[guid(0x92d43d0f_54a8_4bae_96da_356d259a5c26)]
         interface IMFCameraControlDefaultsCollection: IMFAttributes {
             fn GetControlCount(&self) -> ULONG;
-            fn GetControl(&self, #[in] index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] configuration: *mut IMFCameraControlDefaults) -> HRESULT;
-            fn GetOrAddExtendedControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] constrolId: ULONG, #[in] streamId: DWORD, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
-            fn GetOrAddControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] controlSet: &GUID, #[in] constrolId: ULONG, #[in] controlSize: ULONG, #[in] dataSize: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetControl(&self, #[in] index: ULONG, #[out] #[retval] configuration: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddExtendedControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] constrolId: ULONG, #[in] streamId: DWORD, #[in] dataSize: ULONG, #[out] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddControl(&self, #[in] configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, #[in] controlSet: &GUID, #[in] constrolId: ULONG, #[in] controlSize: ULONG, #[in] dataSize: ULONG, #[out] #[retval] defaults: *mut IMFCameraControlDefaults) -> HRESULT;
             fn RemoveControl(&self, #[in] controlSet: &GUID, #[in] constrolId: ULONG) -> HRESULT;
             fn RemoveAllControls(&self) -> HRESULT;
         }
@@ -160,7 +160,7 @@ mod Windows {
         #[guid(0x6ef2a662_47c0_4666_b13d_cbb717f2fa2c)]
         interface IMFClockConsumer: IUnknown {
             fn SetPresentationClock(&self, #[in] #[opt] pPresentationClock: IMFPresentationClock) -> HRESULT;
-            fn GetPresentationClock(&self, #[out] #[out_ptr] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+            fn GetPresentationClock(&self, #[out] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
         }
         #[guid(0xf6696e82_74f7_4f3d_a178_8a5e09c3659f)]
         interface IMFClockStateSink: IUnknown {
@@ -196,7 +196,7 @@ mod Windows {
         }
         #[guid(0x20bc074b_7a8d_4609_8c3b_64a0a3b5d7ce)]
         interface IMFDXGIDeviceManagerSource: IUnknown {
-            fn GetManager(&self, #[out] #[out_ptr] #[retval] ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+            fn GetManager(&self, #[out] #[retval] ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         }
         #[guid(0x38e33520_fca1_4845_a27a_68b7c6ab3789)]
         interface IMFExtendedCameraControl: IUnknown {
@@ -209,7 +209,7 @@ mod Windows {
         }
         #[guid(0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc)]
         interface IMFExtendedCameraController: IUnknown {
-            fn GetExtendedCameraControl(&self, #[in] dwStreamIndex: DWORD, #[in] ulPropertyId: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] ppControl: *mut IMFExtendedCameraControl) -> HRESULT;
+            fn GetExtendedCameraControl(&self, #[in] dwStreamIndex: DWORD, #[in] ulPropertyId: ULONG, #[out] #[retval] ppControl: *mut IMFExtendedCameraControl) -> HRESULT;
         }
         #[guid(0x5c595e64_4630_4231_855a_12842f733245)]
         interface IMFExtendedCameraIntrinsicModel: IUnknown {
@@ -223,7 +223,7 @@ mod Windows {
             fn GetBufferSize(&self, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn SerializeToBuffer(&self, #[buffer(bytes(*pdwBufferSize))] #[out] pbBuffer: *mut BYTE, #[in] #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn GetIntrinsicModelCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetIntrinsicModelByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+            fn GetIntrinsicModelByIndex(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
             fn AddIntrinsicModel(&self, #[in] pIntrinsicModel: IMFExtendedCameraIntrinsicModel) -> HRESULT;
         }
         #[guid(0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d)]
@@ -256,7 +256,7 @@ mod Windows {
         }
         #[guid(0xfa993888_4383_415a_a930_dd472a8cf6f7)]
         interface IMFGetService: IUnknown {
-            fn GetService(&self, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetService(&self, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xf779fddf_26e7_4270_8a8b_b983d1859de0)]
         interface IMFHttpDownloadRequest: IUnknown {
@@ -267,8 +267,8 @@ mod Windows {
             fn EndReceiveResponse(&self, #[in] pResult: IMFAsyncResult) -> HRESULT;
             fn BeginReadPayload(&self, #[buffer(cb)] #[out] pb: *mut BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] #[opt] punkState: IUnknown) -> HRESULT;
             fn EndReadPayload(&self, #[in] pResult: IMFAsyncResult, #[out] pqwOffset: *mut QWORD, #[out] pcbRead: *mut ULONG) -> HRESULT;
-            fn QueryHeader(&self, #[in] szHeaderName: LPCWSTR, #[in] dwIndex: DWORD, #[out] #[out_ptr] ppszHeaderValue: *mut LPWSTR) -> HRESULT;
-            fn GetURL(&self, #[out] #[out_ptr] ppszURL: *mut LPWSTR) -> HRESULT;
+            fn QueryHeader(&self, #[in] szHeaderName: LPCWSTR, #[in] dwIndex: DWORD, #[out] ppszHeaderValue: *mut LPWSTR) -> HRESULT;
+            fn GetURL(&self, #[out] ppszURL: *mut LPWSTR) -> HRESULT;
             fn HasNullSourceOrigin(&self, #[out] pfNullSourceOrigin: *mut BOOL) -> HRESULT;
             fn GetTimeSeekResult(&self, #[out] pqwStartTime: *mut QWORD, #[out] pqwStopTime: *mut QWORD, #[out] pqwDuration: *mut QWORD) -> HRESULT;
             fn GetHttpStatus(&self, #[out] pdwHttpStatus: *mut DWORD) -> HRESULT;
@@ -280,18 +280,18 @@ mod Windows {
         #[guid(0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db)]
         interface IMFHttpDownloadSession: IUnknown {
             fn SetServer(&self, #[in] szServerName: LPCWSTR, #[in] nPort: DWORD) -> HRESULT;
-            fn CreateRequest(&self, #[in] szObjectName: LPCWSTR, #[in] fBypassProxyCache: BOOL, #[in] fSecure: BOOL, #[in] #[opt] szVerb: LPCWSTR, #[in] #[opt] szReferrer: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppRequest: *mut IMFHttpDownloadRequest) -> HRESULT;
+            fn CreateRequest(&self, #[in] szObjectName: LPCWSTR, #[in] fBypassProxyCache: BOOL, #[in] fSecure: BOOL, #[in] #[opt] szVerb: LPCWSTR, #[in] #[opt] szReferrer: LPCWSTR, #[out] #[retval] ppRequest: *mut IMFHttpDownloadRequest) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x1b4cf4b9_3a16_4115_839d_03cc5c99df01)]
         interface IMFHttpDownloadSessionProvider: IUnknown {
-            fn CreateHttpDownloadSession(&self, #[in] wszScheme: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppDownloadSession: *mut IMFHttpDownloadSession) -> HRESULT;
+            fn CreateHttpDownloadSession(&self, #[in] wszScheme: LPCWSTR, #[out] #[retval] ppDownloadSession: *mut IMFHttpDownloadSession) -> HRESULT;
         }
         #[guid(0xd19f8e98_b126_4446_890c_5dcb7ad71453)]
         interface IMFInputTrustAuthority: IUnknown {
-            fn GetDecrypter(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn RequestAccess(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[out_ptr] #[retval] ppContentEnablerActivate: *mut IMFActivate) -> HRESULT;
-            fn GetPolicy(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[out_ptr] #[retval] ppPolicy: *mut IMFOutputPolicy) -> HRESULT;
+            fn GetDecrypter(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn RequestAccess(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[retval] ppContentEnablerActivate: *mut IMFActivate) -> HRESULT;
+            fn GetPolicy(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[retval] ppPolicy: *mut IMFOutputPolicy) -> HRESULT;
             fn BindAccess(&self, #[in] pParam: *mut MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> HRESULT;
             fn UpdateAccess(&self, #[in] pParam: *mut MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> HRESULT;
             fn Reset(&self) -> HRESULT;
@@ -309,20 +309,20 @@ mod Windows {
             fn Stop(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
-            fn GetClock(&self, #[out] #[out_ptr] #[retval] ppClock: *mut IMFClock) -> HRESULT;
+            fn GetClock(&self, #[out] #[retval] ppClock: *mut IMFClock) -> HRESULT;
             fn GetSessionCapabilities(&self, #[out] pdwCaps: *mut DWORD) -> HRESULT;
-            fn GetFullTopology(&self, #[in] dwGetFullTopologyFlags: DWORD, #[in] TopoId: TOPOID, #[out] #[out_ptr] #[retval] ppFullTopology: *mut IMFTopology) -> HRESULT;
+            fn GetFullTopology(&self, #[in] dwGetFullTopologyFlags: DWORD, #[in] TopoId: TOPOID, #[out] #[retval] ppFullTopology: *mut IMFTopology) -> HRESULT;
         }
         #[guid(0x6ef2a660_47c0_4666_b13d_cbb717f2fa2c)]
         interface IMFMediaSink: IUnknown {
             fn GetCharacteristics(&self, #[out] pdwCharacteristics: *mut DWORD) -> HRESULT;
-            fn AddStreamSink(&self, #[in] dwStreamSinkIdentifier: DWORD, #[in] #[opt] pMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn AddStreamSink(&self, #[in] dwStreamSinkIdentifier: DWORD, #[in] #[opt] pMediaType: IMFMediaType, #[out] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
             fn RemoveStreamSink(&self, #[in] dwStreamSinkIdentifier: DWORD) -> HRESULT;
             fn GetStreamSinkCount(&self, #[out] pcStreamSinkCount: *mut DWORD) -> HRESULT;
-            fn GetStreamSinkByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
-            fn GetStreamSinkById(&self, #[in] dwStreamSinkIdentifier: DWORD, #[out] #[out_ptr] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn GetStreamSinkByIndex(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn GetStreamSinkById(&self, #[in] dwStreamSinkIdentifier: DWORD, #[out] #[retval] ppStreamSink: *mut IMFStreamSink) -> HRESULT;
             fn SetPresentationClock(&self, #[in] #[opt] pPresentationClock: IMFPresentationClock) -> HRESULT;
-            fn GetPresentationClock(&self, #[out] #[out_ptr] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+            fn GetPresentationClock(&self, #[out] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x5dfd4b2a_7674_4110_a4e6_8a68fd5f3688)]
@@ -332,7 +332,7 @@ mod Windows {
         #[guid(0x279a808d_aec7_40c8_9c6b_a6b492c78a66)]
         interface IMFMediaSource: IMFMediaEventGenerator {
             fn GetCharacteristics(&self, #[out] pdwCharacteristics: *mut DWORD) -> HRESULT;
-            fn CreatePresentationDescriptor(&self, #[out] #[out_ptr] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+            fn CreatePresentationDescriptor(&self, #[out] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
             fn Start(&self, #[in] #[opt] pPresentationDescriptor: IMFPresentationDescriptor, #[in] #[opt] pguidTimeFormat: *const GUID, #[in] #[opt] pvarStartPosition: *const PROPVARIANT) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Pause(&self) -> HRESULT;
@@ -344,8 +344,8 @@ mod Windows {
         }
         #[guid(0x3c9b2eb9_86d5_4514_a394_f56664f9f0d8)]
         interface IMFMediaSourceEx: IMFMediaSource {
-            fn GetSourceAttributes(&self, #[out] #[out_ptr] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetStreamAttributes(&self, #[in] dwStreamIdentifier: DWORD, #[out] #[out_ptr] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetSourceAttributes(&self, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamAttributes(&self, #[in] dwStreamIdentifier: DWORD, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn SetD3DManager(&self, #[in] #[opt] pManager: IUnknown) -> HRESULT;
         }
         #[guid(0x0e1d600a_c9f3_442d_8c51_a42d2d49452f)]
@@ -354,12 +354,12 @@ mod Windows {
         }
         #[guid(0x0e1d6009_c9f3_442d_8c51_a42d2d49452f)]
         interface IMFMediaSourceTopologyProvider: IUnknown {
-            fn GetMediaSourceTopology(&self, #[in] #[opt] pPresentationDescriptor: IMFPresentationDescriptor, #[out] #[out_ptr] #[retval] ppTopology: *mut IMFTopology) -> HRESULT;
+            fn GetMediaSourceTopology(&self, #[in] #[opt] pPresentationDescriptor: IMFPresentationDescriptor, #[out] #[retval] ppTopology: *mut IMFTopology) -> HRESULT;
         }
         #[guid(0xd182108f_4ec6_443f_aa42_a71106ec825f)]
         interface IMFMediaStream: IMFMediaEventGenerator {
-            fn GetMediaSource(&self, #[out] #[out_ptr] #[retval] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
-            fn GetStreamDescriptor(&self, #[out] #[out_ptr] #[retval] ppStreamDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+            fn GetMediaSource(&self, #[out] #[retval] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn GetStreamDescriptor(&self, #[out] #[retval] ppStreamDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
             fn RequestSample(&self, #[in] pToken: IUnknown) -> HRESULT;
         }
         #[guid(0xc5bc37d6_75c7_46a1_a132_81b5f723c20f)]
@@ -373,17 +373,17 @@ mod Windows {
         }
         #[guid(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5)]
         interface IMFMediaTypeHandler: IUnknown {
-            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[nullable] #[opt] #[out] #[out_ptr] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[nullable] #[opt] #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetMediaTypeCount(&self, #[out] pdwTypeCount: *mut DWORD) -> HRESULT;
-            fn GetMediaTypeByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetMediaTypeByIndex(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn SetCurrentMediaType(&self, #[in] pMediaType: IMFMediaType) -> HRESULT;
-            fn GetCurrentMediaType(&self, #[out] #[out_ptr] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetCurrentMediaType(&self, #[out] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetMajorType(&self, #[out] pguidMajorType: *mut GUID) -> HRESULT;
         }
         #[guid(0xf88cfb8c_ef16_4991_b450_cb8c69e51704)]
         interface IMFMetadata: IUnknown {
             fn SetLanguage(&self, #[in] pwszRFC1766: LPCWSTR) -> HRESULT;
-            fn GetLanguage(&self, #[out] #[out_ptr] ppwszRFC1766: *mut LPWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[out] ppwszRFC1766: *mut LPWSTR) -> HRESULT;
             fn GetAllLanguages(&self, #[out] ppvLanguages: *mut PROPVARIANT) -> HRESULT;
             fn SetProperty(&self, #[in] pwszName: LPCWSTR, #[in] ppvValue: *const PROPVARIANT) -> HRESULT;
             fn GetProperty(&self, #[in] pwszName: LPCWSTR, #[out] ppvValue: *mut PROPVARIANT) -> HRESULT;
@@ -392,7 +392,7 @@ mod Windows {
         }
         #[guid(0x56181d2d_e221_4adb_b1c8_3cee6a53f76f)]
         interface IMFMetadataProvider: IUnknown {
-            fn GetMFMetadata(&self, #[in] #[opt] pPresentationDescriptor: IMFPresentationDescriptor, #[in] dwStreamIdentifier: DWORD, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppMFMetadata: *mut IMFMetadata) -> HRESULT;
+            fn GetMFMetadata(&self, #[in] #[opt] pPresentationDescriptor: IMFPresentationDescriptor, #[in] dwStreamIdentifier: DWORD, #[in] dwFlags: DWORD, #[out] #[retval] ppMFMetadata: *mut IMFMetadata) -> HRESULT;
         }
         #[guid(0x5b87ef6a_7ed8_434f_ba0e_184fac1628d1)]
         interface IMFNetCredential: IUnknown {
@@ -404,14 +404,14 @@ mod Windows {
         }
         #[guid(0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1)]
         interface IMFNetCredentialCache: IUnknown {
-            fn GetCredential(&self, #[in] pszUrl: LPCWSTR, #[in] pszRealm: LPCWSTR, #[in] dwAuthenticationFlags: DWORD, #[out] #[out_ptr] ppCred: *mut IMFNetCredential, #[out] pdwRequirementsFlags: *mut DWORD) -> HRESULT;
+            fn GetCredential(&self, #[in] pszUrl: LPCWSTR, #[in] pszRealm: LPCWSTR, #[in] dwAuthenticationFlags: DWORD, #[out] ppCred: *mut IMFNetCredential, #[out] pdwRequirementsFlags: *mut DWORD) -> HRESULT;
             fn SetGood(&self, #[in] pCred: IMFNetCredential, #[in] fGood: BOOL) -> HRESULT;
             fn SetUserOptions(&self, #[in] pCred: IMFNetCredential, #[in] dwOptionsFlags: DWORD) -> HRESULT;
         }
         #[guid(0x5b87ef6b_7ed8_434f_ba0e_184fac1628d1)]
         interface IMFNetCredentialManager: IUnknown {
             fn BeginGetCredentials(&self, #[in] pParam: *mut MFNetCredentialManagerGetParam, #[in] pCallback: IMFAsyncCallback, #[in] pState: IUnknown) -> HRESULT;
-            fn EndGetCredentials(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr] #[retval] ppCred: *mut IMFNetCredential) -> HRESULT;
+            fn EndGetCredentials(&self, #[in] pResult: IMFAsyncResult, #[out] #[retval] ppCred: *mut IMFNetCredential) -> HRESULT;
             fn SetGood(&self, #[in] pCred: IMFNetCredential, #[in] fGood: BOOL) -> HRESULT;
         }
         #[guid(0xbc2b7d44_a72d_49d5_8376_1480dee58b22)]
@@ -430,7 +430,7 @@ mod Windows {
         }
         #[guid(0xe9cd0384_a268_4bb4_82de_658d53574d41)]
         interface IMFNetProxyLocatorFactory: IUnknown {
-            fn CreateProxyLocator(&self, #[in] pszProtocol: LPCWSTR, #[out] #[out_ptr] #[retval] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
+            fn CreateProxyLocator(&self, #[in] pszProtocol: LPCWSTR, #[out] #[retval] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
         }
         #[guid(0x091878a3_bf11_4a5c_bc9f_33995b06ef2d)]
         interface IMFNetResourceFilter: IUnknown {
@@ -450,7 +450,7 @@ mod Windows {
         }
         #[guid(0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c)]
         interface IMFOutputPolicy: IMFAttributes {
-            fn GenerateRequiredSchemas(&self, #[in] dwAttributes: DWORD, #[in] guidOutputSubType: GUID, #[in] rgGuidProtectionSchemasSupported: *mut GUID, #[in] cProtectionSchemasSupported: DWORD, #[out] #[out_ptr] #[retval] ppRequiredProtectionSchemas: *mut IMFCollection) -> HRESULT;
+            fn GenerateRequiredSchemas(&self, #[in] dwAttributes: DWORD, #[in] guidOutputSubType: GUID, #[in] rgGuidProtectionSchemasSupported: *mut GUID, #[in] cProtectionSchemasSupported: DWORD, #[out] #[retval] ppRequiredProtectionSchemas: *mut IMFCollection) -> HRESULT;
             fn GetOriginatorID(&self, #[out] pguidOriginatorID: *mut GUID) -> HRESULT;
             fn GetMinimumGRLVersion(&self, #[out] pdwMinimumGRLVersion: *mut DWORD) -> HRESULT;
         }
@@ -483,18 +483,18 @@ mod Windows {
         interface IMFPMPHostApp: IUnknown {
             fn LockProcess(&self) -> HRESULT;
             fn UnlockProcess(&self) -> HRESULT;
-            fn ActivateClassById(&self, #[in] id: LPCWSTR, #[in] #[opt] pStream: IStream, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateClassById(&self, #[in] id: LPCWSTR, #[in] #[opt] pStream: IStream, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x994e23af_1cc2_493c_b9fa_46f1cb040fa4)]
         interface IMFPMPServer: IUnknown {
             fn LockProcess(&self) -> HRESULT;
             fn UnlockProcess(&self) -> HRESULT;
-            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppObject: *mut *mut void) -> HRESULT;
+            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] riid: &IID, #[iid_is] #[out] ppObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x868ce85c_8ea9_4f55_ab82_b009a910a805)]
         interface IMFPresentationClock: IMFClock {
             fn SetTimeSource(&self, #[in] #[opt] pTimeSource: IMFPresentationTimeSource) -> HRESULT;
-            fn GetTimeSource(&self, #[out] #[out_ptr] #[retval] ppTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
+            fn GetTimeSource(&self, #[out] #[retval] ppTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
             fn GetTime(&self, #[out] phnsClockTime: *mut MFTIME) -> HRESULT;
             fn AddClockStateSink(&self, #[in] #[opt] pStateSink: IMFClockStateSink) -> HRESULT;
             fn RemoveClockStateSink(&self, #[in] #[opt] pStateSink: IMFClockStateSink) -> HRESULT;
@@ -505,14 +505,14 @@ mod Windows {
         #[guid(0x03cb2711_24d7_4db6_a17f_f3a7a479a536)]
         interface IMFPresentationDescriptor: IMFAttributes {
             fn GetStreamDescriptorCount(&self, #[out] pdwDescriptorCount: *mut DWORD) -> HRESULT;
-            fn GetStreamDescriptorByIndex(&self, #[in] dwIndex: DWORD, #[out] pfSelected: *mut BOOL, #[out] #[out_ptr] #[retval] ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+            fn GetStreamDescriptorByIndex(&self, #[in] dwIndex: DWORD, #[out] pfSelected: *mut BOOL, #[out] #[retval] ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
             fn SelectStream(&self, #[in] dwDescriptorIndex: DWORD) -> HRESULT;
             fn DeselectStream(&self, #[in] dwDescriptorIndex: DWORD) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
         }
         #[guid(0x7ff12cce_f76f_41c2_863b_1666c8e5e139)]
         interface IMFPresentationTimeSource: IMFClock {
-            fn GetUnderlyingClock(&self, #[out] #[out_ptr] #[retval] ppClock: *mut IMFClock) -> HRESULT;
+            fn GetUnderlyingClock(&self, #[out] #[retval] ppClock: *mut IMFClock) -> HRESULT;
         }
         #[guid(0xef5dc845_f0d9_4ec9_b00c_cb5183d38434)]
         interface IMFProtectedEnvironmentAccess: IUnknown {
@@ -575,8 +575,8 @@ mod Windows {
         #[guid(0x421af7f6_573e_4ad0_8fda_2e57cedb18c6)]
         interface IMFRelativePanelWatcher: IMFShutdown {
             fn BeginGetReport(&self, #[in] pCallback: IMFAsyncCallback, #[in] #[opt] pState: IUnknown) -> HRESULT;
-            fn EndGetReport(&self, #[in] pResult: IMFAsyncResult, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
-            fn GetReport(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+            fn EndGetReport(&self, #[in] pResult: IMFAsyncResult, #[out] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+            fn GetReport(&self, #[out] #[retval] ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
         }
         #[guid(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a)]
         interface IMFRemoteDesktopPlugin: IUnknown {
@@ -584,15 +584,15 @@ mod Windows {
         }
         #[guid(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4)]
         interface IMFRemoteProxy: IUnknown {
-            fn GetRemoteObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-            fn GetRemoteHost(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn GetRemoteObject(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn GetRemoteHost(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa7e025dd_5303_4a62_89d6_e747e1efac73)]
         interface IMFSAMIStyle: IUnknown {
             fn GetStyleCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetStyles(&self, #[out] pPropVarStyleArray: *mut PROPVARIANT) -> HRESULT;
             fn SetSelectedStyle(&self, #[in] pwszStyle: LPCWSTR) -> HRESULT;
-            fn GetSelectedStyle(&self, #[out] #[out_ptr] ppwszStyle: *mut LPWSTR) -> HRESULT;
+            fn GetSelectedStyle(&self, #[out] ppwszStyle: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x61f7d887_1230_4a8b_aeba_8ad434d1a64d)]
         interface IMFSSLCertificateManager: IUnknown {
@@ -634,8 +634,8 @@ mod Windows {
         }
         #[guid(0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668)]
         interface IMFSchemeHandler: IUnknown {
-            fn BeginCreateObject(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
-            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObject(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
         }
         #[guid(0xd0ae555d_3b12_4d97_b060_0990bc5aeb67)]
@@ -650,8 +650,8 @@ mod Windows {
         #[guid(0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777)]
         interface IMFSensorActivitiesReport: IUnknown {
             fn GetCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
-            fn GetActivityReport(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
-            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated(entry)] SymbolicName: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReport(&self, #[in] Index: ULONG, #[out] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated(entry)] SymbolicName: LPCWSTR, #[out] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
         }
         #[guid(0xde5072ee_dbe3_46dc_8a87_b6f631194751)]
         interface IMFSensorActivitiesReportCallback: IUnknown {
@@ -667,7 +667,7 @@ mod Windows {
             fn GetFriendlyName(&self, #[buffer(cchFriendlyName)] #[null_terminated(success)] #[out] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetProcessCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
-            fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
+            fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[retval] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
         }
         #[guid(0xfb9f48f2_2a18_4e28_9730_786f30f04dc4)]
         interface IMFSensorDevice: IUnknown {
@@ -675,9 +675,9 @@ mod Windows {
             fn GetDeviceType(&self, #[out] pType: *mut MFSensorDeviceType) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
             fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
-            fn GetDeviceAttributes(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetDeviceAttributes(&self, #[nullable] #[out] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamAttributesCount(&self, #[in] eType: MFSensorStreamType, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn SetSensorDeviceMode(&self, #[in] eMode: MFSensorDeviceMode) -> HRESULT;
             fn GetSensorDeviceMode(&self, #[out] peMode: *mut MFSensorDeviceMode) -> HRESULT;
         }
@@ -685,12 +685,12 @@ mod Windows {
         interface IMFSensorGroup: IUnknown {
             fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
-            fn GetSensorGroupAttributes(&self, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetSensorGroupAttributes(&self, #[nullable] #[out] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetSensorDeviceCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetSensorDevice(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppDevice: *mut IMFSensorDevice) -> HRESULT;
+            fn GetSensorDevice(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppDevice: *mut IMFSensorDevice) -> HRESULT;
             fn SetDefaultSensorDeviceIndex(&self, #[in] dwIndex: DWORD) -> HRESULT;
             fn GetDefaultSensorDeviceIndex(&self, #[out] pdwIndex: *mut DWORD) -> HRESULT;
-            fn CreateMediaSource(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppSource: *mut IMFMediaSource) -> HRESULT;
+            fn CreateMediaSource(&self, #[out] #[retval] ppSource: *mut IMFMediaSource) -> HRESULT;
         }
         #[guid(0x39dc7f4a_b141_4719_813c_a7f46162a2b8)]
         interface IMFSensorProcessActivity: IUnknown {
@@ -709,25 +709,25 @@ mod Windows {
         #[guid(0xc95ea55b_0187_48be_9353_8d2507662351)]
         interface IMFSensorProfileCollection: IUnknown {
             fn GetProfileCount(&self) -> DWORD;
-            fn GetProfile(&self, #[in] Index: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn GetProfile(&self, #[in] Index: DWORD, #[out] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
             fn AddProfile(&self, #[in] pProfile: IMFSensorProfile) -> HRESULT;
-            fn FindProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn FindProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID, #[out] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
             fn RemoveProfileByIndex(&self, #[in] Index: DWORD);
             fn RemoveProfile(&self, #[in] ProfileId: *mut SENSORPROFILEID);
         }
         #[guid(0xe9a42171_c56e_498a_8b39_eda5a070b7fc)]
         interface IMFSensorStream: IMFAttributes {
             fn GetMediaTypeCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetMediaType(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn CloneSensorStream(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
+            fn GetMediaType(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn CloneSensorStream(&self, #[out] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
         }
         #[guid(0xeed9c2ee_66b4_4f18_a697_ac7d3960215c)]
         interface IMFSensorTransformFactory: IUnknown {
-            fn GetFactoryAttributes(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetFactoryAttributes(&self, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn InitializeFactory(&self, #[in] dwMaxTransformCount: DWORD, #[in] pSensorDevices: IMFCollection, #[in] #[opt] pAttributes: IMFAttributes) -> HRESULT;
             fn GetTransformCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
-            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[nullable] #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppStreamInformation: *mut IMFCollection) -> HRESULT;
-            fn CreateTransform(&self, #[in] guidSensorTransformID: &GUID, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[out_ptr(null_on_failure)] #[retval] ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
+            fn GetTransformInformation(&self, #[in] TransformIndex: DWORD, #[out] pguidTransformId: *mut GUID, #[nullable] #[out] ppAttributes: *mut IMFAttributes, #[out] #[retval] ppStreamInformation: *mut IMFCollection) -> HRESULT;
+            fn CreateTransform(&self, #[in] guidSensorTransformID: &GUID, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[retval] ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
         }
         #[guid(0x197cd219_19cb_4de1_a64c_acf2edcbe59e)]
         interface IMFSequencerSource: IUnknown {
@@ -744,7 +744,7 @@ mod Windows {
         }
         #[guid(0x4a724bca_ff6a_4c07_8e0d_7a358421cf06)]
         interface IMFSignedLibrary: IUnknown {
-            fn GetProcedureAddress(&self, #[in] name: LPCSTR, #[out] #[out_ptr] address: *mut PVOID) -> HRESULT;
+            fn GetProcedureAddress(&self, #[in] name: LPCSTR, #[out] address: *mut PVOID) -> HRESULT;
         }
         #[guid(0x089edf13_cf71_4338_8d13_9e569dbdc319)]
         interface IMFSimpleAudioVolume: IUnknown {
@@ -759,24 +759,24 @@ mod Windows {
         }
         #[guid(0xfbe5a32d_a497_4b61_bb85_97b1a848a6e3)]
         interface IMFSourceResolver: IUnknown {
-            fn CreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
-            fn CreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
-            fn BeginCreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
-            fn EndCreateObjectFromURL(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
-            fn BeginCreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
-            fn EndCreateObjectFromByteStream(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn CreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn CreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndCreateObjectFromURL(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndCreateObjectFromByteStream(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
         }
         #[guid(0x56c03d9c_9dbb_45f5_ab4b_d80f47c05938)]
         interface IMFStreamDescriptor: IMFAttributes {
             fn GetStreamIdentifier(&self, #[out] pdwStreamIdentifier: *mut DWORD) -> HRESULT;
-            fn GetMediaTypeHandler(&self, #[out] #[out_ptr] #[retval] ppMediaTypeHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+            fn GetMediaTypeHandler(&self, #[out] #[retval] ppMediaTypeHandler: *mut IMFMediaTypeHandler) -> HRESULT;
         }
         #[guid(0x0a97b3cf_8e7c_4a3d_8f8c_0c843dc247fb)]
         interface IMFStreamSink: IMFMediaEventGenerator {
-            fn GetMediaSink(&self, #[out] #[out_ptr] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+            fn GetMediaSink(&self, #[out] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
             fn GetIdentifier(&self, #[out] pdwIdentifier: *mut DWORD) -> HRESULT;
-            fn GetMediaTypeHandler(&self, #[out] #[out_ptr] #[retval] ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+            fn GetMediaTypeHandler(&self, #[out] #[retval] ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
             fn ProcessSample(&self, #[in] #[opt] pSample: IMFSample) -> HRESULT;
             fn PlaceMarker(&self, #[in] eMarkerType: MFSTREAMSINK_MARKER_TYPE, #[in] pvarMarkerValue: *const PROPVARIANT, #[in] pvarContextValue: *const PROPVARIANT) -> HRESULT;
             fn Flush(&self) -> HRESULT;
@@ -804,7 +804,7 @@ mod Windows {
         }
         #[guid(0xde9a6157_f660_4643_b56a_df9f7998c7cd)]
         interface IMFTopoLoader: IUnknown {
-            fn Load(&self, #[in] pInputTopo: IMFTopology, #[out] #[out_ptr] ppOutputTopo: *mut IMFTopology, #[in] pCurrentTopo: IMFTopology) -> HRESULT;
+            fn Load(&self, #[in] pInputTopo: IMFTopology, #[out] ppOutputTopo: *mut IMFTopology, #[in] pCurrentTopo: IMFTopology) -> HRESULT;
         }
         #[guid(0x83cf873a_f6da_4bc8_823f_bacfd55dc433)]
         interface IMFTopology: IMFAttributes {
@@ -812,17 +812,17 @@ mod Windows {
             fn AddNode(&self, #[in] pNode: IMFTopologyNode) -> HRESULT;
             fn RemoveNode(&self, #[in] pNode: IMFTopologyNode) -> HRESULT;
             fn GetNodeCount(&self, #[out] pwNodes: *mut WORD) -> HRESULT;
-            fn GetNode(&self, #[in] wIndex: WORD, #[out] #[out_ptr] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
+            fn GetNode(&self, #[in] wIndex: WORD, #[out] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             fn CloneFrom(&self, #[in] #[opt] pTopology: IMFTopology) -> HRESULT;
-            fn GetNodeByID(&self, #[in] qwTopoNodeID: TOPOID, #[out] #[out_ptr] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
-            fn GetSourceNodeCollection(&self, #[out] #[out_ptr] #[retval] ppCollection: *mut IMFCollection) -> HRESULT;
-            fn GetOutputNodeCollection(&self, #[out] #[out_ptr] #[retval] ppCollection: *mut IMFCollection) -> HRESULT;
+            fn GetNodeByID(&self, #[in] qwTopoNodeID: TOPOID, #[out] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
+            fn GetSourceNodeCollection(&self, #[out] #[retval] ppCollection: *mut IMFCollection) -> HRESULT;
+            fn GetOutputNodeCollection(&self, #[out] #[retval] ppCollection: *mut IMFCollection) -> HRESULT;
         }
         #[guid(0x83cf873a_f6da_4bc8_823f_bacfd55dc430)]
         interface IMFTopologyNode: IMFAttributes {
             fn SetObject(&self, #[in] #[opt] pObject: IUnknown) -> HRESULT;
-            fn GetObject(&self, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn GetObject(&self, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
             fn GetNodeType(&self, #[out] pType: *mut MF_TOPOLOGY_TYPE) -> HRESULT;
             fn GetTopoNodeID(&self, #[out] pID: *mut TOPOID) -> HRESULT;
             fn SetTopoNodeID(&self, #[in] ullTopoID: TOPOID) -> HRESULT;
@@ -830,12 +830,12 @@ mod Windows {
             fn GetOutputCount(&self, #[out] pcOutputs: *mut DWORD) -> HRESULT;
             fn ConnectOutput(&self, #[in] dwOutputIndex: DWORD, #[in] pDownstreamNode: IMFTopologyNode, #[in] dwInputIndexOnDownstreamNode: DWORD) -> HRESULT;
             fn DisconnectOutput(&self, #[in] dwOutputIndex: DWORD) -> HRESULT;
-            fn GetInput(&self, #[in] dwInputIndex: DWORD, #[out] #[out_ptr] ppUpstreamNode: *mut IMFTopologyNode, #[out] pdwOutputIndexOnUpstreamNode: *mut DWORD) -> HRESULT;
-            fn GetOutput(&self, #[in] dwOutputIndex: DWORD, #[out] #[out_ptr] ppDownstreamNode: *mut IMFTopologyNode, #[out] pdwInputIndexOnDownstreamNode: *mut DWORD) -> HRESULT;
+            fn GetInput(&self, #[in] dwInputIndex: DWORD, #[out] ppUpstreamNode: *mut IMFTopologyNode, #[out] pdwOutputIndexOnUpstreamNode: *mut DWORD) -> HRESULT;
+            fn GetOutput(&self, #[in] dwOutputIndex: DWORD, #[out] ppDownstreamNode: *mut IMFTopologyNode, #[out] pdwInputIndexOnDownstreamNode: *mut DWORD) -> HRESULT;
             fn SetOutputPrefType(&self, #[in] dwOutputIndex: DWORD, #[in] pType: IMFMediaType) -> HRESULT;
-            fn GetOutputPrefType(&self, #[in] dwOutputIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputPrefType(&self, #[in] dwOutputIndex: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn SetInputPrefType(&self, #[in] dwInputIndex: DWORD, #[in] pType: IMFMediaType) -> HRESULT;
-            fn GetInputPrefType(&self, #[in] dwInputIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputPrefType(&self, #[in] dwInputIndex: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn CloneFrom(&self, #[in] #[opt] pNode: IMFTopologyNode) -> HRESULT;
         }
         #[guid(0x676aa6dd_238a_410d_bb99_65668d01605a)]
@@ -849,11 +849,11 @@ mod Windows {
         #[guid(0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e)]
         interface IMFTranscodeProfile: IUnknown {
             fn SetAudioAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetAudioAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetAudioAttributes(&self, #[nullable] #[out] ppAttrs: *mut IMFAttributes) -> HRESULT;
             fn SetVideoAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetVideoAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetVideoAttributes(&self, #[nullable] #[out] ppAttrs: *mut IMFAttributes) -> HRESULT;
             fn SetContainerAttributes(&self, #[in] #[opt] pAttrs: IMFAttributes) -> HRESULT;
-            fn GetContainerAttributes(&self, #[nullable] #[out] #[out_ptr] ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn GetContainerAttributes(&self, #[nullable] #[out] ppAttrs: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e)]
         interface IMFTranscodeSinkInfoProvider: IUnknown {
@@ -864,12 +864,12 @@ mod Windows {
         }
         #[guid(0x542612c4_a1b8_4632_b521_de11ea64a0b0)]
         interface IMFTrustedInput: IUnknown {
-            fn GetInputTrustAuthority(&self, #[in] dwStreamID: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
+            fn GetInputTrustAuthority(&self, #[in] dwStreamID: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppunkObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xd19f8e95_b126_4446_890c_5dcb7ad71453)]
         interface IMFTrustedOutput: IUnknown {
             fn GetOutputTrustAuthorityCount(&self, #[out] pcOutputTrustAuthorities: *mut DWORD) -> HRESULT;
-            fn GetOutputTrustAuthorityByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppauthority: *mut IMFOutputTrustAuthority) -> HRESULT;
+            fn GetOutputTrustAuthorityByIndex(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppauthority: *mut IMFOutputTrustAuthority) -> HRESULT;
             fn IsFinal(&self, #[out] pfIsFinal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x725b77c7_ca9f_4fe5_9d72_9946bf9b3c70)]
@@ -893,7 +893,7 @@ mod Windows {
         }
         #[guid(0x2424b3f2_eb23_40f1_91aa_74bddeea0883)]
         interface IMFVideoProcessorControl3: IMFVideoProcessorControl2 {
-            fn GetNaturalOutputType(&self, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetNaturalOutputType(&self, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn EnableSphericalVideoProcessing(&self, #[in] fEnable: BOOL, #[in] eFormat: MFVideoSphericalFormat, #[in] eProjectionMode: MFVideoSphericalProjectionMode) -> HRESULT;
             fn SetSphericalVideoProperties(&self, #[in] X: f32, #[in] Y: f32, #[in] Z: f32, #[in] W: f32, #[in] fieldOfView: f32) -> HRESULT;
             fn SetOutputDevice(&self, #[in] pOutputDevice: IUnknown) -> HRESULT;
@@ -1083,127 +1083,127 @@ mod Windows {
             MFCameraOcclusionState_OccludedByCameraHardware = 2,
         }
         #[library("MF.dll")]
-        extern fn MFCreate3GPMediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreate3GPMediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateAC3MediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateAC3MediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateADTSMediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateADTSMediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("mfsrcsnk.dll")]
-        extern fn MFCreateAVIMediaSink(#[in] pIByteStream: IMFByteStream, #[in] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateAVIMediaSink(#[in] pIByteStream: IMFByteStream, #[in] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateAggregateSource(#[in] pSourceCollection: IMFCollection, #[out] #[out_ptr] #[retval] ppAggSource: *mut IMFMediaSource) -> HRESULT;
+        extern fn MFCreateAggregateSource(#[in] pSourceCollection: IMFCollection, #[out] #[retval] ppAggSource: *mut IMFMediaSource) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateAudioRenderer(pAudioAttributes: IMFAttributes, #[out] #[out_ptr] #[retval] ppSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateAudioRenderer(pAudioAttributes: IMFAttributes, #[out] #[retval] ppSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateAudioRendererActivate(#[out] #[out_ptr] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreateAudioRendererActivate(#[out] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[out_ptr(null_on_failure)] #[retval] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
+        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[retval] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[out_ptr(null_on_failure)] #[retval] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
+        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[retval] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateContentDecryptorContext(#[in] guidMediaProtectionSystemId: &GUID, #[in] #[opt] pD3DManager: IMFDXGIDeviceManager, #[in] pContentProtectionDevice: IMFContentProtectionDevice, #[out] #[out_ptr] #[retval] ppContentDecryptorContext: *mut IMFContentDecryptorContext) -> HRESULT;
+        extern fn MFCreateContentDecryptorContext(#[in] guidMediaProtectionSystemId: &GUID, #[in] #[opt] pD3DManager: IMFDXGIDeviceManager, #[in] pContentProtectionDevice: IMFContentProtectionDevice, #[out] #[retval] ppContentDecryptorContext: *mut IMFContentDecryptorContext) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateContentProtectionDevice(#[in] ProtectionSystemId: &GUID, #[out] #[out_ptr] #[retval] ContentProtectionDevice: *mut IMFContentProtectionDevice) -> HRESULT;
+        extern fn MFCreateContentProtectionDevice(#[in] ProtectionSystemId: &GUID, #[out] #[retval] ContentProtectionDevice: *mut IMFContentProtectionDevice) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateCredentialCache(#[out] #[out_ptr] #[retval] ppCache: *mut IMFNetCredentialCache) -> HRESULT;
+        extern fn MFCreateCredentialCache(#[out] #[retval] ppCache: *mut IMFNetCredentialCache) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateDeviceSource(#[in] pAttributes: IMFAttributes, #[out] #[out_ptr] #[retval] ppSource: *mut IMFMediaSource) -> HRESULT;
+        extern fn MFCreateDeviceSource(#[in] pAttributes: IMFAttributes, #[out] #[retval] ppSource: *mut IMFMediaSource) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateDeviceSourceActivate(#[in] pAttributes: IMFAttributes, #[out] #[out_ptr] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreateDeviceSourceActivate(#[in] pAttributes: IMFAttributes, #[out] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFCORE.dll")]
-        extern fn MFCreateExtendedCameraIntrinsicModel(distortionModelType: MFCameraIntrinsic_DistortionModelType, #[out] #[out_ptr(null_on_failure)] #[retval] ppExtendedCameraIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+        extern fn MFCreateExtendedCameraIntrinsicModel(distortionModelType: MFCameraIntrinsic_DistortionModelType, #[out] #[retval] ppExtendedCameraIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
         #[library("MFCORE.dll")]
-        extern fn MFCreateExtendedCameraIntrinsics(#[out] #[out_ptr(null_on_failure)] #[retval] ppExtendedCameraIntrinsics: *mut IMFExtendedCameraIntrinsics) -> HRESULT;
+        extern fn MFCreateExtendedCameraIntrinsics(#[out] #[retval] ppExtendedCameraIntrinsics: *mut IMFExtendedCameraIntrinsics) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateFMPEG4MediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateFMPEG4MediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMFByteStreamOnStream(pStream: IStream, #[out] #[out_ptr] #[retval] ppByteStream: *mut IMFByteStream) -> HRESULT;
+        extern fn MFCreateMFByteStreamOnStream(pStream: IStream, #[out] #[retval] ppByteStream: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMFByteStreamOnStreamEx(#[in] punkStream: IUnknown, #[out] #[out_ptr] #[retval] ppByteStream: *mut IMFByteStream) -> HRESULT;
+        extern fn MFCreateMFByteStreamOnStreamEx(#[in] punkStream: IUnknown, #[out] #[retval] ppByteStream: *mut IMFByteStream) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateMP3MediaSink(#[in] pTargetByteStream: IMFByteStream, #[out] #[out_ptr] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateMP3MediaSink(#[in] pTargetByteStream: IMFByteStream, #[out] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateMPEG4MediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateMPEG4MediaSink(#[in] pIByteStream: IMFByteStream, #[in] #[opt] pVideoMediaType: IMFMediaType, #[in] #[opt] pAudioMediaType: IMFMediaType, #[out] #[retval] ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateMediaSession(pConfiguration: IMFAttributes, #[out] #[out_ptr] #[retval] ppMediaSession: *mut IMFMediaSession) -> HRESULT;
+        extern fn MFCreateMediaSession(pConfiguration: IMFAttributes, #[out] #[retval] ppMediaSession: *mut IMFMediaSession) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaTypeFromProperties(#[in] punkStream: IUnknown, #[out] #[out_ptr] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMediaTypeFromProperties(#[in] punkStream: IUnknown, #[out] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateMuxSink(#[in] guidOutputSubType: GUID, #[in] #[opt] pOutputAttributes: IMFAttributes, #[in] #[opt] pOutputByteStream: IMFByteStream, #[out] #[out_ptr] #[retval] ppMuxSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateMuxSink(#[in] guidOutputSubType: GUID, #[in] #[opt] pOutputAttributes: IMFAttributes, #[in] #[opt] pOutputByteStream: IMFByteStream, #[out] #[retval] ppMuxSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateNetSchemePlugin(riid: &IID, ppvHandler: *mut LPVOID) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreatePMPMediaSession(dwCreationFlags: DWORD, pConfiguration: IMFAttributes, #[out] #[out_ptr] ppMediaSession: *mut IMFMediaSession, #[opt] #[out] #[out_ptr] ppEnablerActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreatePMPMediaSession(dwCreationFlags: DWORD, pConfiguration: IMFAttributes, #[out] ppMediaSession: *mut IMFMediaSession, #[opt] #[out] ppEnablerActivate: *mut IMFActivate) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreatePMPServer(dwCreationFlags: DWORD, #[out] #[out_ptr] #[retval] ppPMPServer: *mut IMFPMPServer) -> HRESULT;
+        extern fn MFCreatePMPServer(dwCreationFlags: DWORD, #[out] #[retval] ppPMPServer: *mut IMFPMPServer) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreatePresentationClock(#[out] #[out_ptr] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+        extern fn MFCreatePresentationClock(#[out] #[retval] ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreatePresentationDescriptor(cStreamDescriptors: DWORD, #[buffer(cStreamDescriptors)] #[in] #[opt] apStreamDescriptors: *mut IMFStreamDescriptor, #[out] #[out_ptr] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+        extern fn MFCreatePresentationDescriptor(cStreamDescriptors: DWORD, #[buffer(cStreamDescriptors)] #[in] #[opt] apStreamDescriptors: *mut IMFStreamDescriptor, #[out] #[retval] ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreatePropertiesFromMediaType(#[in] pMediaType: IMFMediaType, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreatePropertiesFromMediaType(#[in] pMediaType: IMFMediaType, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateProtectedEnvironmentAccess(#[out] #[out_ptr] #[retval] ppAccess: *mut IMFProtectedEnvironmentAccess) -> HRESULT;
+        extern fn MFCreateProtectedEnvironmentAccess(#[out] #[retval] ppAccess: *mut IMFProtectedEnvironmentAccess) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateProxyLocator(pszProtocol: LPCWSTR, pProxyConfig: IPropertyStore, #[out] #[out_ptr] #[retval] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
+        extern fn MFCreateProxyLocator(pszProtocol: LPCWSTR, pProxyConfig: IPropertyStore, #[out] #[retval] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateRelativePanelWatcher(#[in] videoDeviceId: PCWSTR, #[in] displayMonitorDeviceId: PCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppRelativePanelWatcher: *mut IMFRelativePanelWatcher) -> HRESULT;
+        extern fn MFCreateRelativePanelWatcher(#[in] videoDeviceId: PCWSTR, #[in] displayMonitorDeviceId: PCWSTR, #[out] #[retval] ppRelativePanelWatcher: *mut IMFRelativePanelWatcher) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateRemoteDesktopPlugin(#[out] #[out_ptr] #[retval] ppPlugin: *mut IMFRemoteDesktopPlugin) -> HRESULT;
+        extern fn MFCreateRemoteDesktopPlugin(#[out] #[retval] ppPlugin: *mut IMFRemoteDesktopPlugin) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateSampleCopierMFT(#[out] #[out_ptr] #[retval] ppCopierMFT: *mut IMFTransform) -> HRESULT;
+        extern fn MFCreateSampleCopierMFT(#[out] #[retval] ppCopierMFT: *mut IMFTransform) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateSampleGrabberSinkActivate(pIMFMediaType: IMFMediaType, pIMFSampleGrabberSinkCallback: IMFSampleGrabberSinkCallback, #[out] #[out_ptr] #[retval] ppIActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreateSampleGrabberSinkActivate(pIMFMediaType: IMFMediaType, pIMFSampleGrabberSinkCallback: IMFSampleGrabberSinkCallback, #[out] #[retval] ppIActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorActivityMonitor(#[in] pCallback: IMFSensorActivitiesReportCallback, #[out] #[out_ptr(null_on_failure)] #[retval] ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
+        extern fn MFCreateSensorActivityMonitor(#[in] pCallback: IMFSensorActivitiesReportCallback, #[out] #[retval] ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
+        extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[retval] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfileCollection(#[out] #[out_ptr(null_on_failure)] #[retval] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
+        extern fn MFCreateSensorProfileCollection(#[out] #[retval] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorStream(#[in] StreamId: DWORD, #[in] #[opt] pAttributes: IMFAttributes, #[in] pMediaTypeCollection: IMFCollection, #[out] #[out_ptr(null_on_failure)] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
+        extern fn MFCreateSensorStream(#[in] StreamId: DWORD, #[in] #[opt] pAttributes: IMFAttributes, #[in] pMediaTypeCollection: IMFCollection, #[out] #[retval] ppStream: *mut IMFSensorStream) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateSequencerSegmentOffset(dwId: MFSequencerElementId, hnsOffset: MFTIME, #[out] pvarSegmentOffset: *mut PROPVARIANT) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateSequencerSource(pReserved: IUnknown, #[out] #[out_ptr] #[retval] ppSequencerSource: *mut IMFSequencerSource) -> HRESULT;
+        extern fn MFCreateSequencerSource(pReserved: IUnknown, #[out] #[retval] ppSequencerSource: *mut IMFSequencerSource) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateSimpleTypeHandler(#[out] #[out_ptr] #[retval] ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+        extern fn MFCreateSimpleTypeHandler(#[out] #[retval] ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateSourceResolver(#[out] #[out_ptr] #[retval] ppISourceResolver: *mut IMFSourceResolver) -> HRESULT;
+        extern fn MFCreateSourceResolver(#[out] #[retval] ppISourceResolver: *mut IMFSourceResolver) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateStandardQualityManager(#[out] #[out_ptr] #[retval] ppQualityManager: *mut IMFQualityManager) -> HRESULT;
+        extern fn MFCreateStandardQualityManager(#[out] #[retval] ppQualityManager: *mut IMFQualityManager) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateStreamDescriptor(dwStreamIdentifier: DWORD, cMediaTypes: DWORD, #[buffer(cMediaTypes)] #[in] apMediaTypes: *mut IMFMediaType, #[out] #[out_ptr] #[retval] ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+        extern fn MFCreateStreamDescriptor(dwStreamIdentifier: DWORD, cMediaTypes: DWORD, #[buffer(cMediaTypes)] #[in] apMediaTypes: *mut IMFMediaType, #[out] #[retval] ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateStreamOnMFByteStream(#[in] pByteStream: IMFByteStream, #[out] #[out_ptr] #[retval] ppStream: *mut IStream) -> HRESULT;
+        extern fn MFCreateStreamOnMFByteStream(#[in] pByteStream: IMFByteStream, #[out] #[retval] ppStream: *mut IStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateStreamOnMFByteStreamEx(#[in] pByteStream: IMFByteStream, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreateStreamOnMFByteStreamEx(#[in] pByteStream: IMFByteStream, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateSystemTimeSource(#[out] #[out_ptr] #[retval] ppSystemTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
+        extern fn MFCreateSystemTimeSource(#[out] #[retval] ppSystemTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTopoLoader(#[out] #[out_ptr] #[retval] ppObj: *mut IMFTopoLoader) -> HRESULT;
+        extern fn MFCreateTopoLoader(#[out] #[retval] ppObj: *mut IMFTopoLoader) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTopology(#[out] #[out_ptr] #[retval] ppTopo: *mut IMFTopology) -> HRESULT;
+        extern fn MFCreateTopology(#[out] #[retval] ppTopo: *mut IMFTopology) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTopologyNode(NodeType: MF_TOPOLOGY_TYPE, #[out] #[out_ptr] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
+        extern fn MFCreateTopologyNode(NodeType: MF_TOPOLOGY_TYPE, #[out] #[retval] ppNode: *mut IMFTopologyNode) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateTrackedSample(#[out] #[out_ptr] #[retval] ppMFSample: *mut IMFTrackedSample) -> HRESULT;
+        extern fn MFCreateTrackedSample(#[out] #[retval] ppMFSample: *mut IMFTrackedSample) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTranscodeProfile(#[out] #[out_ptr] #[retval] ppTranscodeProfile: *mut IMFTranscodeProfile) -> HRESULT;
+        extern fn MFCreateTranscodeProfile(#[out] #[retval] ppTranscodeProfile: *mut IMFTranscodeProfile) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTranscodeSinkActivate(#[out] #[out_ptr] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreateTranscodeSinkActivate(#[out] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateTranscodeTopology(#[in] pSrc: IMFMediaSource, #[in] pwszOutputFilePath: LPCWSTR, #[in] pProfile: IMFTranscodeProfile, #[out] #[out_ptr] #[retval] ppTranscodeTopo: *mut IMFTopology) -> HRESULT;
+        extern fn MFCreateTranscodeTopology(#[in] pSrc: IMFMediaSource, #[in] pwszOutputFilePath: LPCWSTR, #[in] pProfile: IMFTranscodeProfile, #[out] #[retval] ppTranscodeTopo: *mut IMFTopology) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateTranscodeTopologyFromByteStream(#[in] pSrc: IMFMediaSource, #[in] pOutputStream: IMFByteStream, #[in] pProfile: IMFTranscodeProfile, #[out] ppTranscodeTopo: *mut IMFTopology) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateVideoRendererActivate(#[in] hwndVideo: HWND, #[out] #[out_ptr] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreateVideoRendererActivate(#[in] hwndVideo: HWND, #[out] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("mfsrcsnk.dll")]
-        extern fn MFCreateWAVEMediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[out_ptr] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        extern fn MFCreateWAVEMediaSink(#[in] pTargetByteStream: IMFByteStream, #[in] pAudioMediaType: IMFMediaType, #[out] #[retval] ppMediaSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFDeserializePresentationDescriptor(#[in] cbData: DWORD, #[buffer(cbData)] #[in] pbData: *mut BYTE, #[out] #[out_ptr] #[retval] ppPD: *mut IMFPresentationDescriptor) -> HRESULT;
+        extern fn MFDeserializePresentationDescriptor(#[in] cbData: DWORD, #[buffer(cbData)] #[in] pbData: *mut BYTE, #[out] #[retval] ppPD: *mut IMFPresentationDescriptor) -> HRESULT;
         const MFENABLETYPE_MF_RebootRequired: GUID = 0x6d4d3d4b_0ece_4652_8b3a_f2d24260d887;
         const MFENABLETYPE_MF_UpdateRevocationInformation: GUID = 0xe558b0b5_b3c4_44a0_924c_50d178932385;
         const MFENABLETYPE_MF_UpdateUntrustedComponent: GUID = 0x9879f3d6_cee2_48e6_b573_9767ab172f16;
@@ -1219,19 +1219,19 @@ mod Windows {
             CameraModel: MFCameraIntrinsic_CameraModel,
         }
         #[library("MF.dll")]
-        extern fn MFGetLocalId(#[buffer(bytes(size))] #[in] verifier: *const BYTE, #[in] size: UINT32, #[out] #[out_ptr] id: *mut LPWSTR) -> HRESULT;
+        extern fn MFGetLocalId(#[buffer(bytes(size))] #[in] verifier: *const BYTE, #[in] size: UINT32, #[out] id: *mut LPWSTR) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFGetService(punkObject: IUnknown, guidService: &GUID, riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+        extern fn MFGetService(punkObject: IUnknown, guidService: &GUID, riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetSupportedMimeTypes(#[out] pPropVarMimeTypeArray: *mut PROPVARIANT) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetSupportedSchemes(#[out] pPropVarSchemeArray: *mut PROPVARIANT) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFGetSystemId(#[out] #[out_ptr] #[retval] ppId: *mut IMFSystemId) -> HRESULT;
+        extern fn MFGetSystemId(#[out] #[retval] ppId: *mut IMFSystemId) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetSystemTime() -> MFTIME;
         #[library("MF.dll")]
-        extern fn MFGetTopoNodeCurrentType(pNode: IMFTopologyNode, dwStreamIndex: DWORD, fOutput: BOOL, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFGetTopoNodeCurrentType(pNode: IMFTopologyNode, dwStreamIndex: DWORD, fOutput: BOOL, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
         struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
             Action: MFPOLICYMANAGER_ACTION,
             pbTicket: *mut BYTE,
@@ -1250,7 +1250,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFIsContentProtectionDeviceSupported(#[in] ProtectionSystemId: &GUID, #[out] isSupported: *mut BOOL) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFLoadSignedLibrary(#[in] pszName: LPCWSTR, #[out] #[out_ptr] #[retval] ppLib: *mut IMFSignedLibrary) -> HRESULT;
+        extern fn MFLoadSignedLibrary(#[in] pszName: LPCWSTR, #[out] #[retval] ppLib: *mut IMFSignedLibrary) -> HRESULT;
         #[repr(i32)]
         enum MFMEDIASOURCE_CHARACTERISTICS {
             MFMEDIASOURCE_IS_LIVE = 1,
@@ -1626,7 +1626,7 @@ mod Windows {
         const MFTranscodeContainerType_MPEG4: GUID = 0xdc6cd05d_b9d0_40ef_bd35_fa622c1ab28a;
         const MFTranscodeContainerType_WAVE: GUID = 0x64c3453c_0f26_4741_be63_87bdf8bb935b;
         #[library("MF.dll")]
-        extern fn MFTranscodeGetAudioOutputAvailableTypes(#[in] guidSubType: &GUID, #[in] dwMFTFlags: DWORD, #[in] #[opt] pCodecConfig: IMFAttributes, #[out] #[out_ptr] #[retval] ppAvailableTypes: *mut IMFCollection) -> HRESULT;
+        extern fn MFTranscodeGetAudioOutputAvailableTypes(#[in] guidSubType: &GUID, #[in] dwMFTFlags: DWORD, #[in] #[opt] pCodecConfig: IMFAttributes, #[out] #[retval] ppAvailableTypes: *mut IMFCollection) -> HRESULT;
         struct MFVideoNormalizedRect {
             left: f32,
             top: f32,

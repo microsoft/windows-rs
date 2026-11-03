@@ -67,7 +67,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadataitems.write(core::mem::zeroed());
+                        metadataitems.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -88,7 +88,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatawriter.write(core::mem::zeroed());
+                        metadatawriter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -103,7 +103,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatacopier.write(core::mem::zeroed());
+                        metadatacopier.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -118,7 +118,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatareader.write(core::mem::zeroed());
+                        metadatareader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -644,7 +644,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadataitems.write(core::mem::zeroed());
+                        metadataitems.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -712,7 +712,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        audioobject.write(core::mem::zeroed());
+                        audioobject.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -727,7 +727,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        audioobject.write(core::mem::zeroed());
+                        audioobject.write_bytes(0, 1);
                         err.into()
                     }
                 }

@@ -68,7 +68,10 @@ impl ICertPolicy_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -80,7 +83,10 @@ impl ICertPolicy_Vtbl {
                         pstrdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -150,7 +156,10 @@ impl ICertPolicy2_Vtbl {
                         ppmanagemodule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmanagemodule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -248,7 +257,10 @@ impl INDESPolicy_Vtbl {
                         ppwszresponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppwszresponse.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -260,7 +272,10 @@ impl INDESPolicy_Vtbl {
                         pfverified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfverified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

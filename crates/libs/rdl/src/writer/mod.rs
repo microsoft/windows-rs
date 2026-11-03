@@ -965,14 +965,6 @@ fn write_custom_attributes_with_names<'a>(
                 }
             }
 
-            if attr_ns == METADATA_NAMESPACE
-                && attr.name() == "ReturnedPointerAttribute"
-                && let [(name, metadata::Value::Bool(null_on_failure))] = values.as_slice()
-                && name == "NullOnFailure"
-            {
-                return Ok(write_returned_pointer(*null_on_failure));
-            }
-
             // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {
                 pseudo_for_metadata(attr.name())

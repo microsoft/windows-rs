@@ -546,7 +546,10 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -788,7 +791,10 @@ impl IDirectManipulationManager_Vtbl {
                         handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        handled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1456,7 +1462,10 @@ impl IDirectManipulationViewport_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1480,7 +1489,10 @@ impl IDirectManipulationViewport_Vtbl {
                         viewport.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        viewport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1570,7 +1582,10 @@ impl IDirectManipulationViewport_Vtbl {
                         cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cookie.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1700,7 +1715,10 @@ impl IDirectManipulationViewport2_Vtbl {
                         cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cookie.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -73,7 +73,7 @@ mod Windows {
             pszClass: PCWSTR,
         }
         #[library("SHELL32.dll")]
-        extern fn AssocCreateForClasses(#[buffer(cClasses)] #[in] rgClasses: *const ASSOCIATIONELEMENT, cClasses: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreateForClasses(#[buffer(cClasses)] #[in] rgClasses: *const ASSOCIATIONELEMENT, cClasses: ULONG, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn CommandLineToArgvW(#[in] lpCmdLine: LPCWSTR, #[out] pNumArgs: *mut i32) -> *mut LPWSTR;
         type DRAGINFO = DRAGINFOA;
@@ -621,7 +621,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHEnumerateUnreadMailAccountsW(#[in] #[opt] hKeyUser: HKEY, dwIndex: DWORD, #[buffer(cchMailAddress)] #[out] pszMailAddress: LPWSTR, cchMailAddress: i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEvaluateSystemCommandTemplate(#[in] pszCmdTemplate: PCWSTR, #[out] #[out_ptr] ppszApplication: *mut PWSTR, #[opt] #[out] #[out_ptr] ppszCommandLine: *mut PWSTR, #[opt] #[out] #[out_ptr] ppszParameters: *mut PWSTR) -> HRESULT;
+        extern fn SHEvaluateSystemCommandTemplate(#[in] pszCmdTemplate: PCWSTR, #[out] ppszApplication: *mut PWSTR, #[opt] #[out] ppszCommandLine: *mut PWSTR, #[opt] #[out] ppszParameters: *mut PWSTR) -> HRESULT;
         type SHFILEINFO = SHFILEINFOA;
         #[arch(X64 | Arm64)]
         struct SHFILEINFOA {
@@ -753,7 +753,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetFileInfoW(#[in] pszPath: LPCWSTR, dwFileAttributes: DWORD, #[buffer(bytes(cbFileInfo))] #[in] #[opt] #[out] psfi: *mut SHFILEINFOW, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
         #[library("SHELL32.dll")]
-        extern fn SHGetImageList(#[in] iImageList: i32, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn SHGetImageList(#[in] iImageList: i32, #[in] riid: &IID, #[out] ppvObj: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetLocalizedName(#[in] pszPath: PCWSTR, #[buffer(cch)] #[out] pszResModule: PWSTR, cch: UINT, #[out] pidsRes: *mut i32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -761,7 +761,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetNewLinkInfoW(#[in] pszLinkTo: LPCWSTR, #[in] pszDir: LPCWSTR, #[buffer(260)] #[out] pszName: LPWSTR, #[out] pfMustCopy: *mut BOOL, #[in] uFlags: UINT) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreForWindow(#[in] hwnd: HWND, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreForWindow(#[in] hwnd: HWND, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: UINT, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]

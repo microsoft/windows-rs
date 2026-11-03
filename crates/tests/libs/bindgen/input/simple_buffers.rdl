@@ -9,8 +9,8 @@ mod Test {
         fn Optional(&self, #[in] #[opt] #[buffer(count)] values: *const u32, #[in] count: u32);
         fn Output(&self, #[out] #[buffer(count)] values: *mut u32, #[in] count: u32, #[out] written: *mut u32) -> HRESULT;
         fn Returned(&self, #[out] #[retval] #[incomplete] values: *mut *mut u32) -> HRESULT;
-        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(null_on_failure)] result: *mut *mut void) -> HRESULT;
-        fn QueryArray(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(null_on_failure)] #[incomplete] result: *mut *mut void) -> HRESULT;
+        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn QueryArray(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[incomplete] result: *mut *mut void) -> HRESULT;
         fn QueryWithBuffer(&self, #[in] #[buffer(count)] ids: *const GUID, #[in] count: u32, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
         fn BufferResult(&self, #[out] #[retval] #[buffer(1)] value: *mut u32) -> HRESULT;
     }
@@ -29,10 +29,6 @@ mod Windows {
             }
             attribute IncompleteAttribute {
                 fn();
-            }
-            attribute ReturnedPointerAttribute {
-                fn();
-                NullOnFailure: bool,
             }
         }
     }

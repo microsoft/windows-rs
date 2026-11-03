@@ -5,7 +5,7 @@ mod Windows {
         const CWCSTORAGENAME: i32 = 32;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CreateILockBytesOnHGlobal(#[in] #[opt] hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] #[retval] pplkbyt: *mut LPLOCKBYTES) -> HRESULT;
+        extern fn CreateILockBytesOnHGlobal(#[in] #[opt] hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[retval] pplkbyt: *mut LPLOCKBYTES) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn FmtIdToPropStgName(#[in] pfmtid: *const FMTID, #[buffer(32)] #[out] oszName: LPOLESTR) -> HRESULT;
@@ -56,19 +56,19 @@ mod Windows {
         const STGOPTIONS_VERSION: i32 = 2;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgCreateDocfile(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[reserved] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgCreateDocfile(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[reserved] reserved: DWORD, #[out] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgCreateDocfileOnILockBytes(#[in] plkbyt: ILockBytes, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgCreateDocfileOnILockBytes(#[in] plkbyt: ILockBytes, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgCreatePropSetStg(#[in] pStorage: IStorage, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppPropSetStg: *mut IPropertySetStorage) -> HRESULT;
+        extern fn StgCreatePropSetStg(#[in] pStorage: IStorage, #[reserved] dwReserved: DWORD, #[out] #[retval] ppPropSetStg: *mut IPropertySetStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgCreatePropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] pclsid: *const CLSID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppPropStg: *mut IPropertyStorage) -> HRESULT;
+        extern fn StgCreatePropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] pclsid: *const CLSID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[retval] ppPropStg: *mut IPropertyStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgCreateStorageEx(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
+        extern fn StgCreateStorageEx(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn StgIsStorageFile(#[in] #[incomplete] pwcsName: *const WCHAR) -> HRESULT;
@@ -77,16 +77,16 @@ mod Windows {
         extern fn StgIsStorageILockBytes(#[in] plkbyt: ILockBytes) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgOpenPropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppPropStg: *mut IPropertyStorage) -> HRESULT;
+        extern fn StgOpenPropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[retval] ppPropStg: *mut IPropertyStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgOpenStorage(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgOpenStorage(#[in] #[incomplete] #[opt] pwcsName: *const WCHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgOpenStorageEx(#[in] #[incomplete] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
+        extern fn StgOpenStorageEx(#[in] #[incomplete] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StgOpenStorageOnILockBytes(#[in] plkbyt: ILockBytes, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[reserved] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgOpenStorageOnILockBytes(#[in] plkbyt: ILockBytes, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[reserved] reserved: DWORD, #[out] #[retval] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn StgSetTimes(#[in] #[incomplete] lpszName: *const WCHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;

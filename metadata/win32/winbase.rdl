@@ -541,10 +541,10 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[library("KERNEL32.dll")]
         #[must_use]
-        extern fn CreateUmsCompletionList(#[out] #[out_ptr] UmsCompletionList: *mut PUMS_COMPLETION_LIST) -> BOOL;
+        extern fn CreateUmsCompletionList(#[out] UmsCompletionList: *mut PUMS_COMPLETION_LIST) -> BOOL;
         #[arch(X64 | Arm64)]
         #[library("KERNEL32.dll")]
-        extern fn CreateUmsThreadContext(#[out] #[out_ptr] lpUmsThread: *mut PUMS_CONTEXT) -> BOOL;
+        extern fn CreateUmsThreadContext(#[out] lpUmsThread: *mut PUMS_CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn CreateWaitableTimerA(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] #[opt] lpTimerName: LPCSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
@@ -1051,7 +1051,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetActiveProcessorGroupCount() -> WORD;
         #[library("KERNEL32.dll")]
-        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[nullable] #[opt] #[out] #[out_ptr] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
+        extern fn GetApplicationRecoveryCallback(#[in] hProcess: HANDLE, #[out] pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, #[nullable] #[opt] #[out] ppvParameter: *mut PVOID, #[opt] #[out] pdwPingInterval: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetApplicationRestartSettings(#[in] hProcess: HANDLE, #[buffer(*pcchSize)] #[opt] #[out] pwzCommandline: PWSTR, #[in] #[out] pcchSize: PDWORD, #[opt] #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
@@ -1085,7 +1085,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetComputerNameW(#[buffer(*nSize)] #[opt] #[out] lpBuffer: LPWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentActCtx(#[out] #[out_ptr] lphActCtx: *mut HANDLE) -> BOOL;
+        extern fn GetCurrentActCtx(#[out] lphActCtx: *mut HANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetCurrentHwProfileA(#[out] lpHwProfileInfo: LPHW_PROFILE_INFOA) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -1130,9 +1130,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetFirmwareType(#[in] #[out] FirmwareType: PFIRMWARE_TYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameTransactedA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPSTR, #[in] hTransaction: HANDLE) -> DWORD;
+        extern fn GetFullPathNameTransactedA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[opt] #[out] lpFilePart: *mut LPSTR, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameTransactedW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPWSTR, #[in] hTransaction: HANDLE) -> DWORD;
+        extern fn GetFullPathNameTransactedW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[opt] #[out] lpFilePart: *mut LPWSTR, #[in] hTransaction: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetLogicalDriveStringsA(#[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
@@ -1442,13 +1442,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn LocateXStateFeature(#[in] Context: PCONTEXT, #[in] FeatureId: DWORD, #[opt] #[out] Length: PDWORD) -> PVOID;
         #[library("ADVAPI32.dll")]
-        extern fn LogonUserA(#[in] lpszUsername: LPCSTR, #[in] #[opt] lpszDomain: LPCSTR, #[in] #[opt] lpszPassword: LPCSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[out] #[out_ptr] phToken: PHANDLE) -> BOOL;
+        extern fn LogonUserA(#[in] lpszUsername: LPCSTR, #[in] #[opt] lpszDomain: LPCSTR, #[in] #[opt] lpszPassword: LPCSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[out] phToken: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn LogonUserExA(#[in] lpszUsername: LPCSTR, #[in] #[opt] lpszDomain: LPCSTR, #[in] #[opt] lpszPassword: LPCSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[opt] #[out] #[out_ptr] phToken: PHANDLE, #[opt] #[out] #[out_ptr] ppLogonSid: *mut PSID, #[incomplete] #[opt] #[out] ppProfileBuffer: *mut PVOID, #[opt] #[out] pdwProfileLength: LPDWORD, #[opt] #[out] pQuotaLimits: PQUOTA_LIMITS) -> BOOL;
+        extern fn LogonUserExA(#[in] lpszUsername: LPCSTR, #[in] #[opt] lpszDomain: LPCSTR, #[in] #[opt] lpszPassword: LPCSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[opt] #[out] phToken: PHANDLE, #[opt] #[out] ppLogonSid: *mut PSID, #[incomplete] #[opt] #[out] ppProfileBuffer: *mut PVOID, #[opt] #[out] pdwProfileLength: LPDWORD, #[opt] #[out] pQuotaLimits: PQUOTA_LIMITS) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn LogonUserExW(#[in] lpszUsername: LPCWSTR, #[in] #[opt] lpszDomain: LPCWSTR, #[in] #[opt] lpszPassword: LPCWSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[opt] #[out] #[out_ptr] phToken: PHANDLE, #[opt] #[out] #[out_ptr] ppLogonSid: *mut PSID, #[incomplete] #[opt] #[out] ppProfileBuffer: *mut PVOID, #[opt] #[out] pdwProfileLength: LPDWORD, #[opt] #[out] pQuotaLimits: PQUOTA_LIMITS) -> BOOL;
+        extern fn LogonUserExW(#[in] lpszUsername: LPCWSTR, #[in] #[opt] lpszDomain: LPCWSTR, #[in] #[opt] lpszPassword: LPCWSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[opt] #[out] phToken: PHANDLE, #[opt] #[out] ppLogonSid: *mut PSID, #[incomplete] #[opt] #[out] ppProfileBuffer: *mut PVOID, #[opt] #[out] pdwProfileLength: LPDWORD, #[opt] #[out] pQuotaLimits: PQUOTA_LIMITS) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn LogonUserW(#[in] lpszUsername: LPCWSTR, #[in] #[opt] lpszDomain: LPCWSTR, #[in] #[opt] lpszPassword: LPCWSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[out] #[out_ptr] phToken: PHANDLE) -> BOOL;
+        extern fn LogonUserW(#[in] lpszUsername: LPCWSTR, #[in] #[opt] lpszDomain: LPCWSTR, #[in] #[opt] lpszPassword: LPCWSTR, #[in] dwLogonType: DWORD, #[in] dwLogonProvider: DWORD, #[out] phToken: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn LookupAccountNameA(#[in] #[opt] lpSystemName: LPCSTR, #[in] lpAccountName: LPCSTR, #[buffer(bytes(*cbSid))] #[opt] #[out] Sid: PSID, #[in] #[out] cbSid: LPDWORD, #[buffer(*cchReferencedDomainName)] #[opt] #[out] ReferencedDomainName: LPSTR, #[in] #[out] cchReferencedDomainName: LPDWORD, #[out] peUse: PSID_NAME_USE) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -1581,9 +1581,9 @@ mod Windows {
         #[library("api-ms-win-core-comm-l1-1-1.dll")]
         extern fn OpenCommPort(#[in] uPortNumber: ULONG, #[in] dwDesiredAccess: DWORD, #[in] dwFlagsAndAttributes: DWORD) -> HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenEncryptedFileRawA(#[in] lpFileName: LPCSTR, #[in] ulFlags: ULONG, #[out] #[out_ptr] pvContext: *mut PVOID) -> DWORD;
+        extern fn OpenEncryptedFileRawA(#[in] lpFileName: LPCSTR, #[in] ulFlags: ULONG, #[out] pvContext: *mut PVOID) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn OpenEncryptedFileRawW(#[in] lpFileName: LPCWSTR, #[in] ulFlags: ULONG, #[out] #[out_ptr] pvContext: *mut PVOID) -> DWORD;
+        extern fn OpenEncryptedFileRawW(#[in] lpFileName: LPCWSTR, #[in] ulFlags: ULONG, #[out] pvContext: *mut PVOID) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn OpenEventLogA(#[in] #[opt] lpUNCServerName: LPCSTR, #[in] lpSourceName: LPCSTR) -> HANDLE;
         #[library("ADVAPI32.dll")]
@@ -2075,7 +2075,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn RegisterEventSourceW(#[in] #[opt] lpUNCServerName: LPCWSTR, #[in] lpSourceName: LPCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn RegisterWaitForSingleObject(#[out] #[out_ptr] phNewWaitObject: PHANDLE, #[in] hObject: HANDLE, #[in] Callback: WAITORTIMERCALLBACK, #[in] #[opt] Context: PVOID, #[in] dwMilliseconds: ULONG, #[in] dwFlags: ULONG) -> BOOL;
+        extern fn RegisterWaitForSingleObject(#[out] phNewWaitObject: PHANDLE, #[in] hObject: HANDLE, #[in] Callback: WAITORTIMERCALLBACK, #[in] #[opt] Context: PVOID, #[in] dwMilliseconds: ULONG, #[in] dwFlags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReleaseActCtx(#[in] #[out] hActCtx: HANDLE);
         #[library("KERNEL32.dll")]

@@ -1,14 +1,14 @@
 #[win32]
 mod Fixture {
-    extern "C" fn DerefOptOut(#[opt] #[out] #[out_ptr] value: *mut *mut i32) -> i32;
-    extern "C" fn DerefOptOutOpt(#[nullable] #[opt] #[out] #[out_ptr] value: *mut *mut i32) -> i32;
-    extern "C" fn DerefOut(#[out] #[out_ptr] value: *mut *mut i32) -> i32;
-    extern "C" fn DerefOutOpt(#[nullable] #[out] #[out_ptr] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOptOut(#[opt] #[out] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOptOutOpt(#[nullable] #[opt] #[out] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOut(#[out] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOutOpt(#[nullable] #[out] value: *mut *mut i32) -> i32;
     extern "C" fn InByteCount(#[buffer(bytes(count))] #[in] values: *const void, count: u32);
     extern "C" fn InCount(#[buffer(count)] #[in] values: *const i32, count: u32);
     extern "C" fn InOptByteCount(#[buffer(bytes(count))] #[in] #[opt] values: *const void, count: u32);
     extern "C" fn InOptCount(#[buffer(count)] #[in] #[opt] values: *const i32, count: u32);
-    extern "C" fn NullOnFailure(#[nullable] #[out] #[out_ptr(null_on_failure)] value: *mut *mut i32) -> i32;
+    extern "C" fn NullOnFailure(#[nullable] #[out] value: *mut *mut i32) -> i32;
     extern "C" fn NullOnFailureWithoutPointer(#[incomplete] #[out] value: *mut *mut i32) -> i32;
     extern "C" fn OutCapPostCount(#[buffer(capacity)] #[out] values: *mut i32, capacity: u32, written: *mut u32);
     extern "C" fn OutOptByteCapPostByteCount(#[buffer(bytes(capacity))] #[opt] #[out] values: *mut void, capacity: u32, written: *mut u32);

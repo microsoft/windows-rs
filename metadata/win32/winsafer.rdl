@@ -185,13 +185,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn SaferComputeTokenFromLevel(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[opt] InAccessToken: HANDLE, #[out] OutAccessToken: PHANDLE, #[in] dwFlags: DWORD, #[in] #[opt] #[out] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferCreateLevel(#[in] dwScopeId: DWORD, #[in] dwLevelId: DWORD, #[in] OpenFlags: DWORD, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferCreateLevel(#[in] dwScopeId: DWORD, #[in] dwLevelId: DWORD, #[in] OpenFlags: DWORD, #[out] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferGetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[buffer(bytes(dwInBufferSize))] #[opt] #[out] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferGetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[buffer(bytes(InfoBufferSize))] #[out] InfoBuffer: PVOID, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferIdentifyLevel(#[in] dwNumProperties: DWORD, #[buffer(dwNumProperties)] #[in] #[opt] pCodeProperties: PSAFER_CODE_PROPERTIES, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferIdentifyLevel(#[in] dwNumProperties: DWORD, #[buffer(dwNumProperties)] #[in] #[opt] pCodeProperties: PSAFER_CODE_PROPERTIES, #[out] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferRecordEventLogEntry(#[in] hLevel: SAFER_LEVEL_HANDLE, #[in] szTargetPath: LPCWSTR, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]

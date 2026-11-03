@@ -69,8 +69,8 @@ mod Windows {
             fn Disconnect(&self) -> HRESULT;
             fn IsConnected(&self, #[out] pbConnected: *mut BOOL) -> HRESULT;
             fn GetConnectedTo(&self, #[out] ppConTo: *mut IConnector) -> HRESULT;
-            fn GetConnectorIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
-            fn GetDeviceIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
+            fn GetConnectorIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xa09513ed_c709_4d21_bd7b_5f34c47f3947)]
         interface IControlChangeNotify: IUnknown {
@@ -78,7 +78,7 @@ mod Windows {
         }
         #[guid(0x45d37c3f_5140_444a_ae24_400789f3cbf3)]
         interface IControlInterface: IUnknown {
-            fn GetName(&self, #[out] #[out_ptr] ppwstrName: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[out] ppwstrName: *mut LPWSTR) -> HRESULT;
             fn GetIID(&self, #[out] pIID: *mut GUID) -> HRESULT;
         }
         #[guid(0x3b22bcbf_2586_4af0_8583_205d391b807c)]
@@ -93,10 +93,10 @@ mod Windows {
             fn GetConnectorCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
             fn GetConnector(&self, #[in] nIndex: UINT, #[out] ppConnector: *mut IConnector) -> HRESULT;
             fn GetSubunitCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            fn GetSubunit(&self, #[in] nIndex: UINT, #[out] #[out_ptr] #[retval] ppSubunit: *mut ISubunit) -> HRESULT;
-            fn GetPartById(&self, #[in] nId: UINT, #[out] #[out_ptr] #[retval] ppPart: *mut IPart) -> HRESULT;
-            fn GetDeviceId(&self, #[out] #[out_ptr] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
-            fn GetSignalPath(&self, #[in] pIPartFrom: IPart, #[in] pIPartTo: IPart, #[in] bRejectMixedPaths: BOOL, #[out] #[out_ptr] #[retval] ppParts: *mut IPartsList) -> HRESULT;
+            fn GetSubunit(&self, #[in] nIndex: UINT, #[out] #[retval] ppSubunit: *mut ISubunit) -> HRESULT;
+            fn GetPartById(&self, #[in] nId: UINT, #[out] #[retval] ppPart: *mut IPart) -> HRESULT;
+            fn GetDeviceId(&self, #[out] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
+            fn GetSignalPath(&self, #[in] pIPartFrom: IPart, #[in] pIPartTo: IPart, #[in] bRejectMixedPaths: BOOL, #[out] #[retval] ppParts: *mut IPartsList) -> HRESULT;
         }
         #[guid(0x28f54685_06fd_11d2_b27a_00a0c9223196)]
         interface IKsControl: IUnknown {
@@ -134,9 +134,9 @@ mod Windows {
         }
         #[guid(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9)]
         interface IPart: IUnknown {
-            fn GetName(&self, #[out] #[out_ptr] ppwstrName: *mut LPWSTR) -> HRESULT;
+            fn GetName(&self, #[out] ppwstrName: *mut LPWSTR) -> HRESULT;
             fn GetLocalId(&self, #[out] pnId: *mut UINT) -> HRESULT;
-            fn GetGlobalId(&self, #[out] #[out_ptr] ppwstrGlobalId: *mut LPWSTR) -> HRESULT;
+            fn GetGlobalId(&self, #[out] ppwstrGlobalId: *mut LPWSTR) -> HRESULT;
             fn GetPartType(&self, #[out] pPartType: *mut PartType) -> HRESULT;
             fn GetSubType(&self, #[out] pSubType: *mut GUID) -> HRESULT;
             fn GetControlInterfaceCount(&self, #[out] pCount: *mut UINT) -> HRESULT;

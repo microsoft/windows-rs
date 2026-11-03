@@ -44,7 +44,7 @@ mod Windows {
             fn GetMaxCategories(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
             fn GetMaxStatsPerCategory(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
             fn SetCategoryTitle(&self, #[in] categoryIndex: WORD, #[in] #[null_terminated(entry)] title: LPCWSTR) -> HRESULT;
-            fn GetCategoryTitle(&self, #[in] categoryIndex: WORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
+            fn GetCategoryTitle(&self, #[in] categoryIndex: WORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
             fn GetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[incomplete] #[out] pName: *mut LPWSTR, #[in] #[incomplete] #[out] pValue: *mut LPWSTR) -> HRESULT;
             fn SetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[null_terminated(entry)] name: LPCWSTR, #[in] #[null_terminated(entry)] value: LPCWSTR) -> HRESULT;
             fn Save(&self, #[in] trackChanges: BOOL) -> HRESULT;
@@ -53,7 +53,7 @@ mod Windows {
         }
         #[guid(0xaff3ea11_e70e_407d_95dd_35e612c41ce2)]
         interface IGameStatisticsMgr: IUnknown {
-            fn GetGameStatistics(&self, #[in] #[null_terminated(entry)] GDFBinaryPath: LPCWSTR, #[in] openType: GAMESTATS_OPEN_TYPE, #[out] pOpenResult: *mut GAMESTATS_OPEN_RESULT, #[out] #[out_ptr] #[retval] ppiStats: *mut IGameStatistics) -> HRESULT;
+            fn GetGameStatistics(&self, #[in] #[null_terminated(entry)] GDFBinaryPath: LPCWSTR, #[in] openType: GAMESTATS_OPEN_TYPE, #[out] pOpenResult: *mut GAMESTATS_OPEN_RESULT, #[out] #[retval] ppiStats: *mut IGameStatistics) -> HRESULT;
             fn RemoveGameStatistics(&self, #[in] #[null_terminated(entry)] GDFBinaryPath: LPCWSTR) -> HRESULT;
         }
     }

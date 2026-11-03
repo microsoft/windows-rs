@@ -763,7 +763,10 @@ impl IAccessible_Vtbl {
                         ppdispparent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispparent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -775,7 +778,10 @@ impl IAccessible_Vtbl {
                         pcountchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcountchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -787,7 +793,10 @@ impl IAccessible_Vtbl {
                         ppdispchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -799,7 +808,10 @@ impl IAccessible_Vtbl {
                         pszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -811,7 +823,10 @@ impl IAccessible_Vtbl {
                         pszvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -823,7 +838,10 @@ impl IAccessible_Vtbl {
                         pszdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -835,7 +853,10 @@ impl IAccessible_Vtbl {
                         pvarrole.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -847,7 +868,10 @@ impl IAccessible_Vtbl {
                         pvarstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -859,7 +883,10 @@ impl IAccessible_Vtbl {
                         pszhelp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszhelp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -871,7 +898,10 @@ impl IAccessible_Vtbl {
                         pidtopic.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pidtopic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -883,7 +913,10 @@ impl IAccessible_Vtbl {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszkeyboardshortcut.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -895,7 +928,10 @@ impl IAccessible_Vtbl {
                         pvarchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -907,7 +943,10 @@ impl IAccessible_Vtbl {
                         pvarchildren.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -919,7 +958,10 @@ impl IAccessible_Vtbl {
                         pszdefaultaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdefaultaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -943,7 +985,10 @@ impl IAccessible_Vtbl {
                         pvarendupat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarendupat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -955,7 +1000,10 @@ impl IAccessible_Vtbl {
                         pvarchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1043,7 +1091,10 @@ impl IAccessibleHandler_Vtbl {
                         piaccessible.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        piaccessible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1136,7 +1187,10 @@ impl IAccessibleWindowlessSite_Vtbl {
                         ppparent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -175,7 +175,10 @@ impl IFunctionDiscovery_Vtbl {
                         ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstancecollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -187,7 +190,10 @@ impl IFunctionDiscovery_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -199,7 +205,10 @@ impl IFunctionDiscovery_Vtbl {
                         ppifunctioninstancecollectionquery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstancecollectionquery.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -211,7 +220,10 @@ impl IFunctionDiscovery_Vtbl {
                         ppifunctioninstancequery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstancequery.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -223,7 +235,10 @@ impl IFunctionDiscovery_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -413,7 +428,10 @@ impl IFunctionInstance_Vtbl {
                         ppipropertystore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipropertystore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -534,7 +552,10 @@ impl IFunctionInstanceCollection_Vtbl {
                         pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -546,7 +567,10 @@ impl IFunctionInstanceCollection_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -558,7 +582,10 @@ impl IFunctionInstanceCollection_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -576,7 +603,10 @@ impl IFunctionInstanceCollection_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -670,7 +700,10 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
                         ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstancecollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -728,7 +761,10 @@ impl IFunctionInstanceQuery_Vtbl {
                         ppifunctioninstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifunctioninstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -840,7 +876,10 @@ impl IPropertyStoreCollection_Vtbl {
                         pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -852,7 +891,10 @@ impl IPropertyStoreCollection_Vtbl {
                         ppipropertystore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipropertystore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -864,7 +906,10 @@ impl IPropertyStoreCollection_Vtbl {
                         ppipropertystore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipropertystore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -882,7 +927,10 @@ impl IPropertyStoreCollection_Vtbl {
                         pipropertystore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pipropertystore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

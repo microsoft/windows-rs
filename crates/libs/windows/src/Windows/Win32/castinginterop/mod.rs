@@ -207,7 +207,10 @@ impl ICastingSourceInfo_Vtbl {
                         controller.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        controller.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -219,7 +222,10 @@ impl ICastingSourceInfo_Vtbl {
                         props.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        props.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

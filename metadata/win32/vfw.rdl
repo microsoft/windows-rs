@@ -97,15 +97,15 @@ mod Windows {
         #[library("AVIFIL32.dll", import = "AVIFileRelease")]
         extern fn AVIFileClose(pfile: PAVIFILE) -> ULONG;
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileCreateStreamA(#[in] pfile: PAVIFILE, #[out] #[out_ptr] ppavi: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOA) -> HRESULT;
+        extern fn AVIFileCreateStreamA(#[in] pfile: PAVIFILE, #[out] ppavi: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOA) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileCreateStreamW(#[in] pfile: PAVIFILE, #[out] #[out_ptr] ppavi: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
+        extern fn AVIFileCreateStreamW(#[in] pfile: PAVIFILE, #[out] ppavi: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIFileEndRecord(#[in] pfile: PAVIFILE) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIFileExit();
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileGetStream(#[in] pfile: PAVIFILE, #[out] #[out_ptr] ppavi: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
+        extern fn AVIFileGetStream(#[in] pfile: PAVIFILE, #[out] ppavi: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIFileInfoA(#[in] pfile: PAVIFILE, #[buffer(bytes(lSize))] #[out] pfi: LPAVIFILEINFOA, #[in] lSize: LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
@@ -113,9 +113,9 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIFileInit();
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileOpenA(#[out] #[out_ptr] ppfile: *mut PAVIFILE, #[in] szFile: LPCSTR, uMode: UINT, #[in] #[opt] lpHandler: LPCLSID) -> HRESULT;
+        extern fn AVIFileOpenA(#[out] ppfile: *mut PAVIFILE, #[in] szFile: LPCSTR, uMode: UINT, #[in] #[opt] lpHandler: LPCLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileOpenW(#[out] #[out_ptr] ppfile: *mut PAVIFILE, #[in] szFile: LPCWSTR, uMode: UINT, #[in] #[opt] lpHandler: LPCLSID) -> HRESULT;
+        extern fn AVIFileOpenW(#[out] ppfile: *mut PAVIFILE, #[in] szFile: LPCWSTR, uMode: UINT, #[in] #[opt] lpHandler: LPCLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIFileReadData(#[in] pfile: PAVIFILE, #[in] ckid: DWORD, #[buffer(bytes(*lpcbData))] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
@@ -124,7 +124,7 @@ mod Windows {
         extern fn AVIFileWriteData(#[in] pfile: PAVIFILE, #[in] ckid: DWORD, #[buffer(bytes(cbData))] #[in] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
         const AVIGETFRAMEF_BESTDISPLAYFMT: i32 = 1;
         #[library("AVIFIL32.dll")]
-        extern fn AVIGetFromClipboard(#[out] #[out_ptr] #[retval] lppf: *mut PAVIFILE) -> HRESULT;
+        extern fn AVIGetFromClipboard(#[out] #[retval] lppf: *mut PAVIFILE) -> HRESULT;
         const AVIIF_COMPUSE: i32 = 268369920;
         const AVIIF_FIRSTPART: i32 = 32;
         const AVIIF_KEYFRAME: i32 = 16;
@@ -140,11 +140,11 @@ mod Windows {
             dwChunkLength: DWORD,
         }
         #[library("AVIFIL32.dll")]
-        extern fn AVIMakeCompressedStream(#[out] #[out_ptr] ppsCompressed: *mut PAVISTREAM, #[in] ppsSource: PAVISTREAM, #[in] lpOptions: *mut AVICOMPRESSOPTIONS, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
+        extern fn AVIMakeCompressedStream(#[out] ppsCompressed: *mut PAVISTREAM, #[in] ppsSource: PAVISTREAM, #[in] lpOptions: *mut AVICOMPRESSOPTIONS, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIMakeFileFromStreams(#[out] #[out_ptr] ppfile: *mut PAVIFILE, #[in] nStreams: i32, #[buffer(nStreams)] #[in] papStreams: *mut PAVISTREAM) -> HRESULT;
+        extern fn AVIMakeFileFromStreams(#[out] ppfile: *mut PAVIFILE, #[in] nStreams: i32, #[buffer(nStreams)] #[in] papStreams: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIMakeStreamFromClipboard(cfFormat: UINT, #[in] hGlobal: HANDLE, #[out] #[out_ptr] #[retval] ppstream: *mut PAVISTREAM) -> HRESULT;
+        extern fn AVIMakeStreamFromClipboard(cfFormat: UINT, #[in] hGlobal: HANDLE, #[out] #[retval] ppstream: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIPutFileOnClipboard(#[in] pf: PAVIFILE) -> HRESULT;
         extern fn AVISAVECALLBACK(param0: i32) -> BOOL;
@@ -214,7 +214,7 @@ mod Windows {
         #[library("AVIFIL32.dll", import = "AVIStreamRelease")]
         extern fn AVIStreamClose(pavi: PAVISTREAM) -> ULONG;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamCreate(#[out] #[out_ptr] ppavi: *mut PAVISTREAM, #[in] lParam1: LONG, #[in] lParam2: LONG, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
+        extern fn AVIStreamCreate(#[out] ppavi: *mut PAVISTREAM, #[in] lParam1: LONG, #[in] lParam2: LONG, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamEndStreaming(#[in] pavi: PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll", import = "AVIFileExit")]
@@ -254,9 +254,9 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamLength(#[in] pavi: PAVISTREAM) -> LONG;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamOpenFromFileA(#[out] #[out_ptr] ppavi: *mut PAVISTREAM, #[in] szFile: LPCSTR, #[in] fccType: DWORD, #[in] lParam: LONG, #[in] mode: UINT, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
+        extern fn AVIStreamOpenFromFileA(#[out] ppavi: *mut PAVISTREAM, #[in] szFile: LPCSTR, #[in] fccType: DWORD, #[in] lParam: LONG, #[in] mode: UINT, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamOpenFromFileW(#[out] #[out_ptr] ppavi: *mut PAVISTREAM, szFile: LPCWSTR, #[in] fccType: DWORD, #[in] lParam: LONG, #[in] mode: UINT, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
+        extern fn AVIStreamOpenFromFileW(#[out] ppavi: *mut PAVISTREAM, szFile: LPCWSTR, #[in] fccType: DWORD, #[in] lParam: LONG, #[in] mode: UINT, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamRead(#[in] pavi: PAVISTREAM, #[in] lStart: LONG, #[in] lSamples: LONG, #[buffer(bytes(cbBuffer))] #[opt] #[out] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[opt] #[out] plBytes: *mut LONG, #[opt] #[out] plSamples: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
@@ -392,7 +392,7 @@ mod Windows {
         const CONTROLCALLBACK_CAPTURING: i32 = 2;
         const CONTROLCALLBACK_PREROLL: i32 = 1;
         #[library("AVIFIL32.dll")]
-        extern fn CreateEditableStream(#[out] #[out_ptr] ppsEditable: *mut PAVISTREAM, #[in] psSource: PAVISTREAM) -> HRESULT;
+        extern fn CreateEditableStream(#[out] ppsEditable: *mut PAVISTREAM, #[in] psSource: PAVISTREAM) -> HRESULT;
         const DDF_0001: i32 = 1;
         const DDF_2000: i32 = 8192;
         const DDF_ANIMATE: i32 = 32;
@@ -492,11 +492,11 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn DrawDibTime(#[in] hdd: HDRAWDIB, #[out] lpddtime: LPDRAWDIBTIME) -> BOOL;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamClone(#[in] pavi: PAVISTREAM, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamClone(#[in] pavi: PAVISTREAM, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamCopy(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamCopy(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn EditStreamCut(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+        extern fn EditStreamCut(#[in] pavi: PAVISTREAM, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn EditStreamPaste(#[in] pavi: PAVISTREAM, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[in] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
@@ -542,28 +542,28 @@ mod Windows {
         #[guid(0x00020024_0000_0000_c000_000000000046)]
         interface IAVIEditStream: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Cut(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
-            fn Copy(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Cut(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Copy(&self, #[in] #[out] plStart: *mut LONG, #[in] #[out] plLength: *mut LONG, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn Paste(&self, #[in] #[out] plPos: *mut LONG, #[in] #[out] plLength: *mut LONG, #[in] #[incomplete] pstream: PAVISTREAM, #[in] lStart: LONG, #[in] lEnd: LONG) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn SetInfo(&self, #[buffer(bytes(cbInfo))] #[in] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
         #[guid(0x00020020_0000_0000_c000_000000000046)]
         interface IAVIFile: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn Info(&self, #[buffer(bytes(lSize))] #[out] pfi: *mut AVIFILEINFOW, #[in] lSize: LONG) -> HRESULT;
-            fn GetStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
-            fn CreateStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
+            fn GetStream(&self, #[out] ppStream: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
+            fn CreateStream(&self, #[out] ppStream: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
             fn WriteData(&self, #[in] ckid: DWORD, #[buffer(bytes(cbData))] #[in] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
             fn ReadData(&self, #[in] ckid: DWORD, #[buffer(bytes(*lpcbData))] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
             fn EndRecord(&self) -> HRESULT;
@@ -576,7 +576,7 @@ mod Windows {
         #[guid(0x00020021_0000_0000_c000_000000000046)]
         interface IAVIStream: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -596,7 +596,7 @@ mod Windows {
         #[guid(0x00020022_0000_0000_c000_000000000046)]
         interface IAVIStreaming: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -933,7 +933,7 @@ mod Windows {
         #[guid(0x00020023_0000_0000_c000_000000000046)]
         interface IGetFrame: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]

@@ -1139,7 +1139,10 @@ impl IHlinkFrame_Vtbl {
                         ppihlbc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppihlbc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1247,7 +1250,10 @@ impl IHlinkSite_Vtbl {
                         ppimk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1357,7 +1363,10 @@ impl IHlinkTarget_Vtbl {
                         ppihlbc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppihlbc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1375,7 +1384,10 @@ impl IHlinkTarget_Vtbl {
                         ppimklocation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimklocation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

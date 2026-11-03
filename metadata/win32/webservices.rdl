@@ -178,11 +178,11 @@ mod Windows {
             WS_MANUAL_COOKIE_MODE = 1,
             WS_AUTO_COOKIE_MODE = 2,
         }
-        extern fn WS_CREATE_CHANNEL_CALLBACK(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(bytes(channelParametersSize))] #[in] channelParameters: *const void, #[in] channelParametersSize: ULONG, #[out] #[out_ptr] channelInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
-        extern fn WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK(#[in] listenerInstance: *mut void, #[buffer(bytes(channelParametersSize))] #[in] channelParameters: *const void, #[in] channelParametersSize: ULONG, #[out] #[out_ptr] channelInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
-        extern fn WS_CREATE_DECODER_CALLBACK(#[in] createContext: *mut void, #[in] readCallback: WS_READ_CALLBACK, #[in] readContext: *mut void, #[out] #[out_ptr] decoderContext: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
-        extern fn WS_CREATE_ENCODER_CALLBACK(#[in] createContext: *mut void, #[in] writeCallback: WS_WRITE_CALLBACK, #[in] writeContext: *mut void, #[out] #[out_ptr] encoderContext: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
-        extern fn WS_CREATE_LISTENER_CALLBACK(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(bytes(listenerParametersSize))] #[in] listenerParameters: *const void, #[in] listenerParametersSize: ULONG, #[out] #[out_ptr] listenerInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_CREATE_CHANNEL_CALLBACK(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(bytes(channelParametersSize))] #[in] channelParameters: *const void, #[in] channelParametersSize: ULONG, #[out] channelInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK(#[in] listenerInstance: *mut void, #[buffer(bytes(channelParametersSize))] #[in] channelParameters: *const void, #[in] channelParametersSize: ULONG, #[out] channelInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_CREATE_DECODER_CALLBACK(#[in] createContext: *mut void, #[in] readCallback: WS_READ_CALLBACK, #[in] readContext: *mut void, #[out] decoderContext: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_CREATE_ENCODER_CALLBACK(#[in] createContext: *mut void, #[in] writeCallback: WS_WRITE_CALLBACK, #[in] writeContext: *mut void, #[out] encoderContext: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_CREATE_LISTENER_CALLBACK(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(bytes(listenerParametersSize))] #[in] listenerParameters: *const void, #[in] listenerParametersSize: ULONG, #[out] listenerInstance: *mut *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         type WS_CUSTOM_CERT_CREDENTIAL = _WS_CUSTOM_CERT_CREDENTIAL;
         type WS_CUSTOM_CHANNEL_CALLBACKS = _WS_CUSTOM_CHANNEL_CALLBACKS;
         type WS_CUSTOM_HTTP_PROXY = _WS_CUSTOM_HTTP_PROXY;
@@ -319,7 +319,7 @@ mod Windows {
         extern fn WS_FREE_DECODER_CALLBACK(#[in] decoderContext: *mut void);
         extern fn WS_FREE_ENCODER_CALLBACK(#[in] encoderContext: *mut void);
         extern fn WS_FREE_LISTENER_CALLBACK(#[in] listenerInstance: *mut void);
-        extern fn WS_GET_CERT_CALLBACK(#[in] #[opt] getCertCallbackState: *mut void, #[in] #[opt] targetAddress: *const WS_ENDPOINT_ADDRESS, #[in] #[opt] viaUri: *const WS_STRING, #[out] #[out_ptr] cert: *mut *const CERT_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_GET_CERT_CALLBACK(#[in] #[opt] getCertCallbackState: *mut void, #[in] #[opt] targetAddress: *const WS_ENDPOINT_ADDRESS, #[in] #[opt] viaUri: *const WS_STRING, #[out] cert: *mut *const CERT_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_GET_CHANNEL_PROPERTY_CALLBACK(#[in] channelInstance: *mut void, #[in] id: WS_CHANNEL_PROPERTY_ID, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_GET_LISTENER_PROPERTY_CALLBACK(#[in] listenerInstance: *mut void, #[in] id: WS_LISTENER_PROPERTY_ID, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         type WS_GUID_DESCRIPTION = _WS_GUID_DESCRIPTION;
@@ -884,7 +884,7 @@ mod Windows {
             WS_SECURITY_TOKEN_REFERENCE_MODE_SECURITY_CONTEXT_ID = 4,
             WS_SECURITY_TOKEN_REFERENCE_MODE_SAML_ASSERTION_ID = 5,
         }
-        extern fn WS_SERVICE_ACCEPT_CHANNEL_CALLBACK(#[in] context: *const WS_OPERATION_CONTEXT, #[out] #[out_ptr] channelState: *mut *mut void, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_SERVICE_ACCEPT_CHANNEL_CALLBACK(#[in] context: *const WS_OPERATION_CONTEXT, #[out] channelState: *mut *mut void, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[repr(i32)]
         enum WS_SERVICE_CANCEL_REASON {
             WS_SERVICE_HOST_ABORT = 0,
@@ -1543,43 +1543,43 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsCopyNode(#[in] writer: *mut WS_XML_WRITER, #[in] reader: *mut WS_XML_READER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateChannel(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_CHANNEL_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[out] #[out_ptr] channel: *mut *mut WS_CHANNEL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateChannel(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_CHANNEL_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[out] channel: *mut *mut WS_CHANNEL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateChannelForListener(#[in] listener: *mut WS_LISTENER, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_CHANNEL_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] channel: *mut *mut WS_CHANNEL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateChannelForListener(#[in] listener: *mut WS_LISTENER, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_CHANNEL_PROPERTY, #[in] propertyCount: ULONG, #[out] channel: *mut *mut WS_CHANNEL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateError(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_ERROR_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] error: *mut *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateError(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_ERROR_PROPERTY, #[in] propertyCount: ULONG, #[out] error: *mut *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsCreateFaultFromError(#[in] error: *mut WS_ERROR, #[in] faultErrorCode: HRESULT, #[in] faultDisclosure: WS_FAULT_DISCLOSURE, #[in] heap: *mut WS_HEAP, #[out] fault: *mut WS_FAULT) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateHeap(#[in] maxSize: SIZE_T, #[in] trimSize: SIZE_T, #[in] #[opt] properties: *const WS_HEAP_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] heap: *mut *mut WS_HEAP, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateHeap(#[in] maxSize: SIZE_T, #[in] trimSize: SIZE_T, #[in] #[opt] properties: *const WS_HEAP_PROPERTY, #[in] propertyCount: ULONG, #[out] heap: *mut *mut WS_HEAP, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateListener(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_LISTENER_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[out] #[out_ptr] listener: *mut *mut WS_LISTENER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateListener(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_LISTENER_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[out] listener: *mut *mut WS_LISTENER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateMessage(#[in] envelopeVersion: WS_ENVELOPE_VERSION, #[in] addressingVersion: WS_ADDRESSING_VERSION, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_MESSAGE_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] message: *mut *mut WS_MESSAGE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateMessage(#[in] envelopeVersion: WS_ENVELOPE_VERSION, #[in] addressingVersion: WS_ADDRESSING_VERSION, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_MESSAGE_PROPERTY, #[in] propertyCount: ULONG, #[out] message: *mut *mut WS_MESSAGE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateMessageForChannel(#[in] channel: *mut WS_CHANNEL, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_MESSAGE_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] message: *mut *mut WS_MESSAGE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateMessageForChannel(#[in] channel: *mut WS_CHANNEL, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_MESSAGE_PROPERTY, #[in] propertyCount: ULONG, #[out] message: *mut *mut WS_MESSAGE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateMetadata(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_METADATA_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] metadata: *mut *mut WS_METADATA, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateMetadata(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_METADATA_PROPERTY, #[in] propertyCount: ULONG, #[out] metadata: *mut *mut WS_METADATA, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateReader(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_READER_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] reader: *mut *mut WS_XML_READER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateReader(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_READER_PROPERTY, #[in] propertyCount: ULONG, #[out] reader: *mut *mut WS_XML_READER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateServiceEndpointFromTemplate(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_SERVICE_ENDPOINT_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] addressUrl: *const WS_STRING, #[in] contract: *const WS_SERVICE_CONTRACT, #[in] #[opt] authorizationCallback: WS_SERVICE_SECURITY_CALLBACK, #[in] heap: *mut WS_HEAP, #[in] templateType: WS_BINDING_TEMPLATE_TYPE, #[buffer(bytes(templateSize))] #[in] #[opt] templateValue: *mut void, #[in] templateSize: ULONG, #[in] templateDescription: *const void, #[in] templateDescriptionSize: ULONG, #[out] #[out_ptr] serviceEndpoint: *mut *mut WS_SERVICE_ENDPOINT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateServiceEndpointFromTemplate(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_SERVICE_ENDPOINT_PROPERTY, #[in] propertyCount: ULONG, #[in] #[opt] addressUrl: *const WS_STRING, #[in] contract: *const WS_SERVICE_CONTRACT, #[in] #[opt] authorizationCallback: WS_SERVICE_SECURITY_CALLBACK, #[in] heap: *mut WS_HEAP, #[in] templateType: WS_BINDING_TEMPLATE_TYPE, #[buffer(bytes(templateSize))] #[in] #[opt] templateValue: *mut void, #[in] templateSize: ULONG, #[in] templateDescription: *const void, #[in] templateDescriptionSize: ULONG, #[out] serviceEndpoint: *mut *mut WS_SERVICE_ENDPOINT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateServiceHost(#[buffer(endpointCount)] #[in] #[opt] endpoints: *mut *const WS_SERVICE_ENDPOINT, #[in] endpointCount: USHORT, #[buffer(servicePropertyCount)] #[in] #[opt] serviceProperties: *const WS_SERVICE_PROPERTY, #[in] servicePropertyCount: ULONG, #[out] #[out_ptr] serviceHost: *mut *mut WS_SERVICE_HOST, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateServiceHost(#[buffer(endpointCount)] #[in] #[opt] endpoints: *mut *const WS_SERVICE_ENDPOINT, #[in] endpointCount: USHORT, #[buffer(servicePropertyCount)] #[in] #[opt] serviceProperties: *const WS_SERVICE_PROPERTY, #[in] servicePropertyCount: ULONG, #[out] serviceHost: *mut *mut WS_SERVICE_HOST, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateServiceProxy(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_PROXY_PROPERTY, #[in] propertyCount: ULONG, #[buffer(channelPropertyCount)] #[in] #[opt] channelProperties: *const WS_CHANNEL_PROPERTY, #[in] channelPropertyCount: ULONG, #[out] #[out_ptr] serviceProxy: *mut *mut WS_SERVICE_PROXY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateServiceProxy(#[in] channelType: WS_CHANNEL_TYPE, #[in] channelBinding: WS_CHANNEL_BINDING, #[in] #[opt] securityDescription: *const WS_SECURITY_DESCRIPTION, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_PROXY_PROPERTY, #[in] propertyCount: ULONG, #[buffer(channelPropertyCount)] #[in] #[opt] channelProperties: *const WS_CHANNEL_PROPERTY, #[in] channelPropertyCount: ULONG, #[out] serviceProxy: *mut *mut WS_SERVICE_PROXY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateServiceProxyFromTemplate(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_PROXY_PROPERTY, #[in] propertyCount: ULONG, #[in] templateType: WS_BINDING_TEMPLATE_TYPE, #[buffer(bytes(templateSize))] #[in] #[opt] templateValue: *mut void, #[in] templateSize: ULONG, #[in] templateDescription: *const void, #[in] templateDescriptionSize: ULONG, #[out] #[out_ptr] serviceProxy: *mut *mut WS_SERVICE_PROXY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateServiceProxyFromTemplate(#[in] channelType: WS_CHANNEL_TYPE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_PROXY_PROPERTY, #[in] propertyCount: ULONG, #[in] templateType: WS_BINDING_TEMPLATE_TYPE, #[buffer(bytes(templateSize))] #[in] #[opt] templateValue: *mut void, #[in] templateSize: ULONG, #[in] templateDescription: *const void, #[in] templateDescriptionSize: ULONG, #[out] serviceProxy: *mut *mut WS_SERVICE_PROXY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateWriter(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_WRITER_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] writer: *mut *mut WS_XML_WRITER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateWriter(#[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_WRITER_PROPERTY, #[in] propertyCount: ULONG, #[out] writer: *mut *mut WS_XML_WRITER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateXmlBuffer(#[in] heap: *mut WS_HEAP, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_BUFFER_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] buffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateXmlBuffer(#[in] heap: *mut WS_HEAP, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_BUFFER_PROPERTY, #[in] propertyCount: ULONG, #[out] buffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsCreateXmlSecurityToken(#[in] #[opt] tokenXml: *mut WS_XML_BUFFER, #[in] #[opt] tokenKey: *mut WS_SECURITY_KEY_HANDLE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_SECURITY_TOKEN_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] token: *mut *mut WS_SECURITY_TOKEN, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsCreateXmlSecurityToken(#[in] #[opt] tokenXml: *mut WS_XML_BUFFER, #[in] #[opt] tokenKey: *mut WS_SECURITY_KEY_HANDLE, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_SECURITY_TOKEN_PROPERTY, #[in] propertyCount: ULONG, #[out] token: *mut *mut WS_SECURITY_TOKEN, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsDateTimeToFileTime(#[in] dateTime: *const WS_DATETIME, #[out] fileTime: *mut FILETIME, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsDecodeUrl(#[in] url: *const WS_STRING, #[in] flags: ULONG, #[in] heap: *mut WS_HEAP, #[out] #[out_ptr] outUrl: *mut *mut WS_URL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsDecodeUrl(#[in] url: *const WS_STRING, #[in] flags: ULONG, #[in] heap: *mut WS_HEAP, #[out] outUrl: *mut *mut WS_URL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsEncodeUrl(#[in] url: *const WS_URL, #[in] flags: ULONG, #[in] heap: *mut WS_HEAP, #[out] outUrl: *mut WS_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1625,7 +1625,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetCustomHeader(#[in] message: *mut WS_MESSAGE, #[in] customHeaderDescription: *const WS_ELEMENT_DESCRIPTION, #[in] repeatingOption: WS_REPEATING_HEADER_OPTION, #[in] headerIndex: ULONG, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[opt] #[out] headerAttributes: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetDictionary(#[in] encoding: WS_ENCODING, #[nullable] #[out] #[out_ptr] dictionary: *mut *mut WS_XML_DICTIONARY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetDictionary(#[in] encoding: WS_ENCODING, #[nullable] #[out] dictionary: *mut *mut WS_XML_DICTIONARY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetErrorProperty(#[in] error: *mut WS_ERROR, #[in] id: WS_ERROR_PROPERTY_ID, #[buffer(bytes(bufferSize))] #[out] buffer: *mut void, #[in] bufferSize: ULONG) -> HRESULT;
         #[library("webservices.dll")]
@@ -1651,9 +1651,9 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetMetadataProperty(#[in] metadata: *mut WS_METADATA, #[in] id: WS_METADATA_PROPERTY_ID, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetMissingMetadataDocumentAddress(#[in] metadata: *mut WS_METADATA, #[nullable] #[out] #[out_ptr] address: *mut *mut WS_ENDPOINT_ADDRESS, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetMissingMetadataDocumentAddress(#[in] metadata: *mut WS_METADATA, #[nullable] #[out] address: *mut *mut WS_ENDPOINT_ADDRESS, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetNamespaceFromPrefix(#[in] reader: *mut WS_XML_READER, #[in] prefix: *const WS_XML_STRING, #[in] required: BOOL, #[out] #[out_ptr] ns: *mut *const WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetNamespaceFromPrefix(#[in] reader: *mut WS_XML_READER, #[in] prefix: *const WS_XML_STRING, #[in] required: BOOL, #[out] ns: *mut *const WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetOperationContextProperty(#[in] context: *const WS_OPERATION_CONTEXT, #[in] id: WS_OPERATION_CONTEXT_PROPERTY_ID, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1661,9 +1661,9 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetPolicyProperty(#[in] policy: *mut WS_POLICY, #[in] id: WS_POLICY_PROPERTY_ID, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetPrefixFromNamespace(#[in] writer: *mut WS_XML_WRITER, #[in] ns: *const WS_XML_STRING, #[in] required: BOOL, #[out] #[out_ptr] prefix: *mut *const WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetPrefixFromNamespace(#[in] writer: *mut WS_XML_WRITER, #[in] ns: *const WS_XML_STRING, #[in] required: BOOL, #[out] prefix: *mut *const WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetReaderNode(#[in] xmlReader: *mut WS_XML_READER, #[out] #[out_ptr] node: *mut *const WS_XML_NODE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetReaderNode(#[in] xmlReader: *mut WS_XML_READER, #[out] node: *mut *const WS_XML_NODE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetReaderPosition(#[in] reader: *mut WS_XML_READER, #[out] nodePosition: *mut WS_XML_NODE_POSITION, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1749,9 +1749,9 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsReadValue(#[in] reader: *mut WS_XML_READER, #[in] valueType: WS_VALUE_TYPE, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadXmlBuffer(#[in] reader: *mut WS_XML_READER, #[in] heap: *mut WS_HEAP, #[out] #[out_ptr] xmlBuffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadXmlBuffer(#[in] reader: *mut WS_XML_READER, #[in] heap: *mut WS_HEAP, #[out] xmlBuffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadXmlBufferFromBytes(#[in] reader: *mut WS_XML_READER, #[in] #[opt] encoding: *const WS_XML_READER_ENCODING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_READER_PROPERTY, #[in] propertyCount: ULONG, #[buffer(bytes(byteCount))] #[in] bytes: *const void, #[in] byteCount: ULONG, #[in] heap: *mut WS_HEAP, #[out] #[out_ptr] xmlBuffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadXmlBufferFromBytes(#[in] reader: *mut WS_XML_READER, #[in] #[opt] encoding: *const WS_XML_READER_ENCODING, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_XML_READER_PROPERTY, #[in] propertyCount: ULONG, #[buffer(bytes(byteCount))] #[in] bytes: *const void, #[in] byteCount: ULONG, #[in] heap: *mut WS_HEAP, #[out] xmlBuffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReceiveMessage(#[in] channel: *mut WS_CHANNEL, #[in] message: *mut WS_MESSAGE, #[buffer(messageDescriptionCount)] #[in] messageDescriptions: *mut *const WS_MESSAGE_DESCRIPTION, #[in] messageDescriptionCount: ULONG, #[in] receiveOption: WS_RECEIVE_OPTION, #[in] readBodyOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[buffer(bytes(valueSize))] #[out] value: *mut void, #[in] valueSize: ULONG, #[opt] #[out] index: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1767,7 +1767,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsRequestReply(#[in] channel: *mut WS_CHANNEL, #[in] requestMessage: *mut WS_MESSAGE, #[in] requestMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] writeOption: WS_WRITE_OPTION, #[buffer(bytes(requestBodyValueSize))] #[in] #[opt] requestBodyValue: *const void, #[in] requestBodyValueSize: ULONG, #[in] replyMessage: *mut WS_MESSAGE, #[in] replyMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[buffer(bytes(valueSize))] #[opt] #[out] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsRequestSecurityToken(#[in] channel: *mut WS_CHANNEL, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] token: *mut *mut WS_SECURITY_TOKEN, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsRequestSecurityToken(#[in] channel: *mut WS_CHANNEL, #[buffer(propertyCount)] #[in] #[opt] properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, #[in] propertyCount: ULONG, #[out] token: *mut *mut WS_SECURITY_TOKEN, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsResetChannel(#[in] channel: *mut WS_CHANNEL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]

@@ -103,7 +103,10 @@ impl IEnumWbemClassObject_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -251,7 +254,10 @@ impl IUnsecuredApartment_Vtbl {
                         ppstub.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -405,7 +411,10 @@ impl IWbemCallResult_Vtbl {
                         ppresultobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresultobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -423,7 +432,10 @@ impl IWbemCallResult_Vtbl {
                         ppservices.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservices.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1988,7 +2000,10 @@ impl IWbemServices_Vtbl {
                         ppresponsehandler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresponsehandler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2036,7 +2051,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2078,7 +2096,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2096,7 +2117,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2114,7 +2138,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2311,7 +2338,10 @@ impl IWbemUnsecuredApartment_Vtbl {
                         ppstub.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

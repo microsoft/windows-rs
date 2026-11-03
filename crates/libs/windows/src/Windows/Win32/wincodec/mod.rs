@@ -254,7 +254,10 @@ impl IWICBitmap_Vtbl {
                         ppilock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppilock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -710,7 +713,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppidecoderinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoderinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -728,7 +734,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppimetadataqueryreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataqueryreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -740,7 +749,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppibitmapsource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapsource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -758,7 +770,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppithumbnail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppithumbnail.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -776,7 +791,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -871,7 +889,10 @@ impl IWICBitmapDecoderInfo_Vtbl {
                         ppibitmapdecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapdecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1003,7 +1024,10 @@ impl IWICBitmapEncoder_Vtbl {
                         ppiencoderinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiencoderinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1051,7 +1075,10 @@ impl IWICBitmapEncoder_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1112,7 +1139,10 @@ impl IWICBitmapEncoderInfo_Vtbl {
                         ppibitmapencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1217,7 +1247,10 @@ impl IWICBitmapFrameChainReader_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1340,7 +1373,10 @@ impl IWICBitmapFrameDecode_Vtbl {
                         ppimetadataqueryreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataqueryreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1358,7 +1394,10 @@ impl IWICBitmapFrameDecode_Vtbl {
                         ppithumbnail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppithumbnail.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1548,7 +1587,10 @@ impl IWICBitmapFrameEncode_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2389,7 +2431,7 @@ impl IWICD3DTextureSource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppid3dtextureoptions.write(core::mem::zeroed());
+                        ppid3dtextureoptions.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2459,7 +2501,10 @@ impl IWICDdsDecoder_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2867,7 +2912,10 @@ impl IWICDevelopRaw_Vtbl {
                         ppcurrentparameterset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcurrentparameterset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3186,7 +3234,10 @@ impl IWICDisplayAdaptationControl_Vtbl {
                         pfluminanceinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfluminanceinnits.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3277,7 +3328,10 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                         pfwhitelevelinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfwhitelevelinnits.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3295,7 +3349,10 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3392,7 +3449,10 @@ impl IWICEnumMetadataItem_Vtbl {
                         ppienummetadataitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienummetadataitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3450,7 +3510,10 @@ impl IWICFastMetadataEncoder_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3572,7 +3635,10 @@ impl IWICFormatConverterInfo_Vtbl {
                         ppiconverter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiconverter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3961,7 +4027,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3973,7 +4042,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3985,7 +4057,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3997,7 +4072,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4009,7 +4087,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4021,7 +4102,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4033,7 +4117,10 @@ impl IWICImagingFactory_Vtbl {
                         ppipalette.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipalette.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4045,7 +4132,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiformatconverter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiformatconverter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4057,7 +4147,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapscaler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapscaler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4069,7 +4162,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapclipper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapclipper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4081,7 +4177,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapfliprotator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapfliprotator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4093,7 +4192,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwicstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwicstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4105,7 +4207,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwiccolorcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiccolorcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4117,7 +4222,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwiccolortransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiccolortransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4129,7 +4237,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4141,7 +4252,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4153,7 +4267,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4165,7 +4282,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4177,7 +4297,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4189,7 +4312,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4201,7 +4327,10 @@ impl IWICImagingFactory_Vtbl {
                         ppienumunknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumunknown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4213,7 +4342,10 @@ impl IWICImagingFactory_Vtbl {
                         ppifastencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifastencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4225,7 +4357,10 @@ impl IWICImagingFactory_Vtbl {
                         ppifastencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifastencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4237,7 +4372,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4249,7 +4387,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4372,7 +4513,10 @@ impl IWICImagingFactory3_Vtbl {
                         pptonemapper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptonemapper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4729,7 +4873,10 @@ impl IWICMetadataQueryReader_Vtbl {
                         ppienumstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5054,7 +5201,10 @@ impl IWICPixelFormatInfo_Vtbl {
                         ppicolorcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppicolorcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5416,7 +5566,10 @@ impl IWICProgressiveLevelControl_Vtbl {
                         pclevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pclevels.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5428,7 +5581,10 @@ impl IWICProgressiveLevelControl_Vtbl {
                         pnlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnlevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

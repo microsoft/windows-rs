@@ -7139,7 +7139,7 @@ mod Windows {
         type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
         type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
         #[must_use]
-        extern fn PREPLACE_BEGIN(#[in] Parameters: PPNP_REPLACE_PARAMETERS, #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
+        extern fn PREPLACE_BEGIN(#[in] Parameters: PPNP_REPLACE_PARAMETERS, #[out] Context: *mut PVOID) -> NTSTATUS;
         #[must_use]
         extern fn PREPLACE_DRIVER_INIT(#[in] #[out] Interface: PPNP_REPLACE_DRIVER_INTERFACE, #[in] Unused: PVOID) -> NTSTATUS;
         #[must_use]
@@ -7151,7 +7151,7 @@ mod Windows {
         #[must_use]
         extern fn PREPLACE_INITIATE_HARDWARE_MIRROR(#[in] Context: PVOID) -> NTSTATUS;
         #[must_use]
-        extern fn PREPLACE_MAP_MEMORY(#[in] TargetPhysicalAddress: PHYSICAL_ADDRESS, #[in] SparePhysicalAddress: PHYSICAL_ADDRESS, #[in] #[out] NumberOfBytes: PLARGE_INTEGER, #[out] #[out_ptr] TargetAddress: *mut PVOID, #[out] #[out_ptr] SpareAddress: *mut PVOID) -> NTSTATUS;
+        extern fn PREPLACE_MAP_MEMORY(#[in] TargetPhysicalAddress: PHYSICAL_ADDRESS, #[in] SparePhysicalAddress: PHYSICAL_ADDRESS, #[in] #[out] NumberOfBytes: PLARGE_INTEGER, #[out] TargetAddress: *mut PVOID, #[out] SpareAddress: *mut PVOID) -> NTSTATUS;
         #[must_use]
         extern fn PREPLACE_MIRROR_PHYSICAL_MEMORY(#[in] Context: PVOID, #[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] ByteCount: LARGE_INTEGER) -> NTSTATUS;
         #[must_use]

@@ -14,11 +14,11 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmCalloutEnum0")]
         extern fn FwpmCalloutEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_CALLOUT0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmCalloutGetById0")]
-        extern fn FwpmCalloutGetById(#[in] engineHandle: HANDLE, #[in] id: UINT32, #[out] #[out_ptr] callout: *mut *mut FWPM_CALLOUT0) -> DWORD;
+        extern fn FwpmCalloutGetById(#[in] engineHandle: HANDLE, #[in] id: UINT32, #[out] callout: *mut *mut FWPM_CALLOUT0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmCalloutGetByKey0")]
-        extern fn FwpmCalloutGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] callout: *mut *mut FWPM_CALLOUT0) -> DWORD;
+        extern fn FwpmCalloutGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] callout: *mut *mut FWPM_CALLOUT0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmCalloutGetSecurityInfoByKey0")]
-        extern fn FwpmCalloutGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmCalloutGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmCalloutSetSecurityInfoByKey0")]
         extern fn FwpmCalloutSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmCalloutSubscribeChanges0")]
@@ -34,9 +34,9 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmConnectionEnum0")]
         extern fn FwpmConnectionEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_CONNECTION0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmConnectionGetById0")]
-        extern fn FwpmConnectionGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] #[out_ptr] connection: *mut *mut FWPM_CONNECTION0) -> DWORD;
+        extern fn FwpmConnectionGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] connection: *mut *mut FWPM_CONNECTION0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmConnectionGetSecurityInfo0")]
-        extern fn FwpmConnectionGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmConnectionGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmConnectionPolicyAdd0")]
         extern fn FwpmConnectionPolicyAdd(#[in] engineHandle: HANDLE, #[in] connectionPolicy: *const FWPM_PROVIDER_CONTEXT3, #[in] ipVersion: FWP_IP_VERSION, #[in] weight: UINT64, #[in] numFilterConditions: UINT32, #[buffer(numFilterConditions)] #[in] filterConditions: *const FWPM_FILTER_CONDITION0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmConnectionPolicyDeleteByKey0")]
@@ -52,9 +52,9 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmEngineClose0")]
         extern fn FwpmEngineClose(#[in] #[out] engineHandle: HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmEngineGetOption0")]
-        extern fn FwpmEngineGetOption(#[in] engineHandle: HANDLE, #[in] option: FWPM_ENGINE_OPTION, #[out] #[out_ptr] value: *mut *mut FWP_VALUE0) -> DWORD;
+        extern fn FwpmEngineGetOption(#[in] engineHandle: HANDLE, #[in] option: FWPM_ENGINE_OPTION, #[out] value: *mut *mut FWP_VALUE0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmEngineGetSecurityInfo0")]
-        extern fn FwpmEngineGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmEngineGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmEngineOpen0")]
         extern fn FwpmEngineOpen(#[in] #[opt] serverName: *const u16, #[in] authnService: UINT32, #[in] #[opt] authIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W, #[in] #[opt] session: *const FWPM_SESSION0, #[out] engineHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmEngineSetOption0")]
@@ -74,11 +74,11 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmFilterEnum0")]
         extern fn FwpmFilterEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_FILTER0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmFilterGetById0")]
-        extern fn FwpmFilterGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] #[out_ptr] filter: *mut *mut FWPM_FILTER0) -> DWORD;
+        extern fn FwpmFilterGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] filter: *mut *mut FWPM_FILTER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmFilterGetByKey0")]
-        extern fn FwpmFilterGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] filter: *mut *mut FWPM_FILTER0) -> DWORD;
+        extern fn FwpmFilterGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] filter: *mut *mut FWPM_FILTER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmFilterGetSecurityInfoByKey0")]
-        extern fn FwpmFilterGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmFilterGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmFilterSetSecurityInfoByKey0")]
         extern fn FwpmFilterSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmFilterSubscribeChanges0")]
@@ -90,7 +90,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmFreeMemory0")]
         extern fn FwpmFreeMemory(#[in] #[out] p: *mut *mut void);
         #[library("fwpuclnt.dll", import = "FwpmGetAppIdFromFileName0")]
-        extern fn FwpmGetAppIdFromFileName(#[in] fileName: PCWSTR, #[out] #[out_ptr] appId: *mut *mut FWP_BYTE_BLOB) -> DWORD;
+        extern fn FwpmGetAppIdFromFileName(#[in] fileName: PCWSTR, #[out] appId: *mut *mut FWP_BYTE_BLOB) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmIPsecTunnelAdd3")]
         extern fn FwpmIPsecTunnelAdd(#[in] engineHandle: HANDLE, #[in] flags: UINT32, #[in] #[opt] mainModePolicy: *const FWPM_PROVIDER_CONTEXT3, #[in] tunnelPolicy: *const FWPM_PROVIDER_CONTEXT3, #[in] numFilterConditions: UINT32, #[buffer(numFilterConditions)] #[in] filterConditions: *const FWPM_FILTER_CONDITION0, #[in] #[opt] keyModKey: *const GUID, #[in] #[opt] sd: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmIPsecTunnelDeleteByKey0")]
@@ -102,11 +102,11 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmLayerEnum0")]
         extern fn FwpmLayerEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_LAYER0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmLayerGetById0")]
-        extern fn FwpmLayerGetById(#[in] engineHandle: HANDLE, #[in] id: UINT16, #[out] #[out_ptr] layer: *mut *mut FWPM_LAYER0) -> DWORD;
+        extern fn FwpmLayerGetById(#[in] engineHandle: HANDLE, #[in] id: UINT16, #[out] layer: *mut *mut FWPM_LAYER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmLayerGetByKey0")]
-        extern fn FwpmLayerGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] layer: *mut *mut FWPM_LAYER0) -> DWORD;
+        extern fn FwpmLayerGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] layer: *mut *mut FWPM_LAYER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmLayerGetSecurityInfoByKey0")]
-        extern fn FwpmLayerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmLayerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmLayerSetSecurityInfoByKey0")]
         extern fn FwpmLayerSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmNetEventCreateEnumHandle0")]
@@ -122,7 +122,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmNetEventUnsubscribe0")]
         extern fn FwpmNetEventUnsubscribe(#[in] engineHandle: HANDLE, #[in] #[out] eventsHandle: HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmNetEventsGetSecurityInfo0")]
-        extern fn FwpmNetEventsGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmNetEventsGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmNetEventsSetSecurityInfo0")]
         extern fn FwpmNetEventsSetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderAdd0")]
@@ -140,11 +140,11 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmProviderContextEnum3")]
         extern fn FwpmProviderContextEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderContextGetById3")]
-        extern fn FwpmProviderContextGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] #[out_ptr] providerContext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> DWORD;
+        extern fn FwpmProviderContextGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] providerContext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderContextGetByKey3")]
-        extern fn FwpmProviderContextGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] providerContext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> DWORD;
+        extern fn FwpmProviderContextGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] providerContext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderContextGetSecurityInfoByKey0")]
-        extern fn FwpmProviderContextGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmProviderContextGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderContextSetSecurityInfoByKey0")]
         extern fn FwpmProviderContextSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderContextSubscribeChanges0")]
@@ -162,9 +162,9 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmProviderEnum0")]
         extern fn FwpmProviderEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_PROVIDER0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderGetByKey0")]
-        extern fn FwpmProviderGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] provider: *mut *mut FWPM_PROVIDER0) -> DWORD;
+        extern fn FwpmProviderGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] provider: *mut *mut FWPM_PROVIDER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderGetSecurityInfoByKey0")]
-        extern fn FwpmProviderGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmProviderGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderSetSecurityInfoByKey0")]
         extern fn FwpmProviderSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmProviderSubscribeChanges0")]
@@ -190,9 +190,9 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmSubLayerEnum0")]
         extern fn FwpmSubLayerEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut FWPM_SUBLAYER0, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSubLayerGetByKey0")]
-        extern fn FwpmSubLayerGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] #[out_ptr] subLayer: *mut *mut FWPM_SUBLAYER0) -> DWORD;
+        extern fn FwpmSubLayerGetByKey(#[in] engineHandle: HANDLE, #[in] key: *const GUID, #[out] subLayer: *mut *mut FWPM_SUBLAYER0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSubLayerGetSecurityInfoByKey0")]
-        extern fn FwpmSubLayerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmSubLayerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSubLayerSetSecurityInfoByKey0")]
         extern fn FwpmSubLayerSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[in] #[opt] key: *const GUID, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSubLayerSubscribeChanges0")]
@@ -202,7 +202,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmSubLayerUnsubscribeChanges0")]
         extern fn FwpmSubLayerUnsubscribeChanges(#[in] engineHandle: HANDLE, #[in] #[out] changeHandle: HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSystemPortsGet0")]
-        extern fn FwpmSystemPortsGet(#[in] #[opt] engineHandle: HANDLE, #[out] #[out_ptr] sysPorts: *mut *mut FWPM_SYSTEM_PORTS0) -> DWORD;
+        extern fn FwpmSystemPortsGet(#[in] #[opt] engineHandle: HANDLE, #[out] sysPorts: *mut *mut FWPM_SYSTEM_PORTS0) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSystemPortsSubscribe0")]
         extern fn FwpmSystemPortsSubscribe(#[in] #[opt] engineHandle: HANDLE, #[reserved] reserved: *mut void, #[in] callback: FWPM_SYSTEM_PORTS_CALLBACK0, #[in] #[opt] context: *mut void, #[out] sysPortsHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmSystemPortsUnsubscribe0")]
@@ -218,11 +218,11 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "FwpmvSwitchEventUnsubscribe0")]
         extern fn FwpmvSwitchEventUnsubscribe(#[in] engineHandle: HANDLE, #[in] #[out] subscriptionHandle: HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmvSwitchEventsGetSecurityInfo0")]
-        extern fn FwpmvSwitchEventsGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn FwpmvSwitchEventsGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "FwpmvSwitchEventsSetSecurityInfo0")]
         extern fn FwpmvSwitchEventsSetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecDospGetSecurityInfo0")]
-        extern fn IPsecDospGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn IPsecDospGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecDospGetStatistics0")]
         extern fn IPsecDospGetStatistics(#[in] engineHandle: HANDLE, #[out] idpStatistics: *mut IPSEC_DOSP_STATISTICS0) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecDospSetSecurityInfo0")]
@@ -238,7 +238,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "IPsecKeyManagerAddAndRegister0")]
         extern fn IPsecKeyManagerAddAndRegister(#[in] engineHandle: HANDLE, #[in] keyManager: *const IPSEC_KEY_MANAGER0, #[in] keyManagerCallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, #[out] keyMgmtHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecKeyManagerGetSecurityInfoByKey0")]
-        extern fn IPsecKeyManagerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[reserved] reserved: *const void, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn IPsecKeyManagerGetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[reserved] reserved: *const void, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecKeyManagerSetSecurityInfoByKey0")]
         extern fn IPsecKeyManagerSetSecurityInfoByKey(#[in] engineHandle: HANDLE, #[reserved] reserved: *const void, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecKeyManagerUnregisterAndDelete0")]
@@ -262,7 +262,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "IPsecSaContextExpire0")]
         extern fn IPsecSaContextExpire(#[in] engineHandle: HANDLE, #[in] id: UINT64) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaContextGetById1")]
-        extern fn IPsecSaContextGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] #[out_ptr] saContext: *mut *mut IPSEC_SA_CONTEXT1) -> DWORD;
+        extern fn IPsecSaContextGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[out] saContext: *mut *mut IPSEC_SA_CONTEXT1) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaContextGetSpi1")]
         extern fn IPsecSaContextGetSpi(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[in] getSpi: *const IPSEC_GETSPI1, #[out] inboundSpi: *mut IPSEC_SA_SPI) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaContextSetSpi0")]
@@ -278,7 +278,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "IPsecSaCreateEnumHandle0")]
         extern fn IPsecSaCreateEnumHandle(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const IPSEC_SA_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaDbGetSecurityInfo0")]
-        extern fn IPsecSaDbGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn IPsecSaDbGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaDbSetSecurityInfo0")]
         extern fn IPsecSaDbSetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "IPsecSaDestroyEnumHandle0")]
@@ -290,7 +290,7 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "IkeextSaCreateEnumHandle0")]
         extern fn IkeextSaCreateEnumHandle(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const IKEEXT_SA_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll", import = "IkeextSaDbGetSecurityInfo0")]
-        extern fn IkeextSaDbGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] #[out_ptr] sidOwner: *mut PSID, #[nullable] #[out] #[out_ptr] sidGroup: *mut PSID, #[nullable] #[out] #[out_ptr] dacl: *mut PACL, #[nullable] #[out] #[out_ptr] sacl: *mut PACL, #[out] #[out_ptr] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn IkeextSaDbGetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[nullable] #[out] sidOwner: *mut PSID, #[nullable] #[out] sidGroup: *mut PSID, #[nullable] #[out] dacl: *mut PACL, #[nullable] #[out] sacl: *mut PACL, #[out] securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll", import = "IkeextSaDbSetSecurityInfo0")]
         extern fn IkeextSaDbSetSecurityInfo(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll", import = "IkeextSaDeleteById0")]
@@ -300,6 +300,6 @@ mod Windows {
         #[library("fwpuclnt.dll", import = "IkeextSaEnum2")]
         extern fn IkeextSaEnum(#[in] engineHandle: HANDLE, #[in] enumHandle: HANDLE, #[in] numEntriesRequested: UINT32, #[incomplete] #[out] entries: *mut *mut *mut IKEEXT_SA_DETAILS2, #[out] numEntriesReturned: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll", import = "IkeextSaGetById2")]
-        extern fn IkeextSaGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[in] #[opt] saLookupContext: *mut GUID, #[out] #[out_ptr] sa: *mut *mut IKEEXT_SA_DETAILS2) -> DWORD;
+        extern fn IkeextSaGetById(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[in] #[opt] saLookupContext: *mut GUID, #[out] sa: *mut *mut IKEEXT_SA_DETAILS2) -> DWORD;
     }
 }

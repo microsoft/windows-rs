@@ -3,11 +3,11 @@ mod Windows {
     mod Win32 {
         #[guid(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4)]
         interface ISpatialAudioMetadataClient: IUnknown {
-            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[opt] #[out] #[out_ptr(null_on_failure)] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[out_ptr(null_on_failure)] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[opt] #[out] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
             fn GetSpatialAudioMetadataItemsBufferLength(&self, #[in] maxItemCount: UINT16, #[out] bufferLength: *mut UINT32) -> HRESULT;
-            fn ActivateSpatialAudioMetadataWriter(&self, #[in] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[out_ptr(null_on_failure)] #[retval] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
-            fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
-            fn ActivateSpatialAudioMetadataReader(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
+            fn ActivateSpatialAudioMetadataWriter(&self, #[in] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[retval] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
+            fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[retval] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
+            fn ActivateSpatialAudioMetadataReader(&self, #[out] #[retval] metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
         }
         #[guid(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404)]
         interface ISpatialAudioMetadataCopier: IUnknown {
@@ -49,12 +49,12 @@ mod Windows {
         }
         #[guid(0xddea49ff_3bc0_4377_8aad_9fbcfd808566)]
         interface ISpatialAudioObjectForMetadataItems: ISpatialAudioObjectBase {
-            fn GetSpatialAudioMetadataItems(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetSpatialAudioMetadataItems(&self, #[out] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
         }
         #[guid(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1)]
         interface ISpatialAudioObjectRenderStreamForMetadata: ISpatialAudioObjectRenderStreamBase {
-            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
-            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
         }
         const SPATIAL_AUDIO_POSITION: i32 = 200;
         #[arch(X64 | Arm64)]
