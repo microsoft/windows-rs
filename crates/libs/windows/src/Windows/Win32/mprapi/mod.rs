@@ -545,12 +545,12 @@ pub unsafe fn MprConfigInterfaceSetInfo(hmprconfig: super::HANDLE, hrouterinterf
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportAdd<P3>(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwtransportid: super::DWORD, lpwstransportname: P3, pinterfaceinfo: &[u8], phrouteriftransport: *mut super::HANDLE) -> super::DWORD
+pub unsafe fn MprConfigInterfaceTransportAdd<P3>(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwtransportid: super::DWORD, lpwstransportname: P3, pinterfaceinfo: super::LPBYTE, dwinterfaceinfosize: super::DWORD, phrouteriftransport: *mut super::HANDLE) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwtransportid : super::DWORD, lpwstransportname : windows_core::PCWSTR, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : super::DWORD, phrouteriftransport : *mut super::HANDLE) -> super::DWORD);
-    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport as _) }
+    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname.param().abi(), pinterfaceinfo, dwinterfaceinfosize, phrouteriftransport as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -578,9 +578,9 @@ pub unsafe fn MprConfigInterfaceTransportRemove(hmprconfig: super::HANDLE, hrout
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, hrouteriftransport: super::HANDLE, pinterfaceinfo: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, hrouteriftransport: super::HANDLE, pinterfaceinfo: Option<super::LPBYTE>, dwinterfaceinfosize: super::DWORD) -> super::DWORD {
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : super::DWORD) -> super::DWORD);
-    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, core::mem::transmute(pinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, pinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwinterfaceinfosize) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -653,13 +653,13 @@ pub unsafe fn MprConfigServerSetInfoEx(hmprconfig: super::HANDLE, psetserverconf
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigTransportCreate<P2, P7>(hmprconfig: super::HANDLE, dwtransportid: super::DWORD, lpwstransportname: P2, pglobalinfo: &[u8], pclientinterfaceinfo: Option<&[u8]>, lpwsdllpath: P7, phroutertransport: *mut super::HANDLE) -> super::DWORD
+pub unsafe fn MprConfigTransportCreate<P2, P7>(hmprconfig: super::HANDLE, dwtransportid: super::DWORD, lpwstransportname: P2, pglobalinfo: super::LPBYTE, dwglobalinfosize: super::DWORD, pclientinterfaceinfo: Option<super::LPBYTE>, dwclientinterfaceinfosize: Option<super::DWORD>, lpwsdllpath: P7, phroutertransport: *mut super::HANDLE) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::HANDLE, dwtransportid : super::DWORD, lpwstransportname : windows_core::PCWSTR, pglobalinfo : super::LPBYTE, dwglobalinfosize : super::DWORD, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : super::DWORD, lpwsdllpath : windows_core::PCWSTR, phroutertransport : *mut super::HANDLE) -> super::DWORD);
-    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
+    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), pglobalinfo, dwglobalinfosize, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, lpwsdllpath.param().abi(), phroutertransport as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -687,12 +687,12 @@ pub unsafe fn MprConfigTransportGetInfo(hmprconfig: super::HANDLE, hroutertransp
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigTransportSetInfo<P6>(hmprconfig: super::HANDLE, hroutertransport: super::HANDLE, pglobalinfo: Option<&[u8]>, pclientinterfaceinfo: Option<&[u8]>, lpwsdllpath: P6) -> super::DWORD
+pub unsafe fn MprConfigTransportSetInfo<P6>(hmprconfig: super::HANDLE, hroutertransport: super::HANDLE, pglobalinfo: Option<super::LPBYTE>, dwglobalinfosize: Option<super::DWORD>, pclientinterfaceinfo: Option<super::LPBYTE>, dwclientinterfaceinfosize: Option<super::DWORD>, lpwsdllpath: P6) -> super::DWORD
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::HANDLE, hroutertransport : super::HANDLE, pglobalinfo : super::LPBYTE, dwglobalinfosize : super::DWORD, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : super::DWORD, lpwsdllpath : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
+    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, pglobalinfo.unwrap_or(core::mem::zeroed()) as _, dwglobalinfosize.unwrap_or(core::mem::zeroed()) as _, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, lpwsdllpath.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

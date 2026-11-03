@@ -331,11 +331,11 @@ pub unsafe fn MFCreatePresentationClock() -> windows_core::Result<IMFPresentatio
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Option<IMFStreamDescriptor>]>) -> windows_core::Result<IMFPresentationDescriptor> {
+pub unsafe fn MFCreatePresentationDescriptor(cstreamdescriptors: super::DWORD, apstreamdescriptors: Option<*const Option<IMFStreamDescriptor>>) -> windows_core::Result<IMFPresentationDescriptor> {
     windows_core::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : super::DWORD, apstreamdescriptors : *const *mut core::ffi::c_void, pppresentationdescriptor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreatePresentationDescriptor(apstreamdescriptors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        MFCreatePresentationDescriptor(cstreamdescriptors, apstreamdescriptors.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects"))]
@@ -508,11 +508,11 @@ pub unsafe fn MFCreateStandardQualityManager() -> windows_core::Result<IMFQualit
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: super::DWORD, apmediatypes: &[Option<super::IMFMediaType>]) -> windows_core::Result<IMFStreamDescriptor> {
+pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: super::DWORD, cmediatypes: super::DWORD, apmediatypes: *const Option<super::IMFMediaType>) -> windows_core::Result<IMFStreamDescriptor> {
     windows_core::link!("mfplat.dll" "system" fn MFCreateStreamDescriptor(dwstreamidentifier : super::DWORD, cmediatypes : super::DWORD, apmediatypes : *const *mut core::ffi::c_void, ppdescriptor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len().try_into().unwrap(), core::mem::transmute(apmediatypes.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        MFCreateStreamDescriptor(dwstreamidentifier, cmediatypes, core::mem::transmute(apmediatypes), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "objidlbase"))]
@@ -644,11 +644,11 @@ where
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[super::BYTE]) -> windows_core::Result<IMFPresentationDescriptor> {
+pub unsafe fn MFDeserializePresentationDescriptor(cbdata: super::DWORD, pbdata: *const super::BYTE) -> windows_core::Result<IMFPresentationDescriptor> {
     windows_core::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor(cbdata : super::DWORD, pbdata : *const super::BYTE, pppd : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFDeserializePresentationDescriptor(pbdata.len().try_into().unwrap(), pbdata.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        MFDeserializePresentationDescriptor(cbdata, pbdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -662,9 +662,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFGetLocalId(verifier: &[u8], id: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+pub unsafe fn MFGetLocalId(verifier: *const super::BYTE, size: super::UINT32, id: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const super::BYTE, size : super::UINT32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), id as _) }
+    unsafe { MFGetLocalId(verifier, size, id as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
@@ -932,8 +932,8 @@ impl IMFAudioStreamVolume {
         unsafe { (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, pflevel as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr()) }
+    pub unsafe fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), dwcount, pfvolumes) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
@@ -2317,8 +2317,8 @@ windows_core::imp::define_interface!(IMFContentDecryptorContext, IMFContentDecry
 windows_core::imp::interface_hierarchy!(IMFContentDecryptorContext, windows_core::IUnknown);
 impl IMFContentDecryptorContext {
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeHardwareKey(&self, inputprivatedata: Option<&[u8]>, outputprivatedata: *mut super::UINT64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(inputprivatedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), outputprivatedata as _) }
+    pub unsafe fn InitializeHardwareKey(&self, inputprivatedatabytecount: super::UINT, inputprivatedata: Option<*const core::ffi::c_void>, outputprivatedata: *mut super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedatabytecount, inputprivatedata.unwrap_or(core::mem::zeroed()) as _, outputprivatedata as _) }
     }
 }
 #[repr(C)]
@@ -2472,8 +2472,8 @@ windows_core::imp::define_interface!(IMFContentProtectionDevice, IMFContentProte
 windows_core::imp::interface_hierarchy!(IMFContentProtectionDevice, windows_core::IUnknown);
 impl IMFContentProtectionDevice {
     #[cfg(feature = "shared")]
-    pub unsafe fn InvokeFunction(&self, functionid: super::DWORD, inputbuffer: &[u8], outputbufferbytecount: *mut super::DWORD, outputbuffer: *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InvokeFunction)(windows_core::Interface::as_raw(self), functionid, inputbuffer.len().try_into().unwrap(), core::mem::transmute(inputbuffer.as_ptr()), outputbufferbytecount as _, outputbuffer as _) }
+    pub unsafe fn InvokeFunction(&self, functionid: super::DWORD, inputbufferbytecount: super::DWORD, inputbuffer: *const super::BYTE, outputbufferbytecount: *mut super::DWORD, outputbuffer: *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InvokeFunction)(windows_core::Interface::as_raw(self), functionid, inputbufferbytecount, inputbuffer, outputbufferbytecount as _, outputbuffer as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPrivateDataByteCount(&self, privateinputbytecount: *mut super::DWORD, privateoutputbytecount: *mut super::DWORD) -> windows_core::HRESULT {
@@ -2877,8 +2877,8 @@ windows_core::imp::define_interface!(IMFExtendedCameraIntrinsics, IMFExtendedCam
 windows_core::imp::interface_hierarchy!(IMFExtendedCameraIntrinsics, windows_core::IUnknown);
 impl IMFExtendedCameraIntrinsics {
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeFromBuffer(&self, pbbuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeFromBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap()) }
+    pub unsafe fn InitializeFromBuffer(&self, pbbuffer: *const super::BYTE, dwbuffersize: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeFromBuffer)(windows_core::Interface::as_raw(self), pbbuffer, dwbuffersize) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetBufferSize(&self, pdwbuffersize: *mut super::DWORD) -> windows_core::HRESULT {
@@ -3172,9 +3172,9 @@ windows_core::imp::define_interface!(IMFFaceDetectionTransformCallback, IMFFaceD
 windows_core::imp::interface_hierarchy!(IMFFaceDetectionTransformCallback, windows_core::IUnknown);
 impl IMFFaceDetectionTransformCallback {
     #[cfg(feature = "shared")]
-    pub unsafe fn OnFaceDetectionResult(&self, detectedfacebounds: &[DetectedFaceBound]) {
+    pub unsafe fn OnFaceDetectionResult(&self, countofbounds: super::ULONG, detectedfacebounds: *const DetectedFaceBound) {
         unsafe {
-            (windows_core::Interface::vtable(self).OnFaceDetectionResult)(windows_core::Interface::as_raw(self), detectedfacebounds.len().try_into().unwrap(), detectedfacebounds.as_ptr());
+            (windows_core::Interface::vtable(self).OnFaceDetectionResult)(windows_core::Interface::as_raw(self), countofbounds, detectedfacebounds);
         }
     }
 }
@@ -3364,12 +3364,12 @@ impl IMFHttpDownloadRequest {
         unsafe { (windows_core::Interface::vtable(self).AddHeader)(windows_core::Interface::as_raw(self), szheader.param().abi()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn BeginSendRequest<P2, P3>(&self, pbpayload: Option<&[super::BYTE]>, pcallback: P2, punkstate: P3) -> windows_core::HRESULT
+    pub unsafe fn BeginSendRequest<P2, P3>(&self, pbpayload: Option<*const super::BYTE>, cbpayload: super::ULONG, pcallback: P2, punkstate: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginSendRequest)(windows_core::Interface::as_raw(self), pbpayload.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbpayload.map_or(0, |slice| slice.len().try_into().unwrap()), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginSendRequest)(windows_core::Interface::as_raw(self), pbpayload.unwrap_or(core::mem::zeroed()) as _, cbpayload, pcallback.param().abi(), punkstate.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn EndSendRequest<P0>(&self, presult: P0) -> windows_core::HRESULT
@@ -3922,8 +3922,8 @@ windows_core::imp::define_interface!(IMFLocalMFTRegistration, IMFLocalMFTRegistr
 windows_core::imp::interface_hierarchy!(IMFLocalMFTRegistration, windows_core::IUnknown);
 impl IMFLocalMFTRegistration {
     #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn RegisterMFTs(&self, pmfts: &[MFT_REGISTRATION_INFO]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterMFTs)(windows_core::Interface::as_raw(self), pmfts.as_ptr(), pmfts.len().try_into().unwrap()) }
+    pub unsafe fn RegisterMFTs(&self, pmfts: *const MFT_REGISTRATION_INFO, cmfts: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterMFTs)(windows_core::Interface::as_raw(self), pmfts, cmfts) }
     }
 }
 #[repr(C)]
@@ -5318,12 +5318,12 @@ windows_core::imp::define_interface!(IMFNetCredential, IMFNetCredential_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IMFNetCredential, windows_core::IUnknown);
 impl IMFNetCredential {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetUser(&self, pbdata: &[u8], fdataisencrypted: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetUser)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), fdataisencrypted.into()) }
+    pub unsafe fn SetUser(&self, pbdata: *const super::BYTE, cbdata: super::DWORD, fdataisencrypted: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetUser)(windows_core::Interface::as_raw(self), pbdata, cbdata, fdataisencrypted.into()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetPassword(&self, pbdata: &[u8], fdataisencrypted: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), fdataisencrypted.into()) }
+    pub unsafe fn SetPassword(&self, pbdata: *const super::BYTE, cbdata: super::DWORD, fdataisencrypted: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), pbdata, cbdata, fdataisencrypted.into()) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetUser(&self, pbdata: Option<*mut super::BYTE>, pcbdata: *mut super::DWORD, fencryptdata: bool) -> windows_core::HRESULT {
@@ -6148,8 +6148,8 @@ impl IMFOutputTrustAuthority {
         unsafe { (windows_core::Interface::vtable(self).GetAction)(windows_core::Interface::as_raw(self), paction as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn SetPolicy(&self, pppolicy: Option<&[Option<IMFOutputPolicy>]>, ppbticket: Option<*mut *mut super::BYTE>, pcbticket: Option<*mut super::DWORD>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pppolicy.map_or(core::ptr::null(), |slice| slice.as_ptr())), pppolicy.map_or(0, |slice| slice.len().try_into().unwrap()), ppbticket.unwrap_or(core::mem::zeroed()) as _, pcbticket.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetPolicy(&self, pppolicy: Option<*const Option<IMFOutputPolicy>>, npolicy: super::DWORD, ppbticket: Option<*mut *mut super::BYTE>, pcbticket: Option<*mut super::DWORD>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), pppolicy.unwrap_or(core::mem::zeroed()) as _, npolicy, ppbticket.unwrap_or(core::mem::zeroed()) as _, pcbticket.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -6816,8 +6816,8 @@ windows_core::imp::define_interface!(IMFProtectedEnvironmentAccess, IMFProtected
 windows_core::imp::interface_hierarchy!(IMFProtectedEnvironmentAccess, windows_core::IUnknown);
 impl IMFProtectedEnvironmentAccess {
     #[cfg(feature = "shared")]
-    pub unsafe fn Call(&self, input: &[u8], outputlength: super::UINT32, output: *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), input.len().try_into().unwrap(), core::mem::transmute(input.as_ptr()), outputlength, output as _) }
+    pub unsafe fn Call(&self, inputlength: super::UINT32, input: *const super::BYTE, outputlength: super::UINT32, output: *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), inputlength, input, outputlength, output as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReadGRL(&self, outputlength: *mut super::UINT32, output: *mut *mut super::BYTE) -> windows_core::HRESULT {
@@ -7789,11 +7789,11 @@ impl IMFSSLCertificateManager {
         unsafe { (windows_core::Interface::vtable(self).GetCertificatePolicy)(windows_core::Interface::as_raw(self), pszurl.param().abi(), pfoverrideautomaticcheck as _, pfclientcertificateavailable as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OnServerCertificate<P0>(&self, pszurl: P0, pbdata: &[u8], pfisgood: *mut windows_core::BOOL) -> windows_core::HRESULT
+    pub unsafe fn OnServerCertificate<P0>(&self, pszurl: P0, pbdata: *const super::BYTE, cbdata: super::DWORD, pfisgood: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerCertificate)(windows_core::Interface::as_raw(self), pszurl.param().abi(), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pfisgood as _) }
+        unsafe { (windows_core::Interface::vtable(self).OnServerCertificate)(windows_core::Interface::as_raw(self), pszurl.param().abi(), pbdata, cbdata, pfisgood as _) }
     }
 }
 #[repr(C)]
@@ -7950,8 +7950,8 @@ impl IMFSampleGrabberSinkCallback {
         unsafe { (windows_core::Interface::vtable(self).OnSetPresentationClock)(windows_core::Interface::as_raw(self), ppresentationclock.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: super::DWORD, llsampletime: super::LONGLONG, llsampleduration: super::LONGLONG, psamplebuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnProcessSample)(windows_core::Interface::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len().try_into().unwrap()) }
+    pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: super::DWORD, llsampletime: super::LONGLONG, llsampleduration: super::LONGLONG, psamplebuffer: *const super::BYTE, dwsamplesize: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnProcessSample)(windows_core::Interface::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, psamplebuffer, dwsamplesize) }
     }
     pub unsafe fn OnShutdown(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnShutdown)(windows_core::Interface::as_raw(self)) }
@@ -8018,11 +8018,11 @@ impl core::ops::Deref for IMFSampleGrabberSinkCallback2 {
 windows_core::imp::interface_hierarchy!(IMFSampleGrabberSinkCallback2, windows_core::IUnknown, IMFClockStateSink, IMFSampleGrabberSinkCallback);
 impl IMFSampleGrabberSinkCallback2 {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn OnProcessSampleEx<P6>(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: super::DWORD, llsampletime: super::LONGLONG, llsampleduration: super::LONGLONG, psamplebuffer: &[u8], pattributes: P6) -> windows_core::HRESULT
+    pub unsafe fn OnProcessSampleEx<P6>(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: super::DWORD, llsampletime: super::LONGLONG, llsampleduration: super::LONGLONG, psamplebuffer: *const super::BYTE, dwsamplesize: super::DWORD, pattributes: P6) -> windows_core::HRESULT
     where
         P6: windows_core::Param<super::IMFAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnProcessSampleEx)(windows_core::Interface::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len().try_into().unwrap(), pattributes.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).OnProcessSampleEx)(windows_core::Interface::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, psamplebuffer, dwsamplesize, pattributes.param().abi()) }
     }
 }
 #[repr(C)]
@@ -8354,8 +8354,8 @@ impl IMFSecureChannel {
         unsafe { (windows_core::Interface::vtable(self).GetCertificate)(windows_core::Interface::as_raw(self), ppcert as _, pcbcert as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetupSession(&self, pbencryptedsessionkey: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetupSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pbencryptedsessionkey.as_ptr()), pbencryptedsessionkey.len().try_into().unwrap()) }
+    pub unsafe fn SetupSession(&self, pbencryptedsessionkey: *const super::BYTE, cbsessionkey: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetupSession)(windows_core::Interface::as_raw(self), pbencryptedsessionkey, cbsessionkey) }
     }
 }
 #[repr(C)]
@@ -10420,8 +10420,8 @@ impl IMFSystemId {
         unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), size as _, data as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Setup(&self, stage: super::UINT32, pbin: &[u8], pcbout: *mut super::UINT32, ppbout: *mut *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Setup)(windows_core::Interface::as_raw(self), stage, pbin.len().try_into().unwrap(), core::mem::transmute(pbin.as_ptr()), pcbout as _, ppbout as _) }
+    pub unsafe fn Setup(&self, stage: super::UINT32, cbin: super::UINT32, pbin: *const super::BYTE, pcbout: *mut super::UINT32, ppbout: *mut *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setup)(windows_core::Interface::as_raw(self), stage, cbin, pbin, pcbout as _, ppbout as _) }
     }
 }
 #[repr(C)]
@@ -11214,8 +11214,8 @@ windows_core::imp::define_interface!(IMFTopologyNodeAttributeEditor, IMFTopology
 windows_core::imp::interface_hierarchy!(IMFTopologyNodeAttributeEditor, windows_core::IUnknown);
 impl IMFTopologyNodeAttributeEditor {
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
-    pub unsafe fn UpdateNodeAttributes(&self, topoid: TOPOID, pupdates: &[MFTOPONODE_ATTRIBUTE_UPDATE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateNodeAttributes)(windows_core::Interface::as_raw(self), topoid, pupdates.len().try_into().unwrap(), pupdates.as_ptr()) }
+    pub unsafe fn UpdateNodeAttributes(&self, topoid: TOPOID, cupdates: super::DWORD, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateNodeAttributes)(windows_core::Interface::as_raw(self), topoid, cupdates, pupdates) }
     }
 }
 #[repr(C)]

@@ -1170,8 +1170,8 @@ windows_core::imp::define_interface!(IValidateBinding, IValidateBinding_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IValidateBinding, windows_core::IUnknown);
 impl IValidateBinding {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIdentifier(&self, guidlicensorid: windows_core::GUID, pbephemeron: &[super::BYTE], ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), guidlicensorid, pbephemeron.as_ptr(), pbephemeron.len().try_into().unwrap(), ppbblobvalidationid as _, pcbblobsize as _) }
+    pub unsafe fn GetIdentifier(&self, guidlicensorid: windows_core::GUID, pbephemeron: *const super::BYTE, cbephemeron: super::DWORD, ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), guidlicensorid, pbephemeron, cbephemeron, ppbblobvalidationid as _, pcbblobsize as _) }
     }
 }
 #[repr(C)]
@@ -1455,12 +1455,12 @@ windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7
 windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown);
 impl IWMCodecStrings {
     #[cfg(all(feature = "mediaobj", feature = "shared"))]
-    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, mut szname: Option<&mut [u16]>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcchlength as _) }
+    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szname: Option<windows_core::PWSTR>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, cchlength, szname.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
     }
     #[cfg(all(feature = "mediaobj", feature = "shared"))]
-    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, mut szdescription: Option<&mut [u16]>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcchlength as _) }
+    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szdescription: Option<windows_core::PWSTR>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, cchlength, szdescription.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
     }
 }
 #[repr(C)]

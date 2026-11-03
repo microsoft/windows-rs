@@ -237,16 +237,16 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, ulcount, pselection as _, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), pselection.len().try_into().unwrap(), pselection.as_ptr()) }
+    pub unsafe fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ACP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ulcount, pselection) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetText(&self, acpstart: super::LONG, acpend: super::LONG, pchplain: *mut super::WCHAR, cchplainreq: super::ULONG, pcchplainret: *mut super::ULONG, prgruninfo: *mut TS_RUNINFO, cruninforeq: super::ULONG, pcruninforet: *mut super::ULONG, pacpnext: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), acpstart, acpend, pchplain as _, cchplainreq, pcchplainret as _, prgruninfo as _, cruninforeq, pcruninforet as _, pacpnext as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR], pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pchange as _) }
+    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext, cch, pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject> {
@@ -271,8 +271,8 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), pchange as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pacpstart as _, pacpend as _, pchange as _) }
+    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, pacpstart as _, pacpend as _, pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn InsertEmbeddedAtSelection<P1>(&self, dwflags: super::DWORD, pdataobject: P1, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
@@ -282,20 +282,20 @@ impl ITextStoreACP {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), pacpstart as _, pacpend as _, pchange as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, pafilterattrs: Option<&[TS_ATTRID]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsAtPosition(&self, acppos: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), acppos, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+    pub unsafe fn RequestAttrsAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), acppos, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), acppos, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+    pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), acppos, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
+    pub unsafe fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
@@ -694,16 +694,16 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, ulcount, pselection as _, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), pselection.len().try_into().unwrap(), pselection.as_ptr()) }
+    pub unsafe fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ACP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ulcount, pselection) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetText(&self, acpstart: super::LONG, acpend: super::LONG, pchplain: *mut super::WCHAR, cchplainreq: super::ULONG, pcchplainret: *mut super::ULONG, prgruninfo: *mut TS_RUNINFO, cruninforeq: super::ULONG, pcruninforet: *mut super::ULONG, pacpnext: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), acpstart, acpend, pchplain as _, cchplainreq, pcchplainret as _, prgruninfo as _, cruninforeq, pcruninforet as _, pacpnext as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: &[super::WCHAR], pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pchange as _) }
+    pub unsafe fn SetText(&self, dwflags: super::DWORD, acpstart: super::LONG, acpend: super::LONG, pchtext: *const super::WCHAR, cch: super::ULONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext, cch, pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn GetFormattedText(&self, acpstart: super::LONG, acpend: super::LONG) -> windows_core::Result<super::IDataObject> {
@@ -728,8 +728,8 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), pchange as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), pacpstart as _, pacpend as _, pchange as _) }
+    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, pacpstart as _, pacpend as _, pchange as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn InsertEmbeddedAtSelection<P1>(&self, dwflags: super::DWORD, pdataobject: P1, pacpstart: *mut super::LONG, pacpend: *mut super::LONG, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
@@ -739,20 +739,20 @@ impl ITextStoreACP2 {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), pacpstart as _, pacpend as _, pchange as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, pafilterattrs: Option<&[TS_ATTRID]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsAtPosition(&self, acppos: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), acppos, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+    pub unsafe fn RequestAttrsAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), acppos, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), acppos, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+    pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), acppos, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
+    pub unsafe fn FindNextAttrTransition(&self, acpstart: super::LONG, acphalt: super::LONG, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD, pacpnext: *mut super::LONG, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
@@ -1120,8 +1120,8 @@ impl ITextStoreACPSink {
         unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OnAttrsChange(&self, acpstart: super::LONG, acpend: super::LONG, paattrs: &[TS_ATTRID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), acpstart, acpend, paattrs.len().try_into().unwrap(), paattrs.as_ptr()) }
+    pub unsafe fn OnAttrsChange(&self, acpstart: super::LONG, acpend: super::LONG, cattrs: super::ULONG, paattrs: *const TS_ATTRID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), acpstart, acpend, cattrs, paattrs) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn OnLockGranted(&self, dwlockflags: super::DWORD) -> windows_core::HRESULT {
@@ -1279,8 +1279,8 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, ulcount, pselection, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ANCHOR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), pselection.len().try_into().unwrap(), pselection.as_ptr()) }
+    pub unsafe fn SetSelection(&self, ulcount: super::ULONG, pselection: *const TS_SELECTION_ANCHOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ulcount, pselection) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetText<P1, P2>(&self, dwflags: super::DWORD, pastart: P1, paend: P2, pchtext: *mut super::WCHAR, cchreq: super::ULONG, pcch: *mut super::ULONG, fupdateanchor: bool) -> windows_core::HRESULT
@@ -1291,12 +1291,12 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pchtext as _, cchreq, pcch as _, fupdateanchor.into()) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetText<P1, P2>(&self, dwflags: super::DWORD, pastart: P1, paend: P2, pchtext: &[super::WCHAR]) -> windows_core::HRESULT
+    pub unsafe fn SetText<P1, P2>(&self, dwflags: super::DWORD, pastart: P1, paend: P2, pchtext: *const super::WCHAR, cch: super::ULONG) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IAnchor>,
         P2: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pchtext.as_ptr(), pchtext.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pchtext, cch) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn GetFormattedText<P0, P1>(&self, pastart: P0, paend: P1) -> windows_core::Result<super::IDataObject>
@@ -1326,30 +1326,30 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pdataobject.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, pafilterattrs: Option<&[TS_ATTRID]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    pub unsafe fn RequestSupportedAttrs(&self, dwflags: super::DWORD, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsAtPosition<P0>(&self, papos: P0, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT
+    pub unsafe fn RequestAttrsAtPosition<P0>(&self, papos: P0, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestAttrsTransitioningAtPosition<P0>(&self, papos: P0, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD) -> windows_core::HRESULT
+    pub unsafe fn RequestAttrsTransitioningAtPosition<P0>(&self, papos: P0, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FindNextAttrTransition<P0, P1>(&self, pastart: P0, pahalt: P1, pafilterattrs: Option<&[TS_ATTRID]>, dwflags: super::DWORD, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT
+    pub unsafe fn FindNextAttrTransition<P0, P1>(&self, pastart: P0, pahalt: P1, cfilterattrs: super::ULONG, pafilterattrs: Option<*const TS_ATTRID>, dwflags: super::DWORD, pffound: *mut windows_core::BOOL, plfoundoffset: *mut super::LONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAnchor>,
         P1: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.param().abi(), pahalt.param().abi(), pafilterattrs.map_or(0, |slice| slice.len().try_into().unwrap()), pafilterattrs.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags, pffound as _, plfoundoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.param().abi(), pahalt.param().abi(), cfilterattrs, pafilterattrs.unwrap_or(core::mem::zeroed()) as _, dwflags, pffound as _, plfoundoffset as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: super::ULONG, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
@@ -1398,10 +1398,10 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, pfinsertable as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: &[super::WCHAR], ppastart: *mut Option<IAnchor>) -> windows_core::Result<IAnchor> {
+    pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, ppastart: *mut Option<IAnchor>) -> windows_core::Result<IAnchor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), core::mem::transmute(ppastart), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, core::mem::transmute(ppastart), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -1833,12 +1833,12 @@ impl ITextStoreAnchorSink {
         unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OnAttrsChange<P0, P1>(&self, pastart: P0, paend: P1, paattrs: &[TS_ATTRID]) -> windows_core::HRESULT
+    pub unsafe fn OnAttrsChange<P0, P1>(&self, pastart: P0, paend: P1, cattrs: super::ULONG, paattrs: *const TS_ATTRID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAnchor>,
         P1: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), paattrs.len().try_into().unwrap(), paattrs.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), cattrs, paattrs) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn OnLockGranted(&self, dwlockflags: super::DWORD) -> windows_core::HRESULT {

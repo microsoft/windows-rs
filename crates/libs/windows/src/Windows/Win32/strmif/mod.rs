@@ -9440,8 +9440,8 @@ windows_core::imp::define_interface!(IEnumStreamIdMap, IEnumStreamIdMap_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumStreamIdMap, windows_core::IUnknown);
 impl IEnumStreamIdMap {
     #[cfg(feature = "shared")]
-    pub unsafe fn Next(&self, pstreamidmap: &mut [STREAM_ID_MAP], pcreceived: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), pstreamidmap.as_mut_ptr(), pcreceived.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, crequest: super::ULONG, pstreamidmap: *mut STREAM_ID_MAP, pcreceived: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), crequest, pstreamidmap as _, pcreceived.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, crecords: super::ULONG) -> windows_core::HRESULT {
@@ -10943,8 +10943,8 @@ impl IMPEG2StreamIdMap {
         unsafe { (windows_core::Interface::vtable(self).MapStreamId)(windows_core::Interface::as_raw(self), ulstreamid, mediasamplecontent, ulsubstreamfiltervalue, idataoffset) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn UnmapStreamId(&self, pulstreamid: &[super::ULONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnmapStreamId)(windows_core::Interface::as_raw(self), pulstreamid.len().try_into().unwrap(), pulstreamid.as_ptr()) }
+    pub unsafe fn UnmapStreamId(&self, culstreamid: super::ULONG, pulstreamid: *const super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnmapStreamId)(windows_core::Interface::as_raw(self), culstreamid, pulstreamid) }
     }
     pub unsafe fn EnumStreamIdMap(&self, ppienumstreamidmap: *mut Option<IEnumStreamIdMap>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumStreamIdMap)(windows_core::Interface::as_raw(self), core::mem::transmute(ppienumstreamidmap)) }
@@ -11477,8 +11477,8 @@ impl IMediaSample2 {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetProperties(&self, pbproperties: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), pbproperties.len().try_into().unwrap(), core::mem::transmute(pbproperties.as_ptr())) }
+    pub unsafe fn SetProperties(&self, cbproperties: super::DWORD, pbproperties: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties) }
     }
 }
 #[repr(C)]
@@ -12052,8 +12052,8 @@ impl IMemInputPin {
     {
         unsafe { (windows_core::Interface::vtable(self).Receive)(windows_core::Interface::as_raw(self), psample.param().abi()) }
     }
-    pub unsafe fn ReceiveMultiple(&self, psamples: &[Option<IMediaSample>], nsamplesprocessed: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReceiveMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), nsamplesprocessed as _) }
+    pub unsafe fn ReceiveMultiple(&self, psamples: *const Option<IMediaSample>, nsamples: i32, nsamplesprocessed: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReceiveMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(psamples), nsamples, nsamplesprocessed as _) }
     }
     pub unsafe fn ReceiveCanBlock(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReceiveCanBlock)(windows_core::Interface::as_raw(self)) }
@@ -12221,8 +12221,8 @@ impl IOverlay {
         unsafe { (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), pdwcolors as _, pppalette as _) }
     }
     #[cfg(all(feature = "shared", feature = "wingdi"))]
-    pub unsafe fn SetPalette(&self, ppalette: &[super::PALETTEENTRY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), ppalette.len().try_into().unwrap(), ppalette.as_ptr()) }
+    pub unsafe fn SetPalette(&self, dwcolors: super::DWORD, ppalette: *const super::PALETTEENTRY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), dwcolors, ppalette) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetDefaultColorKey(&self, pcolorkey: *mut COLORKEY) -> windows_core::HRESULT {
@@ -13219,11 +13219,11 @@ impl IResourceManager {
         unsafe { (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), pname.param().abi(), cresource, pltoken as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RegisterGroup<P0>(&self, pname: P0, paltokens: &[super::LONG], pltoken: *mut super::LONG) -> windows_core::HRESULT
+    pub unsafe fn RegisterGroup<P0>(&self, pname: P0, cresource: super::LONG, paltokens: *const super::LONG, pltoken: *mut super::LONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterGroup)(windows_core::Interface::as_raw(self), pname.param().abi(), paltokens.len().try_into().unwrap(), paltokens.as_ptr(), pltoken as _) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterGroup)(windows_core::Interface::as_raw(self), pname.param().abi(), cresource, paltokens, pltoken as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RequestResource<P1, P2>(&self, idresource: super::LONG, pfocusobject: P1, pconsumer: P2) -> windows_core::HRESULT

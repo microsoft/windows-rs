@@ -106,19 +106,19 @@ fn buffer_contracts_preserve_storage() {
     use core::ffi::c_void;
     use windows_core::{GUID, HRESULT, IUnknown, Result};
 
-    let _: unsafe fn(&Buffers, &[u32]) = Buffers::Input;
+    let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::Input;
     let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Output;
     let _: unsafe fn(&Buffers, *mut u32) -> HRESULT = Buffers::Explicit;
     let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Arithmetic;
     let _: unsafe fn(&Buffers, u32, *mut *mut u32) -> HRESULT = Buffers::Returned;
     let _: unsafe fn(&Buffers, Option<*const u32>, *mut u32) -> HRESULT = Buffers::OptionalCount;
-    let _: unsafe fn(&Buffers, &[u32]) = Buffers::UnknownDirection;
+    let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::UnknownDirection;
     let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Residual;
     let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualInput;
     let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualCount;
     let _: unsafe fn(&Buffers, *mut u32) -> HRESULT = Buffers::Scalar;
     let _: unsafe fn(&Buffers) -> Result<IUnknown> = Buffers::Query::<IUnknown>;
-    let _: unsafe fn(&Buffers, &[GUID], *mut *mut c_void) -> HRESULT = Buffers::GuidBuffer;
+    let _: unsafe fn(&Buffers, u32, *const GUID, *mut *mut c_void) -> HRESULT = Buffers::GuidBuffer;
     let _: unsafe fn(&Buffers, *const GUID, u32, *mut *mut c_void) -> HRESULT =
         Buffers::OutputBuffer;
     let _: unsafe fn(&Buffers, *const GUID, *mut *mut c_void) -> HRESULT = Buffers::ResidualQuery;
@@ -247,12 +247,15 @@ fn query_id_is_not_a_guid_buffer() {
     let filters = [GUID::from_u128(11), GUID::from_u128(22)];
     unsafe {
         assert_eq!(
-            factory.Reference::<IUnknown>(&filters).unwrap_err().code(),
+            factory
+                .Reference::<IUnknown>(filters.len().try_into().unwrap(), filters.as_ptr())
+                .unwrap_err()
+                .code(),
             HRESULT(0x80004002u32 as i32)
         );
         assert_eq!(
             factory
-                .BufferAfterId::<IUnknown>(&filters)
+                .BufferAfterId::<IUnknown>(filters.len().try_into().unwrap(), filters.as_ptr())
                 .unwrap_err()
                 .code(),
             HRESULT(0x80004002u32 as i32)

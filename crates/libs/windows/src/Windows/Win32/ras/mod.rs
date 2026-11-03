@@ -554,23 +554,23 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RasSetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> super::DWORD
+pub unsafe fn RasSetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: *const super::BYTE, dwsizeofcustomauthdata: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbcustomauthdata : *const super::BYTE, dwsizeofcustomauthdata : super::DWORD) -> super::DWORD);
-    unsafe { RasSetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata, dwsizeofcustomauthdata) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> super::DWORD
+pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: *const super::BYTE, dwsizeofcustomauthdata: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *const super::BYTE, dwsizeofcustomauthdata : super::DWORD) -> super::DWORD);
-    unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata, dwsizeofcustomauthdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

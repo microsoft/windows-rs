@@ -3569,8 +3569,8 @@ impl ISpRecoGrammar {
         unsafe { (windows_core::Interface::vtable(self).SetDictationState)(windows_core::Interface::as_raw(self), newstate) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[super::WCHAR]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo) }
+    pub unsafe fn SetWordSequenceData(&self, ptext: Option<*const super::WCHAR>, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.unwrap_or(core::mem::zeroed()) as _, cchtext, pinfo) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {

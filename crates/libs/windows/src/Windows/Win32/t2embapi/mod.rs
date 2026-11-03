@@ -1,8 +1,8 @@
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TTCharToUnicode(hdc: super::HDC, puccharcodes: &[super::UCHAR], pusshortcodes: *mut super::USHORT, ulshortcodesize: super::ULONG, ulflags: super::ULONG) -> super::LONG {
+pub unsafe fn TTCharToUnicode(hdc: super::HDC, puccharcodes: *const super::UCHAR, ulcharcodesize: super::ULONG, pusshortcodes: *mut super::USHORT, ulshortcodesize: super::ULONG, ulflags: super::ULONG) -> super::LONG {
     windows_core::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : super::HDC, puccharcodes : *const super::UCHAR, ulcharcodesize : super::ULONG, pusshortcodes : *mut super::USHORT, ulshortcodesize : super::ULONG, ulflags : super::ULONG) -> super::LONG);
-    unsafe { TTCharToUnicode(hdc, puccharcodes.as_ptr(), puccharcodes.len().try_into().unwrap(), pusshortcodes as _, ulshortcodesize, ulflags) }
+    unsafe { TTCharToUnicode(hdc, puccharcodes, ulcharcodesize, pusshortcodes as _, ulshortcodesize, ulflags) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -12,24 +12,24 @@ pub unsafe fn TTDeleteEmbeddedFont(hfontreference: super::HANDLE, ulflags: super
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TTEmbedFont(hdc: super::HDC, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, puscharcodeset: &[super::USHORT], uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG {
+pub unsafe fn TTEmbedFont(hdc: super::HDC, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, puscharcodeset: *const super::USHORT, uscharcodecount: super::USHORT, uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : super::HDC, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, puscharcodeset : *const super::USHORT, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
-    unsafe { TTEmbedFont(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset.as_ptr(), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFont(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TTEmbedFontEx(hdc: super::HDC, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, pulcharcodeset: &[super::ULONG], uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG {
+pub unsafe fn TTEmbedFontEx(hdc: super::HDC, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, pulcharcodeset: *const super::ULONG, uscharcodecount: super::USHORT, uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : super::HDC, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, pulcharcodeset : *const super::ULONG, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
-    unsafe { TTEmbedFontEx(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, pulcharcodeset.as_ptr(), pulcharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFontEx(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, pulcharcodeset, uscharcodecount, uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TTEmbedFontFromFileA<P1>(hdc: super::HDC, szfontfilename: P1, usttcindex: super::USHORT, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, puscharcodeset: &[super::USHORT], uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG
+pub unsafe fn TTEmbedFontFromFileA<P1>(hdc: super::HDC, szfontfilename: P1, usttcindex: super::USHORT, ulflags: super::ULONG, ulcharset: super::ULONG, pulprivstatus: *mut super::ULONG, pulstatus: *mut super::ULONG, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: super::LPVOID, puscharcodeset: *const super::USHORT, uscharcodecount: super::USHORT, uslanguage: super::USHORT, pttembedinfo: Option<*const TTEMBEDINFO>) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : super::HDC, szfontfilename : windows_core::PCSTR, usttcindex : super::USHORT, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, puscharcodeset : *const super::USHORT, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
-    unsafe { TTEmbedFontFromFileA(hdc, szfontfilename.param().abi(), usttcindex, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset.as_ptr(), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFontFromFileA(hdc, szfontfilename.param().abi(), usttcindex, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

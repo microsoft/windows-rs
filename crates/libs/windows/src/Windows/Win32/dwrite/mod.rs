@@ -2009,10 +2009,10 @@ impl IDWriteFactory {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[Option<IDWriteFontFile>], faceindex: super::UINT32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace> {
+    pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, numberoffiles: super::UINT32, fontfiles: *const Option<IDWriteFontFile>, faceindex: super::UINT32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFontFace)(windows_core::Interface::as_raw(self), fontfacetype, fontfiles.len().try_into().unwrap(), core::mem::transmute(fontfiles.as_ptr()), faceindex, fontfacesimulationflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFontFace)(windows_core::Interface::as_raw(self), fontfacetype, numberoffiles, core::mem::transmute(fontfiles), faceindex, fontfacesimulationflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateRenderingParams(&self) -> windows_core::Result<IDWriteRenderingParams> {
@@ -2070,23 +2070,23 @@ impl IDWriteFactory {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreateTextLayout<P2>(&self, string: &[super::WCHAR], textformat: P2, maxwidth: super::FLOAT, maxheight: super::FLOAT) -> windows_core::Result<IDWriteTextLayout>
+    pub unsafe fn CreateTextLayout<P2>(&self, string: *const super::WCHAR, stringlength: super::UINT32, textformat: P2, maxwidth: super::FLOAT, maxheight: super::FLOAT) -> windows_core::Result<IDWriteTextLayout>
     where
         P2: windows_core::Param<IDWriteTextFormat>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTextLayout)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), maxwidth, maxheight, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTextLayout)(windows_core::Interface::as_raw(self), string, stringlength, textformat.param().abi(), maxwidth, maxheight, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreateGdiCompatibleTextLayout<P2>(&self, string: &[super::WCHAR], textformat: P2, layoutwidth: super::FLOAT, layoutheight: super::FLOAT, pixelsperdip: super::FLOAT, transform: Option<*const DWRITE_MATRIX>, usegdinatural: bool) -> windows_core::Result<IDWriteTextLayout>
+    pub unsafe fn CreateGdiCompatibleTextLayout<P2>(&self, string: *const super::WCHAR, stringlength: super::UINT32, textformat: P2, layoutwidth: super::FLOAT, layoutheight: super::FLOAT, pixelsperdip: super::FLOAT, transform: Option<*const DWRITE_MATRIX>, usegdinatural: bool) -> windows_core::Result<IDWriteTextLayout>
     where
         P2: windows_core::Param<IDWriteTextFormat>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGdiCompatibleTextLayout)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), layoutwidth, layoutheight, pixelsperdip, transform.unwrap_or(core::mem::zeroed()) as _, usegdinatural.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGdiCompatibleTextLayout)(windows_core::Interface::as_raw(self), string, stringlength, textformat.param().abi(), layoutwidth, layoutheight, pixelsperdip, transform.unwrap_or(core::mem::zeroed()) as _, usegdinatural.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateEllipsisTrimmingSign<P0>(&self, textformat: P0) -> windows_core::Result<IDWriteInlineObject>
@@ -3245,13 +3245,13 @@ impl core::ops::Deref for IDWriteFactory6 {
 windows_core::imp::interface_hierarchy!(IDWriteFactory6, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
 impl IDWriteFactory6 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateFontFaceReference<P0>(&self, fontfile: P0, faceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontFaceReference1>
+    pub unsafe fn CreateFontFaceReference<P0>(&self, fontfile: P0, faceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<IDWriteFontFaceReference1>
     where
         P0: windows_core::Param<IDWriteFontFile>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFontFaceReference)(windows_core::Interface::as_raw(self), fontfile.param().abi(), faceindex, fontsimulations, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFontFaceReference)(windows_core::Interface::as_raw(self), fontfile.param().abi(), faceindex, fontsimulations, fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -3292,13 +3292,13 @@ impl IDWriteFactory6 {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn CreateTextFormat<P1>(&self, fontfamilyname: *const super::WCHAR, fontcollection: P1, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], fontsize: super::FLOAT, localename: *const super::WCHAR) -> windows_core::Result<IDWriteTextFormat3>
+    pub unsafe fn CreateTextFormat<P1>(&self, fontfamilyname: *const super::WCHAR, fontcollection: P1, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, fontsize: super::FLOAT, localename: *const super::WCHAR) -> windows_core::Result<IDWriteTextFormat3>
     where
         P1: windows_core::Param<IDWriteFontCollection>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTextFormat)(windows_core::Interface::as_raw(self), fontfamilyname, fontcollection.param().abi(), fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), fontsize, localename, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTextFormat)(windows_core::Interface::as_raw(self), fontfamilyname, fontcollection.param().abi(), fontaxisvalues, fontaxisvaluecount, fontsize, localename, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4265,10 +4265,10 @@ impl IDWriteFontCollection2 {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMatchingFonts(&self, familyname: *const super::WCHAR, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontList2> {
+    pub unsafe fn GetMatchingFonts(&self, familyname: *const super::WCHAR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<IDWriteFontList2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), familyname, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), familyname, fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFontFamilyModel(&self) -> DWRITE_FONT_FAMILY_MODEL {
@@ -5269,12 +5269,12 @@ impl IDWriteFontFace3 {
         unsafe { (windows_core::Interface::vtable(self).IsGlyphLocal)(windows_core::Interface::as_raw(self), glyphid) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn AreCharactersLocal(&self, characters: &[super::WCHAR], enqueueifnotlocal: bool, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AreCharactersLocal)(windows_core::Interface::as_raw(self), characters.as_ptr(), characters.len().try_into().unwrap(), enqueueifnotlocal.into(), islocal as _) }
+    pub unsafe fn AreCharactersLocal(&self, characters: *const super::WCHAR, charactercount: super::UINT32, enqueueifnotlocal: bool, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AreCharactersLocal)(windows_core::Interface::as_raw(self), characters, charactercount, enqueueifnotlocal.into(), islocal as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AreGlyphsLocal(&self, glyphindices: &[super::UINT16], enqueueifnotlocal: bool, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AreGlyphsLocal)(windows_core::Interface::as_raw(self), glyphindices.as_ptr(), glyphindices.len().try_into().unwrap(), enqueueifnotlocal.into(), islocal as _) }
+    pub unsafe fn AreGlyphsLocal(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32, enqueueifnotlocal: bool, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AreGlyphsLocal)(windows_core::Interface::as_raw(self), glyphindices, glyphcount, enqueueifnotlocal.into(), islocal as _) }
     }
 }
 #[repr(C)]
@@ -5886,12 +5886,12 @@ impl IDWriteFontFaceReference {
         unsafe { (windows_core::Interface::vtable(self).EnqueueFontDownloadRequest)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn EnqueueCharacterDownloadRequest(&self, characters: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnqueueCharacterDownloadRequest)(windows_core::Interface::as_raw(self), characters.as_ptr(), characters.len().try_into().unwrap()) }
+    pub unsafe fn EnqueueCharacterDownloadRequest(&self, characters: *const super::WCHAR, charactercount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnqueueCharacterDownloadRequest)(windows_core::Interface::as_raw(self), characters, charactercount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnqueueGlyphDownloadRequest(&self, glyphindices: &[super::UINT16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnqueueGlyphDownloadRequest)(windows_core::Interface::as_raw(self), glyphindices.as_ptr(), glyphindices.len().try_into().unwrap()) }
+    pub unsafe fn EnqueueGlyphDownloadRequest(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnqueueGlyphDownloadRequest)(windows_core::Interface::as_raw(self), glyphindices, glyphcount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn EnqueueFileFragmentDownloadRequest(&self, fileoffset: super::UINT64, fragmentsize: super::UINT64) -> windows_core::HRESULT {
@@ -6232,14 +6232,14 @@ impl core::ops::Deref for IDWriteFontFallback1 {
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback1, windows_core::IUnknown, IDWriteFontFallback);
 impl IDWriteFontFallback1 {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn MapCharacters<P0, P3>(&self, analysissource: P0, textposition: super::UINT32, textlength: super::UINT32, basefontcollection: P3, basefamilyname: Option<*const super::WCHAR>, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], mappedlength: *mut super::UINT32, scale: *mut super::FLOAT) -> windows_core::Result<IDWriteFontFace5>
+    pub unsafe fn MapCharacters<P0, P3>(&self, analysissource: P0, textposition: super::UINT32, textlength: super::UINT32, basefontcollection: P3, basefamilyname: Option<*const super::WCHAR>, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, mappedlength: *mut super::UINT32, scale: *mut super::FLOAT) -> windows_core::Result<IDWriteFontFace5>
     where
         P0: windows_core::Param<IDWriteTextAnalysisSource>,
         P3: windows_core::Param<IDWriteFontCollection>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MapCharacters)(windows_core::Interface::as_raw(self), analysissource.param().abi(), textposition, textlength, basefontcollection.param().abi(), basefamilyname.unwrap_or(core::mem::zeroed()) as _, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), mappedlength as _, scale as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MapCharacters)(windows_core::Interface::as_raw(self), analysissource.param().abi(), textposition, textlength, basefontcollection.param().abi(), basefamilyname.unwrap_or(core::mem::zeroed()) as _, fontaxisvalues, fontaxisvaluecount, mappedlength as _, scale as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6286,11 +6286,11 @@ windows_core::imp::define_interface!(IDWriteFontFallbackBuilder, IDWriteFontFall
 windows_core::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, windows_core::IUnknown);
 impl IDWriteFontFallbackBuilder {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn AddMapping<P4>(&self, ranges: &[DWRITE_UNICODE_RANGE], targetfamilynames: &[*const super::WCHAR], fontcollection: P4, localename: Option<*const super::WCHAR>, basefamilyname: Option<*const super::WCHAR>, scale: super::FLOAT) -> windows_core::HRESULT
+    pub unsafe fn AddMapping<P4>(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: super::UINT32, targetfamilynames: *const *const super::WCHAR, targetfamilynamescount: super::UINT32, fontcollection: P4, localename: Option<*const super::WCHAR>, basefamilyname: Option<*const super::WCHAR>, scale: super::FLOAT) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IDWriteFontCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMapping)(windows_core::Interface::as_raw(self), ranges.as_ptr(), ranges.len().try_into().unwrap(), targetfamilynames.as_ptr(), targetfamilynames.len().try_into().unwrap(), fontcollection.param().abi(), localename.unwrap_or(core::mem::zeroed()) as _, basefamilyname.unwrap_or(core::mem::zeroed()) as _, scale) }
+        unsafe { (windows_core::Interface::vtable(self).AddMapping)(windows_core::Interface::as_raw(self), ranges, rangescount, targetfamilynames, targetfamilynamescount, fontcollection.param().abi(), localename.unwrap_or(core::mem::zeroed()) as _, basefamilyname.unwrap_or(core::mem::zeroed()) as _, scale) }
     }
     pub unsafe fn AddMappings<P0>(&self, fontfallback: P0) -> windows_core::HRESULT
     where
@@ -6581,10 +6581,10 @@ impl core::ops::Deref for IDWriteFontFamily2 {
 windows_core::imp::interface_hierarchy!(IDWriteFontFamily2, windows_core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
 impl IDWriteFontFamily2 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn GetMatchingFonts(&self, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontList2> {
+    pub unsafe fn GetMatchingFonts(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<IDWriteFontList2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFontSet(&self) -> windows_core::Result<IDWriteFontSet1> {
@@ -7229,17 +7229,17 @@ impl IDWriteFontResource {
         unsafe { (windows_core::Interface::vtable(self).HasVariations)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateFontFace(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontFace5> {
+    pub unsafe fn CreateFontFace(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<IDWriteFontFace5> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFontFace)(windows_core::Interface::as_raw(self), fontsimulations, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFontFace)(windows_core::Interface::as_raw(self), fontsimulations, fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateFontFaceReference(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontFaceReference1> {
+    pub unsafe fn CreateFontFaceReference(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<IDWriteFontFaceReference1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFontFaceReference)(windows_core::Interface::as_raw(self), fontsimulations, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFontFaceReference)(windows_core::Interface::as_raw(self), fontsimulations, fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7504,10 +7504,10 @@ impl IDWriteFontSet {
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMatchingFonts2(&self, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<Self> {
+    pub unsafe fn GetMatchingFonts2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingFonts2)(windows_core::Interface::as_raw(self), properties.as_ptr(), properties.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingFonts2)(windows_core::Interface::as_raw(self), properties, propertycount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7704,10 +7704,10 @@ impl core::ops::Deref for IDWriteFontSet1 {
 windows_core::imp::interface_hierarchy!(IDWriteFontSet1, windows_core::IUnknown, IDWriteFontSet);
 impl IDWriteFontSet1 {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMatchingFonts(&self, fontproperty: Option<*const DWRITE_FONT_PROPERTY>, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<Self> {
+    pub unsafe fn GetMatchingFonts(&self, fontproperty: Option<*const DWRITE_FONT_PROPERTY>, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), fontproperty.unwrap_or(core::mem::zeroed()) as _, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), fontproperty.unwrap_or(core::mem::zeroed()) as _, fontaxisvalues, fontaxisvaluecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFirstFontResources(&self) -> windows_core::Result<Self> {
@@ -7717,33 +7717,33 @@ impl IDWriteFontSet1 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetFilteredFonts(&self, indices: &[super::UINT32]) -> windows_core::Result<Self> {
+    pub unsafe fn GetFilteredFonts(&self, indices: *const super::UINT32, indexcount: super::UINT32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFilteredFonts)(windows_core::Interface::as_raw(self), indices.as_ptr(), indices.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFilteredFonts)(windows_core::Interface::as_raw(self), indices, indexcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn GetFilteredFonts2(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: bool) -> windows_core::Result<Self> {
+    pub unsafe fn GetFilteredFonts2(&self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFilteredFonts2)(windows_core::Interface::as_raw(self), fontaxisranges.as_ptr(), fontaxisranges.len().try_into().unwrap(), selectanyrange.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFilteredFonts2)(windows_core::Interface::as_raw(self), fontaxisranges, fontaxisrangecount, selectanyrange.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFilteredFonts3(&self, properties: Option<&[DWRITE_FONT_PROPERTY]>, selectanyproperty: bool) -> windows_core::Result<Self> {
+    pub unsafe fn GetFilteredFonts3(&self, properties: Option<*const DWRITE_FONT_PROPERTY>, propertycount: super::UINT32, selectanyproperty: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFilteredFonts3)(windows_core::Interface::as_raw(self), properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), selectanyproperty.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFilteredFonts3)(windows_core::Interface::as_raw(self), properties.unwrap_or(core::mem::zeroed()) as _, propertycount, selectanyproperty.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn GetFilteredFontIndices(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: bool, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFilteredFontIndices)(windows_core::Interface::as_raw(self), fontaxisranges.as_ptr(), fontaxisranges.len().try_into().unwrap(), selectanyrange.into(), indices as _, maxindexcount, actualindexcount as _) }
+    pub unsafe fn GetFilteredFontIndices(&self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: bool, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFilteredFontIndices)(windows_core::Interface::as_raw(self), fontaxisranges, fontaxisrangecount, selectanyrange.into(), indices as _, maxindexcount, actualindexcount as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFilteredFontIndices2(&self, properties: &[DWRITE_FONT_PROPERTY], selectanyproperty: bool, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFilteredFontIndices2)(windows_core::Interface::as_raw(self), properties.as_ptr(), properties.len().try_into().unwrap(), selectanyproperty.into(), indices as _, maxindexcount, actualindexcount as _) }
+    pub unsafe fn GetFilteredFontIndices2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32, selectanyproperty: bool, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFilteredFontIndices2)(windows_core::Interface::as_raw(self), properties, propertycount, selectanyproperty.into(), indices as _, maxindexcount, actualindexcount as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetFontAxisRanges(&self, listindex: super::UINT32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::HRESULT {
@@ -8158,14 +8158,14 @@ impl core::ops::Deref for IDWriteFontSet4 {
 windows_core::imp::interface_hierarchy!(IDWriteFontSet4, windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2, IDWriteFontSet3);
 impl IDWriteFontSet4 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: Option<&[DWRITE_FONT_AXIS_VALUE]>, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> super::UINT32 {
-        unsafe { (windows_core::Interface::vtable(self).ConvertWeightStretchStyleToFontAxisValues)(windows_core::Interface::as_raw(self), inputaxisvalues.map_or(core::ptr::null(), |slice| slice.as_ptr()), inputaxisvalues.map_or(0, |slice| slice.len().try_into().unwrap()), fontweight, fontstretch, fontstyle, fontsize, outputaxisvalues as _) }
+    pub unsafe fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: Option<*const DWRITE_FONT_AXIS_VALUE>, inputaxiscount: super::UINT32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> super::UINT32 {
+        unsafe { (windows_core::Interface::vtable(self).ConvertWeightStretchStyleToFontAxisValues)(windows_core::Interface::as_raw(self), inputaxisvalues.unwrap_or(core::mem::zeroed()) as _, inputaxiscount, fontweight, fontstretch, fontstyle, fontsize, outputaxisvalues as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMatchingFonts(&self, familyname: *const super::WCHAR, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<Self> {
+    pub unsafe fn GetMatchingFonts(&self, familyname: *const super::WCHAR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), familyname, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), allowedsimulations, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), familyname, fontaxisvalues, fontaxisvaluecount, allowedsimulations, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8227,11 +8227,11 @@ windows_core::imp::define_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilde
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, windows_core::IUnknown);
 impl IDWriteFontSetBuilder {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::HRESULT
+    pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFontFaceReference>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFontFaceReference)(windows_core::Interface::as_raw(self), fontfacereference.param().abi(), properties.as_ptr(), properties.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddFontFaceReference)(windows_core::Interface::as_raw(self), fontfacereference.param().abi(), properties, propertycount) }
     }
     pub unsafe fn AddFontFaceReference2<P0>(&self, fontfacereference: P0) -> windows_core::HRESULT
     where
@@ -8374,11 +8374,11 @@ impl core::ops::Deref for IDWriteFontSetBuilder2 {
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder2, windows_core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
 impl IDWriteFontSetBuilder2 {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn AddFont<P0>(&self, fontfile: P0, fontfaceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::HRESULT
+    pub unsafe fn AddFont<P0>(&self, fontfile: P0, fontfaceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFontFile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFont)(windows_core::Interface::as_raw(self), fontfile.param().abi(), fontfaceindex, fontsimulations, fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), fontaxisranges.as_ptr(), fontaxisranges.len().try_into().unwrap(), properties.as_ptr(), properties.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddFont)(windows_core::Interface::as_raw(self), fontfile.param().abi(), fontfaceindex, fontsimulations, fontaxisvalues, fontaxisvaluecount, fontaxisranges, fontaxisrangecount, properties, propertycount) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn AddFontFile(&self, filepath: *const super::WCHAR) -> windows_core::HRESULT {
@@ -9187,8 +9187,8 @@ impl IDWritePaintReader {
         unsafe { (windows_core::Interface::vtable(self).SetColorPaletteIndex)(windows_core::Interface::as_raw(self), colorpaletteindex) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn SetCustomColorPalette(&self, paletteentries: &[DWRITE_COLOR_F]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCustomColorPalette)(windows_core::Interface::as_raw(self), paletteentries.as_ptr(), paletteentries.len().try_into().unwrap()) }
+    pub unsafe fn SetCustomColorPalette(&self, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCustomColorPalette)(windows_core::Interface::as_raw(self), paletteentries, paletteentrycount) }
     }
     #[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
     pub unsafe fn MoveToFirstChild(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::HRESULT {
@@ -9532,8 +9532,8 @@ impl IDWriteRemoteFontFileStream {
         unsafe { (windows_core::Interface::vtable(self).GetLocality)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn BeginDownload(&self, downloadoperationid: *const super::UUID, filefragments: &[DWRITE_FILE_FRAGMENT], asyncresult: *mut Option<IDWriteAsyncResult>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BeginDownload)(windows_core::Interface::as_raw(self), downloadoperationid, filefragments.as_ptr(), filefragments.len().try_into().unwrap(), core::mem::transmute(asyncresult)) }
+    pub unsafe fn BeginDownload(&self, downloadoperationid: *const super::UUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: super::UINT32, asyncresult: *mut Option<IDWriteAsyncResult>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BeginDownload)(windows_core::Interface::as_raw(self), downloadoperationid, filefragments, fragmentcount, core::mem::transmute(asyncresult)) }
     }
 }
 #[repr(C)]
@@ -9936,8 +9936,8 @@ impl IDWriteTextAnalysisSink {
         unsafe { (windows_core::Interface::vtable(self).SetScriptAnalysis)(windows_core::Interface::as_raw(self), textposition, textlength, scriptanalysis) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetLineBreakpoints(&self, textposition: super::UINT32, linebreakpoints: &[DWRITE_LINE_BREAKPOINT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLineBreakpoints)(windows_core::Interface::as_raw(self), textposition, linebreakpoints.len().try_into().unwrap(), linebreakpoints.as_ptr()) }
+    pub unsafe fn SetLineBreakpoints(&self, textposition: super::UINT32, textlength: super::UINT32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLineBreakpoints)(windows_core::Interface::as_raw(self), textposition, textlength, linebreakpoints) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetBidiLevel(&self, textposition: super::UINT32, textlength: super::UINT32, explicitlevel: super::UINT8, resolvedlevel: super::UINT8) -> windows_core::HRESULT {
@@ -10573,8 +10573,8 @@ impl core::ops::Deref for IDWriteTextAnalyzer1 {
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer1, windows_core::IUnknown, IDWriteTextAnalyzer);
 impl IDWriteTextAnalyzer1 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn ApplyCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, glyphcount: super::UINT32, clustermap: &[super::UINT16], glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ApplyCharacterSpacing)(windows_core::Interface::as_raw(self), leadingspacing, trailingspacing, minimumadvancewidth, clustermap.len().try_into().unwrap(), glyphcount, clustermap.as_ptr(), glyphadvances, glyphoffsets, glyphproperties, modifiedglyphadvances as _, modifiedglyphoffsets as _) }
+    pub unsafe fn ApplyCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textlength: super::UINT32, glyphcount: super::UINT32, clustermap: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ApplyCharacterSpacing)(windows_core::Interface::as_raw(self), leadingspacing, trailingspacing, minimumadvancewidth, textlength, glyphcount, clustermap, glyphadvances, glyphoffsets, glyphproperties, modifiedglyphadvances as _, modifiedglyphoffsets as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetBaseline<P0>(&self, fontface: P0, baseline: DWRITE_BASELINE, isvertical: bool, issimulationallowed: bool, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: Option<*const super::WCHAR>, baselinecoordinate: *mut super::INT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT
@@ -11491,8 +11491,8 @@ impl core::ops::Deref for IDWriteTextFormat3 {
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat3, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
 impl IDWriteTextFormat3 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn SetFontAxisValues(&self, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFontAxisValues)(windows_core::Interface::as_raw(self), fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap()) }
+    pub unsafe fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFontAxisValues)(windows_core::Interface::as_raw(self), fontaxisvalues, fontaxisvaluecount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFontAxisValueCount(&self) -> super::UINT32 {
@@ -12596,8 +12596,8 @@ impl core::ops::Deref for IDWriteTextLayout4 {
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout4, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
 impl IDWriteTextLayout4 {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn SetFontAxisValues(&self, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFontAxisValues)(windows_core::Interface::as_raw(self), fontaxisvalues.as_ptr(), fontaxisvalues.len().try_into().unwrap(), textrange) }
+    pub unsafe fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFontAxisValues)(windows_core::Interface::as_raw(self), fontaxisvalues, fontaxisvaluecount, textrange) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFontAxisValueCount(&self, currentposition: super::UINT32) -> super::UINT32 {

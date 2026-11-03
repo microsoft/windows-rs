@@ -423,7 +423,7 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        unsafe { factory.CreateStrokeStyle(&props, None) }
+        unsafe { factory.CreateStrokeStyle(&props, None, 0) }
     }
 
     fn create_transition() -> Result<Transition> {
@@ -446,6 +446,7 @@ fn main() -> windows::core::Result<()> {
                 HMODULE::default(),
                 flags,
                 None,
+                0,
                 D3D11_SDK_VERSION as u32,
                 Some(&mut device),
                 None,

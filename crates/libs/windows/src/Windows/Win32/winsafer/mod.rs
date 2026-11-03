@@ -29,9 +29,9 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: super::DWORD, saferpolicyinfo
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SaferIdentifyLevel(pcodeproperties: Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut SAFER_LEVEL_HANDLE, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn SaferIdentifyLevel(dwnumproperties: super::DWORD, pcodeproperties: Option<PSAFER_CODE_PROPERTIES>, plevelhandle: *mut SAFER_LEVEL_HANDLE, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : super::DWORD, pcodeproperties : PSAFER_CODE_PROPERTIES, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : super::LPVOID) -> windows_core::BOOL);
-    unsafe { SaferIdentifyLevel(pcodeproperties.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.map_or(core::ptr::null(), |slice| slice.as_ptr())), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SaferIdentifyLevel(dwnumproperties, pcodeproperties.unwrap_or(core::mem::zeroed()) as _, plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

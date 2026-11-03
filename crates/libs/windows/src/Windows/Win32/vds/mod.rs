@@ -535,8 +535,8 @@ windows_core::imp::define_interface!(IVdsAdviseSink, IVdsAdviseSink_Vtbl, 0x8326
 windows_core::imp::interface_hierarchy!(IVdsAdviseSink, windows_core::IUnknown);
 impl IVdsAdviseSink {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), pnotificationarray.len().try_into().unwrap(), pnotificationarray.as_ptr()) }
+    pub unsafe fn OnNotify(&self, lnumberofnotifications: super::LONG, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), lnumberofnotifications, pnotificationarray) }
     }
 }
 #[repr(C)]
@@ -3745,10 +3745,10 @@ impl IVdsPack {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray, lnumberofdisks, ulstripesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddDisk(&self, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::HRESULT {
@@ -3952,10 +3952,10 @@ windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_
 windows_core::imp::interface_hierarchy!(IVdsPack2, windows_core::IUnknown);
 impl IVdsPack2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray, lnumberofdisks, ulstripesize, ulalign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5028,8 +5028,8 @@ impl IVdsSubSystem {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[VDS_OBJECT_ID], pofflinecontrolleridarray: &[VDS_OBJECT_ID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), ponlinecontrolleridarray.as_ptr(), ponlinecontrolleridarray.len().try_into().unwrap(), pofflinecontrolleridarray.as_ptr(), pofflinecontrolleridarray.len().try_into().unwrap()) }
+    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), ponlinecontrolleridarray, lnumberofonlinecontrollers, pofflinecontrolleridarray, lnumberofofflinecontrollers) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints: Option<*const VDS_HINTS>) -> windows_core::Result<IVdsAsync>
@@ -6237,8 +6237,8 @@ impl IVdsVolumeMF {
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddAccessPath(&self, pwszpath: &[u16; 260]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpath.as_ptr())) }
+    pub unsafe fn AddAccessPath(&self, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), pwszpath) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::HRESULT {
@@ -6248,8 +6248,8 @@ impl IVdsVolumeMF {
     pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryReparsePoints)(windows_core::Interface::as_raw(self), ppreparsepointprops as _, plnumberofreparsepointprops as _) }
     }
-    pub unsafe fn DeleteAccessPath(&self, pwszpath: &[u16; 260], bforce: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpath.as_ptr()), bforce.into()) }
+    pub unsafe fn DeleteAccessPath(&self, pwszpath: windows_core::PCWSTR, bforce: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath, bforce.into()) }
     }
     pub unsafe fn Mount(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Mount)(windows_core::Interface::as_raw(self)) }
@@ -6623,10 +6623,10 @@ impl IVdsVolumePlex {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray, lnumberofdisks, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

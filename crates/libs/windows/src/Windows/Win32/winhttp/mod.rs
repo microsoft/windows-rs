@@ -6,9 +6,9 @@ pub unsafe fn WinHttpAddRequestHeaders(hrequest: super::HINTERNET, lpszheaders: 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: super::HINTERNET, dwmodifiers: super::DWORD, ullflags: super::ULONGLONG, ullextra: super::ULONGLONG, pheaders: &[WINHTTP_EXTENDED_HEADER]) -> super::DWORD {
+pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: super::HINTERNET, dwmodifiers: super::DWORD, ullflags: super::ULONGLONG, ullextra: super::ULONGLONG, cheaders: super::DWORD, pheaders: *const WINHTTP_EXTENDED_HEADER) -> super::DWORD {
     windows_core::link!("winhttp.dll" "system" fn WinHttpAddRequestHeadersEx(hrequest : super::HINTERNET, dwmodifiers : super::DWORD, ullflags : super::ULONGLONG, ullextra : super::ULONGLONG, cheaders : super::DWORD, pheaders : *const WINHTTP_EXTENDED_HEADER) -> super::DWORD);
-    unsafe { WinHttpAddRequestHeadersEx(hrequest as _, dwmodifiers, ullflags, ullextra, pheaders.len().try_into().unwrap(), pheaders.as_ptr()) }
+    unsafe { WinHttpAddRequestHeadersEx(hrequest as _, dwmodifiers, ullflags, ullextra, cheaders, pheaders) }
 }
 #[inline]
 pub unsafe fn WinHttpCheckPlatform() -> windows_core::BOOL {
@@ -32,9 +32,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinHttpCrackUrl(pwszurl: &[u16], dwflags: super::DWORD, lpurlcomponents: LPURL_COMPONENTS) -> windows_core::BOOL {
+pub unsafe fn WinHttpCrackUrl(pwszurl: windows_core::PCWSTR, dwurllength: super::DWORD, dwflags: super::DWORD, lpurlcomponents: LPURL_COMPONENTS) -> windows_core::BOOL {
     windows_core::link!("winhttp.dll" "system" fn WinHttpCrackUrl(pwszurl : windows_core::PCWSTR, dwurllength : super::DWORD, dwflags : super::DWORD, lpurlcomponents : LPURL_COMPONENTS) -> windows_core::BOOL);
-    unsafe { WinHttpCrackUrl(core::mem::transmute(pwszurl.as_ptr()), pwszurl.len().try_into().unwrap(), dwflags, lpurlcomponents as _) }
+    unsafe { WinHttpCrackUrl(pwszurl, dwurllength, dwflags, lpurlcomponents as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -115,12 +115,12 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinHttpGetProxyForUrlEx2<P1>(hresolver: super::HINTERNET, pcwszurl: P1, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pinterfaceselectioncontext: Option<&[u8]>, pcontext: Option<super::DWORD_PTR>) -> super::DWORD
+pub unsafe fn WinHttpGetProxyForUrlEx2<P1>(hresolver: super::HINTERNET, pcwszurl: P1, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext: super::DWORD, pinterfaceselectioncontext: Option<*const super::BYTE>, pcontext: Option<super::DWORD_PTR>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx2(hresolver : super::HINTERNET, pcwszurl : windows_core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext : super::DWORD, pinterfaceselectioncontext : *const super::BYTE, pcontext : super::DWORD_PTR) -> super::DWORD);
-    unsafe { WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.param().abi(), pautoproxyoptions, pinterfaceselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinterfaceselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.param().abi(), pautoproxyoptions, cbinterfaceselectioncontext, pinterfaceselectioncontext.unwrap_or(core::mem::zeroed()) as _, pcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -189,9 +189,9 @@ pub unsafe fn WinHttpProtocolReceive(protocolhandle: super::HINTERNET, flags: su
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WinHttpProtocolSend(protocolhandle: super::HINTERNET, flags: super::ULONGLONG, pvbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn WinHttpProtocolSend(protocolhandle: super::HINTERNET, flags: super::ULONGLONG, pvbuffer: Option<super::PVOID>, dwbufferlength: super::DWORD) -> super::DWORD {
     windows_core::link!("winhttp.dll" "system" fn WinHttpProtocolSend(protocolhandle : super::HINTERNET, flags : super::ULONGLONG, pvbuffer : super::PVOID, dwbufferlength : super::DWORD) -> super::DWORD);
-    unsafe { WinHttpProtocolSend(protocolhandle, flags, core::mem::transmute(pvbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { WinHttpProtocolSend(protocolhandle, flags, pvbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -273,9 +273,9 @@ pub unsafe fn WinHttpResetAutoProxy(hsession: super::HINTERNET, dwflags: super::
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinHttpSendRequest(hrequest: super::HINTERNET, lpszheaders: Option<&[u16]>, lpoptional: Option<super::LPVOID>, dwoptionallength: super::DWORD, dwtotallength: super::DWORD, dwcontext: super::DWORD_PTR) -> windows_core::BOOL {
+pub unsafe fn WinHttpSendRequest(hrequest: super::HINTERNET, lpszheaders: Option<windows_core::PCWSTR>, dwheaderslength: super::DWORD, lpoptional: Option<super::LPVOID>, dwoptionallength: super::DWORD, dwtotallength: super::DWORD, dwcontext: super::DWORD_PTR) -> windows_core::BOOL {
     windows_core::link!("winhttp.dll" "system" fn WinHttpSendRequest(hrequest : super::HINTERNET, lpszheaders : windows_core::PCWSTR, dwheaderslength : super::DWORD, lpoptional : super::LPVOID, dwoptionallength : super::DWORD, dwtotallength : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
-    unsafe { WinHttpSendRequest(hrequest as _, core::mem::transmute(lpszheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.map_or(0, |slice| slice.len().try_into().unwrap()), lpoptional.unwrap_or(core::mem::zeroed()) as _, dwoptionallength, dwtotallength, dwcontext) }
+    unsafe { WinHttpSendRequest(hrequest as _, lpszheaders.unwrap_or(core::mem::zeroed()) as _, dwheaderslength, lpoptional.unwrap_or(core::mem::zeroed()) as _, dwoptionallength, dwtotallength, dwcontext) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -364,9 +364,9 @@ pub unsafe fn WinHttpWebSocketReceive(hwebsocket: super::HINTERNET, pvbuffer: su
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WinHttpWebSocketSend(hwebsocket: super::HINTERNET, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn WinHttpWebSocketSend(hwebsocket: super::HINTERNET, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Option<super::PVOID>, dwbufferlength: super::DWORD) -> super::DWORD {
     windows_core::link!("winhttp.dll" "system" fn WinHttpWebSocketSend(hwebsocket : super::HINTERNET, ebuffertype : WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer : super::PVOID, dwbufferlength : super::DWORD) -> super::DWORD);
-    unsafe { WinHttpWebSocketSend(hwebsocket, ebuffertype, core::mem::transmute(pvbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { WinHttpWebSocketSend(hwebsocket, ebuffertype, pvbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

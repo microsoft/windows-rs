@@ -148,15 +148,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CredProtectA(fasself: bool, pszcredentials: &[u8], pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut super::DWORD, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
+pub unsafe fn CredProtectA(fasself: bool, pszcredentials: windows_core::PCSTR, cchcredentials: super::DWORD, pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut super::DWORD, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredProtectA(fasself : windows_core::BOOL, pszcredentials : windows_core::PCSTR, cchcredentials : super::DWORD, pszprotectedcredentials : windows_core::PSTR, pcchmaxchars : *mut super::DWORD, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectA(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CredProtectA(fasself.into(), pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CredProtectW(fasself: bool, pszcredentials: &[u16], pszprotectedcredentials: windows_core::PWSTR, pcchmaxchars: *mut super::DWORD, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
+pub unsafe fn CredProtectW(fasself: bool, pszcredentials: windows_core::PCWSTR, cchcredentials: super::DWORD, pszprotectedcredentials: windows_core::PWSTR, pcchmaxchars: *mut super::DWORD, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_core::BOOL, pszcredentials : windows_core::PCWSTR, cchcredentials : super::DWORD, pszprotectedcredentials : windows_core::PWSTR, pcchmaxchars : *mut super::DWORD, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectW(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CredProtectW(fasself.into(), pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -210,21 +210,21 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "sspi"))]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, username: &mut [u8], pszpassword: &mut [u8], pfsave: Option<super::PBOOL>, dwflags: super::DWORD) -> super::DWORD
+pub unsafe fn CredUICmdLinePromptForCredentialsA<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, username: windows_core::PSTR, uluserbuffersize: super::ULONG, pszpassword: windows_core::PSTR, ulpasswordbuffersize: super::ULONG, pfsave: Option<super::PBOOL>, dwflags: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, username : windows_core::PSTR, uluserbuffersize : super::ULONG, pszpassword : windows_core::PSTR, ulpasswordbuffersize : super::ULONG, pfsave : super::PBOOL, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "sspi"))]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, username: &mut [u16], pszpassword: &mut [u16], pfsave: Option<super::PBOOL>, dwflags: super::DWORD) -> super::DWORD
+pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, username: windows_core::PWSTR, uluserbuffersize: super::ULONG, pszpassword: windows_core::PWSTR, ulpasswordbuffersize: super::ULONG, pfsave: Option<super::PBOOL>, dwflags: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, username : windows_core::PWSTR, uluserbuffersize : super::ULONG, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : super::ULONG, pfsave : super::PBOOL, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -264,21 +264,21 @@ where
 }
 #[cfg(all(feature = "shared", feature = "sspi", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<PCREDUI_INFOA>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: super::DWORD) -> super::DWORD
+pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<PCREDUI_INFOA>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, pszusername: windows_core::PSTR, ulusernamebuffersize: super::ULONG, pszpassword: windows_core::PSTR, ulpasswordbuffersize: super::ULONG, save: Option<*mut windows_core::BOOL>, dwflags: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : PCREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, pszusername : windows_core::PSTR, ulusernamebuffersize : super::ULONG, pszpassword : windows_core::PSTR, ulpasswordbuffersize : super::ULONG, save : *mut windows_core::BOOL, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "sspi", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<PCREDUI_INFOW>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: super::DWORD) -> super::DWORD
+pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<PCREDUI_INFOW>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: super::DWORD, pszusername: windows_core::PWSTR, ulusernamebuffersize: super::ULONG, pszpassword: windows_core::PWSTR, ulpasswordbuffersize: super::ULONG, save: Option<*mut windows_core::BOOL>, dwflags: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : PCREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, pszusername : windows_core::PWSTR, ulusernamebuffersize : super::ULONG, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : super::ULONG, save : *mut windows_core::BOOL, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -344,15 +344,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CredUnprotectA(fasself: bool, pszprotectedcredentials: &[u8], pszcredentials: Option<windows_core::PSTR>, pcchmaxchars: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CredUnprotectA(fasself: bool, pszprotectedcredentials: windows_core::PCSTR, cchprotectedcredentials: super::DWORD, pszcredentials: Option<windows_core::PSTR>, pcchmaxchars: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCSTR, cchprotectedcredentials : super::DWORD, pszcredentials : windows_core::PSTR, pcchmaxchars : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CredUnprotectA(fasself.into(), core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len().try_into().unwrap(), pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _) }
+    unsafe { CredUnprotectA(fasself.into(), pszprotectedcredentials, cchprotectedcredentials, pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CredUnprotectW(fasself: bool, pszprotectedcredentials: &[u16], pszcredentials: Option<windows_core::PWSTR>, pcchmaxchars: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CredUnprotectW(fasself: bool, pszprotectedcredentials: windows_core::PCWSTR, cchprotectedcredentials: super::DWORD, pszcredentials: Option<windows_core::PWSTR>, pcchmaxchars: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCWSTR, cchprotectedcredentials : super::DWORD, pszcredentials : windows_core::PWSTR, pcchmaxchars : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CredUnprotectW(fasself.into(), core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len().try_into().unwrap(), pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _) }
+    unsafe { CredUnprotectW(fasself.into(), pszprotectedcredentials, cchprotectedcredentials, pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

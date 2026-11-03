@@ -11,33 +11,14 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, mut objecttypelist: Option<&mut [super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
+pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::DWORD, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : super::LPVOID, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::DWORD, audittype : super::AUDIT_EVENT_TYPE, flags : super::DWORD, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::DWORD, genericmapping : super::PGENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : super::LPDWORD, accessstatus : super::LPBOOL, pfgenerateonclose : super::LPBOOL) -> windows_core::BOOL);
-    unsafe {
-        AccessCheckByTypeAndAuditAlarmA(
-            subsystemname.param().abi(),
-            handleid,
-            objecttypename.param().abi(),
-            objectname.param().abi(),
-            securitydescriptor,
-            principalselfsid.unwrap_or(core::mem::zeroed()) as _,
-            desiredaccess,
-            audittype,
-            flags,
-            core::mem::transmute(objecttypelist.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())),
-            objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            genericmapping,
-            objectcreation.into(),
-            grantedaccess as _,
-            accessstatus as _,
-            pfgenerateonclose as _,
-        )
-    }
+    unsafe { AccessCheckByTypeAndAuditAlarmA(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -152,9 +133,9 @@ pub unsafe fn BackupSeek(hfile: super::HANDLE, dwlowbytestoseek: super::DWORD, d
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn BackupWrite(hfile: super::HANDLE, lpbuffer: &[u8], lpnumberofbyteswritten: super::LPDWORD, babort: bool, bprocesssecurity: bool, lpcontext: *mut super::LPVOID) -> windows_core::BOOL {
+pub unsafe fn BackupWrite(hfile: super::HANDLE, lpbuffer: super::LPBYTE, nnumberofbytestowrite: super::DWORD, lpnumberofbyteswritten: super::LPDWORD, babort: bool, bprocesssecurity: bool, lpcontext: *mut super::LPVOID) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn BackupWrite(hfile : super::HANDLE, lpbuffer : super::LPBYTE, nnumberofbytestowrite : super::DWORD, lpnumberofbyteswritten : super::LPDWORD, babort : windows_core::BOOL, bprocesssecurity : windows_core::BOOL, lpcontext : *mut super::LPVOID) -> windows_core::BOOL);
-    unsafe { BackupWrite(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofbyteswritten as _, babort.into(), bprocesssecurity.into(), lpcontext as _) }
+    unsafe { BackupWrite(hfile, lpbuffer, nnumberofbytestowrite, lpnumberofbyteswritten as _, babort.into(), bprocesssecurity.into(), lpcontext as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -572,9 +553,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateJobSet(userjobset: &[super::JOB_SET_ARRAY], flags: super::ULONG) -> windows_core::BOOL {
+pub unsafe fn CreateJobSet(numjob: super::ULONG, userjobset: super::PJOB_SET_ARRAY, flags: super::ULONG) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn CreateJobSet(numjob : super::ULONG, userjobset : super::PJOB_SET_ARRAY, flags : super::ULONG) -> windows_core::BOOL);
-    unsafe { CreateJobSet(userjobset.len().try_into().unwrap(), core::mem::transmute(userjobset.as_ptr()), flags) }
+    unsafe { CreateJobSet(numjob, userjobset, flags) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -2906,15 +2887,15 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReportEventA(heventlog: super::HANDLE, wtype: super::WORD, wcategory: super::WORD, dweventid: super::DWORD, lpusersid: Option<super::PSID>, dwdatasize: super::DWORD, lpstrings: Option<&[windows_core::PCSTR]>, lprawdata: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn ReportEventA(heventlog: super::HANDLE, wtype: super::WORD, wcategory: super::WORD, dweventid: super::DWORD, lpusersid: Option<super::PSID>, wnumstrings: super::WORD, dwdatasize: super::DWORD, lpstrings: Option<*const windows_core::PCSTR>, lprawdata: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::HANDLE, wtype : super::WORD, wcategory : super::WORD, dweventid : super::DWORD, lpusersid : super::PSID, wnumstrings : super::WORD, dwdatasize : super::DWORD, lpstrings : *const windows_core::PCSTR, lprawdata : super::LPVOID) -> windows_core::BOOL);
-    unsafe { ReportEventA(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, lpstrings.map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, lpstrings.map_or(core::ptr::null(), |slice| slice.as_ptr()), lprawdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ReportEventA(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, wnumstrings, dwdatasize, lpstrings.unwrap_or(core::mem::zeroed()) as _, lprawdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReportEventW(heventlog: super::HANDLE, wtype: super::WORD, wcategory: super::WORD, dweventid: super::DWORD, lpusersid: Option<super::PSID>, dwdatasize: super::DWORD, lpstrings: Option<&[windows_core::PCWSTR]>, lprawdata: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn ReportEventW(heventlog: super::HANDLE, wtype: super::WORD, wcategory: super::WORD, dweventid: super::DWORD, lpusersid: Option<super::PSID>, wnumstrings: super::WORD, dwdatasize: super::DWORD, lpstrings: Option<*const windows_core::PCWSTR>, lprawdata: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::HANDLE, wtype : super::WORD, wcategory : super::WORD, dweventid : super::DWORD, lpusersid : super::PSID, wnumstrings : super::WORD, dwdatasize : super::DWORD, lpstrings : *const windows_core::PCWSTR, lprawdata : super::LPVOID) -> windows_core::BOOL);
-    unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, lpstrings.map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, lpstrings.map_or(core::ptr::null(), |slice| slice.as_ptr()), lprawdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, wnumstrings, dwdatasize, lpstrings.unwrap_or(core::mem::zeroed()) as _, lprawdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -3452,9 +3433,9 @@ pub unsafe fn _hread(hfile: super::HFILE, lpbuffer: super::LPVOID, lbytes: i32) 
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn _hwrite(hfile: super::HFILE, lpbuffer: &[u8]) -> i32 {
+pub unsafe fn _hwrite(hfile: super::HFILE, lpbuffer: super::LPCCH, lbytes: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn _hwrite(hfile : super::HFILE, lpbuffer : super::LPCCH, lbytes : i32) -> i32);
-    unsafe { _hwrite(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
+    unsafe { _hwrite(hfile, lpbuffer, lbytes) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -3494,9 +3475,9 @@ pub unsafe fn _lread(hfile: super::HFILE, lpbuffer: super::LPVOID, ubytes: super
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn _lwrite(hfile: super::HFILE, lpbuffer: &[u8]) -> super::UINT {
+pub unsafe fn _lwrite(hfile: super::HFILE, lpbuffer: super::LPCCH, ubytes: super::UINT) -> super::UINT {
     windows_core::link!("kernel32.dll" "system" fn _lwrite(hfile : super::HFILE, lpbuffer : super::LPCCH, ubytes : super::UINT) -> super::UINT);
-    unsafe { _lwrite(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
+    unsafe { _lwrite(hfile, lpbuffer, ubytes) }
 }
 #[inline]
 pub unsafe fn lstrcatA<P1>(lpstring1: windows_core::PSTR, lpstring2: P1) -> windows_core::PSTR

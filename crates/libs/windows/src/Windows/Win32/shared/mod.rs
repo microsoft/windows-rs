@@ -32,15 +32,15 @@ pub unsafe fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const wi
     unsafe { BSTR_UserSize64(param0, param1, core::mem::transmute(param2)) }
 }
 #[inline]
-pub unsafe fn BSTR_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut windows_core::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut windows_core::BSTR) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
-    unsafe { BSTR_UserUnmarshal(param0, param1.as_ptr(), core::mem::transmute(param2)) }
+    unsafe { BSTR_UserUnmarshal(param0, param1, core::mem::transmute(param2)) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn BSTR_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut windows_core::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut windows_core::BSTR) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
-    unsafe { BSTR_UserUnmarshal64(param0, param1.as_ptr(), core::mem::transmute(param2)) }
+    unsafe { BSTR_UserUnmarshal64(param0, param1, core::mem::transmute(param2)) }
 }
 #[cfg(feature = "wtypes")]
 #[inline]
@@ -83,16 +83,16 @@ pub unsafe fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *co
 }
 #[cfg(feature = "wtypes")]
 #[inline]
-pub unsafe fn CLIPFORMAT_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::CLIPFORMAT) -> *mut u8 {
+pub unsafe fn CLIPFORMAT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
-    unsafe { CLIPFORMAT_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { CLIPFORMAT_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "wtypes")]
 #[inline]
-pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::CLIPFORMAT) -> *mut u8 {
+pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
-    unsafe { CLIPFORMAT_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { CLIPFORMAT_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
@@ -122,13 +122,13 @@ pub unsafe fn DriveType(idrive: i32) -> i32 {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn FreePropVariantArray(rgvars: &mut [super::PROPVARIANT]) -> windows_core::HRESULT {
+pub unsafe fn FreePropVariantArray(cvariants: ULONG, rgvars: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : ULONG, rgvars : *mut super::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { FreePropVariantArray(rgvars.len().try_into().unwrap(), rgvars.as_mut_ptr()) }
+    unsafe { FreePropVariantArray(cvariants, rgvars) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetFileNameFromBrowse<P3, P4, P5, P6>(hwnd: Option<super::HWND>, pszfilepath: &mut [u16], pszworkingdir: P3, pszdefext: P4, pszfilters: P5, psztitle: P6) -> windows_core::BOOL
+pub unsafe fn GetFileNameFromBrowse<P3, P4, P5, P6>(hwnd: Option<super::HWND>, pszfilepath: windows_core::PWSTR, cchfilepath: UINT, pszworkingdir: P3, pszdefext: P4, pszfilters: P5, psztitle: P6) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -136,7 +136,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::HWND, pszfilepath : windows_core::PWSTR, cchfilepath : UINT, pszworkingdir : windows_core::PCWSTR, pszdefext : windows_core::PCWSTR, pszfilters : windows_core::PCWSTR, psztitle : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfilepath.as_mut_ptr()), pszfilepath.len().try_into().unwrap(), pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
+    unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, pszfilepath, cchfilepath, pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -179,16 +179,16 @@ pub unsafe fn HACCEL_UserSize64(param0: *const u32, param1: u32, param2: *const 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HACCEL_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HACCEL) -> *mut u8 {
+pub unsafe fn HACCEL_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HACCEL) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HACCEL) -> *mut u8);
-    unsafe { HACCEL_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HACCEL_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HACCEL_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HACCEL) -> *mut u8 {
+pub unsafe fn HACCEL_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HACCEL) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HACCEL) -> *mut u8);
-    unsafe { HACCEL_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HACCEL_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -231,16 +231,16 @@ pub unsafe fn HBITMAP_UserSize64(param0: *const u32, param1: u32, param2: *const
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HBITMAP_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HBITMAP) -> *mut u8 {
+pub unsafe fn HBITMAP_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HBITMAP) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HBITMAP) -> *mut u8);
-    unsafe { HBITMAP_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HBITMAP_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HBITMAP_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HBITMAP) -> *mut u8 {
+pub unsafe fn HBITMAP_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HBITMAP) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HBITMAP) -> *mut u8);
-    unsafe { HBITMAP_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HBITMAP_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -283,16 +283,16 @@ pub unsafe fn HDC_UserSize64(param0: *const u32, param1: u32, param2: *const sup
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HDC_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HDC) -> *mut u8 {
+pub unsafe fn HDC_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HDC) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HDC_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HDC) -> *mut u8);
-    unsafe { HDC_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HDC_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HDC_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HDC) -> *mut u8 {
+pub unsafe fn HDC_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HDC) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HDC_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HDC) -> *mut u8);
-    unsafe { HDC_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HDC_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -335,16 +335,16 @@ pub unsafe fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HGLOBAL_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HGLOBAL) -> *mut u8 {
+pub unsafe fn HGLOBAL_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HGLOBAL) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HGLOBAL_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HGLOBAL) -> *mut u8);
-    unsafe { HGLOBAL_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HGLOBAL_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HGLOBAL_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HGLOBAL) -> *mut u8 {
+pub unsafe fn HGLOBAL_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HGLOBAL) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HGLOBAL_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HGLOBAL) -> *mut u8);
-    unsafe { HGLOBAL_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HGLOBAL_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -387,16 +387,16 @@ pub unsafe fn HICON_UserSize64(param0: *const u32, param1: u32, param2: *const s
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HICON_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HICON) -> *mut u8 {
+pub unsafe fn HICON_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HICON) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HICON_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HICON) -> *mut u8);
-    unsafe { HICON_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HICON_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HICON_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HICON) -> *mut u8 {
+pub unsafe fn HICON_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HICON) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HICON_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HICON) -> *mut u8);
-    unsafe { HICON_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HICON_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -439,16 +439,16 @@ pub unsafe fn HMENU_UserSize64(param0: *const u32, param1: u32, param2: *const s
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HMENU_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HMENU) -> *mut u8 {
+pub unsafe fn HMENU_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HMENU) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HMENU_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HMENU_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HMENU) -> *mut u8 {
+pub unsafe fn HMENU_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HMENU) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HMENU_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -491,16 +491,16 @@ pub unsafe fn HMONITOR_UserSize64(param0: *const u32, param1: u32, param2: *cons
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HMONITOR_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HMONITOR) -> *mut u8 {
+pub unsafe fn HMONITOR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HMONITOR) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HMONITOR) -> *mut u8);
-    unsafe { HMONITOR_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HMONITOR_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HMONITOR) -> *mut u8 {
+pub unsafe fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HMONITOR) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HMONITOR) -> *mut u8);
-    unsafe { HMONITOR_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HMONITOR_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -522,9 +522,9 @@ pub unsafe fn HPALETTE_UserSize(param0: *const u32, param1: u32, param2: *const 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HPALETTE_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HPALETTE) -> *mut u8 {
+pub unsafe fn HPALETTE_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HPALETTE) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HPALETTE) -> *mut u8);
-    unsafe { HPALETTE_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HPALETTE_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[inline]
 pub unsafe fn HSTRING_UserFree(pflags: *const ULONG, ppidl: *const windows_core::HSTRING) {
@@ -560,15 +560,15 @@ pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const
     unsafe { HSTRING_UserSize64(param0, param1, core::mem::transmute(param2)) }
 }
 #[inline]
-pub unsafe fn HSTRING_UserUnmarshal(pflags: *const ULONG, pbuffer: &[UCHAR; 0], ppidl: *mut windows_core::HSTRING) -> *mut UCHAR {
+pub unsafe fn HSTRING_UserUnmarshal(pflags: *const ULONG, pbuffer: *const UCHAR, ppidl: *mut windows_core::HSTRING) -> *mut UCHAR {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal(pflags : *const ULONG, pbuffer : *const UCHAR, ppidl : *mut *mut core::ffi::c_void) -> *mut UCHAR);
-    unsafe { HSTRING_UserUnmarshal(pflags, pbuffer.as_ptr(), core::mem::transmute(ppidl)) }
+    unsafe { HSTRING_UserUnmarshal(pflags, pbuffer, core::mem::transmute(ppidl)) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut windows_core::HSTRING) -> *mut u8 {
+pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut windows_core::HSTRING) -> *mut u8 {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
-    unsafe { HSTRING_UserUnmarshal64(param0, param1.as_ptr(), core::mem::transmute(param2)) }
+    unsafe { HSTRING_UserUnmarshal64(param0, param1, core::mem::transmute(param2)) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -611,16 +611,16 @@ pub unsafe fn HWND_UserSize64(param0: *const u32, param1: u32, param2: *const su
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HWND_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HWND) -> *mut u8 {
+pub unsafe fn HWND_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HWND) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HWND_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HWND) -> *mut u8);
-    unsafe { HWND_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HWND_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HWND_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HWND) -> *mut u8 {
+pub unsafe fn HWND_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HWND) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HWND_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HWND) -> *mut u8);
-    unsafe { HWND_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HWND_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 #[inline]
@@ -663,16 +663,16 @@ pub unsafe fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *c
 }
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 #[inline]
-pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
-    unsafe { LPSAFEARRAY_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { LPSAFEARRAY_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 #[inline]
-pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
-    unsafe { LPSAFEARRAY_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { LPSAFEARRAY_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "clfs")]
 #[inline]
@@ -730,9 +730,9 @@ pub unsafe fn RtlUTF8StringToUnicodeString(destinationstring: super::PUNICODE_ST
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: ULONG, unicodestringactualbytecount: super::PULONG, utf8stringsource: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: ULONG, unicodestringactualbytecount: super::PULONG, utf8stringsource: super::PCCH, utf8stringbytecount: ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_core::PWSTR, unicodestringmaxbytecount : ULONG, unicodestringactualbytecount : super::PULONG, utf8stringsource : super::PCCH, utf8stringbytecount : ULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
+    unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, utf8stringsource, utf8stringbytecount) }
 }
 #[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -787,16 +787,16 @@ pub unsafe fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *con
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::STGMEDIUM) -> *mut u8 {
+pub unsafe fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::STGMEDIUM) -> *mut u8);
-    unsafe { STGMEDIUM_UserUnmarshal(param0, param1.as_ptr(), param2) }
+    unsafe { STGMEDIUM_UserUnmarshal(param0, param1, param2) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::STGMEDIUM) -> *mut u8 {
+pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::STGMEDIUM) -> *mut u8);
-    unsafe { STGMEDIUM_UserUnmarshal64(param0, param1.as_ptr(), param2) }
+    unsafe { STGMEDIUM_UserUnmarshal64(param0, param1, param2) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -845,16 +845,16 @@ pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::VARIANT) -> *mut u8 {
+pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::VARIANT) -> *mut u8);
-    unsafe { VARIANT_UserUnmarshal(param0, param1.as_ptr(), param2) }
+    unsafe { VARIANT_UserUnmarshal(param0, param1, param2) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::VARIANT) -> *mut u8 {
+pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::VARIANT) -> *mut u8);
-    unsafe { VARIANT_UserUnmarshal64(param0, param1.as_ptr(), param2) }
+    unsafe { VARIANT_UserUnmarshal64(param0, param1, param2) }
 }
 #[inline]
 pub unsafe fn VerSetConditionMask(conditionmask: ULONGLONG, typemask: DWORD, condition: BYTE) -> ULONGLONG {

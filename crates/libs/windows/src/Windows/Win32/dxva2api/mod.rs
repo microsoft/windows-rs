@@ -883,10 +883,10 @@ impl IDirectXVideoDecoderService {
         unsafe { (windows_core::Interface::vtable(self).GetDecoderConfigurations)(windows_core::Interface::as_raw(self), guid, pvideodesc, preserved.unwrap_or(core::mem::zeroed()) as _, pcount as _, ppconfigs as _) }
     }
     #[cfg(all(feature = "d3d9", feature = "shared"))]
-    pub unsafe fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[Option<super::IDirect3DSurface9>]) -> windows_core::Result<IDirectXVideoDecoder> {
+    pub unsafe fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const Option<super::IDirect3DSurface9>, numrendertargets: super::UINT) -> windows_core::Result<IDirectXVideoDecoder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, core::mem::transmute(ppdecoderrendertargets), numrendertargets, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1047,11 +1047,11 @@ impl IDirectXVideoProcessor {
         unsafe { (windows_core::Interface::vtable(self).GetFilterPropertyRange)(windows_core::Interface::as_raw(self), filtersetting, prange as _) }
     }
     #[cfg(all(feature = "d3d9", feature = "shared", feature = "windef", feature = "winnt"))]
-    pub unsafe fn VideoProcessBlt<P0>(&self, prendertarget: P0, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: &[DXVA2_VideoSample], phandlecomplete: Option<*mut super::HANDLE>) -> windows_core::HRESULT
+    pub unsafe fn VideoProcessBlt<P0>(&self, prendertarget: P0, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: super::UINT, phandlecomplete: Option<*mut super::HANDLE>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IDirect3DSurface9>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pbltparams, psamples.as_ptr(), psamples.len().try_into().unwrap(), phandlecomplete.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pbltparams, psamples, numsamples, phandlecomplete.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

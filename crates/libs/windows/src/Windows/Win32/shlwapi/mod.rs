@@ -139,9 +139,9 @@ pub unsafe fn GetMenuPosFromID(hmenu: super::HMENU, id: super::UINT) -> i32 {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HashData(pbdata: &[u8], pbhash: *mut super::BYTE, cbhash: super::DWORD) -> windows_core::HRESULT {
+pub unsafe fn HashData(pbdata: *const super::BYTE, cbdata: super::DWORD, pbhash: *mut super::BYTE, cbhash: super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn HashData(pbdata : *const super::BYTE, cbdata : super::DWORD, pbhash : *mut super::BYTE, cbhash : super::DWORD) -> windows_core::HRESULT);
-    unsafe { HashData(core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pbhash as _, cbhash) }
+    unsafe { HashData(pbdata, cbdata, pbhash as _, cbhash) }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
@@ -329,46 +329,46 @@ where
     unsafe { ParseURLW(pcszurl.param().abi(), ppu as _) }
 }
 #[inline]
-pub unsafe fn PathAddBackslashA(pszpath: &mut [u8; 260]) -> windows_core::PSTR {
+pub unsafe fn PathAddBackslashA(pszpath: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("shlwapi.dll" "system" fn PathAddBackslashA(pszpath : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { PathAddBackslashA(core::mem::transmute(pszpath.as_mut_ptr())) }
+    unsafe { PathAddBackslashA(pszpath) }
 }
 #[inline]
-pub unsafe fn PathAddBackslashW(pszpath: &mut [u16; 260]) -> windows_core::PWSTR {
+pub unsafe fn PathAddBackslashW(pszpath: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("shlwapi.dll" "system" fn PathAddBackslashW(pszpath : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { PathAddBackslashW(core::mem::transmute(pszpath.as_mut_ptr())) }
+    unsafe { PathAddBackslashW(pszpath) }
 }
 #[inline]
-pub unsafe fn PathAddExtensionA<P1>(pszpath: &mut [u8; 260], pszext: P1) -> windows_core::BOOL
+pub unsafe fn PathAddExtensionA<P1>(pszpath: windows_core::PSTR, pszext: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathAddExtensionA(pszpath : windows_core::PSTR, pszext : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { PathAddExtensionA(core::mem::transmute(pszpath.as_mut_ptr()), pszext.param().abi()) }
+    unsafe { PathAddExtensionA(pszpath, pszext.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathAddExtensionW<P1>(pszpath: &mut [u16; 260], pszext: P1) -> windows_core::BOOL
+pub unsafe fn PathAddExtensionW<P1>(pszpath: windows_core::PWSTR, pszext: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathAddExtensionW(pszpath : windows_core::PWSTR, pszext : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathAddExtensionW(core::mem::transmute(pszpath.as_mut_ptr()), pszext.param().abi()) }
+    unsafe { PathAddExtensionW(pszpath, pszext.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathAppendA<P1>(pszpath: &mut [u8; 260], pszmore: P1) -> windows_core::BOOL
+pub unsafe fn PathAppendA<P1>(pszpath: windows_core::PSTR, pszmore: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathAppendA(pszpath : windows_core::PSTR, pszmore : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { PathAppendA(core::mem::transmute(pszpath.as_mut_ptr()), pszmore.param().abi()) }
+    unsafe { PathAppendA(pszpath, pszmore.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathAppendW<P1>(pszpath: &mut [u16; 260], pszmore: P1) -> windows_core::BOOL
+pub unsafe fn PathAppendW<P1>(pszpath: windows_core::PWSTR, pszmore: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathAppendW(pszpath : windows_core::PWSTR, pszmore : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathAppendW(core::mem::transmute(pszpath.as_mut_ptr()), pszmore.param().abi()) }
+    unsafe { PathAppendW(pszpath, pszmore.param().abi()) }
 }
 #[inline]
 pub unsafe fn PathBuildRootA(pszroot: windows_core::PSTR, idrive: i32) -> windows_core::PSTR {
@@ -434,9 +434,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PathCompactPathA(hdc: Option<super::HDC>, pszpath: &mut [u8; 260], dx: super::UINT) -> windows_core::BOOL {
+pub unsafe fn PathCompactPathA(hdc: Option<super::HDC>, pszpath: windows_core::PSTR, dx: super::UINT) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathCompactPathA(hdc : super::HDC, pszpath : windows_core::PSTR, dx : super::UINT) -> windows_core::BOOL);
-    unsafe { PathCompactPathA(hdc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath.as_mut_ptr()), dx) }
+    unsafe { PathCompactPathA(hdc.unwrap_or(core::mem::zeroed()) as _, pszpath, dx) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -458,9 +458,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PathCompactPathW(hdc: Option<super::HDC>, pszpath: &mut [u16; 260], dx: super::UINT) -> windows_core::BOOL {
+pub unsafe fn PathCompactPathW(hdc: Option<super::HDC>, pszpath: windows_core::PWSTR, dx: super::UINT) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathCompactPathW(hdc : super::HDC, pszpath : windows_core::PWSTR, dx : super::UINT) -> windows_core::BOOL);
-    unsafe { PathCompactPathW(hdc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath.as_mut_ptr()), dx) }
+    unsafe { PathCompactPathW(hdc.unwrap_or(core::mem::zeroed()) as _, pszpath, dx) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -555,31 +555,31 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn PathFindOnPathA(pszpath: &mut [u8; 260], ppszotherdirs: Option<super::PZPCSTR>) -> windows_core::BOOL {
+pub unsafe fn PathFindOnPathA(pszpath: windows_core::PSTR, ppszotherdirs: Option<super::PZPCSTR>) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_core::PSTR, ppszotherdirs : super::PZPCSTR) -> windows_core::BOOL);
-    unsafe { PathFindOnPathA(core::mem::transmute(pszpath.as_mut_ptr()), ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PathFindOnPathA(pszpath, ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn PathFindOnPathW(pszpath: &mut [u16; 260], ppszotherdirs: Option<super::PZPCWSTR>) -> windows_core::BOOL {
+pub unsafe fn PathFindOnPathW(pszpath: windows_core::PWSTR, ppszotherdirs: Option<super::PZPCWSTR>) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_core::PWSTR, ppszotherdirs : super::PZPCWSTR) -> windows_core::BOOL);
-    unsafe { PathFindOnPathW(core::mem::transmute(pszpath.as_mut_ptr()), ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PathFindOnPathW(pszpath, ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: &[windows_core::PCSTR]) -> windows_core::PCSTR
+pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: *const windows_core::PCSTR, iarraysize: i32) -> windows_core::PCSTR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : windows_core::PCSTR, apszsuffix : *const windows_core::PCSTR, iarraysize : i32) -> windows_core::PCSTR);
-    unsafe { PathFindSuffixArrayA(pszpath.param().abi(), apszsuffix.as_ptr(), apszsuffix.len().try_into().unwrap()) }
+    unsafe { PathFindSuffixArrayA(pszpath.param().abi(), apszsuffix, iarraysize) }
 }
 #[inline]
-pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: &[windows_core::PCWSTR]) -> windows_core::PCWSTR
+pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: *const windows_core::PCWSTR, iarraysize: i32) -> windows_core::PCWSTR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : windows_core::PCWSTR, apszsuffix : *const windows_core::PCWSTR, iarraysize : i32) -> windows_core::PCWSTR);
-    unsafe { PathFindSuffixArrayW(pszpath.param().abi(), apszsuffix.as_ptr(), apszsuffix.len().try_into().unwrap()) }
+    unsafe { PathFindSuffixArrayW(pszpath.param().abi(), apszsuffix, iarraysize) }
 }
 #[inline]
 pub unsafe fn PathGetArgsA<P0>(pszpath: P0) -> windows_core::PSTR
@@ -948,14 +948,14 @@ pub unsafe fn PathParseIconLocationW(psziconfile: windows_core::PWSTR) -> i32 {
     unsafe { PathParseIconLocationW(psziconfile) }
 }
 #[inline]
-pub unsafe fn PathQuoteSpacesA(lpsz: &mut [u8; 260]) -> windows_core::BOOL {
+pub unsafe fn PathQuoteSpacesA(lpsz: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathQuoteSpacesA(lpsz : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { PathQuoteSpacesA(core::mem::transmute(lpsz.as_mut_ptr())) }
+    unsafe { PathQuoteSpacesA(lpsz) }
 }
 #[inline]
-pub unsafe fn PathQuoteSpacesW(lpsz: &mut [u16; 260]) -> windows_core::BOOL {
+pub unsafe fn PathQuoteSpacesW(lpsz: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("shlwapi.dll" "system" fn PathQuoteSpacesW(lpsz : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { PathQuoteSpacesW(core::mem::transmute(lpsz.as_mut_ptr())) }
+    unsafe { PathQuoteSpacesW(lpsz) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1028,20 +1028,20 @@ pub unsafe fn PathRemoveFileSpecW(pszpath: windows_core::PWSTR) -> windows_core:
     unsafe { PathRemoveFileSpecW(pszpath) }
 }
 #[inline]
-pub unsafe fn PathRenameExtensionA<P1>(pszpath: &mut [u8; 260], pszext: P1) -> windows_core::BOOL
+pub unsafe fn PathRenameExtensionA<P1>(pszpath: windows_core::PSTR, pszext: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathRenameExtensionA(pszpath : windows_core::PSTR, pszext : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { PathRenameExtensionA(core::mem::transmute(pszpath.as_mut_ptr()), pszext.param().abi()) }
+    unsafe { PathRenameExtensionA(pszpath, pszext.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathRenameExtensionW<P1>(pszpath: &mut [u16; 260], pszext: P1) -> windows_core::BOOL
+pub unsafe fn PathRenameExtensionW<P1>(pszpath: windows_core::PWSTR, pszext: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathRenameExtensionW(pszpath : windows_core::PWSTR, pszext : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathRenameExtensionW(core::mem::transmute(pszpath.as_mut_ptr()), pszext.param().abi()) }
+    unsafe { PathRenameExtensionW(pszpath, pszext.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1227,9 +1227,9 @@ where
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn SHCreateMemStream(pinit: Option<&[u8]>) -> Option<super::IStream> {
+pub unsafe fn SHCreateMemStream(pinit: Option<*const super::BYTE>, cbinit: super::UINT) -> Option<super::IStream> {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const super::BYTE, cbinit : super::UINT) -> Option < super::IStream >);
-    unsafe { SHCreateMemStream(core::mem::transmute(pinit.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinit.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SHCreateMemStream(pinit.unwrap_or(core::mem::zeroed()) as _, cbinit) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1995,20 +1995,20 @@ where
     unsafe { StrCatA(lpstring1, lpstring2.param().abi()) }
 }
 #[inline]
-pub unsafe fn StrCatBuffA<P1>(pszdest: &mut [u8], pszsrc: P1) -> windows_core::PSTR
+pub unsafe fn StrCatBuffA<P1>(pszdest: windows_core::PSTR, pszsrc: P1, cchdestbuffsize: i32) -> windows_core::PSTR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCatBuffA(pszdest : windows_core::PSTR, pszsrc : windows_core::PCSTR, cchdestbuffsize : i32) -> windows_core::PSTR);
-    unsafe { StrCatBuffA(core::mem::transmute(pszdest.as_mut_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
+    unsafe { StrCatBuffA(pszdest, pszsrc.param().abi(), cchdestbuffsize) }
 }
 #[inline]
-pub unsafe fn StrCatBuffW<P1>(pszdest: &mut [u16], pszsrc: P1) -> windows_core::PWSTR
+pub unsafe fn StrCatBuffW<P1>(pszdest: windows_core::PWSTR, pszsrc: P1, cchdestbuffsize: i32) -> windows_core::PWSTR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCatBuffW(pszdest : windows_core::PWSTR, pszsrc : windows_core::PCWSTR, cchdestbuffsize : i32) -> windows_core::PWSTR);
-    unsafe { StrCatBuffW(core::mem::transmute(pszdest.as_mut_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
+    unsafe { StrCatBuffW(pszdest, pszsrc.param().abi(), cchdestbuffsize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -2350,20 +2350,20 @@ where
     unsafe { StrIsIntlEqualW(fcasesens.into(), pszstring1.param().abi(), pszstring2.param().abi(), nchar) }
 }
 #[inline]
-pub unsafe fn StrNCatA<P1>(psz1: &mut [u8], psz2: P1) -> windows_core::PSTR
+pub unsafe fn StrNCatA<P1>(psz1: windows_core::PSTR, psz2: P1, cchmax: i32) -> windows_core::PSTR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrNCatA(psz1 : windows_core::PSTR, psz2 : windows_core::PCSTR, cchmax : i32) -> windows_core::PSTR);
-    unsafe { StrNCatA(core::mem::transmute(psz1.as_mut_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
+    unsafe { StrNCatA(psz1, psz2.param().abi(), cchmax) }
 }
 #[inline]
-pub unsafe fn StrNCatW<P1>(psz1: &mut [u16], psz2: P1) -> windows_core::PWSTR
+pub unsafe fn StrNCatW<P1>(psz1: windows_core::PWSTR, psz2: P1, cchmax: i32) -> windows_core::PWSTR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrNCatW(psz1 : windows_core::PWSTR, psz2 : windows_core::PCWSTR, cchmax : i32) -> windows_core::PWSTR);
-    unsafe { StrNCatW(core::mem::transmute(psz1.as_mut_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
+    unsafe { StrNCatW(psz1, psz2.param().abi(), cchmax) }
 }
 #[inline]
 pub unsafe fn StrPBrkA<P0, P1>(psz: P0, pszset: P1) -> windows_core::PSTR

@@ -1,130 +1,75 @@
 #[inline]
-pub unsafe fn OptionalBytes(mut values: Option<&mut [u8]>) -> u32 {
+pub unsafe fn OptionalBytes(values: Option<PSCHAR>, count: u32) -> u32 {
     windows_core::link!("test.dll" "system" fn OptionalBytes(values : PSCHAR, count : u32) -> u32);
-    unsafe {
-        OptionalBytes(
-            core::mem::transmute(
-                values
-                    .as_mut()
-                    .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-            ),
-            values
-                .as_deref()
-                .map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { OptionalBytes(values.unwrap_or(core::mem::zeroed()) as _, count) }
 }
 #[inline]
-pub unsafe fn OptionalElementsAfter(mut values: Option<&mut [u32]>) -> u32 {
+pub unsafe fn OptionalElementsAfter(values: Option<*mut u32>, count: u32) -> u32 {
     windows_core::link!("test.dll" "system" fn OptionalElementsAfter(values : *mut u32, count : u32) -> u32);
-    unsafe {
-        OptionalElementsAfter(
-            values
-                .as_mut()
-                .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-            values
-                .as_deref()
-                .map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { OptionalElementsAfter(values.unwrap_or(core::mem::zeroed()) as _, count) }
 }
 #[inline]
-pub unsafe fn OptionalElementsBefore(mut values: Option<&mut [u32]>) -> u32 {
+pub unsafe fn OptionalElementsBefore(count: u32, values: Option<*mut u32>) -> u32 {
     windows_core::link!("test.dll" "system" fn OptionalElementsBefore(count : u32, values : *mut u32) -> u32);
-    unsafe {
-        OptionalElementsBefore(
-            values
-                .as_deref()
-                .map_or(0, |slice| slice.len().try_into().unwrap()),
-            values
-                .as_mut()
-                .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-        )
-    }
+    unsafe { OptionalElementsBefore(count, values.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn OptionalFixed(mut values: Option<&mut [u32; 4]>) -> u32 {
+pub unsafe fn OptionalFixed(values: Option<*mut u32>) -> u32 {
     windows_core::link!("test.dll" "system" fn OptionalFixed(values : *mut u32) -> u32);
-    unsafe {
-        OptionalFixed(
-            values
-                .as_mut()
-                .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-        )
-    }
+    unsafe { OptionalFixed(values.unwrap_or(core::mem::zeroed()) as _) }
 }
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn ElementsAfter(&self, mut values: Option<&mut [u32]>) -> u32 {
+    pub unsafe fn ElementsAfter(&self, values: Option<*mut u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).ElementsAfter)(
                 windows_core::Interface::as_raw(self),
-                values
-                    .as_mut()
-                    .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-                values
-                    .as_deref()
-                    .map_or(0, |slice| slice.len().try_into().unwrap()),
+                values.unwrap_or(core::mem::zeroed()) as _,
+                count,
             )
         }
     }
-    pub unsafe fn ElementsBefore(&self, mut values: Option<&mut [u32]>) -> u32 {
+    pub unsafe fn ElementsBefore(&self, count: u32, values: Option<*mut u32>) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).ElementsBefore)(
                 windows_core::Interface::as_raw(self),
-                values
-                    .as_deref()
-                    .map_or(0, |slice| slice.len().try_into().unwrap()),
-                values
-                    .as_mut()
-                    .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
+                count,
+                values.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
-    pub unsafe fn Bytes(&self, mut values: Option<&mut [u8]>) -> u32 {
+    pub unsafe fn Bytes(&self, values: Option<PSCHAR>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Bytes)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(
-                    values
-                        .as_mut()
-                        .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-                ),
-                values
-                    .as_deref()
-                    .map_or(0, |slice| slice.len().try_into().unwrap()),
+                values.unwrap_or(core::mem::zeroed()) as _,
+                count,
             )
         }
     }
-    pub unsafe fn Fixed(&self, mut values: Option<&mut [u32; 4]>) -> u32 {
+    pub unsafe fn Fixed(&self, values: Option<*mut u32>) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Fixed)(
                 windows_core::Interface::as_raw(self),
-                values
-                    .as_mut()
-                    .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
+                values.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
-    pub unsafe fn Modern(&self, mut values: Option<&mut [u32]>) -> u32 {
+    pub unsafe fn Modern(&self, values: Option<*mut u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Modern)(
                 windows_core::Interface::as_raw(self),
-                values
-                    .as_mut()
-                    .map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()),
-                values
-                    .as_deref()
-                    .map_or(0, |slice| slice.len().try_into().unwrap()),
+                values.unwrap_or(core::mem::zeroed()) as _,
+                count,
             )
         }
     }
-    pub unsafe fn Input(&self, values: Option<&[u32]>) -> u32 {
+    pub unsafe fn Input(&self, values: Option<*const u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
-                values.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                values.map_or(0, |slice| slice.len().try_into().unwrap()),
+                values.unwrap_or(core::mem::zeroed()) as _,
+                count,
             )
         }
     }
@@ -137,12 +82,12 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Required(&self, values: &mut [u32]) -> u32 {
+    pub unsafe fn Required(&self, values: *mut u32, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Required)(
                 windows_core::Interface::as_raw(self),
-                values.as_mut_ptr(),
-                values.len().try_into().unwrap(),
+                values as _,
+                count,
             )
         }
     }

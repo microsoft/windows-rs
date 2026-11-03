@@ -1,8 +1,8 @@
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, buttondata: PHIDP_BUTTON_ARRAY_DATA, buttondatalength: super::PUSHORT, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, buttondata: PHIDP_BUTTON_ARRAY_DATA, buttondatalength: super::PUSHORT, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, buttondata : PHIDP_BUTTON_ARRAY_DATA, buttondatalength : super::PUSHORT, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, buttondata as _, buttondatalength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, buttondata as _, buttondatalength as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -36,9 +36,9 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: PHIDP_LINK_COLLEC
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PLONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PLONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::PLONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -54,15 +54,15 @@ pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage:
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::PULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: &mut [u8], preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PCHAR, usagevaluebytelength: super::USHORT, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::PCHAR, usagevaluebytelength : super::USHORT, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_mut_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue as _, usagevaluebytelength, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -72,9 +72,9 @@ pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USA
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: Option<super::USHORT>, buttonlist: PUSAGE_AND_PAGE, usagelength: *mut super::ULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: Option<super::USHORT>, buttonlist: PUSAGE_AND_PAGE, usagelength: *mut super::ULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : super::USHORT, buttonlist : PUSAGE_AND_PAGE, usagelength : *mut super::ULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetUsagesEx(reporttype, linkcollection.unwrap_or(core::mem::zeroed()) as _, buttonlist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsagesEx(reporttype, linkcollection.unwrap_or(core::mem::zeroed()) as _, buttonlist as _, usagelength as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -102,51 +102,51 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: O
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, buttondata: PHIDP_BUTTON_ARRAY_DATA, buttondatalength: super::USHORT, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, buttondata : PHIDP_BUTTON_ARRAY_DATA, buttondatalength : super::USHORT, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(buttondata.as_ptr()), buttondata.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, buttondata, buttondatalength, preparseddata, report as _, reportlength) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: PHIDP_DATA, datalength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: PHIDP_DATA, datalength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : PHIDP_DATA, datalength : super::PULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetData(reporttype, datalist as _, datalength as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::LONG, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::LONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::LONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, report as _, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::ULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::ULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::ULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, report as _, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: &[u8], preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usage: super::USAGE, usagevalue: super::PCHAR, usagevaluebytelength: super::USHORT, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usage : super::USAGE, usagevalue : super::PCHAR, usagevaluebytelength : super::USHORT, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, usagevaluebytelength, preparseddata, report as _, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usagelist: super::PUSAGE, usagelength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usagelist: super::PUSAGE, usagelength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usagelist : super::PUSAGE, usagelength : super::PULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_SetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: PHIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<super::PVOID>) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: super::PUSAGE, usagelistlength: super::ULONG, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: PHIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<super::PVOID>) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : super::PUSAGE, usagelistlength : super::ULONG, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : PHIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : super::PVOID) -> windows_core::NTSTATUS);
-    unsafe { HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HidP_TranslateUsagesToI8042ScanCodes(changedusagelist, usagelistlength, keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "hidusage", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usagelist: super::PUSAGE, usagelength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<super::USHORT>, usagelist: super::PUSAGE, usagelength: super::PULONG, preparseddata: PHIDP_PREPARSED_DATA, report: super::PCHAR, reportlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : super::USHORT, usagelist : super::PUSAGE, usagelength : super::PULONG, preparseddata : PHIDP_PREPARSED_DATA, report : super::PCHAR, reportlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { HidP_UnsetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_UnsetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, report, reportlength) }
 }
 #[cfg(all(feature = "hidusage", feature = "shared"))]
 #[inline]

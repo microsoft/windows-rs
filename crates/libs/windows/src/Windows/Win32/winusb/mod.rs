@@ -137,9 +137,9 @@ pub unsafe fn WinUsb_ReadPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: super::UCHAR, buffer: &mut [u8], isochbufferhandle: PWINUSB_ISOCH_BUFFER_HANDLE) -> windows_core::BOOL {
+pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: super::UCHAR, buffer: super::PUCHAR, bufferlength: super::ULONG, isochbufferhandle: PWINUSB_ISOCH_BUFFER_HANDLE) -> windows_core::BOOL {
     windows_core::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : super::UCHAR, buffer : super::PUCHAR, bufferlength : super::ULONG, isochbufferhandle : PWINUSB_ISOCH_BUFFER_HANDLE) -> windows_core::BOOL);
-    unsafe { WinUsb_RegisterIsochBuffer(interfacehandle, pipeid, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), isochbufferhandle as _) }
+    unsafe { WinUsb_RegisterIsochBuffer(interfacehandle, pipeid, buffer as _, bufferlength, isochbufferhandle as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -196,9 +196,9 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap(bufferhandle: WINUSB_ISOCH_BUFFER_HANDLE
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: super::UCHAR, buffer: &[u8], lengthtransferred: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> windows_core::BOOL {
+pub unsafe fn WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: super::UCHAR, buffer: super::PUCHAR, bufferlength: super::ULONG, lengthtransferred: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : super::UCHAR, buffer : super::PUCHAR, bufferlength : super::ULONG, lengthtransferred : super::PULONG, overlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
-    unsafe { WinUsb_WritePipe(interfacehandle, pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinUsb_WritePipe(interfacehandle, pipeid, buffer, bufferlength, lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const ALLOW_PARTIAL_READS: i32 = 5;
 pub const AUTO_CLEAR_STALL: i32 = 2;

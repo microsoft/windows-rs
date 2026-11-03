@@ -64,9 +64,9 @@ pub unsafe fn AngleArc(hdc: super::HDC, x: i32, y: i32, r: super::DWORD, startan
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn AnimatePalette(hpal: super::HPALETTE, istartindex: super::UINT, ppe: &[PALETTEENTRY]) -> windows_core::BOOL {
+pub unsafe fn AnimatePalette(hpal: super::HPALETTE, istartindex: super::UINT, centries: super::UINT, ppe: *const PALETTEENTRY) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn AnimatePalette(hpal : super::HPALETTE, istartindex : super::UINT, centries : super::UINT, ppe : *const PALETTEENTRY) -> windows_core::BOOL);
-    unsafe { AnimatePalette(hpal, istartindex, ppe.len().try_into().unwrap(), ppe.as_ptr()) }
+    unsafe { AnimatePalette(hpal, istartindex, centries, ppe) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -440,15 +440,15 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> super::HPEN {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::POINT, pc: &[super::INT], imode: i32) -> super::HRGN {
+pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::POINT, pc: *const super::INT, cpoly: i32, imode: i32) -> super::HRGN {
     windows_core::link!("gdi32.dll" "system" fn CreatePolyPolygonRgn(pptl : *const super::POINT, pc : *const super::INT, cpoly : i32, imode : i32) -> super::HRGN);
-    unsafe { CreatePolyPolygonRgn(pptl, pc.as_ptr(), pc.len().try_into().unwrap(), imode) }
+    unsafe { CreatePolyPolygonRgn(pptl, pc, cpoly, imode) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreatePolygonRgn(pptl: &[super::POINT], imode: i32) -> super::HRGN {
+pub unsafe fn CreatePolygonRgn(pptl: *const super::POINT, cpoint: i32, imode: i32) -> super::HRGN {
     windows_core::link!("gdi32.dll" "system" fn CreatePolygonRgn(pptl : *const super::POINT, cpoint : i32, imode : i32) -> super::HRGN);
-    unsafe { CreatePolygonRgn(pptl.as_ptr(), pptl.len().try_into().unwrap(), imode) }
+    unsafe { CreatePolygonRgn(pptl, cpoint, imode) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -498,9 +498,9 @@ pub unsafe fn CreateSolidBrush(color: super::COLORREF) -> super::HBRUSH {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn DPtoLP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
+pub unsafe fn DPtoLP(hdc: super::HDC, lppt: super::LPPOINT, c: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn DPtoLP(hdc : super::HDC, lppt : super::LPPOINT, c : i32) -> windows_core::BOOL);
-    unsafe { DPtoLP(hdc, core::mem::transmute(lppt.as_mut_ptr()), lppt.len().try_into().unwrap()) }
+    unsafe { DPtoLP(hdc, lppt as _, c) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -686,9 +686,9 @@ pub unsafe fn ExcludeClipRect(hdc: super::HDC, left: i32, top: i32, right: i32, 
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ExtCreatePen(ipenstyle: super::DWORD, cwidth: super::DWORD, plbrush: *const LOGBRUSH, pstyle: Option<&[super::DWORD]>) -> super::HPEN {
+pub unsafe fn ExtCreatePen(ipenstyle: super::DWORD, cwidth: super::DWORD, plbrush: *const LOGBRUSH, cstyle: super::DWORD, pstyle: Option<*const super::DWORD>) -> super::HPEN {
     windows_core::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : super::DWORD, cwidth : super::DWORD, plbrush : *const LOGBRUSH, cstyle : super::DWORD, pstyle : *const super::DWORD) -> super::HPEN);
-    unsafe { ExtCreatePen(ipenstyle, cwidth, plbrush, pstyle.map_or(0, |slice| slice.len().try_into().unwrap()), pstyle.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { ExtCreatePen(ipenstyle, cwidth, plbrush, cstyle, pstyle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -770,9 +770,9 @@ pub unsafe fn GdiAlphaBlend(hdcdest: super::HDC, xorigindest: i32, yorigindest: 
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GdiComment(hdc: super::HDC, lpdata: &[u8]) -> windows_core::BOOL {
+pub unsafe fn GdiComment(hdc: super::HDC, nsize: super::UINT, lpdata: *const super::BYTE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GdiComment(hdc : super::HDC, nsize : super::UINT, lpdata : *const super::BYTE) -> windows_core::BOOL);
-    unsafe { GdiComment(hdc, lpdata.len().try_into().unwrap(), core::mem::transmute(lpdata.as_ptr())) }
+    unsafe { GdiComment(hdc, nsize, lpdata) }
 }
 #[inline]
 pub unsafe fn GdiFlush() -> windows_core::BOOL {
@@ -787,9 +787,9 @@ pub unsafe fn GdiGetBatchLimit() -> super::DWORD {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GdiGradientFill(hdc: super::HDC, pvertex: &[TRIVERTEX], pmesh: super::PVOID, ncount: super::ULONG, ulmode: super::ULONG) -> windows_core::BOOL {
+pub unsafe fn GdiGradientFill(hdc: super::HDC, pvertex: PTRIVERTEX, nvertex: super::ULONG, pmesh: super::PVOID, ncount: super::ULONG, ulmode: super::ULONG) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : super::HDC, pvertex : PTRIVERTEX, nvertex : super::ULONG, pmesh : super::PVOID, ncount : super::ULONG, ulmode : super::ULONG) -> windows_core::BOOL);
-    unsafe { GdiGradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, ncount, ulmode) }
+    unsafe { GdiGradientFill(hdc, pvertex, nvertex, pmesh, ncount, ulmode) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -925,15 +925,15 @@ pub unsafe fn GetCharWidthW(hdc: super::HDC, ifirst: super::UINT, ilast: super::
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharacterPlacementA(hdc: super::HDC, lpstring: &[u8], nmexextent: i32, lpresults: LPGCP_RESULTSA, dwflags: super::DWORD) -> super::DWORD {
+pub unsafe fn GetCharacterPlacementA(hdc: super::HDC, lpstring: windows_core::PCSTR, ncount: i32, nmexextent: i32, lpresults: LPGCP_RESULTSA, dwflags: super::DWORD) -> super::DWORD {
     windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : super::HDC, lpstring : windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : LPGCP_RESULTSA, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { GetCharacterPlacementA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
+    unsafe { GetCharacterPlacementA(hdc, lpstring, ncount, nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharacterPlacementW(hdc: super::HDC, lpstring: &[u16], nmexextent: i32, lpresults: LPGCP_RESULTSW, dwflags: super::DWORD) -> super::DWORD {
+pub unsafe fn GetCharacterPlacementW(hdc: super::HDC, lpstring: windows_core::PCWSTR, ncount: i32, nmexextent: i32, lpresults: LPGCP_RESULTSW, dwflags: super::DWORD) -> super::DWORD {
     windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : super::HDC, lpstring : windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : LPGCP_RESULTSW, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { GetCharacterPlacementW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
+    unsafe { GetCharacterPlacementW(hdc, lpstring, ncount, nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -1357,51 +1357,51 @@ pub unsafe fn GetTextColor(hdc: super::HDC) -> super::COLORREF {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: &[u8], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: windows_core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointA(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointA(hdc, lpszstring, cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: &[u16], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: super::LPWORD, cwchstring: i32, nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::HDC, lpwszstring : super::LPWORD, cwchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointI(hdc, core::mem::transmute(lpwszstring.as_ptr()), lpwszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointI(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: &[u16], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: windows_core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointW(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointW(hdc, lpszstring, cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPoint32A(hdc: super::HDC, lpstring: &[u8], psizl: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPoint32A(hdc: super::HDC, lpstring: windows_core::PCSTR, c: i32, psizl: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, psizl : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPoint32A(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
+    unsafe { GetTextExtentPoint32A(hdc, lpstring, c, psizl as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPoint32W(hdc: super::HDC, lpstring: &[u16], psizl: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPoint32W(hdc: super::HDC, lpstring: windows_core::PCWSTR, c: i32, psizl: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, psizl : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPoint32W(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
+    unsafe { GetTextExtentPoint32W(hdc, lpstring, c, psizl as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPointA(hdc: super::HDC, lpstring: &[u8], lpsz: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPointA(hdc: super::HDC, lpstring: windows_core::PCSTR, c: i32, lpsz: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
+    unsafe { GetTextExtentPointA(hdc, lpstring, c, lpsz as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: &[u16], psize: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: super::LPWORD, cgi: i32, psize: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : super::HDC, pgiin : super::LPWORD, cgi : i32, psize : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointI(hdc, core::mem::transmute(pgiin.as_ptr()), pgiin.len().try_into().unwrap(), psize as _) }
+    unsafe { GetTextExtentPointI(hdc, pgiin, cgi, psize as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: &[u16], lpsz: super::LPSIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: windows_core::PCWSTR, c: i32, lpsz: super::LPSIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
+    unsafe { GetTextExtentPointW(hdc, lpstring, c, lpsz as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1465,9 +1465,9 @@ pub unsafe fn GetWorldTransform(hdc: super::HDC, lpxf: LPXFORM) -> windows_core:
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GradientFill(hdc: super::HDC, pvertex: &[TRIVERTEX], pmesh: super::PVOID, nmesh: super::ULONG, ulmode: super::ULONG) -> windows_core::BOOL {
+pub unsafe fn GradientFill(hdc: super::HDC, pvertex: PTRIVERTEX, nvertex: super::ULONG, pmesh: super::PVOID, nmesh: super::ULONG, ulmode: super::ULONG) -> windows_core::BOOL {
     windows_core::link!("msimg32.dll" "system" fn GradientFill(hdc : super::HDC, pvertex : PTRIVERTEX, nvertex : super::ULONG, pmesh : super::PVOID, nmesh : super::ULONG, ulmode : super::ULONG) -> windows_core::BOOL);
-    unsafe { GradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, nmesh, ulmode) }
+    unsafe { GradientFill(hdc, pvertex, nvertex, pmesh, nmesh, ulmode) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1483,9 +1483,9 @@ pub unsafe fn InvertRgn(hdc: super::HDC, hrgn: super::HRGN) -> windows_core::BOO
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn LPtoDP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
+pub unsafe fn LPtoDP(hdc: super::HDC, lppt: super::LPPOINT, c: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn LPtoDP(hdc : super::HDC, lppt : super::LPPOINT, c : i32) -> windows_core::BOOL);
-    unsafe { LPtoDP(hdc, core::mem::transmute(lppt.as_mut_ptr()), lppt.len().try_into().unwrap()) }
+    unsafe { LPtoDP(hdc, lppt as _, c) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1573,9 +1573,9 @@ pub unsafe fn PlayEnhMetaFile(hdc: super::HDC, hmf: super::HENHMETAFILE, lprect:
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PlayEnhMetaFileRecord(hdc: super::HDC, pht: &[HANDLETABLE], pmr: *const ENHMETARECORD) -> windows_core::BOOL {
+pub unsafe fn PlayEnhMetaFileRecord(hdc: super::HDC, pht: LPHANDLETABLE, pmr: *const ENHMETARECORD, cht: super::UINT) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : super::HDC, pht : LPHANDLETABLE, pmr : *const ENHMETARECORD, cht : super::UINT) -> windows_core::BOOL);
-    unsafe { PlayEnhMetaFileRecord(hdc, core::mem::transmute(pht.as_ptr()), pmr, pht.len().try_into().unwrap()) }
+    unsafe { PlayEnhMetaFileRecord(hdc, pht, pmr, cht) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -1585,21 +1585,21 @@ pub unsafe fn PlayMetaFile(hdc: super::HDC, hmf: super::HMETAFILE) -> windows_co
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PlgBlt(hdcdest: super::HDC, lppoint: &[super::POINT; 3], hdcsrc: super::HDC, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Option<super::HBITMAP>, xmask: i32, ymask: i32) -> windows_core::BOOL {
+pub unsafe fn PlgBlt(hdcdest: super::HDC, lppoint: *const super::POINT, hdcsrc: super::HDC, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Option<super::HBITMAP>, xmask: i32, ymask: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PlgBlt(hdcdest : super::HDC, lppoint : *const super::POINT, hdcsrc : super::HDC, xsrc : i32, ysrc : i32, width : i32, height : i32, hbmmask : super::HBITMAP, xmask : i32, ymask : i32) -> windows_core::BOOL);
-    unsafe { PlgBlt(hdcdest, lppoint.as_ptr(), hdcsrc, xsrc, ysrc, width, height, hbmmask.unwrap_or(core::mem::zeroed()) as _, xmask, ymask) }
+    unsafe { PlgBlt(hdcdest, lppoint, hdcsrc, xsrc, ysrc, width, height, hbmmask.unwrap_or(core::mem::zeroed()) as _, xmask, ymask) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyBezier(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
+pub unsafe fn PolyBezier(hdc: super::HDC, apt: *const super::POINT, cpt: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyBezier(hdc : super::HDC, apt : *const super::POINT, cpt : super::DWORD) -> windows_core::BOOL);
-    unsafe { PolyBezier(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
+    unsafe { PolyBezier(hdc, apt, cpt) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyBezierTo(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
+pub unsafe fn PolyBezierTo(hdc: super::HDC, apt: *const super::POINT, cpt: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyBezierTo(hdc : super::HDC, apt : *const super::POINT, cpt : super::DWORD) -> windows_core::BOOL);
-    unsafe { PolyBezierTo(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
+    unsafe { PolyBezierTo(hdc, apt, cpt) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -1609,45 +1609,45 @@ pub unsafe fn PolyDraw(hdc: super::HDC, apt: *const super::POINT, aj: *const sup
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyPolygon(hdc: super::HDC, apt: *const super::POINT, asz: &[super::INT]) -> windows_core::BOOL {
+pub unsafe fn PolyPolygon(hdc: super::HDC, apt: *const super::POINT, asz: *const super::INT, csz: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyPolygon(hdc : super::HDC, apt : *const super::POINT, asz : *const super::INT, csz : i32) -> windows_core::BOOL);
-    unsafe { PolyPolygon(hdc, apt, asz.as_ptr(), asz.len().try_into().unwrap()) }
+    unsafe { PolyPolygon(hdc, apt, asz, csz) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyPolyline(hdc: super::HDC, apt: *const super::POINT, asz: &[super::DWORD]) -> windows_core::BOOL {
+pub unsafe fn PolyPolyline(hdc: super::HDC, apt: *const super::POINT, asz: *const super::DWORD, csz: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyPolyline(hdc : super::HDC, apt : *const super::POINT, asz : *const super::DWORD, csz : super::DWORD) -> windows_core::BOOL);
-    unsafe { PolyPolyline(hdc, apt, asz.as_ptr(), asz.len().try_into().unwrap()) }
+    unsafe { PolyPolyline(hdc, apt, asz, csz) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyTextOutA(hdc: super::HDC, ppt: &[POLYTEXTA]) -> windows_core::BOOL {
+pub unsafe fn PolyTextOutA(hdc: super::HDC, ppt: *const POLYTEXTA, nstrings: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyTextOutA(hdc : super::HDC, ppt : *const POLYTEXTA, nstrings : i32) -> windows_core::BOOL);
-    unsafe { PolyTextOutA(hdc, ppt.as_ptr(), ppt.len().try_into().unwrap()) }
+    unsafe { PolyTextOutA(hdc, ppt, nstrings) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolyTextOutW(hdc: super::HDC, ppt: &[POLYTEXTW]) -> windows_core::BOOL {
+pub unsafe fn PolyTextOutW(hdc: super::HDC, ppt: *const POLYTEXTW, nstrings: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyTextOutW(hdc : super::HDC, ppt : *const POLYTEXTW, nstrings : i32) -> windows_core::BOOL);
-    unsafe { PolyTextOutW(hdc, ppt.as_ptr(), ppt.len().try_into().unwrap()) }
+    unsafe { PolyTextOutW(hdc, ppt, nstrings) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn Polygon(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
+pub unsafe fn Polygon(hdc: super::HDC, apt: *const super::POINT, cpt: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn Polygon(hdc : super::HDC, apt : *const super::POINT, cpt : i32) -> windows_core::BOOL);
-    unsafe { Polygon(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
+    unsafe { Polygon(hdc, apt, cpt) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn Polyline(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
+pub unsafe fn Polyline(hdc: super::HDC, apt: *const super::POINT, cpt: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn Polyline(hdc : super::HDC, apt : *const super::POINT, cpt : i32) -> windows_core::BOOL);
-    unsafe { Polyline(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
+    unsafe { Polyline(hdc, apt, cpt) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PolylineTo(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
+pub unsafe fn PolylineTo(hdc: super::HDC, apt: *const super::POINT, cpt: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolylineTo(hdc : super::HDC, apt : *const super::POINT, cpt : super::DWORD) -> windows_core::BOOL);
-    unsafe { PolylineTo(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
+    unsafe { PolylineTo(hdc, apt, cpt) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1871,9 +1871,9 @@ pub unsafe fn SetDCPenColor(hdc: super::HDC, color: super::COLORREF) -> super::C
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetDIBColorTable(hdc: super::HDC, istart: super::UINT, prgbq: &[RGBQUAD]) -> super::UINT {
+pub unsafe fn SetDIBColorTable(hdc: super::HDC, istart: super::UINT, centries: super::UINT, prgbq: *const RGBQUAD) -> super::UINT {
     windows_core::link!("gdi32.dll" "system" fn SetDIBColorTable(hdc : super::HDC, istart : super::UINT, centries : super::UINT, prgbq : *const RGBQUAD) -> super::UINT);
-    unsafe { SetDIBColorTable(hdc, istart, prgbq.len().try_into().unwrap(), prgbq.as_ptr()) }
+    unsafe { SetDIBColorTable(hdc, istart, centries, prgbq) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -1895,9 +1895,9 @@ pub unsafe fn SetDeviceGammaRamp(hdc: super::HDC, lpramp: super::LPVOID) -> wind
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetEnhMetaFileBits(pb: &[u8]) -> super::HENHMETAFILE {
+pub unsafe fn SetEnhMetaFileBits(nsize: super::UINT, pb: *const super::BYTE) -> super::HENHMETAFILE {
     windows_core::link!("gdi32.dll" "system" fn SetEnhMetaFileBits(nsize : super::UINT, pb : *const super::BYTE) -> super::HENHMETAFILE);
-    unsafe { SetEnhMetaFileBits(pb.len().try_into().unwrap(), core::mem::transmute(pb.as_ptr())) }
+    unsafe { SetEnhMetaFileBits(nsize, pb) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1949,9 +1949,9 @@ pub unsafe fn SetMapperFlags(hdc: super::HDC, flags: super::DWORD) -> super::DWO
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> super::HMETAFILE {
+pub unsafe fn SetMetaFileBitsEx(cbbuffer: super::UINT, lpdata: *const super::BYTE) -> super::HMETAFILE {
     windows_core::link!("gdi32.dll" "system" fn SetMetaFileBitsEx(cbbuffer : super::UINT, lpdata : *const super::BYTE) -> super::HMETAFILE);
-    unsafe { SetMetaFileBitsEx(lpdata.len().try_into().unwrap(), core::mem::transmute(lpdata.as_ptr())) }
+    unsafe { SetMetaFileBitsEx(cbbuffer, lpdata) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1967,9 +1967,9 @@ pub unsafe fn SetMiterLimit(hdc: super::HDC, limit: super::FLOAT, old: Option<su
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetPaletteEntries(hpal: super::HPALETTE, istart: super::UINT, ppalentries: &[PALETTEENTRY]) -> super::UINT {
+pub unsafe fn SetPaletteEntries(hpal: super::HPALETTE, istart: super::UINT, centries: super::UINT, ppalentries: *const PALETTEENTRY) -> super::UINT {
     windows_core::link!("gdi32.dll" "system" fn SetPaletteEntries(hpal : super::HPALETTE, istart : super::UINT, centries : super::UINT, ppalentries : *const PALETTEENTRY) -> super::UINT);
-    unsafe { SetPaletteEntries(hpal, istart, ppalentries.len().try_into().unwrap(), ppalentries.as_ptr()) }
+    unsafe { SetPaletteEntries(hpal, istart, centries, ppalentries) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2057,9 +2057,9 @@ pub unsafe fn SetViewportOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<sup
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetWinMetaFileBits(lpmeta16data: &[u8], hdcref: Option<super::HDC>, lpmfp: Option<*const METAFILEPICT>) -> super::HENHMETAFILE {
+pub unsafe fn SetWinMetaFileBits(nsize: super::UINT, lpmeta16data: *const super::BYTE, hdcref: Option<super::HDC>, lpmfp: Option<*const METAFILEPICT>) -> super::HENHMETAFILE {
     windows_core::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : super::UINT, lpmeta16data : *const super::BYTE, hdcref : super::HDC, lpmfp : *const METAFILEPICT) -> super::HENHMETAFILE);
-    unsafe { SetWinMetaFileBits(lpmeta16data.len().try_into().unwrap(), core::mem::transmute(lpmeta16data.as_ptr()), hdcref.unwrap_or(core::mem::zeroed()) as _, lpmfp.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetWinMetaFileBits(nsize, lpmeta16data, hdcref.unwrap_or(core::mem::zeroed()) as _, lpmfp.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -2129,15 +2129,15 @@ pub unsafe fn SwapBuffers(param0: super::HDC) -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8]) -> windows_core::BOOL {
+pub unsafe fn TextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: windows_core::PCSTR, c: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn TextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, c : i32) -> windows_core::BOOL);
-    unsafe { TextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { TextOutA(hdc, x, y, lpstring, c) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16]) -> windows_core::BOOL {
+pub unsafe fn TextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: windows_core::PCWSTR, c: i32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn TextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, c : i32) -> windows_core::BOOL);
-    unsafe { TextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { TextOutW(hdc, x, y, lpstring, c) }
 }
 #[cfg(feature = "shared")]
 #[inline]

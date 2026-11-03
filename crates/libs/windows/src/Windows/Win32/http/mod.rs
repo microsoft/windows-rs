@@ -225,9 +225,9 @@ pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::HANDLE, requestid:
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, entitychunks: Option<&[HTTP_DATA_CHUNK]>, bytessent: super::PULONG, reserved1: Option<super::PVOID>, reserved2: Option<super::ULONG>, overlapped: super::LPOVERLAPPED, logdata: PHTTP_LOG_DATA) -> super::ULONG {
+pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, entitychunkcount: super::USHORT, entitychunks: Option<PHTTP_DATA_CHUNK>, bytessent: super::PULONG, reserved1: Option<super::PVOID>, reserved2: Option<super::ULONG>, overlapped: super::LPOVERLAPPED, logdata: PHTTP_LOG_DATA) -> super::ULONG {
     windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : super::ULONG, entitychunkcount : super::USHORT, entitychunks : PHTTP_DATA_CHUNK, bytessent : super::PULONG, reserved1 : super::PVOID, reserved2 : super::ULONG, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> super::ULONG);
-    unsafe { HttpSendResponseEntityBody(requestqueuehandle as _, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr())), bytessent as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped as _, logdata as _) }
+    unsafe { HttpSendResponseEntityBody(requestqueuehandle as _, requestid, flags, entitychunkcount, entitychunks.unwrap_or(core::mem::zeroed()) as _, bytessent as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped as _, logdata as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]

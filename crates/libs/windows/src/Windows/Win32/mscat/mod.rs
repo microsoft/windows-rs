@@ -37,9 +37,9 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: super::HCATADMIN, 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: super::HCATADMIN, pbhash: &[u8], dwflags: Option<super::DWORD>, phprevcatinfo: Option<*mut HCATINFO>) -> HCATINFO {
+pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: super::HCATADMIN, pbhash: *const super::BYTE, cbhash: super::DWORD, dwflags: Option<super::DWORD>, phprevcatinfo: Option<*mut HCATINFO>) -> HCATINFO {
     windows_core::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : super::HCATADMIN, pbhash : *const super::BYTE, cbhash : super::DWORD, dwflags : super::DWORD, phprevcatinfo : *mut HCATINFO) -> HCATINFO);
-    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash, cbhash, dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

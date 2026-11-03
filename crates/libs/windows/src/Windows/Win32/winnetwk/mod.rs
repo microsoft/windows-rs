@@ -59,16 +59,16 @@ where
 #[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WNetAddConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: &[u8]) -> super::DWORD {
+pub unsafe fn WNetAddConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: super::PBYTE, cbuseoptions: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
-    unsafe { WNetAddConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
+    unsafe { WNetAddConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WNetAddConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: &[u8]) -> super::DWORD {
+pub unsafe fn WNetAddConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: super::PVOID, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: super::PBYTE, cbuseoptions: super::DWORD) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
-    unsafe { WNetAddConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
+    unsafe { WNetAddConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions) }
 }
 #[must_use]
 #[cfg(feature = "shared")]
@@ -350,16 +350,16 @@ pub unsafe fn WNetOpenEnumW(dwscope: super::DWORD, dwtype: super::DWORD, dwusage
 #[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WNetUseConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
+pub unsafe fn WNetUseConnection4A(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEA, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<super::PBYTE>, cbuseoptions: super::DWORD, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
-    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, lpuseoptions.unwrap_or(core::mem::zeroed()) as _, cbuseoptions, lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WNetUseConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
+pub unsafe fn WNetUseConnection4W(hwndowner: Option<super::HWND>, lpnetresource: LPNETRESOURCEW, pauthbuffer: Option<super::PVOID>, cbauthbuffer: super::DWORD, dwflags: super::DWORD, lpuseoptions: Option<super::PBYTE>, cbuseoptions: super::DWORD, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<super::LPDWORD>, lpresult: Option<super::LPDWORD>) -> super::DWORD {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
-    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, lpuseoptions.unwrap_or(core::mem::zeroed()) as _, cbuseoptions, lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]

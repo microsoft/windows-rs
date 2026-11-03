@@ -1,14 +1,14 @@
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DsCrackSpn2A(pszspn: &[u8], pcserviceclass: Option<super::LPDWORD>, serviceclass: Option<windows_core::PSTR>, pcservicename: Option<super::LPDWORD>, servicename: Option<windows_core::PSTR>, pcinstancename: Option<super::LPDWORD>, instancename: Option<windows_core::PSTR>, pinstanceport: Option<*mut super::USHORT>) -> super::DWORD {
+pub unsafe fn DsCrackSpn2A(pszspn: windows_core::PCSTR, cspn: super::DWORD, pcserviceclass: Option<super::LPDWORD>, serviceclass: Option<windows_core::PSTR>, pcservicename: Option<super::LPDWORD>, servicename: Option<windows_core::PSTR>, pcinstancename: Option<super::LPDWORD>, instancename: Option<windows_core::PSTR>, pinstanceport: Option<*mut super::USHORT>) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackSpn2A(pszspn : windows_core::PCSTR, cspn : super::DWORD, pcserviceclass : super::LPDWORD, serviceclass : windows_core::PSTR, pcservicename : super::LPDWORD, servicename : windows_core::PSTR, pcinstancename : super::LPDWORD, instancename : windows_core::PSTR, pinstanceport : *mut super::USHORT) -> super::DWORD);
-    unsafe { DsCrackSpn2A(core::mem::transmute(pszspn.as_ptr()), pszspn.len().try_into().unwrap(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DsCrackSpn2A(pszspn, cspn, pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsCrackSpn2W(pszspn: &[u16], pcserviceclass: Option<*mut super::DWORD>, serviceclass: Option<windows_core::PWSTR>, pcservicename: Option<*mut super::DWORD>, servicename: Option<windows_core::PWSTR>, pcinstancename: Option<*mut super::DWORD>, instancename: Option<windows_core::PWSTR>, pinstanceport: Option<*mut super::USHORT>) -> super::DWORD {
+pub unsafe fn DsCrackSpn2W(pszspn: windows_core::PCWSTR, cspn: super::DWORD, pcserviceclass: Option<*mut super::DWORD>, serviceclass: Option<windows_core::PWSTR>, pcservicename: Option<*mut super::DWORD>, servicename: Option<windows_core::PWSTR>, pcinstancename: Option<*mut super::DWORD>, instancename: Option<windows_core::PWSTR>, pinstanceport: Option<*mut super::USHORT>) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackSpn2W(pszspn : windows_core::PCWSTR, cspn : super::DWORD, pcserviceclass : *mut super::DWORD, serviceclass : windows_core::PWSTR, pcservicename : *mut super::DWORD, servicename : windows_core::PWSTR, pcinstancename : *mut super::DWORD, instancename : windows_core::PWSTR, pinstanceport : *mut super::USHORT) -> super::DWORD);
-    unsafe { DsCrackSpn2W(core::mem::transmute(pszspn.as_ptr()), pszspn.len().try_into().unwrap(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DsCrackSpn2W(pszspn, cspn, pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -50,15 +50,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
+pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: windows_core::PCSTR, cchrdn: super::DWORD, pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_core::PCSTR, cchrdn : super::DWORD, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsCrackUnquotedMangledRdnA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DsCrackUnquotedMangledRdnA(pszrdn, cchrdn, pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
+pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: windows_core::PCWSTR, cchrdn: super::DWORD, pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_core::PCWSTR, cchrdn : super::DWORD, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsCrackUnquotedMangledRdnW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DsCrackUnquotedMangledRdnW(pszrdn, cchrdn, pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -85,15 +85,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
+pub unsafe fn DsIsMangledRdnValueA(pszrdn: windows_core::PCSTR, crdn: super::DWORD, edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
     windows_core::link!("ntdsapi.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_core::PCSTR, crdn : super::DWORD, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsIsMangledRdnValueA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
+    unsafe { DsIsMangledRdnValueA(pszrdn, crdn, edsmanglefordesired) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
+pub unsafe fn DsIsMangledRdnValueW(pszrdn: windows_core::PCWSTR, crdn: super::DWORD, edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
     windows_core::link!("ntdsapi.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_core::PCWSTR, crdn : super::DWORD, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsIsMangledRdnValueW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
+    unsafe { DsIsMangledRdnValueW(pszrdn, crdn, edsmanglefordesired) }
 }
 #[must_use]
 #[cfg(feature = "shared")]
@@ -124,30 +124,30 @@ where
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DsQuoteRdnValueA(psunquotedrdnvalue: &[i8], pcquotedrdnvaluelength: *mut super::DWORD, psquotedrdnvalue: super::LPCH) -> super::DWORD {
+pub unsafe fn DsQuoteRdnValueA(cunquotedrdnvaluelength: super::DWORD, psunquotedrdnvalue: super::LPCCH, pcquotedrdnvaluelength: *mut super::DWORD, psquotedrdnvalue: super::LPCH) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : super::DWORD, psunquotedrdnvalue : super::LPCCH, pcquotedrdnvaluelength : *mut super::DWORD, psquotedrdnvalue : super::LPCH) -> super::DWORD);
-    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueA(cunquotedrdnvaluelength, psunquotedrdnvalue, pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelength: *mut super::DWORD, psquotedrdnvalue: super::LPWCH) -> super::DWORD {
+pub unsafe fn DsQuoteRdnValueW(cunquotedrdnvaluelength: super::DWORD, psunquotedrdnvalue: super::LPCWCH, pcquotedrdnvaluelength: *mut super::DWORD, psquotedrdnvalue: super::LPWCH) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : super::DWORD, psunquotedrdnvalue : super::LPCWCH, pcquotedrdnvaluelength : *mut super::DWORD, psquotedrdnvalue : super::LPWCH) -> super::DWORD);
-    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueW(cunquotedrdnvaluelength, psunquotedrdnvalue, pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DsUnquoteRdnValueA(psquotedrdnvalue: &[i8], pcunquotedrdnvaluelength: *mut super::DWORD, psunquotedrdnvalue: super::LPCH) -> super::DWORD {
+pub unsafe fn DsUnquoteRdnValueA(cquotedrdnvaluelength: super::DWORD, psquotedrdnvalue: super::LPCCH, pcunquotedrdnvaluelength: *mut super::DWORD, psunquotedrdnvalue: super::LPCH) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : super::DWORD, psquotedrdnvalue : super::LPCCH, pcunquotedrdnvaluelength : *mut super::DWORD, psunquotedrdnvalue : super::LPCH) -> super::DWORD);
-    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueA(cquotedrdnvaluelength, psquotedrdnvalue, pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelength: *mut super::DWORD, psunquotedrdnvalue: super::LPWCH) -> super::DWORD {
+pub unsafe fn DsUnquoteRdnValueW(cquotedrdnvaluelength: super::DWORD, psquotedrdnvalue: super::LPCWCH, pcunquotedrdnvaluelength: *mut super::DWORD, psunquotedrdnvalue: super::LPWCH) -> super::DWORD {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : super::DWORD, psquotedrdnvalue : super::LPCWCH, pcunquotedrdnvaluelength : *mut super::DWORD, psunquotedrdnvalue : super::LPWCH) -> super::DWORD);
-    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueW(cquotedrdnvaluelength, psquotedrdnvalue, pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 pub type DS_MANGLE_FOR = i32;
 pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = 1;

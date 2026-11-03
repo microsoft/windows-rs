@@ -371,18 +371,18 @@ pub unsafe fn SaslSetContextOption(contexthandle: PCtxtHandle, option: super::UL
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SecAllocateAndSetCallTarget<P2>(lpipaddress: Option<&[u8]>, targetname: P2, freecallcontext: *mut i32) -> super::SECURITY_STATUS
+pub unsafe fn SecAllocateAndSetCallTarget<P2>(lpipaddress: Option<super::PUCHAR>, cchipaddress: super::ULONG, targetname: P2, freecallcontext: *mut i32) -> super::SECURITY_STATUS
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : super::PUCHAR, cchipaddress : super::ULONG, targetname : windows_core::PCWSTR, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetCallTarget(core::mem::transmute(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetCallTarget(lpipaddress.unwrap_or(core::mem::zeroed()) as _, cchipaddress, targetname.param().abi(), freecallcontext as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SecAllocateAndSetIPAddress(lpipaddress: &[u8], freecallcontext: *mut i32) -> super::SECURITY_STATUS {
+pub unsafe fn SecAllocateAndSetIPAddress(lpipaddress: super::PUCHAR, cchipaddress: super::ULONG, freecallcontext: *mut i32) -> super::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : super::PUCHAR, cchipaddress : super::ULONG, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetIPAddress(core::mem::transmute(lpipaddress.as_ptr()), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetIPAddress(lpipaddress, cchipaddress, freecallcontext as _) }
 }
 #[inline]
 pub unsafe fn SecFreeCallContext() {
@@ -559,9 +559,9 @@ pub unsafe fn SspiSetChannelBindingFlags(pbindings: *mut SecPkgContext_Bindings,
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
-pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
+pub unsafe fn SspiUnmarshalAuthIdentity(authidentitylength: u32, authidentitybytearray: *const i8, ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SspiUnmarshalAuthIdentity(authidentitylength : u32, authidentitybytearray : *const i8, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
-    unsafe { SspiUnmarshalAuthIdentity(authidentitybytearray.len().try_into().unwrap(), core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity as _) }
+    unsafe { SspiUnmarshalAuthIdentity(authidentitylength, authidentitybytearray, ppauthidentity as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]

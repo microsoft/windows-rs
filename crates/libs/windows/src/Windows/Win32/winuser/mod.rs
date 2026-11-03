@@ -47,9 +47,9 @@ pub unsafe fn AnsiLower(lpsz: windows_core::PSTR) -> windows_core::PSTR {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AnsiLowerBuff(lpsz: &mut [u8]) -> super::DWORD {
+pub unsafe fn AnsiLowerBuff(lpsz: windows_core::PSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" "CharLowerBuffA" fn AnsiLowerBuff(lpsz : windows_core::PSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { AnsiLowerBuff(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { AnsiLowerBuff(lpsz, cchlength) }
 }
 #[inline]
 pub unsafe fn AnsiNext<P0>(lpsz: P0) -> windows_core::PSTR
@@ -92,9 +92,9 @@ pub unsafe fn AnsiUpper(lpsz: windows_core::PSTR) -> windows_core::PSTR {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AnsiUpperBuff(lpsz: &mut [u8]) -> super::DWORD {
+pub unsafe fn AnsiUpperBuff(lpsz: windows_core::PSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" "CharUpperBuffA" fn AnsiUpperBuff(lpsz : windows_core::PSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { AnsiUpperBuff(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { AnsiUpperBuff(lpsz, cchlength) }
 }
 #[inline]
 pub unsafe fn AnyPopup() -> windows_core::BOOL {
@@ -232,9 +232,9 @@ pub unsafe fn CancelShutdown() -> windows_core::BOOL {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CascadeWindows(hwndparent: Option<super::HWND>, whow: super::UINT, lprect: Option<*const super::RECT>, lpkids: Option<&[super::HWND]>) -> super::WORD {
+pub unsafe fn CascadeWindows(hwndparent: Option<super::HWND>, whow: super::UINT, lprect: Option<*const super::RECT>, ckids: super::UINT, lpkids: Option<*const super::HWND>) -> super::WORD {
     windows_core::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::HWND, whow : super::UINT, lprect : *const super::RECT, ckids : super::UINT, lpkids : *const super::HWND) -> super::WORD);
-    unsafe { CascadeWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.map_or(0, |slice| slice.len().try_into().unwrap()), lpkids.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { CascadeWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, ckids, lpkids.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -309,15 +309,15 @@ pub unsafe fn CharLowerA(lpsz: windows_core::PSTR) -> windows_core::PSTR {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CharLowerBuffA(lpsz: &mut [u8]) -> super::DWORD {
+pub unsafe fn CharLowerBuffA(lpsz: windows_core::PSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn CharLowerBuffA(lpsz : windows_core::PSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { CharLowerBuffA(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { CharLowerBuffA(lpsz, cchlength) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CharLowerBuffW(lpsz: &mut [u16]) -> super::DWORD {
+pub unsafe fn CharLowerBuffW(lpsz: windows_core::PWSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn CharLowerBuffW(lpsz : windows_core::PWSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { CharLowerBuffW(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { CharLowerBuffW(lpsz, cchlength) }
 }
 #[inline]
 pub unsafe fn CharLowerW(lpsz: windows_core::PWSTR) -> windows_core::PWSTR {
@@ -418,15 +418,15 @@ pub unsafe fn CharUpperA(lpsz: windows_core::PSTR) -> windows_core::PSTR {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CharUpperBuffA(lpsz: &mut [u8]) -> super::DWORD {
+pub unsafe fn CharUpperBuffA(lpsz: windows_core::PSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn CharUpperBuffA(lpsz : windows_core::PSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { CharUpperBuffA(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { CharUpperBuffA(lpsz, cchlength) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CharUpperBuffW(lpsz: &mut [u16]) -> super::DWORD {
+pub unsafe fn CharUpperBuffW(lpsz: windows_core::PWSTR, cchlength: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn CharUpperBuffW(lpsz : windows_core::PWSTR, cchlength : super::DWORD) -> super::DWORD);
-    unsafe { CharUpperBuffW(core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { CharUpperBuffW(lpsz, cchlength) }
 }
 #[inline]
 pub unsafe fn CharUpperW(lpsz: windows_core::PWSTR) -> windows_core::PWSTR {
@@ -562,15 +562,15 @@ pub unsafe fn CountClipboardFormats() -> i32 {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreateAcceleratorTableA(paccel: &[ACCEL]) -> super::HACCEL {
+pub unsafe fn CreateAcceleratorTableA(paccel: LPACCEL, caccel: i32) -> super::HACCEL {
     windows_core::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : LPACCEL, caccel : i32) -> super::HACCEL);
-    unsafe { CreateAcceleratorTableA(core::mem::transmute(paccel.as_ptr()), paccel.len().try_into().unwrap()) }
+    unsafe { CreateAcceleratorTableA(paccel, caccel) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> super::HACCEL {
+pub unsafe fn CreateAcceleratorTableW(paccel: LPACCEL, caccel: i32) -> super::HACCEL {
     windows_core::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : LPACCEL, caccel : i32) -> super::HACCEL);
-    unsafe { CreateAcceleratorTableW(core::mem::transmute(paccel.as_ptr()), paccel.len().try_into().unwrap()) }
+    unsafe { CreateAcceleratorTableW(paccel, caccel) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -662,15 +662,15 @@ pub unsafe fn CreateIcon(hinstance: Option<super::HINSTANCE>, nwidth: i32, nheig
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreateIconFromResource(presbits: &[u8], ficon: bool, dwver: super::DWORD) -> super::HICON {
+pub unsafe fn CreateIconFromResource(presbits: super::PBYTE, dwressize: super::DWORD, ficon: bool, dwver: super::DWORD) -> super::HICON {
     windows_core::link!("user32.dll" "system" fn CreateIconFromResource(presbits : super::PBYTE, dwressize : super::DWORD, ficon : windows_core::BOOL, dwver : super::DWORD) -> super::HICON);
-    unsafe { CreateIconFromResource(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into(), dwver) }
+    unsafe { CreateIconFromResource(presbits, dwressize, ficon.into(), dwver) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn CreateIconFromResourceEx(presbits: &[u8], ficon: bool, dwver: super::DWORD, cxdesired: i32, cydesired: i32, flags: super::UINT) -> super::HICON {
+pub unsafe fn CreateIconFromResourceEx(presbits: super::PBYTE, dwressize: super::DWORD, ficon: bool, dwver: super::DWORD, cxdesired: i32, cydesired: i32, flags: super::UINT) -> super::HICON {
     windows_core::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : super::PBYTE, dwressize : super::DWORD, ficon : windows_core::BOOL, dwver : super::DWORD, cxdesired : i32, cydesired : i32, flags : super::UINT) -> super::HICON);
-    unsafe { CreateIconFromResourceEx(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into(), dwver, cxdesired, cydesired, flags) }
+    unsafe { CreateIconFromResourceEx(presbits, dwressize, ficon.into(), dwver, cxdesired, cydesired, flags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -792,9 +792,9 @@ pub unsafe fn DefMDIChildProcW(hwnd: super::HWND, umsg: super::UINT, wparam: sup
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DefRawInputProc(parawinput: &[PRAWINPUT], cbsizeheader: super::UINT) -> super::LRESULT {
+pub unsafe fn DefRawInputProc(parawinput: *const PRAWINPUT, ninput: super::INT, cbsizeheader: super::UINT) -> super::LRESULT {
     windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const PRAWINPUT, ninput : super::INT, cbsizeheader : super::UINT) -> super::LRESULT);
-    unsafe { DefRawInputProc(parawinput.as_ptr(), parawinput.len().try_into().unwrap(), cbsizeheader) }
+    unsafe { DefRawInputProc(parawinput, ninput, cbsizeheader) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -1277,9 +1277,9 @@ pub unsafe fn EqualRect(lprc1: *const super::RECT, lprc2: *const super::RECT) ->
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::POINT], phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::BOOL {
+pub unsafe fn EvaluateProximityToPolygon(numvertices: super::UINT32, controlpolygon: *const super::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : super::UINT32, controlpolygon : *const super::POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::BOOL);
-    unsafe { EvaluateProximityToPolygon(controlpolygon.len().try_into().unwrap(), controlpolygon.as_ptr(), phittestinginput, pproximityeval as _) }
+    unsafe { EvaluateProximityToPolygon(numvertices, controlpolygon, phittestinginput, pproximityeval as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -2140,9 +2140,9 @@ pub unsafe fn GetPointerType(pointerid: super::UINT32, pointertype: *mut POINTER
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[super::UINT]) -> i32 {
+pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const super::UINT, cformats: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const super::UINT, cformats : i32) -> i32);
-    unsafe { GetPriorityClipboardFormat(paformatprioritylist.as_ptr(), paformatprioritylist.len().try_into().unwrap()) }
+    unsafe { GetPriorityClipboardFormat(paformatprioritylist, cformats) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -2212,9 +2212,9 @@ pub unsafe fn GetRawInputDeviceList(prawinputdevicelist: Option<PRAWINPUTDEVICEL
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetRawPointerDeviceData(pointerid: super::UINT32, historycount: super::UINT32, pproperties: &[POINTER_DEVICE_PROPERTY], pvalues: *mut super::LONG) -> windows_core::BOOL {
+pub unsafe fn GetRawPointerDeviceData(pointerid: super::UINT32, historycount: super::UINT32, propertiescount: super::UINT32, pproperties: *const POINTER_DEVICE_PROPERTY, pvalues: *mut super::LONG) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : super::UINT32, historycount : super::UINT32, propertiescount : super::UINT32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut super::LONG) -> windows_core::BOOL);
-    unsafe { GetRawPointerDeviceData(pointerid, historycount, pproperties.len().try_into().unwrap(), pproperties.as_ptr(), pvalues as _) }
+    unsafe { GetRawPointerDeviceData(pointerid, historycount, propertiescount, pproperties, pvalues as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -2295,15 +2295,15 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: super::UINT) -> i32 {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTabbedTextExtentA(hdc: super::HDC, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>) -> super::DWORD {
+pub unsafe fn GetTabbedTextExtentA(hdc: super::HDC, lpstring: windows_core::PCSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::HDC, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT) -> super::DWORD);
-    unsafe { GetTabbedTextExtentA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetTabbedTextExtentA(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTabbedTextExtentW(hdc: super::HDC, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>) -> super::DWORD {
+pub unsafe fn GetTabbedTextExtentW(hdc: super::HDC, lpstring: windows_core::PCWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::HDC, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT) -> super::DWORD);
-    unsafe { GetTabbedTextExtentW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetTabbedTextExtentW(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -2598,15 +2598,15 @@ pub unsafe fn InitializeTouchInjection(maxcount: super::UINT32, dwmode: super::D
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, pointerinfo: &[POINTER_TYPE_INFO]) -> windows_core::BOOL {
+pub unsafe fn InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, pointerinfo: *const POINTER_TYPE_INFO, count: super::UINT32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : super::UINT32) -> windows_core::BOOL);
-    unsafe { InjectSyntheticPointerInput(device, pointerinfo.as_ptr(), pointerinfo.len().try_into().unwrap()) }
+    unsafe { InjectSyntheticPointerInput(device, pointerinfo, count) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn InjectTouchInput(contacts: &[POINTER_TOUCH_INFO]) -> windows_core::BOOL {
+pub unsafe fn InjectTouchInput(count: super::UINT32, contacts: *const POINTER_TOUCH_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn InjectTouchInput(count : super::UINT32, contacts : *const POINTER_TOUCH_INFO) -> windows_core::BOOL);
-    unsafe { InjectTouchInput(contacts.len().try_into().unwrap(), contacts.as_ptr()) }
+    unsafe { InjectTouchInput(count, contacts) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3091,9 +3091,9 @@ pub unsafe fn MapVirtualKeyW(ucode: super::UINT, umaptype: super::UINT) -> super
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn MapWindowPoints(hwndfrom: Option<super::HWND>, hwndto: Option<super::HWND>, lppoints: &mut [super::POINT]) -> i32 {
+pub unsafe fn MapWindowPoints(hwndfrom: Option<super::HWND>, hwndto: Option<super::HWND>, lppoints: super::LPPOINT, cpoints: super::UINT) -> i32 {
     windows_core::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::HWND, hwndto : super::HWND, lppoints : super::LPPOINT, cpoints : super::UINT) -> i32);
-    unsafe { MapWindowPoints(hwndfrom.unwrap_or(core::mem::zeroed()) as _, hwndto.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lppoints.as_mut_ptr()), lppoints.len().try_into().unwrap()) }
+    unsafe { MapWindowPoints(hwndfrom.unwrap_or(core::mem::zeroed()) as _, hwndto.unwrap_or(core::mem::zeroed()) as _, lppoints as _, cpoints) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3203,15 +3203,15 @@ pub unsafe fn MoveWindow(hwnd: super::HWND, x: i32, y: i32, nwidth: i32, nheight
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MsgWaitForMultipleObjects(phandles: Option<&[super::HANDLE]>, fwaitall: bool, dwmilliseconds: super::DWORD, dwwakemask: super::DWORD) -> super::DWORD {
+pub unsafe fn MsgWaitForMultipleObjects(ncount: super::DWORD, phandles: Option<*const super::HANDLE>, fwaitall: bool, dwmilliseconds: super::DWORD, dwwakemask: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : super::DWORD, phandles : *const super::HANDLE, fwaitall : windows_core::BOOL, dwmilliseconds : super::DWORD, dwwakemask : super::DWORD) -> super::DWORD);
-    unsafe { MsgWaitForMultipleObjects(phandles.map_or(0, |slice| slice.len().try_into().unwrap()), phandles.map_or(core::ptr::null(), |slice| slice.as_ptr()), fwaitall.into(), dwmilliseconds, dwwakemask) }
+    unsafe { MsgWaitForMultipleObjects(ncount, phandles.unwrap_or(core::mem::zeroed()) as _, fwaitall.into(), dwmilliseconds, dwwakemask) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: Option<&[super::HANDLE]>, dwmilliseconds: super::DWORD, dwwakemask: super::DWORD, dwflags: super::DWORD) -> super::DWORD {
+pub unsafe fn MsgWaitForMultipleObjectsEx(ncount: super::DWORD, phandles: Option<*const super::HANDLE>, dwmilliseconds: super::DWORD, dwwakemask: super::DWORD, dwflags: super::DWORD) -> super::DWORD {
     windows_core::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : super::DWORD, phandles : *const super::HANDLE, dwmilliseconds : super::DWORD, dwwakemask : super::DWORD, dwflags : super::DWORD) -> super::DWORD);
-    unsafe { MsgWaitForMultipleObjectsEx(phandles.map_or(0, |slice| slice.len().try_into().unwrap()), phandles.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwmilliseconds, dwwakemask, dwflags) }
+    unsafe { MsgWaitForMultipleObjectsEx(ncount, phandles.unwrap_or(core::mem::zeroed()) as _, dwmilliseconds, dwwakemask, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3409,15 +3409,15 @@ pub unsafe fn PrintWindow(hwnd: super::HWND, hdcblt: super::HDC, nflags: super::
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: Option<*mut super::HICON>, piconid: Option<*mut super::UINT>, nicons: super::UINT, flags: super::UINT) -> super::UINT {
+pub unsafe fn PrivateExtractIconsA(szfilename: windows_core::PCSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: Option<*mut super::HICON>, piconid: Option<*mut super::UINT>, nicons: super::UINT, flags: super::UINT) -> super::UINT {
     windows_core::link!("user32.dll" "system" fn PrivateExtractIconsA(szfilename : windows_core::PCSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut super::UINT, nicons : super::UINT, flags : super::UINT) -> super::UINT);
-    unsafe { PrivateExtractIconsA(core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, phicon.unwrap_or(core::mem::zeroed()) as _, piconid.unwrap_or(core::mem::zeroed()) as _, nicons, flags) }
+    unsafe { PrivateExtractIconsA(szfilename, niconindex, cxicon, cyicon, phicon.unwrap_or(core::mem::zeroed()) as _, piconid.unwrap_or(core::mem::zeroed()) as _, nicons, flags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: Option<*mut super::HICON>, piconid: Option<*mut super::UINT>, nicons: super::UINT, flags: super::UINT) -> super::UINT {
+pub unsafe fn PrivateExtractIconsW(szfilename: windows_core::PCWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: Option<*mut super::HICON>, piconid: Option<*mut super::UINT>, nicons: super::UINT, flags: super::UINT) -> super::UINT {
     windows_core::link!("user32.dll" "system" fn PrivateExtractIconsW(szfilename : windows_core::PCWSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut super::UINT, nicons : super::UINT, flags : super::UINT) -> super::UINT);
-    unsafe { PrivateExtractIconsW(core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, phicon.unwrap_or(core::mem::zeroed()) as _, piconid.unwrap_or(core::mem::zeroed()) as _, nicons, flags) }
+    unsafe { PrivateExtractIconsW(szfilename, niconindex, cxicon, cyicon, phicon.unwrap_or(core::mem::zeroed()) as _, piconid.unwrap_or(core::mem::zeroed()) as _, nicons, flags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3553,9 +3553,9 @@ pub unsafe fn RegisterPowerSettingNotification(hrecipient: super::HANDLE, powers
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsize: super::UINT) -> windows_core::BOOL {
+pub unsafe fn RegisterRawInputDevices(prawinputdevices: PCRAWINPUTDEVICE, uinumdevices: super::UINT, cbsize: super::UINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : PCRAWINPUTDEVICE, uinumdevices : super::UINT, cbsize : super::UINT) -> windows_core::BOOL);
-    unsafe { RegisterRawInputDevices(core::mem::transmute(prawinputdevices.as_ptr()), prawinputdevices.len().try_into().unwrap(), cbsize) }
+    unsafe { RegisterRawInputDevices(prawinputdevices, uinumdevices, cbsize) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -3684,9 +3684,9 @@ pub unsafe fn SendDlgItemMessageW(hdlg: super::HWND, niddlgitem: i32, msg: super
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> super::UINT {
+pub unsafe fn SendInput(cinputs: super::UINT, pinputs: LPINPUT, cbsize: i32) -> super::UINT {
     windows_core::link!("user32.dll" "system" fn SendInput(cinputs : super::UINT, pinputs : LPINPUT, cbsize : i32) -> super::UINT);
-    unsafe { SendInput(pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), cbsize) }
+    unsafe { SendInput(cinputs, pinputs, cbsize) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -3744,9 +3744,9 @@ pub unsafe fn SetActiveWindow(hwnd: super::HWND) -> super::HWND {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetAdditionalForegroundBoostProcesses(toplevelwindow: super::HWND, processhandlearray: &[super::HANDLE]) -> windows_core::BOOL {
+pub unsafe fn SetAdditionalForegroundBoostProcesses(toplevelwindow: super::HWND, processhandlecount: super::DWORD, processhandlearray: *const super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::HWND, processhandlecount : super::DWORD, processhandlearray : *const super::HANDLE) -> windows_core::BOOL);
-    unsafe { SetAdditionalForegroundBoostProcesses(toplevelwindow as _, processhandlearray.len().try_into().unwrap(), processhandlearray.as_ptr()) }
+    unsafe { SetAdditionalForegroundBoostProcesses(toplevelwindow as _, processhandlecount, processhandlearray) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -3865,9 +3865,9 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetDisplayConfig(patharray: Option<&[super::DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: Option<&[super::DISPLAYCONFIG_MODE_INFO]>, flags: super::UINT32) -> super::LONG {
+pub unsafe fn SetDisplayConfig(numpatharrayelements: super::UINT32, patharray: Option<*const super::DISPLAYCONFIG_PATH_INFO>, nummodeinfoarrayelements: super::UINT32, modeinfoarray: Option<*const super::DISPLAYCONFIG_MODE_INFO>, flags: super::UINT32) -> super::LONG {
     windows_core::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : super::UINT32, patharray : *const super::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : super::UINT32, modeinfoarray : *const super::DISPLAYCONFIG_MODE_INFO, flags : super::UINT32) -> super::LONG);
-    unsafe { SetDisplayConfig(patharray.map_or(0, |slice| slice.len().try_into().unwrap()), patharray.map_or(core::ptr::null(), |slice| slice.as_ptr()), modeinfoarray.map_or(0, |slice| slice.len().try_into().unwrap()), modeinfoarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), flags) }
+    unsafe { SetDisplayConfig(numpatharrayelements, patharray.unwrap_or(core::mem::zeroed()) as _, nummodeinfoarrayelements, modeinfoarray.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3913,15 +3913,15 @@ pub unsafe fn SetForegroundWindow(hwnd: super::HWND) -> windows_core::BOOL {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetGestureConfig(hwnd: super::HWND, dwreserved: super::DWORD, pgestureconfig: &[GESTURECONFIG], cbsize: super::UINT) -> windows_core::BOOL {
+pub unsafe fn SetGestureConfig(hwnd: super::HWND, dwreserved: super::DWORD, cids: super::UINT, pgestureconfig: PGESTURECONFIG, cbsize: super::UINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::HWND, dwreserved : super::DWORD, cids : super::UINT, pgestureconfig : PGESTURECONFIG, cbsize : super::UINT) -> windows_core::BOOL);
-    unsafe { SetGestureConfig(hwnd, dwreserved, pgestureconfig.len().try_into().unwrap(), core::mem::transmute(pgestureconfig.as_ptr()), cbsize) }
+    unsafe { SetGestureConfig(hwnd, dwreserved, cids, pgestureconfig, cbsize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> windows_core::BOOL {
+pub unsafe fn SetKeyboardState(lpkeystate: super::LPBYTE) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : super::LPBYTE) -> windows_core::BOOL);
-    unsafe { SetKeyboardState(core::mem::transmute(lpkeystate.as_ptr())) }
+    unsafe { SetKeyboardState(lpkeystate) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -4369,33 +4369,33 @@ pub unsafe fn SystemParametersInfoW(uiaction: super::UINT, uiparam: super::UINT,
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TabbedTextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>, ntaborigin: i32) -> super::LONG {
+pub unsafe fn TabbedTextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: windows_core::PCSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>, ntaborigin: i32) -> super::LONG {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT, ntaborigin : i32) -> super::LONG);
-    unsafe { TabbedTextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
+    unsafe { TabbedTextOutA(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TabbedTextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>, ntaborigin: i32) -> super::LONG {
+pub unsafe fn TabbedTextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: windows_core::PCWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const super::INT>, ntaborigin: i32) -> super::LONG {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT, ntaborigin : i32) -> super::LONG);
-    unsafe { TabbedTextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
+    unsafe { TabbedTextOutW(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn TileWindows(hwndparent: Option<super::HWND>, whow: super::UINT, lprect: Option<*const super::RECT>, lpkids: Option<&[super::HWND]>) -> super::WORD {
+pub unsafe fn TileWindows(hwndparent: Option<super::HWND>, whow: super::UINT, lprect: Option<*const super::RECT>, ckids: super::UINT, lpkids: Option<*const super::HWND>) -> super::WORD {
     windows_core::link!("user32.dll" "system" fn TileWindows(hwndparent : super::HWND, whow : super::UINT, lprect : *const super::RECT, ckids : super::UINT, lpkids : *const super::HWND) -> super::WORD);
-    unsafe { TileWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.map_or(0, |slice| slice.len().try_into().unwrap()), lpkids.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { TileWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, ckids, lpkids.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ToAscii(uvirtkey: super::UINT, uscancode: super::UINT, lpkeystate: Option<&[super::BYTE; 256]>, lpchar: super::LPWORD, uflags: super::UINT) -> i32 {
+pub unsafe fn ToAscii(uvirtkey: super::UINT, uscancode: super::UINT, lpkeystate: Option<*const super::BYTE>, lpchar: super::LPWORD, uflags: super::UINT) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAscii(uvirtkey : super::UINT, uscancode : super::UINT, lpkeystate : *const super::BYTE, lpchar : super::LPWORD, uflags : super::UINT) -> i32);
-    unsafe { ToAscii(uvirtkey, uscancode, lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpchar as _, uflags) }
+    unsafe { ToAscii(uvirtkey, uscancode, lpkeystate.unwrap_or(core::mem::zeroed()) as _, lpchar as _, uflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ToAsciiEx(uvirtkey: super::UINT, uscancode: super::UINT, lpkeystate: Option<&[super::BYTE; 256]>, lpchar: super::LPWORD, uflags: super::UINT, dwhkl: Option<super::HKL>) -> i32 {
+pub unsafe fn ToAsciiEx(uvirtkey: super::UINT, uscancode: super::UINT, lpkeystate: Option<*const super::BYTE>, lpchar: super::LPWORD, uflags: super::UINT, dwhkl: Option<super::HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : super::UINT, uscancode : super::UINT, lpkeystate : *const super::BYTE, lpchar : super::LPWORD, uflags : super::UINT, dwhkl : super::HKL) -> i32);
-    unsafe { ToAsciiEx(uvirtkey, uscancode, lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ToAsciiEx(uvirtkey, uscancode, lpkeystate.unwrap_or(core::mem::zeroed()) as _, lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

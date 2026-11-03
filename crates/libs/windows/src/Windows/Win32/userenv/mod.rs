@@ -1,13 +1,13 @@
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: Option<&[super::SID_AND_ATTRIBUTES]>, ppsidappcontainersid: *mut super::PSID) -> windows_core::HRESULT
+pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: Option<super::PSID_AND_ATTRIBUTES>, dwcapabilitycount: super::DWORD, ppsidappcontainersid: *mut super::PSID) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : super::PSID_AND_ATTRIBUTES, dwcapabilitycount : super::DWORD, ppsidappcontainersid : *mut super::PSID) -> windows_core::HRESULT);
-    unsafe { CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), core::mem::transmute(pcapabilities.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.map_or(0, |slice| slice.len().try_into().unwrap()), ppsidappcontainersid as _) }
+    unsafe { CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), pcapabilities.unwrap_or(core::mem::zeroed()) as _, dwcapabilitycount, ppsidappcontainersid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -279,9 +279,9 @@ pub unsafe fn RegisterGPNotification(hevent: super::HANDLE, bmachine: bool) -> w
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::PSID>, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: super::DWORD, pobjecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, pgenericmapping: super::PGENERIC_MAPPING, pprivilegeset: Option<super::PPRIVILEGE_SET>, pdwprivilegesetlength: Option<super::LPDWORD>, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT {
+pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::PSID>, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: super::DWORD, pobjecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::DWORD, pgenericmapping: super::PGENERIC_MAPPING, pprivilegeset: Option<super::PPRIVILEGE_SET>, pdwprivilegesetlength: Option<super::LPDWORD>, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT {
     windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::PSECURITY_DESCRIPTOR, pprincipalselfsid : super::PSID, prsoptoken : PRSOPTOKEN, dwdesiredaccessmask : super::DWORD, pobjecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::DWORD, pgenericmapping : super::PGENERIC_MAPPING, pprivilegeset : super::PPRIVILEGE_SET, pdwprivilegesetlength : super::LPDWORD, pdwgrantedaccessmask : super::LPDWORD, pbaccessstatus : super::LPBOOL) -> windows_core::HRESULT);
-    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _) }
+    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, pobjecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -304,13 +304,13 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "wbemcli"))]
 #[inline]
-pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: super::DWORD, pservices: P1, psettinginstance: P2, pstatus: &[POLICYSETTINGSTATUSINFO]) -> windows_core::HRESULT
+pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: super::DWORD, pservices: P1, psettinginstance: P2, ninfo: super::DWORD, pstatus: *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IWbemServices>,
     P2: windows_core::Param<super::IWbemClassObject>,
 {
     windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : super::DWORD, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void, ninfo : super::DWORD, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
-    unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), pstatus.len().try_into().unwrap(), pstatus.as_ptr()) }
+    unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), ninfo, pstatus) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

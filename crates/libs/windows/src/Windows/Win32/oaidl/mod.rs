@@ -361,8 +361,8 @@ impl ICreateTypeInfo {
         unsafe { (windows_core::Interface::vtable(self).AddVarDesc)(windows_core::Interface::as_raw(self), index, pvardesc) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn SetFuncAndParamNames(&self, index: super::UINT, rgsznames: &[super::LPOLESTR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFuncAndParamNames)(windows_core::Interface::as_raw(self), index, rgsznames.as_ptr(), rgsznames.len().try_into().unwrap()) }
+    pub unsafe fn SetFuncAndParamNames(&self, index: super::UINT, rgsznames: *const super::LPOLESTR, cnames: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFuncAndParamNames)(windows_core::Interface::as_raw(self), index, rgsznames, cnames) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn SetVarName(&self, index: super::UINT, szname: super::LPOLESTR) -> windows_core::HRESULT {
@@ -2126,8 +2126,8 @@ impl ITypeInfo {
         unsafe { (windows_core::Interface::vtable(self).GetImplTypeFlags)(windows_core::Interface::as_raw(self), index, pimpltypeflags as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn GetIDsOfNames(&self, rgsznames: &[super::LPOLESTR], pmemid: *mut super::MEMBERID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), rgsznames.as_ptr(), rgsznames.len().try_into().unwrap(), pmemid as _) }
+    pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::LPOLESTR, cnames: super::UINT, pmemid: *mut super::MEMBERID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), rgsznames, cnames, pmemid as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Invoke(&self, pvinstance: super::PVOID, memid: super::MEMBERID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::HRESULT {
@@ -3204,8 +3204,8 @@ impl ITypeMarshal {
         unsafe { (windows_core::Interface::vtable(self).Marshal)(windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, cbbufferlength, pbuffer as _, pcbwritten as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn Unmarshal(&self, pvtype: super::PVOID, dwflags: super::DWORD, pbuffer: &[super::BYTE], pcbread: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), pvtype as _, dwflags, pbuffer.len().try_into().unwrap(), pbuffer.as_ptr(), pcbread as _) }
+    pub unsafe fn Unmarshal(&self, pvtype: super::PVOID, dwflags: super::DWORD, cbbufferlength: super::ULONG, pbuffer: *const super::BYTE, pcbread: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), pvtype as _, dwflags, cbbufferlength, pbuffer, pcbread as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn Free(&self, pvtype: super::PVOID) -> windows_core::HRESULT {

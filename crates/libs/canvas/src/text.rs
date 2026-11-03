@@ -196,7 +196,15 @@ impl TextLayout {
     pub fn new(text: &str, format: &TextFormat, max_width: f32, max_height: f32) -> Result<Self> {
         let factory = dwrite_factory()?;
         let wide: Vec<u16> = text.encode_utf16().collect();
-        let raw = unsafe { factory.CreateTextLayout(&wide, format.raw(), max_width, max_height)? };
+        let raw = unsafe {
+            factory.CreateTextLayout(
+                wide.as_ptr(),
+                wide.len().try_into().unwrap(),
+                format.raw(),
+                max_width,
+                max_height,
+            )?
+        };
         Ok(Self { raw })
     }
 

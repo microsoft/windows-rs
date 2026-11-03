@@ -354,12 +354,12 @@ impl IStillImageW {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), ptype as _, pdata as _, cbdata as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: super::DWORD, pdata: &[u8]) -> windows_core::HRESULT
+    pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: super::DWORD, pdata: super::LPBYTE, cbdata: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, pdata, cbdata) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: Option<*mut super::DWORD>, pwszeventname: windows_core::PWSTR) -> windows_core::HRESULT {

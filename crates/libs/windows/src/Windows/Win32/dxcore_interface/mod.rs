@@ -517,12 +517,12 @@ windows_core::imp::define_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactor
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory, windows_core::IUnknown);
 impl IDXCoreAdapterFactory {
     #[cfg(all(feature = "guiddef", feature = "stdint"))]
-    pub unsafe fn CreateAdapterList<T>(&self, filterattributes: &[windows_core::GUID]) -> windows_core::Result<T>
+    pub unsafe fn CreateAdapterList<T>(&self, numattributes: super::uint32_t, filterattributes: *const windows_core::GUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), filterattributes.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), numattributes, filterattributes, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::LUID) -> windows_core::Result<T>
@@ -700,8 +700,8 @@ impl IDXCoreAdapterList {
         unsafe { (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "stdint")]
-    pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), preferences.as_ptr()) }
+    pub unsafe fn Sort(&self, numpreferences: super::uint32_t, preferences: *const DXCoreAdapterPreference) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), numpreferences, preferences) }
     }
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(windows_core::Interface::as_raw(self), preference) }

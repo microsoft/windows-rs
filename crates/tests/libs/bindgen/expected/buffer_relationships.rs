@@ -1,16 +1,16 @@
 #[inline]
-pub unsafe fn ValidFunction(values: &[u32]) {
+pub unsafe fn ValidFunction(count: u32, values: *const u32) {
     windows_core::link!("test.dll" "system" fn ValidFunction(count : u32, values : *const u32));
-    unsafe { ValidFunction(values.len().try_into().unwrap(), values.as_ptr()) }
+    unsafe { ValidFunction(count, values) }
 }
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn ValidElements(&self, values: &[u32]) {
+    pub unsafe fn ValidElements(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidElements)(
                 windows_core::Interface::as_raw(self),
-                values.len().try_into().unwrap(),
-                values.as_ptr(),
+                count,
+                values,
             );
         }
     }
@@ -24,20 +24,20 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn ValidBytes(&self, values: &[u8]) {
+    pub unsafe fn ValidBytes(&self, count: u32, values: *const u8) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidBytes)(
                 windows_core::Interface::as_raw(self),
-                values.len().try_into().unwrap(),
-                values.as_ptr(),
+                count,
+                values,
             );
         }
     }
-    pub unsafe fn ValidConstant(&self, values: &[u32; 4]) {
+    pub unsafe fn ValidConstant(&self, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidConstant)(
                 windows_core::Interface::as_raw(self),
-                values.as_ptr(),
+                values,
             );
         }
     }

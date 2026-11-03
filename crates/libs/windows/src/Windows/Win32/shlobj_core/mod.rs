@@ -9,23 +9,23 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
-pub unsafe fn CDefFolderMenu_Create2<P4>(pidlfolder: Option<super::LPCITEMIDLIST>, hwnd: Option<super::HWND>, apidl: Option<&[super::LPCITEMIDLIST]>, psf: P4, pfn: LPFNDFMCALLBACK, ahkeys: Option<&[super::HKEY]>) -> windows_core::Result<super::IContextMenu>
+pub unsafe fn CDefFolderMenu_Create2<P4>(pidlfolder: Option<super::LPCITEMIDLIST>, hwnd: Option<super::HWND>, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>, psf: P4, pfn: LPFNDFMCALLBACK, nkeys: super::UINT, ahkeys: Option<*const super::HKEY>) -> windows_core::Result<super::IContextMenu>
 where
     P4: windows_core::Param<super::IShellFolder>,
 {
     windows_core::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : super::LPCITEMIDLIST, hwnd : super::HWND, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : super::UINT, ahkeys : *const super::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), psf.param().abi(), pfn, ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, cidl, apidl.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), pfn, nkeys, ahkeys.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: super::LPCITEMIDLIST, apidl: Option<&[super::LPCITEMIDLIST]>) -> windows_core::Result<super::IDataObject> {
+pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: super::LPCITEMIDLIST, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>) -> windows_core::Result<super::IDataObject> {
     windows_core::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CIDLData_CreateFromIDArray(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CIDLData_CreateFromIDArray(pidlfolder, cidl, apidl.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -220,9 +220,9 @@ where
     unsafe { PathCleanupSpec(pszdir.param().abi(), pszspec) }
 }
 #[inline]
-pub unsafe fn PathGetShortPath(pszlongpath: &mut [u16; 260]) {
+pub unsafe fn PathGetShortPath(pszlongpath: windows_core::PWSTR) {
     windows_core::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_core::PWSTR));
-    unsafe { PathGetShortPath(core::mem::transmute(pszlongpath.as_mut_ptr())) }
+    unsafe { PathGetShortPath(pszlongpath) }
 }
 #[inline]
 pub unsafe fn PathIsExe<P0>(pszpath: P0) -> windows_core::BOOL
@@ -245,9 +245,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn PathResolve(pszpath: &mut [u16; 260], dirs: Option<super::PZPCWSTR>, fflags: super::UINT) -> i32 {
+pub unsafe fn PathResolve(pszpath: windows_core::PWSTR, dirs: Option<super::PZPCWSTR>, fflags: super::UINT) -> i32 {
     windows_core::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_core::PWSTR, dirs : super::PZPCWSTR, fflags : super::UINT) -> i32);
-    unsafe { PathResolve(core::mem::transmute(pszpath.as_mut_ptr()), dirs.unwrap_or(core::mem::zeroed()) as _, fflags) }
+    unsafe { PathResolve(pszpath, dirs.unwrap_or(core::mem::zeroed()) as _, fflags) }
 }
 #[inline]
 pub unsafe fn PathYetAnotherMakeUniqueName<P1, P2, P3>(pszuniquename: windows_core::PWSTR, pszpath: P1, pszshort: P2, pszfilespec: P3) -> windows_core::BOOL
@@ -261,9 +261,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn PickIconDlg(hwnd: Option<super::HWND>, psziconpath: &mut [u16], piiconindex: Option<*mut i32>) -> i32 {
+pub unsafe fn PickIconDlg(hwnd: Option<super::HWND>, psziconpath: windows_core::PWSTR, cchiconpath: super::UINT, piiconindex: Option<*mut i32>) -> i32 {
     windows_core::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::HWND, psziconpath : windows_core::PWSTR, cchiconpath : super::UINT, piiconindex : *mut i32) -> i32);
-    unsafe { PickIconDlg(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), psziconpath.len().try_into().unwrap(), piiconindex.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PickIconDlg(hwnd.unwrap_or(core::mem::zeroed()) as _, psziconpath, cchiconpath, piiconindex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -450,12 +450,12 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateDataObject<P3>(pidlfolder: Option<super::LPCITEMIDLIST>, apidl: Option<&[super::LPCITEMIDLIST]>, pdtinner: P3, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateDataObject<P3>(pidlfolder: Option<super::LPCITEMIDLIST>, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>, pdtinner: P3, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P3: windows_core::Param<super::IDataObject>,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), pdtinner.param().abi(), riid, ppv as _) }
+    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, cidl, apidl.unwrap_or(core::mem::zeroed()) as _, pdtinner.param().abi(), riid, ppv as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
@@ -531,11 +531,11 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
 #[inline]
-pub unsafe fn SHCreateStdEnumFmtEtc(afmt: &[super::FORMATETC]) -> windows_core::Result<super::IEnumFORMATETC> {
+pub unsafe fn SHCreateStdEnumFmtEtc(cfmt: super::UINT, afmt: *const super::FORMATETC) -> windows_core::Result<super::IEnumFORMATETC> {
     windows_core::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : super::UINT, afmt : *const super::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateStdEnumFmtEtc(afmt.len().try_into().unwrap(), afmt.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateStdEnumFmtEtc(cfmt, afmt, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -839,9 +839,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: super::LPCITEMIDLIST, apidl: Option<&[super::LPCITEMIDLIST]>, dwflags: super::DWORD) -> windows_core::HRESULT {
+pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: super::LPCITEMIDLIST, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>, dwflags: super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, dwflags : super::DWORD) -> windows_core::HRESULT);
-    unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
+    unsafe { SHOpenFolderAndSelectItems(pidlfolder, cidl, apidl.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]

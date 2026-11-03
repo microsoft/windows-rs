@@ -86,9 +86,9 @@ pub unsafe fn ORGetVirtualFlags(handle: ORHKEY, pdwflags: super::PDWORD) -> supe
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ORMergeHives(hivehandles: &[ORHKEY], phkresult: PORHKEY) -> super::DWORD {
+pub unsafe fn ORMergeHives(hivehandles: *const ORHKEY, hivecount: super::ULONG, phkresult: PORHKEY) -> super::DWORD {
     windows_core::link!("offreg.dll" "system" fn ORMergeHives(hivehandles : *const ORHKEY, hivecount : super::ULONG, phkresult : PORHKEY) -> super::DWORD);
-    unsafe { ORMergeHives(hivehandles.as_ptr(), hivehandles.len().try_into().unwrap(), phkresult as _) }
+    unsafe { ORMergeHives(hivehandles, hivecount, phkresult as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -160,12 +160,12 @@ pub unsafe fn ORSetKeySecurity(handle: ORHKEY, securityinformation: super::SECUR
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ORSetValue<P1>(handle: ORHKEY, lpvaluename: P1, dwtype: super::DWORD, lpdata: Option<&[u8]>) -> super::DWORD
+pub unsafe fn ORSetValue<P1>(handle: ORHKEY, lpvaluename: P1, dwtype: super::DWORD, lpdata: Option<*const super::BYTE>, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORSetValue(handle : ORHKEY, lpvaluename : windows_core::PCWSTR, dwtype : super::DWORD, lpdata : *const super::BYTE, cbdata : super::DWORD) -> super::DWORD);
-    unsafe { ORSetValue(handle, lpvaluename.param().abi(), dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ORSetValue(handle, lpvaluename.param().abi(), dwtype, lpdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

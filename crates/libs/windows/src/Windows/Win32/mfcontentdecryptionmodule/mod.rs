@@ -48,14 +48,14 @@ impl IMFContentDecryptionModule {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetServerCertificate(&self, certificate: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), certificate.as_ptr(), certificate.len().try_into().unwrap()) }
+    pub unsafe fn SetServerCertificate(&self, certificate: *const super::BYTE, certificatesize: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), certificate, certificatesize) }
     }
     #[cfg(all(feature = "mfidl", feature = "shared"))]
-    pub unsafe fn CreateTrustedInput(&self, contentinitdata: &[super::BYTE]) -> windows_core::Result<super::IMFTrustedInput> {
+    pub unsafe fn CreateTrustedInput(&self, contentinitdata: *const super::BYTE, contentinitdatasize: super::DWORD) -> windows_core::Result<super::IMFTrustedInput> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTrustedInput)(windows_core::Interface::as_raw(self), contentinitdata.as_ptr(), contentinitdata.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTrustedInput)(windows_core::Interface::as_raw(self), contentinitdata, contentinitdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -371,15 +371,15 @@ impl IMFContentDecryptionModuleSession {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), sessionid.param().abi(), loaded as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GenerateRequest<P0>(&self, initdatatype: P0, initdata: &[super::BYTE]) -> windows_core::HRESULT
+    pub unsafe fn GenerateRequest<P0>(&self, initdatatype: P0, initdata: *const super::BYTE, initdatasize: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), initdatatype.param().abi(), initdata.as_ptr(), initdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), initdatatype.param().abi(), initdata, initdatasize) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Update(&self, response: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), response.as_ptr(), response.len().try_into().unwrap()) }
+    pub unsafe fn Update(&self, response: *const super::BYTE, responsesize: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), response, responsesize) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -494,11 +494,11 @@ windows_core::imp::define_interface!(IMFContentDecryptionModuleSessionCallbacks,
 windows_core::imp::interface_hierarchy!(IMFContentDecryptionModuleSessionCallbacks, windows_core::IUnknown);
 impl IMFContentDecryptionModuleSessionCallbacks {
     #[cfg(all(feature = "mfidl", feature = "shared"))]
-    pub unsafe fn KeyMessage<P3>(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: &[super::BYTE], destinationurl: P3) -> windows_core::HRESULT
+    pub unsafe fn KeyMessage<P3>(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const super::BYTE, messagesize: super::DWORD, destinationurl: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), messagetype, message.as_ptr(), message.len().try_into().unwrap(), destinationurl.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), messagetype, message, messagesize, destinationurl.param().abi()) }
     }
     pub unsafe fn KeyStatusChanged(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KeyStatusChanged)(windows_core::Interface::as_raw(self)) }

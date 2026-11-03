@@ -2832,8 +2832,8 @@ windows_core::imp::define_interface!(IAppxEncryptedPackageWriter2, IAppxEncrypte
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: super::UINT64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), payloadfiles.as_ptr(), memorylimit) }
+    pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
     }
 }
 #[repr(C)]
@@ -7361,8 +7361,8 @@ windows_core::imp::define_interface!(IAppxPackageWriter3, IAppxPackageWriter3_Vt
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnknown);
 impl IAppxPackageWriter3 {
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: super::UINT64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), payloadfiles.as_ptr(), memorylimit) }
+    pub unsafe fn AddPayloadFiles(&self, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
     }
 }
 #[repr(C)]

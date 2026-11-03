@@ -1,32 +1,32 @@
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptApplyDigitSubstitution(psds: &[SCRIPT_DIGITSUBSTITUTE; 1], psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> windows_core::HRESULT {
+pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> windows_core::HRESULT);
-    unsafe { ScriptApplyDigitSubstitution(psds.as_ptr(), psc as _, pss as _) }
+    unsafe { ScriptApplyDigitSubstitution(psds, psc as _, pss as _) }
 }
 #[cfg(all(feature = "shared", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], mut pabc: Option<&mut [super::ABC; 1]>, pijustify: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: Option<*mut super::ABC>, pijustify: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::ABC, pijustify : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa.as_ptr(), pabc.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pijustify as _) }
+    unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, pabc.unwrap_or(core::mem::zeroed()) as _, pijustify as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptBreak(pwcchars: *const super::WCHAR, cchars: i32, psa: &[SCRIPT_ANALYSIS; 1], psla: *mut SCRIPT_LOGATTR) -> windows_core::HRESULT {
+pub unsafe fn ScriptBreak(pwcchars: *const super::WCHAR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : *const super::WCHAR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_core::HRESULT);
-    unsafe { ScriptBreak(pwcchars, cchars, psa.as_ptr(), psla as _) }
+    unsafe { ScriptBreak(pwcchars, cchars, psa, psla as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &[super::WORD], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], pix: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : windows_core::BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptCPtoX(icp, ftrailing.into(), pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), pix as _) }
+    unsafe { ScriptCPtoX(icp, ftrailing.into(), cchars, cglyphs, pwlogclust, psva, piadvance, psa, pix as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptCacheGetHeight(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], tmheight: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptCacheGetHeight(hdc: super::HDC, psc: *mut SCRIPT_CACHE, tmheight: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::HDC, psc : *mut SCRIPT_CACHE, tmheight : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptCacheGetHeight(hdc as _, psc.as_mut_ptr(), tmheight as _) }
+    unsafe { ScriptCacheGetHeight(hdc as _, psc as _, tmheight as _) }
 }
 #[inline]
 pub unsafe fn ScriptFreeCache(psc: *mut SCRIPT_CACHE) -> windows_core::HRESULT {
@@ -35,9 +35,9 @@ pub unsafe fn ScriptFreeCache(psc: *mut SCRIPT_CACHE) -> windows_core::HRESULT {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptGetCMap(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwcinchars: *const super::WCHAR, cchars: i32, dwflags: super::DWORD, pwoutglyphs: *mut super::WORD) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetCMap(hdc: super::HDC, psc: *mut SCRIPT_CACHE, pwcinchars: *const super::WCHAR, cchars: i32, dwflags: super::DWORD, pwoutglyphs: *mut super::WORD) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcinchars : *const super::WCHAR, cchars : i32, dwflags : super::DWORD, pwoutglyphs : *mut super::WORD) -> windows_core::HRESULT);
-    unsafe { ScriptGetCMap(hdc as _, psc.as_mut_ptr(), pwcinchars, cchars, dwflags, pwoutglyphs as _) }
+    unsafe { ScriptGetCMap(hdc as _, psc as _, pwcinchars, cchars, dwflags, pwoutglyphs as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -59,9 +59,9 @@ pub unsafe fn ScriptGetFontLanguageTags(hdc: Option<super::HDC>, psc: *mut SCRIP
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ScriptGetFontProperties(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], sfp: *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontProperties(hdc: super::HDC, psc: *mut SCRIPT_CACHE, sfp: *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::HDC, psc : *mut SCRIPT_CACHE, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontProperties(hdc as _, psc.as_mut_ptr(), sfp as _) }
+    unsafe { ScriptGetFontProperties(hdc as _, psc as _, sfp as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -71,15 +71,15 @@ pub unsafe fn ScriptGetFontScriptTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], wglyph: super::WORD, pabc: *mut super::ABC) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::HDC, psc: *mut SCRIPT_CACHE, wglyph: super::WORD, pabc: *mut super::ABC) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::HDC, psc : *mut SCRIPT_CACHE, wglyph : super::WORD, pabc : *mut super::ABC) -> windows_core::HRESULT);
-    unsafe { ScriptGetGlyphABCWidth(hdc as _, psc.as_mut_ptr(), wglyph, pabc as _) }
+    unsafe { ScriptGetGlyphABCWidth(hdc as _, psc as _, wglyph, pabc as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptGetLogicalWidths(psa: &[SCRIPT_ANALYSIS; 1], cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_core::HRESULT);
-    unsafe { ScriptGetLogicalWidths(psa.as_ptr(), cchars, cglyphs, piglyphwidth, pwlogclust, psva, pidx) }
+    unsafe { ScriptGetLogicalWidths(psa, cchars, cglyphs, piglyphwidth, pwlogclust, psva, pidx) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -89,21 +89,21 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *const SCRIPT_PROPERTIES, pinu
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptIsComplex(pwcinchars: &[super::WCHAR], dwflags: super::DWORD) -> windows_core::HRESULT {
+pub unsafe fn ScriptIsComplex(pwcinchars: *const super::WCHAR, cinchars: i32, dwflags: super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : *const super::WCHAR, cinchars : i32, dwflags : super::DWORD) -> windows_core::HRESULT);
-    unsafe { ScriptIsComplex(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), dwflags) }
+    unsafe { ScriptIsComplex(pwcinchars, cinchars, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptItemize(pwcinchars: &[super::WCHAR], cmaxitems: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptItemize(pwcinchars: *const super::WCHAR, cinchars: i32, cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const super::WCHAR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptItemize(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), cmaxitems, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pitems as _, pcitems as _) }
+    unsafe { ScriptItemize(pwcinchars, cinchars, cmaxitems, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pitems as _, pcitems as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[super::WCHAR], cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut OPENTYPE_TAG, pcitems: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptItemizeOpenType(pwcinchars: *const super::WCHAR, cinchars: i32, cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut OPENTYPE_TAG, pcitems: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : *const super::WCHAR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut OPENTYPE_TAG, pcitems : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptItemizeOpenType(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), cmaxitems, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pitems as _, pscripttags as _, pcitems as _) }
+    unsafe { ScriptItemizeOpenType(pwcinchars, cinchars, cmaxitems, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pitems as _, pscripttags as _, pcitems as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -113,15 +113,15 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptLayout(pblevel: &[super::BYTE], pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
+pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const super::BYTE, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const super::BYTE, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptLayout(pblevel.len().try_into().unwrap(), pblevel.as_ptr(), pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ScriptLayout(cruns, pblevel, pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptPlace(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwglyphs: *const super::WORD, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: &mut [SCRIPT_ANALYSIS; 1], piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: *mut super::ABC) -> windows_core::HRESULT {
+pub unsafe fn ScriptPlace(hdc: super::HDC, psc: *mut SCRIPT_CACHE, pwglyphs: *const super::WORD, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: *mut super::ABC) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwglyphs : *const super::WORD, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_core::HRESULT);
-    unsafe { ScriptPlace(hdc as _, psc.as_mut_ptr(), pwglyphs, cglyphs, psva, psa.as_mut_ptr(), piadvance as _, pgoffset.unwrap_or(core::mem::zeroed()) as _, pabc as _) }
+    unsafe { ScriptPlace(hdc as _, psc as _, pwglyphs, cglyphs, psva, psa as _, piadvance as _, pgoffset.unwrap_or(core::mem::zeroed()) as _, pabc as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
@@ -143,9 +143,9 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: super::LCID, psds: *mut SCRI
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptShape(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwcchars: *const super::WCHAR, cchars: i32, cmaxglyphs: i32, psa: &mut [SCRIPT_ANALYSIS; 1], pwoutglyphs: *mut super::WORD, pwlogclust: *mut super::WORD, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptShape(hdc: super::HDC, psc: *mut SCRIPT_CACHE, pwcchars: *const super::WCHAR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut super::WORD, pwlogclust: *mut super::WORD, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptShape(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcchars : *const super::WCHAR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut super::WORD, pwlogclust : *mut super::WORD, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptShape(hdc as _, psc.as_mut_ptr(), pwcchars, cchars, cmaxglyphs, psa.as_mut_ptr(), pwoutglyphs as _, pwlogclust as _, psva as _, pcglyphs as _) }
+    unsafe { ScriptShape(hdc as _, psc as _, pwcchars, cchars, cmaxglyphs, psa as _, pwoutglyphs as _, pwlogclust as _, psva as _, pcglyphs as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -155,63 +155,63 @@ pub unsafe fn ScriptShapeOpenType(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACH
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ScriptStringAnalyse(hdc: super::HDC, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: super::DWORD, ireqwidth: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pidx: Option<*const i32>, ptabdef: Option<&[SCRIPT_TABDEF; 1]>, pbinclass: *const super::BYTE, pssa: *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringAnalyse(hdc: super::HDC, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: super::DWORD, ireqwidth: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pidx: Option<*const i32>, ptabdef: Option<*const SCRIPT_TABDEF>, pbinclass: *const super::BYTE, pssa: *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : super::DWORD, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const super::BYTE, pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT);
-    unsafe { ScriptStringAnalyse(hdc as _, pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pidx.unwrap_or(core::mem::zeroed()) as _, ptabdef.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinclass, pssa as _) }
+    unsafe { ScriptStringAnalyse(hdc as _, pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pidx.unwrap_or(core::mem::zeroed()) as _, ptabdef.unwrap_or(core::mem::zeroed()) as _, pbinclass, pssa as _) }
 }
 #[inline]
-pub unsafe fn ScriptStringCPtoX(ssa: &[u8; 1], icp: i32, ftrailing: bool, px: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringCPtoX(ssa: SCRIPT_STRING_ANALYSIS, icp: i32, ftrailing: bool, px: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : SCRIPT_STRING_ANALYSIS, icp : i32, ftrailing : windows_core::BOOL, px : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptStringCPtoX(core::mem::transmute(ssa.as_ptr()), icp, ftrailing.into(), px as _) }
+    unsafe { ScriptStringCPtoX(ssa, icp, ftrailing.into(), px as _) }
 }
 #[inline]
-pub unsafe fn ScriptStringFree(pssa: &mut [SCRIPT_STRING_ANALYSIS; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringFree(pssa: *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringFree(pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT);
-    unsafe { ScriptStringFree(pssa.as_mut_ptr()) }
+    unsafe { ScriptStringFree(pssa as _) }
 }
 #[inline]
-pub unsafe fn ScriptStringGetLogicalWidths(ssa: &[u8; 1], pidx: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringGetLogicalWidths(ssa: SCRIPT_STRING_ANALYSIS, pidx: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringGetLogicalWidths(ssa : SCRIPT_STRING_ANALYSIS, pidx : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptStringGetLogicalWidths(core::mem::transmute(ssa.as_ptr()), pidx as _) }
+    unsafe { ScriptStringGetLogicalWidths(ssa, pidx as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptStringGetOrder(ssa: &[u8; 1], puorder: *mut super::UINT) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringGetOrder(ssa: SCRIPT_STRING_ANALYSIS, puorder: *mut super::UINT) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : SCRIPT_STRING_ANALYSIS, puorder : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { ScriptStringGetOrder(core::mem::transmute(ssa.as_ptr()), puorder as _) }
+    unsafe { ScriptStringGetOrder(ssa, puorder as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ScriptStringOut(ssa: &[u8; 1], ix: i32, iy: i32, uoptions: super::UINT, prc: Option<&[super::RECT; 1]>, iminsel: i32, imaxsel: i32, fdisabled: bool) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringOut(ssa: SCRIPT_STRING_ANALYSIS, ix: i32, iy: i32, uoptions: super::UINT, prc: Option<*const super::RECT>, iminsel: i32, imaxsel: i32, fdisabled: bool) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringOut(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, iy : i32, uoptions : super::UINT, prc : *const super::RECT, iminsel : i32, imaxsel : i32, fdisabled : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ScriptStringOut(core::mem::transmute(ssa.as_ptr()), ix, iy, uoptions, prc.map_or(core::ptr::null(), |slice| slice.as_ptr()), iminsel, imaxsel, fdisabled.into()) }
+    unsafe { ScriptStringOut(ssa, ix, iy, uoptions, prc.unwrap_or(core::mem::zeroed()) as _, iminsel, imaxsel, fdisabled.into()) }
 }
 #[inline]
-pub unsafe fn ScriptStringValidate(ssa: &[u8; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringValidate(ssa: SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringValidate(ssa : SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT);
-    unsafe { ScriptStringValidate(core::mem::transmute(ssa.as_ptr())) }
+    unsafe { ScriptStringValidate(ssa) }
 }
 #[inline]
-pub unsafe fn ScriptStringXtoCP(ssa: &[u8; 1], ix: i32, pich: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringXtoCP(ssa: SCRIPT_STRING_ANALYSIS, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptStringXtoCP(core::mem::transmute(ssa.as_ptr()), ix, pich as _, pitrailing as _) }
+    unsafe { ScriptStringXtoCP(ssa, ix, pich as _, pitrailing as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptString_pLogAttr(ssa: &[u8; 1]) -> *const SCRIPT_LOGATTR {
+pub unsafe fn ScriptString_pLogAttr(ssa: SCRIPT_STRING_ANALYSIS) -> *const SCRIPT_LOGATTR {
     windows_core::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : SCRIPT_STRING_ANALYSIS) -> *const SCRIPT_LOGATTR);
-    unsafe { ScriptString_pLogAttr(core::mem::transmute(ssa.as_ptr())) }
+    unsafe { ScriptString_pLogAttr(ssa) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ScriptString_pSize(ssa: &[u8; 1]) -> *const super::SIZE {
+pub unsafe fn ScriptString_pSize(ssa: SCRIPT_STRING_ANALYSIS) -> *const super::SIZE {
     windows_core::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : SCRIPT_STRING_ANALYSIS) -> *const super::SIZE);
-    unsafe { ScriptString_pSize(core::mem::transmute(ssa.as_ptr())) }
+    unsafe { ScriptString_pSize(ssa) }
 }
 #[inline]
-pub unsafe fn ScriptString_pcOutChars(ssa: &[u8; 1]) -> *const i32 {
+pub unsafe fn ScriptString_pcOutChars(ssa: SCRIPT_STRING_ANALYSIS) -> *const i32 {
     windows_core::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : SCRIPT_STRING_ANALYSIS) -> *const i32);
-    unsafe { ScriptString_pcOutChars(core::mem::transmute(ssa.as_ptr())) }
+    unsafe { ScriptString_pcOutChars(ssa) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -221,15 +221,15 @@ pub unsafe fn ScriptSubstituteSingleGlyph(hdc: Option<super::HDC>, psc: *mut SCR
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScriptTextOut(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], x: i32, y: i32, fuoptions: super::UINT, lprc: Option<&[super::RECT; 1]>, psa: &[SCRIPT_ANALYSIS; 1], pwcreserved: Option<*const super::WCHAR>, ireserved: Option<i32>, pwglyphs: *const super::WORD, cglyphs: i32, piadvance: *const i32, pijustify: Option<*const i32>, pgoffset: *const GOFFSET) -> windows_core::HRESULT {
+pub unsafe fn ScriptTextOut(hdc: super::HDC, psc: *mut SCRIPT_CACHE, x: i32, y: i32, fuoptions: super::UINT, lprc: Option<*const super::RECT>, psa: *const SCRIPT_ANALYSIS, pwcreserved: Option<*const super::WCHAR>, ireserved: Option<i32>, pwglyphs: *const super::WORD, cglyphs: i32, piadvance: *const i32, pijustify: Option<*const i32>, pgoffset: *const GOFFSET) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::HDC, psc : *mut SCRIPT_CACHE, x : i32, y : i32, fuoptions : super::UINT, lprc : *const super::RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : *const super::WCHAR, ireserved : i32, pwglyphs : *const super::WORD, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_core::HRESULT);
-    unsafe { ScriptTextOut(hdc as _, psc.as_mut_ptr(), x, y, fuoptions, lprc.map_or(core::ptr::null(), |slice| slice.as_ptr()), psa.as_ptr(), pwcreserved.unwrap_or(core::mem::zeroed()) as _, ireserved.unwrap_or(core::mem::zeroed()) as _, pwglyphs, cglyphs, piadvance, pijustify.unwrap_or(core::mem::zeroed()) as _, pgoffset) }
+    unsafe { ScriptTextOut(hdc as _, psc as _, x, y, fuoptions, lprc.unwrap_or(core::mem::zeroed()) as _, psa, pwcreserved.unwrap_or(core::mem::zeroed()) as _, ireserved.unwrap_or(core::mem::zeroed()) as _, pwglyphs, cglyphs, piadvance, pijustify.unwrap_or(core::mem::zeroed()) as _, pgoffset) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[super::WORD], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], picp: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), picp as _, pitrailing as _) }
+    unsafe { ScriptXtoCP(ix, cchars, cglyphs, pwlogclust, psva, piadvance, psa, picp as _, pitrailing as _) }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

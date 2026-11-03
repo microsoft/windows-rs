@@ -413,7 +413,7 @@ windows_core::imp::define_interface!(IDxcCompiler, IDxcCompiler_Vtbl, 0x8c210bf3
 windows_core::imp::interface_hierarchy!(IDxcCompiler, windows_core::IUnknown);
 impl IDxcCompiler {
     #[cfg(feature = "shared")]
-    pub unsafe fn Compile<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P8) -> windows_core::Result<IDxcOperationResult>
+    pub unsafe fn Compile<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32, pdefines: *const DxcDefine, definecount: super::UINT32, pincludehandler: P8) -> windows_core::Result<IDxcOperationResult>
     where
         P0: windows_core::Param<IDxcBlob>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -423,11 +423,11 @@ impl IDxcCompiler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compile)(windows_core::Interface::as_raw(self), psource.param().abi(), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap()), pdefines.as_ptr(), pdefines.len().try_into().unwrap(), pincludehandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Compile)(windows_core::Interface::as_raw(self), psource.param().abi(), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), parguments.unwrap_or(core::mem::zeroed()) as _, argcount, pdefines, definecount, pincludehandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Preprocess<P0, P1, P6>(&self, psource: P0, psourcename: P1, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P6) -> windows_core::Result<IDxcOperationResult>
+    pub unsafe fn Preprocess<P0, P1, P6>(&self, psource: P0, psourcename: P1, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32, pdefines: *const DxcDefine, definecount: super::UINT32, pincludehandler: P6) -> windows_core::Result<IDxcOperationResult>
     where
         P0: windows_core::Param<IDxcBlob>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -435,7 +435,7 @@ impl IDxcCompiler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Preprocess)(windows_core::Interface::as_raw(self), psource.param().abi(), psourcename.param().abi(), parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap()), pdefines.as_ptr(), pdefines.len().try_into().unwrap(), pincludehandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Preprocess)(windows_core::Interface::as_raw(self), psource.param().abi(), psourcename.param().abi(), parguments.unwrap_or(core::mem::zeroed()) as _, argcount, pdefines, definecount, pincludehandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Disassemble<P0>(&self, psource: P0) -> windows_core::Result<IDxcBlobEncoding>
@@ -539,7 +539,7 @@ impl core::ops::Deref for IDxcCompiler2 {
 windows_core::imp::interface_hierarchy!(IDxcCompiler2, windows_core::IUnknown, IDxcCompiler);
 impl IDxcCompiler2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P8, ppresult: *mut Option<IDxcOperationResult>, ppdebugblobname: Option<*mut windows_core::PWSTR>, ppdebugblob: Option<*mut Option<IDxcBlob>>) -> windows_core::HRESULT
+    pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32, pdefines: *const DxcDefine, definecount: super::UINT32, pincludehandler: P8, ppresult: *mut Option<IDxcOperationResult>, ppdebugblobname: Option<*mut windows_core::PWSTR>, ppdebugblob: Option<*mut Option<IDxcBlob>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -547,23 +547,7 @@ impl IDxcCompiler2 {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P8: windows_core::Param<IDxcIncludeHandler>,
     {
-        unsafe {
-            (windows_core::Interface::vtable(self).CompileWithDebug)(
-                windows_core::Interface::as_raw(self),
-                psource.param().abi(),
-                psourcename.param().abi(),
-                pentrypoint.param().abi(),
-                ptargetprofile.param().abi(),
-                parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                parguments.map_or(0, |slice| slice.len().try_into().unwrap()),
-                pdefines.as_ptr(),
-                pdefines.len().try_into().unwrap(),
-                pincludehandler.param().abi(),
-                core::mem::transmute(ppresult),
-                ppdebugblobname.unwrap_or(core::mem::zeroed()) as _,
-                ppdebugblob.unwrap_or(core::mem::zeroed()) as _,
-            )
-        }
+        unsafe { (windows_core::Interface::vtable(self).CompileWithDebug)(windows_core::Interface::as_raw(self), psource.param().abi(), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), parguments.unwrap_or(core::mem::zeroed()) as _, argcount, pdefines, definecount, pincludehandler.param().abi(), core::mem::transmute(ppresult), ppdebugblobname.unwrap_or(core::mem::zeroed()) as _, ppdebugblob.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -600,11 +584,11 @@ windows_core::imp::define_interface!(IDxcCompiler3, IDxcCompiler3_Vtbl, 0x228b46
 windows_core::imp::interface_hierarchy!(IDxcCompiler3, windows_core::IUnknown);
 impl IDxcCompiler3 {
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn Compile<P3>(&self, psource: *const DxcText, parguments: Option<&[windows_core::PCWSTR]>, pincludehandler: P3, riid: *const super::IID, ppresult: *mut super::LPVOID) -> windows_core::HRESULT
+    pub unsafe fn Compile<P3>(&self, psource: *const DxcText, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32, pincludehandler: P3, riid: *const super::IID, ppresult: *mut super::LPVOID) -> windows_core::HRESULT
     where
         P3: windows_core::Param<IDxcIncludeHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Compile)(windows_core::Interface::as_raw(self), psource, parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap()), pincludehandler.param().abi(), riid, ppresult as _) }
+        unsafe { (windows_core::Interface::vtable(self).Compile)(windows_core::Interface::as_raw(self), psource, parguments.unwrap_or(core::mem::zeroed()) as _, argcount, pincludehandler.param().abi(), riid, ppresult as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
     pub unsafe fn Disassemble(&self, pobject: *const DxcText, riid: *const super::IID, ppresult: *mut super::LPVOID) -> windows_core::HRESULT {
@@ -667,16 +651,16 @@ impl IDxcCompilerArgs {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddArguments(&self, parguments: Option<&[windows_core::PCWSTR]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddArguments)(windows_core::Interface::as_raw(self), parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn AddArguments(&self, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddArguments)(windows_core::Interface::as_raw(self), parguments.unwrap_or(core::mem::zeroed()) as _, argcount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddArgumentsUTF8(&self, parguments: Option<&[windows_core::PCSTR]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddArgumentsUTF8)(windows_core::Interface::as_raw(self), parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn AddArgumentsUTF8(&self, parguments: Option<*const windows_core::PCSTR>, argcount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddArgumentsUTF8)(windows_core::Interface::as_raw(self), parguments.unwrap_or(core::mem::zeroed()) as _, argcount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddDefines(&self, pdefines: &[DxcDefine]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddDefines)(windows_core::Interface::as_raw(self), pdefines.as_ptr(), pdefines.len().try_into().unwrap()) }
+    pub unsafe fn AddDefines(&self, pdefines: *const DxcDefine, definecount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDefines)(windows_core::Interface::as_raw(self), pdefines, definecount) }
     }
 }
 #[repr(C)]
@@ -1445,11 +1429,11 @@ impl IDxcOptimizer {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: &[windows_core::PCWSTR], poutputmodule: *mut Option<IDxcBlob>, ppoutputtext: Option<*mut Option<IDxcBlobEncoding>>) -> windows_core::HRESULT
+    pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: *const windows_core::PCWSTR, optioncount: super::UINT32, poutputmodule: *mut Option<IDxcBlob>, ppoutputtext: Option<*mut Option<IDxcBlobEncoding>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), ppoptions.as_ptr(), ppoptions.len().try_into().unwrap(), core::mem::transmute(poutputmodule), ppoutputtext.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), ppoptions, optioncount, core::mem::transmute(poutputmodule), ppoutputtext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2197,7 +2181,7 @@ impl IDxcUtils {
         unsafe { (windows_core::Interface::vtable(self).CreateReflection)(windows_core::Interface::as_raw(self), pdata, iid, ppvreflection as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn BuildArguments<P0, P1, P2>(&self, psourcename: P0, pentrypoint: P1, ptargetprofile: P2, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine]) -> windows_core::Result<IDxcCompilerArgs>
+    pub unsafe fn BuildArguments<P0, P1, P2>(&self, psourcename: P0, pentrypoint: P1, ptargetprofile: P2, parguments: Option<*const windows_core::PCWSTR>, argcount: super::UINT32, pdefines: *const DxcDefine, definecount: super::UINT32) -> windows_core::Result<IDxcCompilerArgs>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -2205,7 +2189,7 @@ impl IDxcUtils {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BuildArguments)(windows_core::Interface::as_raw(self), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), parguments.map_or(core::ptr::null(), |slice| slice.as_ptr()), parguments.map_or(0, |slice| slice.len().try_into().unwrap()), pdefines.as_ptr(), pdefines.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BuildArguments)(windows_core::Interface::as_raw(self), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), parguments.unwrap_or(core::mem::zeroed()) as _, argcount, pdefines, definecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut Option<IDxcBlob>) -> windows_core::Result<IDxcBlob>

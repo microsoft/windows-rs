@@ -193,7 +193,8 @@ impl<'a> DrawingSession<'a> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
             let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
+                abi_stops.as_ptr(),
+                abi_stops.len().try_into().unwrap(),
                 D2D1_GAMMA_2_2,
                 D2D1_EXTEND_MODE_CLAMP,
             )?;
@@ -218,7 +219,8 @@ impl<'a> DrawingSession<'a> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
             let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
+                abi_stops.as_ptr(),
+                abi_stops.len().try_into().unwrap(),
                 D2D1_GAMMA_2_2,
                 D2D1_EXTEND_MODE_CLAMP,
             )?;
@@ -239,7 +241,8 @@ impl<'a> DrawingSession<'a> {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
             self.context.DrawText(
-                &wide,
+                wide.as_ptr(),
+                wide.len().try_into().unwrap(),
                 format.raw(),
                 &rect.to_abi(),
                 brush.as_raw_brush(),

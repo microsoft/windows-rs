@@ -212,8 +212,8 @@ impl IBDA_ConditionalAccess {
         unsafe { (windows_core::Interface::vtable(self).get_SmartCardInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcardname), core::mem::transmute(pbstrcardmanufacturer), pfdaylightsavings as _, pbyratingregion as _, pltimezoneoffsetminutes as _, core::mem::transmute(pbstrlanguage), pealocationcode as _) }
     }
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn get_SmartCardApplications(&self, pulcapplications: *mut super::ULONG, rgapplications: &mut [SmartCardApplication]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, rgapplications.len().try_into().unwrap(), rgapplications.as_mut_ptr()) }
+    pub unsafe fn get_SmartCardApplications(&self, pulcapplications: *mut super::ULONG, ulcapplicationsmax: super::ULONG, rgapplications: *mut SmartCardApplication) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, ulcapplicationsmax, rgapplications) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn get_Entitlement(&self, usvirtualchannel: super::USHORT, pentitlement: *mut EntitlementType) -> windows_core::HRESULT {
@@ -389,12 +389,12 @@ windows_core::imp::define_interface!(IBDA_ConditionalAccessEx, IBDA_ConditionalA
 windows_core::imp::interface_hierarchy!(IBDA_ConditionalAccessEx, windows_core::IUnknown);
 impl IBDA_ConditionalAccessEx {
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, pbentitlementtoken: &[super::BYTE], puldescramblestatus: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CheckEntitlementToken)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), requesttype, pbentitlementtoken.len().try_into().unwrap(), pbentitlementtoken.as_ptr(), puldescramblestatus as _) }
+    pub unsafe fn CheckEntitlementToken(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, requesttype: super::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: super::ULONG, pbentitlementtoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CheckEntitlementToken)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), requesttype, ulcbentitlementtokenlen, pbentitlementtoken, puldescramblestatus as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetCaptureToken(&self, pbcapturetoken: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCaptureToken)(windows_core::Interface::as_raw(self), pbcapturetoken.len().try_into().unwrap(), pbcapturetoken.as_ptr()) }
+    pub unsafe fn SetCaptureToken(&self, ulcbcapturetokenlen: super::ULONG, pbcapturetoken: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCaptureToken)(windows_core::Interface::as_raw(self), ulcbcapturetokenlen, pbcapturetoken) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn OpenBroadcastMmi(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, eventid: super::ULONG) -> windows_core::HRESULT {
@@ -555,20 +555,20 @@ impl IBDA_DRIWMDRMSession {
         unsafe { (windows_core::Interface::vtable(self).AcknowledgeLicense)(windows_core::Interface::as_raw(self), hrlicenseack) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ProcessLicenseChallenge(&self, pblicensemessage: &[super::BYTE], pdwcblicenseresponse: *mut super::DWORD, ppblicenseresponse: *mut *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessLicenseChallenge)(windows_core::Interface::as_raw(self), pblicensemessage.len().try_into().unwrap(), pblicensemessage.as_ptr(), pdwcblicenseresponse as _, ppblicenseresponse as _) }
+    pub unsafe fn ProcessLicenseChallenge(&self, dwcblicensemessage: super::DWORD, pblicensemessage: *const super::BYTE, pdwcblicenseresponse: *mut super::DWORD, ppblicenseresponse: *mut *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ProcessLicenseChallenge)(windows_core::Interface::as_raw(self), dwcblicensemessage, pblicensemessage, pdwcblicenseresponse as _, ppblicenseresponse as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ProcessRegistrationChallenge(&self, pbregistrationmessage: &[super::BYTE], pdwcbregistrationresponse: *mut super::DWORD, ppbregistrationresponse: *mut *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessRegistrationChallenge)(windows_core::Interface::as_raw(self), pbregistrationmessage.len().try_into().unwrap(), pbregistrationmessage.as_ptr(), pdwcbregistrationresponse as _, ppbregistrationresponse as _) }
+    pub unsafe fn ProcessRegistrationChallenge(&self, dwcbregistrationmessage: super::DWORD, pbregistrationmessage: *const super::BYTE, pdwcbregistrationresponse: *mut super::DWORD, ppbregistrationresponse: *mut *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ProcessRegistrationChallenge)(windows_core::Interface::as_raw(self), dwcbregistrationmessage, pbregistrationmessage, pdwcbregistrationresponse as _, ppbregistrationresponse as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetRevInfo(&self, pbrevinfo: &[super::BYTE], pdwresponse: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRevInfo)(windows_core::Interface::as_raw(self), pbrevinfo.len().try_into().unwrap(), pbrevinfo.as_ptr(), pdwresponse as _) }
+    pub unsafe fn SetRevInfo(&self, dwrevinfolen: super::DWORD, pbrevinfo: *const super::BYTE, pdwresponse: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRevInfo)(windows_core::Interface::as_raw(self), dwrevinfolen, pbrevinfo, pdwresponse as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetCrl(&self, pbcrllen: &[super::BYTE], pdwresponse: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCrl)(windows_core::Interface::as_raw(self), pbcrllen.len().try_into().unwrap(), pbcrllen.as_ptr(), pdwresponse as _) }
+    pub unsafe fn SetCrl(&self, dwcrllen: super::DWORD, pbcrllen: *const super::BYTE, pdwresponse: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCrl)(windows_core::Interface::as_raw(self), dwcrllen, pbcrllen, pdwresponse as _) }
     }
     pub unsafe fn GetHMSAssociationData(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetHMSAssociationData)(windows_core::Interface::as_raw(self)) }
@@ -1406,8 +1406,8 @@ impl IBDA_DiseqCommand {
         unsafe { (windows_core::Interface::vtable(self).put_DiseqRepeats)(windows_core::Interface::as_raw(self), ulrepeats) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn put_DiseqSendCommand(&self, ulrequestid: super::ULONG, pbcommand: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).put_DiseqSendCommand)(windows_core::Interface::as_raw(self), ulrequestid, pbcommand.len().try_into().unwrap(), pbcommand.as_ptr()) }
+    pub unsafe fn put_DiseqSendCommand(&self, ulrequestid: super::ULONG, ulcbcommandlen: super::ULONG, pbcommand: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DiseqSendCommand)(windows_core::Interface::as_raw(self), ulrequestid, ulcbcommandlen, pbcommand) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn get_DiseqResponse(&self, ulrequestid: super::ULONG, pulcbresponselen: *mut super::ULONG, pbresponse: *mut super::BYTE) -> windows_core::HRESULT {
@@ -1701,8 +1701,8 @@ impl IBDA_EthernetFilter {
         unsafe { (windows_core::Interface::vtable(self).GetMulticastListSize)(windows_core::Interface::as_raw(self), pulcbaddresses as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PutMulticastList(&self, paddresslist: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), paddresslist.as_ptr()) }
+    pub unsafe fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), ulcbaddresses, paddresslist) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::HRESULT {
@@ -2413,8 +2413,8 @@ impl IBDA_IPV4Filter {
         unsafe { (windows_core::Interface::vtable(self).GetMulticastListSize)(windows_core::Interface::as_raw(self), pulcbaddresses as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PutMulticastList(&self, paddresslist: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), paddresslist.as_ptr()) }
+    pub unsafe fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), ulcbaddresses, paddresslist) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::HRESULT {
@@ -2518,8 +2518,8 @@ impl IBDA_IPV6Filter {
         unsafe { (windows_core::Interface::vtable(self).GetMulticastListSize)(windows_core::Interface::as_raw(self), pulcbaddresses as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PutMulticastList(&self, paddresslist: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), paddresslist.as_ptr()) }
+    pub unsafe fn PutMulticastList(&self, ulcbaddresses: super::ULONG, paddresslist: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutMulticastList)(windows_core::Interface::as_raw(self), ulcbaddresses, paddresslist) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut super::ULONG, paddresslist: *mut super::BYTE) -> windows_core::HRESULT {
@@ -2619,8 +2619,8 @@ windows_core::imp::define_interface!(IBDA_ISDBConditionalAccess, IBDA_ISDBCondit
 windows_core::imp::interface_hierarchy!(IBDA_ISDBConditionalAccess, windows_core::IUnknown);
 impl IBDA_ISDBConditionalAccess {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetIsdbCasRequest(&self, ulrequestid: super::ULONG, pbrequestbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetIsdbCasRequest)(windows_core::Interface::as_raw(self), ulrequestid, pbrequestbuffer.len().try_into().unwrap(), pbrequestbuffer.as_ptr()) }
+    pub unsafe fn SetIsdbCasRequest(&self, ulrequestid: super::ULONG, ulcbrequestbufferlen: super::ULONG, pbrequestbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetIsdbCasRequest)(windows_core::Interface::as_raw(self), ulrequestid, ulcbrequestbufferlen, pbrequestbuffer) }
     }
 }
 #[repr(C)]
@@ -2778,8 +2778,8 @@ windows_core::imp::define_interface!(IBDA_MUX, IBDA_MUX_Vtbl, 0x942aafec_4c05_4c
 windows_core::imp::interface_hierarchy!(IBDA_MUX, windows_core::IUnknown);
 impl IBDA_MUX {
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn SetPidList(&self, pbpidlistbuffer: &[super::BDA_MUX_PIDLISTITEM]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPidList)(windows_core::Interface::as_raw(self), pbpidlistbuffer.len().try_into().unwrap(), pbpidlistbuffer.as_ptr()) }
+    pub unsafe fn SetPidList(&self, ulpidlistcount: super::ULONG, pbpidlistbuffer: *const super::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPidList)(windows_core::Interface::as_raw(self), ulpidlistcount, pbpidlistbuffer) }
     }
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
     pub unsafe fn GetPidList(&self, pulpidlistcount: *mut super::ULONG, pbpidlistbuffer: *mut super::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT {
@@ -3437,24 +3437,24 @@ windows_core::imp::define_interface!(IBDA_Topology, IBDA_Topology_Vtbl, 0x79b568
 windows_core::imp::interface_hierarchy!(IBDA_Topology, windows_core::IUnknown);
 impl IBDA_Topology {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNodeTypes(&self, pulcnodetypes: *mut super::ULONG, rgulnodetypes: &mut [super::ULONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeTypes)(windows_core::Interface::as_raw(self), pulcnodetypes as _, rgulnodetypes.len().try_into().unwrap(), rgulnodetypes.as_mut_ptr()) }
+    pub unsafe fn GetNodeTypes(&self, pulcnodetypes: *mut super::ULONG, ulcnodetypesmax: super::ULONG, rgulnodetypes: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeTypes)(windows_core::Interface::as_raw(self), pulcnodetypes as _, ulcnodetypesmax, rgulnodetypes as _) }
     }
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn GetNodeDescriptors(&self, ulcnodedescriptors: *mut super::ULONG, rgnodedescriptors: &mut [super::BDANODE_DESCRIPTOR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeDescriptors)(windows_core::Interface::as_raw(self), ulcnodedescriptors as _, rgnodedescriptors.len().try_into().unwrap(), rgnodedescriptors.as_mut_ptr()) }
+    pub unsafe fn GetNodeDescriptors(&self, ulcnodedescriptors: *mut super::ULONG, ulcnodedescriptorsmax: super::ULONG, rgnodedescriptors: *mut super::BDANODE_DESCRIPTOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeDescriptors)(windows_core::Interface::as_raw(self), ulcnodedescriptors as _, ulcnodedescriptorsmax, rgnodedescriptors as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetNodeInterfaces(&self, ulnodetype: super::ULONG, pulcinterfaces: *mut super::ULONG, rgguidinterfaces: &mut [windows_core::GUID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeInterfaces)(windows_core::Interface::as_raw(self), ulnodetype, pulcinterfaces as _, rgguidinterfaces.len().try_into().unwrap(), rgguidinterfaces.as_mut_ptr()) }
+    pub unsafe fn GetNodeInterfaces(&self, ulnodetype: super::ULONG, pulcinterfaces: *mut super::ULONG, ulcinterfacesmax: super::ULONG, rgguidinterfaces: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeInterfaces)(windows_core::Interface::as_raw(self), ulnodetype, pulcinterfaces as _, ulcinterfacesmax, rgguidinterfaces as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPinTypes(&self, pulcpintypes: *mut super::ULONG, rgulpintypes: &mut [super::ULONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPinTypes)(windows_core::Interface::as_raw(self), pulcpintypes as _, rgulpintypes.len().try_into().unwrap(), rgulpintypes.as_mut_ptr()) }
+    pub unsafe fn GetPinTypes(&self, pulcpintypes: *mut super::ULONG, ulcpintypesmax: super::ULONG, rgulpintypes: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPinTypes)(windows_core::Interface::as_raw(self), pulcpintypes as _, ulcpintypesmax, rgulpintypes as _) }
     }
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn GetTemplateConnections(&self, pulcconnections: *mut super::ULONG, rgconnections: &mut [super::BDA_TEMPLATE_CONNECTION]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTemplateConnections)(windows_core::Interface::as_raw(self), pulcconnections as _, rgconnections.len().try_into().unwrap(), rgconnections.as_mut_ptr()) }
+    pub unsafe fn GetTemplateConnections(&self, pulcconnections: *mut super::ULONG, ulcconnectionsmax: super::ULONG, rgconnections: *mut super::BDA_TEMPLATE_CONNECTION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTemplateConnections)(windows_core::Interface::as_raw(self), pulcconnections as _, ulcconnectionsmax, rgconnections as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreatePin(&self, ulpintype: super::ULONG, pulpinid: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3848,16 +3848,16 @@ impl IBDA_WMDRMSession {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), maxcapturetoken as _, maxstreamingpid as _, maxlicense as _, minsecuritylevel as _, revinfosequencenumber as _, revinfoissuedtime as _, revinfottl as _, revlistversion as _, ulstate as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetRevInfo(&self, pbrevinfo: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRevInfo)(windows_core::Interface::as_raw(self), pbrevinfo.len().try_into().unwrap(), pbrevinfo.as_ptr()) }
+    pub unsafe fn SetRevInfo(&self, ulrevinfolen: super::ULONG, pbrevinfo: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRevInfo)(windows_core::Interface::as_raw(self), ulrevinfolen, pbrevinfo) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetCrl(&self, pbcrllen: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCrl)(windows_core::Interface::as_raw(self), pbcrllen.len().try_into().unwrap(), pbcrllen.as_ptr()) }
+    pub unsafe fn SetCrl(&self, ulcrllen: super::ULONG, pbcrllen: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCrl)(windows_core::Interface::as_raw(self), ulcrllen, pbcrllen) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn TransactMessage(&self, pbrequest: &[super::BYTE], pulcbresponse: *mut super::ULONG, pbresponse: *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).TransactMessage)(windows_core::Interface::as_raw(self), pbrequest.len().try_into().unwrap(), pbrequest.as_ptr(), pulcbresponse as _, pbresponse as _) }
+    pub unsafe fn TransactMessage(&self, ulcbrequest: super::ULONG, pbrequest: *const super::BYTE, pulcbresponse: *mut super::ULONG, pbresponse: *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TransactMessage)(windows_core::Interface::as_raw(self), ulcbrequest, pbrequest, pulcbresponse as _, pbresponse as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetLicense(&self, uuidkey: *const windows_core::GUID, pulpackagelen: *mut super::ULONG, pbpackage: *mut super::BYTE) -> windows_core::HRESULT {
@@ -3867,8 +3867,8 @@ impl IBDA_WMDRMSession {
         unsafe { (windows_core::Interface::vtable(self).ReissueLicense)(windows_core::Interface::as_raw(self), uuidkey) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RenewLicense(&self, pbinxmrlicense: &[super::BYTE], pbentitlementtoken: &[super::BYTE], puldescramblestatus: *mut super::ULONG, puloutxmrlicenselen: *mut super::ULONG, pboutxmrlicense: *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RenewLicense)(windows_core::Interface::as_raw(self), pbinxmrlicense.len().try_into().unwrap(), pbinxmrlicense.as_ptr(), pbentitlementtoken.len().try_into().unwrap(), pbentitlementtoken.as_ptr(), puldescramblestatus as _, puloutxmrlicenselen as _, pboutxmrlicense as _) }
+    pub unsafe fn RenewLicense(&self, ulinxmrlicenselen: super::ULONG, pbinxmrlicense: *const super::BYTE, ulentitlementtokenlen: super::ULONG, pbentitlementtoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG, puloutxmrlicenselen: *mut super::ULONG, pboutxmrlicense: *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenewLicense)(windows_core::Interface::as_raw(self), ulinxmrlicenselen, pbinxmrlicense, ulentitlementtokenlen, pbentitlementtoken, puldescramblestatus as _, puloutxmrlicenselen as _, pboutxmrlicense as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetKeyInfo(&self, pulkeyinfolen: *mut super::ULONG, pbkeyinfo: *mut super::BYTE) -> windows_core::HRESULT {
@@ -3993,12 +3993,12 @@ windows_core::imp::define_interface!(IBDA_WMDRMTuner, IBDA_WMDRMTuner_Vtbl, 0x86
 windows_core::imp::interface_hierarchy!(IBDA_WMDRMTuner, windows_core::IUnknown);
 impl IBDA_WMDRMTuner {
     #[cfg(feature = "shared")]
-    pub unsafe fn PurchaseEntitlement(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, pbpurchasetoken: &[super::BYTE], puldescramblestatus: *mut super::ULONG, pulcapturetokenlen: *mut super::ULONG, pbcapturetoken: *mut super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PurchaseEntitlement)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), pbpurchasetoken.len().try_into().unwrap(), pbpurchasetoken.as_ptr(), puldescramblestatus as _, pulcapturetokenlen as _, pbcapturetoken as _) }
+    pub unsafe fn PurchaseEntitlement(&self, uldialogrequest: super::ULONG, bstrlanguage: &windows_core::BSTR, ulpurchasetokenlen: super::ULONG, pbpurchasetoken: *const super::BYTE, puldescramblestatus: *mut super::ULONG, pulcapturetokenlen: *mut super::ULONG, pbcapturetoken: *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PurchaseEntitlement)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), ulpurchasetokenlen, pbpurchasetoken, puldescramblestatus as _, pulcapturetokenlen as _, pbcapturetoken as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CancelCaptureToken(&self, pbcapturetoken: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CancelCaptureToken)(windows_core::Interface::as_raw(self), pbcapturetoken.len().try_into().unwrap(), pbcapturetoken.as_ptr()) }
+    pub unsafe fn CancelCaptureToken(&self, ulcapturetokenlen: super::ULONG, pbcapturetoken: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CancelCaptureToken)(windows_core::Interface::as_raw(self), ulcapturetokenlen, pbcapturetoken) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetPidProtection(&self, ulpid: super::ULONG, uuidkey: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -4426,8 +4426,8 @@ windows_core::imp::define_interface!(IEnumPIDMap, IEnumPIDMap_Vtbl, 0xafb6c2a2_2
 windows_core::imp::interface_hierarchy!(IEnumPIDMap, windows_core::IUnknown);
 impl IEnumPIDMap {
     #[cfg(all(feature = "bdatypes", feature = "shared"))]
-    pub unsafe fn Next(&self, ppidmap: &mut [super::PID_MAP], pcreceived: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppidmap.len().try_into().unwrap(), ppidmap.as_mut_ptr(), pcreceived as _) }
+    pub unsafe fn Next(&self, crequest: super::ULONG, ppidmap: *mut super::PID_MAP, pcreceived: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), crequest, ppidmap as _, pcreceived as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, crecords: super::ULONG) -> windows_core::HRESULT {
@@ -4523,8 +4523,8 @@ impl IFrequencyMap {
         unsafe { (windows_core::Interface::vtable(self).get_FrequencyMapping)(windows_core::Interface::as_raw(self), ulcount as _, ppullist as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn put_FrequencyMapping(&self, plist: &[super::ULONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).put_FrequencyMapping)(windows_core::Interface::as_raw(self), plist.len().try_into().unwrap(), plist.as_ptr()) }
+    pub unsafe fn put_FrequencyMapping(&self, ulcount: super::ULONG, plist: *const super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_FrequencyMapping)(windows_core::Interface::as_raw(self), ulcount, plist) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn get_CountryCode(&self, pulcountrycode: *mut super::ULONG) -> windows_core::HRESULT {

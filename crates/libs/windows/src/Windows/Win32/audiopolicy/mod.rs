@@ -329,8 +329,8 @@ impl IAudioSessionEvents {
         unsafe { (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), newvolume, newmute.into(), eventcontext) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: super::DWORD, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), newchannelvolumearray.len().try_into().unwrap(), newchannelvolumearray.as_ptr(), changedchannel, eventcontext) }
+    pub unsafe fn OnChannelVolumeChanged(&self, channelcount: super::DWORD, newchannelvolumearray: *const f32, changedchannel: super::DWORD, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), channelcount, newchannelvolumearray, changedchannel, eventcontext) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn OnGroupingParamChanged(&self, newgroupingparam: super::LPCGUID, eventcontext: super::LPCGUID) -> windows_core::HRESULT {

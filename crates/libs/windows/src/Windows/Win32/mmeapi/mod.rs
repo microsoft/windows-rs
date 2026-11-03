@@ -138,15 +138,15 @@ pub unsafe fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: LPMIDIHDR, cbmh: super::U
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: super::UINT, pwkya: &[u16; 128], fucache: super::UINT) -> super::MMRESULT {
+pub unsafe fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: super::UINT, pwkya: super::LPWORD, fucache: super::UINT) -> super::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : super::UINT, pwkya : super::LPWORD, fucache : super::UINT) -> super::MMRESULT);
-    unsafe { midiOutCacheDrumPatches(hmo, upatch, core::mem::transmute(pwkya.as_ptr()), fucache) }
+    unsafe { midiOutCacheDrumPatches(hmo, upatch, pwkya, fucache) }
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn midiOutCachePatches(hmo: HMIDIOUT, ubank: super::UINT, pwpa: &[u16; 128], fucache: super::UINT) -> super::MMRESULT {
+pub unsafe fn midiOutCachePatches(hmo: HMIDIOUT, ubank: super::UINT, pwpa: super::LPWORD, fucache: super::UINT) -> super::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : super::UINT, pwpa : super::LPWORD, fucache : super::UINT) -> super::MMRESULT);
-    unsafe { midiOutCachePatches(hmo, ubank, core::mem::transmute(pwpa.as_ptr()), fucache) }
+    unsafe { midiOutCachePatches(hmo, ubank, pwpa, fucache) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
@@ -252,9 +252,9 @@ pub unsafe fn midiStreamClose(hms: HMIDISTRM) -> super::MMRESULT {
 }
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn midiStreamOpen(phms: LPHMIDISTRM, pudeviceid: &mut [u32], dwcallback: Option<super::DWORD_PTR>, dwinstance: Option<super::DWORD_PTR>, fdwopen: super::DWORD) -> super::MMRESULT {
+pub unsafe fn midiStreamOpen(phms: LPHMIDISTRM, pudeviceid: super::LPUINT, cmidi: super::DWORD, dwcallback: Option<super::DWORD_PTR>, dwinstance: Option<super::DWORD_PTR>, fdwopen: super::DWORD) -> super::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamOpen(phms : LPHMIDISTRM, pudeviceid : super::LPUINT, cmidi : super::DWORD, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
-    unsafe { midiStreamOpen(phms as _, core::mem::transmute(pudeviceid.as_mut_ptr()), pudeviceid.len().try_into().unwrap(), dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
+    unsafe { midiStreamOpen(phms as _, pudeviceid as _, cmidi, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]

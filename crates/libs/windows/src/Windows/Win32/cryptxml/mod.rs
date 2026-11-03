@@ -1,8 +1,8 @@
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CryptXmlAddObject(hsignatureorobject: HCRYPTXML, dwflags: super::DWORD, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, ppobject: *mut *const CRYPT_XML_OBJECT) -> windows_core::HRESULT {
+pub unsafe fn CryptXmlAddObject(hsignatureorobject: HCRYPTXML, dwflags: super::DWORD, rgproperty: Option<*const CRYPT_XML_PROPERTY>, cproperty: super::ULONG, pencoded: *const CRYPT_XML_BLOB, ppobject: *mut *const CRYPT_XML_OBJECT) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : super::DWORD, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : super::ULONG, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *const CRYPT_XML_OBJECT) -> windows_core::HRESULT);
-    unsafe { CryptXmlAddObject(hsignatureorobject, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, ppobject as _) }
+    unsafe { CryptXmlAddObject(hsignatureorobject, dwflags, rgproperty.unwrap_or(core::mem::zeroed()) as _, cproperty, pencoded, ppobject as _) }
 }
 #[inline]
 pub unsafe fn CryptXmlClose(hcryptxml: HCRYPTXML) -> windows_core::HRESULT {
@@ -11,14 +11,14 @@ pub unsafe fn CryptXmlClose(hcryptxml: HCRYPTXML) -> windows_core::HRESULT {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlCreateReference<P2, P3, P4>(hcryptxml: HCRYPTXML, dwflags: super::DWORD, wszid: P2, wszuri: P3, wsztype: P4, pdigestmethod: *const CRYPT_XML_ALGORITHM, rgtransform: Option<&[CRYPT_XML_ALGORITHM]>, phreference: *mut HCRYPTXML) -> windows_core::HRESULT
+pub unsafe fn CryptXmlCreateReference<P2, P3, P4>(hcryptxml: HCRYPTXML, dwflags: super::DWORD, wszid: P2, wszuri: P3, wsztype: P4, pdigestmethod: *const CRYPT_XML_ALGORITHM, ctransform: super::ULONG, rgtransform: Option<*const CRYPT_XML_ALGORITHM>, phreference: *mut HCRYPTXML) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlCreateReference(hcryptxml : HCRYPTXML, dwflags : super::DWORD, wszid : windows_core::PCWSTR, wszuri : windows_core::PCWSTR, wsztype : windows_core::PCWSTR, pdigestmethod : *const CRYPT_XML_ALGORITHM, ctransform : super::ULONG, rgtransform : *const CRYPT_XML_ALGORITHM, phreference : *mut HCRYPTXML) -> windows_core::HRESULT);
-    unsafe { CryptXmlCreateReference(hcryptxml, dwflags, wszid.param().abi(), wszuri.param().abi(), wsztype.param().abi(), pdigestmethod, rgtransform.map_or(0, |slice| slice.len().try_into().unwrap()), rgtransform.map_or(core::ptr::null(), |slice| slice.as_ptr()), phreference as _) }
+    unsafe { CryptXmlCreateReference(hcryptxml, dwflags, wszid.param().abi(), wszuri.param().abi(), wsztype.param().abi(), pdigestmethod, ctransform, rgtransform.unwrap_or(core::mem::zeroed()) as _, phreference as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -28,9 +28,9 @@ pub unsafe fn CryptXmlDigestReference(hreference: HCRYPTXML, dwflags: super::DWO
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlEncode(hcryptxml: HCRYPTXML, dwcharset: CRYPT_XML_CHARSET, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pvcallbackstate: *mut core::ffi::c_void, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_core::HRESULT {
+pub unsafe fn CryptXmlEncode(hcryptxml: HCRYPTXML, dwcharset: CRYPT_XML_CHARSET, rgproperty: Option<*const CRYPT_XML_PROPERTY>, cproperty: super::ULONG, pvcallbackstate: *mut core::ffi::c_void, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlEncode(hcryptxml : HCRYPTXML, dwcharset : CRYPT_XML_CHARSET, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : super::ULONG, pvcallbackstate : *mut core::ffi::c_void, pfnwrite : PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_core::HRESULT);
-    unsafe { CryptXmlEncode(hcryptxml, dwcharset, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pvcallbackstate as _, pfnwrite) }
+    unsafe { CryptXmlEncode(hcryptxml, dwcharset, rgproperty.unwrap_or(core::mem::zeroed()) as _, cproperty, pvcallbackstate as _, pfnwrite) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -88,24 +88,24 @@ pub unsafe fn CryptXmlImportPublicKey(dwflags: super::DWORD, pkeyvalue: *const C
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlOpenToDecode(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: super::DWORD, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, phcryptxml: *mut HCRYPTXML) -> windows_core::HRESULT {
+pub unsafe fn CryptXmlOpenToDecode(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: super::DWORD, rgproperty: Option<*const CRYPT_XML_PROPERTY>, cproperty: super::ULONG, pencoded: *const CRYPT_XML_BLOB, phcryptxml: *mut HCRYPTXML) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlOpenToDecode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : super::DWORD, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : super::ULONG, pencoded : *const CRYPT_XML_BLOB, phcryptxml : *mut HCRYPTXML) -> windows_core::HRESULT);
-    unsafe { CryptXmlOpenToDecode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, phcryptxml as _) }
+    unsafe { CryptXmlOpenToDecode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, rgproperty.unwrap_or(core::mem::zeroed()) as _, cproperty, pencoded, phcryptxml as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlOpenToEncode<P2>(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: super::DWORD, wszid: P2, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: Option<*const CRYPT_XML_BLOB>, phsignature: *mut HCRYPTXML) -> windows_core::HRESULT
+pub unsafe fn CryptXmlOpenToEncode<P2>(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: super::DWORD, wszid: P2, rgproperty: Option<*const CRYPT_XML_PROPERTY>, cproperty: super::ULONG, pencoded: Option<*const CRYPT_XML_BLOB>, phsignature: *mut HCRYPTXML) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlOpenToEncode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : super::DWORD, wszid : windows_core::PCWSTR, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : super::ULONG, pencoded : *const CRYPT_XML_BLOB, phsignature : *mut HCRYPTXML) -> windows_core::HRESULT);
-    unsafe { CryptXmlOpenToEncode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, wszid.param().abi(), rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded.unwrap_or(core::mem::zeroed()) as _, phsignature as _) }
+    unsafe { CryptXmlOpenToEncode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, wszid.param().abi(), rgproperty.unwrap_or(core::mem::zeroed()) as _, cproperty, pencoded.unwrap_or(core::mem::zeroed()) as _, phsignature as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptXmlSetHMACSecret(hsignature: HCRYPTXML, pbsecret: &[u8]) -> windows_core::HRESULT {
+pub unsafe fn CryptXmlSetHMACSecret(hsignature: HCRYPTXML, pbsecret: *const super::BYTE, cbsecret: super::ULONG) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlSetHMACSecret(hsignature : HCRYPTXML, pbsecret : *const super::BYTE, cbsecret : super::ULONG) -> windows_core::HRESULT);
-    unsafe { CryptXmlSetHMACSecret(hsignature, core::mem::transmute(pbsecret.as_ptr()), pbsecret.len().try_into().unwrap()) }
+    unsafe { CryptXmlSetHMACSecret(hsignature, pbsecret, cbsecret) }
 }
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[inline]

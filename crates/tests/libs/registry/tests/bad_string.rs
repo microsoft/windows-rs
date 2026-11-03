@@ -21,7 +21,8 @@ fn bad_string() -> Result<()> {
             w!("name"),
             None,
             REG_SZ,
-            Some(&bad_string_bytes),
+            Some(bad_string_bytes.as_ptr()),
+            bad_string_bytes.len().try_into().unwrap(),
         ) as u32)
         .ok()?;
     }
@@ -60,7 +61,8 @@ fn bad_multi_string_missing_double_null() -> Result<()> {
             w!("multi"),
             None,
             REG_MULTI_SZ,
-            Some(bad_multi_bytes),
+            Some(bad_multi_bytes.as_ptr()),
+            bad_multi_bytes.len().try_into().unwrap(),
         ) as u32)
         .ok()?;
     }

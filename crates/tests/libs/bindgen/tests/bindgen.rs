@@ -362,9 +362,12 @@ fn real_inout_parameters_remain_output_capable() {
     let wingdi =
         std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/wingdi/mod.rs").unwrap();
     assert!(wingdi.contains(
-        "pub unsafe fn DPtoLP(hdc: super::HDC, lppt: &mut [super::POINT]) -> \
+        "pub unsafe fn DPtoLP(hdc: super::HDC, lppt: super::LPPOINT, c: i32) -> \
          windows_core::BOOL"
     ));
+    let windef =
+        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/windef/mod.rs").unwrap();
+    assert!(windef.contains("pub type LPPOINT = *mut POINT;"));
 
     let dpapi =
         std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/dpapi/mod.rs").unwrap();

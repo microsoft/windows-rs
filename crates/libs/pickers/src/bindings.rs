@@ -76,13 +76,14 @@ windows_core::imp::interface_hierarchy!(IFileDialog, windows_core::IUnknown, IMo
 impl IFileDialog {
     pub(crate) unsafe fn SetFileTypes(
         &self,
-        rgfilterspec: &[COMDLG_FILTERSPEC],
+        cfiletypes: UINT,
+        rgfilterspec: *const COMDLG_FILTERSPEC,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetFileTypes)(
                 windows_core::Interface::as_raw(self),
-                rgfilterspec.len().try_into().unwrap(),
-                rgfilterspec.as_ptr(),
+                cfiletypes,
+                rgfilterspec,
             )
         }
     }

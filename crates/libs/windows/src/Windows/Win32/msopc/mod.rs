@@ -2583,10 +2583,10 @@ windows_core::imp::define_interface!(IOpcSignatureCustomObjectSet, IOpcSignature
 windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObjectSet, windows_core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     #[cfg(feature = "shared")]
-    pub unsafe fn Create(&self, xmlmarkup: &[super::UINT8]) -> windows_core::Result<IOpcSignatureCustomObject> {
+    pub unsafe fn Create(&self, xmlmarkup: *const super::UINT8, count: super::UINT32) -> windows_core::Result<IOpcSignatureCustomObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), xmlmarkup.as_ptr(), xmlmarkup.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), xmlmarkup, count, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete<P0>(&self, customobject: P0) -> windows_core::HRESULT

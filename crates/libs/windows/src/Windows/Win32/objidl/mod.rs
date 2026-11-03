@@ -32,15 +32,15 @@ pub unsafe fn SNB_UserSize64(param0: *const u32, param1: u32, param2: *const SNB
     unsafe { SNB_UserSize64(param0, param1, param2) }
 }
 #[inline]
-pub unsafe fn SNB_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut SNB) -> *mut u8 {
+pub unsafe fn SNB_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut SNB) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn SNB_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut SNB) -> *mut u8);
-    unsafe { SNB_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { SNB_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SNB_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut SNB) -> *mut u8 {
+pub unsafe fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut SNB) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn SNB_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut SNB) -> *mut u8);
-    unsafe { SNB_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { SNB_UserUnmarshal64(param0, param1, param2 as _) }
 }
 pub type ADVF = i32;
 pub const ADVFCACHE_FORCEBUILTIN: ADVF = 16;
@@ -1879,8 +1879,8 @@ windows_core::imp::define_interface!(ILayoutStorage, ILayoutStorage_Vtbl, 0x0e6d
 windows_core::imp::interface_hierarchy!(ILayoutStorage, windows_core::IUnknown);
 impl ILayoutStorage {
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn LayoutScript(&self, pstoragelayout: &[StorageLayout], glfinterleavedflag: Option<super::DWORD>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), pstoragelayout.as_ptr(), pstoragelayout.len().try_into().unwrap(), glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn LayoutScript(&self, pstoragelayout: *const StorageLayout, nentries: super::DWORD, glfinterleavedflag: Option<super::DWORD>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), pstoragelayout, nentries, glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn BeginMonitor(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginMonitor)(windows_core::Interface::as_raw(self)) }
@@ -3627,11 +3627,11 @@ impl IStorage {
         }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CopyTo<P3>(&self, rgiidexclude: Option<&[super::IID]>, snbexclude: Option<SNB>, pstgdest: P3) -> windows_core::HRESULT
+    pub unsafe fn CopyTo<P3>(&self, ciidexclude: super::DWORD, rgiidexclude: Option<*const super::IID>, snbexclude: Option<SNB>, pstgdest: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr()), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), ciidexclude, rgiidexclude.unwrap_or(core::mem::zeroed()) as _, snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn MoveElementTo<P1>(&self, pwcsname: *const super::OLECHAR, pstgdest: P1, pwcsnewname: *const super::OLECHAR, grfflags: super::DWORD) -> windows_core::HRESULT

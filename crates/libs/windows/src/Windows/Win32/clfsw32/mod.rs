@@ -9,9 +9,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AddLogContainerSet(hlog: super::HANDLE, pcbcontainer: Option<super::PULONGLONG>, rgwszcontainerpath: &[windows_core::PCWSTR], preserved: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn AddLogContainerSet(hlog: super::HANDLE, ccontainer: super::USHORT, pcbcontainer: Option<super::PULONGLONG>, rgwszcontainerpath: *const windows_core::PCWSTR, preserved: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn AddLogContainerSet(hlog : super::HANDLE, ccontainer : super::USHORT, pcbcontainer : super::PULONGLONG, rgwszcontainerpath : *const windows_core::PCWSTR, preserved : super::LPVOID) -> windows_core::BOOL);
-    unsafe { AddLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), pcbcontainer.unwrap_or(core::mem::zeroed()) as _, rgwszcontainerpath.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AddLogContainerSet(hlog, ccontainer, pcbcontainer.unwrap_or(core::mem::zeroed()) as _, rgwszcontainerpath, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -141,9 +141,9 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT
 }
 #[cfg(all(feature = "clfs", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn PrepareLogArchive(hlog: super::HANDLE, pszbaselogfilename: &mut [u16], plsnlow: Option<super::PCLFS_LSN>, plsnhigh: Option<super::PCLFS_LSN>, pcactuallength: Option<super::PULONG>, poffbaselogfiledata: super::PULONGLONG, pcbbaselogfilelength: super::PULONGLONG, plsnbase: super::PCLFS_LSN, plsnlast: super::PCLFS_LSN, plsncurrentarchivetail: super::PCLFS_LSN, ppvarchivecontext: PCLFS_LOG_ARCHIVE_CONTEXT) -> windows_core::BOOL {
+pub unsafe fn PrepareLogArchive(hlog: super::HANDLE, pszbaselogfilename: windows_core::PWSTR, clen: super::ULONG, plsnlow: Option<super::PCLFS_LSN>, plsnhigh: Option<super::PCLFS_LSN>, pcactuallength: Option<super::PULONG>, poffbaselogfiledata: super::PULONGLONG, pcbbaselogfilelength: super::PULONGLONG, plsnbase: super::PCLFS_LSN, plsnlast: super::PCLFS_LSN, plsncurrentarchivetail: super::PCLFS_LSN, ppvarchivecontext: PCLFS_LOG_ARCHIVE_CONTEXT) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn PrepareLogArchive(hlog : super::HANDLE, pszbaselogfilename : windows_core::PWSTR, clen : super::ULONG, plsnlow : super::PCLFS_LSN, plsnhigh : super::PCLFS_LSN, pcactuallength : super::PULONG, poffbaselogfiledata : super::PULONGLONG, pcbbaselogfilelength : super::PULONGLONG, plsnbase : super::PCLFS_LSN, plsnlast : super::PCLFS_LSN, plsncurrentarchivetail : super::PCLFS_LSN, ppvarchivecontext : PCLFS_LOG_ARCHIVE_CONTEXT) -> windows_core::BOOL);
-    unsafe { PrepareLogArchive(hlog, core::mem::transmute(pszbaselogfilename.as_mut_ptr()), pszbaselogfilename.len().try_into().unwrap(), plsnlow.unwrap_or(core::mem::zeroed()) as _, plsnhigh.unwrap_or(core::mem::zeroed()) as _, pcactuallength.unwrap_or(core::mem::zeroed()) as _, poffbaselogfiledata as _, pcbbaselogfilelength as _, plsnbase as _, plsnlast as _, plsncurrentarchivetail as _, ppvarchivecontext as _) }
+    unsafe { PrepareLogArchive(hlog, pszbaselogfilename, clen, plsnlow.unwrap_or(core::mem::zeroed()) as _, plsnhigh.unwrap_or(core::mem::zeroed()) as _, pcactuallength.unwrap_or(core::mem::zeroed()) as _, poffbaselogfiledata as _, pcbbaselogfilelength as _, plsnbase as _, plsnlast as _, plsncurrentarchivetail as _, ppvarchivecontext as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -186,9 +186,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RemoveLogContainerSet(hlog: super::HANDLE, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: bool, preserved: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn RemoveLogContainerSet(hlog: super::HANDLE, ccontainer: super::USHORT, rgwszcontainerpath: *const windows_core::PCWSTR, fforce: bool, preserved: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn RemoveLogContainerSet(hlog : super::HANDLE, ccontainer : super::USHORT, rgwszcontainerpath : *const windows_core::PCWSTR, fforce : windows_core::BOOL, preserved : super::LPVOID) -> windows_core::BOOL);
-    unsafe { RemoveLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), rgwszcontainerpath.as_ptr(), fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RemoveLogContainerSet(hlog, ccontainer, rgwszcontainerpath, fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]

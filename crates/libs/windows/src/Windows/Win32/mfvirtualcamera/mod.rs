@@ -1,6 +1,6 @@
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFCreateVirtualCamera<P3, P4>(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyname: P3, sourceid: P4, categories: Option<&[windows_core::GUID]>) -> windows_core::Result<IMFVirtualCamera>
+pub unsafe fn MFCreateVirtualCamera<P3, P4>(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyname: P3, sourceid: P4, categories: Option<*const windows_core::GUID>, categorycount: super::ULONG) -> windows_core::Result<IMFVirtualCamera>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -8,7 +8,7 @@ where
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_core::PCWSTR, sourceid : windows_core::PCWSTR, categories : *const windows_core::GUID, categorycount : super::ULONG, virtualcamera : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), categories.map_or(core::ptr::null(), |slice| slice.as_ptr()), categories.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), categories.unwrap_or(core::mem::zeroed()) as _, categorycount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -97,16 +97,16 @@ impl IMFVirtualCamera {
         unsafe { (windows_core::Interface::vtable(self).AddDeviceSourceInfo)(windows_core::Interface::as_raw(self), devicesourceinfo.param().abi()) }
     }
     #[cfg(all(feature = "devpropdef", feature = "shared"))]
-    pub unsafe fn AddProperty(&self, pkey: *const super::DEVPROPKEY, r#type: super::DEVPROPTYPE, pbdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pkey, r#type, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap()) }
+    pub unsafe fn AddProperty(&self, pkey: *const super::DEVPROPKEY, r#type: super::DEVPROPTYPE, pbdata: *const super::BYTE, cbdata: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pkey, r#type, pbdata, cbdata) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddRegistryEntry<P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: super::DWORD, pbdata: &[u8]) -> windows_core::HRESULT
+    pub unsafe fn AddRegistryEntry<P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: super::DWORD, pbdata: *const super::BYTE, cbdata: super::ULONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRegistryEntry)(windows_core::Interface::as_raw(self), entryname.param().abi(), subkeypath.param().abi(), dwregtype, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddRegistryEntry)(windows_core::Interface::as_raw(self), entryname.param().abi(), subkeypath.param().abi(), dwregtype, pbdata, cbdata) }
     }
     pub unsafe fn Start<P0>(&self, pcallback: P0) -> windows_core::HRESULT
     where

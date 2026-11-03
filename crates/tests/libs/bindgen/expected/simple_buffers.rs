@@ -1,37 +1,37 @@
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn Input(&self, values: &[u32]) {
+    pub unsafe fn Input(&self, values: *const u32, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
-                values.as_ptr(),
-                values.len().try_into().unwrap(),
+                values,
+                count,
             );
         }
     }
-    pub unsafe fn Fixed(&self, values: &[u32; 4]) {
+    pub unsafe fn Fixed(&self, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Fixed)(
                 windows_core::Interface::as_raw(self),
-                values.as_ptr(),
+                values,
             );
         }
     }
-    pub unsafe fn InOut(&self, values: &mut [u32]) {
+    pub unsafe fn InOut(&self, values: *mut u32, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).InOut)(
                 windows_core::Interface::as_raw(self),
-                values.as_mut_ptr(),
-                values.len().try_into().unwrap(),
+                values as _,
+                count,
             );
         }
     }
-    pub unsafe fn Optional(&self, values: Option<&[u32]>) {
+    pub unsafe fn Optional(&self, values: Option<*const u32>, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Optional)(
                 windows_core::Interface::as_raw(self),
-                values.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                values.map_or(0, |slice| slice.len().try_into().unwrap()),
+                values.unwrap_or(core::mem::zeroed()) as _,
+                count,
             );
         }
     }
@@ -87,14 +87,15 @@ impl Buffers {
     }
     pub unsafe fn QueryWithBuffer(
         &self,
-        ids: &[windows_core::GUID],
+        ids: *const windows_core::GUID,
+        count: u32,
         result: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).QueryWithBuffer)(
                 windows_core::Interface::as_raw(self),
-                ids.as_ptr(),
-                ids.len().try_into().unwrap(),
+                ids,
+                count,
                 result as _,
             )
         }

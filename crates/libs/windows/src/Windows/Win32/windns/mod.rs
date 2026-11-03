@@ -78,22 +78,22 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: Option<&[super::BYTE]>, dwexplicitinterfaceindex: super::DWORD, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: Option<*const super::BYTE>, dwselectioncontextlength: super::DWORD, dwexplicitinterfaceindex: super::DWORD, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
-    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pproxyinfoex as _) }
+    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext.unwrap_or(core::mem::zeroed()) as _, dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: Option<&[super::BYTE]>, dwexplicitinterfaceindex: super::DWORD, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: Option<*const super::BYTE>, dwselectioncontextlength: super::DWORD, dwexplicitinterfaceindex: super::DWORD, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const super::BYTE, dwselectioncontextlength : super::DWORD, dwexplicitinterfaceindex : super::DWORD, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> super::DWORD);
-    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
+    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext.unwrap_or(core::mem::zeroed()) as _, dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -385,9 +385,9 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: PDNS_SERVICE_CANCEL) -> DNS
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "ws2"))]
 #[inline]
-pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: Option<*const DNS_APPLICATION_SETTINGS>) -> super::DWORD {
+pub unsafe fn DnsSetApplicationSettings(cservers: super::DWORD, pservers: *const DNS_CUSTOM_SERVER, psettings: Option<*const DNS_APPLICATION_SETTINGS>) -> super::DWORD {
     windows_core::link!("dnsapi.dll" "system" fn DnsSetApplicationSettings(cservers : super::DWORD, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> super::DWORD);
-    unsafe { DnsSetApplicationSettings(pservers.len().try_into().unwrap(), pservers.as_ptr(), psettings.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DnsSetApplicationSettings(cservers, pservers, psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

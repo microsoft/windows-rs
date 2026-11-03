@@ -17,12 +17,12 @@ pub unsafe fn WTSCloudAuthClose(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE) {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WTSCloudAuthConvertAssertionToSerializedUserCredential<P3>(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, assertion: &[u8], resourceid: P3, usercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL
+pub unsafe fn WTSCloudAuthConvertAssertionToSerializedUserCredential<P3>(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, assertion: windows_core::PCSTR, assertionlength: super::ULONG, resourceid: P3, usercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, assertion : windows_core::PCSTR, assertionlength : super::ULONG, resourceid : windows_core::PCWSTR, usercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL);
-    unsafe { WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle, core::mem::transmute(assertion.as_ptr()), assertion.len().try_into().unwrap(), resourceid.param().abi(), usercredential as _) }
+    unsafe { WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle, assertion, assertionlength, resourceid.param().abi(), usercredential as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -331,9 +331,9 @@ pub unsafe fn WTSRegisterSessionNotificationEx(hserver: super::HANDLE, hwnd: sup
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WTSSendMessageA(hserver: super::HANDLE, sessionid: super::DWORD, ptitle: &[u8], pmessage: &[u8], style: super::DWORD, timeout: super::DWORD, presponse: *mut super::DWORD, bwait: bool) -> windows_core::BOOL {
+pub unsafe fn WTSSendMessageA(hserver: super::HANDLE, sessionid: super::DWORD, ptitle: windows_core::PCSTR, titlelength: super::DWORD, pmessage: windows_core::PCSTR, messagelength: super::DWORD, style: super::DWORD, timeout: super::DWORD, presponse: *mut super::DWORD, bwait: bool) -> windows_core::BOOL {
     windows_core::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::HANDLE, sessionid : super::DWORD, ptitle : windows_core::PCSTR, titlelength : super::DWORD, pmessage : windows_core::PCSTR, messagelength : super::DWORD, style : super::DWORD, timeout : super::DWORD, presponse : *mut super::DWORD, bwait : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { WTSSendMessageA(hserver as _, sessionid, core::mem::transmute(ptitle.as_ptr()), ptitle.len().try_into().unwrap(), core::mem::transmute(pmessage.as_ptr()), pmessage.len().try_into().unwrap(), style, timeout, presponse as _, bwait.into()) }
+    unsafe { WTSSendMessageA(hserver as _, sessionid, ptitle, titlelength, pmessage, messagelength, style, timeout, presponse as _, bwait.into()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -361,13 +361,13 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WTSSetUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> windows_core::BOOL
+pub unsafe fn WTSSetUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: windows_core::PCSTR, datalength: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wtsapi32.dll" "system" fn WTSSetUserConfigA(pservername : windows_core::PCSTR, pusername : windows_core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : windows_core::PCSTR, datalength : super::DWORD) -> windows_core::BOOL);
-    unsafe { WTSSetUserConfigA(pservername.param().abi(), pusername.param().abi(), wtsconfigclass, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()) }
+    unsafe { WTSSetUserConfigA(pservername.param().abi(), pusername.param().abi(), wtsconfigclass, pbuffer, datalength) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -477,9 +477,9 @@ pub unsafe fn WTSVirtualChannelRead(hchannelhandle: super::HANDLE, timeout: supe
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WTSVirtualChannelWrite(hchannelhandle: super::HANDLE, buffer: &[u8], pbyteswritten: super::PULONG) -> windows_core::BOOL {
+pub unsafe fn WTSVirtualChannelWrite(hchannelhandle: super::HANDLE, buffer: super::PCHAR, length: super::ULONG, pbyteswritten: super::PULONG) -> windows_core::BOOL {
     windows_core::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::HANDLE, buffer : super::PCHAR, length : super::ULONG, pbyteswritten : super::PULONG) -> windows_core::BOOL);
-    unsafe { WTSVirtualChannelWrite(hchannelhandle as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), pbyteswritten as _) }
+    unsafe { WTSVirtualChannelWrite(hchannelhandle as _, buffer, length, pbyteswritten as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

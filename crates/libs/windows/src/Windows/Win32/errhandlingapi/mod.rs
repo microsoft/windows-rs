@@ -49,9 +49,9 @@ pub unsafe fn GetThreadErrorMode() -> super::DWORD {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RaiseException(dwexceptioncode: super::DWORD, dwexceptionflags: super::DWORD, lparguments: Option<&[super::ULONG_PTR]>) {
+pub unsafe fn RaiseException(dwexceptioncode: super::DWORD, dwexceptionflags: super::DWORD, nnumberofarguments: super::DWORD, lparguments: Option<*const super::ULONG_PTR>) {
     windows_core::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : super::DWORD, dwexceptionflags : super::DWORD, nnumberofarguments : super::DWORD, lparguments : *const super::ULONG_PTR));
-    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.map_or(0, |slice| slice.len().try_into().unwrap()), lparguments.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, nnumberofarguments, lparguments.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

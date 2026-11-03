@@ -112,21 +112,21 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetRequestOfflineDomainJoin<P3>(pprovisionbindata: &[u8], dwoptions: super::DWORD, lpwindowspath: P3) -> super::DWORD
+pub unsafe fn NetRequestOfflineDomainJoin<P3>(pprovisionbindata: *const super::BYTE, cbprovisionbindatasize: super::DWORD, dwoptions: super::DWORD, lpwindowspath: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const super::BYTE, cbprovisionbindatasize : super::DWORD, dwoptions : super::DWORD, lpwindowspath : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { NetRequestOfflineDomainJoin(core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
+    unsafe { NetRequestOfflineDomainJoin(pprovisionbindata, cbprovisionbindatasize, dwoptions, lpwindowspath.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: super::DWORD, lpwindowspath: P3, pvreserved: Option<super::PVOID>) -> super::DWORD
+pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: *const super::BYTE, dwpackagebindatasize: super::DWORD, dwprovisionoptions: super::DWORD, lpwindowspath: P3, pvreserved: Option<super::PVOID>) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const super::BYTE, dwpackagebindatasize : super::DWORD, dwprovisionoptions : super::DWORD, lpwindowspath : windows_core::PCWSTR, pvreserved : super::PVOID) -> super::DWORD);
-    unsafe { NetRequestProvisioningPackageInstall(core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetRequestProvisioningPackageInstall(ppackagebindata, dwpackagebindatasize, dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

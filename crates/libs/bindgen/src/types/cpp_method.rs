@@ -24,64 +24,11 @@ pub enum ReturnHint {
 pub enum ParamHint {
     None,
     ArrayRaw,
-    ArrayFixed(usize),
-    ArrayRelativeLen(usize),
-    ArrayRelativeByteLen(usize),
-    ArrayRelativePtr(usize),
     IntoParam,
     Optional,
     ValueType,
     Blittable,
     Bool,
-}
-
-fn param_hint(
-    param: &Param,
-    position: usize,
-    parameter_count: usize,
-    reader: &Reader,
-) -> ParamHint {
-    if param.has_unresolved_contracts() || !param.has_direction() {
-        return ParamHint::None;
-    }
-    match param.buffer_relationship() {
-        Some(BufferRelationship::ElementsParam(relative)) => usize::try_from(relative)
-            .ok()
-            .filter(|relative| *relative < parameter_count && *relative != position)
-            .map_or(ParamHint::None, ParamHint::ArrayRelativeLen),
-        Some(BufferRelationship::BytesParam(relative)) => usize::try_from(relative)
-            .ok()
-            .filter(|relative| *relative < parameter_count && *relative != position)
-            .map_or(ParamHint::None, ParamHint::ArrayRelativeByteLen),
-        Some(BufferRelationship::ElementsConst(fixed)) => usize::try_from(fixed)
-            .ok()
-            .filter(|fixed| {
-                buffer_element(param, reader)
-                    .projection_type(reader)
-                    .max_native_size(reader)
-                    .checked_mul(*fixed)
-                    .is_some_and(|size| size <= i32::MAX as usize)
-            })
-            .map_or(ParamHint::None, ParamHint::ArrayFixed),
-        None => ParamHint::None,
-    }
-}
-
-fn buffer_element(param: &Param, reader: &Reader) -> Type {
-    param.projection_pointee(reader)
-}
-
-impl ParamHint {
-    fn is_array(&self) -> bool {
-        matches!(
-            self,
-            Self::ArrayRaw
-                | Self::ArrayFixed(_)
-                | Self::ArrayRelativeLen(_)
-                | Self::ArrayRelativeByteLen(_)
-                | Self::ArrayRelativePtr(_)
-        )
-    }
 }
 
 impl CppMethod {
@@ -90,120 +37,35 @@ impl CppMethod {
         let dependencies = signature.dependencies(reader);
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
-        for (position, param) in signature.params.iter().enumerate() {
-            param_hints[position] = param_hint(param, position, signature.params.len(), reader);
-        }
-
-        for position in 0..signature.params.len() {
-            // Point len params back to the corresponding ptr params.
-            match param_hints[position] {
-                ParamHint::ArrayRelativeLen(relative)
-                | ParamHint::ArrayRelativeByteLen(relative) => {
-                    let Some(relative_param) = signature.params.get(relative) else {
-                        param_hints[position] = ParamHint::None;
-                        continue;
-                    };
-                    // Optional buffers with signed counts may use negative sentinel values that a
-                    // slice cannot represent. Required SAL-counted buffers use slices regardless
-                    // of the count's signedness.
-                    if relative_param.is_input_only()
-                        && !relative_param.has_unresolved_contracts()
-                        && (relative_param.projection_type(reader).is_unsigned()
-                            || !signature.params[position].is_optional_or_reserved())
-                        && !relative_param.projection_type(reader).is_pointer()
-                    {
-                        param_hints[relative] = ParamHint::ArrayRelativePtr(position);
-                    } else {
-                        param_hints[position] = ParamHint::None;
-                    }
-                }
-                _ => {}
-            }
-        }
-
-        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
-
-        // Finds sets of ptr params pointing at the same len param.
-        for (position, hint) in param_hints.iter().enumerate() {
-            match hint {
-                ParamHint::ArrayRelativeLen(relative)
-                | ParamHint::ArrayRelativeByteLen(relative) => {
-                    sets.entry(*relative).or_default().push(position);
-                }
-                _ => {}
-            }
-        }
-
-        // Remove shared-count sets and sets containing buffers marked output-only in metadata.
-        for (len, ptrs) in sets {
-            if ptrs.len() > 1
-                || ptrs
-                    .iter()
-                    .any(|position| signature.params[*position].is_metadata_output_only())
-            {
-                param_hints[len] = ParamHint::None;
-                for ptr in ptrs {
-                    param_hints[ptr] = if signature.params[ptr].is_input_only() {
-                        ParamHint::None
-                    } else {
-                        ParamHint::ArrayRaw
-                    };
-                }
-            }
-        }
-
-        // Fixed-size buffers marked output-only likewise retain their raw pointer shape.
         for (position, hint) in param_hints.iter_mut().enumerate() {
-            if signature.params[position].is_metadata_output_only()
-                && matches!(hint, ParamHint::ArrayFixed(_))
+            let param = &signature.params[position];
+            let ty = param.projection_type(reader);
+            // COM values still use borrowed references, not raw-buffer ownership.
+            if (param.has_buffer_attributes() || param.has_unresolved_contracts())
+                && !ty.is_interface()
             {
                 *hint = ParamHint::ArrayRaw;
+                continue;
             }
-        }
-
-        // Remove any byte arrays that aren't byte-sized types.
-        for position in 0..param_hints.len() {
-            if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position]
-                && !signature.params[position]
-                    .projection_type(reader)
-                    .is_byte_size()
-            {
-                param_hints[position] = ParamHint::None;
-                param_hints[relative] = ParamHint::None;
-            }
-        }
-
-        for (position, hint) in param_hints.iter_mut().enumerate() {
-            if *hint == ParamHint::None {
-                let param = &signature.params[position];
-                let ty = param.projection_type(reader);
-                // COM values still use borrowed references, not raw-buffer ownership.
-                if (param.has_buffer_attributes() || param.has_unresolved_contracts())
-                    && !ty.is_interface()
-                {
-                    *hint = ParamHint::ArrayRaw;
-                    continue;
-                }
-                if !param.has_direction() {
-                    if ty.is_pointer() || ty.is_primitive(reader) {
-                        *hint = ParamHint::ValueType;
-                    }
-                    continue;
-                }
-
-                if param.is_convertible_with_reader(reader) && !hint.is_array() {
-                    *hint = ParamHint::IntoParam;
-                } else if ty.is_copyable(reader) && param.is_optional_or_reserved() {
-                    *hint = ParamHint::Optional;
-                } else if param.is_input_only() && ty == Type::BOOL {
-                    *hint = ParamHint::Bool;
-                } else if ty.is_primitive(reader)
-                    && (!ty.is_pointer() || ty.deref().is_copyable(reader))
-                {
+            if !param.has_direction() {
+                if ty.is_pointer() || ty.is_primitive(reader) {
                     *hint = ParamHint::ValueType;
-                } else if ty.is_copyable(reader) {
-                    *hint = ParamHint::Blittable;
                 }
+                continue;
+            }
+
+            if param.is_convertible_with_reader(reader) {
+                *hint = ParamHint::IntoParam;
+            } else if ty.is_copyable(reader) && param.is_optional_or_reserved() {
+                *hint = ParamHint::Optional;
+            } else if param.is_input_only() && ty == Type::BOOL {
+                *hint = ParamHint::Bool;
+            } else if ty.is_primitive(reader)
+                && (!ty.is_pointer() || ty.deref().is_copyable(reader))
+            {
+                *hint = ParamHint::ValueType;
+            } else if ty.is_copyable(reader) {
+                *hint = ParamHint::Blittable;
             }
         }
 
@@ -662,18 +524,6 @@ impl CppMethod {
             }
 
             let name = param.write_ident();
-            let name = if matches!(
-                self.param_hints[position],
-                ParamHint::ArrayFixed(_)
-                    | ParamHint::ArrayRelativeLen(_)
-                    | ParamHint::ArrayRelativeByteLen(_)
-            ) && param.is_optional_or_reserved()
-                && !param.is_input_only()
-            {
-                quote! { mut #name }
-            } else {
-                name
-            };
 
             match self.param_hints[position] {
                 ParamHint::ArrayRaw => {
@@ -684,48 +534,6 @@ impl CppMethod {
                         tokens.combine(&quote! { #name: #kind, });
                     }
                 }
-                ParamHint::ArrayFixed(fixed) => {
-                    let ty = buffer_element(param, config.reader);
-                    let ty = ty.write_default(config);
-                    let len = Literal::u32_unsuffixed(fixed as u32);
-                    let ty = if param.is_input_only() {
-                        quote! { &[#ty; #len] }
-                    } else {
-                        quote! { &mut [#ty; #len] }
-                    };
-                    if param.is_optional_or_reserved() {
-                        tokens.combine(&quote! { #name: Option<#ty>, });
-                    } else {
-                        tokens.combine(&quote! { #name: #ty, });
-                    }
-                }
-                ParamHint::ArrayRelativeLen(_) => {
-                    let ty = buffer_element(param, config.reader);
-                    let ty = ty.write_default(config);
-                    let ty = if param.is_input_only() {
-                        quote! { &[#ty] }
-                    } else {
-                        quote! { &mut [#ty] }
-                    };
-                    if param.is_optional_or_reserved() {
-                        tokens.combine(&quote! { #name: Option<#ty>, });
-                    } else {
-                        tokens.combine(&quote! { #name: #ty, });
-                    }
-                }
-                ParamHint::ArrayRelativeByteLen(_) => {
-                    let ty = if param.is_input_only() {
-                        quote! { &[u8] }
-                    } else {
-                        quote! { &mut [u8] }
-                    };
-                    if param.is_optional_or_reserved() {
-                        tokens.combine(&quote! { #name: Option<#ty>, });
-                    } else {
-                        tokens.combine(&quote! { #name: #ty, });
-                    }
-                }
-                ParamHint::ArrayRelativePtr(_) => {}
                 ParamHint::IntoParam => {
                     let kind: TokenStream = format!("P{position}").parse().unwrap();
                     tokens.combine(&quote! { #name: #kind, });
@@ -815,66 +623,6 @@ impl CppMethod {
                                 quote! { core::mem::transmute(#name), }
                             }
                         }
-                        ParamHint::ArrayFixed(_)
-                        | ParamHint::ArrayRelativeLen(_)
-                        | ParamHint::ArrayRelativeByteLen(_) => {
-                            let map = if param.is_optional_or_reserved() {
-                                if param.is_input_only() {
-                                    quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
-                                } else {
-                                    quote! { #name.as_mut().map_or(core::ptr::null_mut(), |slice|slice.as_mut_ptr()) }
-                                }
-                            } else if param.is_input_only() {
-                                quote! { #name.as_ptr() }
-                            } else {
-                                quote! { #name.as_mut_ptr() }
-                            };
-                            // Transmute only when the public element type differs from ABI.
-                            let elem = if matches!(
-                                self.param_hints[position],
-                                ParamHint::ArrayRelativeByteLen(_)
-                            ) {
-                                quote! { u8 }
-                            } else {
-                                buffer_element(param, config.reader).write_default(config)
-                            };
-                            let ptr = if param.is_input_only() {
-                                quote! { *const #elem }
-                            } else {
-                                quote! { *mut #elem }
-                            };
-                            if ptr.to_string() == param.write_abi(config).to_string() {
-                                quote! { #map, }
-                            } else {
-                                quote! { core::mem::transmute(#map), }
-                            }
-                        }
-                        ParamHint::ArrayRelativePtr(relative) => {
-                            let relative_param = &self.signature.params[relative];
-                            let name = relative_param.write_ident();
-                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal
-                            // aliases do not.
-                            let zero = write_newtype_wrap(&param.ty, &quote! { 0 }, config);
-                            let len = write_newtype_wrap(
-                                &param.ty,
-                                &quote! { slice.len().try_into().unwrap() },
-                                config,
-                            );
-                            if relative_param.is_optional_or_reserved() {
-                                if relative_param.is_input_only() {
-                                    quote! { #name.map_or(#zero, |slice| #len), }
-                                } else {
-                                    quote! { #name.as_deref().map_or(#zero, |slice| #len), }
-                                }
-                            } else {
-                                let len = write_newtype_wrap(
-                                    &param.ty,
-                                    &quote! { #name.len().try_into().unwrap() },
-                                    config,
-                                );
-                                quote! { #len, }
-                            }
-                        }
                         ParamHint::IntoParam => {
                             quote! { #name.param().abi(), }
                         }
@@ -946,7 +694,7 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
     } else if param.has_direction()
         && !param.is_input_only()
         && ty.deref().is_interface_with_reader(config.reader)
-        && !hint.is_array()
+        && hint != ParamHint::ArrayRaw
     {
         let type_name = param.projection_pointee(config.reader).write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }

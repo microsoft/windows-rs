@@ -346,15 +346,15 @@ pub unsafe fn SCardIsValidContext(hcontext: SCARDCONTEXT) -> super::LONG {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SCardListCardsA(hcontext: SCARDCONTEXT, pbatr: Option<LPCBYTE>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: *mut super::CHAR, pcchcards: super::LPDWORD) -> super::LONG {
+pub unsafe fn SCardListCardsA(hcontext: SCARDCONTEXT, pbatr: Option<LPCBYTE>, rgquidinterfaces: Option<super::LPCGUID>, cguidinterfacecount: super::DWORD, mszcards: *mut super::CHAR, pcchcards: super::LPDWORD) -> super::LONG {
     windows_core::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : SCARDCONTEXT, pbatr : LPCBYTE, rgquidinterfaces : super::LPCGUID, cguidinterfacecount : super::DWORD, mszcards : *mut super::CHAR, pcchcards : super::LPDWORD) -> super::LONG);
-    unsafe { SCardListCardsA(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
+    unsafe { SCardListCardsA(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, rgquidinterfaces.unwrap_or(core::mem::zeroed()) as _, cguidinterfacecount, mszcards as _, pcchcards as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SCardListCardsW(hcontext: SCARDCONTEXT, pbatr: Option<LPCBYTE>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: *mut super::WCHAR, pcchcards: super::LPDWORD) -> super::LONG {
+pub unsafe fn SCardListCardsW(hcontext: SCARDCONTEXT, pbatr: Option<LPCBYTE>, rgquidinterfaces: Option<super::LPCGUID>, cguidinterfacecount: super::DWORD, mszcards: *mut super::WCHAR, pcchcards: super::LPDWORD) -> super::LONG {
     windows_core::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : SCARDCONTEXT, pbatr : LPCBYTE, rgquidinterfaces : super::LPCGUID, cguidinterfacecount : super::DWORD, mszcards : *mut super::WCHAR, pcchcards : super::LPDWORD) -> super::LONG);
-    unsafe { SCardListCardsW(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
+    unsafe { SCardListCardsW(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, rgquidinterfaces.unwrap_or(core::mem::zeroed()) as _, cguidinterfacecount, mszcards as _, pcchcards as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -509,9 +509,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SCardSetAttrib(hcard: SCARDHANDLE, dwattrid: super::DWORD, pbattr: &[u8]) -> super::LONG {
+pub unsafe fn SCardSetAttrib(hcard: SCARDHANDLE, dwattrid: super::DWORD, pbattr: LPCBYTE, cbattrlen: super::DWORD) -> super::LONG {
     windows_core::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : SCARDHANDLE, dwattrid : super::DWORD, pbattr : LPCBYTE, cbattrlen : super::DWORD) -> super::LONG);
-    unsafe { SCardSetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.as_ptr()), pbattr.len().try_into().unwrap()) }
+    unsafe { SCardSetAttrib(hcard, dwattrid, pbattr, cbattrlen) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -535,9 +535,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SCardSetReaderCapabilities(hcard: SCARDHANDLE, dwattrid: super::DWORD, pbattr: &[u8]) -> super::LONG {
+pub unsafe fn SCardSetReaderCapabilities(hcard: SCARDHANDLE, dwattrid: super::DWORD, pbattr: LPCBYTE, cbattrlen: super::DWORD) -> super::LONG {
     windows_core::link!("winscard.dll" "system" "SCardSetAttrib" fn SCardSetReaderCapabilities(hcard : SCARDHANDLE, dwattrid : super::DWORD, pbattr : LPCBYTE, cbattrlen : super::DWORD) -> super::LONG);
-    unsafe { SCardSetReaderCapabilities(hcard, dwattrid, core::mem::transmute(pbattr.as_ptr()), pbattr.len().try_into().unwrap()) }
+    unsafe { SCardSetReaderCapabilities(hcard, dwattrid, pbattr, cbattrlen) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -559,9 +559,9 @@ pub unsafe fn SCardStatusW(hcard: SCARDHANDLE, mszreadernames: windows_core::PWS
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winsmcrd"))]
 #[inline]
-pub unsafe fn SCardTransmit(hcard: SCARDHANDLE, piosendpci: super::LPCSCARD_IO_REQUEST, pbsendbuffer: &[u8], piorecvpci: Option<super::LPSCARD_IO_REQUEST>, pbrecvbuffer: super::LPBYTE, pcbrecvlength: super::LPDWORD) -> super::LONG {
+pub unsafe fn SCardTransmit(hcard: SCARDHANDLE, piosendpci: super::LPCSCARD_IO_REQUEST, pbsendbuffer: LPCBYTE, cbsendlength: super::DWORD, piorecvpci: Option<super::LPSCARD_IO_REQUEST>, pbrecvbuffer: super::LPBYTE, pcbrecvlength: super::LPDWORD) -> super::LONG {
     windows_core::link!("winscard.dll" "system" fn SCardTransmit(hcard : SCARDHANDLE, piosendpci : super::LPCSCARD_IO_REQUEST, pbsendbuffer : LPCBYTE, cbsendlength : super::DWORD, piorecvpci : super::LPSCARD_IO_REQUEST, pbrecvbuffer : super::LPBYTE, pcbrecvlength : super::LPDWORD) -> super::LONG);
-    unsafe { SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
+    unsafe { SCardTransmit(hcard, piosendpci, pbsendbuffer, cbsendlength, piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -577,21 +577,21 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: LPOPENCARDNAME_EXW) -> super::LONG {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 #[inline]
-pub unsafe fn SCardWriteCacheA<P3>(hcontext: SCARDCONTEXT, cardidentifier: *const super::UUID, freshnesscounter: super::DWORD, lookupname: P3, data: &[u8]) -> super::LONG
+pub unsafe fn SCardWriteCacheA<P3>(hcontext: SCARDCONTEXT, cardidentifier: *const super::UUID, freshnesscounter: super::DWORD, lookupname: P3, data: super::PBYTE, datalen: super::DWORD) -> super::LONG
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const super::UUID, freshnesscounter : super::DWORD, lookupname : windows_core::PCSTR, data : super::PBYTE, datalen : super::DWORD) -> super::LONG);
-    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data, datalen) }
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 #[inline]
-pub unsafe fn SCardWriteCacheW<P3>(hcontext: SCARDCONTEXT, cardidentifier: *const super::UUID, freshnesscounter: super::DWORD, lookupname: P3, data: &[u8]) -> super::LONG
+pub unsafe fn SCardWriteCacheW<P3>(hcontext: SCARDCONTEXT, cardidentifier: *const super::UUID, freshnesscounter: super::DWORD, lookupname: P3, data: super::PBYTE, datalen: super::DWORD) -> super::LONG
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const super::UUID, freshnesscounter : super::DWORD, lookupname : windows_core::PCWSTR, data : super::PBYTE, datalen : super::DWORD) -> super::LONG);
-    unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data, datalen) }
 }
 pub type LPCBYTE = *const u8;
 #[cfg(feature = "winnt")]

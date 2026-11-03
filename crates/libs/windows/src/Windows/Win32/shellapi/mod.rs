@@ -1,12 +1,12 @@
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn AssocCreateForClasses<T>(rgclasses: &[ASSOCIATIONELEMENT]) -> windows_core::Result<T>
+pub unsafe fn AssocCreateForClasses<T>(rgclasses: *const ASSOCIATIONELEMENT, cclasses: super::ULONG) -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : super::ULONG, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreateForClasses(rgclasses.as_ptr(), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { AssocCreateForClasses(rgclasses, cclasses, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut windows_core::PWSTR
@@ -18,15 +18,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DoEnvironmentSubstA(pszsrc: &mut [u8]) -> super::DWORD {
+pub unsafe fn DoEnvironmentSubstA(pszsrc: windows_core::PSTR, cchsrc: super::UINT) -> super::DWORD {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : windows_core::PSTR, cchsrc : super::UINT) -> super::DWORD);
-    unsafe { DoEnvironmentSubstA(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstA(pszsrc, cchsrc) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DoEnvironmentSubstW(pszsrc: &mut [u16]) -> super::DWORD {
+pub unsafe fn DoEnvironmentSubstW(pszsrc: windows_core::PWSTR, cchsrc: super::UINT) -> super::DWORD {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : windows_core::PWSTR, cchsrc : super::UINT) -> super::DWORD);
-    unsafe { DoEnvironmentSubstW(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstW(pszsrc, cchsrc) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -65,27 +65,27 @@ pub unsafe fn DuplicateIcon(hinst: Option<super::HINSTANCE>, hicon: super::HICON
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ExtractAssociatedIconA(hinst: Option<super::HINSTANCE>, psziconpath: &mut [u8; 128], piicon: *mut super::WORD) -> super::HICON {
+pub unsafe fn ExtractAssociatedIconA(hinst: Option<super::HINSTANCE>, psziconpath: windows_core::PSTR, piicon: *mut super::WORD) -> super::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::HINSTANCE, psziconpath : windows_core::PSTR, piicon : *mut super::WORD) -> super::HICON);
-    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, psziconpath, piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ExtractAssociatedIconExA(hinst: Option<super::HINSTANCE>, psziconpath: &mut [u8; 128], piiconindex: *mut super::WORD, piiconid: *mut super::WORD) -> super::HICON {
+pub unsafe fn ExtractAssociatedIconExA(hinst: Option<super::HINSTANCE>, psziconpath: windows_core::PSTR, piiconindex: *mut super::WORD, piiconid: *mut super::WORD) -> super::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::HINSTANCE, psziconpath : windows_core::PSTR, piiconindex : *mut super::WORD, piiconid : *mut super::WORD) -> super::HICON);
-    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, psziconpath, piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ExtractAssociatedIconExW(hinst: Option<super::HINSTANCE>, psziconpath: &mut [u16; 128], piiconindex: *mut super::WORD, piiconid: *mut super::WORD) -> super::HICON {
+pub unsafe fn ExtractAssociatedIconExW(hinst: Option<super::HINSTANCE>, psziconpath: windows_core::PWSTR, piiconindex: *mut super::WORD, piiconid: *mut super::WORD) -> super::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::HINSTANCE, psziconpath : windows_core::PWSTR, piiconindex : *mut super::WORD, piiconid : *mut super::WORD) -> super::HICON);
-    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, psziconpath, piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn ExtractAssociatedIconW(hinst: Option<super::HINSTANCE>, psziconpath: &mut [u16; 128], piicon: *mut super::WORD) -> super::HICON {
+pub unsafe fn ExtractAssociatedIconW(hinst: Option<super::HINSTANCE>, psziconpath: windows_core::PWSTR, piicon: *mut super::WORD) -> super::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::HINSTANCE, psziconpath : windows_core::PWSTR, piicon : *mut super::WORD) -> super::HICON);
-    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, psziconpath, piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]

@@ -14269,8 +14269,8 @@ impl core::ops::Deref for IXMLHTTPRequest3 {
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, windows_core::IUnknown, IXMLHTTPRequest2);
 impl IXMLHTTPRequest3 {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetClientCertificate(&self, pbclientcertificatehash: Option<&[super::BYTE]>, pwszpin: Option<*const super::WCHAR>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), pbclientcertificatehash.map_or(0, |slice| slice.len().try_into().unwrap()), pbclientcertificatehash.map_or(core::ptr::null(), |slice| slice.as_ptr()), pwszpin.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetClientCertificate(&self, cbclientcertificatehash: super::DWORD, pbclientcertificatehash: Option<*const super::BYTE>, pwszpin: Option<*const super::WCHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), cbclientcertificatehash, pbclientcertificatehash.unwrap_or(core::mem::zeroed()) as _, pwszpin.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -14313,18 +14313,18 @@ impl core::ops::Deref for IXMLHTTPRequest3Callback {
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, windows_core::IUnknown, IXMLHTTPRequest2Callback);
 impl IXMLHTTPRequest3Callback {
     #[cfg(feature = "shared")]
-    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: super::DWORD, rgservercertificatechain: Option<&[XHR_CERT]>) -> windows_core::HRESULT
+    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: super::DWORD, cservercertificatechain: super::DWORD, rgservercertificatechain: Option<*const XHR_CERT>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerCertificateReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwcertificateerrors, rgservercertificatechain.map_or(0, |slice| slice.len().try_into().unwrap()), rgservercertificatechain.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).OnServerCertificateReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwcertificateerrors, cservercertificatechain, rgservercertificatechain.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: Option<&[*const super::WCHAR]>) -> windows_core::HRESULT
+    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, cissuerlist: super::DWORD, rgpwszissuerlist: Option<*const *const super::WCHAR>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnClientCertificateRequested)(windows_core::Interface::as_raw(self), pxhr.param().abi(), rgpwszissuerlist.map_or(0, |slice| slice.len().try_into().unwrap()), rgpwszissuerlist.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).OnClientCertificateRequested)(windows_core::Interface::as_raw(self), pxhr.param().abi(), cissuerlist, rgpwszissuerlist.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

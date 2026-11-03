@@ -8,35 +8,6 @@ pub(super) struct NativeLayout {
     pub offsets: Vec<usize>,
 }
 
-impl Type {
-    /// Largest native size on the architectures where the type is defined.
-    pub fn max_native_size(&self, reader: &Reader) -> usize {
-        each_arch(self.native_arches(reader))
-            .map(|arch| native_layout(self, reader, arch).size)
-            .max()
-            .unwrap()
-    }
-
-    fn native_arches(&self, reader: &Reader) -> i32 {
-        let def = match self {
-            Self::ArrayFixed(element, _) => return element.native_arches(reader),
-            Self::CppStruct(record) => record.def,
-            Self::CppEnum(enumeration) => enumeration.def,
-            _ => return ALL_ARCHES,
-        };
-        let full_name = def.full_name();
-        reader
-            .with_full_name(&full_name.namespace, &full_name.name)
-            .filter_map(|ty| match ty {
-                Self::CppStruct(record) => Some(arch_mask(record.def.arches())),
-                Self::CppEnum(enumeration) => Some(arch_mask(enumeration.def.arches())),
-                _ => None,
-            })
-            .reduce(|left, right| left | right)
-            .unwrap_or_else(|| arch_mask(def.arches()))
-    }
-}
-
 fn align_up(size: usize, alignment: usize) -> usize {
     size.div_ceil(alignment) * alignment
 }

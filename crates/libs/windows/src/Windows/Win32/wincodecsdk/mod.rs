@@ -173,30 +173,30 @@ windows_core::imp::interface_hierarchy!(IWICComponentFactory, windows_core::IUnk
 #[cfg(feature = "wincodec")]
 impl IWICComponentFactory {
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn CreateMetadataReader<P3>(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
+    pub unsafe fn CreateMetadataReader<P3>(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
     where
         P3: windows_core::Param<super::IStream>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataReader)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadataReader)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn CreateMetadataReaderFromContainer<P3>(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
+    pub unsafe fn CreateMetadataReaderFromContainer<P3>(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, dwoptions: super::DWORD, pistream: P3) -> windows_core::Result<IWICMetadataReader>
     where
         P3: windows_core::Param<super::IStream>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataReaderFromContainer)(windows_core::Interface::as_raw(self), guidcontainerformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadataReaderFromContainer)(windows_core::Interface::as_raw(self), guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, dwoptions, pistream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<&[windows_core::GUID; 1]>, dwmetadataoptions: super::DWORD) -> windows_core::Result<IWICMetadataWriter> {
+    pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, dwmetadataoptions: super::DWORD) -> windows_core::Result<IWICMetadataWriter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadataWriter)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwmetadataoptions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadataWriter)(windows_core::Interface::as_raw(self), guidmetadataformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, dwmetadataoptions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateMetadataWriterFromReader<P0>(&self, pireader: P0, pguidvendor: Option<*const windows_core::GUID>) -> windows_core::Result<IWICMetadataWriter>
@@ -227,10 +227,10 @@ impl IWICComponentFactory {
         }
     }
     #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: Option<&[super::PROPBAG2]>) -> windows_core::Result<super::IPropertyBag2> {
+    pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: Option<*const super::PROPBAG2>, ccount: super::UINT) -> windows_core::Result<super::IPropertyBag2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncoderPropertyBag)(windows_core::Interface::as_raw(self), ppropoptions.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropoptions.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncoderPropertyBag)(windows_core::Interface::as_raw(self), ppropoptions.unwrap_or(core::mem::zeroed()) as _, ccount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -644,16 +644,16 @@ impl IWICMetadataHandlerInfo {
         unsafe { (windows_core::Interface::vtable(self).GetMetadataFormat)(windows_core::Interface::as_raw(self), pguidmetadataformat as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetContainerFormats(&self, mut pguidcontainerformats: Option<&mut [windows_core::GUID]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContainerFormats)(windows_core::Interface::as_raw(self), pguidcontainerformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidcontainerformats.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetContainerFormats(&self, ccontainerformats: super::UINT, pguidcontainerformats: Option<*mut windows_core::GUID>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainerFormats)(windows_core::Interface::as_raw(self), ccontainerformats, pguidcontainerformats.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceManufacturer(&self, mut wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetDeviceManufacturer(&self, cchdevicemanufacturer: super::UINT, wzdevicemanufacturer: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), cchdevicemanufacturer, wzdevicemanufacturer.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceModels(&self, mut wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetDeviceModels(&self, cchdevicemodels: super::UINT, wzdevicemodels: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), cchdevicemodels, wzdevicemodels.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     pub unsafe fn DoesRequireFullStream(&self, pfrequiresfullstream: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoesRequireFullStream)(windows_core::Interface::as_raw(self), pfrequiresfullstream as _) }

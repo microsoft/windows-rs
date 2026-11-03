@@ -226,10 +226,10 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateAndConditionFromArray)(windows_core::Interface::as_raw(self), conditions.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAndConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAndConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions), conditioncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
@@ -249,10 +249,10 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateOrConditionFromArray)(windows_core::Interface::as_raw(self), conditions.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOrConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOrConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions), conditioncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
@@ -282,13 +282,13 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: &[super::PROPERTYID]) -> windows_core::HRESULT
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray.as_ptr(), propertyarray.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray, propertycount) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::SAFEARRAY) -> windows_core::HRESULT
@@ -338,10 +338,10 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
-    pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> windows_core::Result<*mut super::SAFEARRAY> {
+    pub unsafe fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), array.as_ptr(), array.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), array, arraycount, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -1660,13 +1660,13 @@ impl core::ops::Deref for IUIAutomation4 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation4, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
 impl IUIAutomation4 {
-    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P4, handler: P5) -> windows_core::HRESULT
+    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: P4, handler: P5) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P4: windows_core::Param<IUIAutomationCacheRequest>,
         P5: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, changetypes.as_ptr(), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, changetypes, changescount, pcacherequest.param().abi(), handler.param().abi()) }
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::HRESULT
     where
@@ -2611,11 +2611,11 @@ windows_core::imp::define_interface!(IUIAutomationChangesEventHandler, IUIAutoma
 windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[super::UiaChangeInfo]) -> windows_core::HRESULT
+    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: *const super::UiaChangeInfo, changescount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), uiachanges.as_ptr(), uiachanges.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), uiachanges, changescount) }
     }
 }
 #[repr(C)]
@@ -6443,12 +6443,12 @@ impl IUIAutomationEventHandlerGroup {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P3, handler: P4) -> windows_core::HRESULT
+    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: P3, handler: P4) -> windows_core::HRESULT
     where
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, changetypes.as_ptr(), changetypes.len().try_into().unwrap(), cacherequest.param().abi(), handler.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, changetypes, changescount, cacherequest.param().abi(), handler.param().abi()) }
     }
     pub unsafe fn AddNotificationEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::HRESULT
     where
@@ -6458,12 +6458,12 @@ impl IUIAutomationEventHandlerGroup {
         unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[super::PROPERTYID]) -> windows_core::HRESULT
+    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray.as_ptr(), propertyarray.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray, propertycount) }
     }
     pub unsafe fn AddStructureChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::HRESULT
     where
@@ -12064,10 +12064,10 @@ impl IUIAutomationTextRange3 {
         }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt"))]
-    pub unsafe fn GetAttributeValues(&self, attributeids: &[super::TEXTATTRIBUTEID]) -> windows_core::Result<*mut super::SAFEARRAY> {
+    pub unsafe fn GetAttributeValues(&self, attributeids: *const super::TEXTATTRIBUTEID, attributeidcount: i32) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAttributeValues)(windows_core::Interface::as_raw(self), attributeids.as_ptr(), attributeids.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAttributeValues)(windows_core::Interface::as_raw(self), attributeids, attributeidcount, &mut result__).map(|| result__)
         }
     }
 }

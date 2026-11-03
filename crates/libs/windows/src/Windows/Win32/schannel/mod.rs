@@ -6,15 +6,15 @@ pub unsafe fn SslDeserializeCertificateStore(serializedcertificatestore: super::
 }
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SslGetExtensions(clienthello: &[super::BYTE], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut super::DWORD, flags: SchGetExtensionsOptions) -> super::SECURITY_STATUS {
+pub unsafe fn SslGetExtensions(clienthello: *const super::BYTE, clienthellobytesize: super::DWORD, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: super::BYTE, bytestoread: *mut super::DWORD, flags: SchGetExtensionsOptions) -> super::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const super::BYTE, clienthellobytesize : super::DWORD, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : super::BYTE, bytestoread : *mut super::DWORD, flags : SchGetExtensionsOptions) -> super::SECURITY_STATUS);
-    unsafe { SslGetExtensions(clienthello.as_ptr(), clienthello.len().try_into().unwrap(), genericextensions.as_mut_ptr(), genericextensions.len().try_into().unwrap(), bytestoread as _, flags) }
+    unsafe { SslGetExtensions(clienthello, clienthellobytesize, genericextensions as _, genericextensionscount, bytestoread as _, flags) }
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut super::PBYTE, serveridentitysize: super::PDWORD, flags: super::DWORD) -> super::SECURITY_STATUS {
+pub unsafe fn SslGetServerIdentity(clienthello: super::PBYTE, clienthellosize: super::DWORD, serveridentity: *mut super::PBYTE, serveridentitysize: super::PDWORD, flags: super::DWORD) -> super::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : super::PBYTE, clienthellosize : super::DWORD, serveridentity : *mut super::PBYTE, serveridentitysize : super::PDWORD, flags : super::DWORD) -> super::SECURITY_STATUS);
-    unsafe { SslGetServerIdentity(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags) }
+    unsafe { SslGetServerIdentity(clienthello, clienthellosize, serveridentity as _, serveridentitysize as _, flags) }
 }
 pub const DEFAULT_TLS_SSP_NAME: windows_core::PCSTR = windows_core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_A: windows_core::PCSTR = windows_core::s!("Default TLS SSP");

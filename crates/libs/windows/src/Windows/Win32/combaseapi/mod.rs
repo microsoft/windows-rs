@@ -69,21 +69,21 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoCreateInstanceEx<P1>(clsid: *const super::IID, punkouter: P1, dwclsctx: super::DWORD, pserverinfo: Option<*const super::COSERVERINFO>, presults: &mut [super::MULTI_QI]) -> windows_core::HRESULT
+pub unsafe fn CoCreateInstanceEx<P1>(clsid: *const super::IID, punkouter: P1, dwclsctx: super::DWORD, pserverinfo: Option<*const super::COSERVERINFO>, dwcount: super::DWORD, presults: *mut super::MULTI_QI) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const super::IID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, pserverinfo : *const super::COSERVERINFO, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
+    unsafe { CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo.unwrap_or(core::mem::zeroed()) as _, dwcount, presults) }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CoCreateInstanceFromApp<P1>(clsid: *const super::IID, punkouter: P1, dwclsctx: super::DWORD, reserved: Option<super::PVOID>, presults: &mut [super::MULTI_QI]) -> windows_core::HRESULT
+pub unsafe fn CoCreateInstanceFromApp<P1>(clsid: *const super::IID, punkouter: P1, dwclsctx: super::DWORD, reserved: Option<super::PVOID>, dwcount: super::DWORD, presults: *mut super::MULTI_QI) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceFromApp(clsid : *const super::IID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, reserved : super::PVOID, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
+    unsafe { CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved.unwrap_or(core::mem::zeroed()) as _, dwcount, presults) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -517,15 +517,15 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CoWaitForMultipleHandles(dwflags: super::DWORD, dwtimeout: super::DWORD, phandles: &[*mut core::ffi::c_void], lpdwindex: super::LPDWORD) -> windows_core::HRESULT {
+pub unsafe fn CoWaitForMultipleHandles(dwflags: super::DWORD, dwtimeout: super::DWORD, chandles: super::ULONG, phandles: super::LPHANDLE, lpdwindex: super::LPDWORD) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : super::DWORD, dwtimeout : super::DWORD, chandles : super::ULONG, phandles : super::LPHANDLE, lpdwindex : super::LPDWORD) -> windows_core::HRESULT);
-    unsafe { CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), lpdwindex as _) }
+    unsafe { CoWaitForMultipleHandles(dwflags, dwtimeout, chandles, phandles, lpdwindex as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CoWaitForMultipleObjects(dwflags: super::DWORD, dwtimeout: super::DWORD, phandles: &[super::HANDLE], lpdwindex: super::LPDWORD) -> windows_core::HRESULT {
+pub unsafe fn CoWaitForMultipleObjects(dwflags: super::DWORD, dwtimeout: super::DWORD, chandles: super::ULONG, phandles: *const super::HANDLE, lpdwindex: super::LPDWORD) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : super::DWORD, dwtimeout : super::DWORD, chandles : super::ULONG, phandles : *const super::HANDLE, lpdwindex : super::LPDWORD) -> windows_core::HRESULT);
-    unsafe { CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), phandles.as_ptr(), lpdwindex as _) }
+    unsafe { CoWaitForMultipleObjects(dwflags, dwtimeout, chandles, phandles, lpdwindex as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 #[inline]

@@ -17,39 +17,20 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, clienttoken: super::HANDLE, desiredaccess: super::DWORD, mut objecttypelist: Option<&mut [super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, privilegeset: Option<super::PPRIVILEGE_SET>, privilegesetlength: super::LPDWORD, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL) -> windows_core::BOOL {
+pub unsafe fn AccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, clienttoken: super::HANDLE, desiredaccess: super::DWORD, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::DWORD, genericmapping: super::PGENERIC_MAPPING, privilegeset: Option<super::PPRIVILEGE_SET>, privilegesetlength: super::LPDWORD, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByType(psecuritydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, clienttoken : super::HANDLE, desiredaccess : super::DWORD, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::DWORD, genericmapping : super::PGENERIC_MAPPING, privilegeset : super::PPRIVILEGE_SET, privilegesetlength : super::LPDWORD, grantedaccess : super::LPDWORD, accessstatus : super::LPBOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByType(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, core::mem::transmute(objecttypelist.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _) }
+    unsafe { AccessCheckByType(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, mut objecttypelist: Option<&mut [super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
+pub unsafe fn AccessCheckByTypeAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::DWORD, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : super::LPVOID, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::DWORD, audittype : super::AUDIT_EVENT_TYPE, flags : super::DWORD, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::DWORD, genericmapping : super::PGENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : super::LPDWORD, accessstatus : super::LPBOOL, pfgenerateonclose : super::LPBOOL) -> windows_core::BOOL);
-    unsafe {
-        AccessCheckByTypeAndAuditAlarmW(
-            subsystemname.param().abi(),
-            handleid,
-            objecttypename.param().abi(),
-            objectname.param().abi(),
-            securitydescriptor,
-            principalselfsid.unwrap_or(core::mem::zeroed()) as _,
-            desiredaccess,
-            audittype,
-            flags,
-            core::mem::transmute(objecttypelist.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())),
-            objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            genericmapping,
-            objectcreation.into(),
-            grantedaccess as _,
-            accessstatus as _,
-            pfgenerateonclose as _,
-        )
-    }
+    unsafe { AccessCheckByTypeAndAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -237,27 +218,15 @@ pub unsafe fn CreatePrivateObjectSecurityEx(parentdescriptor: Option<super::PSEC
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Option<super::PSECURITY_DESCRIPTOR>, creatordescriptor: Option<super::PSECURITY_DESCRIPTOR>, newdescriptor: *mut super::PSECURITY_DESCRIPTOR, objecttypes: Option<&[*const windows_core::GUID]>, iscontainerobject: bool, autoinheritflags: super::ULONG, token: Option<super::HANDLE>, genericmapping: super::PGENERIC_MAPPING) -> windows_core::BOOL {
+pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Option<super::PSECURITY_DESCRIPTOR>, creatordescriptor: Option<super::PSECURITY_DESCRIPTOR>, newdescriptor: *mut super::PSECURITY_DESCRIPTOR, objecttypes: Option<*const *const windows_core::GUID>, guidcount: super::ULONG, iscontainerobject: bool, autoinheritflags: super::ULONG, token: Option<super::HANDLE>, genericmapping: super::PGENERIC_MAPPING) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : super::PSECURITY_DESCRIPTOR, creatordescriptor : super::PSECURITY_DESCRIPTOR, newdescriptor : *mut super::PSECURITY_DESCRIPTOR, objecttypes : *const *const windows_core::GUID, guidcount : super::ULONG, iscontainerobject : windows_core::BOOL, autoinheritflags : super::ULONG, token : super::HANDLE, genericmapping : super::PGENERIC_MAPPING) -> windows_core::BOOL);
-    unsafe { CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, objecttypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), objecttypes.map_or(0, |slice| slice.len().try_into().unwrap()), iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping) }
+    unsafe { CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, objecttypes.unwrap_or(core::mem::zeroed()) as _, guidcount, iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::HANDLE, flags: super::DWORD, sidstodisable: Option<&[super::SID_AND_ATTRIBUTES]>, privilegestodelete: Option<&[super::LUID_AND_ATTRIBUTES]>, sidstorestrict: Option<&[super::SID_AND_ATTRIBUTES]>, newtokenhandle: super::PHANDLE) -> windows_core::BOOL {
+pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::HANDLE, flags: super::DWORD, disablesidcount: super::DWORD, sidstodisable: Option<super::PSID_AND_ATTRIBUTES>, deleteprivilegecount: super::DWORD, privilegestodelete: Option<super::PLUID_AND_ATTRIBUTES>, restrictedsidcount: super::DWORD, sidstorestrict: Option<super::PSID_AND_ATTRIBUTES>, newtokenhandle: super::PHANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreateRestrictedToken(existingtokenhandle : super::HANDLE, flags : super::DWORD, disablesidcount : super::DWORD, sidstodisable : super::PSID_AND_ATTRIBUTES, deleteprivilegecount : super::DWORD, privilegestodelete : super::PLUID_AND_ATTRIBUTES, restrictedsidcount : super::DWORD, sidstorestrict : super::PSID_AND_ATTRIBUTES, newtokenhandle : super::PHANDLE) -> windows_core::BOOL);
-    unsafe {
-        CreateRestrictedToken(
-            existingtokenhandle,
-            flags,
-            sidstodisable.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sidstodisable.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            privilegestodelete.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(privilegestodelete.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sidstorestrict.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sidstorestrict.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            newtokenhandle as _,
-        )
-    }
+    unsafe { CreateRestrictedToken(existingtokenhandle, flags, disablesidcount, sidstodisable.unwrap_or(core::mem::zeroed()) as _, deleteprivilegecount, privilegestodelete.unwrap_or(core::mem::zeroed()) as _, restrictedsidcount, sidstorestrict.unwrap_or(core::mem::zeroed()) as _, newtokenhandle as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -624,9 +593,9 @@ pub unsafe fn SetAclInformation(pacl: super::PACL, paclinformation: super::LPVOI
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetCachedSigningLevel(sourcefiles: &[*mut core::ffi::c_void], flags: super::ULONG, targetfile: Option<super::HANDLE>) -> windows_core::BOOL {
+pub unsafe fn SetCachedSigningLevel(sourcefiles: super::PHANDLE, sourcefilecount: super::ULONG, flags: super::ULONG, targetfile: Option<super::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetCachedSigningLevel(sourcefiles : super::PHANDLE, sourcefilecount : super::ULONG, flags : super::ULONG, targetfile : super::HANDLE) -> windows_core::BOOL);
-    unsafe { SetCachedSigningLevel(core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len().try_into().unwrap(), flags, targetfile.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetCachedSigningLevel(sourcefiles, sourcefilecount, flags, targetfile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

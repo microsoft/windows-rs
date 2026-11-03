@@ -1,23 +1,23 @@
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: super::DWORD64) -> super::BOOLEAN {
+pub unsafe fn RtlAddFunctionTable(functiontable: PRUNTIME_FUNCTION, entrycount: super::DWORD, baseaddress: super::DWORD64) -> super::BOOLEAN {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, baseaddress : super::DWORD64) -> super::BOOLEAN);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable, entrycount, baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: super::ULONG_PTR) -> super::BOOLEAN {
+pub unsafe fn RtlAddFunctionTable(functiontable: PRUNTIME_FUNCTION, entrycount: super::DWORD, baseaddress: super::ULONG_PTR) -> super::BOOLEAN {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, baseaddress : super::ULONG_PTR) -> super::BOOLEAN);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable, entrycount, baseaddress) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut PVOID, functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: super::DWORD, rangebase: super::ULONG_PTR, rangeend: super::ULONG_PTR) -> super::DWORD {
+pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut PVOID, functiontable: PRUNTIME_FUNCTION, entrycount: super::DWORD, maximumentrycount: super::DWORD, rangebase: super::ULONG_PTR, rangeend: super::ULONG_PTR) -> super::DWORD {
     windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut PVOID, functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, maximumentrycount : super::DWORD, rangebase : super::ULONG_PTR, rangeend : super::ULONG_PTR) -> super::DWORD);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable, entrycount, maximumentrycount, rangebase, rangeend) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -131,9 +131,9 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: PVOID, nvbuffer: PVOID, size: s
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: PVOID, nvranges: &[NV_MEMORY_RANGE], flags: super::DWORD) -> super::DWORD {
+pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: PVOID, nvranges: PNV_MEMORY_RANGE, numranges: super::SIZE_T, flags: super::DWORD) -> super::DWORD {
     windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : PVOID, nvranges : PNV_MEMORY_RANGE, numranges : super::SIZE_T, flags : super::DWORD) -> super::DWORD);
-    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags) }
+    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, nvranges, numranges, flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]

@@ -37,16 +37,17 @@ extern fn ReadPayload(
 
 ```rust
 pub unsafe fn ReadPayload(
-    values: &[i32],
+    values: *const i32,
+    count: u32,
     buffer: Option<*mut core::ffi::c_void>,
     size: *mut u32,
     reserved: Option<*mut core::ffi::c_void>,
 ) -> BOOL
 ```
 
-`values` becomes a slice because its count is a by-value input parameter. `buffer` stays a pointer
-because its count is read through `*size`. `_Success_` is not published. `must_use` adds nothing
-here because `BOOL` is already `#[must_use]`. The DLL comes from import-library evidence, not SAL.
+`values` and `buffer` stay pointers with separate counts. `_Success_` is not published. `must_use`
+adds nothing here because `BOOL` is already `#[must_use]`. The DLL comes from import-library evidence,
+not SAL.
 
 ## Principles
 
@@ -95,8 +96,8 @@ recover MIDL's original IID parameter name.
 
 | Header | RDL | Rust |
 | --- | --- | --- |
-| `_In_reads_(count) const int* values` | `#[buffer(count)] #[in] values: *const i32` | `&[i32]` with an eligible by-value input count |
-| `_Inout_updates_(count) int* values` | `#[buffer(count)] #[in] #[out] values: *mut i32` | `&mut [i32]` with an eligible count |
+| `_In_reads_(count) const int* values` | `#[buffer(count)] #[in] values: *const i32` | Raw pointer and separate count |
+| `_Inout_updates_(count) int* values` | `#[buffer(count)] #[in] #[out] values: *mut i32` | Raw pointer and separate count |
 | `_Out_writes_to_(capacity, *written) int* values` | `#[buffer(capacity)] #[out] values: *mut i32` | Raw pointer; the produced-length relationship is not published |
 | `_Out_writes_bytes_(*size) void* data` | `#[buffer(bytes(*size))] #[out] data: *mut void` | Raw pointer |
 
@@ -110,7 +111,12 @@ When no entry extent can be published, `incomplete` preserves that buffer guard.
 Clang still captures and reconciles native capacities, initialized lengths, units and conditional
 counts. RDL/WinMD publishes only the entry extent. Produced-length metadata can be added when a
 consumer needs it, without rebuilding SAL capture. A Rust initialized-prefix wrapper would also need
-success, completion and value-validity rules; ordinary slice arguments do not require that metadata.
+success, completion and value-validity rules.
+
+Rust bindgen preserves native buffer pointers and counts rather than combining them into slices.
+Callers supply both according to the API's contract, preserving any distinction between null and an
+empty buffer. API-specific wrappers can expose slices when the native contract permits it. WinRT
+array projection is separate and still uses slices.
 
 ### `null_terminated` and `null_null_terminated`: trailing zero elements
 
@@ -180,12 +186,10 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 
 | Metadata | Current bindgen behavior |
 | --- | --- |
-| Constant element count or unshared by-value input count | Slice or fixed-size array reference when direction and element type allow it; hide a variable count |
-| Constant byte count, signed count on an optional buffer, byte count on wider elements, or output-only buffer | Raw pointer |
-| Other buffer counts | Raw pointer, except interface values; no `retval` projection |
-| `incomplete` on a buffer, count, query argument or result | Blocks the corresponding slice, query or `retval` transformation |
+| `buffer` | Keep native pointers and separate counts; block scalar-result and COM-query transformations on the buffer |
+| `incomplete` | Keep raw parameter storage, except borrowed interface values; block query or `retval` transformations on the parameter |
 | `retval` | Trailing output-only, non-optional, non-reserved pointer with no extent or `incomplete`; `HRESULT` becomes `Result<T>`, `void` becomes `T` |
-| `opt` or `reserved` | Optional pointer/reference/slice where the parameter projection supports it |
+| `opt` or `reserved` | Optional pointer/reference where the parameter projection supports it |
 
 Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
 expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection

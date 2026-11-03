@@ -9894,9 +9894,9 @@ impl ID3D12CommandQueue {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ExecuteCommandLists(&self, ppcommandlists: &[Option<ID3D12CommandList>]) {
+    pub unsafe fn ExecuteCommandLists(&self, numcommandlists: super::UINT, ppcommandlists: *const Option<ID3D12CommandList>) {
         unsafe {
-            (windows_core::Interface::vtable(self).ExecuteCommandLists)(windows_core::Interface::as_raw(self), ppcommandlists.len().try_into().unwrap(), core::mem::transmute(ppcommandlists.as_ptr()));
+            (windows_core::Interface::vtable(self).ExecuteCommandLists)(windows_core::Interface::as_raw(self), numcommandlists, core::mem::transmute(ppcommandlists));
         }
     }
     #[cfg(feature = "shared")]
@@ -11230,12 +11230,12 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).GetDescriptorHandleIncrementSize)(windows_core::Interface::as_raw(self), descriptorheaptype) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CreateRootSignature<T>(&self, nodemask: super::UINT, pblobwithrootsignature: &[u8]) -> windows_core::Result<T>
+    pub unsafe fn CreateRootSignature<T>(&self, nodemask: super::UINT, pblobwithrootsignature: *const core::ffi::c_void, bloblengthinbytes: super::SIZE_T) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateRootSignature)(windows_core::Interface::as_raw(self), nodemask, core::mem::transmute(pblobwithrootsignature.as_ptr()), pblobwithrootsignature.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateRootSignature)(windows_core::Interface::as_raw(self), nodemask, pblobwithrootsignature, bloblengthinbytes, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateConstantBufferView(&self, pdesc: Option<*const D3D12_CONSTANT_BUFFER_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
@@ -11299,10 +11299,10 @@ impl ID3D12Device {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: super::UINT, presourcedescs: &[D3D12_RESOURCE_DESC]) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: super::UINT, numresourcedescs: super::UINT, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResourceAllocationInfo)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, presourcedescs.len().try_into().unwrap(), presourcedescs.as_ptr());
+            (windows_core::Interface::vtable(self).GetResourceAllocationInfo)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, numresourcedescs, presourcedescs);
             result__
         }
     }
@@ -11366,12 +11366,12 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, pnthandle as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())) }
+    pub unsafe fn MakeResident(&self, numobjects: super::UINT, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), numobjects, core::mem::transmute(ppobjects)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Evict(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())) }
+    pub unsafe fn Evict(&self, numobjects: super::UINT, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), numobjects, core::mem::transmute(ppobjects)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn CreateFence<T>(&self, initialvalue: super::UINT64, flags: D3D12_FENCE_FLAGS) -> windows_core::Result<T>
@@ -11895,12 +11895,12 @@ impl core::ops::Deref for ID3D12Device1 {
 windows_core::imp::interface_hierarchy!(ID3D12Device1, windows_core::IUnknown, ID3D12Object, ID3D12Device);
 impl ID3D12Device1 {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CreatePipelineLibrary<T>(&self, plibraryblob: &[u8]) -> windows_core::Result<T>
+    pub unsafe fn CreatePipelineLibrary<T>(&self, plibraryblob: *const core::ffi::c_void, bloblength: super::SIZE_T) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreatePipelineLibrary)(windows_core::Interface::as_raw(self), core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreatePipelineLibrary)(windows_core::Interface::as_raw(self), plibraryblob, bloblength, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const super::UINT64, numfences: super::UINT, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::HANDLE) -> windows_core::HRESULT {
@@ -11978,28 +11978,28 @@ impl core::ops::Deref for ID3D12Device10 {
 windows_core::imp::interface_hierarchy!(ID3D12Device10, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
 impl ID3D12Device10 {
     #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, pcastableformats: Option<&[super::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, numcastableformats: super::UINT32, pcastableformats: Option<*const super::DXGI_FORMAT>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource3)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), pcastableformats.map_or(0, |slice| slice.len().try_into().unwrap()), pcastableformats.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, result__ as *mut _ as *mut _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource3)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), numcastableformats, pcastableformats.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: super::UINT64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pcastableformats: Option<&[super::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: super::UINT64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, numcastableformats: super::UINT32, pcastableformats: Option<*const super::DXGI_FORMAT>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
         T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource2)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pcastableformats.map_or(0, |slice| slice.len().try_into().unwrap()), pcastableformats.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, result__ as *mut _ as *mut _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource2)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, numcastableformats, pcastableformats.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, pcastableformats: Option<&[super::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, numcastableformats: super::UINT32, pcastableformats: Option<*const super::DXGI_FORMAT>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P3: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateReservedResource2)(windows_core::Interface::as_raw(self), pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), pcastableformats.map_or(0, |slice| slice.len().try_into().unwrap()), pcastableformats.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, result__ as *mut _ as *mut _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateReservedResource2)(windows_core::Interface::as_raw(self), pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), numcastableformats, pcastableformats.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
 }
 #[repr(C)]
@@ -12238,13 +12238,13 @@ impl core::ops::Deref for ID3D12Device14 {
 windows_core::imp::interface_hierarchy!(ID3D12Device14, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11, ID3D12Device12, ID3D12Device13);
 impl ID3D12Device14 {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<P3, T>(&self, nodemask: super::UINT, plibraryblob: &[u8], subobjectname: P3) -> windows_core::Result<T>
+    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<P3, T>(&self, nodemask: super::UINT, plibraryblob: *const core::ffi::c_void, bloblengthinbytes: super::SIZE_T, subobjectname: P3) -> windows_core::Result<T>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateRootSignatureFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), nodemask, core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), subobjectname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateRootSignatureFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), nodemask, plibraryblob, bloblengthinbytes, subobjectname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -12369,11 +12369,11 @@ impl ID3D12Device3 {
         unsafe { (windows_core::Interface::vtable(self).OpenExistingHeapFromFileMapping)(windows_core::Interface::as_raw(self), hfilemapping, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EnqueueMakeResident<P3>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[Option<ID3D12Pageable>], pfencetosignal: P3, fencevaluetosignal: super::UINT64) -> windows_core::HRESULT
+    pub unsafe fn EnqueueMakeResident<P3>(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: super::UINT, ppobjects: *const Option<ID3D12Pageable>, pfencetosignal: P3, fencevaluetosignal: super::UINT64) -> windows_core::HRESULT
     where
         P3: windows_core::Param<ID3D12Fence>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnqueueMakeResident)(windows_core::Interface::as_raw(self), flags, ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr()), pfencetosignal.param().abi(), fencevaluetosignal) }
+        unsafe { (windows_core::Interface::vtable(self).EnqueueMakeResident)(windows_core::Interface::as_raw(self), flags, numobjects, core::mem::transmute(ppobjects), pfencetosignal.param().abi(), fencevaluetosignal) }
     }
 }
 #[repr(C)]
@@ -14367,21 +14367,21 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn RSSetViewports(&self, pviewports: &[D3D12_VIEWPORT]) {
+    pub unsafe fn RSSetViewports(&self, numviewports: super::UINT, pviewports: *const D3D12_VIEWPORT) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.len().try_into().unwrap(), pviewports.as_ptr());
+            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), numviewports, pviewports);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn RSSetScissorRects(&self, prects: &[D3D12_RECT]) {
+    pub unsafe fn RSSetScissorRects(&self, numrects: super::UINT, prects: *const D3D12_RECT) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), numrects, prects);
         }
     }
     #[cfg(feature = "minwindef")]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: Option<&[super::FLOAT; 4]>) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: Option<*const super::FLOAT>) {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetBlendFactor)(windows_core::Interface::as_raw(self), blendfactor.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).OMSetBlendFactor)(windows_core::Interface::as_raw(self), blendfactor.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -14399,9 +14399,9 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+    pub unsafe fn ResourceBarrier(&self, numbarriers: super::UINT, pbarriers: *const D3D12_RESOURCE_BARRIER) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), numbarriers, pbarriers);
         }
     }
     pub unsafe fn ExecuteBundle<P0>(&self, pcommandlist: P0)
@@ -14413,9 +14413,9 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: super::UINT, ppdescriptorheaps: *const Option<ID3D12DescriptorHeap>) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetDescriptorHeaps)(windows_core::Interface::as_raw(self), ppdescriptorheaps.len().try_into().unwrap(), core::mem::transmute(ppdescriptorheaps.as_ptr()));
+            (windows_core::Interface::vtable(self).SetDescriptorHeaps)(windows_core::Interface::as_raw(self), numdescriptorheaps, core::mem::transmute(ppdescriptorheaps));
         }
     }
     pub unsafe fn SetComputeRootSignature<P0>(&self, prootsignature: P0)
@@ -14513,15 +14513,15 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: super::UINT, pviews: Option<&[D3D12_VERTEX_BUFFER_VIEW]>) {
+    pub unsafe fn IASetVertexBuffers(&self, startslot: super::UINT, numviews: super::UINT, pviews: Option<*const D3D12_VERTEX_BUFFER_VIEW>) {
         unsafe {
-            (windows_core::Interface::vtable(self).IASetVertexBuffers)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), pviews.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).IASetVertexBuffers)(windows_core::Interface::as_raw(self), startslot, numviews, pviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SOSetTargets(&self, startslot: super::UINT, pviews: Option<&[D3D12_STREAM_OUTPUT_BUFFER_VIEW]>) {
+    pub unsafe fn SOSetTargets(&self, startslot: super::UINT, numviews: super::UINT, pviews: Option<*const D3D12_STREAM_OUTPUT_BUFFER_VIEW>) {
         unsafe {
-            (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), pviews.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), startslot, numviews, pviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -14531,33 +14531,33 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearDepthStencilView(&self, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: super::FLOAT, stencil: super::UINT8, prects: &[D3D12_RECT]) {
+    pub unsafe fn ClearDepthStencilView(&self, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: super::FLOAT, stencil: super::UINT8, numrects: super::UINT, prects: *const D3D12_RECT) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), depthstencilview, clearflags, depth, stencil, prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), depthstencilview, clearflags, depth, stencil, numrects, prects);
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const super::FLOAT, prects: &[D3D12_RECT]) {
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const super::FLOAT, numrects: super::UINT, prects: *const D3D12_RECT) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba, prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba, numrects, prects);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearUnorderedAccessViewUint<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const super::UINT, prects: &[D3D12_RECT])
+    pub unsafe fn ClearUnorderedAccessViewUint<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const super::UINT, numrects: super::UINT, prects: *const D3D12_RECT)
     where
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, numrects, prects);
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearUnorderedAccessViewFloat<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const super::FLOAT, prects: &[D3D12_RECT])
+    pub unsafe fn ClearUnorderedAccessViewFloat<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const super::FLOAT, numrects: super::UINT, prects: *const D3D12_RECT)
     where
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, numrects, prects);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
@@ -15573,9 +15573,9 @@ impl core::ops::Deref for ID3D12GraphicsCommandList4 {
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList4, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
 impl ID3D12GraphicsCommandList4 {
     #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn BeginRenderPass(&self, prendertargets: Option<&[D3D12_RENDER_PASS_RENDER_TARGET_DESC]>, pdepthstencil: Option<*const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS) {
+    pub unsafe fn BeginRenderPass(&self, numrendertargets: super::UINT, prendertargets: Option<*const D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: Option<*const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS) {
         unsafe {
-            (windows_core::Interface::vtable(self).BeginRenderPass)(windows_core::Interface::as_raw(self), prendertargets.map_or(0, |slice| slice.len().try_into().unwrap()), prendertargets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pdepthstencil.unwrap_or(core::mem::zeroed()) as _, flags);
+            (windows_core::Interface::vtable(self).BeginRenderPass)(windows_core::Interface::as_raw(self), numrendertargets, prendertargets.unwrap_or(core::mem::zeroed()) as _, pdepthstencil.unwrap_or(core::mem::zeroed()) as _, flags);
         }
     }
     pub unsafe fn EndRenderPass(&self) {
@@ -15602,15 +15602,15 @@ impl ID3D12GraphicsCommandList4 {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, ppostbuildinfodescs: Option<&[D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC]>) {
+    pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: super::UINT, ppostbuildinfodescs: Option<*const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BuildRaytracingAccelerationStructure)(windows_core::Interface::as_raw(self), pdesc, ppostbuildinfodescs.map_or(0, |slice| slice.len().try_into().unwrap()), ppostbuildinfodescs.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).BuildRaytracingAccelerationStructure)(windows_core::Interface::as_raw(self), pdesc, numpostbuildinfodescs, ppostbuildinfodescs.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, psourceaccelerationstructuredata: &[D3D12_GPU_VIRTUAL_ADDRESS]) {
+    pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: super::UINT, psourceaccelerationstructuredata: *const D3D12_GPU_VIRTUAL_ADDRESS) {
         unsafe {
-            (windows_core::Interface::vtable(self).EmitRaytracingAccelerationStructurePostbuildInfo)(windows_core::Interface::as_raw(self), pdesc, psourceaccelerationstructuredata.len().try_into().unwrap(), psourceaccelerationstructuredata.as_ptr());
+            (windows_core::Interface::vtable(self).EmitRaytracingAccelerationStructurePostbuildInfo)(windows_core::Interface::as_raw(self), pdesc, numsourceaccelerationstructures, psourceaccelerationstructuredata);
         }
     }
     pub unsafe fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: D3D12_GPU_VIRTUAL_ADDRESS, sourceaccelerationstructuredata: D3D12_GPU_VIRTUAL_ADDRESS, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
@@ -15762,9 +15762,9 @@ impl core::ops::Deref for ID3D12GraphicsCommandList5 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList5, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4);
 impl ID3D12GraphicsCommandList5 {
-    pub unsafe fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: Option<&[D3D12_SHADING_RATE_COMBINER; 2]>) {
+    pub unsafe fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: Option<*const D3D12_SHADING_RATE_COMBINER>) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetShadingRate)(windows_core::Interface::as_raw(self), baseshadingrate, combiners.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).RSSetShadingRate)(windows_core::Interface::as_raw(self), baseshadingrate, combiners.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn RSSetShadingRateImage<P0>(&self, shadingrateimage: P0)
@@ -15871,9 +15871,9 @@ impl core::ops::Deref for ID3D12GraphicsCommandList7 {
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList7, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6);
 impl ID3D12GraphicsCommandList7 {
     #[cfg(feature = "shared")]
-    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+    pub unsafe fn Barrier(&self, numbarriergroups: super::UINT32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), numbarriergroups, pbarriergroups);
         }
     }
 }
@@ -19246,8 +19246,8 @@ impl core::ops::Deref for ID3D12Tools1 {
 windows_core::imp::interface_hierarchy!(ID3D12Tools1, windows_core::IUnknown, ID3D12Tools);
 impl ID3D12Tools1 {
     #[cfg(feature = "shared")]
-    pub unsafe fn ReserveGPUVARangesAtCreate(&self, pranges: &[D3D12_GPU_VIRTUAL_ADDRESS_RANGE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReserveGPUVARangesAtCreate)(windows_core::Interface::as_raw(self), pranges.as_ptr(), pranges.len().try_into().unwrap()) }
+    pub unsafe fn ReserveGPUVARangesAtCreate(&self, pranges: *const D3D12_GPU_VIRTUAL_ADDRESS_RANGE, uinumranges: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReserveGPUVARangesAtCreate)(windows_core::Interface::as_raw(self), pranges, uinumranges) }
     }
     pub unsafe fn ClearReservedGPUVARangesList(&self) {
         unsafe {
@@ -19426,9 +19426,9 @@ impl ID3D12VideoDecodeCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+    pub unsafe fn ResourceBarrier(&self, numbarriers: super::UINT, pbarriers: *const D3D12_RESOURCE_BARRIER) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), numbarriers, pbarriers);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
@@ -19836,9 +19836,9 @@ impl core::ops::Deref for ID3D12VideoDecodeCommandList3 {
 windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList2);
 impl ID3D12VideoDecodeCommandList3 {
     #[cfg(feature = "shared")]
-    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+    pub unsafe fn Barrier(&self, numbarriergroups: super::UINT32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), numbarriergroups, pbarriergroups);
         }
     }
 }
@@ -20086,12 +20086,12 @@ impl ID3D12VideoDevice {
         unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoderHeap)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: super::UINT, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> windows_core::Result<T>
+    pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: super::UINT, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: super::UINT, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, numinputstreamdescs, pinputstreamdescs, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -20264,13 +20264,13 @@ impl ID3D12VideoDevice2 {
         unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoderHeap1)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateVideoProcessor1<P4, T>(&self, nodemask: super::UINT, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC], pprotectedresourcesession: P4) -> windows_core::Result<T>
+    pub unsafe fn CreateVideoProcessor1<P4, T>(&self, nodemask: super::UINT, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: super::UINT, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: P4) -> windows_core::Result<T>
     where
         P4: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_ptr(), pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, numinputstreamdescs, pinputstreamdescs, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn CreateVideoExtensionCommand<P3, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: super::SIZE_T, pprotectedresourcesession: P3) -> windows_core::Result<T>
@@ -20513,9 +20513,9 @@ impl ID3D12VideoEncodeCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+    pub unsafe fn ResourceBarrier(&self, numbarriers: super::UINT, pbarriers: *const D3D12_RESOURCE_BARRIER) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), numbarriers, pbarriers);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
@@ -20963,9 +20963,9 @@ impl core::ops::Deref for ID3D12VideoEncodeCommandList3 {
 windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2);
 impl ID3D12VideoEncodeCommandList3 {
     #[cfg(feature = "shared")]
-    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+    pub unsafe fn Barrier(&self, numbarriergroups: super::UINT32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), numbarriergroups, pbarriergroups);
         }
     }
 }
@@ -21632,9 +21632,9 @@ impl ID3D12VideoProcessCommandList {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+    pub unsafe fn ResourceBarrier(&self, numbarriers: super::UINT, pbarriers: *const D3D12_RESOURCE_BARRIER) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), numbarriers, pbarriers);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
@@ -21701,12 +21701,12 @@ impl ID3D12VideoProcessCommandList {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
+    pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: super::UINT, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS)
     where
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
+            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, numinputstreams, pinputarguments);
         }
     }
     #[cfg(feature = "shared")]
@@ -21903,12 +21903,12 @@ impl core::ops::Deref for ID3D12VideoProcessCommandList1 {
 windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoProcessCommandList);
 impl ID3D12VideoProcessCommandList1 {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
+    pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: super::UINT, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1)
     where
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
+            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, numinputstreams, pinputarguments);
         }
     }
 }
@@ -22042,9 +22042,9 @@ impl core::ops::Deref for ID3D12VideoProcessCommandList3 {
 windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList2);
 impl ID3D12VideoProcessCommandList3 {
     #[cfg(feature = "shared")]
-    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+    pub unsafe fn Barrier(&self, numbarriergroups: super::UINT32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), numbarriergroups, pbarriergroups);
         }
     }
 }

@@ -6,9 +6,9 @@ pub unsafe fn NtAccessCheckAndAuditAlarm(subsystemname: super::PUNICODE_STRING, 
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: super::ULONG, objecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: super::ULONG, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::ULONG, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : super::ULONG, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::ULONG, genericmapping : super::PGENERIC_MAPPING, objectcreation : super::BOOLEAN, grantedaccess : super::PACCESS_MASK, accessstatus : super::PNTSTATUS, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
-    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -216,9 +216,9 @@ pub unsafe fn NtSetInformationFile(filehandle: super::HANDLE, iostatusblock: sup
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: super::PVOID, vminformationlength: super::ULONG) -> windows_core::NTSTATUS {
+pub unsafe fn NtSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: super::ULONG_PTR, virtualaddresses: PMEMORY_RANGE_ENTRY, vminformation: super::PVOID, vminformationlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtSetInformationVirtualMemory(processhandle : super::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : super::ULONG_PTR, virtualaddresses : PMEMORY_RANGE_ENTRY, vminformation : super::PVOID, vminformationlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { NtSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength) }
+    unsafe { NtSetInformationVirtualMemory(processhandle, vminformationclass, numberofentries, virtualaddresses, vminformation, vminformationlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -307,9 +307,9 @@ pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: super::PSID_IDENT
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: super::PSID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut super::PSID) -> windows_core::NTSTATUS {
+pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: super::PSID_IDENTIFIER_AUTHORITY, subauthoritycount: super::UCHAR, subauthorities: super::PULONG, sid: *mut super::PSID) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : super::PSID_IDENTIFIER_AUTHORITY, subauthoritycount : super::UCHAR, subauthorities : super::PULONG, sid : *mut super::PSID) -> windows_core::NTSTATUS);
-    unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), core::mem::transmute(subauthorities.as_ptr()), sid as _) }
+    unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthoritycount, subauthorities, sid as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -339,9 +339,9 @@ pub unsafe fn RtlCompareMemoryUlong(source: super::PVOID, length: super::SIZE_T,
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlCompressBuffer(compressionformatandengine: super::USHORT, uncompressedbuffer: &[u8], compressedbuffer: super::PUCHAR, compressedbuffersize: super::ULONG, uncompressedchunksize: super::ULONG, finalcompressedsize: super::PULONG, workspace: super::PVOID) -> windows_core::NTSTATUS {
+pub unsafe fn RtlCompressBuffer(compressionformatandengine: super::USHORT, uncompressedbuffer: super::PUCHAR, uncompressedbuffersize: super::ULONG, compressedbuffer: super::PUCHAR, compressedbuffersize: super::ULONG, uncompressedchunksize: super::ULONG, finalcompressedsize: super::PULONG, workspace: super::PVOID) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : super::USHORT, uncompressedbuffer : super::PUCHAR, uncompressedbuffersize : super::ULONG, compressedbuffer : super::PUCHAR, compressedbuffersize : super::ULONG, uncompressedchunksize : super::ULONG, finalcompressedsize : super::PULONG, workspace : super::PVOID) -> windows_core::NTSTATUS);
-    unsafe { RtlCompressBuffer(compressionformatandengine, core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer as _, compressedbuffersize, uncompressedchunksize, finalcompressedsize as _, workspace) }
+    unsafe { RtlCompressBuffer(compressionformatandengine, uncompressedbuffer, uncompressedbuffersize, compressedbuffer as _, compressedbuffersize, uncompressedchunksize, finalcompressedsize as _, workspace) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -398,27 +398,27 @@ pub unsafe fn RtlCreateVirtualAccountSid(name: super::PCUNICODE_STRING, basesuba
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlCustomCPToUnicodeN(customcp: super::PCPTABLEINFO, unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, customcpstring: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn RtlCustomCPToUnicodeN(customcp: super::PCPTABLEINFO, unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, customcpstring: super::PCH, bytesincustomcpstring: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlCustomCPToUnicodeN(customcp : super::PCPTABLEINFO, unicodestring : super::PWCH, maxbytesinunicodestring : super::ULONG, bytesinunicodestring : super::PULONG, customcpstring : super::PCH, bytesincustomcpstring : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlCustomCPToUnicodeN(customcp, unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap()) }
+    unsafe { RtlCustomCPToUnicodeN(customcp, unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, customcpstring, bytesincustomcpstring) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlDecompressBuffer(compressionformat: super::USHORT, uncompressedbuffer: super::PUCHAR, uncompressedbuffersize: super::ULONG, compressedbuffer: &[u8], finaluncompressedsize: super::PULONG) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressBuffer(compressionformat: super::USHORT, uncompressedbuffer: super::PUCHAR, uncompressedbuffersize: super::ULONG, compressedbuffer: super::PUCHAR, compressedbuffersize: super::ULONG, finaluncompressedsize: super::PULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : super::USHORT, uncompressedbuffer : super::PUCHAR, uncompressedbuffersize : super::ULONG, compressedbuffer : super::PUCHAR, compressedbuffersize : super::ULONG, finaluncompressedsize : super::PULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
+    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, compressedbuffer, compressedbuffersize, finaluncompressedsize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlDecompressBufferEx(compressionformat: super::USHORT, uncompressedbuffer: super::PUCHAR, uncompressedbuffersize: super::ULONG, compressedbuffer: &[u8], finaluncompressedsize: super::PULONG, workspace: Option<super::PVOID>) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressBufferEx(compressionformat: super::USHORT, uncompressedbuffer: super::PUCHAR, uncompressedbuffersize: super::ULONG, compressedbuffer: super::PUCHAR, compressedbuffersize: super::ULONG, finaluncompressedsize: super::PULONG, workspace: Option<super::PVOID>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : super::USHORT, uncompressedbuffer : super::PUCHAR, uncompressedbuffersize : super::ULONG, compressedbuffer : super::PUCHAR, compressedbuffersize : super::ULONG, finaluncompressedsize : super::PULONG, workspace : super::PVOID) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, compressedbuffer, compressedbuffersize, finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlDecompressFragment(compressionformat: super::USHORT, uncompressedfragment: super::PUCHAR, uncompressedfragmentsize: super::ULONG, compressedbuffer: &[u8], fragmentoffset: super::ULONG, finaluncompressedsize: super::PULONG, workspace: super::PVOID) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressFragment(compressionformat: super::USHORT, uncompressedfragment: super::PUCHAR, uncompressedfragmentsize: super::ULONG, compressedbuffer: super::PUCHAR, compressedbuffersize: super::ULONG, fragmentoffset: super::ULONG, finaluncompressedsize: super::PULONG, workspace: super::PVOID) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : super::USHORT, uncompressedfragment : super::PUCHAR, uncompressedfragmentsize : super::ULONG, compressedbuffer : super::PUCHAR, compressedbuffersize : super::ULONG, fragmentoffset : super::ULONG, finaluncompressedsize : super::PULONG, workspace : super::PVOID) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment as _, uncompressedfragmentsize, core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
+    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment as _, uncompressedfragmentsize, compressedbuffer, compressedbuffersize, fragmentoffset, finaluncompressedsize as _, workspace) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -567,9 +567,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: super::PCPTABLEINFO) {
+pub unsafe fn RtlInitCodePageTable(tablebase: Option<super::PUSHORT>, codepagetable: super::PCPTABLEINFO) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : super::PUSHORT, codepagetable : super::PCPTABLEINFO));
-    unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
+    unsafe { RtlInitCodePageTable(tablebase.unwrap_or(core::mem::zeroed()) as _, codepagetable as _) }
 }
 #[cfg(all(feature = "shared", feature = "winternl"))]
 #[inline]
@@ -636,15 +636,15 @@ pub unsafe fn RtlLengthSid(sid: super::PSID) -> super::ULONG {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlMultiByteToUnicodeN(unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, multibytestring: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn RtlMultiByteToUnicodeN(unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, multibytestring: *const super::CHAR, bytesinmultibytestring: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeN(unicodestring : super::PWCH, maxbytesinunicodestring : super::ULONG, bytesinunicodestring : super::PULONG, multibytestring : *const super::CHAR, bytesinmultibytestring : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlMultiByteToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap()) }
+    unsafe { RtlMultiByteToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, multibytestring, bytesinmultibytestring) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlMultiByteToUnicodeSize(bytesinunicodestring: super::PULONG, multibytestring: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn RtlMultiByteToUnicodeSize(bytesinunicodestring: super::PULONG, multibytestring: *const super::CHAR, bytesinmultibytestring: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeSize(bytesinunicodestring : super::PULONG, multibytestring : *const super::CHAR, bytesinmultibytestring : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlMultiByteToUnicodeSize(bytesinunicodestring as _, core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap()) }
+    unsafe { RtlMultiByteToUnicodeSize(bytesinunicodestring as _, multibytestring, bytesinmultibytestring) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -669,9 +669,9 @@ pub unsafe fn RtlOemStringToUnicodeString(destinationstring: super::PUNICODE_STR
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlOemToUnicodeN(unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, oemstring: &[u8]) -> windows_core::NTSTATUS {
+pub unsafe fn RtlOemToUnicodeN(unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, oemstring: super::PCCH, bytesinoemstring: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : super::PWCH, maxbytesinunicodestring : super::ULONG, bytesinunicodestring : super::PULONG, oemstring : super::PCCH, bytesinoemstring : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { RtlOemToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap()) }
+    unsafe { RtlOemToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, oemstring, bytesinoemstring) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -1007,9 +1007,9 @@ pub unsafe fn ZwSetEvent(eventhandle: super::HANDLE, previousstate: Option<super
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: super::PVOID, vminformationlength: super::ULONG) -> windows_core::NTSTATUS {
+pub unsafe fn ZwSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: super::ULONG_PTR, virtualaddresses: PMEMORY_RANGE_ENTRY, vminformation: super::PVOID, vminformationlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwSetInformationVirtualMemory(processhandle : super::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : super::ULONG_PTR, virtualaddresses : PMEMORY_RANGE_ENTRY, vminformation : super::PVOID, vminformationlength : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { ZwSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength) }
+    unsafe { ZwSetInformationVirtualMemory(processhandle, vminformationclass, numberofentries, virtualaddresses, vminformation, vminformationlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]

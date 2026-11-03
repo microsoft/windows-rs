@@ -15,12 +15,12 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn PSCreateDelayedMultiplexPropertyStore<P1>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P1, rgstoreids: &[super::DWORD], riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn PSCreateDelayedMultiplexPropertyStore<P1>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P1, rgstoreids: *const super::DWORD, cstores: super::DWORD, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<IDelayedPropertyStoreFactory>,
 {
     windows_core::link!("propsys.dll" "system" fn PSCreateDelayedMultiplexPropertyStore(flags : GETPROPERTYSTOREFLAGS, pdpsf : *mut core::ffi::c_void, rgstoreids : *const super::DWORD, cstores : super::DWORD, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), rgstoreids.as_ptr(), rgstoreids.len().try_into().unwrap(), riid, ppv as _) }
+    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), rgstoreids, cstores, riid, ppv as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -30,9 +30,9 @@ pub unsafe fn PSCreateMemoryPropertyStore(riid: *const super::IID, ppv: *mut *mu
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[Option<windows_core::IUnknown>], riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: *const Option<windows_core::IUnknown>, cstores: super::DWORD, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCreateMultiplexPropertyStore(prgpunkstores : *const *mut core::ffi::c_void, cstores : super::DWORD, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PSCreateMultiplexPropertyStore(core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len().try_into().unwrap(), riid, ppv as _) }
+    unsafe { PSCreateMultiplexPropertyStore(core::mem::transmute(prgpunkstores), cstores, riid, ppv as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
