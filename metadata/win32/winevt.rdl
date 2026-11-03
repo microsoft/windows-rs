@@ -312,19 +312,19 @@ mod Windows {
         const EVT_VARIANT_TYPE_MASK: i32 = 127;
         const EVT_WRITE_ACCESS: i32 = 2;
         #[library("wevtapi.dll")]
-        extern fn EvtArchiveExportedLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> BOOL;
+        extern fn EvtArchiveExportedLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtCancel(#[in] #[opt] Object: EVT_HANDLE) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtClearLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] ChannelPath: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
+        extern fn EvtClearLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] ChannelPath: LPCWSTR, #[in] #[null_terminated] #[opt] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtClose(#[in] #[incomplete] Object: EVT_HANDLE) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtCreateBookmark(#[in] #[null_terminated(entry)] #[opt] BookmarkXml: LPCWSTR) -> EVT_HANDLE;
+        extern fn EvtCreateBookmark(#[in] #[null_terminated] #[opt] BookmarkXml: LPCWSTR) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtCreateRenderContext(ValuePathsCount: DWORD, #[buffer(ValuePathsCount)] #[in] #[opt] ValuePaths: *mut LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtExportLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] #[opt] Path: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] Query: LPCWSTR, #[in] #[null_terminated(entry)] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
+        extern fn EvtExportLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] #[opt] Path: LPCWSTR, #[in] #[null_terminated] #[opt] Query: LPCWSTR, #[in] #[null_terminated] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtFormatMessage(#[in] #[opt] PublisherMetadata: EVT_HANDLE, #[in] #[opt] Event: EVT_HANDLE, MessageId: DWORD, ValueCount: DWORD, #[buffer(ValueCount)] #[in] #[opt] Values: PEVT_VARIANT, Flags: DWORD, BufferSize: DWORD, #[buffer(BufferSize)] #[opt] #[out] Buffer: LPWSTR, #[out] BufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
@@ -354,21 +354,21 @@ mod Windows {
         #[library("wevtapi.dll")]
         extern fn EvtNextPublisherId(#[in] PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: DWORD, #[buffer(PublisherIdBufferSize)] #[opt] #[out] PublisherIdBuffer: LPWSTR, #[out] PublisherIdBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenChannelConfig(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] ChannelPath: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
+        extern fn EvtOpenChannelConfig(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] ChannelPath: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtOpenChannelEnum(#[in] #[opt] Session: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtOpenEventMetadataEnum(#[in] PublisherMetadata: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] Path: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
+        extern fn EvtOpenLog(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] Path: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtOpenPublisherEnum(#[in] #[opt] Session: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenPublisherMetadata(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] PublisherId: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> EVT_HANDLE;
+        extern fn EvtOpenPublisherMetadata(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] PublisherId: LPCWSTR, #[in] #[null_terminated] #[opt] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtOpenSession(LoginClass: EVT_LOGIN_CLASS, #[incomplete] Login: PVOID, #[reserved] Timeout: DWORD, #[reserved] Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtQuery(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated(entry)] #[opt] Path: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] Query: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
+        extern fn EvtQuery(#[in] #[opt] Session: EVT_HANDLE, #[in] #[null_terminated] #[opt] Path: LPCWSTR, #[in] #[null_terminated] #[opt] Query: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtRender(#[in] #[opt] Context: EVT_HANDLE, #[in] Fragment: EVT_HANDLE, Flags: DWORD, BufferSize: DWORD, #[buffer(bytes(BufferSize))] #[opt] #[out] Buffer: PVOID, #[out] BufferUsed: PDWORD, #[out] PropertyCount: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
@@ -378,7 +378,7 @@ mod Windows {
         #[library("wevtapi.dll")]
         extern fn EvtSetChannelConfigProperty(#[in] ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: DWORD, #[in] PropertyValue: PEVT_VARIANT) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSubscribe(#[in] #[opt] Session: EVT_HANDLE, #[in] #[opt] SignalEvent: HANDLE, #[in] #[null_terminated(entry)] #[opt] ChannelPath: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] Query: LPCWSTR, #[in] #[opt] Bookmark: EVT_HANDLE, #[incomplete] Context: PVOID, #[incomplete] Callback: EVT_SUBSCRIBE_CALLBACK, Flags: DWORD) -> EVT_HANDLE;
+        extern fn EvtSubscribe(#[in] #[opt] Session: EVT_HANDLE, #[in] #[opt] SignalEvent: HANDLE, #[in] #[null_terminated] #[opt] ChannelPath: LPCWSTR, #[in] #[null_terminated] #[opt] Query: LPCWSTR, #[in] #[opt] Bookmark: EVT_HANDLE, #[incomplete] Context: PVOID, #[incomplete] Callback: EVT_SUBSCRIBE_CALLBACK, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtUpdateBookmark(#[in] Bookmark: EVT_HANDLE, #[in] Event: EVT_HANDLE) -> BOOL;
         type PEVT_HANDLE = *mut *mut void;

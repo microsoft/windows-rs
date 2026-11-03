@@ -904,11 +904,11 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn HttpEndRequestW(#[in] hRequest: HINTERNET, #[opt] #[out] lpBuffersOut: LPINTERNET_BUFFERSW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpIsHostHstsEnabled(#[in] #[null_terminated(entry)] pcwszUrl: PCWSTR, #[out] pfIsHsts: PBOOL) -> DWORD;
+        extern fn HttpIsHostHstsEnabled(#[in] #[null_terminated] pcwszUrl: PCWSTR, #[out] pfIsHsts: PBOOL) -> DWORD;
         #[library("WININET.dll")]
-        extern fn HttpOpenRequestA(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCSTR, #[in] #[opt] lpszObjectName: LPCSTR, #[in] #[opt] lpszVersion: LPCSTR, #[in] #[opt] lpszReferrer: LPCSTR, #[in] #[null_terminated(entry)] #[opt] lplpszAcceptTypes: *mut LPCSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
+        extern fn HttpOpenRequestA(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCSTR, #[in] #[opt] lpszObjectName: LPCSTR, #[in] #[opt] lpszVersion: LPCSTR, #[in] #[opt] lpszReferrer: LPCSTR, #[in] #[null_terminated] #[opt] lplpszAcceptTypes: *mut LPCSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn HttpOpenRequestW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCWSTR, #[in] #[opt] lpszObjectName: LPCWSTR, #[in] #[opt] lpszVersion: LPCWSTR, #[in] #[opt] lpszReferrer: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lplpszAcceptTypes: *mut LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
+        extern fn HttpOpenRequestW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCWSTR, #[in] #[opt] lpszObjectName: LPCWSTR, #[in] #[opt] lpszVersion: LPCWSTR, #[in] #[opt] lpszReferrer: LPCWSTR, #[in] #[null_terminated] #[opt] lplpszAcceptTypes: *mut LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
         extern fn HttpQueryInfoA(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[buffer(bytes(*lpdwBufferLength))] #[in] #[opt] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WININET.dll")]

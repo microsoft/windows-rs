@@ -1,9 +1,9 @@
 #[win32]
 mod Fixture {
     extern "C" fn Conditional(#[incomplete] buffer: *mut u16, capacity: u32);
-    extern "C" fn ConstantCapacity(#[buffer(16)] #[null_terminated(success)] #[out] buffer: *mut u16);
-    extern "C" fn EntryAndSuccess(#[buffer(capacity)] #[in] #[incomplete] #[null_terminated(entry, success)] #[out] buffer: *mut u16, capacity: u32);
-    extern "C" fn EntryOnly(#[in] #[incomplete] #[null_terminated(entry)] #[out] buffer: *mut u16);
+    extern "C" fn ConstantCapacity(#[buffer(16)] #[null_terminated] #[out] buffer: *mut u16);
+    extern "C" fn EntryAndSuccess(#[buffer(capacity)] #[in] #[incomplete] #[null_terminated] #[out] buffer: *mut u16, capacity: u32);
+    extern "C" fn EntryOnly(#[in] #[incomplete] #[null_terminated] #[out] buffer: *mut u16);
     extern "C" fn Expression(#[buffer(capacity)] #[out] buffer: *mut u16, capacity: u32, written: u32);
     extern "C" fn ExtraArguments(#[buffer(capacity)] #[incomplete] #[out] buffer: *mut u16, capacity: u32, written: u32, other: u32);
     extern "C" fn IndirectCapacity(#[buffer(*capacity)] #[out] buffer: *mut u16, capacity: *mut u32, written: u32);

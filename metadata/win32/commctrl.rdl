@@ -409,7 +409,7 @@ mod Windows {
         const GMR_DAYSTATE: i32 = 1;
         const GMR_VISIBLE: i32 = 0;
         #[library("COMCTL32.dll")]
-        extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated(entry)] lpInfo: *const INT);
+        extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated] lpInfo: *const INT);
         #[library("COMCTL32.dll")]
         extern fn GetMUILanguage() -> LANGID;
         #[library("COMCTL32.dll")]
@@ -2842,7 +2842,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn SetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[in] dwRefData: DWORD_PTR) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated(entry)] lpInfo: LPINT) -> BOOL;
+        extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated] lpInfo: LPINT) -> BOOL;
         #[packed(1)]
         struct TASKDIALOGCONFIG {
             cbSize: UINT,

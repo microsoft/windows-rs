@@ -742,9 +742,9 @@ mod Windows {
         type PWDBGEXTS_THREAD_OS_INFO = *mut WDBGEXTS_THREAD_OS_INFO;
         extern fn PWINDBG_CHECK_CONTROL_C() -> ULONG;
         extern fn PWINDBG_CHECK_VERSION() -> ULONG;
-        extern fn PWINDBG_DISASM(#[in] #[out] lpOffset: *mut ULONG_PTR, #[buffer(2000)] #[null_terminated(success)] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
-        extern fn PWINDBG_DISASM32(#[in] #[out] lpOffset: *mut ULONG, #[buffer(2000)] #[null_terminated(success)] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
-        extern fn PWINDBG_DISASM64(#[in] #[out] lpOffset: *mut ULONG64, #[buffer(2000)] #[null_terminated(success)] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
+        extern fn PWINDBG_DISASM(#[in] #[out] lpOffset: *mut ULONG_PTR, #[buffer(2000)] #[null_terminated] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
+        extern fn PWINDBG_DISASM32(#[in] #[out] lpOffset: *mut ULONG, #[buffer(2000)] #[null_terminated] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
+        extern fn PWINDBG_DISASM64(#[in] #[out] lpOffset: *mut ULONG64, #[buffer(2000)] #[null_terminated] #[out] lpBuffer: PCSTR, #[in] fShowEffectiveAddress: ULONG) -> ULONG;
         extern fn PWINDBG_EXTENSION_API_VERSION() -> LPEXT_API_VERSION;
         extern fn PWINDBG_EXTENSION_ROUTINE(#[in] hCurrentProcess: HANDLE, #[in] hCurrentThread: HANDLE, #[in] dwCurrentPc: ULONG, #[in] dwProcessor: ULONG, #[in] lpArgumentString: PCSTR);
         extern fn PWINDBG_EXTENSION_ROUTINE32(#[in] hCurrentProcess: HANDLE, #[in] hCurrentThread: HANDLE, #[in] dwCurrentPc: ULONG, #[in] dwProcessor: ULONG, #[in] lpArgumentString: PCSTR);
@@ -752,9 +752,9 @@ mod Windows {
         extern fn PWINDBG_GET_EXPRESSION(lpExpression: PCSTR) -> ULONG_PTR;
         extern fn PWINDBG_GET_EXPRESSION32(lpExpression: PCSTR) -> ULONG;
         extern fn PWINDBG_GET_EXPRESSION64(lpExpression: PCSTR) -> ULONG64;
-        extern fn PWINDBG_GET_SYMBOL(#[in] offset: PVOID, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: *mut ULONG_PTR);
-        extern fn PWINDBG_GET_SYMBOL32(#[in] offset: ULONG, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG);
-        extern fn PWINDBG_GET_SYMBOL64(#[in] offset: ULONG64, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG64);
+        extern fn PWINDBG_GET_SYMBOL(#[in] offset: PVOID, #[buffer(256)] #[null_terminated] #[out] pchBuffer: PCHAR, #[out] pDisplacement: *mut ULONG_PTR);
+        extern fn PWINDBG_GET_SYMBOL32(#[in] offset: ULONG, #[buffer(256)] #[null_terminated] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG);
+        extern fn PWINDBG_GET_SYMBOL64(#[in] offset: ULONG64, #[buffer(256)] #[null_terminated] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG64);
         extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(#[in] Processor: ULONG, #[buffer(bytes(cbSizeOfContext))] #[out] lpContext: PCONTEXT, #[in] cbSizeOfContext: ULONG) -> ULONG;
         extern fn PWINDBG_IOCTL_ROUTINE(#[in] IoctlType: USHORT, #[incomplete] lpvData: PVOID, #[in] cbSize: ULONG) -> ULONG;
         extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(#[in] address: ULONGLONG, #[buffer(bytes(count))] #[out] buffer: PVOID, #[in] count: ULONG, #[out] bytesread: PULONG) -> ULONG;

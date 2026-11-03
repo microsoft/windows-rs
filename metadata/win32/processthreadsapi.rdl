@@ -92,7 +92,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetThreadContext(#[in] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[null_terminated(success, indirect)] #[out] ppszThreadDescription: *mut PWSTR) -> HRESULT;
+        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[incomplete] #[out] ppszThreadDescription: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetThreadIOPendingFlag(#[in] hThread: HANDLE, #[out] lpIOIsPending: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]

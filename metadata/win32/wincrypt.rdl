@@ -3823,7 +3823,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptGetAsyncParam(#[in] hAsync: HCRYPTASYNC, #[in] pszParamOid: LPSTR, #[opt] #[out] ppvParam: *mut LPVOID, #[opt] #[out] ppfnFree: *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetDefaultOIDDllList(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[buffer(*pcchDllList)] #[null_terminated(double_success)] #[opt] #[out] pwszDllList: *mut WCHAR, #[in] #[out] pcchDllList: *mut DWORD) -> BOOL;
+        extern fn CryptGetDefaultOIDDllList(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[buffer(*pcchDllList)] #[null_null_terminated] #[opt] #[out] pwszDllList: *mut WCHAR, #[in] #[out] pcchDllList: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptGetDefaultOIDFunctionAddress(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[in] #[opt] pwszDll: LPCWSTR, #[in] dwFlags: DWORD, #[out] ppvFuncAddr: *mut *mut void, #[in] #[out] phFuncAddr: *mut HCRYPTOIDFUNCADDR) -> BOOL;
         #[library("ADVAPI32.dll")]

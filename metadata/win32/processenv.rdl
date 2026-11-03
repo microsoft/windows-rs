@@ -6,9 +6,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ExpandEnvironmentStringsW(#[in] lpSrc: LPCWSTR, #[buffer(nSize)] #[incomplete] #[opt] #[out] lpDst: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn FreeEnvironmentStringsA(#[in] #[null_terminated(double_entry)] penv: LPCH) -> BOOL;
+        extern fn FreeEnvironmentStringsA(#[in] #[null_null_terminated] penv: LPCH) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FreeEnvironmentStringsW(#[in] #[null_terminated(double_entry)] penv: LPWCH) -> BOOL;
+        extern fn FreeEnvironmentStringsW(#[in] #[null_null_terminated] penv: LPWCH) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetCommandLineA() -> LPSTR;
         #[library("KERNEL32.dll")]
@@ -40,7 +40,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetCurrentDirectoryW(#[in] lpPathName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetEnvironmentStringsW(#[in] #[null_terminated(double_entry)] NewEnvironment: LPWCH) -> BOOL;
+        extern fn SetEnvironmentStringsW(#[in] #[null_null_terminated] NewEnvironment: LPWCH) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetEnvironmentVariableA(#[in] lpName: LPCSTR, #[in] #[opt] lpValue: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]

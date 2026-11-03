@@ -740,7 +740,7 @@ mod Windows {
         const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptAddContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] dwPosition: ULONG) -> NTSTATUS;
+        extern fn BCryptAddContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] dwPosition: ULONG) -> NTSTATUS;
         struct BCryptBuffer {
             cbBuffer: ULONG,
             BufferType: ULONG,
@@ -755,13 +755,13 @@ mod Windows {
         extern fn BCryptCloseAlgorithmProvider(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptConfigureContext(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContext(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptConfigureContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] pConfig: PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] pConfig: PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptCreateContext(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] #[opt] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptCreateContext(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] #[opt] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] phHash: *mut BCRYPT_HASH_HANDLE, #[buffer(bytes(cbHashObject))] #[opt] #[out] pbHashObject: PUCHAR, #[in] cbHashObject: ULONG, #[buffer(bytes(cbSecret))] #[in] #[opt] pbSecret: PUCHAR, #[in] cbSecret: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
@@ -776,10 +776,10 @@ mod Windows {
         extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] #[opt] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbIV))] #[in] #[opt] #[out] pbIV: PUCHAR, #[in] cbIV: ULONG, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptDeleteContext(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR) -> NTSTATUS;
+        extern fn BCryptDeleteContext(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptDeriveKey(#[in] hSharedSecret: BCRYPT_SECRET_HANDLE, #[in] #[null_terminated(entry)] pwszKDF: LPCWSTR, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[buffer(bytes(cbDerivedKey))] #[opt] #[out] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptDeriveKey(#[in] hSharedSecret: BCRYPT_SECRET_HANDLE, #[in] #[null_terminated] pwszKDF: LPCWSTR, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[buffer(bytes(cbDerivedKey))] #[opt] #[out] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptDeriveKeyCapi(#[in] hHash: BCRYPT_HASH_HANDLE, #[in] #[opt] hTargetAlg: BCRYPT_ALG_HANDLE, #[buffer(bytes(cbDerivedKey))] #[out] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
@@ -809,22 +809,22 @@ mod Windows {
         extern fn BCryptEnumAlgorithms(#[in] dwAlgOperations: ULONG, #[out] pAlgCount: *mut ULONG, #[out] ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumContextFunctionProviders(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctionProviders(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumContextFunctions(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctions(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptEnumProviders(#[in] #[null_terminated(entry)] pszAlgId: LPCWSTR, #[out] pImplCount: *mut ULONG, #[out] ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptEnumProviders(#[in] #[null_terminated] pszAlgId: LPCWSTR, #[out] pImplCount: *mut ULONG, #[out] ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptExportKey(#[in] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] hExportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated(entry)] pszBlobType: LPCWSTR, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptExportKey(#[in] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] hExportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated] pszBlobType: LPCWSTR, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptFinalizeKeyPair(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[in] dwFlags: ULONG) -> NTSTATUS;
@@ -846,7 +846,7 @@ mod Windows {
         extern fn BCryptGetFipsAlgorithmMode(#[out] pfEnabled: *mut BOOLEAN) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptGetProperty(#[in] hObject: BCRYPT_HANDLE, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptGetProperty(#[in] hObject: BCRYPT_HANDLE, #[in] #[null_terminated] pszProperty: LPCWSTR, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[buffer(bytes(cbSecret))] #[in] #[opt] pbSecret: PUCHAR, #[in] cbSecret: ULONG, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[buffer(bytes(cbOutput))] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
@@ -854,49 +854,49 @@ mod Windows {
         extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptImportKey(#[in] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated(entry)] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[buffer(bytes(cbKeyObject))] #[opt] #[out] pbKeyObject: PUCHAR, #[in] cbKeyObject: ULONG, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptImportKey(#[in] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[buffer(bytes(cbKeyObject))] #[opt] #[out] pbKeyObject: PUCHAR, #[in] cbKeyObject: ULONG, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptImportKeyPair(#[in] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated(entry)] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptImportKeyPair(#[in] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[null_terminated] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptKeyDerivation(#[in] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[buffer(bytes(cbDerivedKey))] #[out] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptOpenAlgorithmProvider(#[out] phAlgorithm: *mut BCRYPT_ALG_HANDLE, #[in] #[null_terminated(entry)] pszAlgId: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszImplementation: LPCWSTR, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptOpenAlgorithmProvider(#[out] phAlgorithm: *mut BCRYPT_ALG_HANDLE, #[in] #[null_terminated] pszAlgId: LPCWSTR, #[in] #[null_terminated] #[opt] pszImplementation: LPCWSTR, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] operationType: BCRYPT_MULTI_OPERATION_TYPE, #[buffer(bytes(cbOperations))] #[in] pOperations: PVOID, #[in] cbOperations: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextFunctionConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionConfiguration(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[incomplete] #[opt] #[out] ppbValue: *mut PUCHAR) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] #[null_terminated] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[incomplete] #[opt] #[out] ppbValue: *mut PUCHAR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptQueryProviderRegistration(#[in] #[null_terminated(entry)] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
+        extern fn BCryptQueryProviderRegistration(#[in] #[null_terminated] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptRegisterConfigChangeNotify(#[out] phEvent: *mut HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptRemoveContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR) -> NTSTATUS;
+        extern fn BCryptRemoveContextFunction(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptResolveProviders(#[in] #[null_terminated(entry)] #[opt] pszContext: LPCWSTR, #[in] #[opt] dwInterface: ULONG, #[in] #[null_terminated(entry)] #[opt] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwFlags: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
+        extern fn BCryptResolveProviders(#[in] #[null_terminated] #[opt] pszContext: LPCWSTR, #[in] #[opt] dwInterface: ULONG, #[in] #[null_terminated] #[opt] pszFunction: LPCWSTR, #[in] #[null_terminated] #[opt] pszProvider: LPCWSTR, #[in] dwMode: ULONG, #[in] dwFlags: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[incomplete] #[opt] #[out] ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptSecretAgreement(#[in] hPrivKey: BCRYPT_KEY_HANDLE, #[in] hPubKey: BCRYPT_KEY_HANDLE, #[out] phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptSetContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated(entry)] pszFunction: LPCWSTR, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[in] cbValue: ULONG, #[buffer(bytes(cbValue))] #[in] #[opt] pbValue: PUCHAR) -> NTSTATUS;
+        extern fn BCryptSetContextFunctionProperty(#[in] dwTable: ULONG, #[in] #[null_terminated] pszContext: LPCWSTR, #[in] dwInterface: ULONG, #[in] #[null_terminated] pszFunction: LPCWSTR, #[in] #[null_terminated] pszProperty: LPCWSTR, #[in] cbValue: ULONG, #[buffer(bytes(cbValue))] #[in] #[opt] pbValue: PUCHAR) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
-        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] #[null_terminated(entry)] pszProperty: LPCWSTR, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] #[null_terminated] pszProperty: LPCWSTR, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         #[must_use]
         extern fn BCryptSignHash(#[in] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbInput))] #[in] pbInput: PUCHAR, #[in] cbInput: ULONG, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;

@@ -651,7 +651,7 @@ mod Windows {
         interface IMFSensorActivitiesReport: IUnknown {
             fn GetCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
             fn GetActivityReport(&self, #[in] Index: ULONG, #[out] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
-            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated(entry)] SymbolicName: LPCWSTR, #[out] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReportByDeviceName(&self, #[in] #[null_terminated] SymbolicName: LPCWSTR, #[out] #[retval] sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
         }
         #[guid(0xde5072ee_dbe3_46dc_8a87_b6f631194751)]
         interface IMFSensorActivitiesReportCallback: IUnknown {
@@ -664,8 +664,8 @@ mod Windows {
         }
         #[guid(0x3e8c4be1_a8c2_4528_90de_2851bde5fead)]
         interface IMFSensorActivityReport: IUnknown {
-            fn GetFriendlyName(&self, #[buffer(cchFriendlyName)] #[null_terminated(success)] #[out] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
-            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
+            fn GetFriendlyName(&self, #[buffer(cchFriendlyName)] #[null_terminated] #[out] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetProcessCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
             fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[retval] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
         }
@@ -674,7 +674,7 @@ mod Windows {
             fn GetDeviceId(&self, #[out] pDeviceId: *mut ULONGLONG) -> HRESULT;
             fn GetDeviceType(&self, #[out] pType: *mut MFSensorDeviceType) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
-            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetDeviceAttributes(&self, #[out] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamAttributesCount(&self, #[in] eType: MFSensorStreamType, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
@@ -683,7 +683,7 @@ mod Windows {
         }
         #[guid(0x4110243a_9757_461f_89f1_f22345bcab4e)]
         interface IMFSensorGroup: IUnknown {
-            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated(success)] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[buffer(cchSymbolicLink)] #[null_terminated] #[out] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
             fn GetSensorGroupAttributes(&self, #[out] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetSensorDeviceCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
@@ -702,9 +702,9 @@ mod Windows {
         #[guid(0x22f765d1_8dab_4107_846d_56baf72215e7)]
         interface IMFSensorProfile: IUnknown {
             fn GetProfileId(&self, #[out] pId: *mut SENSORPROFILEID) -> HRESULT;
-            fn AddProfileFilter(&self, #[in] StreamId: UINT32, #[in] #[null_terminated(entry)] wzFilterSetString: LPCWSTR) -> HRESULT;
+            fn AddProfileFilter(&self, #[in] StreamId: UINT32, #[in] #[null_terminated] wzFilterSetString: LPCWSTR) -> HRESULT;
             fn IsMediaTypeSupported(&self, #[in] StreamId: UINT32, #[in] pMediaType: IMFMediaType, #[out] pfSupported: *mut BOOL) -> HRESULT;
-            fn AddBlockedControl(&self, #[in] #[null_terminated(entry)] wzBlockedControl: LPCWSTR) -> HRESULT;
+            fn AddBlockedControl(&self, #[in] #[null_terminated] wzBlockedControl: LPCWSTR) -> HRESULT;
         }
         #[guid(0xc95ea55b_0187_48be_9353_8d2507662351)]
         interface IMFSensorProfileCollection: IUnknown {
@@ -1097,9 +1097,9 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateAudioRendererActivate(#[out] #[retval] ppActivate: *mut IMFActivate) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[retval] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
+        extern fn MFCreateCameraControlMonitor(#[in] #[null_terminated] symbolicLink: LPCWSTR, #[in] callback: IMFCameraControlNotify, #[out] #[retval] ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated(entry)] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[retval] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
+        extern fn MFCreateCameraOcclusionStateMonitor(#[in] #[null_terminated] symbolicLink: LPCWSTR, #[in] callback: IMFCameraOcclusionStateReportCallback, #[out] #[retval] occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateContentDecryptorContext(#[in] guidMediaProtectionSystemId: &GUID, #[in] #[opt] pD3DManager: IMFDXGIDeviceManager, #[in] pContentProtectionDevice: IMFContentProtectionDevice, #[out] #[retval] ppContentDecryptorContext: *mut IMFContentDecryptorContext) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -1157,9 +1157,9 @@ mod Windows {
         #[library("MFSENSORGROUP.dll")]
         extern fn MFCreateSensorActivityMonitor(#[in] pCallback: IMFSensorActivitiesReportCallback, #[out] #[retval] ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[retval] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
+        extern fn MFCreateSensorGroup(#[in] #[null_terminated] SensorGroupSymbolicLink: LPCWSTR, #[out] #[retval] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated] #[opt] Constraints: LPCWSTR, #[out] #[retval] ppProfile: *mut IMFSensorProfile) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
         extern fn MFCreateSensorProfileCollection(#[out] #[retval] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]

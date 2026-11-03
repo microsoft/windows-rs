@@ -688,7 +688,7 @@ impl Encoder<'_> {
                         "buffer count requires an integer at the specified indirection",
                     );
                 }
-                self.validate_buffer_subject(attr, types.subject, false)?;
+                self.validate_buffer_subject(attr, types.subject)?;
                 self.encode_named_attribute(
                     target,
                     &AttributeRef {
@@ -698,12 +698,24 @@ impl Encoder<'_> {
                 );
                 continue;
             }
-            if attr.path().is_ident("null_terminated") {
-                let (_, _, indirect) = self.null_terminated_flags(attr)?;
+            if attr.path().is_ident("null_terminated")
+                || attr.path().is_ident("null_null_terminated")
+            {
                 if field {
-                    return self.err(attr, "termination phases require a parameter owner");
+                    return self.err(attr, "termination requires a parameter owner");
                 }
-                self.validate_buffer_subject(attr, types.subject, indirect)?;
+                if attrs
+                    .iter()
+                    .filter(|attr| {
+                        attr.path().is_ident("null_terminated")
+                            || attr.path().is_ident("null_null_terminated")
+                    })
+                    .count()
+                    != 1
+                {
+                    return self.err(attr, "repeated or conflicting termination attributes");
+                }
+                self.validate_buffer_subject(attr, types.subject)?;
                 continue;
             }
         }
@@ -714,13 +726,9 @@ impl Encoder<'_> {
         &self,
         attr: &syn::Attribute,
         ty: &metadata::Type,
-        indirect: bool,
     ) -> Result<(), Error> {
-        if !buffer_info::is_buffer_storage(ty.clone(), indirect, |ty| self.extent_underlying(ty)) {
-            return self.err(
-                attr,
-                "buffer contract requires pointer or array storage at the specified indirection",
-            );
+        if !buffer_info::is_buffer_storage(ty.clone(), |ty| self.extent_underlying(ty)) {
+            return self.err(attr, "buffer contract requires pointer or array storage");
         }
         Ok(())
     }
@@ -793,7 +801,7 @@ impl Encoder<'_> {
             if path.is_ident("buffer") {
                 return self.err(attr, "buffer requires a parameter owner");
             }
-            if path.is_ident("null_terminated") {
+            if path.is_ident("null_terminated") || path.is_ident("null_null_terminated") {
                 self.emit_null_terminated(has_attribute, attr)?;
                 continue;
             }
@@ -821,50 +829,19 @@ impl Encoder<'_> {
         target: metadata::writer::HasAttribute,
         attr: &syn::Attribute,
     ) -> Result<(), Error> {
-        let (entry, success, indirect) = self.null_terminated_flags(attr)?;
-        if !matches!(target, metadata::writer::HasAttribute::Param(_)) {
-            return self.err(attr, "termination phases require a parameter owner");
+        if !matches!(attr.meta, syn::Meta::Path(_)) {
+            return self.err(attr, "termination attributes do not accept arguments");
         }
-        let on_entry = entry.is_some();
-        let on_success = success.is_some();
-        let double_entry = (entry == Some(true)).then(|| quote! { , DoubleNullOnEntry = true });
-        let double_success =
-            (success == Some(true)).then(|| quote! { , DoubleNullOnSuccess = true });
-        let indirect = indirect.then(|| quote! { , Indirect = true });
-        let expanded = syn::parse_quote! {
-            #[Windows::Win32::Metadata::NullTerminated(
-                OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success #indirect
-            )]
+        if !matches!(target, metadata::writer::HasAttribute::Param(_)) {
+            return self.err(attr, "termination requires a parameter owner");
+        }
+        let expanded = if attr.path().is_ident("null_null_terminated") {
+            syn::parse_quote! { #[Windows::Win32::Metadata::NullNullTerminated] }
+        } else {
+            syn::parse_quote! { #[Windows::Win32::Metadata::NullTerminated] }
         };
         let attr_ref = self.resolve_attribute_ref(&expanded)?;
         self.encode_named_attribute(target, &attr_ref);
         Ok(())
-    }
-
-    pub(super) fn null_terminated_flags(
-        &self,
-        attr: &syn::Attribute,
-    ) -> Result<(Option<bool>, Option<bool>, bool), Error> {
-        let flags = attr
-            .parse_args_with(
-                syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
-            )
-            .map_err(|error| self.error(attr, &error.to_string()))?;
-        let (mut entry, mut success) = (None, None);
-        let mut indirect = false;
-        for flag in flags {
-            match flag.to_string().as_str() {
-                "entry" if entry.is_none() => entry = Some(false),
-                "double_entry" if entry.is_none() => entry = Some(true),
-                "success" if success.is_none() => success = Some(false),
-                "double_success" if success.is_none() => success = Some(true),
-                "indirect" if !indirect => indirect = true,
-                _ => return self.err(flag, "unknown or duplicate null_terminated flag"),
-            }
-        }
-        if entry.is_none() && success.is_none() {
-            return self.err(attr, "null_terminated requires an entry or success phase");
-        }
-        Ok((entry, success, indirect))
     }
 }

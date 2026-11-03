@@ -55,39 +55,13 @@ pub fn write_bitfield_member(
     quote! { #name: #ty #width, }
 }
 
-/// Renders zero termination by phase. Each present phase is single (`false`) or double (`true`).
-pub fn write_null_terminated(
-    entry: Option<bool>,
-    success: Option<bool>,
-    indirect: bool,
-) -> TokenStream {
-    write_phase_contract(quote! { null_terminated }, entry, success, indirect)
-}
-
-fn write_phase_contract(
-    name: TokenStream,
-    entry: Option<bool>,
-    success: Option<bool>,
-    indirect: bool,
-) -> TokenStream {
-    assert!(entry.is_some() || success.is_some());
-    let entry = entry.map(|double| {
-        if double {
-            quote! { double_entry }
-        } else {
-            quote! { entry }
-        }
-    });
-    let success = success.map(|double| {
-        if double {
-            quote! { double_success }
-        } else {
-            quote! { success }
-        }
-    });
-    let indirect = indirect.then(|| quote! { indirect });
-    let flags = entry.into_iter().chain(success).chain(indirect);
-    quote! { #[#name(#(#flags),*)] }
+/// Renders single- or double-zero termination.
+pub fn write_null_terminated(double: bool) -> TokenStream {
+    if double {
+        quote! { #[null_null_terminated] }
+    } else {
+        quote! { #[null_terminated] }
+    }
 }
 
 /// Renders a name as an RDL identifier, escaping Rust keywords (`r#...`) and the

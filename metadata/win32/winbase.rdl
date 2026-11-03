@@ -1251,7 +1251,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetVolumePathNameA(#[in] lpszFileName: LPCSTR, #[buffer(cchBufferLength)] #[out] lpszVolumePathName: LPSTR, #[in] cchBufferLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumePathNamesForVolumeNameA(#[in] lpszVolumeName: LPCSTR, #[buffer(cchBufferLength)] #[null_terminated(double_success)] #[opt] #[out] lpszVolumePathNames: LPCH, #[in] cchBufferLength: DWORD, #[out] lpcchReturnLength: PDWORD) -> BOOL;
+        extern fn GetVolumePathNamesForVolumeNameA(#[in] lpszVolumeName: LPCSTR, #[buffer(cchBufferLength)] #[null_null_terminated] #[opt] #[out] lpszVolumePathNames: LPCH, #[in] cchBufferLength: DWORD, #[out] lpcchReturnLength: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         #[must_use]
         extern fn GetXStateFeaturesMask(#[in] Context: PCONTEXT, #[out] FeatureMask: PDWORD64) -> BOOL;
@@ -2238,7 +2238,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetDllDirectoryW(#[in] #[opt] lpPathName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetEnvironmentStringsA(#[in] #[null_terminated(double_entry)] NewEnvironment: LPCH) -> BOOL;
+        extern fn SetEnvironmentStringsA(#[in] #[null_null_terminated] NewEnvironment: LPCH) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetFileAttributesTransactedA(#[in] lpFileName: LPCSTR, #[in] dwFileAttributes: DWORD, #[in] hTransaction: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]

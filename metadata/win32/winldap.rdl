@@ -612,11 +612,11 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_count_references(ld: *mut LDAP, res: *mut LDAPMessage) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_count_values(#[in] #[null_terminated(entry)] #[opt] vals: *mut PCHAR) -> ULONG;
+        extern "C" fn ldap_count_values(#[in] #[null_terminated] #[opt] vals: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_count_valuesA(#[in] #[null_terminated(entry)] #[opt] vals: *mut PCHAR) -> ULONG;
+        extern "C" fn ldap_count_valuesA(#[in] #[null_terminated] #[opt] vals: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_count_valuesW(#[in] #[null_terminated(entry)] #[opt] vals: *mut PWCHAR) -> ULONG;
+        extern "C" fn ldap_count_valuesW(#[in] #[null_terminated] #[opt] vals: *mut PWCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_count_values_len(vals: *mut *mut berval) -> ULONG;
         #[library("WLDAP32.dll")]
@@ -958,11 +958,11 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_unbind_s(ld: *mut LDAP) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_value_free(#[in] #[null_terminated(entry)] #[opt] vals: *mut PCHAR) -> ULONG;
+        extern "C" fn ldap_value_free(#[in] #[null_terminated] #[opt] vals: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_value_freeA(#[in] #[null_terminated(entry)] #[opt] vals: *mut PCHAR) -> ULONG;
+        extern "C" fn ldap_value_freeA(#[in] #[null_terminated] #[opt] vals: *mut PCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_value_freeW(#[in] #[null_terminated(entry)] #[opt] vals: *mut PWCHAR) -> ULONG;
+        extern "C" fn ldap_value_freeW(#[in] #[null_terminated] #[opt] vals: *mut PWCHAR) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_value_free_len(vals: *mut *mut berval) -> ULONG;
         struct ldapsearch {}

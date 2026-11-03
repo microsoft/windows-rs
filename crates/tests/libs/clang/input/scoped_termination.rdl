@@ -3,36 +3,40 @@ mod Fixture {
     #[library("fixture.dll")]
     extern "C" fn Bare(#[incomplete] value: *mut i8);
     #[library("fixture.dll")]
-    extern "C" fn Both(#[null_terminated(double_entry, double_success)] value: *mut i8);
+    extern "C" fn Both(#[null_null_terminated] value: *mut i8);
     #[library("fixture.dll")]
     extern "C" fn Conditional(#[incomplete] value: *mut i8, enabled: i32);
     #[library("fixture.dll")]
     extern "C" fn Grouped(#[incomplete] value: *mut i8);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IMultiString {
-        fn Get(&self, #[null_terminated(double_success)] value: *mut u16);
+        fn Get(&self, #[null_null_terminated] value: *mut u16);
     }
     #[library("fixture.dll")]
     extern "C" fn Indirect(#[incomplete] value: *mut *mut i8);
     #[library("fixture.dll")]
-    extern "C" fn InputMulti(#[null_terminated(double_entry)] value: *const u16);
+    extern "C" fn InputMulti(#[null_null_terminated] value: *const u16);
     #[library("fixture.dll")]
-    extern "C" fn InputSingle(#[null_terminated(entry)] value: *const i8);
+    extern "C" fn InputSingle(#[null_terminated] value: *const i8);
     #[library("fixture.dll")]
-    extern "C" fn Mixed(#[null_terminated(entry, double_success)] value: *mut i8);
+    extern "C" fn Mixed(#[incomplete] value: *mut i8);
     #[library("fixture.dll")]
     extern "C" fn Modified(#[incomplete] value: *mut i8);
-    extern "C" fn MultiCallback(#[null_terminated(double_success)] value: *mut u16);
+    extern "C" fn MultiCallback(#[null_null_terminated] value: *mut u16);
     #[library("fixture.dll")]
-    extern "C" fn MultiString(#[null_terminated(double_success)] value: *mut WCHAR);
+    extern "C" fn MultiString(#[null_null_terminated] value: *mut WCHAR);
     #[library("fixture.dll")]
     extern "C" fn OtherProperty(#[incomplete] value: *mut i8);
     #[library("fixture.dll")]
-    extern "C" fn OutputMulti(#[null_terminated(double_success)] value: *mut u16);
+    extern "C" fn OutputMulti(#[null_null_terminated] value: *mut u16);
     #[library("fixture.dll")]
-    extern "C" fn OutputSingle(#[null_terminated(success)] value: *mut i8);
+    extern "C" fn OutputSingle(#[null_terminated] value: *mut i8);
     #[library("fixture.dll")]
     extern "C" fn QualifiedContract(#[incomplete] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn Returned(#[incomplete] #[out] value: *mut *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn ReturnedOptional(#[incomplete] #[out] value: *mut *mut i8);
     type ScopedAlias = *mut i8;
     type WCHAR = u16;
 }

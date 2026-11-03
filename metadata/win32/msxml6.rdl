@@ -635,28 +635,28 @@ mod Windows {
         }
         #[guid(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04)]
         interface IXMLHTTPRequest2: IUnknown {
-            fn Open(&self, #[in] #[null_terminated(entry)] pwszMethod: *const WCHAR, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[opt] pStatusCallback: IXMLHTTPRequest2Callback, #[in] #[null_terminated(entry)] #[opt] pwszUserName: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszPassword: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszProxyUserName: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszProxyPassword: *const WCHAR) -> HRESULT;
+            fn Open(&self, #[in] #[null_terminated] pwszMethod: *const WCHAR, #[in] #[null_terminated] pwszUrl: *const WCHAR, #[in] #[opt] pStatusCallback: IXMLHTTPRequest2Callback, #[in] #[null_terminated] #[opt] pwszUserName: *const WCHAR, #[in] #[null_terminated] #[opt] pwszPassword: *const WCHAR, #[in] #[null_terminated] #[opt] pwszProxyUserName: *const WCHAR, #[in] #[null_terminated] #[opt] pwszProxyPassword: *const WCHAR) -> HRESULT;
             fn Send(&self, #[in] #[opt] pBody: ISequentialStream, #[in] cbBody: ULONGLONG) -> HRESULT;
             fn Abort(&self) -> HRESULT;
             fn SetCookie(&self, #[in] pCookie: *const XHR_COOKIE, #[out] pdwCookieState: *mut DWORD) -> HRESULT;
             fn SetCustomResponseStream(&self, #[in] #[opt] pSequentialStream: ISequentialStream) -> HRESULT;
             fn SetProperty(&self, #[in] eProperty: XHR_PROPERTY, #[in] ullValue: ULONGLONG) -> HRESULT;
-            fn SetRequestHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszValue: *const WCHAR) -> HRESULT;
-            fn GetAllResponseHeaders(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
-            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[incomplete] #[out] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
-            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppwszValue: *mut *mut WCHAR) -> HRESULT;
+            fn SetRequestHeader(&self, #[in] #[null_terminated] pwszHeader: *const WCHAR, #[in] #[null_terminated] #[opt] pwszValue: *const WCHAR) -> HRESULT;
+            fn GetAllResponseHeaders(&self, #[incomplete] #[out] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
+            fn GetCookie(&self, #[in] #[null_terminated] pwszUrl: *const WCHAR, #[in] #[null_terminated] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[incomplete] #[out] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
+            fn GetResponseHeader(&self, #[in] #[null_terminated] pwszHeader: *const WCHAR, #[incomplete] #[out] ppwszValue: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xa44a9299_e321_40de_8866_341b41669162)]
         interface IXMLHTTPRequest2Callback: IUnknown {
-            fn OnRedirect(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[null_terminated(entry)] pwszRedirectUrl: *const WCHAR) -> HRESULT;
-            fn OnHeadersAvailable(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] dwStatus: DWORD, #[in] #[null_terminated(entry)] pwszStatus: *const WCHAR) -> HRESULT;
+            fn OnRedirect(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[null_terminated] pwszRedirectUrl: *const WCHAR) -> HRESULT;
+            fn OnHeadersAvailable(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] dwStatus: DWORD, #[in] #[null_terminated] pwszStatus: *const WCHAR) -> HRESULT;
             fn OnDataAvailable(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[opt] pResponseStream: ISequentialStream) -> HRESULT;
             fn OnResponseReceived(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[opt] pResponseStream: ISequentialStream) -> HRESULT;
             fn OnError(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] hrError: HRESULT) -> HRESULT;
         }
         #[guid(0xa1c9feee_0617_4f23_9d58_8961ea43567c)]
         interface IXMLHTTPRequest3: IXMLHTTPRequest2 {
-            fn SetClientCertificate(&self, #[in] cbClientCertificateHash: DWORD, #[buffer(cbClientCertificateHash)] #[in] #[opt] pbClientCertificateHash: *const BYTE, #[in] #[null_terminated(entry)] #[opt] pwszPin: *const WCHAR) -> HRESULT;
+            fn SetClientCertificate(&self, #[in] cbClientCertificateHash: DWORD, #[buffer(cbClientCertificateHash)] #[in] #[opt] pbClientCertificateHash: *const BYTE, #[in] #[null_terminated] #[opt] pwszPin: *const WCHAR) -> HRESULT;
         }
         #[guid(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb)]
         interface IXMLHTTPRequest3Callback: IXMLHTTPRequest2Callback {

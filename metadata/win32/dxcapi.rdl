@@ -147,13 +147,13 @@ mod Windows {
         }
         #[guid(0x8c210bf3_011f_4422_8d70_6f9acb8db617)]
         interface IDxcCompiler: IUnknown {
-            fn Compile(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
-            fn Preprocess(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn Compile(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
+            fn Preprocess(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated] #[opt] pSourceName: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] #[retval] ppResult: *mut IDxcOperationResult) -> HRESULT;
             fn Disassemble(&self, #[in] pSource: IDxcBlob, #[out] #[retval] ppDisassembly: *mut IDxcBlobEncoding) -> HRESULT;
         }
         #[guid(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37)]
         interface IDxcCompiler2: IDxcCompiler {
-            fn CompileWithDebug(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] ppResult: *mut IDxcOperationResult, #[null_terminated(success, indirect)] #[opt] #[out] ppDebugBlobName: *mut LPWSTR, #[opt] #[out] ppDebugBlob: *mut IDxcBlob) -> HRESULT;
+            fn CompileWithDebug(&self, #[in] pSource: IDxcBlob, #[in] #[null_terminated] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[in] #[opt] pIncludeHandler: IDxcIncludeHandler, #[out] ppResult: *mut IDxcOperationResult, #[incomplete] #[opt] #[out] ppDebugBlobName: *mut LPWSTR, #[opt] #[out] ppDebugBlob: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0x228b4687_5a6a_4730_900c_9702b2203f54)]
         interface IDxcCompiler3: IUnknown {
@@ -191,13 +191,13 @@ mod Windows {
         }
         #[guid(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c)]
         interface IDxcIncludeHandler: IUnknown {
-            fn LoadSource(&self, #[in] #[null_terminated(entry)] pFilename: LPCWSTR, #[out] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
+            fn LoadSource(&self, #[in] #[null_terminated] pFilename: LPCWSTR, #[out] ppIncludeSource: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7)]
         interface IDxcLibrary: IUnknown {
             fn SetMalloc(&self, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
             fn CreateBlobFromBlob(&self, #[in] pBlob: IDxcBlob, offset: UINT32, length: UINT32, #[out] #[retval] ppResult: *mut IDxcBlob) -> HRESULT;
-            fn CreateBlobFromFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] codePage: *mut UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn CreateBlobFromFile(&self, #[in] #[null_terminated] pFileName: LPCWSTR, #[in] #[opt] codePage: *mut UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn CreateBlobWithEncodingFromPinned(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn CreateBlobWithEncodingOnHeapCopy(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn CreateBlobWithEncodingOnMalloc(&self, #[buffer(bytes(size))] #[in] pText: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[retval] pBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
@@ -260,14 +260,14 @@ mod Windows {
             fn CreateBlobFromPinned(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn MoveToBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, pIMalloc: IMalloc, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn CreateBlob(&self, #[buffer(bytes(size))] #[in] pData: LPCVOID, size: UINT32, codePage: UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
-            fn LoadFile(&self, #[in] #[null_terminated(entry)] pFileName: LPCWSTR, #[in] #[opt] pCodePage: *mut UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
+            fn LoadFile(&self, #[in] #[null_terminated] pFileName: LPCWSTR, #[in] #[opt] pCodePage: *mut UINT32, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobEncoding) -> HRESULT;
             fn CreateReadOnlyStreamFromBlob(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppStream: *mut IStream) -> HRESULT;
             fn CreateDefaultIncludeHandler(&self, #[out] #[retval] ppResult: *mut IDxcIncludeHandler) -> HRESULT;
             fn GetBlobAsUtf8(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobUtf8) -> HRESULT;
             fn GetBlobAsWide(&self, #[in] pBlob: IDxcBlob, #[out] #[retval] ppBlobEncoding: *mut IDxcBlobWide) -> HRESULT;
             fn GetDxilContainerPart(&self, #[in] pShader: *const DxcText, #[in] DxcPart: UINT32, #[out] ppPartData: *mut *mut void, #[out] pPartSizeInBytes: *mut UINT32) -> HRESULT;
             fn CreateReflection(&self, #[in] pData: *const DxcText, iid: &IID, ppvReflection: *mut *mut void) -> HRESULT;
-            fn BuildArguments(&self, #[in] #[null_terminated(entry)] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated(entry)] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[out] #[retval] ppArgs: *mut IDxcCompilerArgs) -> HRESULT;
+            fn BuildArguments(&self, #[in] #[null_terminated] #[opt] pSourceName: LPCWSTR, #[in] #[null_terminated] #[opt] pEntryPoint: LPCWSTR, #[in] #[null_terminated] pTargetProfile: LPCWSTR, #[buffer(argCount)] #[in] #[opt] pArguments: *mut LPCWSTR, #[in] argCount: UINT32, #[buffer(defineCount)] #[in] pDefines: *const DxcDefine, #[in] defineCount: UINT32, #[out] #[retval] ppArgs: *mut IDxcCompilerArgs) -> HRESULT;
             fn GetPDBContents(&self, #[in] pPDBBlob: IDxcBlob, #[out] ppHash: *mut IDxcBlob, #[out] #[retval] ppContainer: *mut IDxcBlob) -> HRESULT;
         }
         #[guid(0xa6e82bd2_1fd7_4826_9811_2857e797f49a)]
@@ -285,11 +285,11 @@ mod Windows {
         }
         #[guid(0xfb6904c4_42f0_4b62_9c46_983af7da7c83)]
         interface IDxcVersionInfo2: IDxcVersionInfo {
-            fn GetCommitInfo(&self, #[out] pCommitCount: *mut UINT32, #[null_terminated(success, indirect)] #[out] pCommitHash: *mut *mut i8) -> HRESULT;
+            fn GetCommitInfo(&self, #[out] pCommitCount: *mut UINT32, #[incomplete] #[out] pCommitHash: *mut *mut i8) -> HRESULT;
         }
         #[guid(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e)]
         interface IDxcVersionInfo3: IUnknown {
-            fn GetCustomVersionString(&self, #[null_terminated(success, indirect)] #[out] pVersionString: *mut *mut i8) -> HRESULT;
+            fn GetCustomVersionString(&self, #[incomplete] #[out] pVersionString: *mut *mut i8) -> HRESULT;
         }
     }
 }

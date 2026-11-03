@@ -848,6 +848,17 @@ fn write_custom_attributes_with_names<'a>(
         .filter(|attr| attr.namespace() == METADATA_NAMESPACE && attr.name() == "BufferAttribute")
         .count()
         == 1;
+    let single_termination = attributes
+        .iter()
+        .filter(|attr| {
+            attr.namespace() == METADATA_NAMESPACE
+                && matches!(
+                    attr.name(),
+                    "NullTerminatedAttribute" | "NullNullTerminatedAttribute"
+                )
+        })
+        .count()
+        == 1;
     attributes
         .into_iter()
         .map(|attr| {
@@ -864,7 +875,7 @@ fn write_custom_attributes_with_names<'a>(
                 })
                 && !matches!(info.count, metadata::BufferSize::Dereference(index)
                     if optional.get(index as usize).copied().unwrap_or(true))
-                && buffer_info::is_buffer_storage(ty.clone(), false, |ty| {
+                && buffer_info::is_buffer_storage(ty.clone(), |ty| {
                     metadata_underlying_types(ty, index)
                 })
                 && let Some(tokens) = write_buffer_info(&info, names)
@@ -872,35 +883,20 @@ fn write_custom_attributes_with_names<'a>(
                 return Ok(tokens);
             }
 
-            if attr_ns == METADATA_NAMESPACE && attr.name() == "NullTerminatedAttribute" {
-                let flag = |key| {
-                    values.iter().find_map(|(name, value)| match value {
-                        metadata::Value::Bool(value) if name == key => Some(*value),
-                        _ => None,
-                    })
-                };
-                if let (Some(entry), Some(success)) = (flag("OnEntry"), flag("OnSuccess")) {
-                    let double_entry = flag("DoubleNullOnEntry") == Some(true);
-                    let double_success = flag("DoubleNullOnSuccess") == Some(true);
-                    let indirect = flag("Indirect") == Some(true);
-                    if values.len()
-                        == 2 + usize::from(double_entry)
-                            + usize::from(double_success)
-                            + usize::from(indirect)
-                        && (entry || success)
-                        && (!double_entry || entry)
-                        && (!double_success || success)
-                        && matches!(extent_owner, Some(ExtentOwner(_, ty, ..))
-                            if buffer_info::is_buffer_storage(
-                                ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
-                    {
-                        return Ok(write_null_terminated(
-                            entry.then_some(double_entry),
-                            success.then_some(double_success),
-                            indirect,
-                        ));
-                    }
-                }
+            if single_termination
+                && attr_ns == METADATA_NAMESPACE
+                && matches!(
+                    attr.name(),
+                    "NullTerminatedAttribute" | "NullNullTerminatedAttribute"
+                )
+                && values.is_empty()
+                && matches!(extent_owner, Some(ExtentOwner(_, ty, ..))
+                    if buffer_info::is_buffer_storage(
+                        ty.clone(), |ty| metadata_underlying(ty, index)))
+            {
+                return Ok(write_null_terminated(
+                    attr.name() == "NullNullTerminatedAttribute",
+                ));
             }
 
             // Naturalized metadata attributes render as short RDL spellings when possible.

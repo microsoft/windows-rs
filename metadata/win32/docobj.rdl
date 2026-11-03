@@ -72,8 +72,8 @@ mod Windows {
         #[guid(0x73c105ee_9dff_4a07_b83c_7eff290c266e)]
         interface IProtectedModeMenuServices: IUnknown {
             fn CreateMenu(&self, #[out] phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenu(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] #[null_terminated(entry)] pszMenuName: LPCWSTR, #[out] phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenuID(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] wResourceID: WORD, #[out] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenu(&self, #[in] #[null_terminated] pszModuleName: LPCWSTR, #[in] #[null_terminated] pszMenuName: LPCWSTR, #[out] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenuID(&self, #[in] #[null_terminated] pszModuleName: LPCWSTR, #[in] wResourceID: WORD, #[out] phMenu: *mut HMENU) -> HRESULT;
         }
         #[guid(0x41b68150_904c_4e17_a0ba_a438182e359d)]
         interface IZoomEvents: IUnknown {

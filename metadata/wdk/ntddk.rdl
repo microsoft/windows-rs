@@ -644,7 +644,7 @@ mod Windows {
         const DRVO_LEGACY_RESOURCES: i32 = 64;
         const DRVO_REINIT_REGISTERED: i32 = 8;
         #[library("ntdll.dll")]
-        extern fn DbgPrompt(#[in] #[null_terminated(entry)] Prompt: PCCH, #[buffer(bytes(Length))] #[out] Response: PCH, #[in] Length: ULONG) -> ULONG;
+        extern fn DbgPrompt(#[in] #[null_terminated] Prompt: PCCH, #[buffer(bytes(Length))] #[out] Response: PCH, #[in] Length: ULONG) -> ULONG;
         #[packed(1)]
         struct EFI_ACPI_RAS_SIGNAL_TABLE {
             Header: WHEA_ACPI_HEADER,

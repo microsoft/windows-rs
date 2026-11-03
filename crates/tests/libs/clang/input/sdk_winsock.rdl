@@ -170,16 +170,16 @@ mod Fixture {
     extern fn WSAAsyncGetHostByAddr(#[in] hWnd: HWND, #[in] wMsg: u_int, #[buffer(bytes(len))] #[in] addr: *const i8, #[in] len: i32, #[in] r#type: i32, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
     #[deprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    extern fn WSAAsyncGetHostByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    extern fn WSAAsyncGetHostByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated] name: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
     #[deprecated("Use getprotobyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    extern fn WSAAsyncGetProtoByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    extern fn WSAAsyncGetProtoByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated] name: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
     #[deprecated("Use getprotobynumber() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
     extern fn WSAAsyncGetProtoByNumber(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] number: i32, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
     #[deprecated("Use getservbyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    extern fn WSAAsyncGetServByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated(entry)] name: *const i8, #[in] #[null_terminated(entry)] proto: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    extern fn WSAAsyncGetServByName(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] #[null_terminated] name: *const i8, #[in] #[null_terminated] proto: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
     #[deprecated("Use getservbyport() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
     extern fn WSAAsyncGetServByPort(#[in] hWnd: HWND, #[in] wMsg: u_int, #[in] port: i32, #[in] proto: *const i8, #[buffer(bytes(buflen))] #[out] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
@@ -580,19 +580,19 @@ mod Fixture {
     extern fn gethostbyaddr(#[buffer(bytes(len))] #[in] addr: *const i8, #[in] len: i32, #[in] r#type: i32) -> *mut hostent;
     #[deprecated("Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    extern fn gethostbyname(#[in] #[null_terminated(entry)] name: *const i8) -> *mut hostent;
+    extern fn gethostbyname(#[in] #[null_terminated] name: *const i8) -> *mut hostent;
     #[library("WS2_32.dll")]
     extern fn gethostname(#[buffer(bytes(namelen))] #[out] name: *mut i8, #[in] namelen: i32) -> i32;
     #[library("WS2_32.dll")]
     extern fn getpeername(#[in] s: SOCKET, #[buffer(bytes(*namelen))] #[out] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
     #[library("WS2_32.dll")]
-    extern fn getprotobyname(#[in] #[null_terminated(entry)] name: *const i8) -> *mut protoent;
+    extern fn getprotobyname(#[in] #[null_terminated] name: *const i8) -> *mut protoent;
     #[library("WS2_32.dll")]
     extern fn getprotobynumber(#[in] number: i32) -> *mut protoent;
     #[library("WS2_32.dll")]
-    extern fn getservbyname(#[in] #[null_terminated(entry)] name: *const i8, #[in] #[null_terminated(entry)] #[opt] proto: *const i8) -> *mut servent;
+    extern fn getservbyname(#[in] #[null_terminated] name: *const i8, #[in] #[null_terminated] #[opt] proto: *const i8) -> *mut servent;
     #[library("WS2_32.dll")]
-    extern fn getservbyport(#[in] port: i32, #[in] #[null_terminated(entry)] #[opt] proto: *const i8) -> *mut servent;
+    extern fn getservbyport(#[in] port: i32, #[in] #[null_terminated] #[opt] proto: *const i8) -> *mut servent;
     #[library("WS2_32.dll")]
     extern fn getsockname(#[in] s: SOCKET, #[buffer(bytes(*namelen))] #[out] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
     #[library("WS2_32.dll")]
@@ -610,7 +610,7 @@ mod Fixture {
     extern fn htons(#[in] hostshort: u_short) -> u_short;
     #[deprecated("Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
-    extern fn inet_addr(#[in] #[null_terminated(entry)] cp: *const i8) -> u32;
+    extern fn inet_addr(#[in] #[null_terminated] cp: *const i8) -> u32;
     #[deprecated("Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
     #[library("WS2_32.dll")]
     extern fn inet_ntoa(#[in] r#in: in_addr) -> *mut i8;

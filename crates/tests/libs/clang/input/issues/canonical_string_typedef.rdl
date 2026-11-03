@@ -6,5 +6,5 @@ mod Fixture {
     type LPSTR = *mut i8;
     type LPTSTR = *mut i8;
     #[library("fixture.dll")]
-    extern "C" fn ReadText(#[in] #[null_terminated(entry)] text: *const i8);
+    extern "C" fn ReadText(#[in] #[null_terminated] text: *const i8);
 }

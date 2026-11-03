@@ -100,14 +100,14 @@ mod Windows {
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef50)]
         interface ISearchCatalogManager: IUnknown {
             #[special]
-            fn get_Name(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] pszName: *mut LPWSTR) -> HRESULT;
-            fn GetParameter(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[out] #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
-            fn SetParameter(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[in] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn get_Name(&self, #[incomplete] #[out] #[retval] pszName: *mut LPWSTR) -> HRESULT;
+            fn GetParameter(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[out] #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[in] pValue: *mut PROPVARIANT) -> HRESULT;
             fn GetCatalogStatus(&self, #[out] pStatus: *mut CatalogStatus, #[out] pPausedReason: *mut CatalogPausedReason) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Reindex(&self) -> HRESULT;
-            fn ReindexMatchingURLs(&self, #[in] #[null_terminated(entry)] pszPattern: LPCWSTR) -> HRESULT;
-            fn ReindexSearchRoot(&self, #[in] #[null_terminated(entry)] pszRootURL: LPCWSTR) -> HRESULT;
+            fn ReindexMatchingURLs(&self, #[in] #[null_terminated] pszPattern: LPCWSTR) -> HRESULT;
+            fn ReindexSearchRoot(&self, #[in] #[null_terminated] pszRootURL: LPCWSTR) -> HRESULT;
             #[special]
             fn put_ConnectTimeout(&self, #[in] dwConnectTimeout: DWORD) -> HRESULT;
             #[special]
@@ -118,13 +118,13 @@ mod Windows {
             fn get_DataTimeout(&self, #[out] #[retval] pdwDataTimeout: *mut DWORD) -> HRESULT;
             fn NumberOfItems(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
             fn NumberOfItemsToIndex(&self, #[out] plIncrementalCount: *mut LONG, #[out] plNotificationQueue: *mut LONG, #[out] plHighPriorityQueue: *mut LONG) -> HRESULT;
-            fn URLBeingIndexed(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] pszUrl: *mut LPWSTR) -> HRESULT;
-            fn GetURLIndexingState(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
+            fn URLBeingIndexed(&self, #[incomplete] #[out] #[retval] pszUrl: *mut LPWSTR) -> HRESULT;
+            fn GetURLIndexingState(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
             fn GetPersistentItemsChangedSink(&self, #[out] #[retval] ppISearchPersistentItemsChangedSink: *mut ISearchPersistentItemsChangedSink) -> HRESULT;
-            fn RegisterViewForNotification(&self, #[in] #[null_terminated(entry)] pszView: LPCWSTR, #[in] #[opt] pViewChangedSink: ISearchViewChangedSink, #[out] pdwCookie: *mut DWORD) -> HRESULT;
+            fn RegisterViewForNotification(&self, #[in] #[null_terminated] pszView: LPCWSTR, #[in] #[opt] pViewChangedSink: ISearchViewChangedSink, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn GetItemsChangedSink(&self, #[in] #[opt] pISearchNotifyInlineSite: ISearchNotifyInlineSite, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void, #[out] pGUIDCatalogResetSignature: *mut GUID, #[out] pGUIDCheckPointSignature: *mut GUID, #[out] pdwLastCheckPointNumber: *mut DWORD) -> HRESULT;
             fn UnregisterViewForNotification(&self, #[in] dwCookie: DWORD) -> HRESULT;
-            fn SetExtensionClusion(&self, #[in] #[null_terminated(entry)] pszExtension: LPCWSTR, #[in] fExclude: BOOL) -> HRESULT;
+            fn SetExtensionClusion(&self, #[in] #[null_terminated] pszExtension: LPCWSTR, #[in] fExclude: BOOL) -> HRESULT;
             fn EnumerateExcludedExtensions(&self, #[out] #[retval] ppExtensions: *mut IEnumString) -> HRESULT;
             fn GetQueryHelper(&self, #[out] #[retval] ppSearchQueryHelper: *mut ISearchQueryHelper) -> HRESULT;
             #[special]
@@ -135,7 +135,7 @@ mod Windows {
         }
         #[guid(0x7ac3286d_4d1d_4817_84fc_c1c85e3af0d9)]
         interface ISearchCatalogManager2: ISearchCatalogManager {
-            fn PrioritizeMatchingURLs(&self, #[in] #[null_terminated(entry)] pszPattern: LPCWSTR, #[in] dwPrioritizeFlags: PRIORITIZE_FLAGS) -> HRESULT;
+            fn PrioritizeMatchingURLs(&self, #[in] #[null_terminated] pszPattern: LPCWSTR, #[in] dwPrioritizeFlags: PRIORITIZE_FLAGS) -> HRESULT;
         }
         #[guid(0xde837e8f_634f_4ab0_bdfc_9fc3a1fc50dc)]
         interface ISearchCatalogManager3: ISearchCatalogManager2 {
@@ -143,22 +143,22 @@ mod Windows {
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef55)]
         interface ISearchCrawlScopeManager: IUnknown {
-            fn AddDefaultScopeRule(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fFollowFlags: DWORD) -> HRESULT;
+            fn AddDefaultScopeRule(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fFollowFlags: DWORD) -> HRESULT;
             fn AddRoot(&self, #[in] #[opt] pSearchRoot: ISearchRoot) -> HRESULT;
             fn RemoveRoot(&self, #[in] pszURL: LPCWSTR) -> HRESULT;
             fn EnumerateRoots(&self, #[out] #[retval] ppSearchRoots: *mut IEnumSearchRoots) -> HRESULT;
-            fn AddHierarchicalScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fDefault: BOOL, #[in] fOverrideChildren: BOOL) -> HRESULT;
-            fn AddUserScopeRule(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fOverrideChildren: BOOL, #[in] fFollowFlags: DWORD) -> HRESULT;
-            fn RemoveScopeRule(&self, #[in] #[null_terminated(entry)] pszRule: LPCWSTR) -> HRESULT;
+            fn AddHierarchicalScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fDefault: BOOL, #[in] fOverrideChildren: BOOL) -> HRESULT;
+            fn AddUserScopeRule(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[in] fInclude: BOOL, #[in] fOverrideChildren: BOOL, #[in] fFollowFlags: DWORD) -> HRESULT;
+            fn RemoveScopeRule(&self, #[in] #[null_terminated] pszRule: LPCWSTR) -> HRESULT;
             fn EnumerateScopeRules(&self, #[out] #[retval] ppSearchScopeRules: *mut IEnumSearchScopeRules) -> HRESULT;
-            fn HasParentScopeRule(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] #[retval] pfHasParentRule: *mut BOOL) -> HRESULT;
-            fn HasChildScopeRule(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] #[retval] pfHasChildRule: *mut BOOL) -> HRESULT;
-            fn IncludedInCrawlScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
-            fn IncludedInCrawlScopeEx(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] pfIsIncluded: *mut BOOL, #[out] pReason: *mut CLUSION_REASON) -> HRESULT;
+            fn HasParentScopeRule(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] #[retval] pfHasParentRule: *mut BOOL) -> HRESULT;
+            fn HasChildScopeRule(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] #[retval] pfHasChildRule: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScopeEx(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] pfIsIncluded: *mut BOOL, #[out] pReason: *mut CLUSION_REASON) -> HRESULT;
             fn RevertToDefaultScopes(&self) -> HRESULT;
             fn SaveAll(&self) -> HRESULT;
-            fn GetParentScopeVersionId(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR, #[out] #[retval] plScopeId: *mut LONG) -> HRESULT;
-            fn RemoveDefaultScopeRule(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
+            fn GetParentScopeVersionId(&self, #[in] #[null_terminated] pszURL: LPCWSTR, #[out] #[retval] plScopeId: *mut LONG) -> HRESULT;
+            fn RemoveDefaultScopeRule(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
         }
         #[guid(0x6292f7ad_4e19_4717_a534_8fc22bcd5ccd)]
         interface ISearchCrawlScopeManager2: ISearchCrawlScopeManager {
@@ -166,8 +166,8 @@ mod Windows {
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef58)]
         interface ISearchItemsChangedSink: IUnknown {
-            fn StartedMonitoringScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
-            fn StoppedMonitoringScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
+            fn StartedMonitoringScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
             fn OnItemsChanged(&self, #[in] dwNumberOfChanges: DWORD, #[buffer(dwNumberOfChanges)] #[in] rgDataChangeEntries: *mut SEARCH_ITEM_CHANGE, #[buffer(dwNumberOfChanges)] #[out] rgdwDocIds: *mut DWORD, #[buffer(dwNumberOfChanges)] #[out] rghrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f)]
@@ -180,20 +180,20 @@ mod Windows {
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef69)]
         interface ISearchManager: IUnknown {
-            fn GetIndexerVersionStr(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszVersionString: *mut LPWSTR) -> HRESULT;
+            fn GetIndexerVersionStr(&self, #[incomplete] #[out] ppszVersionString: *mut LPWSTR) -> HRESULT;
             fn GetIndexerVersion(&self, #[out] pdwMajor: *mut DWORD, #[out] pdwMinor: *mut DWORD) -> HRESULT;
-            fn GetParameter(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[out] #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
-            fn SetParameter(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[in] pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetParameter(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[out] #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[in] pValue: *const PROPVARIANT) -> HRESULT;
             #[special]
-            fn get_ProxyName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszProxyName: *mut LPWSTR) -> HRESULT;
+            fn get_ProxyName(&self, #[incomplete] #[out] #[retval] ppszProxyName: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn get_BypassList(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszBypassList: *mut LPWSTR) -> HRESULT;
-            fn SetProxy(&self, #[in] sUseProxy: PROXY_ACCESS, #[in] fLocalByPassProxy: BOOL, #[in] dwPortNumber: DWORD, #[in] #[null_terminated(entry)] pszProxyName: LPCWSTR, #[in] #[null_terminated(entry)] pszByPassList: LPCWSTR) -> HRESULT;
-            fn GetCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR, #[out] #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            fn get_BypassList(&self, #[incomplete] #[out] #[retval] ppszBypassList: *mut LPWSTR) -> HRESULT;
+            fn SetProxy(&self, #[in] sUseProxy: PROXY_ACCESS, #[in] fLocalByPassProxy: BOOL, #[in] dwPortNumber: DWORD, #[in] #[null_terminated] pszProxyName: LPCWSTR, #[in] #[null_terminated] pszByPassList: LPCWSTR) -> HRESULT;
+            fn GetCatalog(&self, #[in] #[null_terminated] pszCatalog: LPCWSTR, #[out] #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
             #[special]
-            fn get_UserAgent(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszUserAgent: *mut LPWSTR) -> HRESULT;
+            fn get_UserAgent(&self, #[incomplete] #[out] #[retval] ppszUserAgent: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_UserAgent(&self, #[in] #[null_terminated(entry)] pszUserAgent: LPCWSTR) -> HRESULT;
+            fn put_UserAgent(&self, #[in] #[null_terminated] pszUserAgent: LPCWSTR) -> HRESULT;
             #[special]
             fn get_UseProxy(&self, #[out] #[retval] pUseProxy: *mut PROXY_ACCESS) -> HRESULT;
             #[special]
@@ -203,8 +203,8 @@ mod Windows {
         }
         #[guid(0xdbab3f73_db19_4a79_bfc0_a61a93886ddf)]
         interface ISearchManager2: ISearchManager {
-            fn CreateCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR, #[out] #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
-            fn DeleteCatalog(&self, #[in] #[null_terminated(entry)] pszCatalog: LPCWSTR) -> HRESULT;
+            fn CreateCatalog(&self, #[in] #[null_terminated] pszCatalog: LPCWSTR, #[out] #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            fn DeleteCatalog(&self, #[in] #[null_terminated] pszCatalog: LPCWSTR) -> HRESULT;
         }
         #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
         interface ISearchNotifyInlineSite: IUnknown {
@@ -213,8 +213,8 @@ mod Windows {
         }
         #[guid(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f)]
         interface ISearchPersistentItemsChangedSink: IUnknown {
-            fn StartedMonitoringScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
-            fn StoppedMonitoringScope(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
+            fn StartedMonitoringScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
             fn OnItemsChanged(&self, #[in] dwNumberOfChanges: DWORD, #[buffer(dwNumberOfChanges)] #[in] DataChangeEntries: *mut SEARCH_ITEM_PERSISTENT_CHANGE, #[buffer(dwNumberOfChanges)] #[out] hrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f)]
@@ -237,7 +237,7 @@ mod Windows {
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef63)]
         interface ISearchQueryHelper: IUnknown {
             #[special]
-            fn get_ConnectionString(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] pszConnectionString: *mut LPWSTR) -> HRESULT;
+            fn get_ConnectionString(&self, #[incomplete] #[out] #[retval] pszConnectionString: *mut LPWSTR) -> HRESULT;
             #[special]
             fn put_QueryContentLocale(&self, #[in] lcid: LCID) -> HRESULT;
             #[special]
@@ -255,22 +255,22 @@ mod Windows {
             #[special]
             fn get_QuerySyntax(&self, #[out] #[retval] pQuerySyntax: *mut SEARCH_QUERY_SYNTAX) -> HRESULT;
             #[special]
-            fn put_QueryContentProperties(&self, #[in] #[null_terminated(entry)] #[opt] pszContentProperties: LPCWSTR) -> HRESULT;
+            fn put_QueryContentProperties(&self, #[in] #[null_terminated] #[opt] pszContentProperties: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_QueryContentProperties(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszContentProperties: *mut LPWSTR) -> HRESULT;
+            fn get_QueryContentProperties(&self, #[incomplete] #[out] #[retval] ppszContentProperties: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_QuerySelectColumns(&self, #[in] #[null_terminated(entry)] #[opt] pszSelectColumns: LPCWSTR) -> HRESULT;
+            fn put_QuerySelectColumns(&self, #[in] #[null_terminated] #[opt] pszSelectColumns: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_QuerySelectColumns(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszSelectColumns: *mut LPWSTR) -> HRESULT;
+            fn get_QuerySelectColumns(&self, #[incomplete] #[out] #[retval] ppszSelectColumns: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_QueryWhereRestrictions(&self, #[in] #[null_terminated(entry)] #[opt] pszRestrictions: LPCWSTR) -> HRESULT;
+            fn put_QueryWhereRestrictions(&self, #[in] #[null_terminated] #[opt] pszRestrictions: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_QueryWhereRestrictions(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszRestrictions: *mut LPWSTR) -> HRESULT;
+            fn get_QueryWhereRestrictions(&self, #[incomplete] #[out] #[retval] ppszRestrictions: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_QuerySorting(&self, #[in] #[null_terminated(entry)] #[opt] pszSorting: LPCWSTR) -> HRESULT;
+            fn put_QuerySorting(&self, #[in] #[null_terminated] #[opt] pszSorting: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_QuerySorting(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszSorting: *mut LPWSTR) -> HRESULT;
-            fn GenerateSQLFromUserQuery(&self, #[in] #[null_terminated(entry)] pszQuery: LPCWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszSQL: *mut LPWSTR) -> HRESULT;
+            fn get_QuerySorting(&self, #[incomplete] #[out] #[retval] ppszSorting: *mut LPWSTR) -> HRESULT;
+            fn GenerateSQLFromUserQuery(&self, #[in] #[null_terminated] pszQuery: LPCWSTR, #[incomplete] #[out] #[retval] ppszSQL: *mut LPWSTR) -> HRESULT;
             fn WriteProperties(&self, #[in] itemID: ITEMID, #[in] dwNumberOfColumns: DWORD, #[buffer(dwNumberOfColumns)] #[in] pColumns: *mut PROPERTYKEY, #[buffer(dwNumberOfColumns)] #[in] pValues: *mut SEARCH_COLUMN_PROPERTIES, #[in] #[opt] pftGatherModifiedTime: *mut FILETIME) -> HRESULT;
             #[special]
             fn put_QueryMaxResults(&self, #[in] cMaxResults: LONG) -> HRESULT;
@@ -280,13 +280,13 @@ mod Windows {
         #[guid(0x04c18ccf_1f57_4cbd_88cc_3900f5195ce3)]
         interface ISearchRoot: IUnknown {
             #[special]
-            fn put_Schedule(&self, #[in] #[null_terminated(entry)] pszTaskArg: LPCWSTR) -> HRESULT;
+            fn put_Schedule(&self, #[in] #[null_terminated] pszTaskArg: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_Schedule(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszTaskArg: *mut LPWSTR) -> HRESULT;
+            fn get_Schedule(&self, #[incomplete] #[out] #[retval] ppszTaskArg: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_RootURL(&self, #[in] #[null_terminated(entry)] pszURL: LPCWSTR) -> HRESULT;
+            fn put_RootURL(&self, #[in] #[null_terminated] pszURL: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_RootURL(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszURL: *mut LPWSTR) -> HRESULT;
+            fn get_RootURL(&self, #[incomplete] #[out] #[retval] ppszURL: *mut LPWSTR) -> HRESULT;
             #[special]
             fn put_IsHierarchical(&self, #[in] fIsHierarchical: BOOL) -> HRESULT;
             #[special]
@@ -316,18 +316,18 @@ mod Windows {
             #[special]
             fn get_AuthenticationType(&self, #[out] #[retval] pAuthType: *mut AUTH_TYPE) -> HRESULT;
             #[special]
-            fn put_User(&self, #[in] #[null_terminated(entry)] pszUser: LPCWSTR) -> HRESULT;
+            fn put_User(&self, #[in] #[null_terminated] pszUser: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_User(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszUser: *mut LPWSTR) -> HRESULT;
+            fn get_User(&self, #[incomplete] #[out] #[retval] ppszUser: *mut LPWSTR) -> HRESULT;
             #[special]
-            fn put_Password(&self, #[in] #[null_terminated(entry)] pszPassword: LPCWSTR) -> HRESULT;
+            fn put_Password(&self, #[in] #[null_terminated] pszPassword: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_Password(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszPassword: *mut LPWSTR) -> HRESULT;
+            fn get_Password(&self, #[incomplete] #[out] #[retval] ppszPassword: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef53)]
         interface ISearchScopeRule: IUnknown {
             #[special]
-            fn get_PatternOrURL(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] #[retval] ppszPatternOrURL: *mut LPWSTR) -> HRESULT;
+            fn get_PatternOrURL(&self, #[incomplete] #[out] #[retval] ppszPatternOrURL: *mut LPWSTR) -> HRESULT;
             #[special]
             fn get_IsIncluded(&self, #[out] #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
             #[special]

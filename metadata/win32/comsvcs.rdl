@@ -542,7 +542,7 @@ mod Windows {
         #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
         interface IComTrackingInfoProperties: IUnknown {
             fn PropCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn GetPropName(&self, #[in] ulIndex: ULONG, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszPropName: *mut LPOLESTR) -> HRESULT;
+            fn GetPropName(&self, #[in] ulIndex: ULONG, #[incomplete] #[out] ppszPropName: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
         interface IComTransaction2Events: IUnknown {
@@ -994,8 +994,8 @@ mod Windows {
         #[guid(0xc7cd7379_f3f2_4634_811b_703281d73e08)]
         interface IServiceSxsConfig: IUnknown {
             fn SxsConfig(&self, #[in] scsConfig: CSC_SxsConfig) -> HRESULT;
-            fn SxsName(&self, #[in] #[null_terminated(entry)] szSxsName: LPCWSTR) -> HRESULT;
-            fn SxsDirectory(&self, #[in] #[null_terminated(entry)] szSxsDirectory: LPCWSTR) -> HRESULT;
+            fn SxsName(&self, #[in] #[null_terminated] szSxsName: LPCWSTR) -> HRESULT;
+            fn SxsDirectory(&self, #[in] #[null_terminated] szSxsDirectory: LPCWSTR) -> HRESULT;
         }
         #[guid(0xfd880e81_6dce_4c58_af83_a208846c0030)]
         interface IServiceSynchronizationConfig: IUnknown {
@@ -1012,7 +1012,7 @@ mod Windows {
         }
         #[guid(0x6c3a3e1d_0ba6_4036_b76f_d0404db816c9)]
         interface IServiceTrackerConfig: IUnknown {
-            fn TrackerConfig(&self, #[in] trackerConfig: CSC_TrackerConfig, #[in] #[null_terminated(entry)] szTrackerAppName: LPCWSTR, #[in] #[null_terminated(entry)] szTrackerCtxName: LPCWSTR) -> HRESULT;
+            fn TrackerConfig(&self, #[in] trackerConfig: CSC_TrackerConfig, #[in] #[null_terminated] szTrackerAppName: LPCWSTR, #[in] #[null_terminated] szTrackerCtxName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x59f4c2a3_d3d7_4a31_b6e4_6ab3177c50b9)]
         interface IServiceTransactionConfig: IServiceTransactionConfigBase {
@@ -1023,8 +1023,8 @@ mod Windows {
             fn ConfigureTransaction(&self, #[in] transactionConfig: CSC_TransactionConfig) -> HRESULT;
             fn IsolationLevel(&self, #[in] option: COMAdminTxIsolationLevelOptions) -> HRESULT;
             fn TransactionTimeout(&self, #[in] ulTimeoutSec: ULONG) -> HRESULT;
-            fn BringYourOwnTransaction(&self, #[in] #[null_terminated(entry)] szTipURL: LPCWSTR) -> HRESULT;
-            fn NewTransactionDescription(&self, #[in] #[null_terminated(entry)] szTxDesc: LPCWSTR) -> HRESULT;
+            fn BringYourOwnTransaction(&self, #[in] #[null_terminated] szTipURL: LPCWSTR) -> HRESULT;
+            fn NewTransactionDescription(&self, #[in] #[null_terminated] szTxDesc: LPCWSTR) -> HRESULT;
         }
         #[guid(0x2a005c01_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedProperty: IDispatch {

@@ -9,6 +9,9 @@
 #define _Notref_ SAL("_Notref_")
 #define _Null_terminated_ SAL("_Null_terminated_")
 #define _NullNull_terminated_ SAL("_NullNull_terminated_")
+#define _Outptr_ SAL("_Outptr_")
+#define _Outptr_result_z_ SAL("_Outptr_result_z_")
+#define _Outptr_result_maybenull_z_ SAL("_Outptr_result_maybenull_z_")
 #define _When_(condition, annotations) __attribute__((annotate("windows_clang:sal:2:_When_\n(" #condition "," #annotations ")\n(" #condition "," #annotations ")")))
 #define _Group_(annotations) __attribute__((annotate("windows_clang:sal:2:_Group_\n(" #annotations ")\n(" #annotations ")")))
 #define _At_(target, annotations) __attribute__((annotate("windows_clang:sal:2:_At_\n(" #target "," #annotations ")\n(" #target "," #annotations ")")))
@@ -27,6 +30,8 @@ typedef unsigned short WCHAR;
 extern "C" void MultiString(_Post_ _NullNull_terminated_ WCHAR* value);
 extern "C" void Both(FIRST_PHASE _NullNull_terminated_ SECOND_PHASE _NullNull_terminated_ char* value);
 extern "C" void Mixed(FIRST_PHASE _Null_terminated_ SECOND_PHASE _NullNull_terminated_ char* value);
+extern "C" void Returned(_Outptr_result_z_ char** value);
+extern "C" void ReturnedOptional(_Outptr_result_maybenull_z_ char** value);
 extern "C" void OtherProperty(_Post_ _Valid_ _NullNull_terminated_ char* value);
 extern "C" void Conditional(_When_(enabled, _Post_ _NullNull_terminated_) char* value, int enabled);
 extern "C" void Grouped(_Post_ _Group_(_NullNull_terminated_ _Valid_) char* value);

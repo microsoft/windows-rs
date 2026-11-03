@@ -144,7 +144,7 @@ mod Windows {
             fn GetBorder(&self, #[out] lprectBorder: LPRECT) -> HRESULT;
             fn RequestBorderSpace(&self, #[in] #[opt] pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
             fn SetBorderSpace(&self, #[in] #[opt] pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
-            fn SetActiveObject(&self, #[in] #[opt] pActiveObject: IOleInPlaceActiveObject, #[in] #[null_terminated(entry)] #[opt] pszObjName: LPCOLESTR) -> HRESULT;
+            fn SetActiveObject(&self, #[in] #[opt] pActiveObject: IOleInPlaceActiveObject, #[in] #[null_terminated] #[opt] pszObjName: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x0000011c_0000_0000_c000_000000000046)]
         interface IOleItemContainer: IOleContainer {

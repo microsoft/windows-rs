@@ -35,7 +35,7 @@ pub(crate) fn is_buffer_count<I: IntoIterator<Item = metadata::Type>>(
     })
 }
 
-pub(crate) fn pointee(ty: metadata::Type) -> Option<metadata::Type> {
+fn pointee(ty: metadata::Type) -> Option<metadata::Type> {
     match ty {
         metadata::Type::PtrMut(inner, depth) if depth > 1 => {
             Some(metadata::Type::PtrMut(inner, depth - 1))
@@ -53,10 +53,9 @@ pub(crate) fn pointee(ty: metadata::Type) -> Option<metadata::Type> {
 
 pub(crate) fn is_buffer_storage<I: IntoIterator<Item = metadata::Type>>(
     ty: metadata::Type,
-    indirect: bool,
     underlying: impl Fn(metadata::Type) -> I,
 ) -> bool {
-    matches_underlying(ty, indirect, underlying, |ty| {
+    matches_underlying(ty, false, underlying, |ty| {
         matches!(
             ty,
             metadata::Type::PtrMut(..)
