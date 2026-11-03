@@ -205,23 +205,16 @@ impl CppFn {
         let must_use = method.write_must_use(config.reader);
 
         let wrapper = match method.return_hint {
-            ReturnHint::Query(object, _) => {
+            ReturnHint::Query(..) => {
                 let where_clause = method.write_where(config, true);
-                let param = &signature.params[object];
-                let map = param.write_query_result_map();
-                let ty = if param.result_may_be_null() {
-                    quote! { Option<T> }
-                } else {
-                    quote! { T }
-                };
 
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics T>(#params) -> #result Result<#ty> #where_clause {
+                    pub unsafe fn #name<#generics T>(#params) -> #result Result<T> #where_clause {
                         #link
                         let mut result__ = core::ptr::null_mut();
-                        unsafe { #name(#args).#map }
+                        unsafe { #name(#args).and_then(|| windows_core::imp::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -239,9 +232,15 @@ impl CppFn {
             }
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(config, false);
-                let param = signature.params.last().unwrap();
-                let map = param.write_result_map(config.reader);
-                let return_type = param.write_result_type(config);
+                let ty = signature
+                    .params
+                    .last()
+                    .unwrap()
+                    .projection_pointee(config.reader);
+                let map = ty
+                    .projection_type(config.reader)
+                    .write_result_map(config.reader);
+                let return_type = ty.write_name(config);
 
                 quote! {
                     #cfg
@@ -263,24 +262,17 @@ impl CppFn {
                 let projection_type = return_type.projection_type(config.reader);
 
                 if projection_type.is_interface_with_reader(config.reader) {
-                    let param = signature.params.last().unwrap();
-                    let return_type = param.write_result_type(config);
-                    let return_type = if param.result_may_be_null() {
-                        return_type
-                    } else {
-                        quote! { #result Result<#return_type> }
-                    };
-                    let value = param.write_interface_result();
+                    let return_type = return_type.write_name(config);
 
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
+                        pub unsafe fn #name<#generics>(#params) -> #result Result<#return_type> #where_clause {
                             #link
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 #name(#args);
-                                #value
+                                windows_core::imp::Type::from_abi(result__)
                             }
                         }
                     }

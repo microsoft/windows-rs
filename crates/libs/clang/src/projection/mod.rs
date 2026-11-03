@@ -919,14 +919,10 @@ impl Projector<'_, '_> {
         if let Some(function) = function {
             let written = written_function(snapshot, observation.underlying)?;
             let contracts = annotations::function(written.prototype, attributes);
-            let annotations::CallableAttributes {
-                declaration,
-                result,
-            } = annotations::write_callback(
+            let declaration = annotations::write_callback(
                 self.resolution,
                 snapshot,
                 observation.underlying,
-                function.result,
                 attributes,
             )?;
             return self.callback(
@@ -935,10 +931,7 @@ impl Projector<'_, '_> {
                 written,
                 name,
                 callback_parameters(snapshot, observation),
-                annotations::CallableAttributes {
-                    declaration: quote! { #contracts #declaration },
-                    result,
-                },
+                quote! { #contracts #declaration },
             );
         }
         let native_sized = self.native_sized.contains(name);
@@ -993,7 +986,7 @@ impl Projector<'_, '_> {
         written: WrittenFunction<'_>,
         name: &str,
         declarations: Option<&[Parameter]>,
-        attributes: annotations::CallableAttributes,
+        attributes: TokenStream,
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
         let abi = callable_abi(written);
@@ -1013,16 +1006,15 @@ impl Projector<'_, '_> {
                 .collect::<Result<Vec<_>, Error>>()?
         };
         let result = signature.return_type;
-        let result_attributes = attributes.result;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result_attributes #result }
+            quote! { -> #result }
         };
         Ok(Body {
             abi: Some(abi),
-            attributes: attributes.declaration,
+            attributes,
             declaration: quote! { fn #name(#(#parameters),*) #result; },
         })
     }

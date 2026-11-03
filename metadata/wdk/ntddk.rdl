@@ -4796,11 +4796,11 @@ mod Windows {
         extern fn RtlRemoveEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[nullable] #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[nullable] #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlRunOnceInitialize(#[out] RunOnce: PRTL_RUN_ONCE);
         #[library("ntdll.dll")]

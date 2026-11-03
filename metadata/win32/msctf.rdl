@@ -341,7 +341,7 @@ mod Windows {
             fn GetLanguageProfileDescription(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[out] pbstrProfile: *mut BSTR) -> HRESULT;
             fn GetCurrentLanguage(&self, #[out] plangid: *mut LANGID) -> HRESULT;
             fn ChangeCurrentLanguage(&self, #[in] langid: LANGID) -> HRESULT;
-            fn GetLanguageList(&self, #[incomplete] #[nullable] #[out] ppLangId: *mut *mut LANGID, #[out] pulCount: *mut ULONG) -> HRESULT;
+            fn GetLanguageList(&self, #[incomplete] #[out] ppLangId: *mut *mut LANGID, #[out] pulCount: *mut ULONG) -> HRESULT;
             fn EnumLanguageProfiles(&self, #[in] langid: LANGID, #[out] #[retval] ppEnum: *mut IEnumTfLanguageProfiles) -> HRESULT;
             fn EnableLanguageProfile(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[in] fEnable: BOOL) -> HRESULT;
             fn IsEnabledLanguageProfile(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[out] pfEnable: *mut BOOL) -> HRESULT;

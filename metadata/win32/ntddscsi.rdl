@@ -445,7 +445,6 @@ mod Windows {
         struct NTSCSI_UNICODE_STRING {
             Length: USHORT,
             MaximumLength: USHORT,
-            #[nullable]
             Buffer: PWCH,
         }
         #[packed(1)]
@@ -712,7 +711,6 @@ mod Windows {
             DataOutTransferLength: ULONG,
             DataInTransferLength: ULONG,
             DataOutBuffer: *mut void,
-            #[nullable]
             DataInBuffer: *mut void,
             Cdb: [UCHAR; 1],
         }

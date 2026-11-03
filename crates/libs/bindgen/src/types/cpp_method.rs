@@ -274,8 +274,7 @@ impl CppMethod {
             ReturnHint::ReturnValue => {
                 let param = self.signature.params.last().unwrap();
                 let ty = param.projection_pointee(reader).projection_type(reader);
-                (ty.is_interface_with_reader(reader) && !param.result_may_be_null())
-                    || is_must_use_type(ty)
+                ty.is_interface_with_reader(reader) || is_must_use_type(ty)
             }
             ReturnHint::ReturnStruct | ReturnHint::None => {
                 let ty = self.signature.return_type.projection_type(reader);
@@ -343,20 +342,13 @@ impl CppMethod {
         let must_use = self.write_must_use(config.reader);
 
         let wrapper = match self.return_hint {
-            ReturnHint::Query(object, _) => {
+            ReturnHint::Query(..) => {
                 let where_clause = self.write_where(config, true);
-                let param = &self.signature.params[object];
-                let map = param.write_query_result_map();
-                let ty = if param.result_may_be_null() {
-                    quote! { Option<T> }
-                } else {
-                    quote! { T }
-                };
 
                 quote! {
-                    #vis unsafe fn #name<#generics T>(&self, #params) -> #result Result<#ty> #where_clause {
+                    #vis unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
-                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map }
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(|| windows_core::imp::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -372,9 +364,16 @@ impl CppMethod {
             ReturnHint::ResultValue => {
                 let where_clause = self.write_where(config, false);
 
-                let param = self.signature.params.last().unwrap();
-                let map = param.write_result_map(config.reader);
-                let return_type = param.write_result_type(config);
+                let ty = self
+                    .signature
+                    .params
+                    .last()
+                    .unwrap()
+                    .projection_pointee(config.reader);
+                let map = ty
+                    .projection_type(config.reader)
+                    .write_result_map(config.reader);
+                let return_type = ty.write_name(config);
 
                 quote! {
                     #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
@@ -393,21 +392,14 @@ impl CppMethod {
                 let projection_type = return_type.projection_type(config.reader);
 
                 if projection_type.is_interface_with_reader(config.reader) {
-                    let param = self.signature.params.last().unwrap();
-                    let return_type = param.write_result_type(config);
-                    let return_type = if param.result_may_be_null() {
-                        return_type
-                    } else {
-                        quote! { #result Result<#return_type> }
-                    };
-                    let value = param.write_interface_result();
+                    let return_type = return_type.write_name(config);
 
                     quote! {
-                        #vis unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
-                                #value
+                                windows_core::imp::Type::from_abi(result__)
                             }
                         }
                     }
@@ -597,7 +589,8 @@ impl CppMethod {
                     .params
                     .last()
                     .unwrap()
-                    .write_result_type(config);
+                    .projection_pointee(config.reader)
+                    .write_name(config);
 
                 quote! { -> #result Result<#return_type> }
             }

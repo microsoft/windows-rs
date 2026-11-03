@@ -53,7 +53,7 @@ mod Windows {
             fn SetVideoWindow(&self, #[in] hwndVideo: HWND) -> HRESULT;
             fn GetVideoWindow(&self, #[out] phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[incomplete] #[nullable] #[out] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[incomplete] #[out] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
             fn SetBorderColor(&self, #[in] Clr: COLORREF) -> HRESULT;
             fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
             fn SetRenderingPrefs(&self, #[in] dwRenderFlags: DWORD) -> HRESULT;
@@ -91,9 +91,9 @@ mod Windows {
         #[library("EVR.dll")]
         extern fn MFCreateVideoMixerAndPresenter(#[in] #[opt] pMixerOwner: IUnknown, #[in] #[opt] pPresenterOwner: IUnknown, riidMixer: &IID, #[out] ppvVideoMixer: *mut *mut void, riidPresenter: &IID, #[out] ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[nullable] #[out] ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[nullable] #[out] ppVideoRenderer: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[out] ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern fn MFCreateVideoSampleAllocator(#[in] riid: &IID, #[out] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]

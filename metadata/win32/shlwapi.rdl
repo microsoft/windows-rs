@@ -937,7 +937,7 @@ mod Windows {
         extern fn StrCpyA(#[incomplete] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR) -> LPSTR;
         #[library("KERNEL32.dll", import = "lstrcpynA")]
         #[must_use]
-        extern fn StrCpyNA(#[buffer(iMaxLength)] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> #[nullable] LPSTR;
+        extern fn StrCpyNA(#[buffer(iMaxLength)] #[out] lpString1: LPSTR, #[in] lpString2: LPCSTR, #[in] iMaxLength: i32) -> LPSTR;
         #[library("SHLWAPI.dll")]
         extern fn StrCpyNW(#[buffer(cchMax)] #[out] pszDst: PWSTR, #[in] pszSrc: PCWSTR, cchMax: i32) -> PWSTR;
         #[library("SHLWAPI.dll")]

@@ -440,8 +440,7 @@ impl Projector<'_, '_> {
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
-        let attributes =
-            annotations::write_callable(snapshot, function.result, &observation.attributes)?;
+        let attributes = annotations::write_callable(&observation.attributes)?;
         let mut parameters = self.parameter_list(
             snapshot_id,
             function,
@@ -464,14 +463,13 @@ impl Projector<'_, '_> {
         } else {
             self.comparison_type(result)?
         };
-        let result_attributes = attributes.result;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result_attributes #result }
+            quote! { -> #result }
         };
-        Ok((parameters, result, attributes.declaration))
+        Ok((parameters, result, attributes))
     }
 
     pub(super) fn parameters(

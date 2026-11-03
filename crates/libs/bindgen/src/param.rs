@@ -113,56 +113,6 @@ impl Param {
         })
     }
 
-    /// Whether `NullableAttribute` permits a null returned pointer.
-    pub fn result_may_be_null(&self) -> bool {
-        self.attributes().any(|attribute| {
-            attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NullableAttribute"
-        })
-    }
-
-    pub fn write_result_type(&self, config: &Config) -> TokenStream {
-        let ty = self.projection_pointee(config.reader);
-        let name = ty.write_name(config);
-        if self.result_may_be_null() && ty.is_interface_with_reader(config.reader) {
-            quote! { Option<#name> }
-        } else {
-            name
-        }
-    }
-
-    pub fn write_interface_result(&self) -> TokenStream {
-        if self.result_may_be_null() {
-            quote! {
-                if result__.is_null() {
-                    None
-                } else {
-                    Some(windows_core::Interface::from_raw(result__))
-                }
-            }
-        } else {
-            quote! { windows_core::imp::Type::from_abi(result__) }
-        }
-    }
-
-    pub fn write_query_result_map(&self) -> TokenStream {
-        let value = self.write_interface_result();
-        if self.result_may_be_null() {
-            quote! { map(|| #value) }
-        } else {
-            quote! { and_then(|| #value) }
-        }
-    }
-
-    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
-        let ty = self.projection_pointee(reader).projection_type(reader);
-        if ty.is_interface_with_reader(reader) {
-            self.write_query_result_map()
-        } else {
-            ty.write_result_map(reader)
-        }
-    }
-
     /// Only an explicit `[retval]` annotation projects the trailing parameter as the result.
     pub fn is_retval_candidate(&self, reader: &Reader) -> bool {
         if !self.is_retval_attribute() || !self.projection_type(reader).is_pointer() {

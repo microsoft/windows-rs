@@ -1102,7 +1102,7 @@ mod Windows {
         #[library("SspiCli.dll")]
         extern fn SspiDecryptAuthIdentityEx(#[in] Options: ULONG, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[nullable] #[out] ppszUserName: *mut PCWSTR, #[nullable] #[out] ppszDomainName: *mut PCWSTR, #[nullable] #[opt] #[out] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
+        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] ppszUserName: *mut PCWSTR, #[out] ppszDomainName: *mut PCWSTR, #[opt] #[out] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] pszUserName: PCWSTR, #[in] #[opt] pszDomainName: PCWSTR, #[in] #[opt] pszPackedCredentialsString: PCWSTR, #[incomplete] #[out] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]

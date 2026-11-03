@@ -12,7 +12,7 @@ mod Fixture {
         fn Run(&self);
     }
     extern "C" fn Mixed(#[in] #[incomplete] #[out] value: *mut i32);
-    extern "C" fn NullableResult(#[nullable] #[out] value: *mut *mut void);
+    extern "C" fn NullableResult(#[out] value: *mut *mut void);
     extern "C" fn ObjectInput(#[in] value: IObject);
     extern "C" fn ObjectOutput(#[in] #[incomplete] value: IObject);
     extern "C" fn ObjectUpdate(#[in] #[incomplete] value: IObject);

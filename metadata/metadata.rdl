@@ -80,14 +80,6 @@ mod Windows {
                 DoubleNullOnSuccess: bool,
                 Indirect: bool,
             }
-            // A pointer the API gives the caller may be null: on an output parameter, the pointer
-            // stored through it; on a return, the returned value; on a field, the field. Argument
-            // storage the caller may omit is the separate Optional param flag. Absence leaves
-            // nullability unspecified. This does not promise initialized/readable storage.
-            // RDL: `#[nullable]`.
-            attribute NullableAttribute {
-                fn();
-            }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.
             attribute ReservedAttribute {

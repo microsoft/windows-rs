@@ -39,9 +39,9 @@ mod Windows {
         const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
         const FIND_RESOURCE_DIRECTORY_TYPES: i32 = 256;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceExW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCWSTR, #[in] lpName: LPCWSTR, #[in] wLanguage: WORD) -> #[nullable] HRSRC;
+        extern fn FindResourceExW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCWSTR, #[in] lpName: LPCWSTR, #[in] wLanguage: WORD) -> HRSRC;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceW(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCWSTR, #[in] lpType: LPCWSTR) -> #[nullable] HRSRC;
+        extern fn FindResourceW(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCWSTR, #[in] lpType: LPCWSTR) -> HRSRC;
         #[library("KERNEL32.dll")]
         extern fn FindStringOrdinal(#[in] dwFindStringOrdinalFlags: DWORD, #[buffer(cchSource)] #[in] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[buffer(cchValue)] #[in] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[in] bIgnoreCase: BOOL) -> i32;
         #[library("KERNEL32.dll")]
@@ -83,15 +83,15 @@ mod Windows {
         const LOAD_LIBRARY_SEARCH_USER_DIRS: i32 = 1024;
         const LOAD_WITH_ALTERED_SEARCH_PATH: i32 = 8;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryA(#[in] lpLibFileName: LPCSTR) -> #[nullable] HMODULE;
+        extern fn LoadLibraryA(#[in] lpLibFileName: LPCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryExA(#[in] lpLibFileName: LPCSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> #[nullable] HMODULE;
+        extern fn LoadLibraryExA(#[in] lpLibFileName: LPCSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryExW(#[in] lpLibFileName: LPCWSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> #[nullable] HMODULE;
+        extern fn LoadLibraryExW(#[in] lpLibFileName: LPCWSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryW(#[in] lpLibFileName: LPCWSTR) -> #[nullable] HMODULE;
+        extern fn LoadLibraryW(#[in] lpLibFileName: LPCWSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadResource(#[in] #[opt] hModule: HMODULE, #[in] hResInfo: HRSRC) -> #[nullable] HGLOBAL;
+        extern fn LoadResource(#[in] #[opt] hModule: HMODULE, #[in] hResInfo: HRSRC) -> HGLOBAL;
         #[library("USER32.dll")]
         extern fn LoadStringA(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[buffer(cchBufferMax)] #[incomplete] #[out] lpBuffer: LPSTR, #[in] cchBufferMax: i32) -> i32;
         #[library("USER32.dll")]

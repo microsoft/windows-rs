@@ -401,7 +401,7 @@ mod Windows {
         #[guid(0x8e7c791e_4467_11d3_9723_00c04f72db08)]
         interface _ISpPrivateEngineCall: IUnknown {
             fn CallEngine(&self, #[buffer(bytes(ulCallFrameSize))] #[in] #[out] pCallFrame: *mut void, #[in] ulCallFrameSize: ULONG) -> HRESULT;
-            fn CallEngineEx(&self, #[buffer(bytes(ulInFrameSize))] #[in] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[incomplete] #[nullable] #[out] ppCoMemOutFrame: *mut *mut void, #[buffer(1)] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngineEx(&self, #[buffer(bytes(ulInFrameSize))] #[in] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[incomplete] #[out] ppCoMemOutFrame: *mut *mut void, #[buffer(1)] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
         }
     }
 }

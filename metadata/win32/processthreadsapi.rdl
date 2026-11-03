@@ -22,11 +22,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateProcessW(#[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[opt] #[out] lpCommandLine: LPWSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThread(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateRemoteThread(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThreadEx(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateRemoteThreadEx(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[opt] #[out] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateThread(#[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[incomplete] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateThread(#[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[incomplete] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeleteProcThreadAttributeList(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST);
         #[library("KERNEL32.dll")]
@@ -140,7 +140,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn OpenProcessToken(#[in] ProcessHandle: HANDLE, #[in] DesiredAccess: DWORD, #[out] TokenHandle: PHANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn OpenThread(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwThreadId: DWORD) -> #[nullable] HANDLE;
+        extern fn OpenThread(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwThreadId: DWORD) -> HANDLE;
         #[library("ADVAPI32.dll")]
         extern fn OpenThreadToken(#[in] ThreadHandle: HANDLE, #[in] DesiredAccess: DWORD, #[in] OpenAsSelf: BOOL, #[out] TokenHandle: PHANDLE) -> BOOL;
         type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;

@@ -3823,7 +3823,6 @@ mod Windows {
         struct KBUGCHECK_CALLBACK_RECORD {
             Entry: LIST_ENTRY,
             CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
-            #[nullable]
             Buffer: PVOID,
             Length: ULONG,
             Component: PUCHAR,

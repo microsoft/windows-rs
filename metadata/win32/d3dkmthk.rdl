@@ -2072,7 +2072,6 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             Flags: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS,
             BufferSize: SIZE_T,
-            #[nullable]
             pBuffer: PVOID,
         }
         struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
@@ -2726,7 +2725,6 @@ mod Windows {
             },
             Duration: UINT,
             BroadcastSrcAllocation: *mut D3DKMT_HANDLE,
-            #[nullable]
             BroadcastDstAllocation: *mut D3DKMT_HANDLE,
             PrivateDriverDataSize: UINT,
             pPrivateDriverData: PVOID,

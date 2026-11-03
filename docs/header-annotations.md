@@ -70,17 +70,13 @@ here because `BOOL` is already `#[must_use]`. The DLL comes from import-library 
 | Reserved | `_Reserved_ void* reserved` | `#[reserved] reserved: *mut void` | Same as optional; the value is not enforced |
 | Result | MIDL `[out, retval] BSTR* name` | `#[out] #[retval] name: *mut BSTR` | Trailing result of an `HRESULT` method becomes `Result<BSTR>` |
 | Pointer result | `_Outptr_ void** data` | `#[out] data: *mut *mut void` | Raw pointer unless eligible as a result |
-| Nullable | `_Outptr_result_maybenull_ IThing** thing` | `#[nullable] #[out] thing: *mut IThing` | `Option<IThing>` if otherwise eligible as an interface result |
-| Nullable return | `_Ret_maybenull_ void* Find()` | `extern fn Find() -> #[nullable] *mut void;` | Raw pointer |
-| Nullable field | `_Maybenull_ int* values;` | `#[nullable] values: *mut i32` | Raw pointer |
 | COM query | `_In_ REFIID riid, _COM_Outptr_ void** object` | `#[in] riid: *const GUID, #[iid_is] #[out] object: *mut *mut void` | An `HRESULT` method can become `Get<T: Interface>() -> Result<T>` |
 
-`opt` lets the caller pass null. `nullable` says the API may produce null: through an `out`
-parameter, as a return value, or in a field. Without `nullable`, nullability is unspecified.
-These attributes do not imply an allocator or ownership transfer.
+`opt` lets the caller pass null, including omitting an output slot. It does not describe the value
+written through that slot, an allocator or ownership transfer.
 
-Clang keeps native returned-pointer and null-on-failure guarantees for checking and reconciliation,
-but does not publish them as separate attributes.
+Clang keeps native returned-pointer, nullability and null-on-failure contracts for checking and
+reconciliation, but does not publish them as separate attributes.
 
 `_Outptr_opt_` permits null argument storage, not a null returned pointer. A required non-null
 trailing typed `_COM_Outptr_`, or `_Outptr_` to an interface, also gets `retval` when success is
@@ -126,7 +122,7 @@ condition. These arguments belong to termination, not to `buffer`.
 | --- | --- |
 | `_In_z_ const char* name` | `#[in] #[null_terminated(entry)] name: *const i8` |
 | `_Pre_ _NullNull_terminated_ const unsigned short* names` | `#[null_terminated(double_entry)] names: *const u16` |
-| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[nullable] #[out]` |
+| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[out]` |
 
 `double_entry` and `double_success` require two trailing zeros at that time. `indirect` selects the
 pointer stored through the parameter. Bindgen does not currently use this fact to change the Rust type.
@@ -185,6 +181,11 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
 expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection
 already return the raw status; COM implementation methods use `Result`.
+
+Interface results lifted from output parameters use `Result<T>`, including COM queries. A successful
+call that supplies a null interface becomes `Err(Error::empty())`, whose code is `S_OK`. Direct
+interface returns and interface output slots can still use `Option<T>` based on their type, without
+nullability metadata. Raw pointer results remain raw pointers.
 
 Generated implementations zero the ABI result storage when the Rust implementation returns `Err`.
 This applies to projected Win32 `retval` results and WinRT return values, including both the pointer
@@ -270,7 +271,7 @@ ignored; only the recognized MIDL bracket comments carry contracts.
 
 DLL/entry-point and calling-convention facts can populate C# P/Invoke declarations.
 `SetLastError = true` asks the runtime to capture the native error, not decide whether a call failed.
-Custom families such as `Buffer`, `Nullable` and `Incomplete` require
+Custom families such as `Buffer` and `Incomplete` require
 explicit generator support. This repository does not establish C# support for this vocabulary;
 metadata round trips are not a substitute for consumer and generated-code coverage.
 
@@ -280,9 +281,10 @@ metadata round trips are not a substitute for consumer and generated-code covera
 | --- | --- |
 | Parameter SAL without a family: `_When_`, `_At_`, unsupported counts | `#[incomplete]`: raw pointer, no slice, `retval` or query projection |
 | Produced lengths and post-call capacities | Validated natively, not published; keep a usable entry extent or mark the buffer `incomplete` |
-| `_Field_size_*` | Validated natively; extent omitted, nullability retained |
+| `_Field_size_*` | Validated natively; extent and nullability omitted |
+| `_Ret_maybenull_`, `_Maybenull_`, returned-pointer `_maybenull_` forms | Native nullability retained for checking and reconciliation, not published |
 | `_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` | Redundant with an explicit native returned-pointer contract; otherwise `incomplete` |
-| Null-state and validity SAL that cannot be published | `#[incomplete]` |
+| Unmodeled null-state and validity SAL | `#[incomplete]` |
 | `_Success_`, `_Return_type_success_` | Dropped; `return >= 0` only grounds `retval` inference |
 | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `__RPC__in_range` | Dropped; ranges constrain values, not projections |
 | `__in_data_source`, `_Printf_format_string_`, `_Scanf_format_string_`, `_IRQL_uses_cancel_`, `_Strict_type_match` | Dropped; static analysis only |
@@ -298,7 +300,7 @@ language-neutral API facts.
 | RDL | Metadata |
 | --- | --- |
 | `in`, `out`, `opt` | Param flags `In`, `Out`, `Optional` |
-| `reserved`, `retval`, `nullable`, `incomplete` | `Reserved`, `RetVal`, `Nullable`, `Incomplete` |
+| `reserved`, `retval`, `incomplete` | `Reserved`, `RetVal`, `Incomplete` |
 | `iid_is` | `ComOutPtr` |
 | `buffer(count)`, `buffer(bytes(count))` | `Buffer`, with `CountConst` or `CountParamIndex`, plus `Dereference` and `Bytes` when needed |
 | `null_terminated`, `encoding` | `NullTerminated`, `Encoding` |

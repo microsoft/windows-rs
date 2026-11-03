@@ -66,10 +66,10 @@ mod Windows {
         #[guid(0x6f79d558_3e96_4549_a1d1_7d75d2288814)]
         interface IPropertyDescription: IUnknown {
             fn GetPropertyKey(&self, #[out] pkey: *mut PROPERTYKEY) -> HRESULT;
-            fn GetCanonicalName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszName: *mut LPWSTR) -> HRESULT;
+            fn GetCanonicalName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszName: *mut LPWSTR) -> HRESULT;
             fn GetPropertyType(&self, #[out] pvartype: *mut VARTYPE) -> HRESULT;
-            fn GetDisplayName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszName: *mut LPWSTR) -> HRESULT;
-            fn GetEditInvitation(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszInvite: *mut LPWSTR) -> HRESULT;
+            fn GetDisplayName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszName: *mut LPWSTR) -> HRESULT;
+            fn GetEditInvitation(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszInvite: *mut LPWSTR) -> HRESULT;
             fn GetTypeFlags(&self, #[in] mask: PROPDESC_TYPE_FLAGS, #[out] ppdtFlags: *mut PROPDESC_TYPE_FLAGS) -> HRESULT;
             fn GetViewFlags(&self, #[out] ppdvFlags: *mut PROPDESC_VIEW_FLAGS) -> HRESULT;
             fn GetDefaultColumnWidth(&self, #[out] pcxChars: *mut UINT) -> HRESULT;
@@ -77,19 +77,19 @@ mod Windows {
             fn GetColumnState(&self, #[out] pcsFlags: *mut SHCOLSTATEF) -> HRESULT;
             fn GetGroupingRange(&self, #[out] pgr: *mut PROPDESC_GROUPING_RANGE) -> HRESULT;
             fn GetRelativeDescriptionType(&self, #[out] prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> HRESULT;
-            fn GetRelativeDescription(&self, #[in] propvar1: &PROPVARIANT, #[in] propvar2: &PROPVARIANT, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszDesc1: *mut LPWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszDesc2: *mut LPWSTR) -> HRESULT;
+            fn GetRelativeDescription(&self, #[in] propvar1: &PROPVARIANT, #[in] propvar2: &PROPVARIANT, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDesc1: *mut LPWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDesc2: *mut LPWSTR) -> HRESULT;
             fn GetSortDescription(&self, #[out] psd: *mut PROPDESC_SORTDESCRIPTION) -> HRESULT;
-            fn GetSortDescriptionLabel(&self, #[in] fDescending: BOOL, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszDescription: *mut LPWSTR) -> HRESULT;
+            fn GetSortDescriptionLabel(&self, #[in] fDescending: BOOL, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDescription: *mut LPWSTR) -> HRESULT;
             fn GetAggregationType(&self, #[out] paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> HRESULT;
             fn GetConditionType(&self, #[out] pcontype: *mut PROPDESC_CONDITION_TYPE, #[out] popDefault: *mut CONDITION_OPERATION) -> HRESULT;
             fn GetEnumTypeList(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn CoerceToCanonicalValue(&self, #[in] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
-            fn FormatForDisplay(&self, #[in] propvar: &PROPVARIANT, #[in] pdfFlags: PROPDESC_FORMAT_FLAGS, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszDisplay: *mut LPWSTR) -> HRESULT;
+            fn FormatForDisplay(&self, #[in] propvar: &PROPVARIANT, #[in] pdfFlags: PROPDESC_FORMAT_FLAGS, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDisplay: *mut LPWSTR) -> HRESULT;
             fn IsValueCanonical(&self, #[in] propvar: &PROPVARIANT) -> HRESULT;
         }
         #[guid(0x57d2eded_5062_400e_b107_5dae79fe57a6)]
         interface IPropertyDescription2: IPropertyDescription {
-            fn GetImageReferenceForValue(&self, #[in] propvar: &PROPVARIANT, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszImageRes: *mut LPWSTR) -> HRESULT;
+            fn GetImageReferenceForValue(&self, #[in] propvar: &PROPVARIANT, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszImageRes: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xf67104fc_2af9_46fd_b32d_243c1404f3d1)]
         interface IPropertyDescriptionAliasInfo: IPropertyDescription {
@@ -162,7 +162,7 @@ mod Windows {
             fn GetPropertyDescriptionListFromString(&self, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn EnumeratePropertyDescriptions(&self, #[in] filterOn: PROPDESC_ENUMFILTER, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn FormatForDisplay(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[buffer(cchText)] #[null_terminated(success)] #[out] pszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
-            fn FormatForDisplayAlloc(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppszDisplay: *mut LPWSTR) -> HRESULT;
+            fn FormatForDisplayAlloc(&self, #[in] key: &PROPERTYKEY, #[in] propvar: &PROPVARIANT, #[in] pdff: PROPDESC_FORMAT_FLAGS, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDisplay: *mut LPWSTR) -> HRESULT;
             fn RegisterPropertySchema(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR) -> HRESULT;
             fn UnregisterPropertySchema(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR) -> HRESULT;
             fn RefreshPropertySchema(&self) -> HRESULT;
@@ -471,7 +471,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PSUnregisterPropertySchema(#[in] pszPath: PCWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToWinRTPropertyValue(#[in] propvar: &PROPVARIANT, #[in] riid: &IID, #[iid_is] #[nullable] #[out] ppv: *mut *mut void) -> HRESULT;
+        extern fn PropVariantToWinRTPropertyValue(#[in] propvar: &PROPVARIANT, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         const PropertySystem: GUID = 0xb8967f85_58ae_4f46_9fb2_5d7904798f4b;
         type SERIALIZEDPROPSTORAGE = tagSERIALIZEDPROPSTORAGE;
         #[library("PROPSYS.dll")]

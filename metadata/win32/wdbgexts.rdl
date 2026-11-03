@@ -812,7 +812,6 @@ mod Windows {
             },
             CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
             nFields: ULONG,
-            #[nullable]
             Fields: PFIELD_INFO,
             ModBase: ULONG64,
             TypeId: ULONG,

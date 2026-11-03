@@ -4,7 +4,7 @@ mod Windows {
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
         extern fn CallEnclave(#[in] lpRoutine: LPENCLAVE_ROUTINE, #[in] lpParameter: LPVOID, #[in] fWaitForThread: BOOL, #[out] lpReturnValue: *mut LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateEnclave(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwInitialCommitment: SIZE_T, #[in] flEnclaveType: DWORD, #[buffer(bytes(dwInfoLength))] #[in] lpEnclaveInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[opt] #[out] lpEnclaveError: LPDWORD) -> #[nullable] LPVOID;
+        extern fn CreateEnclave(#[in] hProcess: HANDLE, #[in] #[opt] lpAddress: LPVOID, #[in] dwSize: SIZE_T, #[in] dwInitialCommitment: SIZE_T, #[in] flEnclaveType: DWORD, #[buffer(bytes(dwInfoLength))] #[in] lpEnclaveInformation: LPCVOID, #[in] dwInfoLength: DWORD, #[opt] #[out] lpEnclaveError: LPDWORD) -> LPVOID;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
         extern fn DeleteEnclave(#[in] lpAddress: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]

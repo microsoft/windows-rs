@@ -350,7 +350,7 @@ mod Windows {
             fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
             fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
             fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE;
-            fn GetBitmap(&self, #[nullable] #[out] bitmap: *mut ID2D1Bitmap);
+            fn GetBitmap(&self, #[out] bitmap: *mut ID2D1Bitmap);
         }
         #[guid(0x2cd90695_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1BitmapRenderTarget: ID2D1RenderTarget {
@@ -372,7 +372,7 @@ mod Windows {
             fn GetDescription(&self, #[out] stateDescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
             fn SetDescription(&self, #[in] stateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
             fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
-            fn GetTextRenderingParams(&self, #[nullable] #[out] textRenderingParams: *mut IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, #[out] textRenderingParams: *mut IDWriteRenderingParams);
         }
         #[guid(0x2cd906a4_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1EllipseGeometry: ID2D1Geometry {
@@ -520,7 +520,7 @@ mod Windows {
             fn SetTextAntialiasMode(&self, textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE);
             fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE;
             fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
-            fn GetTextRenderingParams(&self, #[nullable] #[out] textRenderingParams: *mut IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, #[out] textRenderingParams: *mut IDWriteRenderingParams);
             fn SetTags(&self, tag1: D2D1_TAG, tag2: D2D1_TAG);
             fn GetTags(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG);
             fn PushLayer(&self, #[in] layerParameters: *const D2D1_LAYER_PARAMETERS, #[in] #[opt] layer: ID2D1Layer);

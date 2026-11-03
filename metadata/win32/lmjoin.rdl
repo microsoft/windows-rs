@@ -103,13 +103,13 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetAddAlternateComputerName(#[in] #[opt] Server: LPCWSTR, #[in] AlternateName: LPCWSTR, #[in] #[opt] DomainAccount: LPCWSTR, #[in] #[opt] DomainAccountPassword: LPCWSTR, #[in] Reserved: ULONG) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetCreateProvisioningPackage(#[in] pProvisioningParams: PNETSETUP_PROVISIONING_PARAMS, #[incomplete] #[nullable] #[opt] #[out] ppPackageBinData: *mut PBYTE, #[opt] #[out] pdwPackageBinDataSize: *mut DWORD, #[null_terminated(success, indirect)] #[nullable] #[opt] #[out] ppPackageTextData: *mut LPWSTR) -> DWORD;
+        extern fn NetCreateProvisioningPackage(#[in] pProvisioningParams: PNETSETUP_PROVISIONING_PARAMS, #[incomplete] #[opt] #[out] ppPackageBinData: *mut PBYTE, #[opt] #[out] pdwPackageBinDataSize: *mut DWORD, #[null_terminated(success, indirect)] #[opt] #[out] ppPackageTextData: *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetEnumerateComputerNames(#[in] #[opt] Server: LPCWSTR, #[in] NameType: NET_COMPUTER_NAME_TYPE, #[in] Reserved: ULONG, #[out] EntryCount: PDWORD, #[incomplete] #[out] ComputerNames: *mut *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetFreeAadJoinInformation(#[in] #[opt] pJoinInfo: PDSREG_JOIN_INFO);
         #[library("NETAPI32.dll")]
-        extern fn NetGetAadJoinInformation(#[in] #[opt] pcszTenantId: LPCWSTR, #[nullable] #[out] ppJoinInfo: *mut PDSREG_JOIN_INFO) -> HRESULT;
+        extern fn NetGetAadJoinInformation(#[in] #[opt] pcszTenantId: LPCWSTR, #[out] ppJoinInfo: *mut PDSREG_JOIN_INFO) -> HRESULT;
         #[library("NETAPI32.dll")]
         extern fn NetGetJoinInformation(#[in] #[opt] lpServer: LPCWSTR, #[out] lpNameBuffer: *mut LPWSTR, #[out] BufferType: PNETSETUP_JOIN_STATUS) -> DWORD;
         #[library("NETAPI32.dll")]
@@ -117,7 +117,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetJoinDomain(#[in] #[opt] lpServer: LPCWSTR, #[in] lpDomain: LPCWSTR, #[in] #[opt] lpMachineAccountOU: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] fJoinOptions: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetProvisionComputerAccount(#[in] #[null_terminated(entry)] lpDomain: LPCWSTR, #[in] #[null_terminated(entry)] lpMachineName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lpMachineAccountOU: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lpDcName: LPCWSTR, #[in] dwOptions: DWORD, #[incomplete] #[nullable] #[opt] #[out] pProvisionBinData: *mut PBYTE, #[opt] #[out] pdwProvisionBinDataSize: *mut DWORD, #[null_terminated(success, indirect)] #[nullable] #[opt] #[out] pProvisionTextData: *mut LPWSTR) -> DWORD;
+        extern fn NetProvisionComputerAccount(#[in] #[null_terminated(entry)] lpDomain: LPCWSTR, #[in] #[null_terminated(entry)] lpMachineName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lpMachineAccountOU: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lpDcName: LPCWSTR, #[in] dwOptions: DWORD, #[incomplete] #[opt] #[out] pProvisionBinData: *mut PBYTE, #[opt] #[out] pdwProvisionBinDataSize: *mut DWORD, #[null_terminated(success, indirect)] #[opt] #[out] pProvisionTextData: *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetRemoveAlternateComputerName(#[in] #[opt] Server: LPCWSTR, #[in] AlternateName: LPCWSTR, #[in] #[opt] DomainAccount: LPCWSTR, #[in] #[opt] DomainAccountPassword: LPCWSTR, #[in] Reserved: ULONG) -> DWORD;
         #[library("NETAPI32.dll")]
