@@ -698,7 +698,7 @@ encoding, capacity, initialized length and optionality. Choose one or both phase
 For example, `#[null_terminated(entry, double_success)]` preserves different termination at the
 two phases. Success follows the callable's contract; this does not imply termination after failure.
 `#[null_terminated(success, indirect)]` describes a returned string when non-null. Nullability,
-optional output storage and readable/writable extents remain separate contracts.
+optional output storage and buffer extents remain separate contracts.
 The selected storage must be a pointer, reference or array after resolving aliases. Scalars and
 callback values are not buffer storage. Fields, return rows and declarations have no short-form
 termination contract; their explicit full attributes remain readable and retain full spelling.

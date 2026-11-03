@@ -172,8 +172,8 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 
 | Metadata | Current bindgen behavior |
 | --- | --- |
-| Direct entry extent with a constant or unshared by-value input count | Slice or fixed-size array reference when direction and element type allow it; hide a variable count |
-| Signed count on an optional buffer, byte count on wider elements, or output-only buffer | Raw pointer |
+| Constant element count or unshared by-value input count | Slice or fixed-size array reference when direction and element type allow it; hide a variable count |
+| Constant byte count, signed count on an optional buffer, byte count on wider elements, or output-only buffer | Raw pointer |
 | Other buffer counts | Raw pointer, except interface values; no `retval` projection |
 | `incomplete` on a buffer, count, query argument or result | Blocks the corresponding slice, query or `retval` transformation |
 | `retval` | Trailing output-only, non-optional, non-reserved pointer with no extent or `incomplete`; `HRESULT` becomes `Result<T>`, `void` becomes `T` |
