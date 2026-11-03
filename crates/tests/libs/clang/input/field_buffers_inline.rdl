@@ -5,14 +5,12 @@ mod Fixture {
     struct FieldBuffers {
         capacity: Count,
         readable: Count,
-        #[writable(capacity)]
         values: [u16; 8],
     }
     struct OuterFields {
         struct Inner {
             capacity: Count,
             readable: Count,
-            #[writable(capacity)]
             values: [u16; 8],
         }
         capacity: Count,

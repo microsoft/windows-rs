@@ -290,7 +290,6 @@ mod Windows {
         }
         #[packed(8)]
         struct NDR_USER_MARSHAL_INFO_LEVEL1 {
-            #[writable(bytes(BufferSize))]
             Buffer: *mut void,
             BufferSize: u32,
             pfnAllocate: extern fn(size_t) -> *mut void,

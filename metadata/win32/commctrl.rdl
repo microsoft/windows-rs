@@ -319,7 +319,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DrawInsert(handParent: HWND, hLB: HWND, nItem: i32);
         #[library("COMCTL32.dll")]
-        extern fn DrawShadowText(#[in] hdc: HDC, #[in] #[readable(entry, cch)] pszText: LPCWSTR, #[in] cch: UINT, #[in] prc: *mut RECT, #[in] dwFlags: DWORD, #[in] crText: COLORREF, #[in] crShadow: COLORREF, #[in] ixOffset: i32, #[in] iyOffset: i32) -> i32;
+        extern fn DrawShadowText(#[in] hdc: HDC, #[buffer(cch)] #[in] pszText: LPCWSTR, #[in] cch: UINT, #[in] prc: *mut RECT, #[in] dwFlags: DWORD, #[in] crText: COLORREF, #[in] crShadow: COLORREF, #[in] ixOffset: i32, #[in] iyOffset: i32) -> i32;
         #[library("COMCTL32.dll")]
         extern fn DrawStatusTextA(hDC: HDC, lprc: LPCRECT, pszText: LPCSTR, uFlags: UINT);
         #[library("COMCTL32.dll")]

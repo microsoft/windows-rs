@@ -100,31 +100,9 @@ impl Param {
     fn buffer_attributes(
         &self,
     ) -> impl Iterator<Item = windows_metadata::reader::Attribute<'static>> + '_ {
-        self.attributes()
-            .filter(|attribute| attribute.name() == "BufferExtentAttribute")
-    }
-
-    pub fn has_query_buffer_attributes(&self) -> bool {
-        use windows_metadata::{BufferAccess, BufferCount, BufferExtent, BufferPhase};
-
-        let returned_pointer = self.attributes().any(|attribute| {
+        self.attributes().filter(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "ReturnedPointerAttribute"
-        });
-        self.buffer_attributes().any(|attribute| {
-            if attribute.namespace() != "Windows.Win32.Metadata"
-                || attribute.name() != "BufferExtentAttribute"
-                || !returned_pointer
-            {
-                return true;
-            }
-            let Some(extent) = BufferExtent::from_values(&attribute.value()) else {
-                return true;
-            };
-            !(extent.access == BufferAccess::Read
-                && extent.phase == BufferPhase::Success
-                && extent.indirect
-                && extent.count == BufferCount::Unknown)
+                && attribute.name() == "BufferAttribute"
         })
     }
 

@@ -160,7 +160,7 @@ mod Windows {
             fn GetLevel(&self, #[in] nChannel: UINT, #[out] pfLevelDB: *mut f32) -> HRESULT;
             fn SetLevel(&self, #[in] nChannel: UINT, #[in] fLevelDB: f32, #[in] #[opt] pguidEventContext: LPCGUID) -> HRESULT;
             fn SetLevelUniform(&self, #[in] fLevelDB: f32, #[in] #[opt] pguidEventContext: LPCGUID) -> HRESULT;
-            fn SetLevelAllChannels(&self, #[in] #[readable(entry, cChannels)] aLevelsDB: *mut f32, #[in] cChannels: ULONG, #[in] #[opt] pguidEventContext: LPCGUID) -> HRESULT;
+            fn SetLevelAllChannels(&self, #[buffer(cChannels)] #[in] aLevelsDB: *mut f32, #[in] cChannels: ULONG, #[in] #[opt] pguidEventContext: LPCGUID) -> HRESULT;
         }
         #[guid(0x82149a85_dba6_4487_86bb_ea8f7fefcc71)]
         interface ISubunit: IUnknown {}

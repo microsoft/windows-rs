@@ -5,7 +5,7 @@ mod Windows {
         extern fn CloseThreadWaitChainSession(#[in] WctHandle: HWCT);
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn GetThreadWaitChain(#[in] WctHandle: HWCT, #[in] #[opt] Context: DWORD_PTR, #[in] Flags: DWORD, #[in] ThreadId: DWORD, #[in] #[out] NodeCount: LPDWORD, #[out] #[writable(entry, *NodeCount)] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
+        extern fn GetThreadWaitChain(#[in] WctHandle: HWCT, #[in] #[opt] Context: DWORD_PTR, #[in] Flags: DWORD, #[in] ThreadId: DWORD, #[in] #[out] NodeCount: LPDWORD, #[buffer(*NodeCount)] #[out] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
         type HWCT = *mut void;
         #[library("ADVAPI32.dll")]
         #[must_use]

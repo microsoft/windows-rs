@@ -8,14 +8,14 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CompareStringW(#[in] Locale: LCID, #[in] dwCmpFlags: DWORD, #[incomplete] lpString1: PCNZWCH, #[in] cchCount1: i32, #[incomplete] lpString2: PCNZWCH, #[in] cchCount2: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FoldStringW(#[in] dwMapFlags: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[opt] #[out] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
+        extern fn FoldStringW(#[in] dwMapFlags: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[buffer(cchDest)] #[opt] #[out] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetStringTypeExW(#[in] Locale: LCID, #[in] dwInfoType: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] #[writable(entry, cchSrc)] lpCharType: LPWORD) -> BOOL;
+        extern fn GetStringTypeExW(#[in] Locale: LCID, #[in] dwInfoType: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[buffer(cchSrc)] #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetStringTypeW(#[in] dwInfoType: DWORD, #[incomplete] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn MultiByteToWideChar(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpMultiByteStr: LPCCH, #[in] cbMultiByte: i32, #[incomplete] #[opt] #[out] #[writable(entry, cchWideChar)] lpWideCharStr: LPWSTR, #[in] cchWideChar: i32) -> i32;
+        extern fn MultiByteToWideChar(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpMultiByteStr: LPCCH, #[in] cbMultiByte: i32, #[buffer(cchWideChar)] #[incomplete] #[opt] #[out] lpWideCharStr: LPWSTR, #[in] cchWideChar: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn WideCharToMultiByte(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpWideCharStr: LPCWCH, #[in] cchWideChar: i32, #[incomplete] #[opt] #[out] #[writable(entry, bytes(cbMultiByte))] lpMultiByteStr: LPSTR, #[in] cbMultiByte: i32, #[in] #[opt] lpDefaultChar: LPCCH, #[opt] #[out] lpUsedDefaultChar: LPBOOL) -> i32;
+        extern fn WideCharToMultiByte(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[incomplete] lpWideCharStr: LPCWCH, #[in] cchWideChar: i32, #[buffer(bytes(cbMultiByte))] #[incomplete] #[opt] #[out] lpMultiByteStr: LPSTR, #[in] cbMultiByte: i32, #[in] #[opt] lpDefaultChar: LPCCH, #[opt] #[out] lpUsedDefaultChar: LPBOOL) -> i32;
     }
 }

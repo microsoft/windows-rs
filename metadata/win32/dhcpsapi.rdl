@@ -53,7 +53,6 @@ mod Windows {
         }
         struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Clients: *mut LPDHCPV4_FAILOVER_CLIENT_INFO,
         }
         struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
@@ -114,7 +113,6 @@ mod Windows {
         }
         struct DHCPV6_STATELESS_STATS {
             NumScopes: DWORD,
-            #[writable(NumScopes)]
             ScopeStats: LPDHCPV6_STATELESS_SCOPE_STATS,
         }
         struct DHCP_ADDR_PATTERN {
@@ -170,7 +168,6 @@ mod Windows {
         }
         struct DHCP_ATTRIB_ARRAY {
             NumElements: ULONG,
-            #[writable(NumElements)]
             DhcpAttribs: LPDHCP_ATTRIB,
         }
         const DHCP_ATTRIB_BOOL_IS_ADMIN: i32 = 5;
@@ -184,7 +181,6 @@ mod Windows {
         const DHCP_ATTRIB_ULONG_RESTORE_STATUS: i32 = 6;
         struct DHCP_BINARY_DATA {
             DataLength: DWORD,
-            #[writable(bytes(DataLength))]
             Data: *mut BYTE,
         }
         struct DHCP_BIND_ELEMENT {
@@ -194,7 +190,6 @@ mod Windows {
             AdapterSubnetAddress: DHCP_IP_ADDRESS,
             IfDescription: LPWSTR,
             IfIdSize: ULONG,
-            #[writable(bytes(IfIdSize))]
             IfId: LPBYTE,
         }
         struct DHCP_BIND_ELEMENT_ARRAY {
@@ -213,7 +208,6 @@ mod Windows {
             ClassDataLength: DWORD,
             IsVendor: BOOL,
             Flags: DWORD,
-            #[writable(bytes(ClassDataLength))]
             ClassData: LPBYTE,
         }
         struct DHCP_CLASS_INFO_ARRAY {
@@ -231,7 +225,6 @@ mod Windows {
             IsVendor: BOOL,
             EnterpriseNumber: DWORD,
             Flags: DWORD,
-            #[writable(bytes(ClassDataLength))]
             ClassData: LPBYTE,
         }
         struct DHCP_CLIENT_FILTER_STATUS_INFO {
@@ -397,7 +390,6 @@ mod Windows {
         }
         struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             pRelationships: LPDHCP_FAILOVER_RELATIONSHIP,
         }
         #[repr(i32)]
@@ -421,7 +413,6 @@ mod Windows {
         }
         struct DHCP_FILTER_ENUM_INFO {
             NumElements: DWORD,
-            #[writable(NumElements)]
             pEnumRecords: LPDHCP_FILTER_RECORD,
         }
         struct DHCP_FILTER_GLOBAL_INFO {
@@ -463,7 +454,6 @@ mod Windows {
         type DHCP_IP_ADDRESS = u32;
         struct DHCP_IP_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_IP_ADDRESS,
         }
         struct DHCP_IP_CLUSTER {
@@ -477,7 +467,6 @@ mod Windows {
         }
         struct DHCP_IP_RANGE_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_IP_RANGE,
         }
         struct DHCP_IP_RANGE_V6 {
@@ -517,7 +506,6 @@ mod Windows {
             Releases: DWORD,
             ServerStartTime: DATE_TIME,
             Scopes: DWORD,
-            #[writable(Scopes)]
             ScopeInfo: LPSCOPE_MIB_INFO,
         }
         struct DHCP_MIB_INFO_V5 {
@@ -539,7 +527,6 @@ mod Windows {
             DelayedOffers: DWORD,
             ScopesWithDelayedOffers: DWORD,
             Scopes: DWORD,
-            #[writable(Scopes)]
             ScopeInfo: LPSCOPE_MIB_INFO_V5,
         }
         struct DHCP_MIB_INFO_V6 {
@@ -590,7 +577,6 @@ mod Windows {
         }
         struct DHCP_OPTION_DATA {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_OPTION_DATA_ELEMENT,
         }
         struct DHCP_OPTION_DATA_ELEMENT {
@@ -710,7 +696,6 @@ mod Windows {
         }
         struct DHCP_POLICY_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_POLICY,
         }
         struct DHCP_POLICY_EX {
@@ -727,7 +712,6 @@ mod Windows {
         }
         struct DHCP_POLICY_EX_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_POLICY_EX,
         }
         #[repr(i32)]
@@ -764,13 +748,11 @@ mod Windows {
             SubOptionID: DWORD,
             VendorName: LPWSTR,
             Operator: DHCP_POL_COMPARATOR,
-            #[writable(bytes(ValueLength))]
             Value: LPBYTE,
             ValueLength: DWORD,
         }
         struct DHCP_POL_COND_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_POL_COND,
         }
         struct DHCP_POL_EXPR {
@@ -779,7 +761,6 @@ mod Windows {
         }
         struct DHCP_POL_EXPR_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_POL_EXPR,
         }
         #[repr(i32)]
@@ -801,7 +782,6 @@ mod Windows {
         }
         struct DHCP_PROPERTY_ARRAY {
             NumElements: DWORD,
-            #[writable(NumElements)]
             Elements: LPDHCP_PROPERTY,
         }
         #[repr(i32)]
@@ -842,7 +822,6 @@ mod Windows {
         }
         struct DHCP_SCAN_LIST {
             NumScanItems: DWORD,
-            #[writable(NumScanItems)]
             ScanItems: *mut DHCP_SCAN_ITEM,
         }
         struct DHCP_SEARCH_INFO {
@@ -898,7 +877,6 @@ mod Windows {
             DebugFlag: DWORD,
             dwPingRetries: DWORD,
             cbBootTableString: DWORD,
-            #[writable(bytes(cbBootTableString))]
             wszBootTableString: *mut WCHAR,
             fAuditLog: BOOL,
         }
@@ -925,7 +903,6 @@ mod Windows {
             DebugFlag: DWORD,
             dwPingRetries: DWORD,
             cbBootTableString: DWORD,
-            #[writable(bytes(cbBootTableString))]
             wszBootTableString: *mut WCHAR,
             fAuditLog: BOOL,
             QuarantineOn: BOOL,
@@ -1240,7 +1217,7 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetVersion(#[in] #[opt] ServerIpAddress: LPWSTR, MajorVersion: LPDWORD, MinorVersion: LPDWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprAddV4PolicyCondition(#[in] #[out] Policy: LPDHCP_POLICY, #[in] ParentExpr: DWORD, #[in] Type: DHCP_POL_ATTR_TYPE, #[in] OptionID: DWORD, #[in] SubOptionID: DWORD, #[in] #[opt] VendorName: LPWSTR, #[in] Operator: DHCP_POL_COMPARATOR, #[in] #[readable(entry, bytes(ValueLength))] Value: LPBYTE, #[in] ValueLength: DWORD, #[out] ConditionIndex: *mut DWORD) -> DWORD;
+        extern fn DhcpHlprAddV4PolicyCondition(#[in] #[out] Policy: LPDHCP_POLICY, #[in] ParentExpr: DWORD, #[in] Type: DHCP_POL_ATTR_TYPE, #[in] OptionID: DWORD, #[in] SubOptionID: DWORD, #[in] #[opt] VendorName: LPWSTR, #[in] Operator: DHCP_POL_COMPARATOR, #[buffer(bytes(ValueLength))] #[in] Value: LPBYTE, #[in] ValueLength: DWORD, #[out] ConditionIndex: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprAddV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, #[in] ParentExpr: DWORD, #[in] Operator: DHCP_POL_LOGIC_OPER, #[out] ExprIndex: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
@@ -1318,7 +1295,7 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerQueryAttributes(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG, dwAttribCount: ULONG, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[out] #[writable(entry, UnameSize)] Uname: LPWSTR, DomainSize: ULONG, #[out] #[writable(entry, DomainSize)] Domain: LPWSTR) -> DWORD;
+        extern fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[buffer(UnameSize)] #[out] Uname: LPWSTR, DomainSize: ULONG, #[buffer(DomainSize)] #[out] Domain: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerRedoAuthorization(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG) -> DWORD;
         #[library("DHCPSAPI.DLL")]

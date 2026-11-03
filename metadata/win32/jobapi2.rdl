@@ -18,11 +18,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn OpenJobObjectW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn QueryInformationJobObject(#[in] #[opt] hJob: HANDLE, #[in] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[out] #[readable(success, bytes(if_present(*lpReturnLength)))] #[writable(entry, bytes(cbJobObjectInformationLength))] lpJobObjectInformation: LPVOID, #[in] cbJobObjectInformationLength: DWORD, #[opt] #[out] lpReturnLength: LPDWORD) -> BOOL;
+        extern fn QueryInformationJobObject(#[in] #[opt] hJob: HANDLE, #[in] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[buffer(bytes(cbJobObjectInformationLength))] #[out] lpJobObjectInformation: LPVOID, #[in] cbJobObjectInformationLength: DWORD, #[opt] #[out] lpReturnLength: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryIoRateControlInformationJobObject(#[in] #[opt] hJob: HANDLE, #[in] #[opt] VolumeName: PCWSTR, #[out] #[writable(success, *InfoBlockCount, indirect)] InfoBlocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, #[out] InfoBlockCount: *mut ULONG) -> DWORD;
+        extern fn QueryIoRateControlInformationJobObject(#[in] #[opt] hJob: HANDLE, #[in] #[opt] VolumeName: PCWSTR, #[incomplete] #[out] InfoBlocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, #[out] InfoBlockCount: *mut ULONG) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SetInformationJobObject(#[in] hJob: HANDLE, #[in] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[in] #[readable(entry, bytes(cbJobObjectInformationLength))] lpJobObjectInformation: LPVOID, #[in] cbJobObjectInformationLength: DWORD) -> BOOL;
+        extern fn SetInformationJobObject(#[in] hJob: HANDLE, #[in] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[buffer(bytes(cbJobObjectInformationLength))] #[in] lpJobObjectInformation: LPVOID, #[in] cbJobObjectInformationLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetIoRateControlInformationJobObject(#[in] hJob: HANDLE, #[in] IoRateControlInfo: *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> DWORD;
         #[library("KERNEL32.dll")]

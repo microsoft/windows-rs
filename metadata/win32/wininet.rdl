@@ -90,9 +90,9 @@ mod Windows {
         const CERN_PROXY_INTERNET_ACCESS: i32 = 3;
         const COOKIE_CACHE_ENTRY: i32 = 1048576;
         #[library("WININET.dll")]
-        extern fn CommitUrlCacheEntryA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] lpszLocalFileName: LPCSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[in] #[opt] #[readable(entry, cchHeaderInfo)] lpHeaderInfo: LPBYTE, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCSTR, #[in] #[opt] lpszOriginalUrl: LPCSTR) -> BOOL;
+        extern fn CommitUrlCacheEntryA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] lpszLocalFileName: LPCSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[buffer(cchHeaderInfo)] #[in] #[opt] lpHeaderInfo: LPBYTE, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCSTR, #[in] #[opt] lpszOriginalUrl: LPCSTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn CommitUrlCacheEntryW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] lpszLocalFileName: LPCWSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[in] #[opt] #[readable(entry, cchHeaderInfo)] lpszHeaderInfo: LPWSTR, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCWSTR, #[in] #[opt] lpszOriginalUrl: LPCWSTR) -> BOOL;
+        extern fn CommitUrlCacheEntryW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] lpszLocalFileName: LPCWSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[buffer(cchHeaderInfo)] #[in] #[opt] lpszHeaderInfo: LPWSTR, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCWSTR, #[in] #[opt] lpszOriginalUrl: LPCWSTR) -> BOOL;
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct CookieDecision {
@@ -108,9 +108,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn CreateMD5SSOHash(#[in] pszChallengeInfo: PWSTR, #[in] pwszRealm: PWSTR, #[in] pwszTarget: PWSTR, #[out] pbHexHash: PBYTE) -> BOOL;
         #[library("WININET.dll")]
-        extern fn CreateUrlCacheEntryA(#[in] lpszUrlName: LPCSTR, #[in] dwExpectedFileSize: DWORD, #[in] #[opt] lpszFileExtension: LPCSTR, #[in] #[out] #[writable(entry, 260)] lpszFileName: LPSTR, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn CreateUrlCacheEntryA(#[in] lpszUrlName: LPCSTR, #[in] dwExpectedFileSize: DWORD, #[in] #[opt] lpszFileExtension: LPCSTR, #[buffer(260)] #[in] #[out] lpszFileName: LPSTR, #[in] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn CreateUrlCacheEntryW(#[in] lpszUrlName: LPCWSTR, #[in] dwExpectedFileSize: DWORD, #[in] #[opt] lpszFileExtension: LPCWSTR, #[in] #[out] #[writable(entry, 260)] lpszFileName: LPWSTR, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn CreateUrlCacheEntryW(#[in] lpszUrlName: LPCWSTR, #[in] dwExpectedFileSize: DWORD, #[in] #[opt] lpszFileExtension: LPCWSTR, #[buffer(260)] #[in] #[out] lpszFileName: LPWSTR, #[in] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn CreateUrlCacheGroup(#[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> GROUPID;
         #[library("WININET.dll")]
@@ -124,7 +124,7 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn DeleteWpadCacheForNetworks(#[in] param0: WPAD_CACHE_DELETE) -> BOOL;
         #[library("WININET.dll")]
-        extern fn DetectAutoProxyUrl(#[out] #[writable(entry, cchAutoProxyUrl)] pszAutoProxyUrl: PSTR, #[in] cchAutoProxyUrl: DWORD, #[in] dwDetectFlags: DWORD) -> BOOL;
+        extern fn DetectAutoProxyUrl(#[buffer(cchAutoProxyUrl)] #[out] pszAutoProxyUrl: PSTR, #[in] cchAutoProxyUrl: DWORD, #[in] dwDetectFlags: DWORD) -> BOOL;
         const EDITED_CACHE_ENTRY: i32 = 8;
         const ERROR_FTP_DROPPED: i32 = 12111;
         const ERROR_FTP_NO_PASSIVE_MODE: i32 = 12112;
@@ -239,23 +239,23 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn FindCloseUrlCache(#[in] hEnumHandle: HANDLE) -> BOOL;
         #[library("WININET.dll")]
-        extern fn FindFirstUrlCacheEntryA(#[in] #[opt] lpszUrlSearchPattern: LPCSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> HANDLE;
+        extern fn FindFirstUrlCacheEntryA(#[in] #[opt] lpszUrlSearchPattern: LPCSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> HANDLE;
         #[library("WININET.dll")]
-        extern fn FindFirstUrlCacheEntryExA(#[in] #[opt] lpszUrlSearchPattern: LPCSTR, #[in] dwFlags: DWORD, #[in] dwFilter: DWORD, #[in] GroupId: GROUPID, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> HANDLE;
+        extern fn FindFirstUrlCacheEntryExA(#[in] #[opt] lpszUrlSearchPattern: LPCSTR, #[in] dwFlags: DWORD, #[in] dwFilter: DWORD, #[in] GroupId: GROUPID, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> HANDLE;
         #[library("WININET.dll")]
-        extern fn FindFirstUrlCacheEntryExW(#[in] #[opt] lpszUrlSearchPattern: LPCWSTR, #[in] dwFlags: DWORD, #[in] dwFilter: DWORD, #[in] GroupId: GROUPID, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> HANDLE;
+        extern fn FindFirstUrlCacheEntryExW(#[in] #[opt] lpszUrlSearchPattern: LPCWSTR, #[in] dwFlags: DWORD, #[in] dwFilter: DWORD, #[in] GroupId: GROUPID, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> HANDLE;
         #[library("WININET.dll")]
-        extern fn FindFirstUrlCacheEntryW(#[in] #[opt] lpszUrlSearchPattern: LPCWSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> HANDLE;
+        extern fn FindFirstUrlCacheEntryW(#[in] #[opt] lpszUrlSearchPattern: LPCWSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpFirstCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> HANDLE;
         #[library("WININET.dll")]
         extern fn FindFirstUrlCacheGroup(#[in] dwFlags: DWORD, #[in] dwFilter: DWORD, #[reserved] lpSearchCondition: LPVOID, #[reserved] dwSearchCondition: DWORD, #[out] lpGroupId: *mut GROUPID, #[reserved] lpReserved: LPVOID) -> HANDLE;
         #[library("WININET.dll")]
-        extern fn FindNextUrlCacheEntryA(#[in] hEnumHandle: HANDLE, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
+        extern fn FindNextUrlCacheEntryA(#[in] hEnumHandle: HANDLE, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn FindNextUrlCacheEntryExA(#[in] hEnumHandle: HANDLE, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn FindNextUrlCacheEntryExA(#[in] hEnumHandle: HANDLE, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn FindNextUrlCacheEntryExW(#[in] hEnumHandle: HANDLE, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn FindNextUrlCacheEntryExW(#[in] hEnumHandle: HANDLE, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpGroupAttributes: LPVOID, #[reserved] lpcbGroupAttributes: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn FindNextUrlCacheEntryW(#[in] hEnumHandle: HANDLE, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
+        extern fn FindNextUrlCacheEntryW(#[in] hEnumHandle: HANDLE, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpNextCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn FindNextUrlCacheGroup(#[in] hFind: HANDLE, #[out] lpGroupId: *mut GROUPID, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
@@ -275,9 +275,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn FtpFindFirstFileW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszSearchFile: LPCWSTR, #[opt] #[out] lpFindFileData: LPWIN32_FIND_DATAW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn FtpGetCurrentDirectoryA(#[in] hConnect: HINTERNET, #[out] #[writable(entry, *lpdwCurrentDirectory)] lpszCurrentDirectory: LPSTR, #[in] #[out] lpdwCurrentDirectory: LPDWORD) -> BOOL;
+        extern fn FtpGetCurrentDirectoryA(#[in] hConnect: HINTERNET, #[buffer(*lpdwCurrentDirectory)] #[out] lpszCurrentDirectory: LPSTR, #[in] #[out] lpdwCurrentDirectory: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn FtpGetCurrentDirectoryW(#[in] hConnect: HINTERNET, #[out] #[writable(entry, *lpdwCurrentDirectory)] lpszCurrentDirectory: LPWSTR, #[in] #[out] lpdwCurrentDirectory: LPDWORD) -> BOOL;
+        extern fn FtpGetCurrentDirectoryW(#[in] hConnect: HINTERNET, #[buffer(*lpdwCurrentDirectory)] #[out] lpszCurrentDirectory: LPWSTR, #[in] #[out] lpdwCurrentDirectory: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn FtpGetFileA(#[in] hConnect: HINTERNET, #[in] lpszRemoteFile: LPCSTR, #[in] lpszNewFile: LPCSTR, #[in] fFailIfExists: BOOL, #[in] dwFlagsAndAttributes: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
@@ -687,21 +687,21 @@ mod Windows {
         const GROUPNAME_MAX_LENGTH: i32 = 120;
         const GROUP_OWNER_STORAGE_SIZE: i32 = 4;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheEntryInfoA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*lpcbCacheEntryInfo)))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
+        extern fn GetUrlCacheEntryInfoA(#[in] lpszUrlName: LPCSTR, #[in] #[incomplete] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheEntryInfoExA(#[in] lpszUrl: LPCSTR, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*lpcbCacheEntryInfo)))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpszRedirectUrl: LPSTR, #[reserved] lpcbRedirectUrl: LPDWORD, #[reserved] lpReserved: LPVOID, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn GetUrlCacheEntryInfoExA(#[in] lpszUrl: LPCSTR, #[in] #[incomplete] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpszRedirectUrl: LPSTR, #[reserved] lpcbRedirectUrl: LPDWORD, #[reserved] lpReserved: LPVOID, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheEntryInfoExW(#[in] lpszUrl: LPCWSTR, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*lpcbCacheEntryInfo)))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpszRedirectUrl: LPWSTR, #[reserved] lpcbRedirectUrl: LPDWORD, #[reserved] lpReserved: LPVOID, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn GetUrlCacheEntryInfoExW(#[in] lpszUrl: LPCWSTR, #[in] #[incomplete] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] lpszRedirectUrl: LPWSTR, #[reserved] lpcbRedirectUrl: LPDWORD, #[reserved] lpReserved: LPVOID, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheEntryInfoW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*lpcbCacheEntryInfo)))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
+        extern fn GetUrlCacheEntryInfoW(#[in] lpszUrlName: LPCWSTR, #[in] #[incomplete] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[opt] #[out] lpcbCacheEntryInfo: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheGroupAttributeA(#[in] gid: GROUPID, #[reserved] dwFlags: DWORD, #[in] dwAttributes: DWORD, #[out] #[writable(entry, bytes(*lpcbGroupInfo))] lpGroupInfo: LPINTERNET_CACHE_GROUP_INFOA, #[in] #[out] lpcbGroupInfo: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn GetUrlCacheGroupAttributeA(#[in] gid: GROUPID, #[reserved] dwFlags: DWORD, #[in] dwAttributes: DWORD, #[buffer(bytes(*lpcbGroupInfo))] #[out] lpGroupInfo: LPINTERNET_CACHE_GROUP_INFOA, #[in] #[out] lpcbGroupInfo: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GetUrlCacheGroupAttributeW(#[in] gid: GROUPID, #[reserved] dwFlags: DWORD, #[in] dwAttributes: DWORD, #[out] #[writable(entry, bytes(*lpcbGroupInfo))] lpGroupInfo: LPINTERNET_CACHE_GROUP_INFOW, #[in] #[out] lpcbGroupInfo: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn GetUrlCacheGroupAttributeW(#[in] gid: GROUPID, #[reserved] dwFlags: DWORD, #[in] dwAttributes: DWORD, #[buffer(bytes(*lpcbGroupInfo))] #[out] lpGroupInfo: LPINTERNET_CACHE_GROUP_INFOW, #[in] #[out] lpcbGroupInfo: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GopherCreateLocatorA(#[in] lpszHost: LPCSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszDisplayString: LPCSTR, #[in] #[opt] lpszSelectorString: LPCSTR, #[in] dwGopherType: DWORD, #[opt] #[out] #[writable(entry, *lpdwBufferLength)] lpszLocator: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn GopherCreateLocatorA(#[in] lpszHost: LPCSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszDisplayString: LPCSTR, #[in] #[opt] lpszSelectorString: LPCSTR, #[in] dwGopherType: DWORD, #[buffer(*lpdwBufferLength)] #[opt] #[out] lpszLocator: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn GopherCreateLocatorW(#[in] lpszHost: LPCWSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszDisplayString: LPCWSTR, #[in] #[opt] lpszSelectorString: LPCWSTR, #[in] dwGopherType: DWORD, #[opt] #[out] #[writable(entry, *lpdwBufferLength)] lpszLocator: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn GopherCreateLocatorW(#[in] lpszHost: LPCWSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszDisplayString: LPCWSTR, #[in] #[opt] lpszSelectorString: LPCWSTR, #[in] dwGopherType: DWORD, #[buffer(*lpdwBufferLength)] #[opt] #[out] lpszLocator: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn GopherFindFirstFileA(#[in] hConnect: HINTERNET, #[in] #[opt] lpszLocator: LPCSTR, #[in] #[opt] lpszSearchString: LPCSTR, #[opt] #[out] lpFindData: LPGOPHER_FIND_DATAA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
@@ -910,17 +910,17 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn HttpOpenRequestW(#[in] hConnect: HINTERNET, #[in] #[opt] lpszVerb: LPCWSTR, #[in] #[opt] lpszObjectName: LPCWSTR, #[in] #[opt] lpszVersion: LPCWSTR, #[in] #[opt] lpszReferrer: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] lplpszAcceptTypes: *mut LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn HttpQueryInfoA(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
+        extern fn HttpQueryInfoA(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[buffer(bytes(*lpdwBufferLength))] #[in] #[opt] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpQueryInfoW(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] #[opt] #[out] #[readable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
+        extern fn HttpQueryInfoW(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[buffer(bytes(*lpdwBufferLength))] #[in] #[opt] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[opt] #[out] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpSendRequestA(#[in] hRequest: HINTERNET, #[in] #[opt] #[readable(entry, dwHeadersLength)] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] #[opt] #[readable(entry, bytes(dwOptionalLength))] lpOptional: LPVOID, #[in] dwOptionalLength: DWORD) -> BOOL;
+        extern fn HttpSendRequestA(#[in] hRequest: HINTERNET, #[buffer(dwHeadersLength)] #[in] #[opt] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[buffer(bytes(dwOptionalLength))] #[in] #[opt] lpOptional: LPVOID, #[in] dwOptionalLength: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn HttpSendRequestExA(#[in] hRequest: HINTERNET, #[in] #[opt] lpBuffersIn: LPINTERNET_BUFFERSA, #[opt] #[out] lpBuffersOut: LPINTERNET_BUFFERSA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
         extern fn HttpSendRequestExW(#[in] hRequest: HINTERNET, #[in] #[opt] lpBuffersIn: LPINTERNET_BUFFERSW, #[opt] #[out] lpBuffersOut: LPINTERNET_BUFFERSW, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn HttpSendRequestW(#[in] hRequest: HINTERNET, #[in] #[opt] #[readable(entry, dwHeadersLength)] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[in] #[opt] #[readable(entry, bytes(dwOptionalLength))] lpOptional: LPVOID, #[in] dwOptionalLength: DWORD) -> BOOL;
+        extern fn HttpSendRequestW(#[in] hRequest: HINTERNET, #[buffer(dwHeadersLength)] #[in] #[opt] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[buffer(bytes(dwOptionalLength))] #[in] #[opt] lpOptional: LPVOID, #[in] dwOptionalLength: DWORD) -> BOOL;
         const ICU_BROWSER_MODE: i32 = 33554432;
         const ICU_DECODE: i32 = 268435456;
         const ICU_ENCODE_PERCENT: i32 = 4096;
@@ -1681,9 +1681,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetAutodialHangup(#[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCanonicalizeUrlA(#[in] lpszUrl: LPCSTR, #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn InternetCanonicalizeUrlA(#[in] lpszUrl: LPCSTR, #[buffer(*lpdwBufferLength)] #[out] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCanonicalizeUrlW(#[in] lpszUrl: LPCWSTR, #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn InternetCanonicalizeUrlW(#[in] lpszUrl: LPCWSTR, #[buffer(*lpdwBufferLength)] #[out] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetCheckConnectionA(#[in] lpszUrl: LPCSTR, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
@@ -1693,9 +1693,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetCloseHandle(#[in] hInternet: HINTERNET) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCombineUrlA(#[in] lpszBaseUrl: LPCSTR, #[in] lpszRelativeUrl: LPCSTR, #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn InternetCombineUrlA(#[in] lpszBaseUrl: LPCSTR, #[in] lpszRelativeUrl: LPCSTR, #[buffer(*lpdwBufferLength)] #[out] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCombineUrlW(#[in] lpszBaseUrl: LPCWSTR, #[in] lpszRelativeUrl: LPCWSTR, #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn InternetCombineUrlW(#[in] lpszBaseUrl: LPCWSTR, #[in] lpszRelativeUrl: LPCWSTR, #[buffer(*lpdwBufferLength)] #[out] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetConfirmZoneCrossing(#[in] hWnd: HWND, #[in] szUrlPrev: LPSTR, #[in] szUrlNew: LPSTR, #[in] bPost: BOOL) -> DWORD;
         #[library("WININET.dll")]
@@ -1733,13 +1733,13 @@ mod Windows {
             COOKIE_STATE_MAX = 5,
         }
         #[library("WININET.dll")]
-        extern fn InternetCrackUrlA(#[in] #[readable(entry, dwUrlLength)] lpszUrl: LPCSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTSA) -> BOOL;
+        extern fn InternetCrackUrlA(#[buffer(dwUrlLength)] #[in] lpszUrl: LPCSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTSA) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCrackUrlW(#[in] #[readable(entry, dwUrlLength)] lpszUrl: LPCWSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTSW) -> BOOL;
+        extern fn InternetCrackUrlW(#[buffer(dwUrlLength)] #[in] lpszUrl: LPCWSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTSW) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCreateUrlA(#[in] lpUrlComponents: LPURL_COMPONENTSA, #[in] dwFlags: DWORD, #[opt] #[out] #[writable(entry, *lpdwUrlLength)] lpszUrl: LPSTR, #[in] #[out] lpdwUrlLength: LPDWORD) -> BOOL;
+        extern fn InternetCreateUrlA(#[in] lpUrlComponents: LPURL_COMPONENTSA, #[in] dwFlags: DWORD, #[buffer(*lpdwUrlLength)] #[opt] #[out] lpszUrl: LPSTR, #[in] #[out] lpdwUrlLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetCreateUrlW(#[in] lpUrlComponents: LPURL_COMPONENTSW, #[in] dwFlags: DWORD, #[opt] #[out] #[writable(entry, *lpdwUrlLength)] lpszUrl: LPWSTR, #[in] #[out] lpdwUrlLength: LPDWORD) -> BOOL;
+        extern fn InternetCreateUrlW(#[in] lpUrlComponents: LPURL_COMPONENTSW, #[in] dwFlags: DWORD, #[buffer(*lpdwUrlLength)] #[opt] #[out] lpszUrl: LPWSTR, #[in] #[out] lpdwUrlLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetDial(#[in] hwndParent: HWND, #[in] #[opt] lpszConnectoid: LPSTR, #[in] dwFlags: DWORD, #[out] lpdwConnection: LPDWORD, #[in] dwReserved: DWORD) -> DWORD;
         #[library("WININET.dll")]
@@ -1747,9 +1747,9 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetDialW(#[in] hwndParent: HWND, #[in] #[opt] lpszConnectoid: LPWSTR, #[in] dwFlags: DWORD, #[out] lpdwConnection: *mut DWORD_PTR, #[reserved] dwReserved: DWORD) -> DWORD;
         #[library("WININET.dll")]
-        extern fn InternetEnumPerSiteCookieDecisionA(#[out] #[readable(success, *pcSiteNameSize)] #[writable(entry, *pcSiteNameSize)] pszSiteName: LPSTR, #[in] #[out] pcSiteNameSize: *mut u32, #[out] pdwDecision: *mut u32, #[in] dwIndex: u32) -> BOOL;
+        extern fn InternetEnumPerSiteCookieDecisionA(#[buffer(*pcSiteNameSize)] #[out] pszSiteName: LPSTR, #[in] #[out] pcSiteNameSize: *mut u32, #[out] pdwDecision: *mut u32, #[in] dwIndex: u32) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetEnumPerSiteCookieDecisionW(#[out] #[readable(success, *pcSiteNameSize)] #[writable(entry, *pcSiteNameSize)] pszSiteName: LPWSTR, #[in] #[out] pcSiteNameSize: *mut u32, #[out] pdwDecision: *mut u32, #[in] dwIndex: u32) -> BOOL;
+        extern fn InternetEnumPerSiteCookieDecisionW(#[buffer(*pcSiteNameSize)] #[out] pszSiteName: LPWSTR, #[in] #[out] pcSiteNameSize: *mut u32, #[out] pdwDecision: *mut u32, #[in] dwIndex: u32) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetErrorDlg(#[in] hWnd: HWND, #[in] #[opt] #[out] hRequest: HINTERNET, #[in] dwError: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[out] lppvData: *mut LPVOID) -> DWORD;
         #[library("WININET.dll")]
@@ -1761,25 +1761,25 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetGetConnectedState(#[out] lpdwFlags: LPDWORD, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetConnectedStateEx(#[out] lpdwFlags: LPDWORD, #[opt] #[out] #[writable(entry, dwNameLen)] lpszConnectionName: LPSTR, #[in] dwNameLen: DWORD, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn InternetGetConnectedStateEx(#[out] lpdwFlags: LPDWORD, #[buffer(dwNameLen)] #[opt] #[out] lpszConnectionName: LPSTR, #[in] dwNameLen: DWORD, #[in] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetConnectedStateExA(#[opt] #[out] lpdwFlags: LPDWORD, #[opt] #[out] #[writable(entry, cchNameLen)] lpszConnectionName: LPSTR, #[in] cchNameLen: DWORD, #[reserved] dwReserved: DWORD) -> BOOL;
+        extern fn InternetGetConnectedStateExA(#[opt] #[out] lpdwFlags: LPDWORD, #[buffer(cchNameLen)] #[opt] #[out] lpszConnectionName: LPSTR, #[in] cchNameLen: DWORD, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetConnectedStateExW(#[opt] #[out] lpdwFlags: LPDWORD, #[opt] #[out] #[writable(entry, cchNameLen)] lpszConnectionName: LPWSTR, #[in] cchNameLen: DWORD, #[reserved] dwReserved: DWORD) -> BOOL;
+        extern fn InternetGetConnectedStateExW(#[opt] #[out] lpdwFlags: LPDWORD, #[buffer(cchNameLen)] #[opt] #[out] lpszConnectionName: LPWSTR, #[in] cchNameLen: DWORD, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetCookieA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[opt] #[out] #[writable(entry, *lpdwSize)] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
+        extern fn InternetGetCookieA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[buffer(*lpdwSize)] #[opt] #[out] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetGetCookieEx2(#[in] pcwszUrl: PCWSTR, #[in] #[opt] pcwszCookieName: PCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppCookies: *mut *mut INTERNET_COOKIE2, #[out] pdwCookieCount: PDWORD) -> DWORD;
         #[library("WININET.dll")]
-        extern fn InternetGetCookieExA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[in] #[opt] #[readable(entry, *lpdwSize)] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD, #[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn InternetGetCookieExA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[buffer(*lpdwSize)] #[in] #[opt] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD, #[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetCookieExW(#[in] lpszUrl: LPCWSTR, #[in] #[opt] lpszCookieName: LPCWSTR, #[in] #[opt] #[readable(entry, *lpdwSize)] lpszCookieData: LPWSTR, #[in] #[out] lpdwSize: LPDWORD, #[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn InternetGetCookieExW(#[in] lpszUrl: LPCWSTR, #[in] #[opt] lpszCookieName: LPCWSTR, #[buffer(*lpdwSize)] #[in] #[opt] lpszCookieData: LPWSTR, #[in] #[out] lpdwSize: LPDWORD, #[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetCookieW(#[in] lpszUrl: LPCWSTR, #[in] #[opt] lpszCookieName: LPCWSTR, #[opt] #[out] #[writable(entry, *lpdwSize)] lpszCookieData: LPWSTR, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
+        extern fn InternetGetCookieW(#[in] lpszUrl: LPCWSTR, #[in] #[opt] lpszCookieName: LPCWSTR, #[buffer(*lpdwSize)] #[opt] #[out] lpszCookieData: LPWSTR, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetLastResponseInfoA(#[out] lpdwError: LPDWORD, #[opt] #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetGetLastResponseInfoA(#[out] lpdwError: LPDWORD, #[buffer(*lpdwBufferLength)] #[opt] #[out] lpszBuffer: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetLastResponseInfoW(#[out] lpdwError: LPDWORD, #[opt] #[out] #[writable(entry, *lpdwBufferLength)] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetGetLastResponseInfoW(#[out] lpdwError: LPDWORD, #[buffer(*lpdwBufferLength)] #[opt] #[out] lpszBuffer: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetGetPerSiteCookieDecisionA(#[in] pchHostName: LPCSTR, #[out] pResult: *mut u32) -> BOOL;
         #[library("WININET.dll")]
@@ -1799,19 +1799,19 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetOpenA(#[in] #[opt] lpszAgent: LPCSTR, #[in] dwAccessType: DWORD, #[in] #[opt] lpszProxy: LPCSTR, #[in] #[opt] lpszProxyBypass: LPCSTR, #[in] dwFlags: DWORD) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn InternetOpenUrlA(#[in] hInternet: HINTERNET, #[in] lpszUrl: LPCSTR, #[in] #[opt] #[readable(entry, dwHeadersLength)] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
+        extern fn InternetOpenUrlA(#[in] hInternet: HINTERNET, #[in] lpszUrl: LPCSTR, #[buffer(dwHeadersLength)] #[in] #[opt] lpszHeaders: LPCSTR, #[in] dwHeadersLength: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
-        extern fn InternetOpenUrlW(#[in] hInternet: HINTERNET, #[in] lpszUrl: LPCWSTR, #[in] #[opt] #[readable(entry, dwHeadersLength)] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
+        extern fn InternetOpenUrlW(#[in] hInternet: HINTERNET, #[in] lpszUrl: LPCWSTR, #[buffer(dwHeadersLength)] #[in] #[opt] lpszHeaders: LPCWSTR, #[in] dwHeadersLength: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
         extern fn InternetOpenW(#[in] #[opt] lpszAgent: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[opt] lpszProxy: LPCWSTR, #[in] #[opt] lpszProxyBypass: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
         #[library("WININET.dll")]
         extern fn InternetQueryDataAvailable(#[in] hFile: HINTERNET, #[opt] #[out] lpdwNumberOfBytesAvailable: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetQueryOptionA(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetQueryOptionA(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[buffer(bytes(*lpdwBufferLength))] #[opt] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetQueryOptionW(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn InternetQueryOptionW(#[in] #[opt] hInternet: HINTERNET, #[in] dwOption: DWORD, #[buffer(bytes(*lpdwBufferLength))] #[opt] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetReadFile(#[in] hFile: HINTERNET, #[out] #[writable(entry, bytes(dwNumberOfBytesToRead))] lpBuffer: LPVOID, #[in] dwNumberOfBytesToRead: DWORD, #[out] lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
+        extern fn InternetReadFile(#[in] hFile: HINTERNET, #[buffer(bytes(dwNumberOfBytesToRead))] #[out] lpBuffer: LPVOID, #[in] dwNumberOfBytesToRead: DWORD, #[out] lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetReadFileExA(#[in] hFile: HINTERNET, #[out] lpBuffersOut: LPINTERNET_BUFFERSA, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> BOOL;
         #[library("WININET.dll")]
@@ -1853,11 +1853,11 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetSetStatusCallbackW(#[in] hInternet: HINTERNET, #[in] #[opt] lpfnInternetCallback: INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK;
         #[library("WININET.dll")]
-        extern fn InternetTimeFromSystemTime(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[out] #[writable(entry, bytes(cbTime))] lpszTime: LPSTR, #[in] cbTime: DWORD) -> BOOL;
+        extern fn InternetTimeFromSystemTime(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[buffer(bytes(cbTime))] #[out] lpszTime: LPSTR, #[in] cbTime: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetTimeFromSystemTimeA(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[out] #[writable(entry, bytes(cbTime))] lpszTime: LPSTR, #[in] cbTime: DWORD) -> BOOL;
+        extern fn InternetTimeFromSystemTimeA(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[buffer(bytes(cbTime))] #[out] lpszTime: LPSTR, #[in] cbTime: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetTimeFromSystemTimeW(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[out] #[writable(entry, bytes(cbTime))] lpszTime: LPWSTR, #[in] cbTime: DWORD) -> BOOL;
+        extern fn InternetTimeFromSystemTimeW(#[in] pst: *const SYSTEMTIME, #[in] dwRFC: DWORD, #[buffer(bytes(cbTime))] #[out] lpszTime: LPWSTR, #[in] cbTime: DWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn InternetTimeToSystemTime(#[in] lpszTime: LPCSTR, #[out] pst: *mut SYSTEMTIME, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
@@ -1867,7 +1867,7 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetUnlockRequestFile(#[in] #[out] hLockRequestInfo: HANDLE) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetWriteFile(#[in] hFile: HINTERNET, #[in] #[readable(entry, bytes(dwNumberOfBytesToWrite))] lpBuffer: LPCVOID, #[in] dwNumberOfBytesToWrite: DWORD, #[out] lpdwNumberOfBytesWritten: LPDWORD) -> BOOL;
+        extern fn InternetWriteFile(#[in] hFile: HINTERNET, #[buffer(bytes(dwNumberOfBytesToWrite))] #[in] lpBuffer: LPCVOID, #[in] dwNumberOfBytesToWrite: DWORD, #[out] lpdwNumberOfBytesWritten: LPDWORD) -> BOOL;
         const LOCAL_INTERNET_ACCESS: i32 = 1;
         type LPAUTO_PROXY_SCRIPT_BUFFER = *mut AUTO_PROXY_SCRIPT_BUFFER;
         type LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE = *mut GOPHER_ABSTRACT_ATTRIBUTE_TYPE;
@@ -1958,23 +1958,23 @@ mod Windows {
         const PROXY_TYPE_DIRECT: i32 = 1;
         const PROXY_TYPE_PROXY: i32 = 2;
         #[library("WININET.dll")]
-        extern fn PrivacyGetZonePreferenceW(#[in] dwZone: DWORD, #[in] dwType: DWORD, #[opt] #[out] pdwTemplate: LPDWORD, #[opt] #[out] #[writable(entry, if_present(*pdwBufferLength))] pszBuffer: LPWSTR, #[in] #[opt] #[out] pdwBufferLength: LPDWORD) -> DWORD;
+        extern fn PrivacyGetZonePreferenceW(#[in] dwZone: DWORD, #[in] dwType: DWORD, #[opt] #[out] pdwTemplate: LPDWORD, #[incomplete] #[opt] #[out] pszBuffer: LPWSTR, #[in] #[opt] #[out] pdwBufferLength: LPDWORD) -> DWORD;
         #[library("WININET.dll")]
         extern fn PrivacySetZonePreferenceW(#[in] dwZone: DWORD, #[in] dwType: DWORD, #[in] dwTemplate: DWORD, #[in] #[opt] pszPreference: LPCWSTR) -> DWORD;
         #[library("WININET.dll")]
-        extern fn ReadUrlCacheEntryStream(#[in] hUrlCacheStream: HANDLE, #[in] dwLocation: DWORD, #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD, #[reserved] Reserved: DWORD) -> BOOL;
+        extern fn ReadUrlCacheEntryStream(#[in] hUrlCacheStream: HANDLE, #[in] dwLocation: DWORD, #[buffer(bytes(*lpdwLen))] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD, #[reserved] Reserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn ReadUrlCacheEntryStreamEx(#[in] hUrlCacheStream: HANDLE, #[in] qwLocation: DWORDLONG, #[out] #[writable(entry, bytes(*lpdwLen))] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD) -> BOOL;
+        extern fn ReadUrlCacheEntryStreamEx(#[in] hUrlCacheStream: HANDLE, #[in] qwLocation: DWORDLONG, #[buffer(bytes(*lpdwLen))] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwLen: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
         extern fn ResumeSuspendedDownload(#[in] hRequest: HINTERNET, #[in] dwResultCode: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn RetrieveUrlCacheEntryFileA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] dwReserved: DWORD) -> BOOL;
+        extern fn RetrieveUrlCacheEntryFileA(#[in] lpszUrlName: LPCSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn RetrieveUrlCacheEntryFileW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] dwReserved: DWORD) -> BOOL;
+        extern fn RetrieveUrlCacheEntryFileW(#[in] lpszUrlName: LPCWSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[reserved] dwReserved: DWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn RetrieveUrlCacheEntryStreamA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[in] fRandomRead: BOOL, #[reserved] dwReserved: DWORD) -> HANDLE;
+        extern fn RetrieveUrlCacheEntryStreamA(#[in] lpszUrlName: LPCSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOA, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[in] fRandomRead: BOOL, #[reserved] dwReserved: DWORD) -> HANDLE;
         #[library("WININET.dll")]
-        extern fn RetrieveUrlCacheEntryStreamW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] #[out] #[writable(entry, bytes(*lpcbCacheEntryInfo))] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[in] fRandomRead: BOOL, #[reserved] dwReserved: DWORD) -> HANDLE;
+        extern fn RetrieveUrlCacheEntryStreamW(#[in] lpszUrlName: LPCWSTR, #[buffer(bytes(*lpcbCacheEntryInfo))] #[in] #[opt] #[out] lpCacheEntryInfo: LPINTERNET_CACHE_ENTRY_INFOW, #[in] #[out] lpcbCacheEntryInfo: LPDWORD, #[in] fRandomRead: BOOL, #[reserved] dwReserved: DWORD) -> HANDLE;
         const SECURITY_FLAG_128BIT: i32 = 536870912;
         const SECURITY_FLAG_40BIT: i32 = 268435456;
         const SECURITY_FLAG_56BIT: i32 = 1073741824;

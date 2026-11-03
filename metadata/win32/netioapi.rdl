@@ -15,15 +15,15 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceIndexToLuid(#[in] InterfaceIndex: NET_IFINDEX, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToAlias(#[in] InterfaceLuid: *const NET_LUID, #[out] #[writable(entry, Length)] InterfaceAlias: PWSTR, #[in] Length: SIZE_T) -> NTSTATUS;
+        extern fn ConvertInterfaceLuidToAlias(#[in] InterfaceLuid: *const NET_LUID, #[buffer(Length)] #[out] InterfaceAlias: PWSTR, #[in] Length: SIZE_T) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToGuid(#[in] InterfaceLuid: *const NET_LUID, #[out] InterfaceGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToIndex(#[in] InterfaceLuid: *const NET_LUID, #[out] InterfaceIndex: PNET_IFINDEX) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToNameA(#[in] InterfaceLuid: *const NET_LUID, #[out] #[writable(entry, Length)] InterfaceName: PSTR, #[in] Length: SIZE_T) -> NTSTATUS;
+        extern fn ConvertInterfaceLuidToNameA(#[in] InterfaceLuid: *const NET_LUID, #[buffer(Length)] #[out] InterfaceName: PSTR, #[in] Length: SIZE_T) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToNameW(#[in] InterfaceLuid: *const NET_LUID, #[out] #[writable(entry, Length)] InterfaceName: PWSTR, #[in] Length: SIZE_T) -> NTSTATUS;
+        extern fn ConvertInterfaceLuidToNameW(#[in] InterfaceLuid: *const NET_LUID, #[buffer(Length)] #[out] InterfaceName: PWSTR, #[in] Length: SIZE_T) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceNameToLuidA(#[in] #[null_terminated(entry)] InterfaceName: *const CHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -41,7 +41,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn CreateIpNetEntry2(#[in] Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateSortedAddressPairs(#[in] #[opt] SourceAddressList: PSOCKADDR_IN6, #[in] SourceAddressCount: ULONG, #[in] DestinationAddressList: PSOCKADDR_IN6, #[in] DestinationAddressCount: ULONG, #[in] AddressSortOptions: ULONG, #[out] #[writable(success, *SortedAddressPairCount, indirect)] SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, #[out] SortedAddressPairCount: *mut ULONG) -> NTSTATUS;
+        extern fn CreateSortedAddressPairs(#[in] #[opt] SourceAddressList: PSOCKADDR_IN6, #[in] SourceAddressCount: ULONG, #[in] DestinationAddressList: PSOCKADDR_IN6, #[in] DestinationAddressCount: ULONG, #[in] AddressSortOptions: ULONG, #[incomplete] #[out] SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, #[out] SortedAddressPairCount: *mut ULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn CreateUnicastIpAddressEntry(#[in] Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         const DNS_DDR_ADAPTER_ENABLE: i32 = 1;
@@ -276,7 +276,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn GetNetworkConnectivityHintForInterface(#[in] InterfaceIndex: NET_IFINDEX, #[out] ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkInformation(#[in] NetworkGuid: *const NET_IF_NETWORK_GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID, #[out] SiteId: PULONG, #[out] #[writable(entry, Length)] NetworkName: PWCHAR, #[in] Length: ULONG) -> NTSTATUS;
+        extern fn GetNetworkInformation(#[in] NetworkGuid: *const NET_IF_NETWORK_GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID, #[out] SiteId: PULONG, #[buffer(Length)] #[out] NetworkName: PWCHAR, #[in] Length: ULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetSessionCompartmentId(#[in] SessionId: ULONG) -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
@@ -657,7 +657,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn SetUnicastIpAddressEntry(#[in] Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn if_indextoname(#[in] InterfaceIndex: NET_IFINDEX, #[out] #[writable(entry, 256)] InterfaceName: PCHAR) -> PCHAR;
+        extern fn if_indextoname(#[in] InterfaceIndex: NET_IFINDEX, #[buffer(256)] #[out] InterfaceName: PCHAR) -> PCHAR;
         #[library("IPHLPAPI.DLL")]
         extern fn if_nametoindex(#[in] InterfaceName: PCSTR) -> NET_IFINDEX;
     }

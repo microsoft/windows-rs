@@ -804,8 +804,8 @@ mod Windows {
             TemplatePropValidityPeriod = 30,
             TemplatePropRenewalPeriod = 31,
         }
-        extern "C" fn FNIMPORTPFXTOPROVIDER(#[in] hWndParent: HWND, #[in] #[readable(entry, bytes(cbPFX))] pbPFX: *const BYTE, #[in] cbPFX: DWORD, #[in] ImportFlags: ImportPFXFlags, #[in] #[opt] pwszPassword: PCWSTR, #[in] #[opt] pwszProviderName: PCWSTR, #[in] #[opt] pwszReaderName: PCWSTR, #[in] #[opt] pwszContainerNamePrefix: PCWSTR, #[in] #[opt] pwszPin: PCWSTR, #[in] #[opt] pwszFriendlyName: PCWSTR, #[opt] #[out] pcCertOut: *mut DWORD, #[opt] #[out] #[writable(success, if_present(*pcCertOut), indirect)] prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
-        extern "C" fn FNIMPORTPFXTOPROVIDERFREEDATA(#[in] cCert: DWORD, #[in] #[opt] #[readable(entry, cCert)] rgpCert: *mut PCCERT_CONTEXT);
+        extern "C" fn FNIMPORTPFXTOPROVIDER(#[in] hWndParent: HWND, #[buffer(bytes(cbPFX))] #[in] pbPFX: *const BYTE, #[in] cbPFX: DWORD, #[in] ImportFlags: ImportPFXFlags, #[in] #[opt] pwszPassword: PCWSTR, #[in] #[opt] pwszProviderName: PCWSTR, #[in] #[opt] pwszReaderName: PCWSTR, #[in] #[opt] pwszContainerNamePrefix: PCWSTR, #[in] #[opt] pwszPin: PCWSTR, #[in] #[opt] pwszFriendlyName: PCWSTR, #[opt] #[out] pcCertOut: *mut DWORD, #[incomplete] #[opt] #[out] prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
+        extern "C" fn FNIMPORTPFXTOPROVIDERFREEDATA(#[in] cCert: DWORD, #[buffer(cCert)] #[in] #[opt] rgpCert: *mut PCCERT_CONTEXT);
         #[guid(0x728ab313_217d_11da_b2a4_000e7bbb2b09)]
         interface IAlternativeName: IDispatch {
             fn InitializeFromString(&self, #[in] Type: AlternativeNameType, #[in] strValue: BSTR) -> HRESULT;

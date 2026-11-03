@@ -4,7 +4,7 @@ mod Windows {
         const CLSID_MFMediaEngineClassFactory: GUID = 0xb44392da_499b_446b_a4cb_005fead0e6d5;
         #[guid(0xebbaf249_afc2_4582_91c6_b60df2e84954)]
         interface IAudioSourceProvider: IUnknown {
-            fn ProvideInput(&self, #[in] dwSampleCount: DWORD, #[in] #[out] pdwChannelCount: *mut DWORD, #[opt] #[out] #[writable(entry, dwSampleCount * *pdwChannelCount)] pInterleavedAudioData: *mut f32) -> HRESULT;
+            fn ProvideInput(&self, #[in] dwSampleCount: DWORD, #[in] #[out] pdwChannelCount: *mut DWORD, #[incomplete] #[opt] #[out] pInterleavedAudioData: *mut f32) -> HRESULT;
         }
         #[guid(0x24cd47f7_81d8_4785_adb2_af697a963cd2)]
         interface IMFBufferListNotify: IUnknown {
@@ -87,7 +87,7 @@ mod Windows {
         }
         #[guid(0x3787614f_65f7_4003_b673_ead8293a0e60)]
         interface IMFMediaEngineClassFactory3: IUnknown {
-            fn CreateMediaKeySystemAccess(&self, #[in] keySystem: BSTR, #[in] #[readable(entry, uSize)] ppSupportedConfigurationsArray: *mut IPropertyStore, #[in] uSize: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
+            fn CreateMediaKeySystemAccess(&self, #[in] keySystem: BSTR, #[buffer(uSize)] #[in] ppSupportedConfigurationsArray: *mut IPropertyStore, #[in] uSize: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
         }
         #[guid(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186)]
         interface IMFMediaEngineClassFactory4: IUnknown {
@@ -106,7 +106,7 @@ mod Windows {
         }
         #[guid(0x9e184d15_cdb7_4f86_b49e_566689f4a601)]
         interface IMFMediaEngineEMENotify: IUnknown {
-            fn Encrypted(&self, #[in] #[opt] #[readable(entry, bytes(cb))] pbInitData: *const BYTE, #[in] cb: DWORD, #[in] bstrInitDataType: BSTR);
+            fn Encrypted(&self, #[buffer(bytes(cb))] #[in] #[opt] pbInitData: *const BYTE, #[in] cb: DWORD, #[in] bstrInitDataType: BSTR);
             fn WaitingForKey(&self);
         }
         #[guid(0x83015ead_b1e6_40d0_a98a_37145ffe1ad1)]
@@ -158,7 +158,7 @@ mod Windows {
         }
         #[guid(0x46a30204_a696_4b18_8804_246b8f031bb1)]
         interface IMFMediaEngineNeedKeyNotify: IUnknown {
-            fn NeedKey(&self, #[in] #[opt] #[readable(entry, bytes(cb))] initData: *const BYTE, #[in] cb: DWORD);
+            fn NeedKey(&self, #[buffer(bytes(cb))] #[in] #[opt] initData: *const BYTE, #[in] cb: DWORD);
         }
         #[guid(0xfee7c112_e776_42b5_9bbf_0048524e2bd5)]
         interface IMFMediaEngineNotify: IUnknown {
@@ -175,7 +175,7 @@ mod Windows {
             fn SetOPMWindow(&self, #[in] hwnd: HWND) -> HRESULT;
             fn TransferVideoFrame(&self, #[in] pDstSurf: IUnknown, #[in] #[opt] pSrc: *const MFVideoNormalizedRect, #[in] pDst: *const RECT, #[in] #[opt] pBorderClr: *const MFARGB, #[out] pFrameProtectionFlags: *mut DWORD) -> HRESULT;
             fn SetContentProtectionManager(&self, #[in] #[opt] pCPM: IMFContentProtectionManager) -> HRESULT;
-            fn SetApplicationCertificate(&self, #[in] #[readable(entry, bytes(cbBlob))] pbBlob: *const BYTE, #[in] cbBlob: DWORD) -> HRESULT;
+            fn SetApplicationCertificate(&self, #[buffer(bytes(cbBlob))] #[in] pbBlob: *const BYTE, #[in] cbBlob: DWORD) -> HRESULT;
         }
         #[guid(0x7a5e5354_b114_4c72_b991_3131d75032ea)]
         interface IMFMediaEngineSrcElements: IUnknown {
@@ -224,27 +224,27 @@ mod Windows {
             fn GetError(&self, #[out] code: *mut USHORT, #[out] systemCode: *mut DWORD) -> HRESULT;
             fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] #[retval] keySystem: *mut BSTR) -> HRESULT;
             fn get_SessionId(&self, #[out] #[out_ptr(null_on_failure)] #[retval] sessionId: *mut BSTR) -> HRESULT;
-            fn Update(&self, #[in] #[readable(entry, bytes(cb))] key: *const BYTE, #[in] cb: DWORD) -> HRESULT;
+            fn Update(&self, #[buffer(bytes(cb))] #[in] key: *const BYTE, #[in] cb: DWORD) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xe9707e05_6d55_4636_b185_3de21210bd75)]
         interface IMFMediaKeySession2: IMFMediaKeySession {
-            fn get_KeyStatuses(&self, #[out] #[writable(success, *puSize, indirect)] pKeyStatusesArray: *mut *mut MFMediaKeyStatus, #[out] puSize: *mut UINT) -> HRESULT;
+            fn get_KeyStatuses(&self, #[incomplete] #[out] pKeyStatusesArray: *mut *mut MFMediaKeyStatus, #[out] puSize: *mut UINT) -> HRESULT;
             fn Load(&self, #[in] bstrSessionId: BSTR, #[out] pfLoaded: *mut BOOL) -> HRESULT;
-            fn GenerateRequest(&self, #[in] initDataType: BSTR, #[in] #[readable(entry, bytes(cb))] pbInitData: *const BYTE, #[in] cb: DWORD) -> HRESULT;
+            fn GenerateRequest(&self, #[in] initDataType: BSTR, #[buffer(bytes(cb))] #[in] pbInitData: *const BYTE, #[in] cb: DWORD) -> HRESULT;
             fn get_Expiration(&self, #[out] dblExpiration: *mut f64) -> HRESULT;
             fn Remove(&self) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x6a0083f9_8947_4c1d_9ce0_cdee22b23135)]
         interface IMFMediaKeySessionNotify: IUnknown {
-            fn KeyMessage(&self, #[in] #[opt] destinationURL: BSTR, #[in] #[readable(entry, bytes(cb))] message: *const BYTE, #[in] cb: DWORD);
+            fn KeyMessage(&self, #[in] #[opt] destinationURL: BSTR, #[buffer(bytes(cb))] #[in] message: *const BYTE, #[in] cb: DWORD);
             fn KeyAdded(&self);
             fn KeyError(&self, #[in] code: USHORT, #[in] systemCode: DWORD);
         }
         #[guid(0xc3a9e92a_da88_46b0_a110_6cf953026cb9)]
         interface IMFMediaKeySessionNotify2: IMFMediaKeySessionNotify {
-            fn KeyMessage2(&self, #[in] eMessageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[in] #[opt] destinationURL: BSTR, #[in] #[readable(entry, bytes(cbMessage))] pbMessage: *const BYTE, #[in] cbMessage: DWORD);
+            fn KeyMessage2(&self, #[in] eMessageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[in] #[opt] destinationURL: BSTR, #[buffer(bytes(cbMessage))] #[in] pbMessage: *const BYTE, #[in] cbMessage: DWORD);
             fn KeyStatusChange(&self);
         }
         #[guid(0xaec63fda_7a97_4944_b35c_6c6df8085cc3)]
@@ -255,7 +255,7 @@ mod Windows {
         }
         #[guid(0x5cb31c05_61ff_418f_afda_caaf41421a38)]
         interface IMFMediaKeys: IUnknown {
-            fn CreateSession(&self, #[in] #[opt] mimeType: BSTR, #[in] #[opt] #[readable(entry, bytes(cb))] initData: *const BYTE, #[in] #[opt] cb: DWORD, #[in] #[opt] #[readable(entry, bytes(cbCustomData))] customData: *const BYTE, #[in] cbCustomData: DWORD, #[in] notify: IMFMediaKeySessionNotify, #[out] #[out_ptr(null_on_failure)] #[retval] ppSession: *mut IMFMediaKeySession) -> HRESULT;
+            fn CreateSession(&self, #[in] #[opt] mimeType: BSTR, #[buffer(bytes(cb))] #[in] #[opt] initData: *const BYTE, #[in] #[opt] cb: DWORD, #[buffer(bytes(cbCustomData))] #[in] #[opt] customData: *const BYTE, #[in] cbCustomData: DWORD, #[in] notify: IMFMediaKeySessionNotify, #[out] #[out_ptr(null_on_failure)] #[retval] ppSession: *mut IMFMediaKeySession) -> HRESULT;
             fn get_KeySystem(&self, #[out] #[out_ptr(null_on_failure)] #[retval] keySystem: *mut BSTR) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
             fn GetSuspendNotify(&self, #[out] #[out_ptr(null_on_failure)] #[retval] notify: *mut IMFCdmSuspendNotify) -> HRESULT;
@@ -263,7 +263,7 @@ mod Windows {
         #[guid(0x45892507_ad66_4de2_83a2_acbb13cd8d43)]
         interface IMFMediaKeys2: IMFMediaKeys {
             fn CreateSession2(&self, #[in] eSessionType: MF_MEDIAKEYSESSION_TYPE, #[in] pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, #[out] #[out_ptr(null_on_failure)] #[retval] ppSession: *mut IMFMediaKeySession2) -> HRESULT;
-            fn SetServerCertificate(&self, #[in] #[opt] #[readable(entry, bytes(cb))] pbServerCertificate: *const BYTE, #[in] cb: DWORD) -> HRESULT;
+            fn SetServerCertificate(&self, #[buffer(bytes(cb))] #[in] #[opt] pbServerCertificate: *const BYTE, #[in] cb: DWORD) -> HRESULT;
             fn GetDOMException(&self, #[in] systemCode: HRESULT, #[out] code: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xe467b94e_a713_4562_a802_816a42e9008a)]
@@ -309,7 +309,7 @@ mod Windows {
             fn SetAppendWindowStart(&self, #[in] time: f64) -> HRESULT;
             fn GetAppendWindowEnd(&self) -> f64;
             fn SetAppendWindowEnd(&self, #[in] time: f64) -> HRESULT;
-            fn Append(&self, #[in] #[readable(entry, bytes(len))] pData: *const BYTE, #[in] len: DWORD) -> HRESULT;
+            fn Append(&self, #[buffer(bytes(len))] #[in] pData: *const BYTE, #[in] len: DWORD) -> HRESULT;
             fn AppendByteStream(&self, #[in] pStream: IMFByteStream, #[in] #[opt] pMaxLen: *mut DWORDLONG) -> HRESULT;
             fn Abort(&self) -> HRESULT;
             fn Remove(&self, #[in] start: f64, #[in] end: f64) -> HRESULT;
@@ -351,7 +351,7 @@ mod Windows {
         }
         #[guid(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432)]
         interface IMFTimedTextBinary: IUnknown {
-            fn GetData(&self, #[out] #[writable(success, bytes(*length), indirect)] data: *mut *const BYTE, #[out] length: *mut DWORD) -> HRESULT;
+            fn GetData(&self, #[incomplete] #[out] data: *mut *const BYTE, #[out] length: *mut DWORD) -> HRESULT;
         }
         #[guid(0x3c5f3e8a_90c0_464e_8136_898d2975f847)]
         interface IMFTimedTextBouten: IUnknown {
@@ -380,7 +380,7 @@ mod Windows {
             fn GetCueById(&self, #[in] id: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn GetCueByOriginalId(&self, #[in] originalId: LPCWSTR, #[out] #[out_ptr(null_on_failure)] #[retval] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn AddTextCue(&self, #[in] start: f64, #[in] duration: f64, #[in] text: LPCWSTR, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddDataCue(&self, #[in] start: f64, #[in] duration: f64, #[in] #[readable(entry, bytes(dataSize))] data: *const BYTE, #[in] dataSize: DWORD, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddDataCue(&self, #[in] start: f64, #[in] duration: f64, #[buffer(bytes(dataSize))] #[in] data: *const BYTE, #[in] dataSize: DWORD, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn RemoveCue(&self, #[in] cue: IMFTimedTextCue) -> HRESULT;
         }
         #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]

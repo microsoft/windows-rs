@@ -8,10 +8,10 @@ mod Windows {
             fn SetWinRtInterface(&self, iid: GUID) -> HRESULT;
             fn SetDelegate(&self, iid: GUID) -> HRESULT;
             fn SetInterfaceGroupSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[in] #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
-            fn SetInterfaceGroupParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[in] #[readable(entry, elementCount)] defaultInterfaceNameElements: *mut PCWSTR) -> HRESULT;
+            fn SetInterfaceGroupParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[buffer(elementCount)] #[in] defaultInterfaceNameElements: *mut PCWSTR) -> HRESULT;
             fn SetRuntimeClassSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[in] #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
-            fn SetRuntimeClassParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[in] #[readable(entry, elementCount)] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
-            fn SetStruct(&self, name: PCWSTR, numFields: UINT32, #[in] #[readable(entry, numFields)] fieldTypeNames: *const PCWSTR) -> HRESULT;
+            fn SetRuntimeClassParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[buffer(elementCount)] #[in] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
+            fn SetStruct(&self, name: PCWSTR, numFields: UINT32, #[buffer(numFields)] #[in] fieldTypeNames: *const PCWSTR) -> HRESULT;
             fn SetEnum(&self, name: PCWSTR, baseType: PCWSTR) -> HRESULT;
             fn SetParameterizedInterface(&self, piid: GUID, numArgs: UINT32) -> HRESULT;
             fn SetParameterizedDelegate(&self, piid: GUID, numArgs: UINT32) -> HRESULT;

@@ -11,33 +11,33 @@ mod Windows {
         #[library("KERNEL32.dll", import = "K32EmptyWorkingSet")]
         extern fn EmptyWorkingSet(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumDeviceDrivers")]
-        extern fn EnumDeviceDrivers(#[out] #[writable(entry, bytes(cb))] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumDeviceDrivers(#[buffer(bytes(cb))] #[out] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumPageFilesA")]
         extern fn EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumPageFilesW")]
         extern fn EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcessModules")]
-        extern fn EnumProcessModules(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumProcessModules(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcessModulesEx")]
-        extern fn EnumProcessModulesEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] dwFilterFlag: DWORD) -> BOOL;
+        extern fn EnumProcessModulesEx(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] dwFilterFlag: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcesses")]
-        extern fn EnumProcesses(#[out] #[writable(entry, bytes(cb))] lpidProcess: *mut DWORD, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumProcesses(#[buffer(bytes(cb))] #[out] lpidProcess: *mut DWORD, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverBaseNameA")]
-        extern fn GetDeviceDriverBaseNameA(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetDeviceDriverBaseNameA(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverBaseNameW")]
-        extern fn GetDeviceDriverBaseNameW(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetDeviceDriverBaseNameW(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverFileNameA")]
-        extern fn GetDeviceDriverFileNameA(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetDeviceDriverFileNameA(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverFileNameW")]
-        extern fn GetDeviceDriverFileNameW(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetDeviceDriverFileNameW(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetMappedFileNameA")]
-        extern fn GetMappedFileNameA(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetMappedFileNameA(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetMappedFileNameW")]
-        extern fn GetMappedFileNameW(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetMappedFileNameW(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleBaseNameA")]
-        extern fn GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[out] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleBaseNameW")]
-        extern fn GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[out] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
         extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
@@ -47,47 +47,47 @@ mod Windows {
         #[library("KERNEL32.dll", import = "K32GetPerformanceInfo")]
         extern fn GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameA")]
-        extern fn GetProcessImageFileNameA(#[in] hProcess: HANDLE, #[out] #[writable(entry, nSize)] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetProcessImageFileNameA(#[in] hProcess: HANDLE, #[buffer(nSize)] #[out] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameW")]
-        extern fn GetProcessImageFileNameW(#[in] hProcess: HANDLE, #[out] #[writable(entry, nSize)] lpImageFileName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetProcessImageFileNameW(#[in] hProcess: HANDLE, #[buffer(nSize)] #[out] lpImageFileName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetProcessMemoryInfo")]
-        extern fn GetProcessMemoryInfo(#[in] Process: HANDLE, #[out] #[writable(entry, bytes(cb))] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] cb: DWORD) -> BOOL;
+        extern fn GetProcessMemoryInfo(#[in] Process: HANDLE, #[buffer(bytes(cb))] #[out] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetWsChanges")]
-        extern fn GetWsChanges(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
+        extern fn GetWsChanges(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetWsChangesEx")]
-        extern fn GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[readable(success, bytes(*cb))] #[writable(entry, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        extern fn GetWsChangesEx(#[in] hProcess: HANDLE, #[buffer(bytes(*cb))] #[out] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32InitializeProcessForWsWatch")]
         extern fn InitializeProcessForWsWatch(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn K32EmptyWorkingSet(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32EnumDeviceDrivers(#[out] #[writable(entry, bytes(cb))] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn K32EnumDeviceDrivers(#[buffer(bytes(cb))] #[out] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn K32EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn K32EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32EnumProcessModules(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn K32EnumProcessModules(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32EnumProcessModulesEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] dwFilterFlag: DWORD) -> BOOL;
+        extern fn K32EnumProcessModulesEx(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] dwFilterFlag: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32EnumProcesses(#[out] #[writable(entry, bytes(cb))] lpidProcess: *mut DWORD, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn K32EnumProcesses(#[buffer(bytes(cb))] #[out] lpidProcess: *mut DWORD, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32GetDeviceDriverBaseNameA(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetDeviceDriverBaseNameA(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetDeviceDriverBaseNameW(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetDeviceDriverBaseNameW(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetDeviceDriverFileNameA(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetDeviceDriverFileNameA(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetDeviceDriverFileNameW(#[in] ImageBase: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetDeviceDriverFileNameW(#[in] ImageBase: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetMappedFileNameA(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetMappedFileNameA(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetMappedFileNameW(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetMappedFileNameW(#[in] hProcess: HANDLE, #[in] lpv: LPVOID, #[buffer(nSize)] #[out] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[out] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[out] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[incomplete] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
@@ -97,21 +97,21 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn K32GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32GetProcessImageFileNameA(#[in] hProcess: HANDLE, #[out] #[writable(entry, nSize)] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetProcessImageFileNameA(#[in] hProcess: HANDLE, #[buffer(nSize)] #[out] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetProcessImageFileNameW(#[in] hProcess: HANDLE, #[out] #[writable(entry, nSize)] lpImageFileName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn K32GetProcessImageFileNameW(#[in] hProcess: HANDLE, #[buffer(nSize)] #[out] lpImageFileName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn K32GetProcessMemoryInfo(#[in] Process: HANDLE, #[out] #[writable(entry, bytes(cb))] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] cb: DWORD) -> BOOL;
+        extern fn K32GetProcessMemoryInfo(#[in] Process: HANDLE, #[buffer(bytes(cb))] #[out] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32GetWsChanges(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
+        extern fn K32GetWsChanges(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[readable(success, bytes(*cb))] #[writable(entry, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        extern fn K32GetWsChangesEx(#[in] hProcess: HANDLE, #[buffer(bytes(*cb))] #[out] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn K32InitializeProcessForWsWatch(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32QueryWorkingSet(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] pv: PVOID, #[in] cb: DWORD) -> BOOL;
+        extern fn K32QueryWorkingSet(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] pv: PVOID, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32QueryWorkingSetEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] pv: PVOID, #[in] cb: DWORD) -> BOOL;
+        extern fn K32QueryWorkingSetEx(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] pv: PVOID, #[in] cb: DWORD) -> BOOL;
         const LIST_MODULES_32BIT: i32 = 1;
         const LIST_MODULES_64BIT: i32 = 2;
         const LIST_MODULES_ALL: i32 = 3;
@@ -281,9 +281,9 @@ mod Windows {
             Flags: ULONG_PTR,
         }
         #[library("KERNEL32.dll", import = "K32QueryWorkingSet")]
-        extern fn QueryWorkingSet(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] pv: PVOID, #[in] cb: DWORD) -> BOOL;
+        extern fn QueryWorkingSet(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] pv: PVOID, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32QueryWorkingSetEx")]
-        extern fn QueryWorkingSetEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] pv: PVOID, #[in] cb: DWORD) -> BOOL;
+        extern fn QueryWorkingSetEx(#[in] hProcess: HANDLE, #[buffer(bytes(cb))] #[out] pv: PVOID, #[in] cb: DWORD) -> BOOL;
         struct _PERFORMANCE_INFORMATION {
             cb: DWORD,
             CommitTotal: SIZE_T,

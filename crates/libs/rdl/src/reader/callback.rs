@@ -135,7 +135,7 @@ impl Encoder<'_> {
             .MethodDef("Invoke", &signature, flags, Default::default());
 
         self.encode_return_attrs(&item.return_attrs, &signature.return_type)?;
-        self.encode_params(&params, &signature.return_type)?;
+        self.encode_params(&params)?;
 
         Ok(())
     }

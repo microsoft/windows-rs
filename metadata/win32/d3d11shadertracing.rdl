@@ -157,7 +157,7 @@ mod Windows {
             Invocation: UINT64,
         }
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassemble11Trace(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] pTrace: ID3D11ShaderTrace, #[in] StartStep: UINT, #[in] NumSteps: UINT, #[in] Flags: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3DDisassemble11Trace(#[buffer(bytes(SrcDataSize))] #[in] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] pTrace: ID3D11ShaderTrace, #[in] StartStep: UINT, #[in] NumSteps: UINT, #[in] Flags: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[guid(0x36b013e6_2811_4845_baa7_d623fe0df104)]
         interface ID3D11ShaderTrace: IUnknown {
             fn TraceReady(&self, #[opt] #[out] pTestCount: *mut UINT64) -> HRESULT;

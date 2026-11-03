@@ -10,9 +10,9 @@ mod Windows {
         type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
         type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
         type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbIsCustomDebugger: PBOOL, #[out] #[writable(entry, *pchDebuggerLaunch)] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: PDWORD, #[out] pbIsDebuggerAutolaunch: PBOOL) -> HRESULT;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbOwnershipClaimed: *mut BOOL, #[out] #[writable(entry, *pchSize)] pwszEventName: PWSTR, #[in] #[out] pchSize: PDWORD, #[out] pdwSignatureCount: PDWORD) -> HRESULT;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[in] dwIndex: DWORD, #[out] #[writable(entry, *pchName)] pwszName: PWSTR, #[in] #[out] pchName: PDWORD, #[out] #[writable(entry, *pchValue)] pwszValue: PWSTR, #[in] #[out] pchValue: PDWORD) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbIsCustomDebugger: PBOOL, #[buffer(*pchDebuggerLaunch)] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: PDWORD, #[out] pbIsDebuggerAutolaunch: PBOOL) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbOwnershipClaimed: *mut BOOL, #[buffer(*pchSize)] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: PDWORD, #[out] pdwSignatureCount: PDWORD) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(#[in] pContext: PVOID, #[in] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[in] dwIndex: DWORD, #[buffer(*pchName)] #[out] pwszName: PWSTR, #[in] #[out] pchName: PDWORD, #[buffer(*pchValue)] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: PDWORD) -> HRESULT;
         type PHREPORTSTORE = *mut *mut void;
         type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
         type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;

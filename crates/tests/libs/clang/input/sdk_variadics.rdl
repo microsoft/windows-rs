@@ -519,9 +519,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfA(#[out] #[writable(entry, cchDest)] pszDest: PSTR, #[in] cchDest: i32, #[in] pszFmt: PCSTR, ...) -> i32;
+    extern "C" fn wnsprintfA(#[buffer(cchDest)] #[out] pszDest: PSTR, #[in] cchDest: i32, #[in] pszFmt: PCSTR, ...) -> i32;
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfW(#[out] #[writable(entry, cchDest)] pszDest: PWSTR, #[in] cchDest: i32, #[in] pszFmt: PCWSTR, ...) -> i32;
+    extern "C" fn wnsprintfW(#[buffer(cchDest)] #[out] pszDest: PWSTR, #[in] cchDest: i32, #[in] pszFmt: PCWSTR, ...) -> i32;
 }
 #[win32]
 mod Fixture {

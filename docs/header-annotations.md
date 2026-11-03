@@ -1,19 +1,16 @@
 # Header annotations
 
-Win32 headers describe API contracts with compiler syntax, SAL and MIDL. `windows-clang` reads them,
-publishes RDL, `windows-rdl` encodes ECMA-335 metadata, and `windows-bindgen` projects that metadata
-into Rust. This page lists every contract the pipeline carries, with one header source, one RDL
-spelling and one metadata encoding for each.
+Win32 headers describe API contracts with C/C++, SAL and MIDL. `windows-clang` reads them and
+publishes RDL, `windows-rdl` encodes that RDL as ECMA-335 metadata, and `windows-bindgen` projects
+the metadata into Rust. This catalog gives representative header spellings, RDL examples,
+[metadata encodings](#metadata-encoding) and consumer behavior.
 
-Everything below is implemented unless marked **Proposed**. Proposed rows depend on the
-win32metadata `_Win32_*` macros under review in microsoft/win32metadata#2365.
+The parameter, buffer, callable and layout tables describe implemented mappings. `-` means bindgen
+does not interpret the fact. Rust examples describe wrappers, not the raw ABI.
 
-| Column | Meaning |
-| --- | --- |
-| Header | Source syntax; earlier entries are preferred |
-| RDL | Short form written inside `#[...]`; "Named" means the full attribute path |
-| Metadata | ECMA-335 flags and modifiers, or a `Windows.Win32.Metadata` attribute without its `Attribute` suffix |
-| Bindgen | Effect on generated Rust; "-" means preserved but not interpreted |
+The [`_Win32_*` proposals](#proposed-annotations) are design candidates, not supported syntax
+or an agreement with microsoft/win32metadata#2365. `windows-clang` currently rejects their
+`annotate` payloads. [C# consumption](#c-consumption) is a separate integration boundary.
 
 ## Example
 
@@ -30,9 +27,9 @@ _Success_(return != 0) _Check_return_ BOOL WINAPI ReadPayload(
 #[library("example.dll")]
 #[must_use]
 extern fn ReadPayload(
-    #[in] #[readable(entry, count)] values: *const i32,
+    #[buffer(count)] #[in] values: *const i32,
     #[in] count: u32,
-    #[opt] #[out] #[readable(success, bytes(*size))] #[writable(entry, bytes(*size))] buffer: *mut void,
+    #[buffer(bytes(*size))] #[opt] #[out] buffer: *mut void,
     #[in] #[out] size: *mut u32,
     #[reserved] reserved: *mut void,
 ) -> BOOL;
@@ -47,272 +44,290 @@ pub unsafe fn ReadPayload(
 ) -> BOOL
 ```
 
-`values` becomes a slice because its count is a direct entry parameter. `buffer` keeps a pointer
-because its count is read through `*size`. `_Success_` is not published; it only grounds `retval`
-inference. `must_use` adds no attribute here because `BOOL` is already `#[must_use]`.
+`values` becomes a slice because its count is a by-value input parameter. `buffer` stays a pointer
+because its count is read through `*size`. `_Success_` is not published. `must_use` adds nothing
+here because `BOOL` is already `#[must_use]`. The DLL comes from import-library evidence, not SAL.
 
 ## Principles
 
 | Rule | Meaning |
 | --- | --- |
-| Existing syntax first | Compiler syntax, SAL and MIDL own every fact they can express |
-| Fix headers, not metadata | Wrong or missing SAL is corrected in the header, not overridden downstream |
-| One fact, one spelling | Each fact has one RDL spelling and one metadata encoding; no aliases |
-| Structure first | ECMA-335 flags, signatures and modifiers come before custom attributes |
-| Checked against evidence | Facts the compiler can confirm must agree with it or publication fails |
-| Closed vocabulary | Unknown names, bad arguments, wrong owners and repeated annotations fail |
-| Keep native types | Associations are added beside the native type, never by retyping |
-| Publish what consumers can act on | Facts without a canonical family are not published; the header remains their source |
-| Absent means unspecified | A missing fact is not a promise; `incomplete` marks parameters whose header says more |
-| Native prefix | `Native` attributes preserve C/C++ declaration details; unprefixed attributes state language-neutral API facts |
-| Separate stages | Metadata describes contracts; bindgen decides independently what Rust to generate |
+| Existing syntax first | C/C++, SAL and MIDL own every fact they can express; `_Win32_*` macros cover only the rest |
+| Fix the header | Wrong or missing SAL is fixed in the header, never overridden downstream |
+| One encoding | Equivalent header spellings share one RDL form and metadata encoding; prefer ECMA-335 structure over custom attributes |
+| Checked | Facts the compiler can confirm must agree with it, or publication fails |
+| Native types kept | Annotations add facts beside the native type and never retype it |
+| Actionable | A new fact needs a concrete consumer use, in Rust, C# or another projection |
+| Absent means unspecified | A missing fact promises nothing; `incomplete` marks unmodeled parameter contracts, not every omitted SAL annotation |
+| Contracts, not projections | Metadata states facts; bindgen decides what Rust to generate |
 
 ## Parameters
 
-| Fact | Header | RDL | Metadata | Bindgen |
-| --- | --- | --- | --- | --- |
-| Direction | `_In_`, `_Out_`, `_Inout_`; MIDL `[in]`, `[out]` | `in`, `out` | Param flags `In`, `Out` | Input and output projection; missing direction stays unspecified |
-| Optional argument | SAL `_opt_` forms; MIDL `[optional]` | `opt` | Param flag `Optional` | `Option` for pointer parameters |
-| Reserved argument | `_Reserved_` | `reserved` | `Reserved` | Handled like an optional argument; the value is not enforced |
-| Result parameter | MIDL `[retval]`; a required non-null `_COM_Outptr_`, or `_Outptr_` to an interface, as the trailing typed `T**` when success is `return >= 0` | `retval` | `RetVal` | Returned as the Rust result when also `out` only, not `opt` or `reserved`, and free of `BufferExtent` and `incomplete` |
-| Returned pointer | `_Outptr_` forms, `__deref_out`, `_Deref_out_`, `__RPC__deref_out*`; `_COM_Outptr_` and `_Outptr_result_nullonfailure_` add `null_on_failure` | `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer` | `null_on_failure` makes COM implementations clear the output on error |
-| COM query | `_COM_Outptr_` on `void**`; MIDL `[iid_is]` | `iid_is` | `ComOutPtr` | Generic `QueryInterface`-style projection with a trailing `*const GUID` input |
-| Nullable pointer | `_Outptr_` and `_COM_Outptr_` `maybenull` forms; `__deref_[opt_]out_opt`, `_Deref_[opt_]out_opt_`; `__RPC__deref_out_opt_string`, `__RPC__deref_out_ecount_*_opt`; `_Ret_maybenull_`; `_Maybenull_` and `_Field_size_*_opt_` on fields | `nullable` | `Nullable` | `Option<T>` for interface results |
+| Fact | Header | RDL | Rust |
+| --- | --- | --- | --- |
+| Direction | `_In_ DWORD flags`; `_Out_`, `_Inout_` | `#[in] flags: u32`; `#[out]`, both | Input or output projection |
+| Optional | `_In_opt_ const RECT* bounds` | `#[in] #[opt] bounds: *const RECT` | `Option<*const RECT>` |
+| Reserved | `_Reserved_ void* reserved` | `#[reserved] reserved: *mut void` | Same as optional; the value is not enforced |
+| Result | MIDL `[out, retval] BSTR* name` | `#[out] #[retval] name: *mut BSTR` | Trailing result of an `HRESULT` method becomes `Result<BSTR>` |
+| Returned pointer | `_Outptr_ void** data` | `#[out] #[out_ptr] data: *mut *mut void` | Implementations clear the output on error when `null_on_failure` |
+| Nullable | `_Outptr_result_maybenull_ IThing** thing` | `#[nullable] #[out] #[out_ptr] thing: *mut IThing` | `Option<IThing>` if otherwise eligible as an interface result |
+| Nullable return | `_Ret_maybenull_ void* Find()` | `extern fn Find() -> #[nullable] *mut void;` | Raw pointer |
+| Nullable field | `_Maybenull_ int* values;` | `#[nullable] values: *mut i32` | Raw pointer |
+| COM query | `_In_ REFIID riid, _COM_Outptr_ void** object` | `#[in] riid: *const GUID, #[iid_is] #[out] #[out_ptr(null_on_failure)] object: *mut *mut void` | An `HRESULT` method can become `Get<T: Interface>() -> Result<T>` |
 
-`opt` lets the caller pass a null argument. `nullable` records that the API may produce null: the
-pointer stored through an `out` parameter, a return value, or a field. Absence does not promise
-non-null; only an `out_ptr` or indirect extent without `nullable` does. The `_opt_` in
-`_Outptr_opt_` and `_COM_Outptr_opt_` makes the argument optional; the returned pointer is still
-non-null on success. Consumers should still handle null where the header makes no promise.
-`out_ptr` promises one readable element on success; it does not imply an allocator or ownership
-transfer.
+`opt` lets the caller pass null. `nullable` says the API may produce null: through an `out`
+parameter, as a return value, or in a field. Without `nullable`, `out_ptr` promises a non-null
+pointer to one readable element on success; it does not imply an allocator or ownership transfer.
+
+`_Outptr_opt_` permits null argument storage, not a null returned pointer. A required non-null
+trailing typed `_COM_Outptr_`, or `_Outptr_` to an interface, also gets `retval` when success is
+`return >= 0`. A nullable result does not qualify for that inference.
+
+MIDL facts are read from generated bracket comments such as `/* [retval][out] */`. `iid_is` is a
+marker, not a named relationship: bindgen selects the last eligible `*const GUID` input. It cannot
+recover MIDL's original IID parameter name.
 
 ## Buffers and strings
 
-| Fact | Header | RDL | Metadata | Bindgen |
-| --- | --- | --- | --- | --- |
-| Buffer extent | `_In_reads_`, `_Out_writes_`, `_Inout_updates_` and their `_bytes_`, `_to_`, `_opt_` forms; `_Field_size_`; RPC `__RPC__in_ecount_full` and related | `readable(...)`, `writable(...)` | `BufferExtent` | Slices for direct entry counts; blocks `retval` and query projection |
-| Termination | Parameter `_z_` forms; `_Pre_` or `_Post_` with `_Null_terminated_` or `_NullNull_terminated_`; RPC `__RPC__in_string` and related | `null_terminated(entry, double_success)` | `NullTerminated` | - |
-| String encoding | Character type of a string constant or field | `encoding("ansi")` | `Encoding` | `"ansi"` selects narrow string constants |
+### `buffer`: caller-supplied extent
 
-### Extent model
+`#[buffer(count)]` records the buffer extent supplied when the call starts. Direction stays in
+`in`/`out`; the extent promises neither ownership nor an initialized output length.
 
-One `BufferExtent` covers parameters, returned buffers and record fields. Capacity and
-initialized length are separate extents of the same family.
+| Header | RDL | Rust |
+| --- | --- | --- |
+| `_In_reads_(count) const int* values` | `#[buffer(count)] #[in] values: *const i32` | `&[i32]` with an eligible by-value input count |
+| `_Inout_updates_(count) int* values` | `#[buffer(count)] #[in] #[out] values: *mut i32` | `&mut [i32]` with an eligible count |
+| `_Out_writes_to_(capacity, *written) int* values` | `#[buffer(capacity)] #[out] values: *mut i32` | Raw pointer; the produced-length relationship is not published |
+| `_Out_writes_bytes_(*size) void* data` | `#[buffer(bytes(*size))] #[out] data: *mut void` | Raw pointer |
 
-| Dimension | Values |
-| --- | --- |
-| Access | `writable` is capacity; `readable` is initialized elements |
-| Phase | `entry` or `success` on parameters; `success` holds after the API succeeds, a condition that metadata does not publish; fields describe a valid record and omit the phase |
-| Units | Elements by default; `bytes(count)` selects bytes |
-| Subject | The parameter itself by default; `indirect` selects the pointer stored in it |
-| Count | Constant, parameter, `*parameter`, sibling field, `return`, or `+ - *` of these |
-| Count phase | Same as the extent unless `on_entry(count)` selects the incoming value |
-| Null count | `if_present(*count)` makes the extent unknown when the count pointer is null |
-| Fallback | `or(*written, capacity)` names an explicit alternative |
-| Unknown | `unknown()` records an extent whose size is not expressible; it is not zero |
+Counts are an unsuffixed nonnegative integer, an integer parameter, or one dereference of a
+non-optional integer-pointer parameter. `bytes(count)` selects bytes instead of elements. There are
+no phase arguments, arithmetic expressions, field counts, returned-buffer counts or fallbacks.
+Unsupported entry counts mark the parameter `incomplete`. A retained entry extent already prevents
+scalar-result and COM-query transformations; omitting its produced length needs no extra marker.
+When no entry extent can be published, `incomplete` preserves that buffer guard.
+
+Clang still captures and reconciles native capacities, initialized lengths, units and conditional
+counts. RDL/WinMD publishes only the entry extent. Produced-length metadata can be added when a
+consumer needs it, without rebuilding SAL capture. A Rust initialized-prefix wrapper would also need
+success, completion and value-validity rules; ordinary slice arguments do not require that metadata.
+
+### `null_terminated`: trailing zero elements
+
+This attribute describes termination, independently of buffer size and character encoding.
+`entry` means the start of the call; `success` means successful return under the API's own success
+condition. These arguments belong to termination, not to `buffer`.
 
 | Header | RDL |
 | --- | --- |
-| `_In_reads_(count)` | `#[in] #[readable(entry, count)]` |
-| `_Out_writes_bytes_to_opt_(*size, *size)` | `#[opt] #[out] #[readable(success, bytes(*size))] #[writable(entry, bytes(*size))]` |
-| `_Out_writes_all_(count)` | `#[out] #[writable(entry, count)] #[readable(success, count)]` |
-| `_Outptr_result_buffer_(*count)` | `#[out] #[writable(success, *count, indirect)]` |
-| `_Outptr_result_maybenull_z_` | `#[out] #[out_ptr] #[nullable] #[null_terminated(success, indirect)]` |
-| `_Field_size_(capacity)` on a field | `#[writable(capacity)]` |
+| `_In_z_ const char* name` | `#[in] #[null_terminated(entry)] name: *const i8` |
+| `_Pre_ _NullNull_terminated_ const unsigned short* names` | `#[null_terminated(double_entry)] names: *const u16` |
+| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr]` |
 
-Counts outside this grammar, such as casts or unresolved names, mark the parameter `incomplete`.
-Conflicting supported counts fail rather than selecting one.
+`double_entry` and `double_success` require two trailing zeros at that time. `indirect` selects the
+pointer stored through the parameter. Bindgen does not currently use this fact to change the Rust type.
 
-### Count encoding
+### `encoding`: character encoding
 
-| Count | `BufferExtent` property |
-| --- | --- |
-| Constant | `CountConst` |
-| Parameter, or `*parameter` with `Dereference` | `CountParamIndex` |
-| Sibling field | `CountFieldName` |
-| `return` | `CountReturn` |
-| `unknown()` | `CountUnknown` |
-| Arithmetic, `if_present` inside arithmetic | `CountExpression` |
-| `if_present(*count)` | `CountOptional` |
-| `or(..., fallback)` | `NullFallbackParamIndex` |
-| `on_entry(...)` | `CountOnEntry` |
-
-`CountExpression` uses versioned postfix text, separated by single spaces
-and starting with `v1`. Unknown versions must not be interpreted.
-
-| Token | Meaning |
-| --- | --- |
-| `i32:N`, `u32:N`, `i64:N`, `u64:N` | Typed decimal literal |
-| `p:N` | Zero-based parameter index |
-| `d:N` | Dereferenced parameter |
-| `o:N` | Optional dereference; null makes the whole expression unavailable |
-| `f:HEX` | Sibling field name as lowercase hexadecimal UTF-8 |
-| `return` | Callable result |
-| `add`, `sub`, `mul` | Binary operators |
-
-For example, `count + 1` with `count` as parameter zero encodes `v1 p:0 i32:1 add`. C integer
-promotions apply; signed overflow is not mathematical arithmetic.
+`#[encoding("ansi")]` records narrow character encoding on a string constant or field. For example,
+`#define NAME "text"` becomes `#[encoding("ansi")] const NAME: String = "text";`.
+Bindgen uses it to select narrow string constants. It specifies neither termination nor capacity.
 
 ## Callables
 
-| Fact | Header | RDL | Metadata | Bindgen |
-| --- | --- | --- | --- | --- |
-| Inspect result | `_Check_return_`, `_Must_inspect_result_` | `must_use` | `MustUse` | `#[must_use]` unless the wrapper returns `()`, `Result` or a type that is already `#[must_use]` |
-| Never returns | `__declspec(noreturn)`, `[[noreturn]]` | `noreturn` | `DoesNotReturn` | `-> !` |
-| Calling convention | Compiler ABI | `extern fn` (system), `extern "C" fn` | Signature and ImplMap | `extern "system"` or `extern "C"` |
-| Import library | Import library evidence | `library("dll", import = "name")` | ImplMap `ImportScope`, `ImportName` | `link!` target |
-| Last error | **Proposed** `_Win32_SetLastError_` | **Proposed** `library("dll", last_error)` | ImplMap flag `SupportsLastError` | - |
-| Raw result | **Proposed** `_Win32_PreserveResult_` | **Proposed** `preserve_sig` | MethodImpl flag `PreserveSig` | - |
-| Property accessor | MIDL `[propget]`, `[propput]` | `special` | MethodDef flag `SpecialName` | Accessor names |
-| Vtable slot | C++ overrides of inherited slots | `override_slot(N)` | `NativeOverrideSlot` | Slot validation and overrides |
-| Deprecation | `__declspec(deprecated)`, `[[deprecated]]` | `deprecated`, `deprecated("message")` | `Deprecated` | - |
-| Architecture | Per-target parse results | `arch(X64 \| Arm64)` | `SupportedArchitecture` | Architecture gating |
-| Minimum OS | **Proposed** `_Win32_SupportedOS_*_` | **Proposed** `supported_os("...")` | **Proposed** `SupportedOSPlatform` | - |
+| Fact | Header | RDL | Rust |
+| --- | --- | --- | --- |
+| Inspect result | `_Check_return_ int Parse(...)`; `_Must_inspect_result_` | `#[must_use]` | `#[must_use]` unless the wrapper returns `()` or a `#[must_use]` type |
+| Never returns | `__declspec(noreturn) void Fail()`; `[[noreturn]]` | `#[noreturn]` | `-> !` |
+| Calling convention | `void __cdecl Log()` | `extern "C" fn Log()`; `extern fn` is system | `extern "C"` or `extern "system"` |
+| Import library | Import library maps `Read` to `ReadEntry` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
+| Property accessor | MIDL `[propget] HRESULT Name(...)` | `#[special]` | Accessor names |
+| Vtable slot | C++ override of an inherited virtual | `#[override_slot(3)]` | Slot validation |
+| Deprecation | `[[deprecated("use Next")]]` | `#[deprecated("use Next")]` | - |
+| Architecture | Declared only for x64 and Arm64 | `#[arch(X64 \| Arm64)]` | `cfg` gating |
 
 ## Types and layout
 
-| Fact | Header | RDL | Metadata | Bindgen |
-| --- | --- | --- | --- | --- |
-| Interface identity | `__declspec(uuid)`, `MIDL_INTERFACE` | `guid(0x...)` | `Windows.Foundation.Metadata.Guid` | Interface identity and GUID constants |
-| Distinct typedef | Written typedef | `type Name = T;` | `NativeTypedef` | Typedef and handle types |
-| Scoped enum | `enum class` | `scoped` | `ScopedEnum` | Enum representation and constant names |
-| Flags enum | `[[clang::flag_enum]]`; declared `E operator\|(E, E)`, as from `DEFINE_ENUM_FLAG_OPERATORS` | `flags` | `System.Flags` | Bitwise operators |
-| Constness | `const` pointee | `*const T` | `IsConst` modifier | `*const T` |
-| Packing | Compiler layout | `packed(N)` | ClassLayout | `#[repr(C, packed(N))]` |
-| Raised alignment | `__declspec(align)`, `alignas` | `align(N)` | `Alignment` | Layout, padding and underaligned fields |
-| Bitfields | Bitfield members | Bitfield blocks | `NativeBitfield` | Accessors |
-| Anonymous records | Unnamed nested members | Inline record or `anonymous(N)` | `NativeAnonymous` | Nested type names |
-| Base storage | C++ base classes | `base` | `NativeBase` | Native object and interface bases |
-| 64-bit pointer | `__ptr64` | `ptr64<*mut T>` | `NativePointer64` modifier | 64-bit pointer storage |
-| Callback ABI | Function pointer typedef | `extern fn` (system), `extern "C" fn` | `System.Runtime.InteropServices.UnmanagedFunctionPointer` | Callback calling convention |
+| Fact | Header | RDL | Rust |
+| --- | --- | --- | --- |
+| Interface identity | `MIDL_INTERFACE("12345678-...") IThing` | `#[guid(0x12345678_...)] interface IThing` | Interface identity and GUID constants |
+| Distinct typedef | `typedef void* HTHING;` | `type HTHING = *mut void;` | Typedef and handle types |
+| Scoped enum | `enum class Mode` | `#[scoped] enum Mode` | Enum representation and constant names |
+| Flags enum | `[[clang::flag_enum]]` or `DEFINE_ENUM_FLAG_OPERATORS(Mode)` | `#[flags] enum Mode` | Bitwise operators |
+| Constness | `const int* values` | `*const i32` | `*const i32` |
+| Packing | `#pragma pack(1)` | `#[packed(1)] struct Packed` | `#[repr(C, packed(1))]` |
+| Raised alignment | `alignas(32)` | `#[align(32)]` | Layout and padding |
+| Bitfields | `unsigned int ready : 1;` | `_bitfield: u32 { ready: bool: 1 }` | Accessors |
+| Anonymous records | `union { int a; float b; };` | Inline record or `#[anonymous(1)]` | Nested type names |
+| Base storage | `struct Derived : Base` | `#[base]` | Native object and interface bases |
+| 64-bit pointer | `int* __ptr64 address` | `ptr64<*mut i32>` | 64-bit pointer storage |
+| Callback ABI | `typedef void (CALLBACK* NOTIFY)(void*);` | `extern fn NOTIFY(context: *mut void);` | Callback calling convention |
 
 Flags come from compiler-observed declarations, not from macro, enum or constant names.
-`NativeAnonymous` stores the native field position, which can differ from the metadata position
-after bitfield lowering.
-
-## Incomplete contracts
-
-| Fact | Header | RDL | Metadata | Bindgen |
-| --- | --- | --- | --- | --- |
-| Incomplete contract | Parameter SAL without a canonical family: `_When_`, `_At_`, unsupported counts | `incomplete` | `Incomplete` | Raw pointer; blocks slice, `retval` and query projection, including slices counted by the parameter |
-
-`_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` and its byte form are the exception: they
-publish `readable(success, unknown(), indirect)` and do not mark the parameter `incomplete`.
-
-Other SAL is not published. This covers static-analysis directives such as `_IRQL_*_`,
-`_Function_class_` and locking annotations, and SAL on owners without a family, such as `_In_` on a
-field or `_Null_terminated_` on a typedef.
-
-These parameter directives state no caller-visible contract and do not mark the parameter
-`incomplete`:
-
-| Header | Purpose |
-| --- | --- |
-| `__in_data_source`, `__out_data_source` | Taint tracking |
-| `_Printf_format_string_`, `_Printf_format_string_params_` | Format string checking |
-| `_Scanf_format_string_`, `_Scanf_s_format_string_` | Format string checking |
-| `_IRQL_uses_cancel_` | Driver cancel-lock checking |
-| `_Strict_type_match` | Argument type checking |
-| `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`; `__RPC__in_range` | Value range checking |
-
-`_Success_` and `_Return_type_success_` are not published either; a `return >= 0` condition only
-grounds `retval` inference. Return and field ranges, such as `_Ret_range_` and `_Field_range_`, are
-dropped with other SAL on owners without a family. Null-state and validity annotations are
-contracts; when they cannot be published they still mark the parameter `incomplete`.
-`__declspec(nothrow)` and `__declspec(allocator)` must agree across observations but are not
-published.
 
 ## Bindgen boundary
 
-Metadata never authorizes a projection on its own. Bindgen applies these rules:
+Metadata facts do not by themselves authorize a wrapper transformation:
 
-| Metadata on a parameter | Bindgen |
+| Metadata | Current bindgen behavior |
 | --- | --- |
-| `BufferExtent` on `entry` with a constant or by-value input count used by no other buffer | Slice, with the count parameter hidden |
-| Signed count on an `opt` buffer, byte count on wider elements, or output-only buffer | Raw pointer |
-| Any other `BufferExtent` | Raw pointer, except interfaces; no `retval` projection |
-| `readable(success, unknown(), indirect)` with `out_ptr` | Query projection still allowed |
-| `incomplete` | Raw pointer, except interfaces; no slice, `retval` or query projection |
-| `retval` | Rust result only when the parameter is also eligible; otherwise ignored |
-| `opt` or `reserved` | `Option` for pointers, independently of any buffer contract |
+| Direct entry extent with a constant or unshared by-value input count | Slice or fixed-size array reference when direction and element type allow it; hide a variable count |
+| Signed count on an optional buffer, byte count on wider elements, or output-only buffer | Raw pointer |
+| Other buffer counts | Raw pointer, except interface values; no `retval` projection |
+| `incomplete` on a buffer, count, query argument or result | Blocks the corresponding slice, query or `retval` transformation |
+| `retval` | Trailing output-only, non-optional, non-reserved pointer with no extent or `incomplete`; `HRESULT` becomes `Result<T>`, `void` becomes `T` |
+| `opt` or `reserved` | Optional pointer/reference/slice where the parameter projection supports it |
 
-## `_Win32_*` macros
+Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
+expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection
+already return the raw status; COM implementation methods use `Result`.
 
-**Proposed.** Macros expand to `annotate("Win32Metadata.Name", args...)` on the owning
-declaration. Arguments are compiler-evaluated constants or declaration references; strings are
-used only for names without a declaration, such as a DLL.
+## Proposed annotations
 
-| Macro | Owner | Arguments | Checked against | RDL | Metadata |
-| --- | --- | --- | --- | --- | --- |
-| `_Win32_SetLastError_` | Function | - | - | `library(..., last_error)` | ImplMap flag `SupportsLastError` |
-| `_Win32_PreserveResult_` | Function or method | - | - | `preserve_sig` | MethodImpl flag `PreserveSig` |
-| `_Win32_ImportLibrary_` | Function | DLL; optional export name or ordinal | Import library evidence | `library("dll", import = "name")` | ImplMap `ImportScope`, `ImportName` |
-| `_Win32_SupportedOS_*_` | Function, record, enum, typedef | - | `NTDDI_VERSION`, `_WIN32_WINNT` guards | `supported_os("...")` | `SupportedOSPlatform` |
-| `_Win32_RAIIFree_` | Return or output parameter | Function; integer invalid values | Function declaration | `release(Function, invalid...)` | `Release` |
-| `_Win32_Retained_` | Pointer parameter | - | - | `retained` | `Retained` |
-| `_Win32_ContainsInteriorPointers_` | Output buffer parameter | - | Buffer extent present | `interior_pointers` | `InteriorPointers` |
-| `_Win32_Enum_`, `_Win32_FlagsEnum_` | Typedef | Constants | Compiler-evaluated values | `enum`; `flags` for `_Win32_FlagsEnum_` | Enum TypeDef with Constant rows; `System.Flags` |
-| `_Win32_AssociatedEnum_` | Parameter, return or field | Enum type | Integral native type | `associated_enum(Type)` | `AssociatedEnum` |
-| `_Win32_AlsoUsableFor_` | Typedef | Typedef | Compatible native type | `also_usable_for(Type)` | `AlsoUsableFor` |
+All rows below are **Proposed**. The RDL spellings, new metadata families and consumer effects need
+implementation unless they reuse an existing mapping. These are additions to SAL/MIDL, not
+replacements for them.
 
-| Rule | Applies to |
+| Fact | Header example | Proposed RDL | Intended consumer use |
+| --- | --- | --- | --- |
+| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` (existing) | Rust link target; C# DLL and entry point |
+| Last error | `_Win32_SetLastError_` | `#[library("kernel32.dll", last_error)]` | C# `SetLastError = true`; not an error predicate |
+| Exact result | `_Win32_PreserveResult_ HRESULT EnumAdapters1(...)` | `#[preserve_result]` | Keep raw status and output parameters instead of Rust `Result` or C# exception/result conversion |
+| Minimum OS | `_Win32_SupportedOS_19041_` | `#[supported_os("windows10.0.19041")]` | C# platform diagnostics |
+| Release | `_Out_ _Win32_RAIIFree_(WinHttpCloseHandle, 0) HINTERNET* session` | `#[invalid(0)] #[out] #[release(WinHttpCloseHandle)] session: *mut HINTERNET` | Rust owned handles or C# `SafeHandle`; requires an ownership-aware wrapper |
+| Retained | `_In_ _Win32_Retained_ OVERLAPPED* overlapped` | `#[in] #[retained] overlapped: *mut OVERLAPPED` | No call-scoped slice/reference/span wrapper; caller manages lifetime |
+| Interior pointers | `_Out_writes_bytes_opt_(cbBuf) _Win32_ContainsInteriorPointers_ BYTE* info` | `#[buffer(bytes(cbBuf))] #[interior_pointers] #[opt] #[out] info: *mut u8` | Keep caller-owned storage alive and in place while interior pointers are used |
+| Logical enum | `_Win32_Enum_(FILE_CREATION_DISPOSITION, DWORD, CREATE_NEW, OPEN_EXISTING);` | `#[repr(u32)] enum FILE_CREATION_DISPOSITION { CREATE_NEW = 1, OPEN_EXISTING = 3 }` | Enum type and constants |
+| Logical flags | `_Win32_FlagsEnum_(DXGI_MAP_FLAGS, UINT, DXGI_MAP_READ, DXGI_MAP_WRITE);` | `#[flags] #[repr(u32)] enum DXGI_MAP_FLAGS { ... }` | Bitwise operators |
+| Enum use | `_Win32_AssociatedEnum_(FILE_CREATION_DISPOSITION) _In_ DWORD disposition` | `#[associated_enum(FILE_CREATION_DISPOSITION)] #[in] disposition: u32` | Typed wrapper parameter in Rust or C#; metadata keeps native storage |
+| Compatible typedef | `typedef _Win32_AlsoUsableFor_(HGDIOBJ) HANDLE HBITMAP;` | `#[also_usable_for(HGDIOBJ)] type HBITMAP = HANDLE;` | Directional handle conversion, not ownership transfer |
+
+The proposed contracts require these checks:
+
+| Contract | Rule |
 | --- | --- |
-| Each macro appears at most once per owner | All |
-| Must agree with any version guard around the declaration | `_Win32_SupportedOS_*_` |
-| Never retypes the owner | `_Win32_Enum_`, `_Win32_AssociatedEnum_` |
-| Never scoped; the loose constants remain | `_Win32_Enum_`, `_Win32_FlagsEnum_` |
+| Import override | Checked against the native symbol and target; replaces an explicit entry in [import_policy.rs](../crates/tools/win32/src/import_policy.rs), not native ABI evidence |
+| Release | Resolve a declared cleanup function with a compatible parameter; invalid values are integer constants, one `invalid` each. `_Win32_RAIIFree_Handle_(F)` supplies `-1` and `0` |
+| Logical enum names | Member names come from the macro arguments and values from the compiler; members replace the loose constants of the same name |
+| Enum use | Resolve the name after the whole capture; require exactly one enum with compatible storage |
+| Retained | The API uses the pointer after return; this does not describe when that use ends |
+| Minimum OS | Use platform version numbers, not marketing names; availability guards need separate evidence before becoming minimum-version claims |
 
-## Transport
+`preserve_result` would keep status codes such as `S_FALSE` or the failure code
+`DXGI_ERROR_NOT_FOUND` used to end enumeration. This is projection policy, not native ABI. C#'s
+[`DllImport.PreserveSig`](https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.dllimportattribute.preservesig)
+defaults to `true` but can be `false`.
 
-| Source | Path into `windows-clang` |
+### Transport
+
+The proposed transport is `__attribute__((annotate("Win32Metadata.Name", args...)))` on the
+declaration it describes. Each macro needs an owner and argument schema; unknown names, bad
+arguments, wrong owners and duplicates should fail. Values are compiler-evaluated and declaration
+names must resolve. The PR's mixed string and proxy-declaration encodings do not yet meet this design.
+
+`_Win32_SupportedOS_BEGIN_(os)` and `_Win32_SupportedOS_END_()` are region forms in the PR.
+Their Clang pragma covers functions, records, enums and typedefs, including included declarations;
+nested annotations accumulate rather than override.
+
+In IDL, a macro goes in MIDL's `annotation` attribute on the method, parameter or field, which MIDL
+copies into the generated header:
+
+```idl
+[annotation("_Win32_PreserveResult_")]
+HRESULT EnumAdapters1([in] UINT index, [out, annotation("_COM_Outptr_")] IDXGIAdapter1** adapter);
+```
+
+The generated header must see the macro definitions. Passthrough is not payload support.
+
+### Forms not adopted
+
+These forms from microsoft/win32metadata#2365 duplicate existing facts or add a second transport:
+
+| Form | Use instead |
 | --- | --- |
-| Compiler syntax | Cursor and type queries |
-| SAL | `tool-win32` hooks `_SAL*_Source_` into `windows_clang:sal:` annotations |
-| MIDL | Generated `/* [retval][out] */` comments and RPC SAL |
-| `_Win32_*` in C/C++ headers | **Proposed** `annotate("Win32Metadata.Name", ...)` |
-| `_Win32_*` in IDL | Open; `cpp_quote` comments naming one member |
+| `_Win32_Optional_` | `_opt_` SAL forms, MIDL `[optional]` |
+| `_Win32_Reserved_` | `_Reserved_` |
+| `_Win32_ComOutPtr_` | `_COM_Outptr_`, MIDL `[iid_is]` |
+| `_Win32_Retval_` | MIDL `[retval]` |
+| `_Win32_Flags_` | `[[clang::flag_enum]]` |
+| `_Win32_AssociatedConstant_` | A constant belongs to one enum or none |
+| `/* Win32Metadata: ... */` comments | MIDL `annotation` |
 
-## WinRT
+Unknown `annotate` payloads are rejected today. Arbitrary comments are not directives and are
+ignored; only the recognized MIDL bracket comments carry contracts.
 
-WinRT contracts come from WinRT metadata, not headers. Where WinRT and Win32 describe the same fact
-they share a representation: `Guid`, `System.Flags`, param flags and `SpecialName`. Bindgen also
-reads these `Windows.Foundation.Metadata` attributes, which `windows-clang` never emits:
+## C# consumption
 
-| Attribute | Bindgen |
+DLL/entry-point and calling-convention facts can populate C# P/Invoke declarations.
+`SetLastError = true` asks the runtime to capture the native error, not decide whether a call failed.
+Custom families such as `Buffer`, `ReturnedPointer`, `Nullable` and `Incomplete` require
+explicit generator support. This repository does not establish C# support for this vocabulary;
+metadata round trips are not a substitute for consumer and generated-code coverage.
+
+## Not published
+
+| Header | Treatment |
 | --- | --- |
-| `Default` | Class default interface; RDL supplies it as the first interface |
-| `Static` | Static factory interface |
-| `Activatable` | Constructors and activation factories |
-| `Composable` | Composition factories |
-| `ExclusiveTo` | Class-owned interfaces and factory reachability |
-| `MarshalingBehavior` | Agile types |
-| `Overload` | Method names and overload filtering |
-| `NoException` | Infallible wrapper signatures; unrelated to C++ `noexcept` |
-| `ApiContract` | Omits contract marker types |
+| Parameter SAL without a family: `_When_`, `_At_`, unsupported counts | `#[incomplete]`: raw pointer, no slice, `retval` or query projection |
+| Produced lengths and post-call capacities | Validated natively, not published; keep a usable entry extent or mark the buffer `incomplete` |
+| `_Field_size_*` | Validated natively; extent omitted, nullability retained |
+| `_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` | Redundant with an explicit `out_ptr`; otherwise `incomplete` |
+| Null-state and validity SAL that cannot be published | `#[incomplete]` |
+| `_Success_`, `_Return_type_success_` | Dropped; `return >= 0` only grounds `retval` inference |
+| `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `__RPC__in_range` | Dropped; ranges constrain values, not projections |
+| `__in_data_source`, `_Printf_format_string_`, `_Scanf_format_string_`, `_IRQL_uses_cancel_`, `_Strict_type_match` | Dropped; static analysis only |
+| `_IRQL_*_`, `_Function_class_`, locking SAL, SAL on owners without a family | Dropped |
+| `__declspec(nothrow)`, `__declspec(allocator)` | Must agree across observations; not published |
 
-RDL accepts other declared attributes in named form, but the writer drops `System.*` attributes
-without a dedicated spelling, and bindgen ignores names it does not know.
+## Metadata encoding
 
-## Open questions
+Attributes are in `Windows.Win32.Metadata` unless qualified, written without the `Attribute`
+suffix. `Native` attributes preserve C/C++ declaration details; unprefixed attributes state
+language-neutral API facts.
 
-| Question | Options |
+| RDL | Metadata |
 | --- | --- |
-| `#define` constants reach `annotate` as integer literals without their names | Read the macro expansion location, or require enum constants |
-| `AssociatedEnum` may name an enum declared later | Require a visible declaration, or resolve a checked name after merging |
-| `Release` needs several invalid values | Array arguments in RDL, or one attribute per value |
-| `ComOutPtr` does not name its IID parameter | Add the index, or keep the positional convention |
-| `Retained`, `InteriorPointers`, `AlsoUsableFor` have no bindgen consumer | Publish for other consumers, or defer |
-| `PreserveSig` projection | Return the native `HRESULT`, or keep it as metadata only |
+| `in`, `out`, `opt` | Param flags `In`, `Out`, `Optional` |
+| `reserved`, `retval`, `nullable`, `incomplete` | `Reserved`, `RetVal`, `Nullable`, `Incomplete` |
+| `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer`, with `NullOnFailure` |
+| `iid_is` | `ComOutPtr` |
+| `buffer(count)`, `buffer(bytes(count))` | `Buffer`, with `CountConst` or `CountParamIndex`, plus `Dereference` and `Bytes` when needed |
+| `null_terminated`, `encoding` | `NullTerminated`, `Encoding` |
+| `must_use`, `noreturn`, `deprecated` | `MustUse`, `DoesNotReturn`, `Deprecated` |
+| `library("dll", import = "name")` | ImplMap `ImportScope` and `ImportName` |
+| `extern fn`, `extern "C" fn` | ImplMap calling-convention flags on imports; `System.Runtime.InteropServices.UnmanagedFunctionPointer` on named callbacks |
+| `special` | MethodDef flag `SpecialName` |
+| `override_slot(N)`, `base` | `NativeOverrideSlot` and cleared `NewSlot`; `NativeBase` |
+| `arch(...)` | `SupportedArchitecture` |
+| `guid(...)` | `Windows.Foundation.Metadata.Guid` |
+| `type Name = T;` | `NativeTypedef` |
+| `scoped`, `flags` | `ScopedEnum`, `System.Flags` |
+| `*const T`, `ptr64<T>` | `System.Runtime.CompilerServices.IsConst` and `NativePointer64` modifiers |
+| `packed(N)`, `align(N)` | ClassLayout, `Alignment` |
+| Bitfield blocks, `anonymous(N)` | `NativeBitfield`, `NativeAnonymous` |
+| **Proposed** `library(..., last_error)` | ImplMap flag `SupportsLastError` |
+| **Proposed** `preserve_result`, `retained`, `interior_pointers` | `PreserveResult`, `Retained`, `InteriorPointers` |
+| **Proposed** `release(F)`, `invalid(N)` | `Release`, `InvalidValue` |
+| **Proposed** `associated_enum(T)`, `also_usable_for(T)` | `AssociatedEnum`, `AlsoUsableFor` |
+| **Proposed** `supported_os("...")` | `System.Runtime.Versioning.SupportedOSPlatform` |
 
-## Implementation
+`NativeAnonymous` stores the native field position, which can differ from the metadata position
+after bitfield lowering.
 
-| Stage | Source |
+The [metadata seed](../metadata/metadata.rdl) defines implemented custom attributes.
+[BufferInfo](../crates/libs/metadata/src/buffer_info.rs) defines the buffer count payload.
+
+## Extending the catalog
+
+For each addition, define its header source, owner, arguments, RDL/WinMD encoding and intended
+consumer action. Include absence, conflicts and unsupported cases. Keep it **Proposed** until
+capture, round-trip and relevant projection coverage exist; record consumers separately.
+
+| Stage | Implementation and coverage |
 | --- | --- |
-| SAL hooks | [`tool-win32` sal.h](../crates/tools/win32/src/sal.h) |
-| Publication | [annotations.rs](../crates/libs/clang/src/projection/annotations.rs) |
-| Metadata seed | [metadata.rdl](../metadata/metadata.rdl) |
+| SAL hooks | [`tool-win32` sal.h](../crates/tools/win32/src/sal.h) turns `_SAL*_Source_` into `windows_clang:sal:` annotations |
+| Publication | [annotations.rs](../crates/libs/clang/src/projection/annotations.rs); [header fixtures](../crates/tests/libs/clang/input/fixtures) run on X86, X64 and Arm64 |
 | RDL short forms | [lib.rs](../crates/libs/rdl/src/lib.rs), [RDL reference](../crates/libs/rdl/rdl.md) |
 | Decoding | [metadata reader](../crates/libs/metadata/src/reader) |
-| Projection | [param.rs](../crates/libs/bindgen/src/param.rs), [types](../crates/libs/bindgen/src/types) |
-| Fixtures | [test_clang input](../crates/tests/libs/clang/input) |
+| Rust projection | [param.rs](../crates/libs/bindgen/src/param.rs), [cpp_method.rs](../crates/libs/bindgen/src/types/cpp_method.rs); [bindgen fixtures](../crates/tests/libs/bindgen/input) |

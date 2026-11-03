@@ -49,8 +49,8 @@ mod Windows {
         }
         #[guid(0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf)]
         interface ISpPrivateEngineCallEx: IUnknown {
-            fn CallEngineSynchronize(&self, #[in] #[readable(entry, bytes(ulInFrameSize))] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[out] #[writable(success, bytes(*pulOutFrameSize), indirect)] ppCoMemOutFrame: *mut *mut void, #[out] #[writable(entry, 1)] pulOutFrameSize: *mut ULONG) -> HRESULT;
-            fn CallEngineImmediate(&self, #[in] #[readable(entry, bytes(ulInFrameSize))] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[out] #[writable(success, bytes(*pulOutFrameSize), indirect)] ppCoMemOutFrame: *mut *mut void, #[out] #[writable(entry, 1)] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngineSynchronize(&self, #[buffer(bytes(ulInFrameSize))] #[in] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[incomplete] #[out] ppCoMemOutFrame: *mut *mut void, #[buffer(1)] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngineImmediate(&self, #[buffer(bytes(ulInFrameSize))] #[in] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[incomplete] #[out] ppCoMemOutFrame: *mut *mut void, #[buffer(1)] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
         }
         #[guid(0xfece8294_2be1_408f_8e68_2de377092f0e)]
         interface ISpSRAlternates: IUnknown {
@@ -76,13 +76,13 @@ mod Windows {
             fn LoadSLM(&self, #[in] pvEngineGrammar: *mut void, #[in] pszTopicName: LPCWSTR) -> HRESULT;
             fn UnloadSLM(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
             fn SetSLMState(&self, #[in] pvEngineGrammar: *mut void, #[in] NewState: SPRULESTATE) -> HRESULT;
-            fn SetWordSequenceData(&self, #[in] pvEngineGrammar: *mut void, #[in] #[readable(entry, cchText)] pText: *const WCHAR, #[in] cchText: ULONG, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn SetWordSequenceData(&self, #[in] pvEngineGrammar: *mut void, #[buffer(cchText)] #[in] pText: *const WCHAR, #[in] cchText: ULONG, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
             fn SetTextSelection(&self, #[in] pvEngineGrammar: *mut void, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
             fn IsPronounceable(&self, #[in] pvEngineGrammar: *mut void, #[in] pszWord: LPCWSTR, #[out] pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
             fn OnCreateRecoContext(&self, #[in] hSAPIRecoContext: SPRECOCONTEXTHANDLE, #[out] ppvEngineContext: *mut *mut void) -> HRESULT;
             fn OnDeleteRecoContext(&self, #[in] pvEngineContext: *mut void) -> HRESULT;
             fn PrivateCall(&self, #[in] pvEngineContext: *mut void, #[in] #[out] pCallFrame: PVOID, #[in] ulCallFrameSize: ULONG) -> HRESULT;
-            fn SetAdaptationData(&self, #[in] pvEngineContext: *mut void, #[in] #[readable(entry, cch)] pAdaptationData: *const WCHAR, #[in] cch: ULONG) -> HRESULT;
+            fn SetAdaptationData(&self, #[in] pvEngineContext: *mut void, #[buffer(cch)] #[in] pAdaptationData: *const WCHAR, #[in] cch: ULONG) -> HRESULT;
             fn SetPropertyNum(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: *const WCHAR, #[in] lValue: LONG) -> HRESULT;
             fn GetPropertyNum(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: *const WCHAR, #[out] lValue: *mut LONG) -> HRESULT;
             fn SetPropertyString(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: LPCWSTR, #[in] pValue: LPCWSTR) -> HRESULT;
@@ -96,7 +96,7 @@ mod Windows {
         #[guid(0x7ba627d8_33f9_4375_90c5_9985aee5ede5)]
         interface ISpSREngine2: ISpSREngine {
             fn PrivateCallImmediate(&self, #[in] pvEngineContext: *mut void, #[in] pInCallFrame: *const void, #[in] ulInCallFrameSize: ULONG, #[out] #[out_ptr] ppvCoMemResponse: *mut *mut void, #[out] pulResponseSize: *mut ULONG) -> HRESULT;
-            fn SetAdaptationData2(&self, #[in] pvEngineContext: *mut void, #[in] #[readable(entry, cch)] pAdaptationData: *const WCHAR, #[in] cch: ULONG, #[in] pTopicName: LPCWSTR, #[in] eSettings: SPADAPTATIONSETTINGS, #[in] eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
+            fn SetAdaptationData2(&self, #[in] pvEngineContext: *mut void, #[buffer(cch)] #[in] pAdaptationData: *const WCHAR, #[in] cch: ULONG, #[in] pTopicName: LPCWSTR, #[in] eSettings: SPADAPTATIONSETTINGS, #[in] eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
             fn SetGrammarPrefix(&self, #[in] pvEngineGrammar: *mut void, #[in] #[opt] pszPrefix: LPCWSTR, #[in] fIsPrefixRequired: BOOL) -> HRESULT;
             fn SetRulePriority(&self, #[in] hRule: SPRULEHANDLE, #[in] pvClientRuleContext: *mut void, #[in] nRulePriority: i32) -> HRESULT;
             fn EmulateRecognition(&self, #[in] pPhrase: ISpPhrase, #[in] dwCompareFlags: DWORD) -> HRESULT;
@@ -400,8 +400,8 @@ mod Windows {
         const SpW3CGrammarCompiler: GUID = 0xd2c13906_51ef_454e_bc67_a52475ff074c;
         #[guid(0x8e7c791e_4467_11d3_9723_00c04f72db08)]
         interface _ISpPrivateEngineCall: IUnknown {
-            fn CallEngine(&self, #[in] #[out] #[writable(entry, bytes(ulCallFrameSize))] pCallFrame: *mut void, #[in] ulCallFrameSize: ULONG) -> HRESULT;
-            fn CallEngineEx(&self, #[in] #[readable(entry, bytes(ulInFrameSize))] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[nullable] #[out] #[writable(success, *pulOutFrameSize, indirect)] ppCoMemOutFrame: *mut *mut void, #[out] #[writable(entry, 1)] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngine(&self, #[buffer(bytes(ulCallFrameSize))] #[in] #[out] pCallFrame: *mut void, #[in] ulCallFrameSize: ULONG) -> HRESULT;
+            fn CallEngineEx(&self, #[buffer(bytes(ulInFrameSize))] #[in] pInFrame: *const void, #[in] ulInFrameSize: ULONG, #[incomplete] #[nullable] #[out] ppCoMemOutFrame: *mut *mut void, #[buffer(1)] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
         }
     }
 }

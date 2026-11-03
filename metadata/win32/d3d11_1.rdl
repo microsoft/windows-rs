@@ -90,12 +90,10 @@ mod Windows {
             pCryptoSession: ID3D11CryptoSession,
             BlobSize: UINT,
             #[nullable]
-            #[writable(BlobSize)]
             pBlob: *mut void,
             pKeyInfoId: *mut GUID,
             PrivateDataSize: UINT,
             #[nullable]
-            #[writable(PrivateDataSize)]
             pPrivateData: *mut void,
         }
         struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
@@ -103,11 +101,9 @@ mod Windows {
             DataOffset: UINT,
             DataSize: UINT,
             #[nullable]
-            #[writable(IVSize)]
             pIV: *mut void,
             IVSize: UINT,
             #[nullable]
-            #[writable(SubSampleMappingCount)]
             pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
             SubSampleMappingCount: UINT,
         }
@@ -152,7 +148,7 @@ mod Windows {
             fn CreateDeferredContext1(&self, ContextFlags: UINT, #[opt] #[out] #[out_ptr(null_on_failure)] ppDeferredContext: *mut ID3D11DeviceContext1) -> HRESULT;
             fn CreateBlendState1(&self, #[in] pBlendStateDesc: *const D3D11_BLEND_DESC1, #[opt] #[out] #[out_ptr(null_on_failure)] ppBlendState: *mut ID3D11BlendState1) -> HRESULT;
             fn CreateRasterizerState1(&self, #[in] pRasterizerDesc: *const D3D11_RASTERIZER_DESC1, #[opt] #[out] #[out_ptr(null_on_failure)] ppRasterizerState: *mut ID3D11RasterizerState1) -> HRESULT;
-            fn CreateDeviceContextState(&self, Flags: UINT, #[in] #[readable(entry, FeatureLevels)] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, EmulatedInterface: &IID, #[opt] #[out] pChosenFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] ppContextState: *mut ID3DDeviceContextState) -> HRESULT;
+            fn CreateDeviceContextState(&self, Flags: UINT, #[buffer(FeatureLevels)] #[in] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, EmulatedInterface: &IID, #[opt] #[out] pChosenFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] ppContextState: *mut ID3DDeviceContextState) -> HRESULT;
             fn OpenSharedResource1(&self, #[in] hResource: HANDLE, #[in] returnedInterface: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppResource: *mut *mut void) -> HRESULT;
             fn OpenSharedResourceByName(&self, #[in] lpName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] returnedInterface: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppResource: *mut *mut void) -> HRESULT;
         }
@@ -162,21 +158,21 @@ mod Windows {
             fn UpdateSubresource1(&self, #[in] pDstResource: ID3D11Resource, #[in] DstSubresource: UINT, #[in] #[opt] pDstBox: *const D3D11_BOX, #[in] pSrcData: *const void, #[in] SrcRowPitch: UINT, #[in] SrcDepthPitch: UINT, #[in] CopyFlags: UINT);
             fn DiscardResource(&self, #[in] pResource: ID3D11Resource);
             fn DiscardView(&self, #[in] pResourceView: ID3D11View);
-            fn VSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn HSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn DSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn GSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn PSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn CSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[in] #[opt] #[readable(entry, NumBuffers)] ppConstantBuffers: *const ID3D11Buffer, #[in] #[opt] #[readable(entry, NumBuffers)] pFirstConstant: *const UINT, #[in] #[opt] #[readable(entry, NumBuffers)] pNumConstants: *const UINT);
-            fn VSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
-            fn HSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
-            fn DSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
-            fn GSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
-            fn PSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
-            fn CSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[opt] #[out] #[writable(entry, NumBuffers)] ppConstantBuffers: *mut ID3D11Buffer, #[opt] #[out] #[writable(entry, NumBuffers)] pFirstConstant: *mut UINT, #[opt] #[out] #[writable(entry, NumBuffers)] pNumConstants: *mut UINT);
+            fn VSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn HSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn DSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn GSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn PSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn CSSetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[buffer(NumBuffers)] #[in] #[opt] pFirstConstant: *const UINT, #[buffer(NumBuffers)] #[in] #[opt] pNumConstants: *const UINT);
+            fn VSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
+            fn HSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
+            fn DSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
+            fn GSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
+            fn PSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
+            fn CSGetConstantBuffers1(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pFirstConstant: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pNumConstants: *mut UINT);
             fn SwapDeviceContextState(&self, #[in] pState: ID3DDeviceContextState, #[opt] #[out] #[out_ptr] ppPreviousState: *mut ID3DDeviceContextState);
-            fn ClearView(&self, #[in] pView: ID3D11View, #[in] Color: *const FLOAT, #[in] #[opt] #[readable(entry, NumRects)] pRect: *const D3D11_RECT, NumRects: UINT);
-            fn DiscardView1(&self, #[in] pResourceView: ID3D11View, #[in] #[opt] #[readable(entry, NumRects)] pRects: *const D3D11_RECT, NumRects: UINT);
+            fn ClearView(&self, #[in] pView: ID3D11View, #[in] Color: *const FLOAT, #[buffer(NumRects)] #[in] #[opt] pRect: *const D3D11_RECT, NumRects: UINT);
+            fn DiscardView1(&self, #[in] pResourceView: ID3D11View, #[buffer(NumRects)] #[in] #[opt] pRects: *const D3D11_RECT, NumRects: UINT);
         }
         #[guid(0x1217d7a6_5039_418c_b042_9cbe256afd6e)]
         interface ID3D11RasterizerState1: ID3D11RasterizerState {
@@ -184,8 +180,8 @@ mod Windows {
         }
         #[guid(0xa7f026da_a5f8_4487_a564_15e34357651e)]
         interface ID3D11VideoContext1: ID3D11VideoContext {
-            fn SubmitDecoderBuffers1(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] NumBuffers: UINT, #[in] #[readable(entry, NumBuffers)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> HRESULT;
-            fn GetDataForNewHardwareKey(&self, #[in] pCryptoSession: ID3D11CryptoSession, #[in] PrivateInputSize: UINT, #[in] #[readable(entry, PrivateInputSize)] pPrivatInputData: *const void, #[out] pPrivateOutputData: *mut UINT64) -> HRESULT;
+            fn SubmitDecoderBuffers1(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] NumBuffers: UINT, #[buffer(NumBuffers)] #[in] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> HRESULT;
+            fn GetDataForNewHardwareKey(&self, #[in] pCryptoSession: ID3D11CryptoSession, #[in] PrivateInputSize: UINT, #[buffer(PrivateInputSize)] #[in] pPrivatInputData: *const void, #[out] pPrivateOutputData: *mut UINT64) -> HRESULT;
             fn CheckCryptoSessionStatus(&self, #[in] pCryptoSession: ID3D11CryptoSession, #[out] pStatus: *mut D3D11_CRYPTO_SESSION_STATUS) -> HRESULT;
             fn DecoderEnableDownsampling(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] InputColorSpace: DXGI_COLOR_SPACE_TYPE, #[in] pOutputDesc: *const D3D11_VIDEO_SAMPLE_DESC, #[in] ReferenceFrameCount: UINT) -> HRESULT;
             fn DecoderUpdateDownsampling(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] pOutputDesc: *const D3D11_VIDEO_SAMPLE_DESC) -> HRESULT;
@@ -197,7 +193,7 @@ mod Windows {
             fn VideoProcessorSetStreamMirror(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[in] Enable: BOOL, #[in] FlipHorizontal: BOOL, #[in] FlipVertical: BOOL);
             fn VideoProcessorGetStreamColorSpace1(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[out] pColorSpace: *mut DXGI_COLOR_SPACE_TYPE);
             fn VideoProcessorGetStreamMirror(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[out] pEnable: *mut BOOL, #[out] pFlipHorizontal: *mut BOOL, #[out] pFlipVertical: *mut BOOL);
-            fn VideoProcessorGetBehaviorHints(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] OutputWidth: UINT, #[in] OutputHeight: UINT, #[in] OutputFormat: DXGI_FORMAT, #[in] StreamCount: UINT, #[in] #[readable(entry, StreamCount)] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, #[out] pBehaviorHints: *mut UINT) -> HRESULT;
+            fn VideoProcessorGetBehaviorHints(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] OutputWidth: UINT, #[in] OutputHeight: UINT, #[in] OutputFormat: DXGI_FORMAT, #[in] StreamCount: UINT, #[buffer(StreamCount)] #[in] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, #[out] pBehaviorHints: *mut UINT) -> HRESULT;
         }
         #[guid(0x29da1d51_1321_4454_804b_f5fc9f861f0f)]
         interface ID3D11VideoDevice1: ID3D11VideoDevice {

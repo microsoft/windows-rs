@@ -659,11 +659,11 @@ mod Windows {
         }
         #[guid(0x133adcd4_19b4_4020_9fdc_842e78253b17)]
         interface ISpPhoneticAlphabetConverter: IUnknown {
-            fn GetLangId(&self, #[out] #[writable(entry, 1)] pLangID: *mut WORD) -> HRESULT;
+            fn GetLangId(&self, #[buffer(1)] #[out] pLangID: *mut WORD) -> HRESULT;
             fn SetLangId(&self, #[in] LangID: WORD) -> HRESULT;
-            fn SAPI2UPS(&self, #[in] #[null_terminated(entry)] pszSAPIId: *const SPPHONEID, #[null_terminated(success)] #[out] #[writable(entry, cMaxLength)] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
-            fn UPS2SAPI(&self, #[in] #[null_terminated(entry)] pszUPSId: *const SPPHONEID, #[null_terminated(success)] #[out] #[writable(entry, cMaxLength)] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
-            fn GetMaxConvertLength(&self, #[in] cSrcLength: DWORD, #[in] bSAPI2UPS: BOOL, #[out] #[writable(entry, 1)] pcMaxDestLength: *mut DWORD) -> HRESULT;
+            fn SAPI2UPS(&self, #[in] #[null_terminated(entry)] pszSAPIId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated(success)] #[out] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn UPS2SAPI(&self, #[in] #[null_terminated(entry)] pszUPSId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated(success)] #[out] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn GetMaxConvertLength(&self, #[in] cSrcLength: DWORD, #[in] bSAPI2UPS: BOOL, #[buffer(1)] #[out] pcMaxDestLength: *mut DWORD) -> HRESULT;
         }
         #[guid(0xb2745efd_42ce_48ca_81f1_a96e02538a90)]
         interface ISpPhoneticAlphabetSelection: IUnknown {
@@ -674,7 +674,7 @@ mod Windows {
         interface ISpPhrase: IUnknown {
             fn GetPhrase(&self, #[out] #[out_ptr] ppCoMemPhrase: *mut *mut SPPHRASE) -> HRESULT;
             fn GetSerializedPhrase(&self, #[out] #[out_ptr] ppCoMemPhrase: *mut *mut SPSERIALIZEDPHRASE) -> HRESULT;
-            fn GetText(&self, #[in] ulStart: ULONG, #[in] ulCount: ULONG, #[in] fUseTextReplacements: BOOL, #[out] #[out_ptr] ppszCoMemText: *mut LPWSTR, #[opt] #[out] #[writable(entry, 1)] pbDisplayAttributes: *mut BYTE) -> HRESULT;
+            fn GetText(&self, #[in] ulStart: ULONG, #[in] ulCount: ULONG, #[in] fUseTextReplacements: BOOL, #[out] #[out_ptr] ppszCoMemText: *mut LPWSTR, #[buffer(1)] #[opt] #[out] pbDisplayAttributes: *mut BYTE) -> HRESULT;
             fn Discard(&self, #[in] dwValueTypes: DWORD) -> HRESULT;
         }
         #[guid(0xf264da52_e457_4696_b856_a737b717af79)]
@@ -740,7 +740,7 @@ mod Windows {
             fn LoadDictation(&self, #[in] #[opt] pszTopicName: LPCWSTR, #[in] Options: SPLOADOPTIONS) -> HRESULT;
             fn UnloadDictation(&self) -> HRESULT;
             fn SetDictationState(&self, #[in] NewState: SPRULESTATE) -> HRESULT;
-            fn SetWordSequenceData(&self, #[in] #[opt] #[readable(entry, cchText)] pText: *const WCHAR, #[in] cchText: ULONG, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn SetWordSequenceData(&self, #[buffer(cchText)] #[in] #[opt] pText: *const WCHAR, #[in] cchText: ULONG, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
             fn SetTextSelection(&self, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
             fn IsPronounceable(&self, #[in] pszWord: LPCWSTR, #[out] pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
             fn SetGrammarState(&self, #[in] eGrammarState: SPGRAMMARSTATE) -> HRESULT;
@@ -761,7 +761,7 @@ mod Windows {
         #[guid(0x20b053be_e235_43cd_9a2a_8d17a48b7842)]
         interface ISpRecoResult: ISpPhrase {
             fn GetResultTimes(&self, #[out] pTimes: *mut SPRECORESULTTIMES) -> HRESULT;
-            fn GetAlternates(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] ulRequestCount: ULONG, #[out] #[readable(success, *pcPhrasesReturned)] #[writable(entry, ulRequestCount)] ppPhrases: *mut ISpPhraseAlt, #[out] pcPhrasesReturned: *mut ULONG) -> HRESULT;
+            fn GetAlternates(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] ulRequestCount: ULONG, #[buffer(ulRequestCount)] #[out] ppPhrases: *mut ISpPhraseAlt, #[out] pcPhrasesReturned: *mut ULONG) -> HRESULT;
             fn GetAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[out] ppStream: *mut ISpStreamFormat) -> HRESULT;
             fn SpeakAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] dwFlags: DWORD, #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
             fn Serialize(&self, #[out] ppCoMemSerializedResult: *mut *mut SPSERIALIZEDRESULT) -> HRESULT;
@@ -852,7 +852,7 @@ mod Windows {
         }
         #[guid(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0)]
         interface ISpTranscript: IUnknown {
-            fn GetTranscript(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszTranscript: *mut LPWSTR) -> HRESULT;
+            fn GetTranscript(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppszTranscript: *mut LPWSTR) -> HRESULT;
             fn AppendTranscript(&self, #[in] #[null_terminated(entry)] pszTranscript: LPCWSTR) -> HRESULT;
         }
         #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]

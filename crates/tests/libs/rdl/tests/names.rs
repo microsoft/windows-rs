@@ -95,6 +95,32 @@ mod Test {{
 }
 
 #[test]
+fn function_names_do_not_require_attribute_encoding() {
+    let path = std::path::Path::new(env!("OUT_DIR")).join("function-names.rdl");
+    std::fs::write(
+        &path,
+        r#"
+        #[win32] mod Test {
+            #[Unknown] #[library("test.dll")] extern fn Function(value: MissingType);
+            extern fn Callback();
+            struct Record { value: i32, }
+            mod Other { #[library("test.dll")] extern fn Nested(); }
+        }
+        "#,
+    )
+    .unwrap();
+    assert_eq!(
+        windows_rdl::function_names(&path, "Test").unwrap(),
+        ["Function"]
+    );
+    assert_eq!(
+        windows_rdl::function_names(&path, "Test.Other").unwrap(),
+        ["Nested"]
+    );
+    std::fs::remove_file(path).unwrap();
+}
+
+#[test]
 fn enum_members_are_separate_from_items() {
     let path = std::path::Path::new(env!("OUT_DIR")).join("names.rdl");
     std::fs::write(

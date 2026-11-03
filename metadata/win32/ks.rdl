@@ -660,7 +660,6 @@ mod Windows {
             Duration: LONGLONG,
             FrameExtent: ULONG,
             DataUsed: ULONG,
-            #[writable(bytes(FrameExtent))]
             Data: PVOID,
             OptionsFlags: ULONG,
             Reserved: ULONG,
@@ -673,7 +672,6 @@ mod Windows {
             Duration: LONGLONG,
             FrameExtent: ULONG,
             DataUsed: ULONG,
-            #[writable(bytes(FrameExtent))]
             Data: PVOID,
             OptionsFlags: ULONG,
         }
@@ -699,9 +697,7 @@ mod Windows {
         struct KSSTREAM_METADATA_INFO {
             BufferSize: ULONG,
             UsedSize: ULONG,
-            #[writable(bytes(BufferSize))]
             Data: PVOID,
-            #[writable(bytes(BufferSize))]
             SystemVa: PVOID,
             Flags: ULONG,
             Reserved: ULONG,
@@ -751,15 +747,11 @@ mod Windows {
         const KSTIME_FORMAT_SAMPLE: GUID = 0x7b785572_8c82_11cf_bc0c_00aa00ac74f6;
         struct KSTOPOLOGY {
             CategoriesCount: ULONG,
-            #[writable(CategoriesCount)]
             Categories: *const GUID,
             TopologyNodesCount: ULONG,
-            #[writable(TopologyNodesCount)]
             TopologyNodes: *const GUID,
             TopologyConnectionsCount: ULONG,
-            #[writable(TopologyConnectionsCount)]
             TopologyConnections: *const KSTOPOLOGY_CONNECTION,
-            #[writable(TopologyNodesCount)]
             TopologyNodesNames: *const GUID,
             Reserved: ULONG,
         }

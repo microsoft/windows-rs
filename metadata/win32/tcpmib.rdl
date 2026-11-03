@@ -53,12 +53,10 @@ mod Windows {
         }
         struct MIB_TCP6TABLE_OWNER_MODULE {
             dwNumEntries: DWORD,
-            #[writable(dwNumEntries)]
             table: [MIB_TCP6ROW_OWNER_MODULE; 1],
         }
         struct MIB_TCP6TABLE_OWNER_PID {
             dwNumEntries: DWORD,
-            #[writable(dwNumEntries)]
             table: [MIB_TCP6ROW_OWNER_PID; 1],
         }
         type MIB_TCPROW = MIB_TCPROW_LH;

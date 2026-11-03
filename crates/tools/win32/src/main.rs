@@ -1373,26 +1373,8 @@ mod tests {
         }
         let fixtures =
             Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang\\input");
-        let fixture_functions = |name: &str| {
-            let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
-            let scratch = root.join("target\\test-win32-fixture-roots");
-            std::fs::create_dir_all(&scratch).unwrap();
-            let path = scratch.join(name).with_extension("winmd");
-            windows_rdl::reader()
-                .input(root.join("metadata\\metadata.rdl"))
-                .input(fixtures.join(name))
-                .output(&path)
-                .write()
-                .unwrap();
-            let metadata = windows_metadata::reader::Index::read(path).unwrap();
-            metadata
-                .iter_items()
-                .filter(|(_, _, item)| matches!(item, windows_metadata::reader::Item::Fn(_)))
-                .map(|(_, name, _)| name.to_string())
-                .collect::<BTreeSet<_>>()
-                .into_iter()
-                .collect::<Vec<_>>()
-        };
+        let fixture_functions =
+            |name: &str| windows_rdl::function_names(fixtures.join(name), "Fixture").unwrap();
         let adshlp = fixture_functions("sdk_adshlp.rdl");
         assert_eq!(adshlp.len(), 22);
         let winsock = fixture_functions("sdk_winsock.rdl");

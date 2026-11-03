@@ -96,11 +96,11 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn CryptCATAdminAddCatalog(#[in] hCatAdmin: HCATADMIN, #[in] pwszCatalogFile: PWSTR, #[in] #[opt] pwszSelectBaseName: PWSTR, #[in] dwFlags: DWORD) -> HCATINFO;
         #[library("WINTRUST.dll")]
-        extern fn CryptCATAdminCalcHashFromFileHandle(#[in] hFile: HANDLE, #[in] #[out] pcbHash: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbHash))] #[writable(entry, bytes(*pcbHash))] pbHash: *mut BYTE, #[reserved] dwFlags: DWORD) -> BOOL;
+        extern fn CryptCATAdminCalcHashFromFileHandle(#[in] hFile: HANDLE, #[in] #[out] pcbHash: *mut DWORD, #[buffer(bytes(*pcbHash))] #[opt] #[out] pbHash: *mut BYTE, #[reserved] dwFlags: DWORD) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn CryptCATAdminCalcHashFromFileHandle2(#[in] hCatAdmin: HCATADMIN, #[in] hFile: HANDLE, #[in] #[out] pcbHash: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbHash))] #[writable(entry, bytes(*pcbHash))] pbHash: *mut BYTE, #[reserved] dwFlags: DWORD) -> BOOL;
+        extern fn CryptCATAdminCalcHashFromFileHandle2(#[in] hCatAdmin: HCATADMIN, #[in] hFile: HANDLE, #[in] #[out] pcbHash: *mut DWORD, #[buffer(bytes(*pcbHash))] #[opt] #[out] pbHash: *mut BYTE, #[reserved] dwFlags: DWORD) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn CryptCATAdminEnumCatalogFromHash(#[in] hCatAdmin: HCATADMIN, #[in] #[readable(entry, bytes(cbHash))] pbHash: *mut BYTE, #[in] cbHash: DWORD, #[reserved] dwFlags: DWORD, #[in] #[opt] #[out] phPrevCatInfo: *mut HCATINFO) -> HCATINFO;
+        extern fn CryptCATAdminEnumCatalogFromHash(#[in] hCatAdmin: HCATADMIN, #[buffer(bytes(cbHash))] #[in] pbHash: *mut BYTE, #[in] cbHash: DWORD, #[reserved] dwFlags: DWORD, #[in] #[opt] #[out] phPrevCatInfo: *mut HCATINFO) -> HCATINFO;
         #[library("WINTRUST.dll")]
         extern fn CryptCATAdminPauseServiceForBackup(dwFlags: DWORD, fResume: BOOL) -> BOOL;
         #[library("WINTRUST.dll")]

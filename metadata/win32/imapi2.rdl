@@ -483,21 +483,21 @@ mod Windows {
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[in] #[readable(entry, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[out] #[readable(success, *BufferFetched)] #[writable(entry, BufferSize)] #[writable(success, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
-            fn ReadDvdStructure(&self, #[in] format: ULONG, #[in] address: ULONG, #[in] layer: ULONG, #[in] agid: ULONG, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn SendDvdStructure(&self, #[in] format: ULONG, #[in] #[readable(entry, count)] data: *mut BYTE, #[in] count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn GetAdapterDescriptor(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
-            fn GetDeviceDescriptor(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
-            fn GetDiscInformation(&self, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
-            fn GetTrackInformation(&self, #[in] address: ULONG, #[in] addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] trackInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
-            fn GetFeaturePage(&self, #[in] requestedFeature: IMAPI_FEATURE_PAGE_TYPE, #[in] currentFeatureOnly: BOOLEAN, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] featureData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
-            fn GetModePage(&self, #[in] requestedModePage: IMAPI_MODE_PAGE_TYPE, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] modePageData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn SetModePage(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[in] #[readable(entry, byteSize)] data: *mut BYTE, #[in] byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn GetSupportedFeaturePages(&self, #[in] currentFeatureOnly: BOOLEAN, #[nullable] #[out] #[readable(success, *byteSize, indirect)] #[writable(success, *byteSize, indirect)] featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, #[out] byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
-            fn GetSupportedProfiles(&self, #[in] currentOnly: BOOLEAN, #[nullable] #[out] #[readable(success, *validProfiles, indirect)] #[writable(success, *validProfiles, indirect)] profileTypes: *mut *mut IMAPI_PROFILE_TYPE, #[out] validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
-            fn GetSupportedModePages(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[nullable] #[out] #[readable(success, *validPages, indirect)] #[writable(success, *validPages, indirect)] modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, #[out] validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
+            fn SendCommandNoData(&self, #[buffer(CdbSize)] #[in] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[buffer(18)] #[out] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, #[buffer(CdbSize)] #[in] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[buffer(18)] #[out] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[buffer(BufferSize)] #[in] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, #[buffer(CdbSize)] #[in] Cdb: *mut BYTE, #[in] CdbSize: ULONG, #[buffer(18)] #[out] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[buffer(BufferSize)] #[out] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn ReadDvdStructure(&self, #[in] format: ULONG, #[in] address: ULONG, #[in] layer: ULONG, #[in] agid: ULONG, #[incomplete] #[nullable] #[out] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendDvdStructure(&self, #[in] format: ULONG, #[buffer(count)] #[in] data: *mut BYTE, #[in] count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn GetAdapterDescriptor(&self, #[incomplete] #[nullable] #[out] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
+            fn GetDeviceDescriptor(&self, #[incomplete] #[nullable] #[out] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
+            fn GetDiscInformation(&self, #[incomplete] #[nullable] #[out] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
+            fn GetTrackInformation(&self, #[in] address: ULONG, #[in] addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, #[incomplete] #[nullable] #[out] trackInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
+            fn GetFeaturePage(&self, #[in] requestedFeature: IMAPI_FEATURE_PAGE_TYPE, #[in] currentFeatureOnly: BOOLEAN, #[incomplete] #[nullable] #[out] featureData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetModePage(&self, #[in] requestedModePage: IMAPI_MODE_PAGE_TYPE, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[incomplete] #[nullable] #[out] modePageData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn SetModePage(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[buffer(byteSize)] #[in] data: *mut BYTE, #[in] byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, #[in] currentFeatureOnly: BOOLEAN, #[incomplete] #[nullable] #[out] featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, #[out] byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, #[in] currentOnly: BOOLEAN, #[incomplete] #[nullable] #[out] profileTypes: *mut *mut IMAPI_PROFILE_TYPE, #[out] validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn GetSupportedModePages(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[incomplete] #[nullable] #[out] modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, #[out] validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
             fn GetByteAlignmentMask(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn GetMaximumNonPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn GetMaximumPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
@@ -834,20 +834,20 @@ mod Windows {
         #[guid(0x27354146_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamConcatenate: IStream {
             fn Initialize(&self, #[in] #[opt] stream1: IStream, #[in] #[opt] stream2: IStream) -> HRESULT;
-            fn Initialize2(&self, #[in] #[readable(entry, streamCount)] streams: *mut IStream, #[in] streamCount: ULONG) -> HRESULT;
+            fn Initialize2(&self, #[buffer(streamCount)] #[in] streams: *mut IStream, #[in] streamCount: ULONG) -> HRESULT;
             fn Append(&self, #[in] #[opt] stream: IStream) -> HRESULT;
-            fn Append2(&self, #[in] #[readable(entry, streamCount)] streams: *mut IStream, #[in] streamCount: ULONG) -> HRESULT;
+            fn Append2(&self, #[buffer(streamCount)] #[in] streams: *mut IStream, #[in] streamCount: ULONG) -> HRESULT;
         }
         #[guid(0x27354147_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamInterleave: IStream {
-            fn Initialize(&self, #[in] #[readable(entry, streamCount)] streams: *mut IStream, #[in] #[readable(entry, streamCount)] interleaveSizes: *mut ULONG, #[in] streamCount: ULONG) -> HRESULT;
+            fn Initialize(&self, #[buffer(streamCount)] #[in] streams: *mut IStream, #[buffer(streamCount)] #[in] interleaveSizes: *mut ULONG, #[in] streamCount: ULONG) -> HRESULT;
         }
         #[guid(0x27354145_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamPseudoRandomBased: IStream {
             fn put_Seed(&self, #[in] value: ULONG) -> HRESULT;
             fn get_Seed(&self, #[out] value: *mut ULONG) -> HRESULT;
-            fn put_ExtendedSeed(&self, #[in] #[readable(entry, eCount)] values: *mut ULONG, #[in] eCount: ULONG) -> HRESULT;
-            fn get_ExtendedSeed(&self, #[nullable] #[out] #[readable(success, *eCount, indirect)] #[writable(success, *eCount, indirect)] values: *mut *mut ULONG, #[out] eCount: *mut ULONG) -> HRESULT;
+            fn put_ExtendedSeed(&self, #[buffer(eCount)] #[in] values: *mut ULONG, #[in] eCount: ULONG) -> HRESULT;
+            fn get_ExtendedSeed(&self, #[incomplete] #[nullable] #[out] values: *mut *mut ULONG, #[out] eCount: *mut ULONG) -> HRESULT;
         }
         #[guid(0x27354135_7f64_5b0f_8f00_5d77afbe261e)]
         interface IWriteEngine2: IDispatch {

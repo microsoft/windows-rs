@@ -26,7 +26,7 @@ mod Windows {
         extern fn RoInitialize(#[in] initType: RO_INIT_TYPE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         #[must_use]
-        extern fn RoRegisterActivationFactories(#[in] #[readable(entry, count)] activatableClassIds: *mut HSTRING, #[in] #[readable(entry, count)] activationFactoryCallbacks: *mut PFNGETACTIVATIONFACTORY, #[in] count: UINT32, #[out] cookie: *mut RO_REGISTRATION_COOKIE) -> HRESULT;
+        extern fn RoRegisterActivationFactories(#[buffer(count)] #[in] activatableClassIds: *mut HSTRING, #[buffer(count)] #[in] activationFactoryCallbacks: *mut PFNGETACTIVATIONFACTORY, #[in] count: UINT32, #[out] cookie: *mut RO_REGISTRATION_COOKIE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         #[must_use]
         extern fn RoRegisterForApartmentShutdown(#[in] callbackObject: IApartmentShutdown, #[out] apartmentIdentifier: *mut UINT64, #[out] regCookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;

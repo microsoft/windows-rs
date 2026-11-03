@@ -126,7 +126,6 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             AxisCount: UINT,
-            #[writable(AxisCount)]
             Axes: *const UINT,
             AxisDirection: DML_AXIS_DIRECTION,
         }
@@ -134,7 +133,6 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             AxisCount: UINT,
-            #[writable(AxisCount)]
             Axes: *const UINT,
             AxisDirection: DML_AXIS_DIRECTION,
         }
@@ -142,13 +140,9 @@ mod Windows {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
             IncludePadding: BOOL,
         }
@@ -156,13 +150,9 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
             IncludePadding: BOOL,
         }
@@ -241,7 +231,6 @@ mod Windows {
         }
         struct DML_BUFFER_ARRAY_BINDING {
             BindingCount: UINT,
-            #[writable(BindingCount)]
             Bindings: *const DML_BUFFER_BINDING,
         }
         struct DML_BUFFER_BINDING {
@@ -254,10 +243,8 @@ mod Windows {
             DataType: DML_TENSOR_DATA_TYPE,
             Flags: DML_TENSOR_FLAGS,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Sizes: *const UINT,
             #[nullable]
-            #[writable(DimensionCount)]
             Strides: *const UINT,
             TotalTensorSizeInBytes: UINT64,
             GuaranteedBaseOffsetAlignment: UINT,
@@ -280,13 +267,9 @@ mod Windows {
             FilterZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             Dilations: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
             GroupCount: UINT,
         }
@@ -304,15 +287,10 @@ mod Windows {
             Mode: DML_CONVOLUTION_MODE,
             Direction: DML_CONVOLUTION_DIRECTION,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             Dilations: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
-            #[writable(DimensionCount)]
             OutputPadding: *const UINT,
             GroupCount: UINT,
             #[nullable]
@@ -778,7 +756,6 @@ mod Windows {
         }
         struct DML_FEATURE_QUERY_FEATURE_LEVELS {
             RequestedFeatureLevelCount: UINT,
-            #[writable(RequestedFeatureLevelCount)]
             RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
         }
         struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
@@ -840,18 +817,14 @@ mod Windows {
             InputCount: UINT,
             OutputCount: UINT,
             NodeCount: UINT,
-            #[writable(NodeCount)]
             Nodes: *const DML_GRAPH_NODE_DESC,
             InputEdgeCount: UINT,
             #[nullable]
-            #[writable(InputEdgeCount)]
             InputEdges: *const DML_GRAPH_EDGE_DESC,
             OutputEdgeCount: UINT,
-            #[writable(OutputEdgeCount)]
             OutputEdges: *const DML_GRAPH_EDGE_DESC,
             IntermediateEdgeCount: UINT,
             #[nullable]
-            #[writable(IntermediateEdgeCount)]
             IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
         }
         struct DML_GRAPH_EDGE_DESC {
@@ -889,7 +862,6 @@ mod Windows {
             #[nullable]
             OutputSingleTensor: *const DML_TENSOR_DESC,
             ActivationDescCount: UINT,
-            #[writable(ActivationDescCount)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
             LinearBeforeReset: BOOL,
@@ -922,7 +894,6 @@ mod Windows {
         }
         struct DML_JOIN_OPERATOR_DESC {
             InputCount: UINT,
-            #[writable(InputCount)]
             InputTensors: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             Axis: UINT,
@@ -957,13 +928,9 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
             P: UINT,
         }
@@ -988,7 +955,6 @@ mod Windows {
             #[nullable]
             OutputCellSingleTensor: *const DML_TENSOR_DESC,
             ActivationDescCount: UINT,
-            #[writable(ActivationDescCount)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
             ClipThreshold: f32,
@@ -1015,13 +981,9 @@ mod Windows {
             #[nullable]
             OutputIndicesTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
         }
         struct DML_MAX_POOLING2_OPERATOR_DESC {
@@ -1030,15 +992,10 @@ mod Windows {
             #[nullable]
             OutputIndicesTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
-            #[writable(DimensionCount)]
             Dilations: *const UINT,
         }
         struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
@@ -1046,28 +1003,19 @@ mod Windows {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
-            #[writable(DimensionCount)]
             Dilations: *const UINT,
         }
         struct DML_MAX_POOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             WindowSize: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
         }
         struct DML_MAX_UNPOOLING_OPERATOR_DESC {
@@ -1083,7 +1031,6 @@ mod Windows {
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             AxisCount: UINT,
-            #[writable(AxisCount)]
             Axes: *const UINT,
             NormalizeVariance: BOOL,
             Epsilon: FLOAT,
@@ -1299,9 +1246,7 @@ mod Windows {
             PaddingValueDataType: DML_TENSOR_DATA_TYPE,
             PaddingValue: DML_SCALAR_UNION,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
         }
         #[repr(i32)]
@@ -1317,9 +1262,7 @@ mod Windows {
             PaddingMode: DML_PADDING_MODE,
             PaddingValue: FLOAT,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
         }
         const DML_PERSISTENT_BUFFER_ALIGNMENT: UINT = 256;
@@ -1339,13 +1282,9 @@ mod Windows {
             OutputZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
-            #[writable(DimensionCount)]
             Dilations: *const UINT,
-            #[writable(DimensionCount)]
             StartPadding: *const UINT,
-            #[writable(DimensionCount)]
             EndPadding: *const UINT,
             GroupCount: UINT,
         }
@@ -1400,7 +1339,6 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             AxisCount: UINT,
-            #[writable(AxisCount)]
             Axes: *const UINT,
         }
         struct DML_RESAMPLE1_OPERATOR_DESC {
@@ -1408,11 +1346,8 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Scales: *const FLOAT,
-            #[writable(DimensionCount)]
             InputPixelOffsets: *const FLOAT,
-            #[writable(DimensionCount)]
             OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
@@ -1420,11 +1355,8 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Scales: *const FLOAT,
-            #[writable(DimensionCount)]
             InputPixelOffsets: *const FLOAT,
-            #[writable(DimensionCount)]
             OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_OPERATOR_DESC {
@@ -1432,7 +1364,6 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             ScaleCount: UINT,
-            #[writable(ScaleCount)]
             Scales: *const FLOAT,
         }
         struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
@@ -1456,7 +1387,6 @@ mod Windows {
             #[nullable]
             OutputSingleTensor: *const DML_TENSOR_DESC,
             ActivationDescCount: UINT,
-            #[writable(ActivationDescCount)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
         }
@@ -1563,33 +1493,24 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             InputWindowOffsets: *const UINT,
-            #[writable(DimensionCount)]
             InputWindowSizes: *const UINT,
-            #[writable(DimensionCount)]
             InputWindowStrides: *const INT,
         }
         struct DML_SLICE_GRAD_OPERATOR_DESC {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             InputWindowOffsets: *const UINT,
-            #[writable(DimensionCount)]
             InputWindowSizes: *const UINT,
-            #[writable(DimensionCount)]
             InputWindowStrides: *const INT,
         }
         struct DML_SLICE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             DimensionCount: UINT,
-            #[writable(DimensionCount)]
             Offsets: *const UINT,
-            #[writable(DimensionCount)]
             Sizes: *const UINT,
-            #[writable(DimensionCount)]
             Strides: *const UINT,
         }
         struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
@@ -1606,7 +1527,6 @@ mod Windows {
         struct DML_SPLIT_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputCount: UINT,
-            #[writable(OutputCount)]
             OutputTensors: *const DML_TENSOR_DESC,
             Axis: UINT,
         }
@@ -1648,7 +1568,6 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             RepeatsCount: UINT,
-            #[writable(RepeatsCount)]
             Repeats: *const UINT,
         }
         struct DML_TOP_K1_OPERATOR_DESC {
@@ -1677,13 +1596,12 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             Scale: FLOAT,
             ChannelCount: UINT,
-            #[writable(ChannelCount)]
             Bias: *const FLOAT,
         }
         #[guid(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc)]
         interface IDMLBindingTable: IDMLDeviceChild {
-            fn BindInputs(&self, bindingCount: UINT, #[in] #[opt] #[readable(entry, bindingCount)] bindings: *const DML_BINDING_DESC);
-            fn BindOutputs(&self, bindingCount: UINT, #[in] #[opt] #[readable(entry, bindingCount)] bindings: *const DML_BINDING_DESC);
+            fn BindInputs(&self, bindingCount: UINT, #[buffer(bindingCount)] #[in] #[opt] bindings: *const DML_BINDING_DESC);
+            fn BindOutputs(&self, bindingCount: UINT, #[buffer(bindingCount)] #[in] #[opt] bindings: *const DML_BINDING_DESC);
             fn BindTemporaryResource(&self, #[in] #[opt] binding: *const DML_BINDING_DESC);
             fn BindPersistentResource(&self, #[in] #[opt] binding: *const DML_BINDING_DESC);
             fn Reset(&self, #[in] #[opt] desc: *const DML_BINDING_TABLE_DESC) -> HRESULT;
@@ -1700,14 +1618,14 @@ mod Windows {
         }
         #[guid(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f)]
         interface IDMLDevice: IDMLObject {
-            fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: UINT, #[in] #[opt] #[readable(entry, bytes(featureQueryDataSize))] featureQueryData: *const void, featureSupportDataSize: UINT, #[out] #[writable(entry, bytes(featureSupportDataSize))] featureSupportData: *mut void) -> HRESULT;
+            fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: UINT, #[buffer(bytes(featureQueryDataSize))] #[in] #[opt] featureQueryData: *const void, featureSupportDataSize: UINT, #[buffer(bytes(featureSupportDataSize))] #[out] featureSupportData: *mut void) -> HRESULT;
             fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
             fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
-            fn CreateOperatorInitializer(&self, operatorCount: UINT, #[in] #[opt] #[readable(entry, operatorCount)] operators: *const IDMLCompiledOperator, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+            fn CreateOperatorInitializer(&self, operatorCount: UINT, #[buffer(operatorCount)] #[in] #[opt] operators: *const IDMLCompiledOperator, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
             fn CreateCommandRecorder(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
             fn CreateBindingTable(&self, #[in] #[opt] desc: *const DML_BINDING_TABLE_DESC, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
-            fn Evict(&self, count: UINT, #[in] #[readable(entry, count)] ppObjects: *const IDMLPageable) -> HRESULT;
-            fn MakeResident(&self, count: UINT, #[in] #[readable(entry, count)] ppObjects: *const IDMLPageable) -> HRESULT;
+            fn Evict(&self, count: UINT, #[buffer(count)] #[in] ppObjects: *const IDMLPageable) -> HRESULT;
+            fn MakeResident(&self, count: UINT, #[buffer(count)] #[in] ppObjects: *const IDMLPageable) -> HRESULT;
             fn GetDeviceRemovedReason(&self) -> HRESULT;
             fn GetParentDevice(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         }
@@ -1725,8 +1643,8 @@ mod Windows {
         }
         #[guid(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c)]
         interface IDMLObject: IUnknown {
-            fn GetPrivateData(&self, guid: &GUID, #[in] #[out] dataSize: *mut UINT, #[opt] #[out] #[writable(entry, bytes(*dataSize))] data: *mut void) -> HRESULT;
-            fn SetPrivateData(&self, guid: &GUID, dataSize: UINT, #[in] #[opt] #[readable(entry, bytes(dataSize))] data: *const void) -> HRESULT;
+            fn GetPrivateData(&self, guid: &GUID, #[in] #[out] dataSize: *mut UINT, #[buffer(bytes(*dataSize))] #[opt] #[out] data: *mut void) -> HRESULT;
+            fn SetPrivateData(&self, guid: &GUID, dataSize: UINT, #[buffer(bytes(dataSize))] #[in] #[opt] data: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, guid: &GUID, #[in] #[opt] data: IUnknown) -> HRESULT;
             fn SetName(&self, name: PCWSTR) -> HRESULT;
         }
@@ -1734,7 +1652,7 @@ mod Windows {
         interface IDMLOperator: IDMLDeviceChild {}
         #[guid(0x427c1113_435c_469c_8676_4d5dd072f813)]
         interface IDMLOperatorInitializer: IDMLDispatchable {
-            fn Reset(&self, operatorCount: UINT, #[in] #[opt] #[readable(entry, operatorCount)] operators: *const IDMLCompiledOperator) -> HRESULT;
+            fn Reset(&self, operatorCount: UINT, #[buffer(operatorCount)] #[in] #[opt] operators: *const IDMLCompiledOperator) -> HRESULT;
         }
         #[guid(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201)]
         interface IDMLPageable: IDMLDeviceChild {}

@@ -55,7 +55,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn AbortPath(#[in] hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn AddFontMemResourceEx(#[in] #[readable(entry, bytes(cjSize))] pFileView: PVOID, #[in] cjSize: DWORD, #[reserved] pvResrved: PVOID, #[in] pNumFonts: *mut DWORD) -> HANDLE;
+        extern fn AddFontMemResourceEx(#[buffer(bytes(cjSize))] #[in] pFileView: PVOID, #[in] cjSize: DWORD, #[reserved] pvResrved: PVOID, #[in] pNumFonts: *mut DWORD) -> HANDLE;
         #[library("GDI32.dll")]
         extern fn AddFontResourceA(#[in] param0: LPCSTR) -> i32;
         #[library("GDI32.dll")]
@@ -69,7 +69,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn AngleArc(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] r: DWORD, #[in] StartAngle: FLOAT, #[in] SweepAngle: FLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn AnimatePalette(#[in] hPal: HPALETTE, #[in] iStartIndex: UINT, #[in] cEntries: UINT, #[in] #[readable(entry, cEntries)] ppe: *const PALETTEENTRY) -> BOOL;
+        extern fn AnimatePalette(#[in] hPal: HPALETTE, #[in] iStartIndex: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[in] ppe: *const PALETTEENTRY) -> BOOL;
         #[library("GDI32.dll")]
         extern fn Arc(#[in] hdc: HDC, #[in] x1: i32, #[in] y1: i32, #[in] x2: i32, #[in] y2: i32, #[in] x3: i32, #[in] y3: i32, #[in] x4: i32, #[in] y4: i32) -> BOOL;
         #[library("GDI32.dll")]
@@ -292,7 +292,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CancelDC(#[in] hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn CheckColorsInGamut(#[in] hdc: HDC, #[in] #[readable(entry, nCount)] lpRGBTriple: LPRGBTRIPLE, #[out] #[writable(entry, bytes(nCount))] dlpBuffer: LPVOID, #[in] nCount: DWORD) -> BOOL;
+        extern fn CheckColorsInGamut(#[in] hdc: HDC, #[buffer(nCount)] #[in] lpRGBTriple: LPRGBTRIPLE, #[buffer(bytes(nCount))] #[out] dlpBuffer: LPVOID, #[in] nCount: DWORD) -> BOOL;
         #[library("GDI32.dll")]
         extern fn ChoosePixelFormat(#[in] hdc: HDC, #[in] ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
         #[library("GDI32.dll")]
@@ -388,9 +388,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CreatePenIndirect(#[in] plpen: *const LOGPEN) -> HPEN;
         #[library("GDI32.dll")]
-        extern fn CreatePolyPolygonRgn(#[in] pptl: *const POINT, #[in] #[readable(entry, cPoly)] pc: *const INT, #[in] cPoly: i32, #[in] iMode: i32) -> HRGN;
+        extern fn CreatePolyPolygonRgn(#[in] pptl: *const POINT, #[buffer(cPoly)] #[in] pc: *const INT, #[in] cPoly: i32, #[in] iMode: i32) -> HRGN;
         #[library("GDI32.dll")]
-        extern fn CreatePolygonRgn(#[in] #[readable(entry, cPoint)] pptl: *const POINT, #[in] cPoint: i32, #[in] iMode: i32) -> HRGN;
+        extern fn CreatePolygonRgn(#[buffer(cPoint)] #[in] pptl: *const POINT, #[in] cPoint: i32, #[in] iMode: i32) -> HRGN;
         #[library("GDI32.dll")]
         extern fn CreateRectRgn(#[in] x1: i32, #[in] y1: i32, #[in] x2: i32, #[in] y2: i32) -> HRGN;
         #[library("GDI32.dll")]
@@ -1259,7 +1259,7 @@ mod Windows {
         const DOWNLOADFACE: i32 = 514;
         const DOWNLOADHEADER: i32 = 4111;
         #[library("GDI32.dll")]
-        extern fn DPtoLP(#[in] hdc: HDC, #[in] #[out] #[writable(entry, c)] lppt: LPPOINT, #[in] c: i32) -> BOOL;
+        extern fn DPtoLP(#[in] hdc: HDC, #[buffer(c)] #[in] #[out] lppt: LPPOINT, #[in] c: i32) -> BOOL;
         const DRAFTMODE: i32 = 7;
         const DRAFT_QUALITY: i32 = 1;
         struct DRAWPATRECT {
@@ -1289,13 +1289,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn DeleteObject(#[in] ho: HGDIOBJ) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn DescribePixelFormat(#[in] hdc: HDC, #[in] iPixelFormat: i32, #[in] nBytes: UINT, #[opt] #[out] #[writable(entry, bytes(nBytes))] ppfd: LPPIXELFORMATDESCRIPTOR) -> i32;
+        extern fn DescribePixelFormat(#[in] hdc: HDC, #[in] iPixelFormat: i32, #[in] nBytes: UINT, #[buffer(bytes(nBytes))] #[opt] #[out] ppfd: LPPIXELFORMATDESCRIPTOR) -> i32;
         #[library("WINSPOOL.DRV")]
         extern fn DeviceCapabilitiesA(#[in] pDevice: LPCSTR, #[in] #[opt] pPort: LPCSTR, #[in] fwCapability: WORD, #[incomplete] #[opt] #[out] pOutput: LPSTR, #[in] #[opt] pDevMode: *const DEVMODEA) -> i32;
         #[library("WINSPOOL.DRV")]
         extern fn DeviceCapabilitiesW(#[in] pDevice: LPCWSTR, #[in] #[opt] pPort: LPCWSTR, #[in] fwCapability: WORD, #[incomplete] #[opt] #[out] pOutput: LPWSTR, #[in] #[opt] pDevMode: *const DEVMODEW) -> i32;
         #[library("GDI32.dll")]
-        extern fn DrawEscape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjIn: i32, #[in] #[opt] #[readable(entry, bytes(cjIn))] lpIn: LPCSTR) -> i32;
+        extern fn DrawEscape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjIn: i32, #[buffer(bytes(cjIn))] #[in] #[opt] lpIn: LPCSTR) -> i32;
         const EASTEUROPE_CHARSET: i32 = 238;
         const ELF_CULTURE_LATIN: i32 = 0;
         const ELF_VENDOR_SIZE: i32 = 4;
@@ -1929,7 +1929,7 @@ mod Windows {
         }
         const ENHMETA_SIGNATURE: i32 = 1179469088;
         const ENHMETA_STOCK_OBJECT: u32 = 2147483648;
-        extern fn ENHMFENUMPROC(#[in] hdc: HDC, #[in] #[readable(entry, nHandles)] lpht: *mut HANDLETABLE, #[in] lpmr: *const ENHMETARECORD, #[in] nHandles: i32, #[in] #[opt] data: LPARAM) -> i32;
+        extern fn ENHMFENUMPROC(#[in] hdc: HDC, #[buffer(nHandles)] #[in] lpht: *mut HANDLETABLE, #[in] lpmr: *const ENHMETARECORD, #[in] nHandles: i32, #[in] #[opt] data: LPARAM) -> i32;
         type ENUMLOGFONT = ENUMLOGFONTA;
         struct ENUMLOGFONTA {
             elfLogFont: LOGFONTA,
@@ -2064,23 +2064,23 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn EqualRgn(#[in] hrgn1: HRGN, #[in] hrgn2: HRGN) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn Escape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjIn: i32, #[in] #[opt] #[readable(entry, bytes(cjIn))] pvIn: LPCSTR, #[opt] #[out] pvOut: LPVOID) -> i32;
+        extern fn Escape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjIn: i32, #[buffer(bytes(cjIn))] #[in] #[opt] pvIn: LPCSTR, #[opt] #[out] pvOut: LPVOID) -> i32;
         #[library("GDI32.dll")]
         extern fn ExcludeClipRect(#[in] hdc: HDC, #[in] left: i32, #[in] top: i32, #[in] right: i32, #[in] bottom: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn ExtCreatePen(#[in] iPenStyle: DWORD, #[in] cWidth: DWORD, #[in] plbrush: *const LOGBRUSH, #[in] cStyle: DWORD, #[in] #[opt] #[readable(entry, cStyle)] pstyle: *const DWORD) -> HPEN;
+        extern fn ExtCreatePen(#[in] iPenStyle: DWORD, #[in] cWidth: DWORD, #[in] plbrush: *const LOGBRUSH, #[in] cStyle: DWORD, #[buffer(cStyle)] #[in] #[opt] pstyle: *const DWORD) -> HPEN;
         #[library("GDI32.dll")]
-        extern fn ExtCreateRegion(#[in] #[opt] lpx: *const XFORM, #[in] nCount: DWORD, #[in] #[readable(entry, bytes(nCount))] lpData: *const RGNDATA) -> HRGN;
+        extern fn ExtCreateRegion(#[in] #[opt] lpx: *const XFORM, #[in] nCount: DWORD, #[buffer(bytes(nCount))] #[in] lpData: *const RGNDATA) -> HRGN;
         #[library("GDI32.dll")]
-        extern fn ExtEscape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjInput: i32, #[in] #[opt] #[readable(entry, bytes(cjInput))] lpInData: LPCSTR, #[in] cjOutput: i32, #[opt] #[out] #[writable(entry, bytes(cjOutput))] lpOutData: LPSTR) -> i32;
+        extern fn ExtEscape(#[in] hdc: HDC, #[in] iEscape: i32, #[in] cjInput: i32, #[buffer(bytes(cjInput))] #[in] #[opt] lpInData: LPCSTR, #[in] cjOutput: i32, #[buffer(bytes(cjOutput))] #[opt] #[out] lpOutData: LPSTR) -> i32;
         #[library("GDI32.dll")]
         extern fn ExtFloodFill(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] color: COLORREF, #[in] r#type: UINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn ExtSelectClipRgn(#[in] hdc: HDC, #[in] #[opt] hrgn: HRGN, #[in] mode: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn ExtTextOutA(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] options: UINT, #[in] #[opt] lprect: *const RECT, #[in] #[opt] #[readable(entry, c)] lpString: LPCSTR, #[in] c: UINT, #[in] #[opt] #[readable(entry, c)] lpDx: *const INT) -> BOOL;
+        extern fn ExtTextOutA(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] options: UINT, #[in] #[opt] lprect: *const RECT, #[buffer(c)] #[in] #[opt] lpString: LPCSTR, #[in] c: UINT, #[buffer(c)] #[in] #[opt] lpDx: *const INT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn ExtTextOutW(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] options: UINT, #[in] #[opt] lprect: *const RECT, #[in] #[opt] #[readable(entry, c)] lpString: LPCWSTR, #[in] c: UINT, #[in] #[opt] #[readable(entry, c)] lpDx: *const INT) -> BOOL;
+        extern fn ExtTextOutW(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] options: UINT, #[in] #[opt] lprect: *const RECT, #[buffer(c)] #[in] #[opt] lpString: LPCWSTR, #[in] c: UINT, #[buffer(c)] #[in] #[opt] lpDx: *const INT) -> BOOL;
         const FEATURESETTING_CUSTPAPER: i32 = 3;
         const FEATURESETTING_MIRROR: i32 = 4;
         const FEATURESETTING_NEGATIVE: i32 = 5;
@@ -2305,13 +2305,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GdiAlphaBlend(#[in] hdcDest: HDC, #[in] xoriginDest: i32, #[in] yoriginDest: i32, #[in] wDest: i32, #[in] hDest: i32, #[in] hdcSrc: HDC, #[in] xoriginSrc: i32, #[in] yoriginSrc: i32, #[in] wSrc: i32, #[in] hSrc: i32, #[in] ftn: BLENDFUNCTION) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GdiComment(#[in] hdc: HDC, #[in] nSize: UINT, #[in] #[readable(entry, bytes(nSize))] lpData: *const BYTE) -> BOOL;
+        extern fn GdiComment(#[in] hdc: HDC, #[in] nSize: UINT, #[buffer(bytes(nSize))] #[in] lpData: *const BYTE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GdiFlush() -> BOOL;
         #[library("GDI32.dll")]
         extern fn GdiGetBatchLimit() -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GdiGradientFill(#[in] hdc: HDC, #[in] #[readable(entry, nVertex)] pVertex: PTRIVERTEX, #[in] nVertex: ULONG, #[in] pMesh: PVOID, #[in] nCount: ULONG, #[in] ulMode: ULONG) -> BOOL;
+        extern fn GdiGradientFill(#[in] hdc: HDC, #[buffer(nVertex)] #[in] pVertex: PTRIVERTEX, #[in] nVertex: ULONG, #[in] pMesh: PVOID, #[in] nCount: ULONG, #[in] ulMode: ULONG) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GdiSetBatchLimit(#[in] dw: DWORD) -> DWORD;
         #[library("GDI32.dll")]
@@ -2321,7 +2321,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetAspectRatioFilterEx(#[in] hdc: HDC, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetBitmapBits(#[in] hbit: HBITMAP, #[in] cb: LONG, #[out] #[writable(entry, bytes(cb))] lpvBits: LPVOID) -> LONG;
+        extern fn GetBitmapBits(#[in] hbit: HBITMAP, #[in] cb: LONG, #[buffer(bytes(cb))] #[out] lpvBits: LPVOID) -> LONG;
         #[library("GDI32.dll")]
         extern fn GetBitmapDimensionEx(#[in] hbit: HBITMAP, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
@@ -2333,33 +2333,33 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetBrushOrgEx(#[in] hdc: HDC, #[out] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsA(#[in] hdc: HDC, #[in] wFirst: UINT, #[in] wLast: UINT, #[out] #[writable(entry, wLast - wFirst + 1)] lpABC: LPABC) -> BOOL;
+        extern fn GetCharABCWidthsA(#[in] hdc: HDC, #[in] wFirst: UINT, #[in] wLast: UINT, #[incomplete] #[out] lpABC: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsFloatA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpABC: LPABCFLOAT) -> BOOL;
+        extern fn GetCharABCWidthsFloatA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpABC: LPABCFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsFloatW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpABC: LPABCFLOAT) -> BOOL;
+        extern fn GetCharABCWidthsFloatW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpABC: LPABCFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsI(#[in] hdc: HDC, #[in] giFirst: UINT, #[in] cgi: UINT, #[in] #[opt] #[readable(entry, cgi)] pgi: LPWORD, #[out] #[writable(entry, cgi)] pabc: LPABC) -> BOOL;
+        extern fn GetCharABCWidthsI(#[in] hdc: HDC, #[in] giFirst: UINT, #[in] cgi: UINT, #[buffer(cgi)] #[in] #[opt] pgi: LPWORD, #[buffer(cgi)] #[out] pabc: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsW(#[in] hdc: HDC, #[in] wFirst: UINT, #[in] wLast: UINT, #[out] #[writable(entry, wLast - wFirst + 1)] lpABC: LPABC) -> BOOL;
+        extern fn GetCharABCWidthsW(#[in] hdc: HDC, #[in] wFirst: UINT, #[in] wLast: UINT, #[incomplete] #[out] lpABC: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidth32A(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: LPINT) -> BOOL;
+        extern fn GetCharWidth32A(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidth32W(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: LPINT) -> BOOL;
+        extern fn GetCharWidth32W(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: LPINT) -> BOOL;
+        extern fn GetCharWidthA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthFloatA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: PFLOAT) -> BOOL;
+        extern fn GetCharWidthFloatA(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthFloatW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: PFLOAT) -> BOOL;
+        extern fn GetCharWidthFloatW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthI(#[in] hdc: HDC, #[in] giFirst: UINT, #[in] cgi: UINT, #[in] #[opt] #[readable(entry, cgi)] pgi: LPWORD, #[out] #[writable(entry, cgi)] piWidths: LPINT) -> BOOL;
+        extern fn GetCharWidthI(#[in] hdc: HDC, #[in] giFirst: UINT, #[in] cgi: UINT, #[buffer(cgi)] #[in] #[opt] pgi: LPWORD, #[buffer(cgi)] #[out] piWidths: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[out] #[writable(entry, iLast + 1 - iFirst)] lpBuffer: LPINT) -> BOOL;
+        extern fn GetCharWidthW(#[in] hdc: HDC, #[in] iFirst: UINT, #[in] iLast: UINT, #[incomplete] #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharacterPlacementA(#[in] hdc: HDC, #[in] #[readable(entry, nCount)] lpString: LPCSTR, #[in] nCount: i32, #[in] nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSA, #[in] dwFlags: DWORD) -> DWORD;
+        extern fn GetCharacterPlacementA(#[in] hdc: HDC, #[buffer(nCount)] #[in] lpString: LPCSTR, #[in] nCount: i32, #[in] nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSA, #[in] dwFlags: DWORD) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetCharacterPlacementW(#[in] hdc: HDC, #[in] #[readable(entry, nCount)] lpString: LPCWSTR, #[in] nCount: i32, #[in] nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSW, #[in] dwFlags: DWORD) -> DWORD;
+        extern fn GetCharacterPlacementW(#[in] hdc: HDC, #[buffer(nCount)] #[in] lpString: LPCWSTR, #[in] nCount: i32, #[in] nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSW, #[in] dwFlags: DWORD) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetClipBox(#[in] hdc: HDC, #[out] lprect: LPRECT) -> i32;
         #[library("GDI32.dll")]
@@ -2379,65 +2379,65 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetDCPenColor(#[in] hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[out] #[writable(entry, cEntries)] prgbq: *mut RGBQUAD) -> UINT;
+        extern fn GetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[incomplete] #[out] prgbq: *mut RGBQUAD) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetDIBits(#[in] hdc: HDC, #[in] hbm: HBITMAP, #[in] start: UINT, #[in] cLines: UINT, #[opt] #[out] lpvBits: LPVOID, #[incomplete] lpbmi: LPBITMAPINFO, #[in] usage: UINT) -> i32;
         #[library("GDI32.dll")]
         extern fn GetDeviceCaps(#[in] #[opt] hdc: HDC, #[in] index: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetDeviceGammaRamp(#[in] hdc: HDC, #[out] #[writable(entry, bytes(1536))] lpRamp: LPVOID) -> BOOL;
+        extern fn GetDeviceGammaRamp(#[in] hdc: HDC, #[buffer(bytes(1536))] #[out] lpRamp: LPVOID) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileA(#[in] lpName: LPCSTR) -> HENHMETAFILE;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileBits(#[in] hEMF: HENHMETAFILE, #[in] nSize: UINT, #[opt] #[out] #[writable(entry, bytes(nSize))] lpData: LPBYTE) -> UINT;
+        extern fn GetEnhMetaFileBits(#[in] hEMF: HENHMETAFILE, #[in] nSize: UINT, #[buffer(bytes(nSize))] #[opt] #[out] lpData: LPBYTE) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileDescriptionA(#[in] hemf: HENHMETAFILE, #[in] cchBuffer: UINT, #[opt] #[out] #[writable(entry, cchBuffer)] lpDescription: LPSTR) -> UINT;
+        extern fn GetEnhMetaFileDescriptionA(#[in] hemf: HENHMETAFILE, #[in] cchBuffer: UINT, #[buffer(cchBuffer)] #[opt] #[out] lpDescription: LPSTR) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileDescriptionW(#[in] hemf: HENHMETAFILE, #[in] cchBuffer: UINT, #[opt] #[out] #[writable(entry, cchBuffer)] lpDescription: LPWSTR) -> UINT;
+        extern fn GetEnhMetaFileDescriptionW(#[in] hemf: HENHMETAFILE, #[in] cchBuffer: UINT, #[buffer(cchBuffer)] #[opt] #[out] lpDescription: LPWSTR) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileHeader(#[in] hemf: HENHMETAFILE, #[in] nSize: UINT, #[opt] #[out] #[writable(entry, bytes(nSize))] lpEnhMetaHeader: LPENHMETAHEADER) -> UINT;
+        extern fn GetEnhMetaFileHeader(#[in] hemf: HENHMETAFILE, #[in] nSize: UINT, #[buffer(bytes(nSize))] #[opt] #[out] lpEnhMetaHeader: LPENHMETAHEADER) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFilePaletteEntries(#[in] hemf: HENHMETAFILE, #[in] nNumEntries: UINT, #[opt] #[out] #[writable(entry, nNumEntries)] lpPaletteEntries: LPPALETTEENTRY) -> UINT;
+        extern fn GetEnhMetaFilePaletteEntries(#[in] hemf: HENHMETAFILE, #[in] nNumEntries: UINT, #[buffer(nNumEntries)] #[opt] #[out] lpPaletteEntries: LPPALETTEENTRY) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFilePixelFormat(#[in] hemf: HENHMETAFILE, #[in] cbBuffer: UINT, #[opt] #[out] #[writable(entry, bytes(cbBuffer))] ppfd: *mut PIXELFORMATDESCRIPTOR) -> UINT;
+        extern fn GetEnhMetaFilePixelFormat(#[in] hemf: HENHMETAFILE, #[in] cbBuffer: UINT, #[buffer(bytes(cbBuffer))] #[opt] #[out] ppfd: *mut PIXELFORMATDESCRIPTOR) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileW(#[in] lpName: LPCWSTR) -> HENHMETAFILE;
         #[library("GDI32.dll")]
-        extern fn GetFontData(#[in] hdc: HDC, #[in] dwTable: DWORD, #[in] dwOffset: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, bytes(cjBuffer))] pvBuffer: PVOID, #[in] cjBuffer: DWORD) -> DWORD;
+        extern fn GetFontData(#[in] hdc: HDC, #[in] dwTable: DWORD, #[in] dwOffset: DWORD, #[buffer(bytes(cjBuffer))] #[incomplete] #[opt] #[out] pvBuffer: PVOID, #[in] cjBuffer: DWORD) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetFontLanguageInfo(#[in] hdc: HDC) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetFontUnicodeRanges(#[in] hdc: HDC, #[opt] #[out] lpgs: LPGLYPHSET) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetGlyphIndicesA(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpstr: LPCSTR, #[in] c: i32, #[out] #[writable(entry, c)] pgi: LPWORD, #[in] fl: DWORD) -> DWORD;
+        extern fn GetGlyphIndicesA(#[in] hdc: HDC, #[buffer(c)] #[in] lpstr: LPCSTR, #[in] c: i32, #[buffer(c)] #[out] pgi: LPWORD, #[in] fl: DWORD) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetGlyphIndicesW(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpstr: LPCWSTR, #[in] c: i32, #[out] #[writable(entry, c)] pgi: LPWORD, #[in] fl: DWORD) -> DWORD;
+        extern fn GetGlyphIndicesW(#[in] hdc: HDC, #[buffer(c)] #[in] lpstr: LPCWSTR, #[in] c: i32, #[buffer(c)] #[out] pgi: LPWORD, #[in] fl: DWORD) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetGlyphOutlineA(#[in] hdc: HDC, #[in] uChar: UINT, #[in] fuFormat: UINT, #[out] lpgm: LPGLYPHMETRICS, #[in] cjBuffer: DWORD, #[opt] #[out] #[writable(entry, bytes(cjBuffer))] pvBuffer: LPVOID, #[in] lpmat2: *const MAT2) -> DWORD;
+        extern fn GetGlyphOutlineA(#[in] hdc: HDC, #[in] uChar: UINT, #[in] fuFormat: UINT, #[out] lpgm: LPGLYPHMETRICS, #[in] cjBuffer: DWORD, #[buffer(bytes(cjBuffer))] #[opt] #[out] pvBuffer: LPVOID, #[in] lpmat2: *const MAT2) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetGlyphOutlineW(#[in] hdc: HDC, #[in] uChar: UINT, #[in] fuFormat: UINT, #[out] lpgm: LPGLYPHMETRICS, #[in] cjBuffer: DWORD, #[opt] #[out] #[writable(entry, bytes(cjBuffer))] pvBuffer: LPVOID, #[in] lpmat2: *const MAT2) -> DWORD;
+        extern fn GetGlyphOutlineW(#[in] hdc: HDC, #[in] uChar: UINT, #[in] fuFormat: UINT, #[out] lpgm: LPGLYPHMETRICS, #[in] cjBuffer: DWORD, #[buffer(bytes(cjBuffer))] #[opt] #[out] pvBuffer: LPVOID, #[in] lpmat2: *const MAT2) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetGraphicsMode(#[in] hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetICMProfileA(#[in] hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[opt] #[out] #[writable(entry, *pBufSize)] pszFilename: LPSTR) -> BOOL;
+        extern fn GetICMProfileA(#[in] hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[buffer(*pBufSize)] #[opt] #[out] pszFilename: LPSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetICMProfileW(#[in] hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[opt] #[out] #[writable(entry, *pBufSize)] pszFilename: LPWSTR) -> BOOL;
+        extern fn GetICMProfileW(#[in] hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[buffer(*pBufSize)] #[opt] #[out] pszFilename: LPWSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsA(#[in] hdc: HDC, #[in] nPairs: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
+        extern fn GetKerningPairsA(#[in] hdc: HDC, #[in] nPairs: DWORD, #[buffer(nPairs)] #[incomplete] #[opt] #[out] lpKernPair: LPKERNINGPAIR) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsW(#[in] hdc: HDC, #[in] nPairs: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nPairs)] lpKernPair: LPKERNINGPAIR) -> DWORD;
+        extern fn GetKerningPairsW(#[in] hdc: HDC, #[in] nPairs: DWORD, #[buffer(nPairs)] #[incomplete] #[opt] #[out] lpKernPair: LPKERNINGPAIR) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetLayout(#[in] hdc: HDC) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetLogColorSpaceA(#[in] hColorSpace: HCOLORSPACE, #[out] #[writable(entry, bytes(nSize))] lpBuffer: LPLOGCOLORSPACEA, #[in] nSize: DWORD) -> BOOL;
+        extern fn GetLogColorSpaceA(#[in] hColorSpace: HCOLORSPACE, #[buffer(bytes(nSize))] #[out] lpBuffer: LPLOGCOLORSPACEA, #[in] nSize: DWORD) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetLogColorSpaceW(#[in] hColorSpace: HCOLORSPACE, #[out] #[writable(entry, bytes(nSize))] lpBuffer: LPLOGCOLORSPACEW, #[in] nSize: DWORD) -> BOOL;
+        extern fn GetLogColorSpaceW(#[in] hColorSpace: HCOLORSPACE, #[buffer(bytes(nSize))] #[out] lpBuffer: LPLOGCOLORSPACEW, #[in] nSize: DWORD) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetMapMode(#[in] hdc: HDC) -> i32;
         #[library("GDI32.dll")]
         extern fn GetMetaFileA(#[in] lpName: LPCSTR) -> HMETAFILE;
         #[library("GDI32.dll")]
-        extern fn GetMetaFileBitsEx(#[in] hMF: HMETAFILE, #[in] cbBuffer: UINT, #[opt] #[out] #[writable(entry, bytes(cbBuffer))] lpData: LPVOID) -> UINT;
+        extern fn GetMetaFileBitsEx(#[in] hMF: HMETAFILE, #[in] cbBuffer: UINT, #[buffer(bytes(cbBuffer))] #[opt] #[out] lpData: LPVOID) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetMetaFileW(#[in] lpName: LPCWSTR) -> HMETAFILE;
         #[library("GDI32.dll")]
@@ -2449,19 +2449,19 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetNearestPaletteIndex(#[in] h: HPALETTE, #[in] color: COLORREF) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetObjectA(#[in] h: HANDLE, #[in] c: i32, #[opt] #[out] #[writable(entry, bytes(c))] pv: LPVOID) -> i32;
+        extern fn GetObjectA(#[in] h: HANDLE, #[in] c: i32, #[buffer(bytes(c))] #[opt] #[out] pv: LPVOID) -> i32;
         #[library("GDI32.dll")]
         extern fn GetObjectType(#[in] h: HGDIOBJ) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn GetObjectW(#[in] h: HANDLE, #[in] c: i32, #[opt] #[out] #[writable(entry, bytes(c))] pv: LPVOID) -> i32;
+        extern fn GetObjectW(#[in] h: HANDLE, #[in] c: i32, #[buffer(bytes(c))] #[opt] #[out] pv: LPVOID) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetOutlineTextMetricsA(#[in] hdc: HDC, #[in] cjCopy: UINT, #[opt] #[out] #[writable(entry, bytes(cjCopy))] potm: LPOUTLINETEXTMETRICA) -> UINT;
+        extern fn GetOutlineTextMetricsA(#[in] hdc: HDC, #[in] cjCopy: UINT, #[buffer(bytes(cjCopy))] #[opt] #[out] potm: LPOUTLINETEXTMETRICA) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetOutlineTextMetricsW(#[in] hdc: HDC, #[in] cjCopy: UINT, #[opt] #[out] #[writable(entry, bytes(cjCopy))] potm: LPOUTLINETEXTMETRICW) -> UINT;
+        extern fn GetOutlineTextMetricsW(#[in] hdc: HDC, #[in] cjCopy: UINT, #[buffer(bytes(cjCopy))] #[opt] #[out] potm: LPOUTLINETEXTMETRICW) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> UINT;
+        extern fn GetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[incomplete] #[opt] #[out] pPalEntries: LPPALETTEENTRY) -> UINT;
         #[library("GDI32.dll")]
-        extern fn GetPath(#[in] hdc: HDC, #[opt] #[out] #[writable(entry, cpt)] apt: LPPOINT, #[opt] #[out] #[writable(entry, cpt)] aj: LPBYTE, cpt: i32) -> i32;
+        extern fn GetPath(#[in] hdc: HDC, #[buffer(cpt)] #[opt] #[out] apt: LPPOINT, #[buffer(cpt)] #[opt] #[out] aj: LPBYTE, cpt: i32) -> i32;
         #[library("GDI32.dll")]
         extern fn GetPixel(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32) -> COLORREF;
         #[library("GDI32.dll")]
@@ -2473,9 +2473,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetRandomRgn(#[in] hdc: HDC, #[in] hrgn: HRGN, #[in] i: INT) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetRasterizerCaps(#[out] #[writable(entry, bytes(cjBytes))] lpraststat: LPRASTERIZER_STATUS, #[in] cjBytes: UINT) -> BOOL;
+        extern fn GetRasterizerCaps(#[buffer(bytes(cjBytes))] #[out] lpraststat: LPRASTERIZER_STATUS, #[in] cjBytes: UINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetRegionData(#[in] hrgn: HRGN, #[in] nCount: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, bytes(nCount))] lpRgnData: LPRGNDATA) -> DWORD;
+        extern fn GetRegionData(#[in] hrgn: HRGN, #[in] nCount: DWORD, #[buffer(bytes(nCount))] #[incomplete] #[opt] #[out] lpRgnData: LPRGNDATA) -> DWORD;
         #[library("GDI32.dll")]
         extern fn GetRgnBox(#[in] hrgn: HRGN, #[out] lprc: LPRECT) -> i32;
         #[library("GDI32.dll")]
@@ -2483,7 +2483,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetStretchBltMode(#[in] hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetSystemPaletteEntries(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[opt] #[out] #[writable(entry, cEntries)] pPalEntries: LPPALETTEENTRY) -> UINT;
+        extern fn GetSystemPaletteEntries(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[opt] #[out] pPalEntries: LPPALETTEENTRY) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetSystemPaletteUse(#[in] hdc: HDC) -> UINT;
         #[library("GDI32.dll")]
@@ -2497,25 +2497,25 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetTextColor(#[in] hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointA(#[in] hdc: HDC, #[in] #[readable(entry, cchString)] lpszString: LPCSTR, #[in] cchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[opt] #[out] #[readable(success, if_present(*lpnFit))] #[writable(entry, cchString)] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
+        extern fn GetTextExtentExPointA(#[in] hdc: HDC, #[buffer(cchString)] #[in] lpszString: LPCSTR, #[in] cchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[buffer(cchString)] #[opt] #[out] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointI(#[in] hdc: HDC, #[in] #[readable(entry, cwchString)] lpwszString: LPWORD, #[in] cwchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[opt] #[out] #[readable(success, if_present(*lpnFit))] #[writable(entry, cwchString)] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
+        extern fn GetTextExtentExPointI(#[in] hdc: HDC, #[buffer(cwchString)] #[in] lpwszString: LPWORD, #[in] cwchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[buffer(cwchString)] #[opt] #[out] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointW(#[in] hdc: HDC, #[in] #[readable(entry, cchString)] lpszString: LPCWSTR, #[in] cchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[opt] #[out] #[readable(success, if_present(*lpnFit))] #[writable(entry, cchString)] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
+        extern fn GetTextExtentExPointW(#[in] hdc: HDC, #[buffer(cchString)] #[in] lpszString: LPCWSTR, #[in] cchString: i32, #[in] nMaxExtent: i32, #[opt] #[out] lpnFit: LPINT, #[buffer(cchString)] #[opt] #[out] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPoint32A(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpString: LPCSTR, #[in] c: i32, #[out] psizl: LPSIZE) -> BOOL;
+        extern fn GetTextExtentPoint32A(#[in] hdc: HDC, #[buffer(c)] #[in] lpString: LPCSTR, #[in] c: i32, #[out] psizl: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPoint32W(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpString: LPCWSTR, #[in] c: i32, #[out] psizl: LPSIZE) -> BOOL;
+        extern fn GetTextExtentPoint32W(#[in] hdc: HDC, #[buffer(c)] #[in] lpString: LPCWSTR, #[in] c: i32, #[out] psizl: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointA(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpString: LPCSTR, #[in] c: i32, #[out] lpsz: LPSIZE) -> BOOL;
+        extern fn GetTextExtentPointA(#[in] hdc: HDC, #[buffer(c)] #[in] lpString: LPCSTR, #[in] c: i32, #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointI(#[in] hdc: HDC, #[in] #[readable(entry, cgi)] pgiIn: LPWORD, #[in] cgi: i32, #[out] psize: LPSIZE) -> BOOL;
+        extern fn GetTextExtentPointI(#[in] hdc: HDC, #[buffer(cgi)] #[in] pgiIn: LPWORD, #[in] cgi: i32, #[out] psize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointW(#[in] hdc: HDC, #[in] #[readable(entry, c)] lpString: LPCWSTR, #[in] c: i32, #[out] lpsz: LPSIZE) -> BOOL;
+        extern fn GetTextExtentPointW(#[in] hdc: HDC, #[buffer(c)] #[in] lpString: LPCWSTR, #[in] c: i32, #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextFaceA(#[in] hdc: HDC, #[in] c: i32, #[incomplete] #[opt] #[out] #[writable(entry, c)] lpName: LPSTR) -> i32;
+        extern fn GetTextFaceA(#[in] hdc: HDC, #[in] c: i32, #[buffer(c)] #[incomplete] #[opt] #[out] lpName: LPSTR) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetTextFaceW(#[in] hdc: HDC, #[in] c: i32, #[incomplete] #[opt] #[out] #[writable(entry, c)] lpName: LPWSTR) -> i32;
+        extern fn GetTextFaceW(#[in] hdc: HDC, #[in] c: i32, #[buffer(c)] #[incomplete] #[opt] #[out] lpName: LPWSTR) -> i32;
         #[library("GDI32.dll")]
         extern fn GetTextMetricsA(#[in] hdc: HDC, #[out] lptm: LPTEXTMETRICA) -> BOOL;
         #[library("GDI32.dll")]
@@ -2525,7 +2525,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetViewportOrgEx(#[in] hdc: HDC, #[out] lppoint: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetWinMetaFileBits(#[in] hemf: HENHMETAFILE, #[in] cbData16: UINT, #[opt] #[out] #[writable(entry, bytes(cbData16))] pData16: LPBYTE, #[in] iMapMode: INT, #[in] hdcRef: HDC) -> UINT;
+        extern fn GetWinMetaFileBits(#[in] hemf: HENHMETAFILE, #[in] cbData16: UINT, #[buffer(bytes(cbData16))] #[opt] #[out] pData16: LPBYTE, #[in] iMapMode: INT, #[in] hdcRef: HDC) -> UINT;
         #[library("GDI32.dll")]
         extern fn GetWindowExtEx(#[in] hdc: HDC, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
@@ -2533,7 +2533,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetWorldTransform(#[in] hdc: HDC, #[out] lpxf: LPXFORM) -> BOOL;
         #[library("MSIMG32.dll")]
-        extern fn GradientFill(#[in] hdc: HDC, #[in] #[readable(entry, nVertex)] pVertex: PTRIVERTEX, #[in] nVertex: ULONG, #[in] pMesh: PVOID, #[in] nMesh: ULONG, #[in] ulMode: ULONG) -> BOOL;
+        extern fn GradientFill(#[in] hdc: HDC, #[buffer(nVertex)] #[in] pVertex: PTRIVERTEX, #[in] nVertex: ULONG, #[in] pMesh: PVOID, #[in] nMesh: ULONG, #[in] ulMode: ULONG) -> BOOL;
         const HALFTONE: i32 = 4;
         struct HANDLETABLE {
             objectHandle: [HGDIOBJ; 1],
@@ -2717,7 +2717,6 @@ mod Windows {
         struct LOGPALETTE {
             palVersion: WORD,
             palNumEntries: WORD,
-            #[writable(palNumEntries)]
             palPalEntry: [PALETTEENTRY; 1],
         }
         struct LOGPEN {
@@ -2847,7 +2846,7 @@ mod Windows {
         type LPWGLSWAP = *mut WGLSWAP;
         type LPXFORM = *mut XFORM;
         #[library("GDI32.dll")]
-        extern fn LPtoDP(#[in] hdc: HDC, #[in] #[out] #[writable(entry, c)] lppt: LPPOINT, #[in] c: i32) -> BOOL;
+        extern fn LPtoDP(#[in] hdc: HDC, #[buffer(c)] #[in] #[out] lppt: LPPOINT, #[in] c: i32) -> BOOL;
         const LTGRAY_BRUSH: i32 = 1;
         #[library("GDI32.dll")]
         extern fn LineDDA(#[in] xStart: i32, #[in] yStart: i32, #[in] xEnd: i32, #[in] yEnd: i32, #[in] lpProc: LINEDDAPROC, #[in] #[opt] data: LPARAM) -> BOOL;
@@ -2955,7 +2954,7 @@ mod Windows {
         const META_STRETCHDIB: i32 = 3907;
         const META_TEXTOUT: i32 = 1313;
         const MFCOMMENT: i32 = 15;
-        extern fn MFENUMPROC(#[in] hdc: HDC, #[in] #[readable(entry, nObj)] lpht: *mut HANDLETABLE, #[in] lpMR: *mut METARECORD, #[in] nObj: i32, #[in] #[opt] param: LPARAM) -> i32;
+        extern fn MFENUMPROC(#[in] hdc: HDC, #[buffer(nObj)] #[in] lpht: *mut HANDLETABLE, #[in] lpMR: *mut METARECORD, #[in] nObj: i32, #[in] #[opt] param: LPARAM) -> i32;
         const MILCORE_TS_QUERYVER_RESULT_FALSE: i32 = 0;
         const MILCORE_TS_QUERYVER_RESULT_TRUE: i32 = 2147483647;
         const MM_ANISOTROPIC: i32 = 8;
@@ -3759,31 +3758,31 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn PlayEnhMetaFile(#[in] hdc: HDC, #[in] hmf: HENHMETAFILE, #[in] lprect: *const RECT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PlayEnhMetaFileRecord(#[in] hdc: HDC, #[in] #[readable(entry, cht)] pht: LPHANDLETABLE, #[in] pmr: *const ENHMETARECORD, #[in] cht: UINT) -> BOOL;
+        extern fn PlayEnhMetaFileRecord(#[in] hdc: HDC, #[buffer(cht)] #[in] pht: LPHANDLETABLE, #[in] pmr: *const ENHMETARECORD, #[in] cht: UINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn PlayMetaFile(#[in] hdc: HDC, #[in] hmf: HMETAFILE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PlgBlt(#[in] hdcDest: HDC, #[in] #[readable(entry, 3)] lpPoint: *const POINT, #[in] hdcSrc: HDC, #[in] xSrc: i32, #[in] ySrc: i32, #[in] width: i32, #[in] height: i32, #[in] #[opt] hbmMask: HBITMAP, #[in] xMask: i32, #[in] yMask: i32) -> BOOL;
+        extern fn PlgBlt(#[in] hdcDest: HDC, #[buffer(3)] #[in] lpPoint: *const POINT, #[in] hdcSrc: HDC, #[in] xSrc: i32, #[in] ySrc: i32, #[in] width: i32, #[in] height: i32, #[in] #[opt] hbmMask: HBITMAP, #[in] xMask: i32, #[in] yMask: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyBezier(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
+        extern fn PolyBezier(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyBezierTo(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
+        extern fn PolyBezierTo(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyDraw(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] #[readable(entry, cpt)] aj: *const BYTE, #[in] cpt: i32) -> BOOL;
+        extern fn PolyDraw(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[buffer(cpt)] #[in] aj: *const BYTE, #[in] cpt: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyPolygon(#[in] hdc: HDC, #[in] apt: *const POINT, #[in] #[readable(entry, csz)] asz: *const INT, #[in] csz: i32) -> BOOL;
+        extern fn PolyPolygon(#[in] hdc: HDC, #[in] apt: *const POINT, #[buffer(csz)] #[in] asz: *const INT, #[in] csz: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyPolyline(#[in] hdc: HDC, #[in] apt: *const POINT, #[in] #[readable(entry, csz)] asz: *const DWORD, #[in] csz: DWORD) -> BOOL;
+        extern fn PolyPolyline(#[in] hdc: HDC, #[in] apt: *const POINT, #[buffer(csz)] #[in] asz: *const DWORD, #[in] csz: DWORD) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyTextOutA(#[in] hdc: HDC, #[in] #[readable(entry, nstrings)] ppt: *const POLYTEXTA, #[in] nstrings: i32) -> BOOL;
+        extern fn PolyTextOutA(#[in] hdc: HDC, #[buffer(nstrings)] #[in] ppt: *const POLYTEXTA, #[in] nstrings: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolyTextOutW(#[in] hdc: HDC, #[in] #[readable(entry, nstrings)] ppt: *const POLYTEXTW, #[in] nstrings: i32) -> BOOL;
+        extern fn PolyTextOutW(#[in] hdc: HDC, #[buffer(nstrings)] #[in] ppt: *const POLYTEXTW, #[in] nstrings: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn Polygon(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] cpt: i32) -> BOOL;
+        extern fn Polygon(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[in] cpt: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn Polyline(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] cpt: i32) -> BOOL;
+        extern fn Polyline(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[in] cpt: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PolylineTo(#[in] hdc: HDC, #[in] #[readable(entry, cpt)] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
+        extern fn PolylineTo(#[in] hdc: HDC, #[buffer(cpt)] #[in] apt: *const POINT, #[in] cpt: DWORD) -> BOOL;
         #[library("GDI32.dll")]
         extern fn PtInRegion(#[in] hrgn: HRGN, #[in] x: i32, #[in] y: i32) -> BOOL;
         #[library("GDI32.dll")]
@@ -4009,7 +4008,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetArcDirection(#[in] hdc: HDC, #[in] dir: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn SetBitmapBits(#[in] hbm: HBITMAP, #[in] cb: DWORD, #[in] #[readable(entry, bytes(cb))] pvBits: *const void) -> LONG;
+        extern fn SetBitmapBits(#[in] hbm: HBITMAP, #[in] cb: DWORD, #[buffer(bytes(cb))] #[in] pvBits: *const void) -> LONG;
         #[library("GDI32.dll")]
         extern fn SetBitmapDimensionEx(#[in] hbm: HBITMAP, #[in] w: i32, #[in] h: i32, #[opt] #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
@@ -4029,15 +4028,15 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetDCPenColor(#[in] hdc: HDC, #[in] color: COLORREF) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn SetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[in] #[readable(entry, cEntries)] prgbq: *const RGBQUAD) -> UINT;
+        extern fn SetDIBColorTable(#[in] hdc: HDC, #[in] iStart: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[in] prgbq: *const RGBQUAD) -> UINT;
         #[library("GDI32.dll")]
         extern fn SetDIBits(#[in] #[opt] hdc: HDC, #[in] hbm: HBITMAP, #[in] start: UINT, #[in] cLines: UINT, #[in] lpBits: *const void, #[in] lpbmi: *const BITMAPINFO, #[in] ColorUse: UINT) -> i32;
         #[library("GDI32.dll")]
         extern fn SetDIBitsToDevice(#[in] hdc: HDC, #[in] xDest: i32, #[in] yDest: i32, #[in] w: DWORD, #[in] h: DWORD, #[in] xSrc: i32, #[in] ySrc: i32, #[in] StartScan: UINT, #[in] cLines: UINT, #[in] lpvBits: *const void, #[in] lpbmi: *const BITMAPINFO, #[in] ColorUse: UINT) -> i32;
         #[library("GDI32.dll")]
-        extern fn SetDeviceGammaRamp(#[in] hdc: HDC, #[in] #[readable(entry, bytes(1536))] lpRamp: LPVOID) -> BOOL;
+        extern fn SetDeviceGammaRamp(#[in] hdc: HDC, #[buffer(bytes(1536))] #[in] lpRamp: LPVOID) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetEnhMetaFileBits(#[in] nSize: UINT, #[in] #[readable(entry, bytes(nSize))] pb: *const BYTE) -> HENHMETAFILE;
+        extern fn SetEnhMetaFileBits(#[in] nSize: UINT, #[buffer(bytes(nSize))] #[in] pb: *const BYTE) -> HENHMETAFILE;
         #[library("GDI32.dll")]
         extern fn SetGraphicsMode(#[in] hdc: HDC, #[in] iMode: i32) -> i32;
         #[library("GDI32.dll")]
@@ -4053,13 +4052,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetMapperFlags(#[in] hdc: HDC, #[in] flags: DWORD) -> DWORD;
         #[library("GDI32.dll")]
-        extern fn SetMetaFileBitsEx(#[in] cbBuffer: UINT, #[in] #[readable(entry, bytes(cbBuffer))] lpData: *const BYTE) -> HMETAFILE;
+        extern fn SetMetaFileBitsEx(#[in] cbBuffer: UINT, #[buffer(bytes(cbBuffer))] #[in] lpData: *const BYTE) -> HMETAFILE;
         #[library("GDI32.dll")]
         extern fn SetMetaRgn(#[in] hdc: HDC) -> i32;
         #[library("GDI32.dll")]
         extern fn SetMiterLimit(#[in] hdc: HDC, #[in] limit: FLOAT, #[opt] #[out] old: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[in] #[readable(entry, cEntries)] pPalEntries: *const PALETTEENTRY) -> UINT;
+        extern fn SetPaletteEntries(#[in] hpal: HPALETTE, #[in] iStart: UINT, #[in] cEntries: UINT, #[buffer(cEntries)] #[in] pPalEntries: *const PALETTEENTRY) -> UINT;
         #[library("GDI32.dll")]
         extern fn SetPixel(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] color: COLORREF) -> COLORREF;
         #[library("GDI32.dll")]
@@ -4089,7 +4088,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetViewportOrgEx(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[opt] #[out] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetWinMetaFileBits(#[in] nSize: UINT, #[in] #[readable(entry, bytes(nSize))] lpMeta16Data: *const BYTE, #[in] #[opt] hdcRef: HDC, #[in] #[opt] lpMFP: *const METAFILEPICT) -> HENHMETAFILE;
+        extern fn SetWinMetaFileBits(#[in] nSize: UINT, #[buffer(bytes(nSize))] #[in] lpMeta16Data: *const BYTE, #[in] #[opt] hdcRef: HDC, #[in] #[opt] lpMFP: *const METAFILEPICT) -> HENHMETAFILE;
         #[library("GDI32.dll")]
         extern fn SetWindowExtEx(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[opt] #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
@@ -4226,9 +4225,9 @@ mod Windows {
         const TT_PRIM_QSPLINE: i32 = 2;
         const TURKISH_CHARSET: i32 = 162;
         #[library("GDI32.dll")]
-        extern fn TextOutA(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] #[readable(entry, c)] lpString: LPCSTR, #[in] c: i32) -> BOOL;
+        extern fn TextOutA(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[buffer(c)] #[in] lpString: LPCSTR, #[in] c: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn TextOutW(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[in] #[readable(entry, c)] lpString: LPCWSTR, #[in] c: i32) -> BOOL;
+        extern fn TextOutW(#[in] hdc: HDC, #[in] x: i32, #[in] y: i32, #[buffer(c)] #[in] lpString: LPCWSTR, #[in] c: i32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn TranslateCharsetInfo(#[in] #[out] lpSrc: *mut DWORD, #[out] lpCs: LPCHARSETINFO, #[in] dwFlags: DWORD) -> BOOL;
         #[library("MSIMG32.dll")]

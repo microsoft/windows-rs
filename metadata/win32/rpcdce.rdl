@@ -4,10 +4,10 @@ mod Windows {
         const DCE_C_ERROR_STRING_LEN: i32 = 256;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn DceErrorInqTextA(#[in] RpcStatus: RPC_STATUS, #[out] #[writable(entry, 256)] ErrorText: RPC_CSTR) -> RPC_STATUS;
+        extern fn DceErrorInqTextA(#[in] RpcStatus: RPC_STATUS, #[buffer(256)] #[out] ErrorText: RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn DceErrorInqTextW(#[in] RpcStatus: RPC_STATUS, #[out] #[writable(entry, 256)] ErrorText: RPC_WSTR) -> RPC_STATUS;
+        extern fn DceErrorInqTextW(#[in] RpcStatus: RPC_STATUS, #[buffer(256)] #[out] ErrorText: RPC_WSTR) -> RPC_STATUS;
         type PRPC_BINDING_HANDLE_OPTIONS_V1 = *mut RPC_BINDING_HANDLE_OPTIONS_V1;
         type PRPC_BINDING_HANDLE_SECURITY_V1_A = *mut RPC_BINDING_HANDLE_SECURITY_V1_A;
         type PRPC_BINDING_HANDLE_SECURITY_V1_W = *mut RPC_BINDING_HANDLE_SECURITY_V1_W;
@@ -152,13 +152,11 @@ mod Windows {
         #[packed(8)]
         struct RPC_BINDING_VECTOR {
             Count: u32,
-            #[writable(Count)]
             BindingH: [RPC_BINDING_HANDLE; 1],
         }
         #[arch(X86)]
         struct RPC_BINDING_VECTOR {
             Count: u32,
-            #[writable(Count)]
             BindingH: [RPC_BINDING_HANDLE; 1],
         }
         #[arch(X64 | Arm64)]
@@ -390,12 +388,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
             ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
@@ -404,12 +400,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
             ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X64 | Arm64)]
@@ -419,12 +413,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u8,
             ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
@@ -433,12 +425,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u8,
             ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X64 | Arm64)]
@@ -448,12 +438,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
             ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
@@ -462,12 +450,10 @@ mod Windows {
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
             ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X64 | Arm64)]
@@ -1104,9 +1090,9 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn RpcServerInterfaceGroupClose(#[in] IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupCreateA(#[in] #[readable(entry, NumIfs)] Interfaces: *mut RPC_INTERFACE_TEMPLATEA, #[in] NumIfs: u32, #[in] #[readable(entry, NumEndpoints)] Endpoints: *mut RPC_ENDPOINT_TEMPLATEA, #[in] NumEndpoints: u32, #[in] IdlePeriod: u32, #[in] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupCreateA(#[buffer(NumIfs)] #[in] Interfaces: *mut RPC_INTERFACE_TEMPLATEA, #[in] NumIfs: u32, #[buffer(NumEndpoints)] #[in] Endpoints: *mut RPC_ENDPOINT_TEMPLATEA, #[in] NumEndpoints: u32, #[in] IdlePeriod: u32, #[in] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupCreateW(#[in] #[readable(entry, NumIfs)] Interfaces: *mut RPC_INTERFACE_TEMPLATEW, #[in] NumIfs: u32, #[in] #[readable(entry, NumEndpoints)] Endpoints: *mut RPC_ENDPOINT_TEMPLATEW, #[in] NumEndpoints: u32, #[in] IdlePeriod: u32, #[in] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupCreateW(#[buffer(NumIfs)] #[in] Interfaces: *mut RPC_INTERFACE_TEMPLATEW, #[in] NumIfs: u32, #[buffer(NumEndpoints)] #[in] Endpoints: *mut RPC_ENDPOINT_TEMPLATEW, #[in] NumEndpoints: u32, #[in] IdlePeriod: u32, #[in] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInterfaceGroupDeactivate(#[in] IfGroup: RPC_INTERFACE_GROUP, #[in] ForceDeactivation: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -1214,26 +1200,20 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
-            #[writable(UserLength + 1)]
             User: *mut u8,
             UserLength: u32,
-            #[writable(DomainLength + 1)]
             Domain: *mut u8,
             DomainLength: u32,
-            #[writable(PasswordLength + 1)]
             Password: *mut u8,
             PasswordLength: u32,
             Flags: u32,
         }
         #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
-            #[writable(UserLength + 1)]
             User: *mut u8,
             UserLength: u32,
-            #[writable(DomainLength + 1)]
             Domain: *mut u8,
             DomainLength: u32,
-            #[writable(PasswordLength + 1)]
             Password: *mut u8,
             PasswordLength: u32,
             Flags: u32,
@@ -1266,13 +1246,11 @@ mod Windows {
         #[packed(8)]
         struct UUID_VECTOR {
             Count: u32,
-            #[writable(Count)]
             Uuid: [*mut UUID; 1],
         }
         #[arch(X86)]
         struct UUID_VECTOR {
             Count: u32,
-            #[writable(Count)]
             Uuid: [*mut UUID; 1],
         }
         #[library("RPCRT4.dll")]

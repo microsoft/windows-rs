@@ -670,8 +670,13 @@ fn write_params(
         })
         .collect();
     let names: Vec<_> = names.iter().map(String::as_str).collect();
+    let optional: Vec<_> = params
+        .params()
+        .iter()
+        .map(|param| param.is_some_and(|param| param.is_optional()))
+        .collect();
     signature_types
-        .into_iter()
+        .iter()
         .enumerate()
         .map(|(position, ty)| {
             let param = params.params()[position];
@@ -700,11 +705,17 @@ fn write_params(
                     namespace,
                     method.index(),
                     &[],
-                    Some(ExtentOwner::Parameter(&names, &ty, has_out)),
+                    Some(ExtentOwner::Parameter(
+                        &names,
+                        ty,
+                        has_out,
+                        &signature_types,
+                        &optional,
+                    )),
                 )?,
                 None => Vec::new(),
             };
-            let ty = write_type(namespace, &ty);
+            let ty = write_type(namespace, ty);
             Ok(quote! { #(#param_attrs)* #direction #opt_attr #name: #ty })
         })
         .collect()
@@ -780,7 +791,13 @@ fn write_custom_attributes_except<'a>(
 
 #[derive(Clone, Copy)]
 enum ExtentOwner<'a> {
-    Parameter(&'a [&'a str], &'a metadata::Type, bool),
+    Parameter(
+        &'a [&'a str],
+        &'a metadata::Type,
+        bool,
+        &'a [metadata::Type],
+        &'a [bool],
+    ),
     Field(&'a metadata::Type),
     Return(&'a metadata::Type),
 }
@@ -790,14 +807,14 @@ impl ExtentOwner<'_> {
     // returned or field pointer.
     fn accepts_nullable(self, index: &metadata::reader::Index) -> bool {
         let (ty, indirect) = match self {
-            Self::Parameter(_, ty, true) => (ty, true),
-            Self::Parameter(_, _, false) => return false,
+            Self::Parameter(_, ty, true, ..) => (ty, true),
+            Self::Parameter(_, _, false, ..) => return false,
             Self::Field(ty) | Self::Return(ty) => (ty, false),
         };
         let mut subject = metadata_underlying(ty.clone(), index);
         if indirect {
             subject = subject
-                .and_then(buffer_extent::pointee)
+                .and_then(buffer_info::pointee)
                 .and_then(|ty| metadata_underlying(ty, index));
         }
         subject.is_some_and(|ty| {
@@ -849,32 +866,39 @@ fn write_custom_attributes_with_names<'a>(
     exclude: &[&str],
     extent_owner: Option<ExtentOwner<'_>>,
 ) -> Result<Vec<TokenStream>, Error> {
-    attributes
+    let attributes: Vec<_> = attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
                 || (attr.namespace() == METADATA_NAMESPACE
                     && attr.name() == "NativeTypedefAttribute"))
         })
+        .collect();
+    let single_buffer = attributes
+        .iter()
+        .filter(|attr| attr.namespace() == METADATA_NAMESPACE && attr.name() == "BufferAttribute")
+        .count()
+        == 1;
+    attributes
+        .into_iter()
         .map(|attr| {
             let attr_ns = attr.namespace();
             let values = attr.value();
 
-            if attr_ns == METADATA_NAMESPACE
-                && attr.name() == "BufferExtentAttribute"
-                && let Some(extent) = metadata::BufferExtent::from_values(&values)
-                && let Some(names) = match extent_owner {
-                    Some(ExtentOwner::Parameter(names, _, _))
-                        if extent.phase != metadata::BufferPhase::Value =>
-                    {
-                        Some(names)
-                    }
-                    Some(ExtentOwner::Field(_)) if extent.phase == metadata::BufferPhase::Value => {
-                        Some(&[][..])
-                    }
-                    _ => None,
-                }
-                && let Some(tokens) = write_buffer_extent(&extent, names)
+            if single_buffer
+                && attr_ns == METADATA_NAMESPACE
+                && attr.name() == "BufferAttribute"
+                && let Some(info) = metadata::BufferInfo::from_values(&values)
+                && let Some(ExtentOwner::Parameter(names, ty, _, counts, optional)) = extent_owner
+                && buffer_info::is_buffer_count(&info.count, counts, |ty| {
+                    metadata_underlying(ty, index)
+                })
+                && !matches!(info.count, metadata::BufferSize::Dereference(index)
+                    if optional.get(index as usize).copied().unwrap_or(true))
+                && buffer_info::is_buffer_storage(ty.clone(), false, |ty| {
+                    metadata_underlying(ty, index)
+                })
+                && let Some(tokens) = write_buffer_info(&info, names)
             {
                 return Ok(tokens);
             }
@@ -907,8 +931,8 @@ fn write_custom_attributes_with_names<'a>(
                         && (entry || success)
                         && (!double_entry || entry)
                         && (!double_success || success)
-                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty, _))
-                            if buffer_extent::is_buffer_storage(
+                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty, ..))
+                            if buffer_info::is_buffer_storage(
                                 ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
                     {
                         return Ok(write_null_terminated(

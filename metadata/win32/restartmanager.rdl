@@ -96,13 +96,13 @@ mod Windows {
         #[library("RstrtMgr.DLL")]
         extern fn RmEndSession(#[in] dwSessionHandle: DWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetFilterList(#[in] dwSessionHandle: DWORD, #[opt] #[out] #[writable(entry, bytes(cbFilterBuf))] pbFilterBuf: PBYTE, #[in] cbFilterBuf: DWORD, #[out] cbFilterBufNeeded: LPDWORD) -> DWORD;
+        extern fn RmGetFilterList(#[in] dwSessionHandle: DWORD, #[buffer(bytes(cbFilterBuf))] #[opt] #[out] pbFilterBuf: PBYTE, #[in] cbFilterBuf: DWORD, #[out] cbFilterBufNeeded: LPDWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetList(#[in] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[in] #[opt] #[out] #[writable(entry, *pnProcInfo)] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
+        extern fn RmGetList(#[in] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[buffer(*pnProcInfo)] #[in] #[opt] #[out] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
         extern fn RmJoinSession(#[out] pSessionHandle: *mut DWORD, #[in] #[incomplete] strSessionKey: *const WCHAR) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmRegisterResources(#[in] dwSessionHandle: DWORD, #[in] nFiles: UINT, #[in] #[opt] #[readable(entry, nFiles)] rgsFileNames: *mut LPCWSTR, #[in] nApplications: UINT, #[in] #[opt] #[readable(entry, nApplications)] rgApplications: *mut RM_UNIQUE_PROCESS, #[in] nServices: UINT, #[in] #[opt] #[readable(entry, nServices)] rgsServiceNames: *mut LPCWSTR) -> DWORD;
+        extern fn RmRegisterResources(#[in] dwSessionHandle: DWORD, #[in] nFiles: UINT, #[buffer(nFiles)] #[in] #[opt] rgsFileNames: *mut LPCWSTR, #[in] nApplications: UINT, #[buffer(nApplications)] #[in] #[opt] rgApplications: *mut RM_UNIQUE_PROCESS, #[in] nServices: UINT, #[buffer(nServices)] #[in] #[opt] rgsServiceNames: *mut LPCWSTR) -> DWORD;
         #[library("RstrtMgr.DLL")]
         extern fn RmRemoveFilter(#[in] dwSessionHandle: DWORD, #[in] #[opt] strModuleName: LPCWSTR, #[in] #[opt] pProcess: *mut RM_UNIQUE_PROCESS, #[in] #[opt] strServiceShortName: LPCWSTR) -> DWORD;
         #[library("RstrtMgr.DLL")]

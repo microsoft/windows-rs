@@ -7,9 +7,9 @@ mod Windows {
             fn GetSuspendNotify(&self, #[out] #[out_ptr] #[retval] notify: *mut IMFCdmSuspendNotify) -> HRESULT;
             fn SetPMPHostApp(&self, #[in] #[opt] pmpHostApp: IMFPMPHostApp) -> HRESULT;
             fn CreateSession(&self, #[in] sessionType: MF_MEDIAKEYSESSION_TYPE, #[in] #[opt] callbacks: IMFContentDecryptionModuleSessionCallbacks, #[out] #[out_ptr] #[retval] session: *mut IMFContentDecryptionModuleSession) -> HRESULT;
-            fn SetServerCertificate(&self, #[in] #[readable(entry, certificateSize)] certificate: *const BYTE, #[in] certificateSize: DWORD) -> HRESULT;
-            fn CreateTrustedInput(&self, #[in] #[readable(entry, contentInitDataSize)] contentInitData: *const BYTE, #[in] contentInitDataSize: DWORD, #[out] #[out_ptr] #[retval] trustedInput: *mut IMFTrustedInput) -> HRESULT;
-            fn GetProtectionSystemIds(&self, #[nullable] #[out] #[readable(success, *count, indirect)] #[writable(success, *count, indirect)] systemIds: *mut *mut GUID, #[out] count: *mut DWORD) -> HRESULT;
+            fn SetServerCertificate(&self, #[buffer(certificateSize)] #[in] certificate: *const BYTE, #[in] certificateSize: DWORD) -> HRESULT;
+            fn CreateTrustedInput(&self, #[buffer(contentInitDataSize)] #[in] contentInitData: *const BYTE, #[in] contentInitDataSize: DWORD, #[out] #[out_ptr] #[retval] trustedInput: *mut IMFTrustedInput) -> HRESULT;
+            fn GetProtectionSystemIds(&self, #[incomplete] #[nullable] #[out] systemIds: *mut *mut GUID, #[out] count: *mut DWORD) -> HRESULT;
         }
         #[guid(0xa853d1f4_e2a0_4303_9edc_f1a68ee43136)]
         interface IMFContentDecryptionModuleAccess: IUnknown {
@@ -26,16 +26,16 @@ mod Windows {
         interface IMFContentDecryptionModuleSession: IUnknown {
             fn GetSessionId(&self, #[out] #[out_ptr] sessionId: *mut LPWSTR) -> HRESULT;
             fn GetExpiration(&self, #[out] expiration: *mut f64) -> HRESULT;
-            fn GetKeyStatuses(&self, #[nullable] #[out] #[readable(success, *numKeyStatuses, indirect)] #[writable(success, *numKeyStatuses, indirect)] keyStatuses: *mut *mut MFMediaKeyStatus, #[out] numKeyStatuses: *mut UINT) -> HRESULT;
+            fn GetKeyStatuses(&self, #[incomplete] #[nullable] #[out] keyStatuses: *mut *mut MFMediaKeyStatus, #[out] numKeyStatuses: *mut UINT) -> HRESULT;
             fn Load(&self, #[in] sessionId: LPCWSTR, #[out] loaded: *mut BOOL) -> HRESULT;
-            fn GenerateRequest(&self, #[in] initDataType: LPCWSTR, #[in] #[readable(entry, initDataSize)] initData: *const BYTE, #[in] initDataSize: DWORD) -> HRESULT;
-            fn Update(&self, #[in] #[readable(entry, responseSize)] response: *const BYTE, #[in] responseSize: DWORD) -> HRESULT;
+            fn GenerateRequest(&self, #[in] initDataType: LPCWSTR, #[buffer(initDataSize)] #[in] initData: *const BYTE, #[in] initDataSize: DWORD) -> HRESULT;
+            fn Update(&self, #[buffer(responseSize)] #[in] response: *const BYTE, #[in] responseSize: DWORD) -> HRESULT;
             fn Close(&self) -> HRESULT;
             fn Remove(&self) -> HRESULT;
         }
         #[guid(0x3f96ee40_ad81_4096_8470_59a4b770f89a)]
         interface IMFContentDecryptionModuleSessionCallbacks: IUnknown {
-            fn KeyMessage(&self, #[in] messageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[in] #[readable(entry, messageSize)] message: *const BYTE, #[in] messageSize: DWORD, #[in] #[opt] destinationURL: LPCWSTR) -> HRESULT;
+            fn KeyMessage(&self, #[in] messageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[buffer(messageSize)] #[in] message: *const BYTE, #[in] messageSize: DWORD, #[in] #[opt] destinationURL: LPCWSTR) -> HRESULT;
             fn KeyStatusChanged(&self) -> HRESULT;
         }
         #[library("MF.dll")]

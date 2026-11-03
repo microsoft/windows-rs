@@ -36,7 +36,7 @@ mod Windows {
         interface IVirtualSurfaceImageSourceNative: ISurfaceImageSourceNative {
             fn Invalidate(&self, #[in] updateRect: RECT) -> HRESULT;
             fn GetUpdateRectCount(&self, #[out] count: *mut DWORD) -> HRESULT;
-            fn GetUpdateRects(&self, #[out] #[writable(entry, count)] updates: *mut RECT, #[in] count: DWORD) -> HRESULT;
+            fn GetUpdateRects(&self, #[buffer(count)] #[out] updates: *mut RECT, #[in] count: DWORD) -> HRESULT;
             fn GetVisibleBounds(&self, #[out] bounds: *mut RECT) -> HRESULT;
             fn RegisterForUpdatesNeeded(&self, #[in] #[opt] callback: IVirtualSurfaceUpdatesCallbackNative) -> HRESULT;
             fn Resize(&self, #[in] newWidth: INT, #[in] newHeight: INT) -> HRESULT;

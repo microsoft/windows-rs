@@ -7,7 +7,7 @@ mod Windows {
         }
         #[guid(0xbef54196_2d02_4a26_b6e5_d65af295d0f1)]
         interface IWPCProviderConfig: IUnknown {
-            fn GetUserSummary(&self, #[in] bstrSID: BSTR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] pbstrUserSummary: *mut BSTR) -> HRESULT;
+            fn GetUserSummary(&self, #[in] bstrSID: BSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] pbstrUserSummary: *mut BSTR) -> HRESULT;
             fn Configure(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrSID: BSTR) -> HRESULT;
             fn RequestOverride(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrPath: BSTR, #[in] dwFlags: DWORD) -> HRESULT;
         }
@@ -29,7 +29,7 @@ mod Windows {
         #[guid(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa)]
         interface IWPCWebSettings: IWPCSettings {
             fn GetSettings(&self, #[out] pdwSettings: *mut DWORD) -> HRESULT;
-            fn RequestURLOverride(&self, #[in] #[opt] hWnd: HWND, #[in] pcszURL: LPCWSTR, #[in] cURLs: DWORD, #[in] #[opt] #[readable(entry, cURLs)] ppcszSubURLs: *mut LPCWSTR, #[out] pfChanged: *mut BOOL) -> HRESULT;
+            fn RequestURLOverride(&self, #[in] #[opt] hWnd: HWND, #[in] pcszURL: LPCWSTR, #[in] cURLs: DWORD, #[buffer(cURLs)] #[in] #[opt] ppcszSubURLs: *mut LPCWSTR, #[out] pfChanged: *mut BOOL) -> HRESULT;
         }
         #[guid(0x28b4d88b_e072_49e6_804d_26edbe21a7b9)]
         interface IWindowsParentalControls: IWindowsParentalControlsCore {

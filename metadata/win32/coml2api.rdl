@@ -8,7 +8,7 @@ mod Windows {
         extern fn CreateILockBytesOnHGlobal(#[in] #[opt] hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] #[retval] pplkbyt: *mut LPLOCKBYTES) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn FmtIdToPropStgName(#[in] pfmtid: *const FMTID, #[out] #[writable(entry, 32)] oszName: LPOLESTR) -> HRESULT;
+        extern fn FmtIdToPropStgName(#[in] pfmtid: *const FMTID, #[buffer(32)] #[out] oszName: LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         extern fn GetConvertStg(#[in] pStg: LPSTORAGE) -> HRESULT;
         #[library("ole32.dll")]

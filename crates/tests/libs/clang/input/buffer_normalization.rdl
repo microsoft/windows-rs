@@ -1,10 +1,10 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Buffer(#[in] #[readable(entry, count)] buffer: *mut u16, count: u32, other: u32);
+    extern "C" fn Buffer(#[buffer(count)] #[in] buffer: *mut u16, count: u32, other: u32);
     #[library("example.dll")]
-    extern "C" fn BufferFunction(#[in] #[readable(entry, count)] buffer: *mut u16, count: u32, other: u32);
+    extern "C" fn BufferFunction(#[buffer(count)] #[in] buffer: *mut u16, count: u32, other: u32);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IBuffer {
-        fn Read(&self, #[in] #[readable(entry, count)] buffer: *mut u16, count: u32, other: u32);
+        fn Read(&self, #[buffer(count)] #[in] buffer: *mut u16, count: u32, other: u32);
     }
 }

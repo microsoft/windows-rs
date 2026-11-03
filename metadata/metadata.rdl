@@ -55,49 +55,15 @@ mod Windows {
             attribute AlignmentAttribute {
                 fn(#[in] alignment: i32);
             }
-            #[repr(i32)]
-            enum BufferAccess {
-                Read = 0,
-                Write = 1,
-            }
-            #[repr(i32)]
-            enum BufferPhase {
-                Entry = 0,
-                Success = 1,
-                Value = 2,
-            }
-            #[repr(i32)]
-            enum BufferUnits {
-                Elements = 0,
-                Bytes = 1,
-            }
-            // An accessible extent of the annotated buffer, independent of direction and ownership.
-            // Exactly one count source is required. Counts use the contract phase unless CountOnEntry.
-            // Indirect selects initialized pointer storage at the contract phase: the incoming
-            // pointer on entry, or the returned pointer on success.
-            // An indirect pointer is non-null at the contract phase unless NullableAttribute is
-            // present, even with an unavailable optional count.
-            // RDL: `#[readable(...)]`, `#[writable(...)]`.
-            attribute BufferExtentAttribute {
-                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+            // Caller-supplied extent at entry. Direction and ownership are separate.
+            // Exactly one count source is required; omitted Boolean properties are false.
+            // RDL: `#[buffer(count)]`, `#[buffer(bytes(count))]`.
+            attribute BufferAttribute {
+                fn();
                 CountConst: u64,
                 CountParamIndex: u16,
-                CountFieldName: String,
-                CountReturn: bool,
-                // The extent exists but its count is not expressible; never means zero.
-                CountUnknown: bool,
-                // Typed integer expression; cannot combine with Offset or CountOptional.
-                // Optional dereferences are expression leaves and make the whole count unavailable.
-                CountExpression: String,
                 Dereference: bool,
-                CountOnEntry: bool,
-                // Null count storage means unknown extent, not zero or a nullable buffer.
-                CountOptional: bool,
-                // Legacy adjustment; new arithmetic uses CountExpression.
-                Offset: u64,
-                // Guards the single dereferenced count, including inside an expression.
-                NullFallbackParamIndex: u16,
-                Indirect: bool,
+                Bytes: bool,
             }
             // Zero termination is independent of capacity and does not specify an encoding.
             // OnSuccess is a postcondition subject to the callable's success contract.
@@ -117,8 +83,8 @@ mod Windows {
             // A pointer the API gives the caller may be null: on an output parameter, the pointer
             // stored through it; on a return, the returned value; on a field, the field. Argument
             // storage the caller may omit is the separate Optional param flag. Absence leaves
-            // nullability unspecified unless an indirect BufferExtent or ReturnedPointer
-            // promises a non-null pointer. This does not promise initialized/readable storage.
+            // nullability unspecified unless ReturnedPointer promises a non-null pointer.
+            // This does not promise initialized/readable storage.
             // RDL: `#[nullable]`.
             attribute NullableAttribute {
                 fn();

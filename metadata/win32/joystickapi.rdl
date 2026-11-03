@@ -244,9 +244,9 @@ mod Windows {
         type PJOYINFO = *mut JOYINFO;
         type PJOYINFOEX = *mut JOYINFOEX;
         #[library("WINMM.dll")]
-        extern fn joyGetDevCapsA(#[in] uJoyID: UINT_PTR, #[out] #[writable(entry, bytes(cbjc))] pjc: LPJOYCAPSA, #[in] cbjc: UINT) -> MMRESULT;
+        extern fn joyGetDevCapsA(#[in] uJoyID: UINT_PTR, #[buffer(bytes(cbjc))] #[out] pjc: LPJOYCAPSA, #[in] cbjc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetDevCapsW(#[in] uJoyID: UINT_PTR, #[out] #[writable(entry, bytes(cbjc))] pjc: LPJOYCAPSW, #[in] cbjc: UINT) -> MMRESULT;
+        extern fn joyGetDevCapsW(#[in] uJoyID: UINT_PTR, #[buffer(bytes(cbjc))] #[out] pjc: LPJOYCAPSW, #[in] cbjc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn joyGetNumDevs() -> UINT;
         #[library("WINMM.dll")]

@@ -359,7 +359,7 @@ mod Fixture {
     interface IDispatch: IUnknown {
         fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
         fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] riid: &IID, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[in] lcid: LCID, #[out] #[readable(success, cNames)] #[writable(entry, cNames)] #[writable(success, cNames)] rgDispId: *mut DISPID) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] riid: &IID, #[buffer(cNames)] #[in] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[in] lcid: LCID, #[buffer(cNames)] #[out] rgDispId: *mut DISPID) -> HRESULT;
         fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[opt] #[out] pVarResult: *mut VARIANT, #[opt] #[out] pExcepInfo: *mut EXCEPINFO, #[opt] #[out] puArgErr: *mut UINT) -> HRESULT;
     }
     #[repr(i32)]
@@ -382,7 +382,7 @@ mod Fixture {
         fn GetFieldNoCopy(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT, #[out] ppvDataCArray: *mut PVOID) -> HRESULT;
         fn PutField(&self, #[in] wFlags: ULONG, #[in] #[out] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[in] pvarField: *mut VARIANT) -> HRESULT;
         fn PutFieldNoCopy(&self, #[in] wFlags: ULONG, #[in] #[out] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[in] pvarField: *mut VARIANT) -> HRESULT;
-        fn GetFieldNames(&self, #[in] #[out] pcNames: *mut ULONG, #[out] #[readable(success, *pcNames)] #[writable(entry, *pcNames)] #[writable(success, *pcNames)] rgBstrNames: *mut BSTR) -> HRESULT;
+        fn GetFieldNames(&self, #[in] #[out] pcNames: *mut ULONG, #[buffer(*pcNames)] #[out] rgBstrNames: *mut BSTR) -> HRESULT;
         fn IsMatchingType(&self, #[in] pRecordInfo: IRecordInfo) -> BOOL;
         fn RecordCreate(&self) -> PVOID;
         fn RecordCreateCopy(&self, #[in] pvSource: PVOID, #[out] ppvDest: *mut PVOID) -> HRESULT;
@@ -399,10 +399,10 @@ mod Fixture {
         fn GetTypeComp(&self, #[out] #[out_ptr] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
         fn GetFuncDesc(&self, #[in] index: UINT, #[out] ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
         fn GetVarDesc(&self, #[in] index: UINT, #[out] ppVarDesc: *mut *mut VARDESC) -> HRESULT;
-        fn GetNames(&self, #[in] memid: MEMBERID, #[out] #[readable(success, *pcNames)] #[writable(entry, cMaxNames)] #[writable(success, cMaxNames)] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
+        fn GetNames(&self, #[in] memid: MEMBERID, #[buffer(cMaxNames)] #[out] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
         fn GetRefTypeOfImplType(&self, #[in] index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
         fn GetImplTypeFlags(&self, #[in] index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[out] pMemId: *mut MEMBERID) -> HRESULT;
+        fn GetIDsOfNames(&self, #[buffer(cNames)] #[in] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[out] pMemId: *mut MEMBERID) -> HRESULT;
         fn Invoke(&self, #[in] pvInstance: PVOID, #[in] memid: MEMBERID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pExcepInfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
         fn GetDocumentation(&self, #[in] memid: MEMBERID, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
         fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[opt] #[out] #[out_ptr] pBstrDllName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;

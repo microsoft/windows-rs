@@ -23,17 +23,17 @@ mod Windows {
             #[must_use]
             fn GetDimension(&self, #[out] #[retval] dimension: *mut UINT) -> HRESULT;
             #[must_use]
-            fn SetInitialValueAndVelocity(&self, #[in] #[readable(entry, cDimension)] initialValue: *mut DOUBLE, #[in] #[readable(entry, cDimension)] initialVelocity: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn SetInitialValueAndVelocity(&self, #[buffer(cDimension)] #[in] initialValue: *mut DOUBLE, #[buffer(cDimension)] #[in] initialVelocity: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn SetDuration(&self, #[in] duration: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
             fn GetDuration(&self, #[out] #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn GetFinalValue(&self, #[out] #[writable(entry, cDimension)] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn GetFinalValue(&self, #[buffer(cDimension)] #[out] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
-            fn InterpolateValue(&self, #[in] offset: UI_ANIMATION_SECONDS, #[out] #[writable(entry, cDimension)] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn InterpolateValue(&self, #[in] offset: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[out] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
-            fn InterpolateVelocity(&self, #[in] offset: UI_ANIMATION_SECONDS, #[out] #[writable(entry, cDimension)] velocity: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn InterpolateVelocity(&self, #[in] offset: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[out] velocity: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetPrimitiveInterpolation(&self, #[in] interpolation: IUIAnimationPrimitiveInterpolation, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
@@ -88,7 +88,7 @@ mod Windows {
         #[guid(0xd8b6f7d4_4109_4d3f_acee_879926968cb1)]
         interface IUIAnimationManager2: IUnknown {
             #[must_use]
-            fn CreateAnimationVectorVariable(&self, #[in] #[readable(entry, cDimension)] initialValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn CreateAnimationVectorVariable(&self, #[buffer(cDimension)] #[in] initialValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
             fn CreateAnimationVariable(&self, #[in] initialValue: DOUBLE, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
@@ -304,11 +304,11 @@ mod Windows {
             #[must_use]
             fn SetInitialValue(&self, #[in] value: DOUBLE) -> HRESULT;
             #[must_use]
-            fn SetInitialVectorValue(&self, #[in] #[readable(entry, cDimension)] value: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn SetInitialVectorValue(&self, #[buffer(cDimension)] #[in] value: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn SetInitialVelocity(&self, #[in] velocity: DOUBLE) -> HRESULT;
             #[must_use]
-            fn SetInitialVectorVelocity(&self, #[in] #[readable(entry, cDimension)] velocity: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn SetInitialVectorVelocity(&self, #[buffer(cDimension)] #[in] velocity: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn IsDurationKnown(&self) -> HRESULT;
             #[must_use]
@@ -356,21 +356,21 @@ mod Windows {
             #[must_use]
             fn CreateInstantaneousTransition(&self, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateInstantaneousVectorTransition(&self, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousVectorTransition(&self, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateConstantTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateDiscreteTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateDiscreteVectorTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteVectorTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateLinearTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearVectorTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateSinusoidalTransitionFromVelocity(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] period: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
@@ -382,7 +382,7 @@ mod Windows {
             #[must_use]
             fn CreateCubicTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] #[readable(entry, cDimension)] finalVelocity: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[buffer(cDimension)] #[in] finalVelocity: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateSmoothStopTransition(&self, #[in] maximumDuration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
@@ -390,7 +390,7 @@ mod Windows {
             #[must_use]
             fn CreateCubicBezierLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] #[retval] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicBezierLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] #[retval] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[buffer(cDimension)] #[in] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] #[retval] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9)]
         interface IUIAnimationVariable: IUnknown {
@@ -430,41 +430,41 @@ mod Windows {
             #[must_use]
             fn GetValue(&self, #[out] #[retval] value: *mut DOUBLE) -> HRESULT;
             #[must_use]
-            fn GetVectorValue(&self, #[out] #[writable(entry, cDimension)] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn GetVectorValue(&self, #[buffer(cDimension)] #[out] value: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetCurve(&self, #[in] animation: IDCompositionAnimation) -> HRESULT;
             #[must_use]
-            fn GetVectorCurve(&self, #[in] #[readable(entry, cDimension)] animation: *mut IDCompositionAnimation, #[in] cDimension: UINT) -> HRESULT;
+            fn GetVectorCurve(&self, #[buffer(cDimension)] #[in] animation: *mut IDCompositionAnimation, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetFinalValue(&self, #[out] #[retval] finalValue: *mut DOUBLE) -> HRESULT;
             #[must_use]
-            fn GetFinalVectorValue(&self, #[out] #[writable(entry, cDimension)] finalValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn GetFinalVectorValue(&self, #[buffer(cDimension)] #[out] finalValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetPreviousValue(&self, #[out] #[retval] previousValue: *mut DOUBLE) -> HRESULT;
             #[must_use]
-            fn GetPreviousVectorValue(&self, #[out] #[writable(entry, cDimension)] previousValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn GetPreviousVectorValue(&self, #[buffer(cDimension)] #[out] previousValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetIntegerValue(&self, #[out] #[retval] value: *mut INT32) -> HRESULT;
             #[must_use]
-            fn GetIntegerVectorValue(&self, #[out] #[writable(entry, cDimension)] value: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
+            fn GetIntegerVectorValue(&self, #[buffer(cDimension)] #[out] value: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetFinalIntegerValue(&self, #[out] #[retval] finalValue: *mut INT32) -> HRESULT;
             #[must_use]
-            fn GetFinalIntegerVectorValue(&self, #[out] #[writable(entry, cDimension)] finalValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
+            fn GetFinalIntegerVectorValue(&self, #[buffer(cDimension)] #[out] finalValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetPreviousIntegerValue(&self, #[out] #[retval] previousValue: *mut INT32) -> HRESULT;
             #[must_use]
-            fn GetPreviousIntegerVectorValue(&self, #[out] #[writable(entry, cDimension)] previousValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
+            fn GetPreviousIntegerVectorValue(&self, #[buffer(cDimension)] #[out] previousValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn GetCurrentStoryboard(&self, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
             #[must_use]
             fn SetLowerBound(&self, #[in] bound: DOUBLE) -> HRESULT;
             #[must_use]
-            fn SetLowerBoundVector(&self, #[in] #[out] #[readable(entry, cDimension)] bound: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn SetLowerBoundVector(&self, #[buffer(cDimension)] #[in] #[out] bound: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn SetUpperBound(&self, #[in] bound: DOUBLE) -> HRESULT;
             #[must_use]
-            fn SetUpperBoundVector(&self, #[in] #[out] #[readable(entry, cDimension)] bound: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn SetUpperBoundVector(&self, #[buffer(cDimension)] #[in] #[out] bound: *const DOUBLE, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
             fn SetRoundingMode(&self, #[in] mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
             #[must_use]
@@ -486,7 +486,7 @@ mod Windows {
         #[guid(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42)]
         interface IUIAnimationVariableChangeHandler2: IUnknown {
             #[must_use]
-            fn OnValueChanged(&self, #[in] storyboard: IUIAnimationStoryboard2, #[in] variable: IUIAnimationVariable2, #[in] #[readable(entry, cDimension)] newValue: *mut DOUBLE, #[in] #[readable(entry, cDimension)] previousValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
+            fn OnValueChanged(&self, #[in] storyboard: IUIAnimationStoryboard2, #[in] variable: IUIAnimationVariable2, #[buffer(cDimension)] #[in] newValue: *mut DOUBLE, #[buffer(cDimension)] #[in] previousValue: *mut DOUBLE, #[in] cDimension: UINT) -> HRESULT;
         }
         #[guid(0x72895e91_0145_4c21_9192_5aab40eddf80)]
         interface IUIAnimationVariableCurveChangeHandler2: IUnknown {
@@ -501,7 +501,7 @@ mod Windows {
         #[guid(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58)]
         interface IUIAnimationVariableIntegerChangeHandler2: IUnknown {
             #[must_use]
-            fn OnIntegerValueChanged(&self, #[in] storyboard: IUIAnimationStoryboard2, #[in] variable: IUIAnimationVariable2, #[in] #[readable(entry, cDimension)] newValue: *mut INT32, #[in] #[readable(entry, cDimension)] previousValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
+            fn OnIntegerValueChanged(&self, #[in] storyboard: IUIAnimationStoryboard2, #[in] variable: IUIAnimationVariable2, #[buffer(cDimension)] #[in] newValue: *mut INT32, #[buffer(cDimension)] #[in] previousValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
         }
         const UIAnimationManager: GUID = 0x4c1fc63a_695c_47e8_a339_1a194be3d0b8;
         const UIAnimationManager2: GUID = 0xd25d8842_8884_4a4a_b321_091314379bdd;

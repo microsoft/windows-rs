@@ -61,7 +61,6 @@ mod Windows {
         }
         struct MIB_UDP6TABLE_OWNER_PID {
             dwNumEntries: DWORD,
-            #[writable(dwNumEntries)]
             table: [MIB_UDP6ROW_OWNER_PID; 1],
         }
         struct MIB_UDPROW {

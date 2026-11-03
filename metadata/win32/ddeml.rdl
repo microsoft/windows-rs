@@ -99,7 +99,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DdeAccessData(#[in] hData: HDDEDATA, #[opt] #[out] pcbDataSize: LPDWORD) -> LPBYTE;
         #[library("USER32.dll")]
-        extern fn DdeAddData(#[in] hData: HDDEDATA, #[in] #[readable(entry, bytes(cb))] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD) -> HDDEDATA;
+        extern fn DdeAddData(#[in] hData: HDDEDATA, #[buffer(bytes(cb))] #[in] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD) -> HDDEDATA;
         #[library("USER32.dll")]
         extern fn DdeClientTransaction(#[in] #[opt] pData: LPBYTE, #[in] cbData: DWORD, #[in] hConv: HCONV, #[in] #[opt] hszItem: HSZ, #[in] wFmt: UINT, #[in] wType: UINT, #[in] dwTimeout: DWORD, #[opt] #[out] pdwResult: LPDWORD) -> HDDEDATA;
         #[library("USER32.dll")]
@@ -109,7 +109,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DdeConnectList(#[in] idInst: DWORD, #[in] hszService: HSZ, #[in] hszTopic: HSZ, #[in] hConvList: HCONVLIST, #[in] #[opt] pCC: PCONVCONTEXT) -> HCONVLIST;
         #[library("USER32.dll")]
-        extern fn DdeCreateDataHandle(#[in] idInst: DWORD, #[in] #[opt] #[readable(entry, bytes(cb))] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD, #[in] #[opt] hszItem: HSZ, #[in] wFmt: UINT, #[in] afCmd: UINT) -> HDDEDATA;
+        extern fn DdeCreateDataHandle(#[in] idInst: DWORD, #[buffer(bytes(cb))] #[in] #[opt] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD, #[in] #[opt] hszItem: HSZ, #[in] wFmt: UINT, #[in] afCmd: UINT) -> HDDEDATA;
         #[library("USER32.dll")]
         extern fn DdeCreateStringHandleA(#[in] idInst: DWORD, #[in] psz: LPCSTR, #[in] iCodePage: i32) -> HSZ;
         #[library("USER32.dll")]
@@ -125,7 +125,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DdeFreeStringHandle(#[in] idInst: DWORD, #[in] hsz: HSZ) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeGetData(#[in] hData: HDDEDATA, #[opt] #[out] #[writable(entry, bytes(cbMax))] pDst: LPBYTE, #[in] cbMax: DWORD, #[in] cbOff: DWORD) -> DWORD;
+        extern fn DdeGetData(#[in] hData: HDDEDATA, #[buffer(bytes(cbMax))] #[opt] #[out] pDst: LPBYTE, #[in] cbMax: DWORD, #[in] cbOff: DWORD) -> DWORD;
         #[library("USER32.dll")]
         extern fn DdeGetLastError(#[in] idInst: DWORD) -> UINT;
         #[library("USER32.dll")]
@@ -145,9 +145,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DdeQueryNextServer(#[in] hConvList: HCONVLIST, #[in] hConvPrev: HCONV) -> HCONV;
         #[library("USER32.dll")]
-        extern fn DdeQueryStringA(#[in] idInst: DWORD, #[in] hsz: HSZ, #[opt] #[out] #[writable(entry, cchMax)] psz: LPSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
+        extern fn DdeQueryStringA(#[in] idInst: DWORD, #[in] hsz: HSZ, #[buffer(cchMax)] #[opt] #[out] psz: LPSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
         #[library("USER32.dll")]
-        extern fn DdeQueryStringW(#[in] idInst: DWORD, #[in] hsz: HSZ, #[opt] #[out] #[writable(entry, cchMax)] psz: LPWSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
+        extern fn DdeQueryStringW(#[in] idInst: DWORD, #[in] hsz: HSZ, #[buffer(cchMax)] #[opt] #[out] psz: LPWSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
         #[library("USER32.dll")]
         extern fn DdeReconnect(#[in] hConv: HCONV) -> HCONV;
         #[library("USER32.dll")]

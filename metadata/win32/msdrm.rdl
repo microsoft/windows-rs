@@ -4,7 +4,7 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMAcquireAdvisories(hLicenseStorage: DRMHSESSION, #[in] wszLicense: PWSTR, #[in] #[opt] wszURL: PWSTR, pvContext: *mut void) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMAcquireIssuanceLicenseTemplate(hClient: DRMHSESSION, uFlags: UINT, pvReserved: *mut void, cTemplates: UINT, #[in] #[opt] #[readable(entry, cTemplates)] pwszTemplateIds: *mut PWSTR, #[in] wszUrl: PWSTR, pvContext: *mut void) -> HRESULT;
+        extern fn DRMAcquireIssuanceLicenseTemplate(hClient: DRMHSESSION, uFlags: UINT, pvReserved: *mut void, cTemplates: UINT, #[buffer(cTemplates)] #[in] #[opt] pwszTemplateIds: *mut PWSTR, #[in] wszUrl: PWSTR, pvContext: *mut void) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMAcquireLicense(hSession: DRMHSESSION, uFlags: UINT, #[in] #[opt] wszGroupIdentityCredential: PWSTR, #[in] #[opt] wszRequestedRights: PWSTR, #[in] #[opt] wszCustomData: PWSTR, #[in] #[opt] wszURL: PWSTR, pvContext: *mut void) -> HRESULT;
         #[library("msdrm.dll")]
@@ -14,7 +14,7 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMAddRightWithUser(hIssuanceLicense: DRMPUBHANDLE, hRight: DRMPUBHANDLE, hUser: DRMPUBHANDLE) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMAttest(hEnablingPrincipal: DRMHANDLE, #[in] wszData: PWSTR, eType: DRMATTESTTYPE, #[in] #[out] pcAttestedBlob: *mut UINT, #[out] #[writable(entry, *pcAttestedBlob)] wszAttestedBlob: PWSTR) -> HRESULT;
+        extern fn DRMAttest(hEnablingPrincipal: DRMHANDLE, #[in] wszData: PWSTR, eType: DRMATTESTTYPE, #[in] #[out] pcAttestedBlob: *mut UINT, #[buffer(*pcAttestedBlob)] #[out] wszAttestedBlob: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMCheckSecurity(hEnv: DRMENVHANDLE, cLevel: UINT) -> HRESULT;
         #[library("msdrm.dll")]
@@ -30,7 +30,7 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMCloseSession(hSession: DRMHSESSION) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMConstructCertificateChain(cCertificates: UINT, #[in] #[readable(entry, cCertificates)] rgwszCertificates: *mut PWSTR, pcChain: *mut UINT, #[opt] #[out] #[writable(entry, *pcChain)] wszChain: PWSTR) -> HRESULT;
+        extern fn DRMConstructCertificateChain(cCertificates: UINT, #[buffer(cCertificates)] #[in] rgwszCertificates: *mut PWSTR, pcChain: *mut UINT, #[buffer(*pcChain)] #[opt] #[out] wszChain: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMCreateBoundLicense(hEnv: DRMENVHANDLE, pParams: *mut DRMBOUNDLICENSEPARAMS, #[in] wszLicenseChain: PWSTR, phBoundLicense: *mut DRMHANDLE, phErrorLog: *mut DRMHANDLE) -> HRESULT;
         #[library("msdrm.dll")]
@@ -46,13 +46,13 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMCreateLicenseStorageSession(hEnv: DRMENVHANDLE, hDefaultLibrary: DRMHANDLE, hClient: DRMHSESSION, uFlags: UINT, #[in] wszIssuanceLicense: PWSTR, phLicenseStorage: *mut DRMHSESSION) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMCreateRight(#[in] wszRightName: PWSTR, pstFrom: *mut SYSTEMTIME, pstUntil: *mut SYSTEMTIME, cExtendedInfo: UINT, #[in] #[opt] #[readable(entry, cExtendedInfo)] pwszExtendedInfoName: *mut PWSTR, #[in] #[opt] #[readable(entry, cExtendedInfo)] pwszExtendedInfoValue: *mut PWSTR, phRight: *mut DRMPUBHANDLE) -> HRESULT;
+        extern fn DRMCreateRight(#[in] wszRightName: PWSTR, pstFrom: *mut SYSTEMTIME, pstUntil: *mut SYSTEMTIME, cExtendedInfo: UINT, #[buffer(cExtendedInfo)] #[in] #[opt] pwszExtendedInfoName: *mut PWSTR, #[buffer(cExtendedInfo)] #[in] #[opt] pwszExtendedInfoValue: *mut PWSTR, phRight: *mut DRMPUBHANDLE) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMCreateUser(#[in] #[opt] wszUserName: PWSTR, #[in] #[opt] wszUserId: PWSTR, #[in] #[opt] wszUserIdType: PWSTR, phUser: *mut DRMPUBHANDLE) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMDecode(#[in] wszAlgID: PWSTR, #[in] wszEncodedString: PWSTR, puDecodedDataLen: *mut UINT, pbDecodedData: *mut BYTE) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMDeconstructCertificateChain(#[in] wszChain: PWSTR, iWhich: UINT, pcCert: *mut UINT, #[opt] #[out] #[writable(entry, *pcCert)] wszCert: PWSTR) -> HRESULT;
+        extern fn DRMDeconstructCertificateChain(#[in] wszChain: PWSTR, iWhich: UINT, pcCert: *mut UINT, #[buffer(*pcCert)] #[opt] #[out] wszCert: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMDecrypt(hCryptoProvider: DRMHANDLE, iPosition: UINT, cNumInBytes: UINT, pbInData: *mut BYTE, pcNumOutBytes: *mut UINT, pbOutData: *mut BYTE) -> HRESULT;
         #[library("msdrm.dll")]
@@ -66,13 +66,13 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMDuplicateSession(hSessionIn: DRMHSESSION, phSessionOut: *mut DRMHSESSION) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMEncode(#[in] wszAlgID: PWSTR, uDataLen: UINT, pbDecodedData: *mut BYTE, puEncodedStringLen: *mut UINT, #[opt] #[out] #[writable(entry, *puEncodedStringLen)] wszEncodedString: PWSTR) -> HRESULT;
+        extern fn DRMEncode(#[in] wszAlgID: PWSTR, uDataLen: UINT, pbDecodedData: *mut BYTE, puEncodedStringLen: *mut UINT, #[buffer(*puEncodedStringLen)] #[opt] #[out] wszEncodedString: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMEncrypt(hCryptoProvider: DRMHANDLE, iPosition: UINT, cNumInBytes: UINT, pbInData: *mut BYTE, pcNumOutBytes: *mut UINT, pbOutData: *mut BYTE) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMEnumerateLicense(hSession: DRMHSESSION, uFlags: UINT, uIndex: UINT, pfSharedFlag: *mut BOOL, puCertificateDataLen: *mut UINT, #[opt] #[out] #[writable(entry, *puCertificateDataLen)] wszCertificateData: PWSTR) -> HRESULT;
+        extern fn DRMEnumerateLicense(hSession: DRMHSESSION, uFlags: UINT, uIndex: UINT, pfSharedFlag: *mut BOOL, puCertificateDataLen: *mut UINT, #[buffer(*puCertificateDataLen)] #[opt] #[out] wszCertificateData: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetApplicationSpecificData(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, puNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puNameLength)] wszName: PWSTR, puValueLength: *mut UINT, #[opt] #[out] #[writable(entry, *puValueLength)] wszValue: PWSTR) -> HRESULT;
+        extern fn DRMGetApplicationSpecificData(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, puNameLength: *mut UINT, #[buffer(*puNameLength)] #[opt] #[out] wszName: PWSTR, puValueLength: *mut UINT, #[buffer(*puValueLength)] #[opt] #[out] wszValue: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMGetBoundLicenseAttribute(hQueryRoot: DRMHANDLE, #[in] wszAttribute: PWSTR, iWhich: UINT, peEncoding: *mut DRMENCODINGTYPE, pcBuffer: *mut UINT, pbBuffer: *mut BYTE) -> HRESULT;
         #[library("msdrm.dll")]
@@ -92,31 +92,31 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMGetIntervalTime(hIssuanceLicense: DRMPUBHANDLE, pcDays: *mut UINT) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetIssuanceLicenseInfo(hIssuanceLicense: DRMPUBHANDLE, pstTimeFrom: *mut SYSTEMTIME, pstTimeUntil: *mut SYSTEMTIME, uFlags: UINT, puDistributionPointNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puDistributionPointNameLength)] wszDistributionPointName: PWSTR, puDistributionPointURLLength: *mut UINT, #[opt] #[out] #[writable(entry, *puDistributionPointURLLength)] wszDistributionPointURL: PWSTR, phOwner: *mut DRMPUBHANDLE, pfOfficial: *mut BOOL) -> HRESULT;
+        extern fn DRMGetIssuanceLicenseInfo(hIssuanceLicense: DRMPUBHANDLE, pstTimeFrom: *mut SYSTEMTIME, pstTimeUntil: *mut SYSTEMTIME, uFlags: UINT, puDistributionPointNameLength: *mut UINT, #[buffer(*puDistributionPointNameLength)] #[opt] #[out] wszDistributionPointName: PWSTR, puDistributionPointURLLength: *mut UINT, #[buffer(*puDistributionPointURLLength)] #[opt] #[out] wszDistributionPointURL: PWSTR, phOwner: *mut DRMPUBHANDLE, pfOfficial: *mut BOOL) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetIssuanceLicenseTemplate(hIssuanceLicense: DRMPUBHANDLE, puIssuanceLicenseTemplateLength: *mut UINT, #[opt] #[out] #[writable(entry, *puIssuanceLicenseTemplateLength)] wszIssuanceLicenseTemplate: PWSTR) -> HRESULT;
+        extern fn DRMGetIssuanceLicenseTemplate(hIssuanceLicense: DRMPUBHANDLE, puIssuanceLicenseTemplateLength: *mut UINT, #[buffer(*puIssuanceLicenseTemplateLength)] #[opt] #[out] wszIssuanceLicenseTemplate: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetMetaData(hIssuanceLicense: DRMPUBHANDLE, puContentIdLength: *mut UINT, #[opt] #[out] #[writable(entry, *puContentIdLength)] wszContentId: PWSTR, puContentIdTypeLength: *mut UINT, #[opt] #[out] #[writable(entry, *puContentIdTypeLength)] wszContentIdType: PWSTR, puSKUIdLength: *mut UINT, #[opt] #[out] #[writable(entry, *puSKUIdLength)] wszSKUId: PWSTR, puSKUIdTypeLength: *mut UINT, #[opt] #[out] #[writable(entry, *puSKUIdTypeLength)] wszSKUIdType: PWSTR, puContentTypeLength: *mut UINT, #[opt] #[out] #[writable(entry, *puContentTypeLength)] wszContentType: PWSTR, puContentNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puContentNameLength)] wszContentName: PWSTR) -> HRESULT;
+        extern fn DRMGetMetaData(hIssuanceLicense: DRMPUBHANDLE, puContentIdLength: *mut UINT, #[buffer(*puContentIdLength)] #[opt] #[out] wszContentId: PWSTR, puContentIdTypeLength: *mut UINT, #[buffer(*puContentIdTypeLength)] #[opt] #[out] wszContentIdType: PWSTR, puSKUIdLength: *mut UINT, #[buffer(*puSKUIdLength)] #[opt] #[out] wszSKUId: PWSTR, puSKUIdTypeLength: *mut UINT, #[buffer(*puSKUIdTypeLength)] #[opt] #[out] wszSKUIdType: PWSTR, puContentTypeLength: *mut UINT, #[buffer(*puContentTypeLength)] #[opt] #[out] wszContentType: PWSTR, puContentNameLength: *mut UINT, #[buffer(*puContentNameLength)] #[opt] #[out] wszContentName: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetNameAndDescription(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, pulcid: *mut UINT, puNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puNameLength)] wszName: PWSTR, puDescriptionLength: *mut UINT, #[opt] #[out] #[writable(entry, *puDescriptionLength)] wszDescription: PWSTR) -> HRESULT;
+        extern fn DRMGetNameAndDescription(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, pulcid: *mut UINT, puNameLength: *mut UINT, #[buffer(*puNameLength)] #[opt] #[out] wszName: PWSTR, puDescriptionLength: *mut UINT, #[buffer(*puDescriptionLength)] #[opt] #[out] wszDescription: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetOwnerLicense(hIssuanceLicense: DRMPUBHANDLE, puOwnerLicenseLength: *mut UINT, #[opt] #[out] #[writable(entry, *puOwnerLicenseLength)] wszOwnerLicense: PWSTR) -> HRESULT;
+        extern fn DRMGetOwnerLicense(hIssuanceLicense: DRMPUBHANDLE, puOwnerLicenseLength: *mut UINT, #[buffer(*puOwnerLicenseLength)] #[opt] #[out] wszOwnerLicense: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMGetProcAddress(hLibrary: DRMHANDLE, #[in] wszProcName: PWSTR, ppfnProcAddress: *mut FARPROC) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetRevocationPoint(hIssuanceLicense: DRMPUBHANDLE, puIdLength: *mut UINT, #[opt] #[out] #[writable(entry, *puIdLength)] wszId: PWSTR, puIdTypeLength: *mut UINT, #[opt] #[out] #[writable(entry, *puIdTypeLength)] wszIdType: PWSTR, puURLLength: *mut UINT, #[opt] #[out] #[writable(entry, *puURLLength)] wszRL: PWSTR, pstFrequency: *mut SYSTEMTIME, puNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puNameLength)] wszName: PWSTR, puPublicKeyLength: *mut UINT, #[opt] #[out] #[writable(entry, *puPublicKeyLength)] wszPublicKey: PWSTR) -> HRESULT;
+        extern fn DRMGetRevocationPoint(hIssuanceLicense: DRMPUBHANDLE, puIdLength: *mut UINT, #[buffer(*puIdLength)] #[opt] #[out] wszId: PWSTR, puIdTypeLength: *mut UINT, #[buffer(*puIdTypeLength)] #[opt] #[out] wszIdType: PWSTR, puURLLength: *mut UINT, #[buffer(*puURLLength)] #[opt] #[out] wszRL: PWSTR, pstFrequency: *mut SYSTEMTIME, puNameLength: *mut UINT, #[buffer(*puNameLength)] #[opt] #[out] wszName: PWSTR, puPublicKeyLength: *mut UINT, #[buffer(*puPublicKeyLength)] #[opt] #[out] wszPublicKey: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetRightExtendedInfo(hRight: DRMPUBHANDLE, uIndex: UINT, puExtendedInfoNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puExtendedInfoNameLength)] wszExtendedInfoName: PWSTR, puExtendedInfoValueLength: *mut UINT, #[opt] #[out] #[writable(entry, *puExtendedInfoValueLength)] wszExtendedInfoValue: PWSTR) -> HRESULT;
+        extern fn DRMGetRightExtendedInfo(hRight: DRMPUBHANDLE, uIndex: UINT, puExtendedInfoNameLength: *mut UINT, #[buffer(*puExtendedInfoNameLength)] #[opt] #[out] wszExtendedInfoName: PWSTR, puExtendedInfoValueLength: *mut UINT, #[buffer(*puExtendedInfoValueLength)] #[opt] #[out] wszExtendedInfoValue: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetRightInfo(hRight: DRMPUBHANDLE, puRightNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puRightNameLength)] wszRightName: PWSTR, pstFrom: *mut SYSTEMTIME, pstUntil: *mut SYSTEMTIME) -> HRESULT;
+        extern fn DRMGetRightInfo(hRight: DRMPUBHANDLE, puRightNameLength: *mut UINT, #[buffer(*puRightNameLength)] #[opt] #[out] wszRightName: PWSTR, pstFrom: *mut SYSTEMTIME, pstUntil: *mut SYSTEMTIME) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetSecurityProvider(uFlags: UINT, puTypeLen: *mut UINT, #[opt] #[out] #[writable(entry, *puTypeLen)] wszType: PWSTR, puPathLen: *mut UINT, #[opt] #[out] #[writable(entry, *puPathLen)] wszPath: PWSTR) -> HRESULT;
+        extern fn DRMGetSecurityProvider(uFlags: UINT, puTypeLen: *mut UINT, #[buffer(*puTypeLen)] #[opt] #[out] wszType: PWSTR, puPathLen: *mut UINT, #[buffer(*puPathLen)] #[opt] #[out] wszPath: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetServiceLocation(hClient: DRMHSESSION, uServiceType: UINT, uServiceLocation: UINT, #[in] #[opt] wszIssuanceLicense: PWSTR, puServiceURLLength: *mut UINT, #[opt] #[out] #[writable(entry, *puServiceURLLength)] wszServiceURL: PWSTR) -> HRESULT;
+        extern fn DRMGetServiceLocation(hClient: DRMHSESSION, uServiceType: UINT, uServiceLocation: UINT, #[in] #[opt] wszIssuanceLicense: PWSTR, puServiceURLLength: *mut UINT, #[buffer(*puServiceURLLength)] #[opt] #[out] wszServiceURL: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMGetSignedIssuanceLicense(hEnv: DRMENVHANDLE, hIssuanceLicense: DRMPUBHANDLE, uFlags: UINT, pbSymKey: *mut BYTE, cbSymKey: UINT, #[in] #[opt] wszSymKeyType: PWSTR, #[in] #[opt] wszClientLicensorCertificate: PWSTR, pfnCallback: DRMCALLBACK, #[in] #[opt] wszURL: PWSTR, pvContext: *mut void) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetSignedIssuanceLicenseEx(hEnv: DRMENVHANDLE, hIssuanceLicense: DRMPUBHANDLE, uFlags: UINT, #[in] #[opt] #[readable(entry, bytes(cbSymKey))] pbSymKey: *mut BYTE, cbSymKey: UINT, #[in] #[opt] wszSymKeyType: PWSTR, #[in] #[opt] pvReserved: PVOID, #[in] hEnablingPrincipal: DRMHANDLE, #[in] hBoundLicenseCLC: DRMHANDLE, #[in] pfnCallback: DRMCALLBACK, #[in] pvContext: PVOID) -> HRESULT;
+        extern fn DRMGetSignedIssuanceLicenseEx(hEnv: DRMENVHANDLE, hIssuanceLicense: DRMPUBHANDLE, uFlags: UINT, #[buffer(bytes(cbSymKey))] #[in] #[opt] pbSymKey: *mut BYTE, cbSymKey: UINT, #[in] #[opt] wszSymKeyType: PWSTR, #[in] #[opt] pvReserved: PVOID, #[in] hEnablingPrincipal: DRMHANDLE, #[in] hBoundLicenseCLC: DRMHANDLE, #[in] pfnCallback: DRMCALLBACK, #[in] pvContext: PVOID) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMGetTime(hEnv: DRMENVHANDLE, eTimerIdType: DRMTIMETYPE, poTimeObject: *mut SYSTEMTIME) -> HRESULT;
         #[library("msdrm.dll")]
@@ -128,9 +128,9 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMGetUnboundLicenseObjectCount(hQueryRoot: DRMQUERYHANDLE, #[in] wszSubObjectType: PWSTR, pcSubObjects: *mut UINT) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetUsagePolicy(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, peUsagePolicyType: *mut DRM_USAGEPOLICY_TYPE, pfExclusion: *mut BOOL, puNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puNameLength)] wszName: PWSTR, puMinVersionLength: *mut UINT, #[opt] #[out] #[writable(entry, *puMinVersionLength)] wszMinVersion: PWSTR, puMaxVersionLength: *mut UINT, #[opt] #[out] #[writable(entry, *puMaxVersionLength)] wszMaxVersion: PWSTR, puPublicKeyLength: *mut UINT, #[opt] #[out] #[writable(entry, *puPublicKeyLength)] wszPublicKey: PWSTR, puDigestAlgorithmLength: *mut UINT, #[opt] #[out] #[writable(entry, *puDigestAlgorithmLength)] wszDigestAlgorithm: PWSTR, pcbDigest: *mut UINT, pbDigest: *mut BYTE) -> HRESULT;
+        extern fn DRMGetUsagePolicy(hIssuanceLicense: DRMPUBHANDLE, uIndex: UINT, peUsagePolicyType: *mut DRM_USAGEPOLICY_TYPE, pfExclusion: *mut BOOL, puNameLength: *mut UINT, #[buffer(*puNameLength)] #[opt] #[out] wszName: PWSTR, puMinVersionLength: *mut UINT, #[buffer(*puMinVersionLength)] #[opt] #[out] wszMinVersion: PWSTR, puMaxVersionLength: *mut UINT, #[buffer(*puMaxVersionLength)] #[opt] #[out] wszMaxVersion: PWSTR, puPublicKeyLength: *mut UINT, #[buffer(*puPublicKeyLength)] #[opt] #[out] wszPublicKey: PWSTR, puDigestAlgorithmLength: *mut UINT, #[buffer(*puDigestAlgorithmLength)] #[opt] #[out] wszDigestAlgorithm: PWSTR, pcbDigest: *mut UINT, pbDigest: *mut BYTE) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMGetUserInfo(hUser: DRMPUBHANDLE, puUserNameLength: *mut UINT, #[opt] #[out] #[writable(entry, *puUserNameLength)] wszUserName: PWSTR, puUserIdLength: *mut UINT, #[opt] #[out] #[writable(entry, *puUserIdLength)] wszUserId: PWSTR, puUserIdTypeLength: *mut UINT, #[opt] #[out] #[writable(entry, *puUserIdTypeLength)] wszUserIdType: PWSTR) -> HRESULT;
+        extern fn DRMGetUserInfo(hUser: DRMPUBHANDLE, puUserNameLength: *mut UINT, #[buffer(*puUserNameLength)] #[opt] #[out] wszUserName: PWSTR, puUserIdLength: *mut UINT, #[buffer(*puUserIdLength)] #[opt] #[out] wszUserId: PWSTR, puUserIdTypeLength: *mut UINT, #[buffer(*puUserIdTypeLength)] #[opt] #[out] wszUserIdType: PWSTR) -> HRESULT;
         #[library("msdrm.dll")]
         extern fn DRMGetUserRights(hIssuanceLicense: DRMPUBHANDLE, hUser: DRMPUBHANDLE, uIndex: UINT, phRight: *mut DRMPUBHANDLE) -> HRESULT;
         #[library("msdrm.dll")]
@@ -168,6 +168,6 @@ mod Windows {
         #[library("msdrm.dll")]
         extern fn DRMSetUsagePolicy(hIssuanceLicense: DRMPUBHANDLE, eUsagePolicyType: DRM_USAGEPOLICY_TYPE, fDelete: BOOL, fExclusion: BOOL, #[in] #[opt] wszName: PWSTR, #[in] #[opt] wszMinVersion: PWSTR, #[in] #[opt] wszMaxVersion: PWSTR, #[in] #[opt] wszPublicKey: PWSTR, #[in] #[opt] wszDigestAlgorithm: PWSTR, pbDigest: *mut BYTE, cbDigest: UINT) -> HRESULT;
         #[library("msdrm.dll")]
-        extern fn DRMVerify(#[in] #[opt] wszData: PWSTR, pcAttestedData: *mut UINT, #[opt] #[out] #[writable(entry, *pcAttestedData)] wszAttestedData: PWSTR, peType: *mut DRMATTESTTYPE, pcPrincipal: *mut UINT, #[opt] #[out] #[writable(entry, *pcPrincipal)] wszPrincipal: PWSTR, pcManifest: *mut UINT, #[opt] #[out] #[writable(entry, *pcManifest)] wszManifest: PWSTR) -> HRESULT;
+        extern fn DRMVerify(#[in] #[opt] wszData: PWSTR, pcAttestedData: *mut UINT, #[buffer(*pcAttestedData)] #[opt] #[out] wszAttestedData: PWSTR, peType: *mut DRMATTESTTYPE, pcPrincipal: *mut UINT, #[buffer(*pcPrincipal)] #[opt] #[out] wszPrincipal: PWSTR, pcManifest: *mut UINT, #[buffer(*pcManifest)] #[opt] #[out] wszManifest: PWSTR) -> HRESULT;
     }
 }

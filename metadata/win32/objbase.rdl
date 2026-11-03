@@ -34,10 +34,10 @@ mod Windows {
         extern fn CoFreeLibrary(#[in] hInst: HINSTANCE);
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] grfMode: DWORD, #[in] #[incomplete] pwszName: *mut OLECHAR, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] grfMode: DWORD, #[in] #[incomplete] pwszName: *mut OLECHAR, #[in] dwCount: DWORD, #[buffer(dwCount)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetInstanceFromIStorage(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] pstg: IStorage, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoGetInstanceFromIStorage(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] pstg: IStorage, #[in] dwCount: DWORD, #[buffer(dwCount)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetObject(#[in] pszName: LPCWSTR, #[in] #[opt] pBindOptions: *mut BIND_OPTS, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;

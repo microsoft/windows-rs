@@ -32,28 +32,28 @@ mod Windows {
         }
         #[guid(0x000e0020_0000_0000_c000_000000000046)]
         interface AsyncIMultiQI: IUnknown {
-            fn Begin_QueryMultipleInterfaces(&self, #[in] cMQIs: ULONG, #[in] #[out] #[writable(entry, cMQIs)] pMQIs: *mut MULTI_QI) -> HRESULT;
+            fn Begin_QueryMultipleInterfaces(&self, #[in] cMQIs: ULONG, #[buffer(cMQIs)] #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
             fn Finish_QueryMultipleInterfaces(&self, #[in] #[incomplete] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
         }
         #[guid(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeByte: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
             fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut BYTE, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut BYTE, #[in] cSent: ULONG) -> HRESULT;
+            fn Begin_Push(&self, #[buffer(cSent)] #[in] buf: *mut BYTE, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeDouble: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
             fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut DOUBLE, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut DOUBLE, #[in] cSent: ULONG) -> HRESULT;
+            fn Begin_Push(&self, #[buffer(cSent)] #[in] buf: *mut DOUBLE, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeLong: IUnknown {
             fn Begin_Pull(&self, #[in] cRequest: ULONG) -> HRESULT;
             fn Finish_Pull(&self, #[incomplete] #[out] buf: *mut LONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Begin_Push(&self, #[in] #[readable(entry, cSent)] buf: *mut LONG, #[in] cSent: ULONG) -> HRESULT;
+            fn Begin_Push(&self, #[buffer(cSent)] #[in] buf: *mut LONG, #[in] cSent: ULONG) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         const COLE_DEFAULT_AUTHINFO: *mut void = -1;
@@ -228,14 +228,14 @@ mod Windows {
         struct IEnumContextProps {}
         #[guid(0x00000101_0000_0000_c000_000000000046)]
         interface IEnumString: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut LPOLESTR, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut LPOLESTR, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumString) -> HRESULT;
         }
         #[guid(0x00000100_0000_0000_c000_000000000046)]
         interface IEnumUnknown: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IUnknown, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IUnknown, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumUnknown) -> HRESULT;
@@ -294,7 +294,7 @@ mod Windows {
         }
         #[guid(0x00000020_0000_0000_c000_000000000046)]
         interface IMultiQI: IUnknown {
-            fn QueryMultipleInterfaces(&self, #[in] cMQIs: ULONG, #[in] #[out] #[writable(entry, cMQIs)] pMQIs: *mut MULTI_QI) -> HRESULT;
+            fn QueryMultipleInterfaces(&self, #[in] cMQIs: ULONG, #[buffer(cMQIs)] #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
         }
         #[guid(0xecc8691b_c1db_4dc0_855e_65f6c551af49)]
         interface INoMarshal: IUnknown {}
@@ -310,18 +310,18 @@ mod Windows {
         }
         #[guid(0xdb2f3aca_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeByte: IUnknown {
-            fn Pull(&self, #[out] #[readable(success, *pcReturned)] #[writable(entry, cRequest)] #[writable(success, cRequest)] buf: *mut BYTE, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Push(&self, #[in] #[readable(entry, cSent)] buf: *mut BYTE, #[in] cSent: ULONG) -> HRESULT;
+            fn Pull(&self, #[buffer(cRequest)] #[out] buf: *mut BYTE, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Push(&self, #[buffer(cSent)] #[in] buf: *mut BYTE, #[in] cSent: ULONG) -> HRESULT;
         }
         #[guid(0xdb2f3ace_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeDouble: IUnknown {
-            fn Pull(&self, #[out] #[readable(success, *pcReturned)] #[writable(entry, cRequest)] #[writable(success, cRequest)] buf: *mut DOUBLE, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Push(&self, #[in] #[readable(entry, cSent)] buf: *mut DOUBLE, #[in] cSent: ULONG) -> HRESULT;
+            fn Pull(&self, #[buffer(cRequest)] #[out] buf: *mut DOUBLE, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Push(&self, #[buffer(cSent)] #[in] buf: *mut DOUBLE, #[in] cSent: ULONG) -> HRESULT;
         }
         #[guid(0xdb2f3acc_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeLong: IUnknown {
-            fn Pull(&self, #[out] #[readable(success, *pcReturned)] #[writable(entry, cRequest)] #[writable(success, cRequest)] buf: *mut LONG, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
-            fn Push(&self, #[in] #[readable(entry, cSent)] buf: *mut LONG, #[in] cSent: ULONG) -> HRESULT;
+            fn Pull(&self, #[buffer(cRequest)] #[out] buf: *mut LONG, #[in] cRequest: ULONG, #[out] pcReturned: *mut ULONG) -> HRESULT;
+            fn Push(&self, #[buffer(cSent)] #[in] buf: *mut LONG, #[in] cSent: ULONG) -> HRESULT;
         }
         #[guid(0x72380d55_8d2b_43a3_8513_2b6ef31434e9)]
         interface IProcessInitControl: IUnknown {
@@ -384,8 +384,8 @@ mod Windows {
         }
         #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
         interface ISequentialStream: IUnknown {
-            fn Read(&self, #[out] #[readable(success, bytes(if_present(*pcbRead)))] #[writable(entry, bytes(cb))] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
-            fn Write(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn Read(&self, #[buffer(bytes(cb))] #[out] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn Write(&self, #[buffer(bytes(cb))] #[in] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
         }
         #[guid(0x0000013e_0000_0000_c000_000000000046)]
         interface IServerSecurity: IUnknown {

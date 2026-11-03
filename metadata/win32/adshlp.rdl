@@ -6,7 +6,7 @@ mod Windows {
         #[library("ACTIVEDS.dll")]
         extern fn ADsBuildVarArrayInt(lpdwObjectTypes: LPDWORD, dwObjectTypes: DWORD, pVar: *mut VARIANT) -> HRESULT;
         #[library("ACTIVEDS.dll")]
-        extern fn ADsBuildVarArrayStr(#[in] #[readable(entry, dwPathNames)] lppPathNames: *mut LPWSTR, dwPathNames: DWORD, pVar: *mut VARIANT) -> HRESULT;
+        extern fn ADsBuildVarArrayStr(#[buffer(dwPathNames)] #[in] lppPathNames: *mut LPWSTR, dwPathNames: DWORD, pVar: *mut VARIANT) -> HRESULT;
         #[library("ACTIVEDS.dll")]
         extern fn ADsDecodeBinaryData(szSrcData: LPCWSTR, ppbDestData: *mut PBYTE, pdwDestLen: *mut ULONG) -> HRESULT;
         #[library("ACTIVEDS.dll")]
@@ -16,7 +16,7 @@ mod Windows {
         #[library("ACTIVEDS.dll")]
         extern fn ADsFreeEnumerator(pEnumVariant: IEnumVARIANT) -> HRESULT;
         #[library("ACTIVEDS.dll")]
-        extern fn ADsGetLastError(lpError: LPDWORD, #[out] #[writable(entry, dwErrorBufLen)] lpErrorBuf: LPWSTR, dwErrorBufLen: DWORD, #[out] #[writable(entry, dwNameBufLen)] lpNameBuf: LPWSTR, dwNameBufLen: DWORD) -> HRESULT;
+        extern fn ADsGetLastError(lpError: LPDWORD, #[buffer(dwErrorBufLen)] #[out] lpErrorBuf: LPWSTR, dwErrorBufLen: DWORD, #[buffer(dwNameBufLen)] #[out] lpNameBuf: LPWSTR, dwNameBufLen: DWORD) -> HRESULT;
         #[library("ACTIVEDS.dll")]
         extern fn ADsGetObject(lpszPathName: LPCWSTR, riid: &IID, ppObject: *mut *mut void) -> HRESULT;
         #[library("ACTIVEDS.dll")]

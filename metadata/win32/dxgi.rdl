@@ -156,8 +156,8 @@ mod Windows {
         #[guid(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c)]
         interface IDXGIDevice: IDXGIObject {
             fn GetAdapter(&self, #[out] #[out_ptr(null_on_failure)] #[retval] pAdapter: *mut IDXGIAdapter) -> HRESULT;
-            fn CreateSurface(&self, #[in] pDesc: *const DXGI_SURFACE_DESC, #[in] NumSurfaces: UINT, #[in] Usage: DXGI_USAGE, #[in] #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[out] #[writable(entry, NumSurfaces)] ppSurface: *mut IDXGISurface) -> HRESULT;
-            fn QueryResourceResidency(&self, #[in] #[readable(entry, NumResources)] ppResources: *const IUnknown, #[out] #[writable(entry, NumResources)] pResidencyStatus: *mut DXGI_RESIDENCY, #[in] NumResources: UINT) -> HRESULT;
+            fn CreateSurface(&self, #[in] pDesc: *const DXGI_SURFACE_DESC, #[in] NumSurfaces: UINT, #[in] Usage: DXGI_USAGE, #[in] #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[buffer(NumSurfaces)] #[out] ppSurface: *mut IDXGISurface) -> HRESULT;
+            fn QueryResourceResidency(&self, #[buffer(NumResources)] #[in] ppResources: *const IUnknown, #[buffer(NumResources)] #[out] pResidencyStatus: *mut DXGI_RESIDENCY, #[in] NumResources: UINT) -> HRESULT;
             fn SetGPUThreadPriority(&self, #[in] Priority: INT) -> HRESULT;
             fn GetGPUThreadPriority(&self, #[out] #[retval] pPriority: *mut INT) -> HRESULT;
         }
@@ -190,15 +190,15 @@ mod Windows {
         }
         #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
         interface IDXGIObject: IUnknown {
-            fn SetPrivateData(&self, #[in] Name: &GUID, #[in] DataSize: UINT, #[in] #[readable(entry, bytes(DataSize))] pData: *const void) -> HRESULT;
+            fn SetPrivateData(&self, #[in] Name: &GUID, #[in] DataSize: UINT, #[buffer(bytes(DataSize))] #[in] pData: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, #[in] Name: &GUID, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
-            fn GetPrivateData(&self, #[in] Name: &GUID, #[in] #[out] pDataSize: *mut UINT, #[out] #[writable(entry, bytes(*pDataSize))] pData: *mut void) -> HRESULT;
+            fn GetPrivateData(&self, #[in] Name: &GUID, #[in] #[out] pDataSize: *mut UINT, #[buffer(bytes(*pDataSize))] #[out] pData: *mut void) -> HRESULT;
             fn GetParent(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] #[retval] ppParent: *mut *mut void) -> HRESULT;
         }
         #[guid(0xae02eedb_c735_4690_8d52_5a8dc20213aa)]
         interface IDXGIOutput: IDXGIObject {
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTPUT_DESC) -> HRESULT;
-            fn GetDisplayModeList(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[opt] #[out] #[readable(success, *pNumModes)] #[writable(entry, *pNumModes)] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
+            fn GetDisplayModeList(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[buffer(*pNumModes)] #[opt] #[out] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
             fn FindClosestMatchingMode(&self, #[in] pModeToMatch: *const DXGI_MODE_DESC, #[out] pClosestMatch: *mut DXGI_MODE_DESC, #[in] #[opt] pConcernedDevice: IUnknown) -> HRESULT;
             fn WaitForVBlank(&self) -> HRESULT;
             fn TakeOwnership(&self, #[in] pDevice: IUnknown, Exclusive: BOOL) -> HRESULT;

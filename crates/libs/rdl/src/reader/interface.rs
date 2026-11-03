@@ -329,7 +329,7 @@ impl Encoder<'_> {
                     )?;
 
                     self.encode_return_attrs(&method.return_attrs, &signature.return_type)?;
-                    self.encode_params(&params, &signature.return_type)?;
+                    self.encode_params(&params)?;
                 }
 
                 InterfaceMember::Property(prop) => {

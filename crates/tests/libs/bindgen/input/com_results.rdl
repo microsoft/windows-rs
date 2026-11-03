@@ -14,7 +14,7 @@ mod Test {
         fn Required(&self, #[out] #[retval] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
         fn UnspecifiedFailure(&self, #[out] #[retval] #[out_ptr] value: *mut Tracked) -> HRESULT;
         fn NullableVoid(&self, #[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked);
-        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(null_on_failure)] #[nullable] #[readable(success, unknown(), indirect)] value: OutputSlot) -> HRESULT;
+        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(null_on_failure)] #[nullable] value: OutputSlot) -> HRESULT;
         fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] #[out_ptr] #[nullable] value: *mut *mut void) -> HRESULT;
         fn InOutQuery(&self, #[in] iid: *const GUID, #[in] #[out] #[iid_is] value: *mut *mut void) -> HRESULT;
         fn Data(&self, #[out] #[retval] #[out_ptr(null_on_failure)] #[nullable] value: *mut *mut u8) -> HRESULT;
@@ -26,7 +26,7 @@ mod Test {
     #[library("test.dll")]
     extern fn NullableVoid(#[out] #[retval] #[out_ptr] #[nullable] value: *mut Tracked);
     #[library("test.dll")]
-    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[nullable] #[readable(success, unknown(), indirect)] value: *mut RawObject) -> HRESULT;
+    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr] #[nullable] value: *mut RawObject) -> HRESULT;
 }
 #[win32]
 mod Windows {
@@ -35,16 +35,12 @@ mod Windows {
         interface IUnknown {}
         mod Metadata {
             attribute ReservedAttribute { fn(); }
-            #[repr(i32)]
-            enum BufferAccess { Read = 0, Write = 1 }
-            #[repr(i32)]
-            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
-            #[repr(i32)]
-            enum BufferUnits { Elements = 0, Bytes = 1 }
-            attribute BufferExtentAttribute {
-                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
-                CountUnknown: bool,
-                Indirect: bool,
+            attribute BufferAttribute {
+                fn();
+                CountConst: u64,
+                CountParamIndex: u16,
+                Dereference: bool,
+                Bytes: bool,
             }
             attribute ReturnedPointerAttribute {
                 fn();

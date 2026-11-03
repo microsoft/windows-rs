@@ -187,17 +187,17 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn SaferCreateLevel(#[in] dwScopeId: DWORD, #[in] dwLevelId: DWORD, #[in] OpenFlags: DWORD, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferGetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[opt] #[out] #[writable(entry, bytes(dwInBufferSize))] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
+        extern fn SaferGetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[buffer(bytes(dwInBufferSize))] #[opt] #[out] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferGetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[out] #[writable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferGetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[buffer(bytes(InfoBufferSize))] #[out] InfoBuffer: PVOID, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferIdentifyLevel(#[in] dwNumProperties: DWORD, #[in] #[opt] #[readable(entry, dwNumProperties)] pCodeProperties: PSAFER_CODE_PROPERTIES, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferIdentifyLevel(#[in] dwNumProperties: DWORD, #[buffer(dwNumProperties)] #[in] #[opt] pCodeProperties: PSAFER_CODE_PROPERTIES, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferRecordEventLogEntry(#[in] hLevel: SAFER_LEVEL_HANDLE, #[in] szTargetPath: LPCWSTR, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferSetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[in] #[readable(entry, bytes(dwInBufferSize))] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD) -> BOOL;
+        extern fn SaferSetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[buffer(bytes(dwInBufferSize))] #[in] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferSetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[in] #[readable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferSetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[buffer(bytes(InfoBufferSize))] #[in] InfoBuffer: PVOID, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferiIsExecutableFileType(#[in] szFullPathname: LPCWSTR, #[in] bFromShellExecute: BOOLEAN) -> BOOL;
     }

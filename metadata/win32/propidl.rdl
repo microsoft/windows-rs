@@ -67,6 +67,6 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn StgConvertPropertyToVariant(#[in] pprop: *const SERIALIZEDPROPERTYVALUE, #[in] CodePage: USHORT, #[out] pvar: *mut PROPVARIANT, #[in] pma: *mut PMemoryAllocator) -> BOOLEAN;
         #[library("ole32.dll")]
-        extern fn StgConvertVariantToProperty(#[in] pvar: *const PROPVARIANT, #[in] CodePage: USHORT, #[opt] #[out] #[writable(entry, bytes(*pcb))] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut ULONG, #[in] pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[opt] #[out] pcIndirect: *mut ULONG) -> *mut SERIALIZEDPROPERTYVALUE;
+        extern fn StgConvertVariantToProperty(#[in] pvar: *const PROPVARIANT, #[in] CodePage: USHORT, #[buffer(bytes(*pcb))] #[opt] #[out] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut ULONG, #[in] pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[opt] #[out] pcIndirect: *mut ULONG) -> *mut SERIALIZEDPROPERTYVALUE;
     }
 }

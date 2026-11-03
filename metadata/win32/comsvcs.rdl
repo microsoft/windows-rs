@@ -328,8 +328,8 @@ mod Windows {
         interface ICOMLBArguments: IUnknown {
             fn GetCLSID(&self, #[out] pCLSID: *mut CLSID) -> HRESULT;
             fn SetCLSID(&self, #[in] pCLSID: *mut CLSID) -> HRESULT;
-            fn GetMachineName(&self, #[in] cchSvr: ULONG, #[out] #[writable(entry, cchSvr)] szServerName: *mut WCHAR) -> HRESULT;
-            fn SetMachineName(&self, #[in] cchSvr: ULONG, #[in] #[readable(entry, cchSvr)] szServerName: *mut WCHAR) -> HRESULT;
+            fn GetMachineName(&self, #[in] cchSvr: ULONG, #[buffer(cchSvr)] #[out] szServerName: *mut WCHAR) -> HRESULT;
+            fn SetMachineName(&self, #[in] cchSvr: ULONG, #[buffer(cchSvr)] #[in] szServerName: *mut WCHAR) -> HRESULT;
         }
         #[guid(0x0ff5a96f_11fc_47d1_baa6_25dd347e7242)]
         interface ICheckSxsConfig: IUnknown {
@@ -364,7 +364,7 @@ mod Windows {
             fn OnCRMRecoveryStart(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidApp: GUID) -> HRESULT;
             fn OnCRMRecoveryDone(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidApp: GUID) -> HRESULT;
             fn OnCRMCheckpoint(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidApp: GUID) -> HRESULT;
-            fn OnCRMBegin(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidClerkCLSID: GUID, #[in] guidActivity: GUID, #[in] guidTx: GUID, #[in] #[readable(entry, 64)] szProgIdCompensator: *mut WCHAR, #[in] #[readable(entry, 64)] szDescription: *mut WCHAR) -> HRESULT;
+            fn OnCRMBegin(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidClerkCLSID: GUID, #[in] guidActivity: GUID, #[in] guidTx: GUID, #[buffer(64)] #[in] szProgIdCompensator: *mut WCHAR, #[buffer(64)] #[in] szDescription: *mut WCHAR) -> HRESULT;
             fn OnCRMPrepare(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidClerkCLSID: GUID) -> HRESULT;
             fn OnCRMCommit(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidClerkCLSID: GUID) -> HRESULT;
             fn OnCRMAbort(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidClerkCLSID: GUID) -> HRESULT;
@@ -463,8 +463,8 @@ mod Windows {
         }
         #[guid(0x683130b2_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComQCEvents: IUnknown {
-            fn OnQCRecord(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] objid: ULONG64, #[in] #[readable(entry, 60)] szQueue: *mut WCHAR, #[in] guidMsgId: &GUID, #[in] guidWorkFlowId: &GUID, #[in] msmqhr: HRESULT) -> HRESULT;
-            fn OnQCQueueOpen(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] #[readable(entry, 60)] szQueue: *mut WCHAR, #[in] QueueID: ULONG64, #[in] hr: HRESULT) -> HRESULT;
+            fn OnQCRecord(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] objid: ULONG64, #[buffer(60)] #[in] szQueue: *mut WCHAR, #[in] guidMsgId: &GUID, #[in] guidWorkFlowId: &GUID, #[in] msmqhr: HRESULT) -> HRESULT;
+            fn OnQCQueueOpen(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[buffer(60)] #[in] szQueue: *mut WCHAR, #[in] QueueID: ULONG64, #[in] hr: HRESULT) -> HRESULT;
             fn OnQCReceive(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] QueueID: ULONG64, #[in] guidMsgId: &GUID, #[in] guidWorkFlowId: &GUID, #[in] hr: HRESULT) -> HRESULT;
             fn OnQCReceiveFail(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] QueueID: ULONG64, #[in] msmqhr: HRESULT) -> HRESULT;
             fn OnQCMoveToReTryQueue(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidMsgId: &GUID, #[in] guidWorkFlowId: &GUID, #[in] RetryIndex: ULONG) -> HRESULT;
@@ -481,8 +481,8 @@ mod Windows {
         }
         #[guid(0x683130ac_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComSecurityEvents: IUnknown {
-            fn OnAuthenticate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidActivity: &GUID, ObjectID: ULONG64, #[in] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[in] #[readable(entry, cbByteOrig)] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[in] #[readable(entry, cbByteCur)] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
-            fn OnAuthenticateFail(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidActivity: &GUID, ObjectID: ULONG64, #[in] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[in] #[readable(entry, cbByteOrig)] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[in] #[readable(entry, cbByteCur)] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+            fn OnAuthenticate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidActivity: &GUID, ObjectID: ULONG64, #[in] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[buffer(cbByteOrig)] #[in] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[buffer(cbByteCur)] #[in] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+            fn OnAuthenticateFail(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] guidActivity: &GUID, ObjectID: ULONG64, #[in] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[buffer(cbByteOrig)] #[in] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[buffer(cbByteCur)] #[in] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
         }
         #[guid(0x324b64fa_33b6_11d2_98b7_00c04f8ee1c4)]
         interface IComStaThreadPoolKnobs: IUnknown {
@@ -542,7 +542,7 @@ mod Windows {
         #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
         interface IComTrackingInfoProperties: IUnknown {
             fn PropCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn GetPropName(&self, #[in] ulIndex: ULONG, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppszPropName: *mut LPOLESTR) -> HRESULT;
+            fn GetPropName(&self, #[in] ulIndex: ULONG, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppszPropName: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
         interface IComTransaction2Events: IUnknown {
@@ -636,7 +636,7 @@ mod Windows {
             fn ForceLog(&self) -> HRESULT;
             fn ForgetLogRecord(&self) -> HRESULT;
             fn ForceTransactionToAbort(&self) -> HRESULT;
-            fn WriteLogRecord(&self, #[in] #[readable(entry, cBlob)] rgBlob: *mut BLOB, #[in] cBlob: ULONG) -> HRESULT;
+            fn WriteLogRecord(&self, #[buffer(cBlob)] #[in] rgBlob: *mut BLOB, #[in] cBlob: ULONG) -> HRESULT;
         }
         #[guid(0x70c8e443_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitor: IUnknown {
@@ -695,10 +695,10 @@ mod Windows {
         }
         #[guid(0x507c3ac8_3e12_4cb0_9366_653d3e050638)]
         interface IGetAppTrackerData: IUnknown {
-            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[nullable] #[out] #[readable(success, *NumApplicationProcesses, indirect)] #[writable(success, *NumApplicationProcesses, indirect)] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
+            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[incomplete] #[nullable] #[out] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
             fn GetApplicationProcessDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ApplicationProcessSummary, #[opt] #[out] Statistics: *mut ApplicationProcessStatistics, #[opt] #[out] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[opt] #[out] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
-            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[nullable] #[out] #[readable(success, *NumApplicationsInProcess, indirect)] #[writable(success, *NumApplicationsInProcess, indirect)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
-            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[nullable] #[out] #[readable(success, *NumComponentsInProcess, indirect)] #[writable(success, *NumComponentsInProcess, indirect)] Components: *mut *mut ComponentSummary) -> HRESULT;
+            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[incomplete] #[nullable] #[out] Applications: *mut *mut ApplicationSummary) -> HRESULT;
+            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[incomplete] #[nullable] #[out] Components: *mut *mut ComponentSummary) -> HRESULT;
             fn GetComponentDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Clsid: &IID, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ComponentSummary, #[opt] #[out] Statistics: *mut ComponentStatistics, #[opt] #[out] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
             fn GetTrackerDataAsCollectionObject(&self, #[out] #[out_ptr] #[retval] TopLevelCollection: *mut IUnknown) -> HRESULT;
             fn GetSuggestedPollingInterval(&self, #[out] PollingIntervalInSeconds: *mut DWORD) -> HRESULT;

@@ -516,17 +516,17 @@ mod Windows {
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(#[in] wszServerName: LPCWSTR, #[out] netIsoError: *mut NETISO_ERROR_TYPE) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationEnumAppContainers(#[in] Flags: DWORD, #[out] pdwNumPublicAppCs: *mut DWORD, #[out] #[writable(success, *pdwNumPublicAppCs, indirect)] ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> DWORD;
+        extern fn NetworkIsolationEnumAppContainers(#[in] Flags: DWORD, #[out] pdwNumPublicAppCs: *mut DWORD, #[incomplete] #[out] ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationFreeAppContainers(#[in] pPublicAppCs: PINET_FIREWALL_APP_CONTAINER) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationGetAppContainerConfig(#[out] pdwNumPublicAppCs: *mut DWORD, #[out] #[writable(success, *pdwNumPublicAppCs, indirect)] appContainerSids: *mut PSID_AND_ATTRIBUTES) -> DWORD;
+        extern fn NetworkIsolationGetAppContainerConfig(#[out] pdwNumPublicAppCs: *mut DWORD, #[incomplete] #[out] appContainerSids: *mut PSID_AND_ATTRIBUTES) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationRegisterForAppContainerChanges(#[in] flags: DWORD, #[in] callback: PAC_CHANGES_CALLBACK_FN, #[in] #[opt] context: PVOID, #[out] registrationObject: *mut HANDLE) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetAppContainerConfig(#[in] dwNumPublicAppCs: DWORD, #[in] #[readable(entry, dwNumPublicAppCs)] appContainerSids: PSID_AND_ATTRIBUTES) -> DWORD;
+        extern fn NetworkIsolationSetAppContainerConfig(#[in] dwNumPublicAppCs: DWORD, #[buffer(dwNumPublicAppCs)] #[in] appContainerSids: PSID_AND_ATTRIBUTES) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetupAppContainerBinaries(#[in] applicationContainerSid: PSID, #[in] packageFullName: LPCWSTR, #[in] packageFolder: LPCWSTR, #[in] displayName: LPCWSTR, #[in] bBinariesFullyComputed: BOOL, #[in] #[readable(entry, binariesCount)] binaries: *mut LPCWSTR, #[in] binariesCount: DWORD) -> HRESULT;
+        extern fn NetworkIsolationSetupAppContainerBinaries(#[in] applicationContainerSid: PSID, #[in] packageFullName: LPCWSTR, #[in] packageFolder: LPCWSTR, #[in] displayName: LPCWSTR, #[in] bBinariesFullyComputed: BOOL, #[buffer(binariesCount)] #[in] binaries: *mut LPCWSTR, #[in] binariesCount: DWORD) -> HRESULT;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationUnregisterForAppContainerChanges(#[in] registrationObject: HANDLE) -> DWORD;
         extern fn PAC_CHANGES_CALLBACK_FN(#[in] #[opt] context: *mut void, #[in] pChange: *const INET_FIREWALL_AC_CHANGE);

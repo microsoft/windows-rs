@@ -446,8 +446,6 @@ mod Windows {
             Length: USHORT,
             MaximumLength: USHORT,
             #[nullable]
-            #[readable(bytes(Length))]
-            #[writable(bytes(MaximumLength))]
             Buffer: PWCH,
         }
         #[packed(1)]
@@ -682,8 +680,6 @@ mod Windows {
             DataInTransferLength: ULONG,
             DataOutBufferOffset: ULONG32,
             DataInBufferOffset: ULONG32,
-            #[readable(bytes(CdbLength))]
-            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_DIRECT {
@@ -715,15 +711,9 @@ mod Windows {
             SenseInfoOffset: ULONG,
             DataOutTransferLength: ULONG,
             DataInTransferLength: ULONG,
-            #[readable(bytes(DataOutTransferLength))]
-            #[writable(bytes(DataOutTransferLength))]
             DataOutBuffer: *mut void,
             #[nullable]
-            #[readable(bytes(DataInTransferLength))]
-            #[writable(bytes(DataInTransferLength))]
             DataInBuffer: *mut void,
-            #[readable(bytes(CdbLength))]
-            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_EX {
@@ -742,8 +732,6 @@ mod Windows {
             DataInTransferLength: ULONG,
             DataOutBufferOffset: ULONG_PTR,
             DataInBufferOffset: ULONG_PTR,
-            #[readable(bytes(CdbLength))]
-            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SRB_IO_CONTROL {
@@ -767,7 +755,6 @@ mod Windows {
             BPID: UCHAR,
             Offset: ULONGLONG,
             BufferSize: ULONGLONG,
-            #[writable(bytes(BufferSize))]
             ImageBuffer: [UCHAR; 1],
         }
         const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
@@ -789,7 +776,6 @@ mod Windows {
             ProviderId: GUID,
             BufferSize: ULONG,
             Reserved: ULONG,
-            #[writable(BufferSize)]
             DataBuffer: [UCHAR; 1],
         }
         const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: i32 = 1;

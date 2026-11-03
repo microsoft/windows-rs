@@ -44,7 +44,7 @@ mod Windows {
             fn GetMaxCategories(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
             fn GetMaxStatsPerCategory(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
             fn SetCategoryTitle(&self, #[in] categoryIndex: WORD, #[in] #[null_terminated(entry)] title: LPCWSTR) -> HRESULT;
-            fn GetCategoryTitle(&self, #[in] categoryIndex: WORD, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
+            fn GetCategoryTitle(&self, #[in] categoryIndex: WORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
             fn GetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[incomplete] #[out] pName: *mut LPWSTR, #[in] #[incomplete] #[out] pValue: *mut LPWSTR) -> HRESULT;
             fn SetStatistic(&self, #[in] categoryIndex: WORD, #[in] statIndex: WORD, #[in] #[null_terminated(entry)] name: LPCWSTR, #[in] #[null_terminated(entry)] value: LPCWSTR) -> HRESULT;
             fn Save(&self, #[in] trackChanges: BOOL) -> HRESULT;

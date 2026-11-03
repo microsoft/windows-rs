@@ -9,7 +9,6 @@ mod Windows {
             NotificationCode: DWORD,
             InterfaceGuid: GUID,
             dwDataSize: DWORD,
-            #[writable(bytes(dwDataSize))]
             pData: PVOID,
         }
         const L2_NOTIFICATION_SOURCE_ALL: i32 = 65535;

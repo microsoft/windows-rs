@@ -98,7 +98,7 @@ mod Windows {
         extern fn FreeEncryptionCertificateHashList(#[in] pUsers: PENCRYPTION_CERTIFICATE_HASH_LIST);
         #[deprecated]
         #[library("ADVAPI32.dll")]
-        extern fn GetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[out] pcbMetadata: PDWORD, #[out] #[writable(success, bytes(*pcbMetadata), indirect)] ppbMetadata: *mut PBYTE) -> DWORD;
+        extern fn GetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[out] pcbMetadata: PDWORD, #[incomplete] #[out] ppbMetadata: *mut PBYTE) -> DWORD;
         const MAX_SID_SIZE: i32 = 256;
         type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
         type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;

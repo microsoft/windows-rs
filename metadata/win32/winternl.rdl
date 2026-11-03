@@ -109,7 +109,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: PVOID, IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: ULONG, InputBuffer: PVOID, InputBufferLength: ULONG, OutputBuffer: PVOID, OutputBufferLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(#[in] MasterKeyHandle: HANDLE, #[in] #[opt] Count: ULONG, #[in] #[opt] #[readable(entry, Count)] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] CompletionFilter: ULONG, #[in] WatchTree: BOOLEAN, #[opt] #[out] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: ULONG, #[in] Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(#[in] MasterKeyHandle: HANDLE, #[in] #[opt] Count: ULONG, #[buffer(Count)] #[in] #[opt] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] CompletionFilter: ULONG, #[in] WatchTree: BOOLEAN, #[buffer(bytes(BufferSize))] #[opt] #[out] Buffer: PVOID, #[in] BufferSize: ULONG, #[in] Asynchronous: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtOpenFile(FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, IoStatusBlock: PIO_STATUS_BLOCK, ShareAccess: ULONG, OpenOptions: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -117,9 +117,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: PVOID, ThreadInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryMultipleValueKey(#[in] KeyHandle: HANDLE, #[in] #[out] #[writable(entry, EntryCount)] ValueEntries: PKEY_VALUE_ENTRY, #[in] EntryCount: ULONG, #[out] #[writable(entry, bytes(*BufferLength))] ValueBuffer: PVOID, #[in] #[out] BufferLength: PULONG, #[opt] #[out] RequiredBufferLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryMultipleValueKey(#[in] KeyHandle: HANDLE, #[buffer(EntryCount)] #[in] #[out] ValueEntries: PKEY_VALUE_ENTRY, #[in] EntryCount: ULONG, #[buffer(bytes(*BufferLength))] #[out] ValueBuffer: PVOID, #[in] #[out] BufferLength: PULONG, #[opt] #[out] RequiredBufferLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[opt] #[out] #[writable(entry, bytes(ObjectInformationLength))] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[buffer(bytes(ObjectInformationLength))] #[opt] #[out] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: PVOID, SystemInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -129,9 +129,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtRenameKey(#[in] KeyHandle: HANDLE, #[in] NewName: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtSetInformationKey(#[in] KeyHandle: HANDLE, #[in] KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[in] #[readable(entry, bytes(KeySetInformationLength))] KeySetInformation: PVOID, #[in] KeySetInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationKey(#[in] KeyHandle: HANDLE, #[in] KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[buffer(bytes(KeySetInformationLength))] #[in] KeySetInformation: PVOID, #[in] KeySetInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[buffer(bytes(ThreadInformationLength))] #[in] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, Timeout: PLARGE_INTEGER) -> NTSTATUS;
         struct OBJECT_ATTRIBUTES {
@@ -290,7 +290,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: PCUNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeToMultiByteSize(#[out] BytesInMultiByteString: PULONG, #[in] #[readable(entry, bytes(BytesInUnicodeString))] UnicodeString: PWCH, #[in] BytesInUnicodeString: ULONG) -> NTSTATUS;
+        extern fn RtlUnicodeToMultiByteSize(#[out] BytesInMultiByteString: PULONG, #[buffer(bytes(BytesInUnicodeString))] #[in] UnicodeString: PWCH, #[in] BytesInUnicodeString: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlUniform(Seed: PULONG) -> ULONG;
         const SERVERNAME_CURRENT: HANDLE = 0;

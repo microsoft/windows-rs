@@ -44,7 +44,7 @@ mod Windows {
             fn GetCurrentBackBufferIndex(&self) -> UINT;
             fn CheckColorSpaceSupport(&self, #[in] ColorSpace: DXGI_COLOR_SPACE_TYPE, #[out] pColorSpaceSupport: *mut UINT) -> HRESULT;
             fn SetColorSpace1(&self, #[in] ColorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
-            fn ResizeBuffers1(&self, #[in] BufferCount: UINT, #[in] Width: UINT, #[in] Height: UINT, #[in] Format: DXGI_FORMAT, #[in] SwapChainFlags: UINT, #[in] #[readable(entry, BufferCount)] pCreationNodeMask: *const UINT, #[in] #[readable(entry, BufferCount)] ppPresentQueue: *const IUnknown) -> HRESULT;
+            fn ResizeBuffers1(&self, #[in] BufferCount: UINT, #[in] Width: UINT, #[in] Height: UINT, #[in] Format: DXGI_FORMAT, #[in] SwapChainFlags: UINT, #[buffer(BufferCount)] #[in] pCreationNodeMask: *const UINT, #[buffer(BufferCount)] #[in] ppPresentQueue: *const IUnknown) -> HRESULT;
         }
         const IID_IDXGIAdapter3: GUID = 0x645967a4_1392_4310_a798_8053ce3e93fd;
         const IID_IDXGIFactory4: GUID = 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a;

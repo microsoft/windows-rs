@@ -21,7 +21,7 @@ mod Windows {
         }
         #[guid(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff)]
         interface IWbemConstructClassObject: IUnknown {
-            fn SetInheritanceChain(&self, #[in] lNumAntecedents: i32, #[in] #[readable(entry, bytes(lNumAntecedents))] awszAntecedents: *mut LPWSTR) -> HRESULT;
+            fn SetInheritanceChain(&self, #[in] lNumAntecedents: i32, #[buffer(bytes(lNumAntecedents))] #[in] awszAntecedents: *mut LPWSTR) -> HRESULT;
             fn SetPropertyOrigin(&self, #[in] wszPropertyName: LPCWSTR, #[in] lOriginIndex: i32) -> HRESULT;
             fn SetMethodOrigin(&self, #[in] wszMethodName: LPCWSTR, #[in] lOriginIndex: i32) -> HRESULT;
             fn SetServerNamespace(&self, #[in] wszServer: LPCWSTR, #[in] wszNamespace: LPCWSTR) -> HRESULT;

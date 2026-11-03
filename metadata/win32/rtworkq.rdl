@@ -54,7 +54,7 @@ mod Windows {
         #[library("RTWorkQ.DLL")]
         extern fn RtwqEndRegisterWorkQueueWithMMCSS(#[in] result: IRtwqAsyncResult, #[out] taskId: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: DWORD, #[opt] #[out] #[readable(success, *usageClassLength)] #[writable(entry, *usageClassLength)] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut DWORD) -> HRESULT;
+        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: DWORD, #[buffer(*usageClassLength)] #[opt] #[out] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqGetWorkQueueMMCSSPriority(workQueueId: DWORD, #[out] priority: *mut LONG) -> HRESULT;
         #[library("RTWorkQ.DLL")]

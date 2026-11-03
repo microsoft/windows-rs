@@ -31,7 +31,7 @@ mod Windows {
         }
         #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookup: IUnknown {
-            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[readable(success, *pnObjects)] #[writable(entry, 1)] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
+            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[buffer(1)] #[iid_is] #[out] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
         }
         #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookupClient: IUnknown {
@@ -53,7 +53,7 @@ mod Windows {
             fn SetVideoWindow(&self, #[in] hwndVideo: HWND) -> HRESULT;
             fn GetVideoWindow(&self, #[out] #[out_ptr] phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[nullable] #[out] #[readable(success, *pcbDib, indirect)] #[writable(success, *pcbDib, indirect)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[incomplete] #[nullable] #[out] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
             fn SetBorderColor(&self, #[in] Clr: COLORREF) -> HRESULT;
             fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
             fn SetRenderingPrefs(&self, #[in] dwRenderFlags: DWORD) -> HRESULT;

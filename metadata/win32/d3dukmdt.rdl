@@ -441,9 +441,7 @@ mod Windows {
             hContext: D3DKMT_HANDLE,
             Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
             Command: D3DDDI_TESTCOMMANDBUFFER,
-            #[writable(bytes(DmaBufferSize))]
             pDmaBuffer: PVOID,
-            #[writable(bytes(DmaBufferPrivateDataSize))]
             pDmaBufferPrivateData: PVOID,
             DmaBufferSize: UINT,
             DmaBufferPrivateDataSize: UINT,
@@ -565,7 +563,6 @@ mod Windows {
         struct D3DDDI_MAKERESIDENT {
             hPagingQueue: D3DKMT_HANDLE,
             NumAllocations: UINT,
-            #[writable(NumAllocations)]
             AllocationList: *const D3DKMT_HANDLE,
             PriorityList: *const UINT,
             Flags: D3DDDI_MAKERESIDENT_FLAGS,
