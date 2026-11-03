@@ -7,6 +7,13 @@ fn com_output_owns_returned_pointer_storage() {
     helpers::ensure_libclang();
     let input = test_clang::fixture("sal_midl_direction");
     let output = projection::generate(std::slice::from_ref(&input), "Fixture").unwrap();
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(
+            test_clang::input_dir().join("sal_midl_direction.rdl"),
+            &output.partitions["sal_midl_direction"].rdl,
+        )
+        .unwrap();
+    }
     let expected = std::fs::read_to_string(test_clang::input_dir().join("sal_midl_direction.rdl"))
         .unwrap()
         .replace("\r\n", "\n");

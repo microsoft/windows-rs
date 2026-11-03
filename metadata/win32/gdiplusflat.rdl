@@ -398,7 +398,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipDrawString(graphics: *mut GpGraphics, string: *const WCHAR, length: INT, font: *const GpFont, layoutRect: *const RectF, stringFormat: *const GpStringFormat, brush: *const GpBrush) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipEmfToWmfBits(hemf: HENHMETAFILE, cbData16: UINT, #[incomplete] #[opt] #[out] #[writable(entry, cbData16)] pData16: LPBYTE, iMapMode: INT, eFlags: INT) -> UINT;
+        extern fn GdipEmfToWmfBits(hemf: HENHMETAFILE, cbData16: UINT, #[buffer(cbData16)] #[incomplete] #[opt] #[out] pData16: LPBYTE, iMapMode: INT, eFlags: INT) -> UINT;
         #[library("gdiplus.dll")]
         extern fn GdipEndContainer(graphics: *mut GpGraphics, state: GraphicsContainer) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -522,11 +522,11 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetFamily(font: *mut GpFont, family: *mut *mut GpFontFamily) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetFamilyName(family: *const GpFontFamily, #[out] #[writable(entry, 32)] name: LPWSTR, language: LANGID) -> GpStatus;
+        extern fn GdipGetFamilyName(family: *const GpFontFamily, #[buffer(32)] #[out] name: LPWSTR, language: LANGID) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetFontCollectionFamilyCount(fontCollection: *mut GpFontCollection, numFound: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetFontCollectionFamilyList(#[in] fontCollection: *mut GpFontCollection, #[in] numSought: INT, #[out] #[readable(success, *numFound)] #[writable(entry, numSought)] gpfamilies: *mut *mut GpFontFamily, #[out] numFound: *mut INT) -> GpStatus;
+        extern fn GdipGetFontCollectionFamilyList(#[in] fontCollection: *mut GpFontCollection, #[in] numSought: INT, #[buffer(numSought)] #[out] gpfamilies: *mut *mut GpFontFamily, #[out] numFound: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetFontHeight(font: *const GpFont, graphics: *const GpGraphics, height: *mut REAL) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -556,13 +556,13 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetImageBounds(image: *mut GpImage, srcRect: *mut GpRectF, srcUnit: *mut GpUnit) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetImageDecoders(#[in] numDecoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] decoders: *mut ImageCodecInfo) -> GpStatus;
+        extern fn GdipGetImageDecoders(#[in] numDecoders: UINT, #[in] size: UINT, #[buffer(bytes(size))] #[out] decoders: *mut ImageCodecInfo) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageDecodersSize(#[out] numDecoders: *mut UINT, #[incomplete] #[out] size: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageDimension(image: *mut GpImage, width: *mut REAL, height: *mut REAL) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetImageEncoders(#[in] numEncoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] encoders: *mut ImageCodecInfo) -> GpStatus;
+        extern fn GdipGetImageEncoders(#[in] numEncoders: UINT, #[in] size: UINT, #[buffer(bytes(size))] #[out] encoders: *mut ImageCodecInfo) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetImageEncodersSize(#[out] numEncoders: *mut UINT, #[incomplete] #[out] size: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -672,7 +672,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetPathGradientSurroundColorCount(brush: *mut GpPathGradient, count: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetPathGradientSurroundColorsWithCount(#[in] brush: *mut GpPathGradient, #[out] #[readable(success, *count)] #[writable(entry, *count)] color: *mut ARGB, #[in] #[out] count: *mut INT) -> GpStatus;
+        extern fn GdipGetPathGradientSurroundColorsWithCount(#[in] brush: *mut GpPathGradient, #[buffer(*count)] #[out] color: *mut ARGB, #[in] #[out] count: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut GpMatrix) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -684,7 +684,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut GpPoint, count: INT) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetPathTypes(#[in] path: *mut GpPath, #[out] #[writable(entry, bytes(count))] types: *mut BYTE, count: INT) -> GpStatus;
+        extern fn GdipGetPathTypes(#[in] path: *mut GpPath, #[buffer(bytes(count))] #[out] types: *mut BYTE, count: INT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut GpRectF, matrix: *const GpMatrix, pen: *const GpPen) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -748,7 +748,7 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut GpRect) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipGetRegionData(region: *mut GpRegion, #[out] #[readable(success, if_present(*sizeFilled))] #[writable(entry, bufferSize)] buffer: *mut BYTE, bufferSize: UINT, #[opt] #[out] sizeFilled: *mut UINT) -> GpStatus;
+        extern fn GdipGetRegionData(region: *mut GpRegion, #[buffer(bufferSize)] #[out] buffer: *mut BYTE, bufferSize: UINT, #[opt] #[out] sizeFilled: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipGetRegionDataSize(region: *mut GpRegion, bufferSize: *mut UINT) -> GpStatus;
         #[library("gdiplus.dll")]
@@ -894,9 +894,9 @@ mod Windows {
         #[library("gdiplus.dll")]
         extern fn GdipNewPrivateFontCollection(fontCollection: *mut *mut GpFontCollection) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipPathIterCopyData(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[out] #[readable(success, *resultCount)] #[writable(entry, endIndex - startIndex + 1)] points: *mut GpPointF, #[out] #[readable(success, *resultCount)] #[writable(entry, endIndex - startIndex + 1)] types: *mut BYTE, startIndex: INT, endIndex: INT) -> GpStatus;
+        extern fn GdipPathIterCopyData(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[incomplete] #[out] points: *mut GpPointF, #[incomplete] #[out] types: *mut BYTE, startIndex: INT, endIndex: INT) -> GpStatus;
         #[library("gdiplus.dll")]
-        extern fn GdipPathIterEnumerate(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[out] #[readable(success, *resultCount)] #[writable(entry, count)] points: *mut GpPointF, #[out] #[readable(success, *resultCount)] #[writable(entry, count)] types: *mut BYTE, count: INT) -> GpStatus;
+        extern fn GdipPathIterEnumerate(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[buffer(count)] #[out] points: *mut GpPointF, #[buffer(count)] #[out] types: *mut BYTE, count: INT) -> GpStatus;
         #[library("gdiplus.dll")]
         extern fn GdipPathIterGetCount(iterator: *mut GpPathIterator, count: *mut INT) -> GpStatus;
         #[library("gdiplus.dll")]

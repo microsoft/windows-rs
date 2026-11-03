@@ -1000,7 +1000,7 @@ fn signature_param_is_query(params: &[Param], reader: &Reader) -> Option<(usize,
             && ty.deref() == Type::PtrMut(Box::new(Type::Void), 1)
             && param.is_metadata_output_only()
             && param.has_attribute("ComOutPtrAttribute")
-            && !param.has_query_buffer_attributes()
+            && !param.has_buffer_attributes()
             && !param.has_unresolved_contracts()
     }) {
         return Some((guid, object));

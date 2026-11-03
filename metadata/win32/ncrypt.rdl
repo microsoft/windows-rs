@@ -123,10 +123,8 @@ mod Windows {
         struct NCRYPT_CIPHER_PADDING_INFO {
             cbSize: ULONG,
             dwFlags: DWORD,
-            #[writable(bytes(cbIV))]
             pbIV: PUCHAR,
             cbIV: ULONG,
-            #[writable(bytes(cbOtherInfo))]
             pbOtherInfo: PUCHAR,
             cbOtherInfo: ULONG,
         }
@@ -771,39 +769,39 @@ mod Windows {
         type NCryptBufferDesc = BCryptBufferDesc;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptCreateClaim(#[in] #[opt] hSubjectKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, #[in] dwClaimType: DWORD, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbClaimBlob))] pbClaimBlob: PBYTE, #[in] cbClaimBlob: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptCreateClaim(#[in] #[opt] hSubjectKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, #[in] dwClaimType: DWORD, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[buffer(bytes(cbClaimBlob))] #[opt] #[out] pbClaimBlob: PBYTE, #[in] cbClaimBlob: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptCreatePersistedKey(#[in] hProvider: NCRYPT_PROV_HANDLE, #[out] phKey: *mut NCRYPT_KEY_HANDLE, #[in] pszAlgId: LPCWSTR, #[in] #[opt] pszKeyName: LPCWSTR, #[in] dwLegacyKeySpec: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptDecapsulate(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[readable(entry, bytes(cbCipherText))] pbCipherText: PBYTE, #[in] cbCipherText: ULONG, #[opt] #[out] #[readable(success, bytes(*pcbSecretKey))] #[writable(entry, bytes(cbSecretKey))] pbSecretKey: PBYTE, #[in] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
+        extern fn NCryptDecapsulate(#[in] hKey: NCRYPT_KEY_HANDLE, #[buffer(bytes(cbCipherText))] #[in] pbCipherText: PBYTE, #[in] cbCipherText: ULONG, #[buffer(bytes(cbSecretKey))] #[opt] #[out] pbSecretKey: PBYTE, #[in] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptDecrypt(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] #[readable(entry, bytes(cbInput))] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] #[opt] pPaddingInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptDecrypt(#[in] hKey: NCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] #[opt] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptDeleteKey(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptDeriveKey(#[in] hSharedSecret: NCRYPT_SECRET_HANDLE, #[in] pwszKDF: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbDerivedKey))] pbDerivedKey: PBYTE, #[in] cbDerivedKey: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
+        extern fn NCryptDeriveKey(#[in] hSharedSecret: NCRYPT_SECRET_HANDLE, #[in] pwszKDF: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[buffer(bytes(cbDerivedKey))] #[opt] #[out] pbDerivedKey: PBYTE, #[in] cbDerivedKey: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptEncapsulate(#[in] hKey: NCRYPT_KEY_HANDLE, #[opt] #[out] #[readable(success, bytes(*pcbSecretKey))] #[writable(entry, bytes(cbSecretKey))] pbSecretKey: PBYTE, #[in] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbCipherText))] #[writable(entry, bytes(cbCipherText))] pbCipherText: PBYTE, #[in] cbCipherText: ULONG, #[out] pcbCipherText: *mut ULONG, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
+        extern fn NCryptEncapsulate(#[in] hKey: NCRYPT_KEY_HANDLE, #[buffer(bytes(cbSecretKey))] #[opt] #[out] pbSecretKey: PBYTE, #[in] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[buffer(bytes(cbCipherText))] #[opt] #[out] pbCipherText: PBYTE, #[in] cbCipherText: ULONG, #[out] pcbCipherText: *mut ULONG, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptEncrypt(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] #[readable(entry, bytes(cbInput))] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] #[opt] pPaddingInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptEncrypt(#[in] hKey: NCRYPT_KEY_HANDLE, #[buffer(bytes(cbInput))] #[in] #[opt] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptEnumAlgorithms(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] dwAlgOperations: DWORD, #[out] pdwAlgCount: *mut DWORD, #[out] #[writable(success, *pdwAlgCount, indirect)] ppAlgList: *mut *mut NCryptAlgorithmName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptEnumAlgorithms(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] dwAlgOperations: DWORD, #[out] pdwAlgCount: *mut DWORD, #[incomplete] #[out] ppAlgList: *mut *mut NCryptAlgorithmName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptEnumKeys(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] #[opt] pszScope: LPCWSTR, #[out] #[out_ptr] ppKeyName: *mut *mut NCryptKeyName, #[in] #[out] ppEnumState: *mut PVOID, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptEnumStorageProviders(#[out] pdwProviderCount: *mut DWORD, #[out] #[writable(success, *pdwProviderCount, indirect)] ppProviderList: *mut *mut NCryptProviderName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptEnumStorageProviders(#[out] pdwProviderCount: *mut DWORD, #[incomplete] #[out] ppProviderList: *mut *mut NCryptProviderName, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptExportKey(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hExportKey: NCRYPT_KEY_HANDLE, #[in] pszBlobType: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptExportKey(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hExportKey: NCRYPT_KEY_HANDLE, #[in] pszBlobType: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptFinalizeKey(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
@@ -813,10 +811,10 @@ mod Windows {
         extern fn NCryptFreeObject(#[in] hObject: NCRYPT_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptGetProperty(#[in] hObject: NCRYPT_HANDLE, #[in] pszProperty: LPCWSTR, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbOutput))] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptGetProperty(#[in] hObject: NCRYPT_HANDLE, #[in] pszProperty: LPCWSTR, #[buffer(bytes(cbOutput))] #[opt] #[out] pbOutput: PBYTE, #[in] cbOutput: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptImportKey(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] #[opt] hImportKey: NCRYPT_KEY_HANDLE, #[in] pszBlobType: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[out] phKey: *mut NCRYPT_KEY_HANDLE, #[in] #[readable(entry, bytes(cbData))] pbData: PBYTE, #[in] cbData: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptImportKey(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] #[opt] hImportKey: NCRYPT_KEY_HANDLE, #[in] pszBlobType: LPCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[out] phKey: *mut NCRYPT_KEY_HANDLE, #[buffer(bytes(cbData))] #[in] pbData: PBYTE, #[in] cbData: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptIsAlgSupported(#[in] hProvider: NCRYPT_PROV_HANDLE, #[in] pszAlgId: LPCWSTR, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
@@ -824,7 +822,7 @@ mod Windows {
         extern fn NCryptIsKeyHandle(#[in] hKey: NCRYPT_KEY_HANDLE) -> BOOL;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptKeyDerivation(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbDerivedKey))] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
+        extern fn NCryptKeyDerivation(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[buffer(bytes(cbDerivedKey))] #[out] pbDerivedKey: PUCHAR, #[in] cbDerivedKey: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: ULONG) -> SECURITY_STATUS;
         struct NCryptKeyName {
             pszName: LPWSTR,
             pszAlgid: LPWSTR,
@@ -849,19 +847,19 @@ mod Windows {
         extern fn NCryptSecretAgreement(#[in] hPrivKey: NCRYPT_KEY_HANDLE, #[in] hPubKey: NCRYPT_KEY_HANDLE, #[out] phAgreedSecret: *mut NCRYPT_SECRET_HANDLE, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptSetProperty(#[in] hObject: NCRYPT_HANDLE, #[in] pszProperty: LPCWSTR, #[in] #[readable(entry, bytes(cbInput))] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptSetProperty(#[in] hObject: NCRYPT_HANDLE, #[in] pszProperty: LPCWSTR, #[buffer(bytes(cbInput))] #[in] pbInput: PBYTE, #[in] cbInput: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptSignHash(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[in] #[readable(entry, bytes(cbHashValue))] pbHashValue: PBYTE, #[in] cbHashValue: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbResult))] #[writable(entry, bytes(cbSignature))] pbSignature: PBYTE, #[in] cbSignature: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptSignHash(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbHashValue))] #[in] pbHashValue: PBYTE, #[in] cbHashValue: DWORD, #[buffer(bytes(cbSignature))] #[opt] #[out] pbSignature: PBYTE, #[in] cbSignature: DWORD, #[out] pcbResult: *mut DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
         extern fn NCryptTranslateHandle(#[opt] #[out] phProvider: *mut NCRYPT_PROV_HANDLE, #[out] phKey: *mut NCRYPT_KEY_HANDLE, #[in] hLegacyProv: HCRYPTPROV, #[in] #[opt] hLegacyKey: HCRYPTKEY, #[in] #[opt] dwLegacyKeySpec: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptVerifyClaim(#[in] hSubjectKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, #[in] dwClaimType: DWORD, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[in] #[readable(entry, bytes(cbClaimBlob))] pbClaimBlob: PBYTE, #[in] cbClaimBlob: DWORD, #[out] pOutput: *mut NCryptBufferDesc, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptVerifyClaim(#[in] hSubjectKey: NCRYPT_KEY_HANDLE, #[in] #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, #[in] dwClaimType: DWORD, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[buffer(bytes(cbClaimBlob))] #[in] pbClaimBlob: PBYTE, #[in] cbClaimBlob: DWORD, #[out] pOutput: *mut NCryptBufferDesc, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         #[must_use]
-        extern fn NCryptVerifySignature(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[in] #[readable(entry, bytes(cbHashValue))] pbHashValue: PBYTE, #[in] cbHashValue: DWORD, #[in] #[readable(entry, bytes(cbSignature))] pbSignature: PBYTE, #[in] cbSignature: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptVerifySignature(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[buffer(bytes(cbHashValue))] #[in] pbHashValue: PBYTE, #[in] cbHashValue: DWORD, #[buffer(bytes(cbSignature))] #[in] pbSignature: PBYTE, #[in] cbSignature: DWORD, #[in] dwFlags: DWORD) -> SECURITY_STATUS;
         extern fn PFN_NCRYPT_ALLOC(#[in] cbSize: SIZE_T) -> LPVOID;
         extern fn PFN_NCRYPT_FREE(#[in] pv: LPVOID);
         type PNCRYPT_CIPHER_PADDING_INFO = *mut NCRYPT_CIPHER_PADDING_INFO;

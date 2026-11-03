@@ -1,5 +1,5 @@
 use windows_clang::*;
-use windows_metadata::{BufferAccess, BufferCount, BufferPhase, HasAttributes, reader};
+use windows_metadata::{HasAttributes, reader};
 
 fn roundtrip(output: &projection::Output, name: &str, check: impl Fn(&reader::Index)) {
     let text: String = output
@@ -59,28 +59,10 @@ fn pointee_extents() {
         for name in ["QueryExtent", "ByteExtent", "DataExtent", "Conditional"] {
             let method = index.expect("Fixture", name).methods().next().unwrap();
             let parameter = method.params().last().unwrap();
-            let extent = windows_metadata::BufferExtent::from_values(
-                &parameter
-                    .find_attribute("BufferExtentAttribute")
-                    .unwrap()
-                    .value(),
-            )
-            .unwrap();
-            assert_eq!(extent.count, BufferCount::Unknown);
-            assert_eq!(extent.phase, BufferPhase::Success);
-            assert_eq!(extent.access, BufferAccess::Read);
-            assert!(extent.indirect);
-            assert_eq!(
-                extent.units,
-                if name == "ByteExtent" {
-                    windows_metadata::BufferUnits::Bytes
-                } else {
-                    windows_metadata::BufferUnits::Elements
-                }
-            );
+            assert!(!parameter.has_attribute("BufferAttribute"));
             assert_eq!(
                 parameter.has_attribute("IncompleteAttribute"),
-                name == "Conditional"
+                matches!(name, "Conditional" | "DataExtent")
             );
         }
         for name in [
@@ -94,7 +76,7 @@ fn pointee_extents() {
             let method = index.expect("Fixture", name).methods().next().unwrap();
             let parameter = method.params().last().unwrap();
             assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
-            assert!(!parameter.has_attribute("BufferExtentAttribute"), "{name}");
+            assert!(!parameter.has_attribute("BufferAttribute"), "{name}");
         }
     });
     let mut other = test_clang::fixture("pointee_extents");

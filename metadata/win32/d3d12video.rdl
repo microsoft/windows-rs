@@ -33,8 +33,6 @@ mod Windows {
             NodeIndex: UINT,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
             FormatCount: UINT,
-            #[readable(FormatCount)]
-            #[writable(FormatCount)]
             pOutputFormats: *mut DXGI_FORMAT,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
@@ -55,8 +53,6 @@ mod Windows {
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
             NodeIndex: UINT,
             ProfileCount: UINT,
-            #[readable(ProfileCount)]
-            #[writable(ProfileCount)]
             pProfiles: *mut GUID,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
@@ -174,8 +170,6 @@ mod Windows {
             MaxResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             ResolutionWidthMultipleRequirement: UINT,
             ResolutionHeightMultipleRequirement: UINT,
-            #[readable(ResolutionRatiosCount)]
-            #[writable(ResolutionRatiosCount)]
             pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
@@ -308,8 +302,6 @@ mod Windows {
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[readable(ResolutionsListCount)]
-            #[writable(ResolutionsListCount)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
@@ -328,8 +320,6 @@ mod Windows {
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[readable(ResolutionsListCount)]
-            #[writable(ResolutionsListCount)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
             SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
             MaxQualityVsSpeed: UINT,
@@ -350,8 +340,6 @@ mod Windows {
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[readable(ResolutionsListCount)]
-            #[writable(ResolutionsListCount)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1,
             SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
             MaxQualityVsSpeed: UINT,
@@ -363,8 +351,6 @@ mod Windows {
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
             NodeIndex: UINT,
             CommandCount: UINT,
-            #[readable(CommandCount)]
-            #[writable(CommandCount)]
             pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
@@ -375,8 +361,6 @@ mod Windows {
             CommandId: GUID,
             Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
             ParameterCount: UINT,
-            #[readable(ParameterCount)]
-            #[writable(ParameterCount)]
             pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
@@ -397,13 +381,9 @@ mod Windows {
             NodeIndex: UINT,
             CommandId: GUID,
             #[nullable]
-            #[readable(bytes(InputDataSizeInBytes))]
-            #[writable(bytes(InputDataSizeInBytes))]
             pInputData: *const void,
             InputDataSizeInBytes: SIZE_T,
             #[nullable]
-            #[readable(bytes(OutputDataSizeInBytes))]
-            #[writable(bytes(OutputDataSizeInBytes))]
             pOutputData: *mut void,
             OutputDataSizeInBytes: SIZE_T,
         }
@@ -628,8 +608,6 @@ mod Windows {
         struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
             Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
             Size: UINT,
-            #[readable(bytes(Size))]
-            #[writable(bytes(Size))]
             pData: *mut void,
         }
         #[repr(i32)]
@@ -715,15 +693,9 @@ mod Windows {
         const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: GUID = 0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7;
         struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
             NumTexture2Ds: UINT,
-            #[readable(NumTexture2Ds)]
-            #[writable(NumTexture2Ds)]
             ppTexture2Ds: *mut ID3D12Resource,
-            #[readable(NumTexture2Ds)]
-            #[writable(NumTexture2Ds)]
             pSubresources: *mut UINT,
             #[nullable]
-            #[readable(NumTexture2Ds)]
-            #[writable(NumTexture2Ds)]
             ppHeaps: *mut ID3D12VideoDecoderHeap,
         }
         #[repr(i32)]
@@ -921,8 +893,6 @@ mod Windows {
             QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
             CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
             QPMapValuesCount: UINT,
-            #[readable(QPMapValuesCount)]
-            #[writable(QPMapValuesCount)]
             pRateControlQPMap: *mut INT16,
             CustomSegmentation: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
             CustomSegmentsMap: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP,
@@ -1401,8 +1371,6 @@ mod Windows {
             FullFrameIdentical: BOOL,
             MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
             NumDirtyRects: UINT,
-            #[readable(NumDirtyRects)]
-            #[writable(NumDirtyRects)]
             pDirtyRects: *mut RECT,
             SourceDPBFrameReference: UINT,
         }
@@ -1559,8 +1527,6 @@ mod Windows {
             EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
             ResolutionsListCount: UINT,
-            #[readable(ResolutionsListCount)]
-            #[writable(ResolutionsListCount)]
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
         }
         struct D3D12_VIDEO_ENCODER_HEAP_DESC1 {
@@ -1570,8 +1536,6 @@ mod Windows {
             EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
             ResolutionsListCount: UINT,
-            #[readable(ResolutionsListCount)]
-            #[writable(ResolutionsListCount)]
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             Pow2DownscaleFactor: UINT,
         }
@@ -1601,17 +1565,9 @@ mod Windows {
         struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
             MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
             NumHintsPerPixel: UINT,
-            #[readable(NumHintsPerPixel)]
-            #[writable(NumHintsPerPixel)]
             ppMotionVectorMaps: *mut ID3D12Resource,
-            #[readable(NumHintsPerPixel)]
-            #[writable(NumHintsPerPixel)]
             pMotionVectorMapsSubresources: *mut UINT,
-            #[readable(NumHintsPerPixel)]
-            #[writable(NumHintsPerPixel)]
             ppMotionVectorMapsMetadata: *mut ID3D12Resource,
-            #[readable(NumHintsPerPixel)]
-            #[writable(NumHintsPerPixel)]
             pMotionVectorMapsMetadataSubresources: *mut UINT,
             MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
             PictureControlConfiguration: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
@@ -1724,8 +1680,6 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
             NumMoveRegions: UINT,
-            #[readable(NumMoveRegions)]
-            #[writable(NumMoveRegions)]
             pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
             MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
             SourceDPBFrameReference: UINT,
@@ -1791,33 +1745,19 @@ mod Windows {
             FrameDecodingOrderNumber: UINT,
             TemporalLayerIndex: UINT,
             List0ReferenceFramesCount: UINT,
-            #[readable(List0ReferenceFramesCount)]
-            #[writable(List0ReferenceFramesCount)]
             pList0ReferenceFrames: *mut UINT,
             List1ReferenceFramesCount: UINT,
-            #[readable(List1ReferenceFramesCount)]
-            #[writable(List1ReferenceFramesCount)]
             pList1ReferenceFrames: *mut UINT,
             ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[readable(ReferenceFramesReconPictureDescriptorsCount)]
-            #[writable(ReferenceFramesReconPictureDescriptorsCount)]
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264,
             adaptive_ref_pic_marking_mode_flag: UCHAR,
             RefPicMarkingOperationsCommandsCount: UINT,
-            #[readable(RefPicMarkingOperationsCommandsCount)]
-            #[writable(RefPicMarkingOperationsCommandsCount)]
             pRefPicMarkingOperationsCommands: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION,
             List0RefPicModificationsCount: UINT,
-            #[readable(List0RefPicModificationsCount)]
-            #[writable(List0RefPicModificationsCount)]
             pList0RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
             List1RefPicModificationsCount: UINT,
-            #[readable(List1RefPicModificationsCount)]
-            #[writable(List1RefPicModificationsCount)]
             pList1RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
             QPMapValuesCount: UINT,
-            #[readable(QPMapValuesCount)]
-            #[writable(QPMapValuesCount)]
             pRateControlQPMap: *mut INT8,
         }
         #[flags]
@@ -1846,28 +1786,16 @@ mod Windows {
             PictureOrderCountNumber: UINT,
             TemporalLayerIndex: UINT,
             List0ReferenceFramesCount: UINT,
-            #[readable(List0ReferenceFramesCount)]
-            #[writable(List0ReferenceFramesCount)]
             pList0ReferenceFrames: *mut UINT,
             List1ReferenceFramesCount: UINT,
-            #[readable(List1ReferenceFramesCount)]
-            #[writable(List1ReferenceFramesCount)]
             pList1ReferenceFrames: *mut UINT,
             ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[readable(ReferenceFramesReconPictureDescriptorsCount)]
-            #[writable(ReferenceFramesReconPictureDescriptorsCount)]
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
             List0RefPicModificationsCount: UINT,
-            #[readable(List0RefPicModificationsCount)]
-            #[writable(List0RefPicModificationsCount)]
             pList0RefPicModifications: *mut UINT,
             List1RefPicModificationsCount: UINT,
-            #[readable(List1RefPicModificationsCount)]
-            #[writable(List1RefPicModificationsCount)]
             pList1RefPicModifications: *mut UINT,
             QPMapValuesCount: UINT,
-            #[readable(QPMapValuesCount)]
-            #[writable(QPMapValuesCount)]
             pRateControlQPMap: *mut INT8,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
@@ -1877,28 +1805,16 @@ mod Windows {
             PictureOrderCountNumber: UINT,
             TemporalLayerIndex: UINT,
             List0ReferenceFramesCount: UINT,
-            #[readable(List0ReferenceFramesCount)]
-            #[writable(List0ReferenceFramesCount)]
             pList0ReferenceFrames: *mut UINT,
             List1ReferenceFramesCount: UINT,
-            #[readable(List1ReferenceFramesCount)]
-            #[writable(List1ReferenceFramesCount)]
             pList1ReferenceFrames: *mut UINT,
             ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[readable(ReferenceFramesReconPictureDescriptorsCount)]
-            #[writable(ReferenceFramesReconPictureDescriptorsCount)]
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
             List0RefPicModificationsCount: UINT,
-            #[readable(List0RefPicModificationsCount)]
-            #[writable(List0RefPicModificationsCount)]
             pList0RefPicModifications: *mut UINT,
             List1RefPicModificationsCount: UINT,
-            #[readable(List1RefPicModificationsCount)]
-            #[writable(List1RefPicModificationsCount)]
             pList1RefPicModifications: *mut UINT,
             QPMapValuesCount: UINT,
-            #[readable(QPMapValuesCount)]
-            #[writable(QPMapValuesCount)]
             pRateControlQPMap: *mut INT8,
             diff_cu_chroma_qp_offset_depth: UCHAR,
             log2_sao_offset_scale_luma: UCHAR,
@@ -1915,28 +1831,16 @@ mod Windows {
             PictureOrderCountNumber: UINT,
             TemporalLayerIndex: UINT,
             List0ReferenceFramesCount: UINT,
-            #[readable(List0ReferenceFramesCount)]
-            #[writable(List0ReferenceFramesCount)]
             pList0ReferenceFrames: *mut UINT,
             List1ReferenceFramesCount: UINT,
-            #[readable(List1ReferenceFramesCount)]
-            #[writable(List1ReferenceFramesCount)]
             pList1ReferenceFrames: *mut UINT,
             ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[readable(ReferenceFramesReconPictureDescriptorsCount)]
-            #[writable(ReferenceFramesReconPictureDescriptorsCount)]
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
             List0RefPicModificationsCount: UINT,
-            #[readable(List0RefPicModificationsCount)]
-            #[writable(List0RefPicModificationsCount)]
             pList0RefPicModifications: *mut UINT,
             List1RefPicModificationsCount: UINT,
-            #[readable(List1RefPicModificationsCount)]
-            #[writable(List1RefPicModificationsCount)]
             pList1RefPicModifications: *mut UINT,
             QPMapValuesCount: UINT,
-            #[readable(QPMapValuesCount)]
-            #[writable(QPMapValuesCount)]
             pRateControlQPMap: *mut INT8,
             diff_cu_chroma_qp_offset_depth: UCHAR,
             log2_sao_offset_scale_luma: UCHAR,
@@ -2335,11 +2239,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
             NumTexture2Ds: UINT,
-            #[readable(NumTexture2Ds)]
-            #[writable(NumTexture2Ds)]
             ppTexture2Ds: *mut ID3D12Resource,
-            #[readable(NumTexture2Ds)]
-            #[writable(NumTexture2Ds)]
             pSubresources: *mut UINT,
         }
         struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
@@ -2668,17 +2568,17 @@ mod Windows {
             fn Close(&self) -> HRESULT;
             fn Reset(&self, #[in] pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[in] #[readable(entry, NumBarriers)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[buffer(NumBarriers)] #[in] pBarriers: *const D3D12_RESOURCE_BARRIER);
             fn DiscardResource(&self, #[in] pResource: ID3D12Resource, #[in] #[opt] pRegion: *const D3D12_DISCARD_REGION);
             fn BeginQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn EndQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn ResolveQueryData(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] StartIndex: UINT, #[in] NumQueries: UINT, #[in] pDestinationBuffer: ID3D12Resource, #[in] AlignedDestinationBufferOffset: UINT64);
             fn SetPredication(&self, #[in] #[opt] pBuffer: ID3D12Resource, #[in] AlignedBufferOffset: UINT64, #[in] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
+            fn SetMarker(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
+            fn BeginEvent(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
             fn EndEvent(&self);
             fn DecodeFrame(&self, #[in] pDecoder: ID3D12VideoDecoder, #[in] pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, #[in] pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[readable(entry, Count)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[readable(entry, Count)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn WriteBufferImmediate(&self, Count: UINT, #[buffer(Count)] #[in] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[buffer(Count)] #[in] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
         }
         #[guid(0xd52f011b_b56e_453c_a05a_a7f311c8f472)]
         interface ID3D12VideoDecodeCommandList1: ID3D12VideoDecodeCommandList {
@@ -2687,12 +2587,12 @@ mod Windows {
         #[guid(0x6e120880_c114_4153_8036_d247051e1729)]
         interface ID3D12VideoDecodeCommandList2: ID3D12VideoDecodeCommandList1 {
             fn SetProtectedResourceSession(&self, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
-            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(InitializationParametersSizeInBytes))] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(ExecutionParametersSizeInBytes))] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(InitializationParametersSizeInBytes))] #[in] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
+            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(ExecutionParametersSizeInBytes))] #[in] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
         }
         #[guid(0x2aee8c37_9562_42da_8abf_61efeb2e4513)]
         interface ID3D12VideoDecodeCommandList3: ID3D12VideoDecodeCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[readable(entry, NumBarrierGroups)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: UINT32, #[buffer(NumBarrierGroups)] #[in] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0xc59b6bdc_7720_4074_a136_17a156037470)]
         interface ID3D12VideoDecoder: ID3D12Pageable {
@@ -2712,10 +2612,10 @@ mod Windows {
         }
         #[guid(0x1f052807_0b46_4acc_8a89_364f793718a4)]
         interface ID3D12VideoDevice: IUnknown {
-            fn CheckFeatureSupport(&self, FeatureVideo: D3D12_FEATURE_VIDEO, #[in] #[out] #[writable(entry, bytes(FeatureSupportDataSize))] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
+            fn CheckFeatureSupport(&self, FeatureVideo: D3D12_FEATURE_VIDEO, #[buffer(bytes(FeatureSupportDataSize))] #[in] #[out] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
             fn CreateVideoDecoder(&self, #[in] pDesc: *const D3D12_VIDEO_DECODER_DESC, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoDecoder: *mut *mut void) -> HRESULT;
             fn CreateVideoDecoderHeap(&self, #[in] pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
-            fn CreateVideoProcessor(&self, NodeMask: UINT, #[in] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[in] #[readable(entry, NumInputStreamDescs)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoProcessor: *mut *mut void) -> HRESULT;
+            fn CreateVideoProcessor(&self, NodeMask: UINT, #[in] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[buffer(NumInputStreamDescs)] #[in] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoProcessor: *mut *mut void) -> HRESULT;
         }
         #[guid(0x981611ad_a144_4c83_9890_f30e26d658ab)]
         interface ID3D12VideoDevice1: ID3D12VideoDevice {
@@ -2726,9 +2626,9 @@ mod Windows {
         interface ID3D12VideoDevice2: ID3D12VideoDevice1 {
             fn CreateVideoDecoder1(&self, #[in] pDesc: *const D3D12_VIDEO_DECODER_DESC, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoDecoder: *mut *mut void) -> HRESULT;
             fn CreateVideoDecoderHeap1(&self, #[in] pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
-            fn CreateVideoProcessor1(&self, NodeMask: UINT, #[in] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[in] #[readable(entry, NumInputStreamDescs)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoProcessor: *mut *mut void) -> HRESULT;
-            fn CreateVideoExtensionCommand(&self, #[in] pDesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, #[in] #[readable(entry, bytes(CreationParametersDataSizeInBytes))] pCreationParameters: *const void, CreationParametersDataSizeInBytes: SIZE_T, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoExtensionCommand: *mut *mut void) -> HRESULT;
-            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(ExecutionParametersSizeInBytes))] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T, #[out] #[writable(entry, bytes(OutputDataSizeInBytes))] pOutputData: *mut void, OutputDataSizeInBytes: SIZE_T) -> HRESULT;
+            fn CreateVideoProcessor1(&self, NodeMask: UINT, #[in] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[buffer(NumInputStreamDescs)] #[in] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoProcessor: *mut *mut void) -> HRESULT;
+            fn CreateVideoExtensionCommand(&self, #[in] pDesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, #[buffer(bytes(CreationParametersDataSizeInBytes))] #[in] pCreationParameters: *const void, CreationParametersDataSizeInBytes: SIZE_T, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppVideoExtensionCommand: *mut *mut void) -> HRESULT;
+            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(ExecutionParametersSizeInBytes))] #[in] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T, #[buffer(bytes(OutputDataSizeInBytes))] #[out] pOutputData: *mut void, OutputDataSizeInBytes: SIZE_T) -> HRESULT;
         }
         #[guid(0x4243adb4_3a32_4666_973c_0ccc5625dc44)]
         interface ID3D12VideoDevice3: ID3D12VideoDevice2 {
@@ -2744,24 +2644,24 @@ mod Windows {
             fn Close(&self) -> HRESULT;
             fn Reset(&self, #[in] pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[in] #[readable(entry, NumBarriers)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[buffer(NumBarriers)] #[in] pBarriers: *const D3D12_RESOURCE_BARRIER);
             fn DiscardResource(&self, #[in] pResource: ID3D12Resource, #[in] #[opt] pRegion: *const D3D12_DISCARD_REGION);
             fn BeginQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn EndQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn ResolveQueryData(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] StartIndex: UINT, #[in] NumQueries: UINT, #[in] pDestinationBuffer: ID3D12Resource, #[in] AlignedDestinationBufferOffset: UINT64);
             fn SetPredication(&self, #[in] #[opt] pBuffer: ID3D12Resource, #[in] AlignedBufferOffset: UINT64, #[in] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
+            fn SetMarker(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
+            fn BeginEvent(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
             fn EndEvent(&self);
             fn EstimateMotion(&self, #[in] pMotionEstimator: ID3D12VideoMotionEstimator, #[in] pOutputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, #[in] pInputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
             fn ResolveMotionVectorHeap(&self, pOutputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pInputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[readable(entry, Count)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[readable(entry, Count)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn WriteBufferImmediate(&self, Count: UINT, #[buffer(Count)] #[in] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[buffer(Count)] #[in] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
             fn SetProtectedResourceSession(&self, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
         }
         #[guid(0x94971eca_2bdb_4769_88cf_3675ea757ebc)]
         interface ID3D12VideoEncodeCommandList1: ID3D12VideoEncodeCommandList {
-            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(InitializationParametersSizeInBytes))] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(ExecutionParametersSizeInBytes))] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(InitializationParametersSizeInBytes))] #[in] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
+            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(ExecutionParametersSizeInBytes))] #[in] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
         }
         #[guid(0x895491e2_e701_46a9_9a1f_8d3480ed867a)]
         interface ID3D12VideoEncodeCommandList2: ID3D12VideoEncodeCommandList1 {
@@ -2770,7 +2670,7 @@ mod Windows {
         }
         #[guid(0x7f027b22_1515_4e85_aa0d_026486580576)]
         interface ID3D12VideoEncodeCommandList3: ID3D12VideoEncodeCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[readable(entry, NumBarrierGroups)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: UINT32, #[buffer(NumBarrierGroups)] #[in] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0x69aeb5b7_55f2_4012_8b73_3a88d65a204c)]
         interface ID3D12VideoEncodeCommandList4: ID3D12VideoEncodeCommandList3 {
@@ -2796,7 +2696,7 @@ mod Windows {
             fn GetCodecProfile(&self, #[in] #[out] dstProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> HRESULT;
             fn GetCodecLevel(&self, #[in] #[out] dstLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> HRESULT;
             fn GetResolutionListCount(&self) -> UINT;
-            fn GetResolutionList(&self, ResolutionsListCount: UINT, #[out] #[writable(entry, ResolutionsListCount)] pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> HRESULT;
+            fn GetResolutionList(&self, ResolutionsListCount: UINT, #[buffer(ResolutionsListCount)] #[out] pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> HRESULT;
         }
         #[guid(0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9)]
         interface ID3D12VideoEncoderHeap1: ID3D12VideoEncoderHeap {
@@ -2822,37 +2722,37 @@ mod Windows {
             fn Close(&self) -> HRESULT;
             fn Reset(&self, #[in] pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[in] #[readable(entry, NumBarriers)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn ResourceBarrier(&self, #[in] NumBarriers: UINT, #[buffer(NumBarriers)] #[in] pBarriers: *const D3D12_RESOURCE_BARRIER);
             fn DiscardResource(&self, #[in] pResource: ID3D12Resource, #[in] #[opt] pRegion: *const D3D12_DISCARD_REGION);
             fn BeginQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn EndQuery(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] Index: UINT);
             fn ResolveQueryData(&self, #[in] pQueryHeap: ID3D12QueryHeap, #[in] Type: D3D12_QUERY_TYPE, #[in] StartIndex: UINT, #[in] NumQueries: UINT, #[in] pDestinationBuffer: ID3D12Resource, #[in] AlignedDestinationBufferOffset: UINT64);
             fn SetPredication(&self, #[in] #[opt] pBuffer: ID3D12Resource, #[in] AlignedBufferOffset: UINT64, #[in] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pData: *const void, Size: UINT);
+            fn SetMarker(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
+            fn BeginEvent(&self, Metadata: UINT, #[buffer(bytes(Size))] #[in] #[opt] pData: *const void, Size: UINT);
             fn EndEvent(&self);
-            fn ProcessFrames(&self, #[in] pVideoProcessor: ID3D12VideoProcessor, #[in] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[in] #[readable(entry, NumInputStreams)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[readable(entry, Count)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[readable(entry, Count)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn ProcessFrames(&self, #[in] pVideoProcessor: ID3D12VideoProcessor, #[in] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[buffer(NumInputStreams)] #[in] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
+            fn WriteBufferImmediate(&self, Count: UINT, #[buffer(Count)] #[in] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[buffer(Count)] #[in] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
         }
         #[guid(0x542c5c4d_7596_434f_8c93_4efa6766f267)]
         interface ID3D12VideoProcessCommandList1: ID3D12VideoProcessCommandList {
-            fn ProcessFrames1(&self, #[in] pVideoProcessor: ID3D12VideoProcessor, #[in] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[in] #[readable(entry, NumInputStreams)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
+            fn ProcessFrames1(&self, #[in] pVideoProcessor: ID3D12VideoProcessor, #[in] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[buffer(NumInputStreams)] #[in] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
         }
         #[guid(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4)]
         interface ID3D12VideoProcessCommandList2: ID3D12VideoProcessCommandList1 {
             fn SetProtectedResourceSession(&self, #[in] #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
-            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(InitializationParametersSizeInBytes))] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[readable(entry, bytes(ExecutionParametersSizeInBytes))] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn InitializeExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(InitializationParametersSizeInBytes))] #[in] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
+            fn ExecuteExtensionCommand(&self, #[in] pExtensionCommand: ID3D12VideoExtensionCommand, #[buffer(bytes(ExecutionParametersSizeInBytes))] #[in] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
         }
         #[guid(0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff)]
         interface ID3D12VideoProcessCommandList3: ID3D12VideoProcessCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[readable(entry, NumBarrierGroups)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: UINT32, #[buffer(NumBarrierGroups)] #[in] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0x304fdb32_bede_410a_8545_943ac6a46138)]
         interface ID3D12VideoProcessor: ID3D12Pageable {
             fn GetNodeMask(&self) -> UINT;
             fn GetNumInputStreamDescs(&self) -> UINT;
-            fn GetInputStreamDescs(&self, NumInputStreamDescs: UINT, #[out] #[writable(entry, NumInputStreamDescs)] pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> HRESULT;
+            fn GetInputStreamDescs(&self, NumInputStreamDescs: UINT, #[buffer(NumInputStreamDescs)] #[out] pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> HRESULT;
             fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC;
         }
         #[guid(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c)]

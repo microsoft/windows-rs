@@ -210,11 +210,11 @@ mod Windows {
         #[library("dwmapi.dll")]
         extern fn DwmGetGraphicsStreamTransformHint(uIndex: UINT, #[out] pTransform: *mut MilMatrix3x2D) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetTransportAttributes(#[out] #[writable(entry, 1)] pfIsRemoting: *mut BOOL, #[out] #[writable(entry, 1)] pfIsConnected: *mut BOOL, #[out] #[writable(entry, 1)] pDwGeneration: *mut DWORD) -> HRESULT;
+        extern fn DwmGetTransportAttributes(#[buffer(1)] #[out] pfIsRemoting: *mut BOOL, #[buffer(1)] #[out] pfIsConnected: *mut BOOL, #[buffer(1)] #[out] pDwGeneration: *mut DWORD) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmGetUnmetTabRequirements(#[in] #[opt] appWindow: HWND, #[out] value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[out] #[writable(entry, bytes(cbAttribute))] pvAttribute: PVOID, cbAttribute: DWORD) -> HRESULT;
+        extern fn DwmGetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[buffer(bytes(cbAttribute))] #[out] pvAttribute: PVOID, cbAttribute: DWORD) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmInvalidateIconicBitmaps(hwnd: HWND) -> HRESULT;
         #[library("dwmapi.dll")]
@@ -226,7 +226,7 @@ mod Windows {
         #[library("dwmapi.dll")]
         extern fn DwmRegisterThumbnail(hwndDestination: HWND, hwndSource: HWND, #[out] phThumbnailId: PHTHUMBNAIL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmRenderGesture(#[in] gt: GESTURE_TYPE, #[in] cContacts: UINT, #[in] #[readable(entry, cContacts)] pdwPointerID: *const DWORD, #[in] #[readable(entry, cContacts)] pPoints: *const POINT) -> HRESULT;
+        extern fn DwmRenderGesture(#[in] gt: GESTURE_TYPE, #[in] cContacts: UINT, #[buffer(cContacts)] #[in] pdwPointerID: *const DWORD, #[buffer(cContacts)] #[in] pPoints: *const POINT) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmSetDxFrameDuration(hwnd: HWND, cRefreshes: INT) -> HRESULT;
         #[library("dwmapi.dll")]
@@ -236,7 +236,7 @@ mod Windows {
         #[library("dwmapi.dll")]
         extern fn DwmSetPresentParameters(hwnd: HWND, #[in] #[out] pPresentParams: *mut DWM_PRESENT_PARAMETERS) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[in] #[readable(entry, bytes(cbAttribute))] pvAttribute: LPCVOID, cbAttribute: DWORD) -> HRESULT;
+        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[buffer(bytes(cbAttribute))] #[in] pvAttribute: LPCVOID, cbAttribute: DWORD) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmShowContact(dwPointerID: DWORD, eShowContact: DWM_SHOWCONTACT) -> HRESULT;
         #[library("dwmapi.dll")]

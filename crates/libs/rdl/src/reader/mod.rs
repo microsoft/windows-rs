@@ -304,6 +304,13 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
     })
 }
 
+pub(crate) fn function_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| ns.functions.keys().cloned().collect())
+}
+
 pub(crate) fn enum_member_names(
     path: impl AsRef<Path>,
     namespace: &str,

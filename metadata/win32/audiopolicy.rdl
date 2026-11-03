@@ -40,7 +40,7 @@ mod Windows {
             fn OnDisplayNameChanged(&self, #[in] NewDisplayName: LPCWSTR, #[in] EventContext: LPCGUID) -> HRESULT;
             fn OnIconPathChanged(&self, #[in] NewIconPath: LPCWSTR, #[in] EventContext: LPCGUID) -> HRESULT;
             fn OnSimpleVolumeChanged(&self, #[in] NewVolume: f32, #[in] NewMute: BOOL, #[in] EventContext: LPCGUID) -> HRESULT;
-            fn OnChannelVolumeChanged(&self, #[in] ChannelCount: DWORD, #[in] #[readable(entry, ChannelCount)] NewChannelVolumeArray: *mut f32, #[in] ChangedChannel: DWORD, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn OnChannelVolumeChanged(&self, #[in] ChannelCount: DWORD, #[buffer(ChannelCount)] #[in] NewChannelVolumeArray: *mut f32, #[in] ChangedChannel: DWORD, #[in] EventContext: LPCGUID) -> HRESULT;
             fn OnGroupingParamChanged(&self, #[in] NewGroupingParam: LPCGUID, #[in] EventContext: LPCGUID) -> HRESULT;
             fn OnStateChanged(&self, #[in] NewState: AudioSessionState) -> HRESULT;
             fn OnSessionDisconnected(&self, #[in] DisconnectReason: AudioSessionDisconnectReason) -> HRESULT;

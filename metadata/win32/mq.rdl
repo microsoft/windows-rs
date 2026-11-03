@@ -60,7 +60,7 @@ mod Windows {
         #[encoding("utf-16")]
         const MO_QUEUE_TOKEN: String = "QUEUE";
         #[library("mqrt.dll")]
-        extern fn MQADsPathToFormatName(#[in] lpwcsADsPath: LPCWSTR, #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQADsPathToFormatName(#[in] lpwcsADsPath: LPCWSTR, #[buffer(*lpdwFormatNameLength)] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQBeginTransaction(#[out] ppTransaction: *mut ITransaction) -> HRESULT;
         const MQCERT_REGISTER_ALWAYS: i32 = 1;
@@ -96,7 +96,7 @@ mod Windows {
         #[library("mqrt.dll")]
         extern fn MQCreateCursor(#[in] hQueue: QUEUEHANDLE, #[out] phCursor: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQCreateQueue(#[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[opt] #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQCreateQueue(#[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[buffer(*lpdwFormatNameLength)] #[opt] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQDeleteQueue(#[in] lpwcsFormatName: LPCWSTR) -> HRESULT;
         #[library("mqrt.dll")]
@@ -112,15 +112,15 @@ mod Windows {
         #[library("mqrt.dll")]
         extern fn MQGetQueueProperties(#[in] lpwcsFormatName: LPCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetQueueSecurity(#[in] lpwcsFormatName: LPCWSTR, #[in] RequestedInformation: SECURITY_INFORMATION, #[out] #[writable(entry, bytes(nLength))] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> HRESULT;
+        extern fn MQGetQueueSecurity(#[in] lpwcsFormatName: LPCWSTR, #[in] RequestedInformation: SECURITY_INFORMATION, #[buffer(bytes(nLength))] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContext(#[in] #[opt] #[readable(entry, bytes(dwCertBufferLength))] lpCertBuffer: PVOID, #[in] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContext(#[buffer(bytes(dwCertBufferLength))] #[in] #[opt] lpCertBuffer: PVOID, #[in] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContextEx(#[in] #[opt] #[readable(entry, bytes(dwCertBufferLength))] lpCertBuffer: PVOID, #[in] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContextEx(#[buffer(bytes(dwCertBufferLength))] #[in] #[opt] lpCertBuffer: PVOID, #[in] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQHandleToFormatName(#[in] hQueue: QUEUEHANDLE, #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQHandleToFormatName(#[in] hQueue: QUEUEHANDLE, #[buffer(*lpdwFormatNameLength)] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQInstanceToFormatName(#[in] pGuid: *mut GUID, #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQInstanceToFormatName(#[in] pGuid: *mut GUID, #[buffer(*lpdwFormatNameLength)] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQLocateBegin(#[in] #[opt] lpwcsContext: LPCWSTR, #[in] #[opt] pRestriction: *mut MQRESTRICTION, #[in] pColumns: *mut MQCOLUMNSET, #[in] pSort: *mut MQSORTSET, #[out] phEnum: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
@@ -129,22 +129,16 @@ mod Windows {
         extern fn MQLocateNext(#[in] hEnum: HANDLE, #[in] #[out] pcProps: *mut DWORD, #[out] aPropVar: *mut MQPROPVARIANT) -> HRESULT;
         struct MQMGMTPROPS {
             cProp: DWORD,
-            #[writable(cProp)]
             aPropID: *mut MGMTPROPID,
-            #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
             #[nullable]
-            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQMSGPROPS {
             cProp: DWORD,
-            #[writable(cProp)]
             aPropID: *mut MSGPROPID,
-            #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
             #[nullable]
-            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: UCHAR = 5;
@@ -223,12 +217,9 @@ mod Windows {
         extern fn MQOpenQueue(#[in] lpwcsFormatName: LPCWSTR, #[in] dwAccess: DWORD, #[in] dwShareMode: DWORD, #[out] phQueue: *mut QUEUEHANDLE) -> HRESULT;
         struct MQPRIVATEPROPS {
             cProp: DWORD,
-            #[writable(cProp)]
             aPropID: *mut QMPROPID,
-            #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
             #[nullable]
-            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQPROPERTYRESTRICTION {
@@ -238,27 +229,21 @@ mod Windows {
         }
         type MQPROPVARIANT = tagPROPVARIANT;
         #[library("mqrt.dll")]
-        extern fn MQPathNameToFormatName(#[in] lpwcsPathName: LPCWSTR, #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQPathNameToFormatName(#[in] lpwcsPathName: LPCWSTR, #[buffer(*lpdwFormatNameLength)] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQPurgeQueue(#[in] hQueue: QUEUEHANDLE) -> HRESULT;
         struct MQQMPROPS {
             cProp: DWORD,
-            #[writable(cProp)]
             aPropID: *mut QMPROPID,
-            #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
             #[nullable]
-            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQQUEUEPROPS {
             cProp: DWORD,
-            #[writable(cProp)]
             aPropID: *mut QUEUEPROPID,
-            #[writable(cProp)]
             aPropVar: *mut MQPROPVARIANT,
             #[nullable]
-            #[writable(cProp)]
             aStatus: *mut HRESULT,
         }
         struct MQRESTRICTION {

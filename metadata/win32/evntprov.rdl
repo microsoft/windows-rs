@@ -102,17 +102,17 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EventRegister(#[in] ProviderId: LPCGUID, #[in] #[opt] EnableCallback: PENABLECALLBACK, #[in] #[opt] CallbackContext: PVOID, #[out] RegHandle: PREGHANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventSetInformation(#[in] RegHandle: REGHANDLE, #[in] InformationClass: EVENT_INFO_CLASS, #[in] #[readable(entry, bytes(InformationLength))] EventInformation: PVOID, #[in] InformationLength: ULONG) -> ULONG;
+        extern fn EventSetInformation(#[in] RegHandle: REGHANDLE, #[in] InformationClass: EVENT_INFO_CLASS, #[buffer(bytes(InformationLength))] #[in] EventInformation: PVOID, #[in] InformationLength: ULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn EventUnregister(#[in] RegHandle: REGHANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWrite(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWrite(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, UserDataCount: ULONG, #[buffer(UserDataCount)] #[in] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteEx(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] Filter: ULONG64, #[in] Flags: ULONG, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWriteEx(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] Filter: ULONG64, #[in] Flags: ULONG, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[buffer(UserDataCount)] #[in] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn EventWriteString(#[in] RegHandle: REGHANDLE, #[in] Level: UCHAR, #[in] Keyword: ULONGLONG, #[in] String: PCWSTR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteTransfer(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[in] #[opt] #[readable(entry, UserDataCount)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
+        extern fn EventWriteTransfer(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[opt] ActivityId: LPCGUID, #[in] #[opt] RelatedActivityId: LPCGUID, UserDataCount: ULONG, #[buffer(UserDataCount)] #[in] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
         const MAX_EVENT_FILTERS_COUNT: i32 = 13;
         const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;

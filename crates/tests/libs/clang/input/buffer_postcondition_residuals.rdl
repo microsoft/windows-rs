@@ -1,15 +1,15 @@
 #[win32]
 mod Fixture {
     extern "C" fn Conditional(#[incomplete] buffer: *mut u16, capacity: u32);
-    extern "C" fn ConstantCapacity(#[null_terminated(success)] #[out] #[writable(entry, 16)] buffer: *mut u16);
-    extern "C" fn EntryAndSuccess(#[in] #[incomplete] #[null_terminated(entry, success)] #[out] #[readable(entry, capacity)] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32);
+    extern "C" fn ConstantCapacity(#[buffer(16)] #[null_terminated(success)] #[out] buffer: *mut u16);
+    extern "C" fn EntryAndSuccess(#[buffer(capacity)] #[in] #[incomplete] #[null_terminated(entry, success)] #[out] buffer: *mut u16, capacity: u32);
     extern "C" fn EntryOnly(#[in] #[incomplete] #[null_terminated(entry)] #[out] buffer: *mut u16);
-    extern "C" fn Expression(#[out] #[readable(success, written + 1)] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, written: u32);
-    extern "C" fn ExtraArguments(#[incomplete] #[out] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, written: u32, other: u32);
-    extern "C" fn IndirectCapacity(#[out] #[readable(success, written)] #[writable(entry, *capacity)] buffer: *mut u16, capacity: *mut u32, written: u32);
-    extern "C" fn OptionalCount(#[opt] #[out] #[readable(success, if_present(*written))] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, #[opt] #[out] written: *mut u32);
+    extern "C" fn Expression(#[buffer(capacity)] #[out] buffer: *mut u16, capacity: u32, written: u32);
+    extern "C" fn ExtraArguments(#[buffer(capacity)] #[incomplete] #[out] buffer: *mut u16, capacity: u32, written: u32, other: u32);
+    extern "C" fn IndirectCapacity(#[buffer(*capacity)] #[out] buffer: *mut u16, capacity: *mut u32, written: u32);
+    extern "C" fn OptionalCount(#[buffer(capacity)] #[opt] #[out] buffer: *mut u16, capacity: u32, #[opt] #[out] written: *mut u32);
     extern "C" fn PointerDifference(#[incomplete] buffer: *mut u16, end: *mut u16);
-    extern "C" fn ReturnLength(#[incomplete] #[out] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32);
-    extern "C" fn Successful(#[out] #[readable(success, *written)] #[writable(entry, capacity)] buffer: *mut u16, capacity: u32, written: *mut u32) -> i32;
+    extern "C" fn ReturnLength(#[buffer(capacity)] #[incomplete] #[out] buffer: *mut u16, capacity: u32);
+    extern "C" fn Successful(#[buffer(capacity)] #[out] buffer: *mut u16, capacity: u32, written: *mut u32) -> i32;
     extern "C" fn UnexpectedArguments(#[incomplete] buffer: *mut u16);
 }

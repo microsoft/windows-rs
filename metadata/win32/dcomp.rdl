@@ -27,7 +27,7 @@ mod Windows {
             radius: f32,
         }
         #[library("dcomp.dll")]
-        extern fn DCompositionWaitForCompositorClock(count: UINT, #[in] #[opt] #[readable(entry, count)] handles: *const HANDLE, #[in] timeoutInMs: DWORD) -> DWORD;
+        extern fn DCompositionWaitForCompositorClock(count: UINT, #[buffer(count)] #[in] #[opt] handles: *const HANDLE, #[in] timeoutInMs: DWORD) -> DWORD;
         #[guid(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d)]
         interface IDCompositionAffineTransform2DEffect: IDCompositionFilterEffect {
             fn SetInterpolationMode(&self, #[in] interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;
@@ -84,8 +84,8 @@ mod Windows {
         }
         #[guid(0xc2448e9b_547d_4057_8cf5_8144ede1c2da)]
         interface IDCompositionDelegatedInkTrail: IUnknown {
-            fn AddTrailPoints(&self, #[in] #[readable(entry, inkPointsCount)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
-            fn AddTrailPointsWithPrediction(&self, #[in] #[readable(entry, inkPointsCount)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[in] #[readable(entry, predictedInkPointsCount)] predictedInkPoints: *const DCompositionInkTrailPoint, predictedInkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
+            fn AddTrailPoints(&self, #[buffer(inkPointsCount)] #[in] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
+            fn AddTrailPointsWithPrediction(&self, #[buffer(inkPointsCount)] #[in] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[buffer(predictedInkPointsCount)] #[in] predictedInkPoints: *const DCompositionInkTrailPoint, predictedInkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
             fn RemoveTrailPoints(&self, generationId: UINT) -> HRESULT;
             fn StartNewTrail(&self, color: &D2D1_COLOR_F) -> HRESULT;
         }
@@ -111,12 +111,12 @@ mod Windows {
             fn CreateRotateTransform(&self, #[out] #[out_ptr] #[retval] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
             fn CreateSkewTransform(&self, #[out] #[out_ptr] #[retval] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
             fn CreateMatrixTransform(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[buffer(elements)] #[in] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
             fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] #[retval] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
             fn CreateScaleTransform3D(&self, #[out] #[out_ptr] #[retval] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
             fn CreateRotateTransform3D(&self, #[out] #[out_ptr] #[retval] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
             fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] #[retval] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[buffer(elements)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
             fn CreateEffectGroup(&self, #[out] #[out_ptr] #[retval] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
             fn CreateRectangleClip(&self, #[out] #[out_ptr] #[retval] clip: *mut IDCompositionRectangleClip) -> HRESULT;
             fn CreateAnimation(&self, #[out] #[out_ptr] #[retval] animation: *mut IDCompositionAnimation) -> HRESULT;
@@ -136,12 +136,12 @@ mod Windows {
             fn CreateRotateTransform(&self, #[out] #[out_ptr] #[retval] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
             fn CreateSkewTransform(&self, #[out] #[out_ptr] #[retval] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
             fn CreateMatrixTransform(&self, #[out] #[out_ptr] #[retval] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[in] #[readable(entry, elements)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[buffer(elements)] #[in] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[out_ptr] #[retval] transformGroup: *mut IDCompositionTransform) -> HRESULT;
             fn CreateTranslateTransform3D(&self, #[out] #[out_ptr] #[retval] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
             fn CreateScaleTransform3D(&self, #[out] #[out_ptr] #[retval] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
             fn CreateRotateTransform3D(&self, #[out] #[out_ptr] #[retval] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
             fn CreateMatrixTransform3D(&self, #[out] #[out_ptr] #[retval] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[in] #[readable(entry, elements)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[buffer(elements)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[out_ptr] #[retval] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
             fn CreateEffectGroup(&self, #[out] #[out_ptr] #[retval] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
             fn CreateRectangleClip(&self, #[out] #[out_ptr] #[retval] clip: *mut IDCompositionRectangleClip) -> HRESULT;
             fn CreateAnimation(&self, #[out] #[out_ptr] #[retval] animation: *mut IDCompositionAnimation) -> HRESULT;
@@ -178,7 +178,7 @@ mod Windows {
         }
         #[guid(0xa1de1d3f_6405_447f_8e95_1383a34b0277)]
         interface IDCompositionDynamicTexture: IUnknown {
-            fn SetTexture(&self, #[in] pTexture: IDCompositionTexture, #[in] #[readable(entry, rectCount)] pRects: *const D2D_RECT_L, #[in] rectCount: size_t) -> HRESULT;
+            fn SetTexture(&self, #[in] pTexture: IDCompositionTexture, #[buffer(rectCount)] #[in] pRects: *const D2D_RECT_L, #[in] rectCount: size_t) -> HRESULT;
             fn SetTexture(&self, #[in] pTexture: IDCompositionTexture) -> HRESULT;
         }
         #[guid(0xec81b08f_bfcb_4e8d_b193_a915587999e8)]
@@ -369,10 +369,10 @@ mod Windows {
         }
         #[guid(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd)]
         interface IDCompositionTableTransferEffect: IDCompositionFilterEffect {
-            fn SetRedTable(&self, #[in] #[readable(entry, count)] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
-            fn SetGreenTable(&self, #[in] #[readable(entry, count)] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
-            fn SetBlueTable(&self, #[in] #[readable(entry, count)] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
-            fn SetAlphaTable(&self, #[in] #[readable(entry, count)] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
+            fn SetRedTable(&self, #[buffer(count)] #[in] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
+            fn SetGreenTable(&self, #[buffer(count)] #[in] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
+            fn SetBlueTable(&self, #[buffer(count)] #[in] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
+            fn SetAlphaTable(&self, #[buffer(count)] #[in] tableValues: *const f32, #[in] count: UINT) -> HRESULT;
             fn SetRedDisable(&self, #[in] redDisable: BOOL) -> HRESULT;
             fn SetGreenDisable(&self, #[in] greenDisable: BOOL) -> HRESULT;
             fn SetBlueDisable(&self, #[in] blueDisable: BOOL) -> HRESULT;
@@ -431,7 +431,7 @@ mod Windows {
         #[guid(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0)]
         interface IDCompositionVirtualSurface: IDCompositionSurface {
             fn Resize(&self, #[in] width: UINT, #[in] height: UINT) -> HRESULT;
-            fn Trim(&self, #[in] #[opt] #[readable(entry, count)] rectangles: *const RECT, #[in] count: UINT) -> HRESULT;
+            fn Trim(&self, #[buffer(count)] #[in] #[opt] rectangles: *const RECT, #[in] count: UINT) -> HRESULT;
         }
         #[guid(0x4d93059d_097b_4651_9a60_f0f25116e2f3)]
         interface IDCompositionVisual: IUnknown {

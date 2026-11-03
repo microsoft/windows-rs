@@ -1,13 +1,13 @@
 #[win32]
 mod Fixture {
-    extern "C" fn ByteExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, bytes(unknown()), indirect)] value: *mut *mut void);
-    extern "C" fn Conditional(enabled: i32, #[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] #[readable(success, unknown(), indirect)] value: *mut *mut void);
-    extern "C" fn DataExtent(#[readable(success, unknown(), indirect)] value: *mut *mut u8);
+    extern "C" fn ByteExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn Conditional(enabled: i32, #[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn DataExtent(#[incomplete] value: *mut *mut u8);
     extern "C" fn Entry(#[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
     extern "C" fn KnownCount(#[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
     extern "C" fn Mixed(#[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
     extern "C" fn OtherSubject(other: *mut *mut void, #[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
-    extern "C" fn QueryExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, unknown(), indirect)] value: *mut *mut void);
+    extern "C" fn QueryExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
     extern "C" fn Scoped(#[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
     extern "C" fn Slot(#[iid_is] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
 }

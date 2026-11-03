@@ -3,16 +3,16 @@ mod Windows {
     mod Win32 {
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
         #[must_use]
-        extern fn GetSystemWow64Directory2A(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
+        extern fn GetSystemWow64Directory2A(#[buffer(uSize)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
         #[must_use]
-        extern fn GetSystemWow64Directory2W(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
+        extern fn GetSystemWow64Directory2W(#[buffer(uSize)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
         #[library("KERNEL32.dll")]
         #[must_use]
-        extern fn GetSystemWow64DirectoryA(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
+        extern fn GetSystemWow64DirectoryA(#[buffer(uSize)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
         #[library("KERNEL32.dll")]
         #[must_use]
-        extern fn GetSystemWow64DirectoryW(#[incomplete] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
+        extern fn GetSystemWow64DirectoryW(#[buffer(uSize)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
         #[library("KERNEL32.dll")]
         #[must_use]
         extern fn IsWow64GuestMachineSupported(#[in] WowGuestMachine: USHORT, #[out] MachineIsSupported: *mut BOOL) -> HRESULT;

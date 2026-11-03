@@ -1,16 +1,16 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn PINSPECT_HSTRING_CALLBACK(#[in] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[out] #[writable(entry, length)] buffer: *mut BYTE) -> HRESULT;
-        extern fn PINSPECT_HSTRING_CALLBACK2(#[in] context: *mut void, readAddress: UINT64, length: UINT32, #[out] #[writable(entry, length)] buffer: *mut BYTE) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK(#[in] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[buffer(length)] #[out] buffer: *mut BYTE) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK2(#[in] context: *mut void, readAddress: UINT64, length: UINT32, #[buffer(length)] #[out] buffer: *mut BYTE) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsCompareStringOrdinal(#[in] #[opt] string1: HSTRING, #[in] #[opt] string2: HSTRING, #[out] result: *mut INT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsConcatString(#[in] #[opt] string1: HSTRING, #[in] #[opt] string2: HSTRING, #[nullable] #[out] #[out_ptr(null_on_failure)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateString(#[in] #[opt] #[readable(entry, length)] sourceString: PCNZWCH, length: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateString(#[buffer(length)] #[in] #[opt] sourceString: PCNZWCH, length: UINT32, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateStringReference(#[in] #[opt] #[readable(entry, length + 1)] sourceString: PCWSTR, length: UINT32, #[out] hstringHeader: *mut HSTRING_HEADER, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateStringReference(#[in] #[incomplete] #[opt] sourceString: PCWSTR, length: UINT32, #[out] hstringHeader: *mut HSTRING_HEADER, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsDeleteString(#[in] #[opt] string: HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
@@ -28,7 +28,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsIsStringEmpty(#[in] #[opt] string: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsPreallocateStringBuffer(length: UINT32, #[out] #[writable(success, length + 1, indirect)] charBuffer: *mut *mut WCHAR, #[out] #[out_ptr(null_on_failure)] bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
+        extern fn WindowsPreallocateStringBuffer(length: UINT32, #[incomplete] #[out] charBuffer: *mut *mut WCHAR, #[out] #[out_ptr(null_on_failure)] bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsPromoteStringBuffer(#[in] bufferHandle: HSTRING_BUFFER, #[nullable] #[out] #[out_ptr(null_on_failure)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]

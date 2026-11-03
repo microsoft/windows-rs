@@ -169,7 +169,7 @@ mod Windows {
         const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: i32 = 2;
         const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: i32 = 1;
         #[library("MFPlat.DLL")]
-        extern fn MFCalculateBitmapImageSize(#[in] #[readable(entry, bytes(cbBufSize))] pBMIH: *const BITMAPINFOHEADER, #[in] cbBufSize: UINT32, #[out] pcbImageSize: *mut UINT32, #[opt] #[out] pbKnown: *mut BOOL) -> HRESULT;
+        extern fn MFCalculateBitmapImageSize(#[buffer(bytes(cbBufSize))] #[in] pBMIH: *const BITMAPINFOHEADER, #[in] cbBufSize: UINT32, #[out] pcbImageSize: *mut UINT32, #[opt] #[out] pbKnown: *mut BOOL) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCalculateImageSize(#[in] guidSubtype: &GUID, #[in] unWidth: UINT32, #[in] unHeight: UINT32, #[out] pcbImageSize: *mut UINT32) -> HRESULT;
         struct MFCameraExtrinsic_CalibratedTransform {
@@ -205,9 +205,9 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFConvertColorInfoToDXVA(#[out] pdwToDXVA: *mut DWORD, #[in] pFromFormat: *const MFVIDEOFORMAT) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertFromFP16Array(#[out] #[writable(entry, dwCount)] pDest: *mut f32, #[in] #[readable(entry, dwCount)] pSrc: *const WORD, dwCount: DWORD) -> HRESULT;
+        extern fn MFConvertFromFP16Array(#[buffer(dwCount)] #[out] pDest: *mut f32, #[buffer(dwCount)] #[in] pSrc: *const WORD, dwCount: DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertToFP16Array(#[out] #[writable(entry, dwCount)] pDest: *mut WORD, #[in] #[readable(entry, dwCount)] pSrc: *const f32, dwCount: DWORD) -> HRESULT;
+        extern fn MFConvertToFP16Array(#[buffer(dwCount)] #[out] pDest: *mut WORD, #[buffer(dwCount)] #[in] pSrc: *const f32, dwCount: DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCopyImage(#[incomplete] #[out] pDest: *mut BYTE, lDestStride: LONG, #[in] #[incomplete] pSrc: *const BYTE, lSrcStride: LONG, #[incomplete] dwWidthInBytes: DWORD, dwLines: DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -271,7 +271,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateVideoMediaTypeFromBitMapInfoHeader(#[in] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, dwPixelAspectRatioX: DWORD, dwPixelAspectRatioY: DWORD, InterlaceMode: MFVideoInterlaceMode, VideoFlags: QWORD, qwFramesPerSecondNumerator: QWORD, qwFramesPerSecondDenominator: QWORD, dwMaxBitRate: DWORD, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(#[in] #[readable(entry, bytes(cbBitMapInfoHeader))] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, #[in] cbBitMapInfoHeader: UINT32, dwPixelAspectRatioX: DWORD, dwPixelAspectRatioY: DWORD, InterlaceMode: MFVideoInterlaceMode, VideoFlags: QWORD, dwFramesPerSecondNumerator: DWORD, dwFramesPerSecondDenominator: DWORD, dwMaxBitRate: DWORD, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(#[buffer(bytes(cbBitMapInfoHeader))] #[in] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, #[in] cbBitMapInfoHeader: UINT32, dwPixelAspectRatioX: DWORD, dwPixelAspectRatioY: DWORD, InterlaceMode: MFVideoInterlaceMode, VideoFlags: QWORD, dwFramesPerSecondNumerator: DWORD, dwFramesPerSecondDenominator: DWORD, dwMaxBitRate: DWORD, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateVideoMediaTypeFromSubtype(#[in] pAMSubtype: *const GUID, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -309,7 +309,7 @@ mod Windows {
             MFFrameSourceTypes_Custom = 128,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFGetAttributesAsBlob(#[in] pAttributes: IMFAttributes, #[out] #[writable(entry, bytes(cbBufSize))] pBuf: *mut UINT8, #[in] cbBufSize: UINT) -> HRESULT;
+        extern fn MFGetAttributesAsBlob(#[in] pAttributes: IMFAttributes, #[buffer(bytes(cbBufSize))] #[out] pBuf: *mut UINT8, #[in] cbBufSize: UINT) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetAttributesAsBlobSize(#[in] pAttributes: IMFAttributes, #[out] pcbBufSize: *mut UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -317,7 +317,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetDXGIDeviceManageMode(#[in] pDeviceManager: IUnknown, #[out] mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetMFTMerit(#[in] #[incomplete] pMFT: IUnknown, #[in] cbVerifier: UINT32, #[in] #[readable(entry, bytes(cbVerifier))] verifier: *const BYTE, #[out] merit: *mut DWORD) -> HRESULT;
+        extern fn MFGetMFTMerit(#[in] #[incomplete] pMFT: IUnknown, #[in] cbVerifier: UINT32, #[buffer(bytes(cbVerifier))] #[in] verifier: *const BYTE, #[out] merit: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetPlaneSize(format: DWORD, dwWidth: DWORD, dwHeight: DWORD, #[out] pdwPlaneSize: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -329,7 +329,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetUncompressedVideoFormat(#[in] pVideoFormat: *const MFVIDEOFORMAT) -> DWORD;
         #[library("MFPlat.DLL")]
-        extern fn MFGetWorkQueueMMCSSClass(dwWorkQueueId: DWORD, #[opt] #[out] #[readable(success, *pcchClass)] #[writable(entry, *pcchClass)] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
+        extern fn MFGetWorkQueueMMCSSClass(dwWorkQueueId: DWORD, #[buffer(*pcchClass)] #[opt] #[out] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetWorkQueueMMCSSPriority(dwWorkQueueId: DWORD, #[out] lPriority: *mut LONG) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -343,21 +343,21 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFInitAMMediaTypeFromMFMediaType(#[in] pMFType: IMFMediaType, #[in] guidFormatBlockType: GUID, #[in] #[out] pAMType: *mut AM_MEDIA_TYPE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitAttributesFromBlob(#[in] pAttributes: IMFAttributes, #[in] #[readable(entry, bytes(cbBufSize))] pBuf: *const UINT8, #[in] cbBufSize: UINT) -> HRESULT;
+        extern fn MFInitAttributesFromBlob(#[in] pAttributes: IMFAttributes, #[buffer(bytes(cbBufSize))] #[in] pBuf: *const UINT8, #[in] cbBufSize: UINT) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFInitMediaTypeFromAMMediaType(#[in] pMFType: IMFMediaType, #[in] pAMType: *const AM_MEDIA_TYPE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMFVideoFormat(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMFVF: *const MFVIDEOFORMAT, #[in] cbBufSize: UINT32) -> HRESULT;
+        extern fn MFInitMediaTypeFromMFVideoFormat(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pMFVF: *const MFVIDEOFORMAT, #[in] cbBufSize: UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG1VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP1VI: *const MPEG1VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG1VideoInfo(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pMP1VI: *const MPEG1VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG2VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP2VI: *const MPEG2VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG2VideoInfo(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pMP2VI: *const MPEG2VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH: *const VIDEOINFOHEADER, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pVIH: *const VIDEOINFOHEADER, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader2(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH2: *const VIDEOINFOHEADER2, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader2(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pVIH2: *const VIDEOINFOHEADER2, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromWaveFormatEx(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pWaveFormat: *const WAVEFORMATEX, #[in] cbBufSize: UINT32) -> HRESULT;
+        extern fn MFInitMediaTypeFromWaveFormatEx(#[in] pMFType: IMFMediaType, #[buffer(bytes(cbBufSize))] #[in] pWaveFormat: *const WAVEFORMATEX, #[in] cbBufSize: UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFInitVideoFormat(#[in] pVideoFormat: *mut MFVIDEOFORMAT, #[in] r#type: MFStandardVideoFormat) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -526,7 +526,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFShutdown() -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFSplitSample(#[in] pSample: IMFSample, #[out] #[readable(success, *pdwOutputSampleCount)] #[writable(entry, dwOutputSampleMaxCount)] pOutputSamples: *mut IMFSample, #[in] dwOutputSampleMaxCount: DWORD, #[out] pdwOutputSampleCount: *mut DWORD) -> HRESULT;
+        extern fn MFSplitSample(#[in] pSample: IMFSample, #[buffer(dwOutputSampleMaxCount)] #[out] pOutputSamples: *mut IMFSample, #[in] dwOutputSampleMaxCount: DWORD, #[out] pdwOutputSampleCount: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFStartup(Version: ULONG, dwFlags: DWORD) -> HRESULT;
         const MFStreamExtension_CameraExtrinsics: GUID = 0x686196d0_13e2_41d9_9638_ef032c272a52;
@@ -543,19 +543,19 @@ mod Windows {
         const MFSubtitleFormat_WebVTT: GUID = 0xc886d215_f485_40bb_8db6_fadbc619a45d;
         const MFSubtitleFormat_XML: GUID = 0x2006f94f_29ca_4195_b8db_00ded8ff0c97;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnum(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[writable(success, *pcMFTs, indirect)] ppclsidMFT: *mut *mut CLSID, #[out] pcMFTs: *mut UINT32) -> HRESULT;
+        extern fn MFTEnum(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes, #[incomplete] #[out] ppclsidMFT: *mut *mut CLSID, #[out] pcMFTs: *mut UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnum2(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[writable(success, *pnumMFTActivate, indirect)] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
+        extern fn MFTEnum2(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes, #[incomplete] #[out] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnumEx(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[out] #[writable(success, *pnumMFTActivate, indirect)] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
+        extern fn MFTEnumEx(#[in] guidCategory: GUID, #[in] Flags: UINT32, #[in] #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[incomplete] #[out] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTGetInfo(#[in] clsidMFT: CLSID, #[opt] #[out] pszName: *mut LPWSTR, #[opt] #[out] #[writable(success, if_present(*pcInputTypes), indirect)] ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] #[out] pcInputTypes: *mut UINT32, #[opt] #[out] #[writable(success, if_present(*pcOutputTypes), indirect)] ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] #[out] pcOutputTypes: *mut UINT32, #[nullable] #[opt] #[out] #[out_ptr] ppAttributes: *mut IMFAttributes) -> HRESULT;
+        extern fn MFTGetInfo(#[in] clsidMFT: CLSID, #[opt] #[out] pszName: *mut LPWSTR, #[incomplete] #[opt] #[out] ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] #[out] pcInputTypes: *mut UINT32, #[incomplete] #[opt] #[out] ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] #[out] pcOutputTypes: *mut UINT32, #[nullable] #[opt] #[out] #[out_ptr] ppAttributes: *mut IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegister(#[in] clsidMFT: CLSID, #[in] guidCategory: GUID, #[in] pszName: LPWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[in] #[opt] #[readable(entry, cInputTypes)] pInputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[in] #[opt] #[readable(entry, cOutputTypes)] pOutputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes) -> HRESULT;
+        extern fn MFTRegister(#[in] clsidMFT: CLSID, #[in] guidCategory: GUID, #[in] pszName: LPWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[buffer(cInputTypes)] #[in] #[opt] pInputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[buffer(cOutputTypes)] #[in] #[opt] pOutputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pAttributes: IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegisterLocal(#[in] pClassFactory: IClassFactory, #[in] guidCategory: &GUID, #[in] pszName: LPCWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[in] #[opt] #[readable(entry, cInputTypes)] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[in] #[opt] #[readable(entry, cOutputTypes)] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        extern fn MFTRegisterLocal(#[in] pClassFactory: IClassFactory, #[in] guidCategory: &GUID, #[in] pszName: LPCWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[buffer(cInputTypes)] #[in] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[buffer(cOutputTypes)] #[in] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegisterLocalByCLSID(#[in] clisdMFT: &IID, #[in] guidCategory: &GUID, #[in] pszName: LPCWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[in] #[opt] #[readable(entry, cInputTypes)] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[in] #[opt] #[readable(entry, cOutputTypes)] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        extern fn MFTRegisterLocalByCLSID(#[in] clisdMFT: &IID, #[in] guidCategory: &GUID, #[in] pszName: LPCWSTR, #[in] Flags: UINT32, #[in] cInputTypes: UINT32, #[buffer(cInputTypes)] #[in] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] cOutputTypes: UINT32, #[buffer(cOutputTypes)] #[in] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFTUnregister(#[in] clsidMFT: CLSID) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -590,7 +590,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFUnwrapMediaType(#[in] pWrap: IMFMediaType, #[out] ppOrig: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFValidateMediaTypeSize(#[in] FormatType: GUID, #[in] #[opt] #[readable(entry, bytes(cbSize))] pBlock: *mut UINT8, #[in] cbSize: UINT32) -> HRESULT;
+        extern fn MFValidateMediaTypeSize(#[in] FormatType: GUID, #[buffer(bytes(cbSize))] #[in] #[opt] pBlock: *mut UINT8, #[in] cbSize: UINT32) -> HRESULT;
         #[repr(i32)]
         enum MFVideo3DFormat {
             MFVideo3DSampleFormat_BaseView = 0,

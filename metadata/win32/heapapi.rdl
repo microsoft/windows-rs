@@ -4,7 +4,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetProcessHeap() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessHeaps(#[in] NumberOfHeaps: DWORD, #[incomplete] #[out] #[writable(entry, NumberOfHeaps)] ProcessHeaps: PHANDLE) -> DWORD;
+        extern fn GetProcessHeaps(#[in] NumberOfHeaps: DWORD, #[buffer(NumberOfHeaps)] #[incomplete] #[out] ProcessHeaps: PHANDLE) -> DWORD;
         struct HEAP_SUMMARY {
             cb: DWORD,
             cbAllocated: SIZE_T,
@@ -25,11 +25,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn HeapLock(#[in] hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapQueryInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(HeapInformationLength))] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> BOOL;
+        extern fn HeapQueryInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[buffer(bytes(HeapInformationLength))] #[opt] #[out] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T, #[opt] #[out] ReturnLength: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, #[in] dwFlags: DWORD, #[incomplete] lpMem: LPVOID, #[in] dwBytes: SIZE_T) -> #[nullable] LPVOID;
         #[library("KERNEL32.dll")]
-        extern fn HeapSetInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[in] #[opt] #[readable(entry, bytes(HeapInformationLength))] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T) -> BOOL;
+        extern fn HeapSetInformation(#[in] #[opt] HeapHandle: HANDLE, #[in] HeapInformationClass: HEAP_INFORMATION_CLASS, #[buffer(bytes(HeapInformationLength))] #[in] #[opt] HeapInformation: PVOID, #[in] HeapInformationLength: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn HeapSize(#[in] hHeap: HANDLE, #[in] dwFlags: DWORD, #[in] lpMem: LPCVOID) -> SIZE_T;
         #[library("KERNEL32.dll")]

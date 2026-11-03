@@ -19,23 +19,23 @@ mod Windows {
         }
         #[guid(0x0002e012_0000_0000_c000_000000000046)]
         interface ICatRegister: IUnknown {
-            fn RegisterCategories(&self, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgCategoryInfo: *mut CATEGORYINFO) -> HRESULT;
-            fn UnRegisterCategories(&self, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgcatid: *mut CATID) -> HRESULT;
-            fn RegisterClassImplCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgcatid: *mut CATID) -> HRESULT;
-            fn UnRegisterClassImplCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgcatid: *mut CATID) -> HRESULT;
-            fn RegisterClassReqCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgcatid: *mut CATID) -> HRESULT;
-            fn UnRegisterClassReqCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[in] #[readable(entry, cCategories)] rgcatid: *mut CATID) -> HRESULT;
+            fn RegisterCategories(&self, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgCategoryInfo: *mut CATEGORYINFO) -> HRESULT;
+            fn UnRegisterCategories(&self, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn RegisterClassImplCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn UnRegisterClassImplCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn RegisterClassReqCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn UnRegisterClassReqCategories(&self, #[in] rclsid: &IID, #[in] cCategories: ULONG, #[buffer(cCategories)] #[in] rgcatid: *mut CATID) -> HRESULT;
         }
         #[guid(0x0002e011_0000_0000_c000_000000000046)]
         interface IEnumCATEGORYINFO: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut CATEGORYINFO, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut CATEGORYINFO, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumCATEGORYINFO) -> HRESULT;
         }
         #[guid(0x0002e000_0000_0000_c000_000000000046)]
         interface IEnumGUID: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut GUID, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut GUID, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumGUID) -> HRESULT;

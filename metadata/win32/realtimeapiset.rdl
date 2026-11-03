@@ -8,9 +8,9 @@ mod Windows {
         #[library("api-ms-win-core-realtime-l1-1-2.dll")]
         extern fn QueryAuxiliaryCounterFrequency(#[out] lpAuxiliaryCounterFrequency: PULONGLONG) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn QueryIdleProcessorCycleTime(#[in] #[out] BufferLength: PULONG, #[opt] #[out] #[writable(entry, bytes(*BufferLength))] ProcessorIdleCycleTime: PULONG64) -> BOOL;
+        extern fn QueryIdleProcessorCycleTime(#[in] #[out] BufferLength: PULONG, #[buffer(bytes(*BufferLength))] #[opt] #[out] ProcessorIdleCycleTime: PULONG64) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryIdleProcessorCycleTimeEx(#[in] Group: USHORT, #[in] #[out] BufferLength: PULONG, #[opt] #[out] #[writable(entry, bytes(*BufferLength))] ProcessorIdleCycleTime: PULONG64) -> BOOL;
+        extern fn QueryIdleProcessorCycleTimeEx(#[in] Group: USHORT, #[in] #[out] BufferLength: PULONG, #[buffer(bytes(*BufferLength))] #[opt] #[out] ProcessorIdleCycleTime: PULONG64) -> BOOL;
         #[library("api-ms-win-core-realtime-l1-1-1.dll")]
         extern fn QueryInterruptTime(#[out] lpInterruptTime: PULONGLONG);
         #[library("api-ms-win-core-realtime-l1-1-1.dll")]

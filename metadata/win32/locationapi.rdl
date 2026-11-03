@@ -83,7 +83,7 @@ mod Windows {
             fn SetReportInterval(&self, #[in] reportType: &IID, #[in] millisecondsRequested: DWORD) -> HRESULT;
             fn GetDesiredAccuracy(&self, #[in] reportType: &IID, #[out] #[retval] pDesiredAccuracy: *mut LOCATION_DESIRED_ACCURACY) -> HRESULT;
             fn SetDesiredAccuracy(&self, #[in] reportType: &IID, #[in] desiredAccuracy: LOCATION_DESIRED_ACCURACY) -> HRESULT;
-            fn RequestPermissions(&self, #[in] #[opt] hParent: HWND, #[in] #[readable(entry, count)] pReportTypes: *mut IID, #[in] count: ULONG, #[in] fModal: BOOL) -> HRESULT;
+            fn RequestPermissions(&self, #[in] #[opt] hParent: HWND, #[buffer(count)] #[in] pReportTypes: *mut IID, #[in] count: ULONG, #[in] fModal: BOOL) -> HRESULT;
         }
         #[guid(0xcae02bbf_798b_4508_a207_35a7906dc73d)]
         interface ILocationEvents: IUnknown {

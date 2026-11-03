@@ -156,7 +156,6 @@ mod Windows {
             KeyLength: ULONG,
             BSSID: NDIS_802_11_MAC_ADDRESS,
             KeyRSC: NDIS_802_11_KEY_RSC,
-            #[writable(bytes(KeyLength))]
             KeyMaterial: [UCHAR; 1],
         }
         type NDIS_802_11_KEY_INDEX = u32;
@@ -1043,14 +1042,12 @@ mod Windows {
         struct NDIS_STATISTICS_VALUE {
             Oid: NDIS_OID,
             DataLength: ULONG,
-            #[writable(bytes(DataLength))]
             Data: [UCHAR; 1],
         }
         struct NDIS_STATISTICS_VALUE_EX {
             Oid: NDIS_OID,
             DataLength: ULONG,
             Length: ULONG,
-            #[writable(bytes(DataLength))]
             Data: [UCHAR; 1],
         }
         #[repr(i32)]

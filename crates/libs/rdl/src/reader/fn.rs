@@ -75,7 +75,7 @@ impl Encoder<'_> {
             .MethodDef(&name, &signature, flags, Default::default());
 
         self.encode_return_attrs(&item.return_attrs, &signature.return_type)?;
-        self.encode_params(&params, &signature.return_type)?;
+        self.encode_params(&params)?;
 
         let Some(attribute) = item
             .attrs

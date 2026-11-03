@@ -78,7 +78,7 @@ mod Windows {
         extern fn HPALETTE_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HRGN_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
         #[arch(X64 | Arm64)]
@@ -95,10 +95,10 @@ mod Windows {
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
         #[library("ole32.dll")]
-        extern fn HRGN_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
         #[guid(0x3af24290_0c96_11ce_a0cf_00aa00600ab8)]
         interface IAdviseSinkEx: IAdviseSink {
             fn OnViewStatusChange(&self, #[in] dwViewStatus: DWORD);
@@ -332,10 +332,10 @@ mod Windows {
         }
         #[guid(0x22f55882_280b_11d0_a8a9_00a0c90c2004)]
         interface IPropertyBag2: IUnknown {
-            fn Read(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[opt] pErrLog: IErrorLog, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pvarValue: *mut VARIANT, #[in] #[opt] #[out] #[readable(entry, cProperties)] #[readable(success, cProperties)] #[writable(entry, cProperties)] phrError: *mut HRESULT) -> HRESULT;
-            fn Write(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[readable(entry, cProperties)] pvarValue: *mut VARIANT) -> HRESULT;
+            fn Read(&self, #[in] cProperties: ULONG, #[buffer(cProperties)] #[in] pPropBag: *mut PROPBAG2, #[in] #[opt] pErrLog: IErrorLog, #[buffer(cProperties)] #[out] pvarValue: *mut VARIANT, #[buffer(cProperties)] #[in] #[opt] #[out] phrError: *mut HRESULT) -> HRESULT;
+            fn Write(&self, #[in] cProperties: ULONG, #[buffer(cProperties)] #[in] pPropBag: *mut PROPBAG2, #[buffer(cProperties)] #[in] pvarValue: *mut VARIANT) -> HRESULT;
             fn CountProperties(&self, #[out] pcProperties: *mut ULONG) -> HRESULT;
-            fn GetPropertyInfo(&self, #[in] iProperty: ULONG, #[in] cProperties: ULONG, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pPropBag: *mut PROPBAG2, #[out] pcProperties: *mut ULONG) -> HRESULT;
+            fn GetPropertyInfo(&self, #[in] iProperty: ULONG, #[in] cProperties: ULONG, #[buffer(cProperties)] #[out] pPropBag: *mut PROPBAG2, #[out] pcProperties: *mut ULONG) -> HRESULT;
             fn LoadObject(&self, #[in] pstrName: LPCOLESTR, #[in] dwHint: DWORD, #[in] #[opt] pUnkObject: IUnknown, #[in] #[opt] pErrLog: IErrorLog) -> HRESULT;
         }
         #[guid(0x9bfbbc02_eff1_101a_84ed_00aa00341d07)]
@@ -349,7 +349,7 @@ mod Windows {
             fn Activate(&self, #[in] hWndParent: HWND, #[in] pRect: LPCRECT, #[in] bModal: BOOL) -> HRESULT;
             fn Deactivate(&self) -> HRESULT;
             fn GetPageInfo(&self, #[out] pPageInfo: *mut PROPPAGEINFO) -> HRESULT;
-            fn SetObjects(&self, #[in] cObjects: ULONG, #[in] #[readable(entry, cObjects)] ppUnk: *mut IUnknown) -> HRESULT;
+            fn SetObjects(&self, #[in] cObjects: ULONG, #[buffer(cObjects)] #[in] ppUnk: *mut IUnknown) -> HRESULT;
             fn Show(&self, #[in] nCmdShow: UINT) -> HRESULT;
             fn Move(&self, #[in] pRect: LPCRECT) -> HRESULT;
             fn IsPageDirty(&self) -> HRESULT;

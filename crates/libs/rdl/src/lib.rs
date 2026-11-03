@@ -1,8 +1,8 @@
 #![doc = include_str!("../readme.md")]
 
 mod accessor;
-mod buffer_extent;
-pub use buffer_extent::write_buffer_extent;
+mod buffer_info;
+pub use buffer_info::write_buffer_info;
 /// RDL source-emission primitives shared with the `windows-clang` scraper.
 pub mod emit;
 mod error;
@@ -11,7 +11,6 @@ pub mod formatter;
 /// Reader for COFF import libraries (the SDK `.lib` archives), used to recover
 /// the function -> DLL mapping that headers do not carry.
 pub mod implib;
-mod integer_expression;
 mod reader;
 mod writer;
 
@@ -131,6 +130,11 @@ pub fn reader() -> Reader {
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
     reader::item_names(path, namespace)
+}
+
+/// Returns free function names without resolving types or encoding attributes.
+pub fn function_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    reader::function_names(path, namespace)
 }
 
 /// Parses one `.rdl` file and returns enum member names under `namespace`.

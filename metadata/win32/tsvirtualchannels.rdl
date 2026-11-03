@@ -25,7 +25,7 @@ mod Windows {
         }
         #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
         interface IWTSBitmapRenderer: IUnknown {
-            fn Render(&self, #[in] imageFormat: GUID, #[in] dwWidth: DWORD, #[in] dwHeight: DWORD, #[in] cbStride: LONG, #[in] cbImageBuffer: DWORD, #[in] #[readable(entry, cbImageBuffer)] pImageBuffer: *mut BYTE) -> HRESULT;
+            fn Render(&self, #[in] imageFormat: GUID, #[in] dwWidth: DWORD, #[in] dwHeight: DWORD, #[in] cbStride: LONG, #[in] cbImageBuffer: DWORD, #[buffer(cbImageBuffer)] #[in] pImageBuffer: *mut BYTE) -> HRESULT;
             fn GetRendererStatistics(&self, #[out] pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
             fn RemoveMapping(&self) -> HRESULT;
         }
@@ -54,12 +54,12 @@ mod Windows {
         }
         #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannel: IUnknown {
-            fn Write(&self, #[in] cbSize: ULONG, #[in] #[readable(entry, cbSize)] pBuffer: *mut BYTE, #[in] #[opt] pReserved: IUnknown) -> HRESULT;
+            fn Write(&self, #[in] cbSize: ULONG, #[buffer(cbSize)] #[in] pBuffer: *mut BYTE, #[in] #[opt] pReserved: IUnknown) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelCallback: IUnknown {
-            fn OnDataReceived(&self, #[in] cbSize: ULONG, #[in] #[readable(entry, cbSize)] pBuffer: *mut BYTE) -> HRESULT;
+            fn OnDataReceived(&self, #[in] cbSize: ULONG, #[buffer(cbSize)] #[in] pBuffer: *mut BYTE) -> HRESULT;
             fn OnClose(&self) -> HRESULT;
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]

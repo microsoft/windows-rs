@@ -236,10 +236,10 @@ mod Windows {
         extern fn WNetAddConnection3W(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[in] #[opt] lpPassword: LPCWSTR, #[in] #[opt] lpUserName: LPCWSTR, #[in] dwFlags: DWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetAddConnection4A(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[in] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbUseOptions))] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD) -> DWORD;
+        extern fn WNetAddConnection4A(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(cbAuthBuffer))] #[in] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(cbUseOptions))] #[in] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetAddConnection4W(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[in] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbUseOptions))] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD) -> DWORD;
+        extern fn WNetAddConnection4W(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(cbAuthBuffer))] #[in] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(cbUseOptions))] #[in] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
         extern fn WNetAddConnectionA(#[in] lpRemoteName: LPCSTR, #[in] #[opt] lpPassword: LPCSTR, #[in] #[opt] lpLocalName: LPCSTR) -> DWORD;
@@ -281,22 +281,22 @@ mod Windows {
         extern fn WNetDisconnectDialog1W(#[in] lpConnDlgStruct: LPDISCDLGSTRUCTW) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetEnumResourceA(#[in] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[out] #[writable(entry, bytes(*lpBufferSize))] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetEnumResourceA(#[in] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[buffer(bytes(*lpBufferSize))] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetEnumResourceW(#[in] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[out] #[writable(entry, bytes(*lpBufferSize))] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetEnumResourceW(#[in] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[buffer(bytes(*lpBufferSize))] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetConnectionA(#[in] lpLocalName: LPCSTR, #[opt] #[out] #[writable(entry, *lpnLength)] lpRemoteName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        extern fn WNetGetConnectionA(#[in] lpLocalName: LPCSTR, #[buffer(*lpnLength)] #[opt] #[out] lpRemoteName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetConnectionW(#[in] lpLocalName: LPCWSTR, #[opt] #[out] #[writable(entry, *lpnLength)] lpRemoteName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        extern fn WNetGetConnectionW(#[in] lpLocalName: LPCWSTR, #[buffer(*lpnLength)] #[opt] #[out] lpRemoteName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetLastErrorA(#[out] lpError: LPDWORD, #[out] #[writable(entry, nErrorBufSize)] lpErrorBuf: LPSTR, #[in] nErrorBufSize: DWORD, #[out] #[writable(entry, nNameBufSize)] lpNameBuf: LPSTR, #[in] nNameBufSize: DWORD) -> DWORD;
+        extern fn WNetGetLastErrorA(#[out] lpError: LPDWORD, #[buffer(nErrorBufSize)] #[out] lpErrorBuf: LPSTR, #[in] nErrorBufSize: DWORD, #[buffer(nNameBufSize)] #[out] lpNameBuf: LPSTR, #[in] nNameBufSize: DWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetLastErrorW(#[out] lpError: LPDWORD, #[out] #[writable(entry, nErrorBufSize)] lpErrorBuf: LPWSTR, #[in] nErrorBufSize: DWORD, #[out] #[writable(entry, nNameBufSize)] lpNameBuf: LPWSTR, #[in] nNameBufSize: DWORD) -> DWORD;
+        extern fn WNetGetLastErrorW(#[out] lpError: LPDWORD, #[buffer(nErrorBufSize)] #[out] lpErrorBuf: LPWSTR, #[in] nErrorBufSize: DWORD, #[buffer(nNameBufSize)] #[out] lpNameBuf: LPWSTR, #[in] nNameBufSize: DWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
         extern fn WNetGetNetworkInformationA(#[in] lpProvider: LPCSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> DWORD;
@@ -305,34 +305,34 @@ mod Windows {
         extern fn WNetGetNetworkInformationW(#[in] lpProvider: LPCWSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetProviderNameA(#[in] dwNetType: DWORD, #[out] #[writable(entry, *lpBufferSize)] lpProviderName: LPSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetGetProviderNameA(#[in] dwNetType: DWORD, #[buffer(*lpBufferSize)] #[out] lpProviderName: LPSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetProviderNameW(#[in] dwNetType: DWORD, #[out] #[writable(entry, *lpBufferSize)] lpProviderName: LPWSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetGetProviderNameW(#[in] dwNetType: DWORD, #[buffer(*lpBufferSize)] #[out] lpProviderName: LPWSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceInformationA(#[in] lpNetResource: LPNETRESOURCEA, #[out] #[writable(entry, bytes(*lpcbBuffer))] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPSTR) -> DWORD;
+        extern fn WNetGetResourceInformationA(#[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPSTR) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceInformationW(#[in] lpNetResource: LPNETRESOURCEW, #[out] #[writable(entry, bytes(*lpcbBuffer))] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPWSTR) -> DWORD;
+        extern fn WNetGetResourceInformationW(#[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[out_ptr] lplpSystem: *mut LPWSTR) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceParentA(#[in] lpNetResource: LPNETRESOURCEA, #[out] #[writable(entry, bytes(*lpcbBuffer))] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
+        extern fn WNetGetResourceParentA(#[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetResourceParentW(#[in] lpNetResource: LPNETRESOURCEW, #[out] #[writable(entry, bytes(*lpcbBuffer))] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
+        extern fn WNetGetResourceParentW(#[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(*lpcbBuffer))] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetUniversalNameA(#[in] lpLocalPath: LPCSTR, #[in] dwInfoLevel: DWORD, #[out] #[writable(entry, bytes(*lpBufferSize))] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetGetUniversalNameA(#[in] lpLocalPath: LPCSTR, #[in] dwInfoLevel: DWORD, #[buffer(bytes(*lpBufferSize))] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetUniversalNameW(#[in] lpLocalPath: LPCWSTR, #[in] dwInfoLevel: DWORD, #[out] #[writable(entry, bytes(*lpBufferSize))] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        extern fn WNetGetUniversalNameW(#[in] lpLocalPath: LPCWSTR, #[in] dwInfoLevel: DWORD, #[buffer(bytes(*lpBufferSize))] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetUserA(#[in] #[opt] lpName: LPCSTR, #[out] #[writable(entry, *lpnLength)] lpUserName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        extern fn WNetGetUserA(#[in] #[opt] lpName: LPCSTR, #[buffer(*lpnLength)] #[out] lpUserName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetGetUserW(#[in] #[opt] lpName: LPCWSTR, #[out] #[writable(entry, *lpnLength)] lpUserName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        extern fn WNetGetUserW(#[in] #[opt] lpName: LPCWSTR, #[buffer(*lpnLength)] #[out] lpUserName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
         extern fn WNetOpenEnumA(#[in] dwScope: DWORD, #[in] dwType: DWORD, #[in] dwUsage: DWORD, #[in] #[opt] lpNetResource: LPNETRESOURCEA, #[out] lphEnum: LPHANDLE) -> DWORD;
@@ -341,15 +341,15 @@ mod Windows {
         extern fn WNetOpenEnumW(#[in] dwScope: DWORD, #[in] dwType: DWORD, #[in] dwUsage: DWORD, #[in] #[opt] lpNetResource: LPNETRESOURCEW, #[out] lphEnum: LPHANDLE) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetUseConnection4A(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[readable(entry, bytes(cbUseOptions))] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD, #[opt] #[out] #[writable(entry, if_present(*lpBufferSize))] lpAccessName: LPSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
+        extern fn WNetUseConnection4A(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[buffer(bytes(cbAuthBuffer))] #[in] #[opt] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(cbUseOptions))] #[in] #[opt] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD, #[incomplete] #[opt] #[out] lpAccessName: LPSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetUseConnection4W(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[in] #[opt] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[readable(entry, bytes(cbUseOptions))] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD, #[opt] #[out] #[writable(entry, if_present(*lpBufferSize))] lpAccessName: LPWSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
+        extern fn WNetUseConnection4W(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[buffer(bytes(cbAuthBuffer))] #[in] #[opt] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(cbUseOptions))] #[in] #[opt] lpUseOptions: PBYTE, #[in] cbUseOptions: DWORD, #[incomplete] #[opt] #[out] lpAccessName: LPWSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetUseConnectionA(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[in] #[opt] lpPassword: LPCSTR, #[in] #[opt] lpUserId: LPCSTR, #[in] dwFlags: DWORD, #[opt] #[out] #[writable(entry, if_present(*lpBufferSize))] lpAccessName: LPSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
+        extern fn WNetUseConnectionA(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEA, #[in] #[opt] lpPassword: LPCSTR, #[in] #[opt] lpUserId: LPCSTR, #[in] dwFlags: DWORD, #[incomplete] #[opt] #[out] lpAccessName: LPSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
         #[library("MPR.dll")]
         #[must_use]
-        extern fn WNetUseConnectionW(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[in] #[opt] lpPassword: LPCWSTR, #[in] #[opt] lpUserId: LPCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] #[writable(entry, if_present(*lpBufferSize))] lpAccessName: LPWSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
+        extern fn WNetUseConnectionW(#[in] #[opt] hwndOwner: HWND, #[in] lpNetResource: LPNETRESOURCEW, #[in] #[opt] lpPassword: LPCWSTR, #[in] #[opt] lpUserId: LPCWSTR, #[in] dwFlags: DWORD, #[incomplete] #[opt] #[out] lpAccessName: LPWSTR, #[in] #[opt] #[out] lpBufferSize: LPDWORD, #[opt] #[out] lpResult: LPDWORD) -> DWORD;
     }
 }

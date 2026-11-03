@@ -4,16 +4,12 @@ mod Windows {
         struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
             dwVersion: DWORD,
             cbContactId: DWORD,
-            #[writable(bytes(cbContactId))]
             pbContactId: PBYTE,
             cbLinkId: DWORD,
-            #[writable(bytes(cbLinkId))]
             pbLinkId: PBYTE,
             cbLinkSecret: DWORD,
-            #[writable(bytes(cbLinkSecret))]
             pbLinkSecret: PBYTE,
             cbPublicKey: DWORD,
-            #[writable(bytes(cbPublicKey))]
             pbPublicKey: PBYTE,
             pwszAuthenticatorName: PCWSTR,
             wEncodedTunnelServerDomain: WORD,
@@ -162,22 +158,18 @@ mod Windows {
             pwszLightThemeLogo: LPCWSTR,
             pwszDarkThemeLogo: LPCWSTR,
             cbAuthenticatorInfo: DWORD,
-            #[writable(bytes(cbAuthenticatorInfo))]
             pbAuthenticatorInfo: PBYTE,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_RESPONSE {
             cbOpSignPubKey: DWORD,
-            #[writable(bytes(cbOpSignPubKey))]
             pbOpSignPubKey: PBYTE,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
             cbCredentialId: DWORD,
-            #[writable(bytes(cbCredentialId))]
             pbCredentialId: PBYTE,
             pwszRpId: PWSTR,
             pwszRpName: PWSTR,
             cbUserId: DWORD,
-            #[writable(bytes(cbUserId))]
             pbUserId: PBYTE,
             pwszUserName: PWSTR,
             pwszUserDisplayName: PWSTR,
@@ -185,7 +177,6 @@ mod Windows {
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
             pwszPluginClsId: PWSTR,
             cCredentialDetails: DWORD,
-            #[writable(cCredentialDetails)]
             pCredentialDetails: *mut EXPERIMENTAL_PWEBAUTHN_PLUGIN_CREDENTIAL_DETAILS,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
@@ -203,7 +194,6 @@ mod Windows {
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_RESPONSE {
             cbResponse: DWORD,
-            #[writable(bytes(cbResponse))]
             pbResponse: PBYTE,
         }
         extern fn EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK(context: *mut void);
@@ -214,7 +204,6 @@ mod Windows {
             pwszLightThemeLogo: LPCWSTR,
             pwszDarkThemeLogo: LPCWSTR,
             cbAuthenticatorInfo: DWORD,
-            #[writable(bytes(cbAuthenticatorInfo))]
             pbAuthenticatorInfo: PBYTE,
         }
         type PCCTAPCBOR_HYBRID_STORAGE_LINKED_DATA = *const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA;
@@ -287,30 +276,23 @@ mod Windows {
         struct WEBAUTHN_ASSERTION {
             dwVersion: DWORD,
             cbAuthenticatorData: DWORD,
-            #[writable(bytes(cbAuthenticatorData))]
             pbAuthenticatorData: PBYTE,
             cbSignature: DWORD,
-            #[writable(bytes(cbSignature))]
             pbSignature: PBYTE,
             Credential: WEBAUTHN_CREDENTIAL,
             cbUserId: DWORD,
-            #[writable(bytes(cbUserId))]
             pbUserId: PBYTE,
             Extensions: WEBAUTHN_EXTENSIONS,
             cbCredLargeBlob: DWORD,
-            #[writable(bytes(cbCredLargeBlob))]
             pbCredLargeBlob: PBYTE,
             dwCredLargeBlobStatus: DWORD,
             pHmacSecret: PWEBAUTHN_HMAC_SECRET_SALT,
             dwUsedTransport: DWORD,
             cbUnsignedExtensionOutputs: DWORD,
-            #[writable(bytes(cbUnsignedExtensionOutputs))]
             pbUnsignedExtensionOutputs: PBYTE,
             cbClientDataJSON: DWORD,
-            #[writable(bytes(cbClientDataJSON))]
             pbClientDataJSON: PBYTE,
             cbAuthenticationResponseJSON: DWORD,
-            #[writable(bytes(cbAuthenticationResponseJSON))]
             pbAuthenticationResponseJSON: PBYTE,
         }
         const WEBAUTHN_ASSERTION_CURRENT_VERSION: i32 = 6;
@@ -343,18 +325,15 @@ mod Windows {
         struct WEBAUTHN_AUTHENTICATOR_DETAILS {
             dwVersion: DWORD,
             cbAuthenticatorId: DWORD,
-            #[writable(bytes(cbAuthenticatorId))]
             pbAuthenticatorId: PBYTE,
             pwszAuthenticatorName: PCWSTR,
             cbAuthenticatorLogo: DWORD,
-            #[writable(bytes(cbAuthenticatorLogo))]
             pbAuthenticatorLogo: PBYTE,
             bLocked: BOOL,
         }
         const WEBAUTHN_AUTHENTICATOR_DETAILS_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
             cAuthenticatorDetails: DWORD,
-            #[writable(cAuthenticatorDetails)]
             ppAuthenticatorDetails: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS,
         }
         struct WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS {
@@ -377,24 +356,19 @@ mod Windows {
             pAllowCredentialList: PWEBAUTHN_CREDENTIAL_LIST,
             dwCredLargeBlobOperation: DWORD,
             cbCredLargeBlob: DWORD,
-            #[writable(bytes(cbCredLargeBlob))]
             pbCredLargeBlob: PBYTE,
             pHmacSecretSaltValues: PWEBAUTHN_HMAC_SECRET_SALT_VALUES,
             bBrowserInPrivateMode: BOOL,
             pLinkedDevice: PCTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
             bAutoFill: BOOL,
             cbJsonExt: DWORD,
-            #[writable(bytes(cbJsonExt))]
             pbJsonExt: PBYTE,
             cCredentialHints: DWORD,
-            #[writable(cCredentialHints)]
             ppwszCredentialHints: *mut LPCWSTR,
             pwszRemoteWebOrigin: PCWSTR,
             cbPublicKeyCredentialRequestOptionsJSON: DWORD,
-            #[writable(bytes(cbPublicKeyCredentialRequestOptionsJSON))]
             pbPublicKeyCredentialRequestOptionsJSON: PBYTE,
             cbAuthenticatorId: DWORD,
-            #[writable(bytes(cbAuthenticatorId))]
             pbAuthenticatorId: PBYTE,
         }
         const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: i32 = 9;
@@ -427,19 +401,15 @@ mod Windows {
             bEnablePrf: BOOL,
             pLinkedDevice: PCTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
             cbJsonExt: DWORD,
-            #[writable(bytes(cbJsonExt))]
             pbJsonExt: PBYTE,
             pPRFGlobalEval: PWEBAUTHN_HMAC_SECRET_SALT,
             cCredentialHints: DWORD,
-            #[writable(cCredentialHints)]
             ppwszCredentialHints: *mut LPCWSTR,
             bThirdPartyPayment: BOOL,
             pwszRemoteWebOrigin: PCWSTR,
             cbPublicKeyCredentialCreationOptionsJSON: DWORD,
-            #[writable(bytes(cbPublicKeyCredentialCreationOptionsJSON))]
             pbPublicKeyCredentialCreationOptionsJSON: PBYTE,
             cbAuthenticatorId: DWORD,
-            #[writable(bytes(cbAuthenticatorId))]
             pbAuthenticatorId: PBYTE,
         }
         const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: i32 = 9;
@@ -455,7 +425,6 @@ mod Windows {
         struct WEBAUTHN_CLIENT_DATA {
             dwVersion: DWORD,
             cbClientDataJSON: DWORD,
-            #[writable(bytes(cbClientDataJSON))]
             pbClientDataJSON: PBYTE,
             pwszHashAlgId: LPCWSTR,
         }
@@ -465,17 +434,13 @@ mod Windows {
             pwszAlg: PCWSTR,
             lAlg: LONG,
             cbSignature: DWORD,
-            #[writable(bytes(cbSignature))]
             pbSignature: PBYTE,
             cX5c: DWORD,
-            #[writable(cX5c)]
             pX5c: PWEBAUTHN_X5C,
             pwszVer: PCWSTR,
             cbCertInfo: DWORD,
-            #[writable(bytes(cbCertInfo))]
             pbCertInfo: PBYTE,
             cbPubArea: DWORD,
-            #[writable(bytes(cbPubArea))]
             pbPubArea: PBYTE,
         }
         const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: i32 = 1;
@@ -495,38 +460,31 @@ mod Windows {
         }
         struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
             cCredentialParameters: DWORD,
-            #[writable(cCredentialParameters)]
             pCredentialParameters: PWEBAUTHN_COSE_CREDENTIAL_PARAMETER,
         }
         const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_CREDENTIAL {
             dwVersion: DWORD,
             cbId: DWORD,
-            #[writable(bytes(cbId))]
             pbId: PBYTE,
             pwszCredentialType: PCWSTR,
         }
         struct WEBAUTHN_CREDENTIALS {
             cCredentials: DWORD,
-            #[writable(cCredentials)]
             pCredentials: PWEBAUTHN_CREDENTIAL,
         }
         struct WEBAUTHN_CREDENTIAL_ATTESTATION {
             dwVersion: DWORD,
             pwszFormatType: PCWSTR,
             cbAuthenticatorData: DWORD,
-            #[writable(bytes(cbAuthenticatorData))]
             pbAuthenticatorData: PBYTE,
             cbAttestation: DWORD,
-            #[writable(bytes(cbAttestation))]
             pbAttestation: PBYTE,
             dwAttestationDecodeType: DWORD,
             pvAttestationDecode: PVOID,
             cbAttestationObject: DWORD,
-            #[writable(bytes(cbAttestationObject))]
             pbAttestationObject: PBYTE,
             cbCredentialId: DWORD,
-            #[writable(bytes(cbCredentialId))]
             pbCredentialId: PBYTE,
             Extensions: WEBAUTHN_EXTENSIONS,
             dwUsedTransport: DWORD,
@@ -535,16 +493,13 @@ mod Windows {
             bResidentKey: BOOL,
             bPrfEnabled: BOOL,
             cbUnsignedExtensionOutputs: DWORD,
-            #[writable(bytes(cbUnsignedExtensionOutputs))]
             pbUnsignedExtensionOutputs: PBYTE,
             pHmacSecret: PWEBAUTHN_HMAC_SECRET_SALT,
             bThirdPartyPayment: BOOL,
             dwTransports: DWORD,
             cbClientDataJSON: DWORD,
-            #[writable(bytes(cbClientDataJSON))]
             pbClientDataJSON: PBYTE,
             cbRegistrationResponseJSON: DWORD,
-            #[writable(bytes(cbRegistrationResponseJSON))]
             pbRegistrationResponseJSON: PBYTE,
         }
         const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: i32 = 8;
@@ -560,7 +515,6 @@ mod Windows {
         struct WEBAUTHN_CREDENTIAL_DETAILS {
             dwVersion: DWORD,
             cbCredentialID: DWORD,
-            #[writable(bytes(cbCredentialID))]
             pbCredentialID: PBYTE,
             pRpInformation: PWEBAUTHN_RP_ENTITY_INFORMATION,
             pUserInformation: PWEBAUTHN_USER_ENTITY_INFORMATION,
@@ -568,7 +522,6 @@ mod Windows {
             bBackedUp: BOOL,
             pwszAuthenticatorName: PCWSTR,
             cbAuthenticatorLogo: DWORD,
-            #[writable(bytes(cbAuthenticatorLogo))]
             pbAuthenticatorLogo: PBYTE,
             bThirdPartyPayment: BOOL,
             dwTransports: DWORD,
@@ -576,7 +529,6 @@ mod Windows {
         const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: i32 = 4;
         struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
             cCredentialDetails: DWORD,
-            #[writable(cCredentialDetails)]
             ppCredentialDetails: *mut PWEBAUTHN_CREDENTIAL_DETAILS,
         }
         const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: i32 = 1;
@@ -586,7 +538,6 @@ mod Windows {
         struct WEBAUTHN_CREDENTIAL_EX {
             dwVersion: DWORD,
             cbId: DWORD,
-            #[writable(bytes(cbId))]
             pbId: PBYTE,
             pwszCredentialType: LPCWSTR,
             dwTransports: DWORD,
@@ -600,14 +551,12 @@ mod Windows {
         const WEBAUTHN_CREDENTIAL_HINT_SECURITY_KEY: String = "security-key";
         struct WEBAUTHN_CREDENTIAL_LIST {
             cCredentials: DWORD,
-            #[writable(cCredentials)]
             ppCredentials: *mut PWEBAUTHN_CREDENTIAL_EX,
         }
         #[encoding("utf-16")]
         const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: String = "public-key";
         struct WEBAUTHN_CRED_BLOB_EXTENSION {
             cbCredBlob: DWORD,
-            #[writable(bytes(cbCredBlob))]
             pbCredBlob: PBYTE,
         }
         const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: i32 = 3;
@@ -630,7 +579,6 @@ mod Windows {
         }
         struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
             cbCredID: DWORD,
-            #[writable(bytes(cbCredID))]
             pbCredID: PBYTE,
             pHmacSecretSalt: PWEBAUTHN_HMAC_SECRET_SALT,
         }
@@ -665,7 +613,6 @@ mod Windows {
         }
         struct WEBAUTHN_EXTENSIONS {
             cExtensions: DWORD,
-            #[writable(cExtensions)]
             pExtensions: PWEBAUTHN_EXTENSION,
         }
         #[encoding("utf-16")]
@@ -691,16 +638,13 @@ mod Windows {
         const WEBAUTHN_HASH_ALGORITHM_SHA_512: String = "SHA-512";
         struct WEBAUTHN_HMAC_SECRET_SALT {
             cbFirst: DWORD,
-            #[writable(bytes(cbFirst))]
             pbFirst: PBYTE,
             cbSecond: DWORD,
-            #[writable(bytes(cbSecond))]
             pbSecond: PBYTE,
         }
         struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
             pGlobalHmacSalt: PWEBAUTHN_HMAC_SECRET_SALT,
             cCredWithHmacSecretSaltList: DWORD,
-            #[writable(cCredWithHmacSecretSaltList)]
             pCredWithHmacSecretSaltList: PWEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
         }
         const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: i32 = 0;
@@ -718,7 +662,6 @@ mod Windows {
         struct WEBAUTHN_USER_ENTITY_INFORMATION {
             dwVersion: DWORD,
             cbId: DWORD,
-            #[writable(bytes(cbId))]
             pbId: PBYTE,
             pwszName: PCWSTR,
             pwszIcon: PCWSTR,
@@ -736,7 +679,6 @@ mod Windows {
         const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: i32 = 1;
         struct WEBAUTHN_X5C {
             cbData: DWORD,
-            #[writable(bytes(cbData))]
             pbData: PBYTE,
         }
         #[library("webauthn.dll")]
@@ -746,7 +688,7 @@ mod Windows {
         #[library("webauthn.dll")]
         extern fn WebAuthNCancelCurrentOperation(#[in] pCancellationId: *const GUID) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNDeletePlatformCredential(#[in] cbCredentialId: DWORD, #[in] #[readable(entry, bytes(cbCredentialId))] pbCredentialId: *const BYTE) -> HRESULT;
+        extern fn WebAuthNDeletePlatformCredential(#[in] cbCredentialId: DWORD, #[buffer(bytes(cbCredentialId))] #[in] pbCredentialId: *const BYTE) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNFreeAssertion(#[in] pWebAuthNAssertion: PWEBAUTHN_ASSERTION);
         #[library("webauthn.dll")]

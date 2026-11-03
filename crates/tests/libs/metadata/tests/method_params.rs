@@ -91,7 +91,7 @@ fn parameter_facts_remain_independent() {
             "input",
             2,
             ParamAttributes::In | ParamAttributes::Optional,
-            &["BufferExtentAttribute"],
+            &["BufferAttribute"],
         ),
         ("output", 3, ParamAttributes::Out, &["ReservedAttribute"]),
         (
@@ -121,7 +121,7 @@ fn parameter_facts_remain_independent() {
     assert!(input.is_optional());
     assert!(!input.is_reserved());
     assert!(!input.is_retval_attribute());
-    assert!(input.has_attribute("BufferExtentAttribute"));
+    assert!(input.has_attribute("BufferAttribute"));
 
     assert_eq!(output.direction(), reader::ParamDirection::Output);
     assert!(!output.is_optional());

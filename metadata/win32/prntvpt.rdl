@@ -26,7 +26,7 @@ mod Windows {
         #[library("prntvpt.dll")]
         extern fn PTConvertDevModeToPrintTicket(#[in] hProvider: HPTPROVIDER, cbDevmode: ULONG, #[in] pDevmode: PDEVMODE, #[in] scope: EPrintTicketScope, #[in] #[incomplete] pPrintTicket: IStream) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertPrintTicketToDevMode(#[in] hProvider: HPTPROVIDER, #[in] pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, #[in] scope: EPrintTicketScope, #[out] pcbDevmode: *mut ULONG, #[out] #[writable(success, bytes(*pcbDevmode), indirect)] ppDevmode: *mut PDEVMODE, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTConvertPrintTicketToDevMode(#[in] hProvider: HPTPROVIDER, #[in] pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, #[in] scope: EPrintTicketScope, #[out] pcbDevmode: *mut ULONG, #[incomplete] #[out] ppDevmode: *mut PDEVMODE, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTGetPrintCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[in] #[incomplete] pCapabilities: IStream, #[opt] #[out] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]

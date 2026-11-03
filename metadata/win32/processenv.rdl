@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn ExpandEnvironmentStringsA(#[in] lpSrc: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpDst: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn ExpandEnvironmentStringsA(#[in] lpSrc: LPCSTR, #[buffer(nSize)] #[incomplete] #[opt] #[out] lpDst: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn ExpandEnvironmentStringsW(#[in] lpSrc: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpDst: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn ExpandEnvironmentStringsW(#[in] lpSrc: LPCWSTR, #[buffer(nSize)] #[incomplete] #[opt] #[out] lpDst: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn FreeEnvironmentStringsA(#[in] #[null_terminated(double_entry)] penv: LPCH) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -14,17 +14,17 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetCommandLineW() -> LPWSTR;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentDirectoryA(#[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
+        extern fn GetCurrentDirectoryA(#[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentDirectoryW(#[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
+        extern fn GetCurrentDirectoryW(#[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetEnvironmentStrings() -> LPCH;
         #[library("KERNEL32.dll")]
         extern fn GetEnvironmentStringsW() -> LPWCH;
         #[library("KERNEL32.dll")]
-        extern fn GetEnvironmentVariableA(#[in] #[opt] lpName: LPCSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetEnvironmentVariableA(#[in] #[opt] lpName: LPCSTR, #[buffer(nSize)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetEnvironmentVariableW(#[in] #[opt] lpName: LPCWSTR, #[incomplete] #[opt] #[out] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetEnvironmentVariableW(#[in] #[opt] lpName: LPCWSTR, #[buffer(nSize)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetStdHandle(#[in] nStdHandle: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
@@ -32,9 +32,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn NeedCurrentDirectoryForExePathW(#[in] ExeName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SearchPathA(#[in] #[opt] lpPath: LPCSTR, #[in] lpFileName: LPCSTR, #[in] #[opt] lpExtension: LPCSTR, #[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR, #[opt] #[out] lpFilePart: *mut LPSTR) -> DWORD;
+        extern fn SearchPathA(#[in] #[opt] lpPath: LPCSTR, #[in] lpFileName: LPCSTR, #[in] #[opt] lpExtension: LPCSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[opt] #[out] lpFilePart: *mut LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SearchPathW(#[in] #[opt] lpPath: LPCWSTR, #[in] lpFileName: LPCWSTR, #[in] #[opt] lpExtension: LPCWSTR, #[in] nBufferLength: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR, #[opt] #[out] lpFilePart: *mut LPWSTR) -> DWORD;
+        extern fn SearchPathW(#[in] #[opt] lpPath: LPCWSTR, #[in] lpFileName: LPCWSTR, #[in] #[opt] lpExtension: LPCWSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[opt] #[out] lpFilePart: *mut LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn SetCurrentDirectoryA(#[in] lpPathName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]

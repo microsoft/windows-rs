@@ -1,9 +1,7 @@
 use std::collections::BTreeMap;
-use test_clang::buffer_extent;
 use test_clang::{input_dir, selected_fixture};
 use windows_clang::*;
 use windows_metadata::reader::HasAttributes;
-use windows_metadata::{BufferAccess, BufferCount, BufferPhase, BufferUnits};
 use windows_metadata::{Type as MetadataType, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
@@ -708,14 +706,7 @@ fn buffer_full() {
         true,
     )]);
     let text = &output.partitions["buffer_postconditions"].rdl;
-    assert!(
-        text.contains("#[writable(entry, bytes(*written))]"),
-        "{text}"
-    );
-    assert!(
-        text.contains("#[readable(success, bytes(on_entry(*written)))]"),
-        "{text}"
-    );
+    assert!(text.contains("#[buffer(bytes(*written))]"), "{text}");
     assert!(!text.contains("#[incomplete]"), "{text}");
 }
 
@@ -766,7 +757,7 @@ fn returned_buffer_flags() {
             if optional { 3 } else { 0 },
             "{name}"
         );
-        assert!(!rdl.contains("#[incomplete]"), "{name}: {rdl}");
+        assert!(rdl.contains("#[incomplete]"), "{name}: {rdl}");
         assert!(!rdl.contains("out_ptr"), "{name}: {rdl}");
         assert!(!rdl.contains("NativeInitializedLength"), "{rdl}");
         let check = |index: &reader::Index, _| {
@@ -776,41 +767,8 @@ fn returned_buffer_flags() {
                 assert_eq!(parameter.direction(), reader::ParamDirection::Output);
                 assert_eq!(parameter.is_optional(), optional);
                 assert!(parameter.buffer_relationship().is_none());
-                use windows_metadata::{
-                    BufferAccess, BufferCount, BufferExtent, BufferPhase, BufferUnits,
-                };
-                for access in [BufferAccess::Read, BufferAccess::Write] {
-                    let expected = if access == BufferAccess::Read {
-                        (name.contains("_to") || name.contains("_all"))
-                            .then_some(BufferCount::Dereference(2))
-                    } else if name.contains("_all") {
-                        None
-                    } else if name.contains("_to") {
-                        Some(BufferCount::Parameter(1))
-                    } else {
-                        Some(BufferCount::Dereference(2))
-                    };
-                    let expected = expected.map(|count| {
-                        let mut extent = BufferExtent::new(
-                            access,
-                            BufferPhase::Success,
-                            if name.contains("bytebuffer") {
-                                BufferUnits::Bytes
-                            } else {
-                                BufferUnits::Elements
-                            },
-                            count,
-                        );
-                        extent.indirect = true;
-                        extent
-                    });
-                    assert_eq!(
-                        buffer_extent(parameter, access, BufferPhase::Success),
-                        expected,
-                        "{name}"
-                    );
-                    assert!(buffer_extent(parameter, access, BufferPhase::Entry).is_none());
-                }
+                assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
+                assert!(!parameter.has_attribute("BufferAttribute"), "{name}");
                 assert_eq!(
                     parameter
                         .find_attribute("NullableAttribute")
@@ -1363,17 +1321,6 @@ fn conditional_length() {
                 Some(reader::BufferRelationship::ElementsParam(0))
             );
             assert!(parameter.find_attribute("IncompleteAttribute").is_none());
-            assert_eq!(
-                buffer_extent(parameter, BufferAccess::Write, BufferPhase::Success)
-                    .unwrap()
-                    .count,
-                BufferCount::Parameter(0)
-            );
-            let extent =
-                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap();
-            assert_eq!(extent.count, BufferCount::Dereference(2));
-            assert_eq!(extent.units, BufferUnits::Elements);
-            assert_eq!(extent.null_fallback, Some(0));
         }
     });
     for expression in [
@@ -1400,10 +1347,9 @@ fn conditional_length() {
         let output = project(&[input]);
         let text = &output.partitions["conditional_length"].rdl;
         assert!(
-            text.contains("#[incomplete]") && text.contains("#[writable(success, capacity)]"),
+            text.contains("#[incomplete]") && text.contains("#[buffer(capacity)]"),
             "{text}"
         );
-        assert!(!text.contains("#[readable(success,"), "{text}");
     }
     for definition in [
         "#define COUNT_TYPE unsigned int\n",
@@ -1442,7 +1388,7 @@ fn rpc_buffers() {
         false,
     )]);
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(text.contains("#[readable(success, written)]"), "{text}");
+    assert!(text.contains("#[buffer(capacity)]"), "{text}");
     roundtrip("rpc_buffers", &output, |index, _| {
         for (owner, name) in [
             ("Apis", "BufferFunction"),
@@ -1461,15 +1407,6 @@ fn rpc_buffers() {
                 Some(reader::BufferRelationship::ElementsParam(1))
             );
             assert!(parameter.find_attribute("IncompleteAttribute").is_none());
-            assert_eq!(
-                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap(),
-                windows_metadata::BufferExtent::new(
-                    BufferAccess::Read,
-                    BufferPhase::Success,
-                    BufferUnits::Elements,
-                    BufferCount::Parameter(2)
-                )
-            );
         }
     });
 }
@@ -1522,7 +1459,7 @@ fn rpc_input_buffer_agreement() {
             let text = &output.partitions.values().next().unwrap().rdl;
             assert!(text.contains("#[incomplete]"), "{text}");
             assert!(text.contains("#[in]"), "{text}");
-            for attribute in ["NativeInput(", "#[readable(", "#[writable("] {
+            for attribute in ["NativeInput(", "#[buffer("] {
                 assert!(!text.contains(attribute), "{text}");
             }
         }
@@ -1533,7 +1470,7 @@ fn check_rpc_buffers() {
     use reader::ParamDirection::*;
     use windows_metadata::Value;
     helpers::ensure_libclang();
-    for (names, direction, optional, (capacity, initialized), terminated) in [
+    for (names, direction, optional, (capacity, _), terminated) in [
         (
             &[
                 "__RPC__in_ecount",
@@ -1748,28 +1685,6 @@ fn check_rpc_buffers() {
                         capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
                         "{name}"
                     );
-                    let post_writable =
-                        buffer_extent(parameter, BufferAccess::Write, BufferPhase::Success)
-                            .is_some();
-                    assert_eq!(
-                        post_writable,
-                        output_buffer && direction == Output,
-                        "{name}"
-                    );
-                    let length = buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success);
-                    assert_eq!(length.is_some(), initialized.is_some(), "{name}");
-                    if let Some(length) = length {
-                        assert_eq!(
-                            length,
-                            windows_metadata::BufferExtent::new(
-                                BufferAccess::Read,
-                                BufferPhase::Success,
-                                BufferUnits::Elements,
-                                BufferCount::Parameter(initialized.unwrap() as u16)
-                            ),
-                            "{name}"
-                        );
-                    }
                     let termination = parameter.find_attribute("NullTerminatedAttribute");
                     assert_eq!(termination.is_some(), terminated, "{name}");
                     if let Some(termination) = termination {
@@ -1850,7 +1765,7 @@ fn rpc_output_buffer_agreement() {
         )]);
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("#[incomplete]"), "{text}");
-        assert!(!text.contains("#[writable(success,"), "{text}");
+        assert!(!text.contains("#[buffer("), "{text}");
         assert!(text.contains("#[null_terminated(success)]"), "{text}");
     }
 }
@@ -1867,7 +1782,7 @@ fn rpc_buffer_residuals() {
     helpers::ensure_libclang();
     let output = project(&[rpc_buffer_input("__RPC__out_ecount_full", "*written", true)]);
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(text.contains("#[readable(success, *written)]"), "{text}");
+    assert!(text.contains("#[buffer(*written)]"), "{text}");
     roundtrip_metadata("rpc_buffer_indirect_full", text, |index, _| {
         let parameter = index
             .expect("Fixture", "Buffer")
@@ -1878,10 +1793,7 @@ fn rpc_buffer_residuals() {
             .next()
             .unwrap();
         assert_eq!(parameter.buffer_relationship(), None);
-        let extent = buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap();
-        assert_eq!(extent.count, BufferCount::Dereference(2));
-        assert_eq!(extent.units, BufferUnits::Elements);
-        assert!(!extent.count_on_entry);
+        assert!(parameter.has_attribute("BufferAttribute"));
     });
     for (arguments, indirect, capacity, length) in [
         ("capacity, *written", true, true, true),
@@ -1900,15 +1812,7 @@ fn rpc_buffer_residuals() {
             !(capacity && length),
             "{text}"
         );
-        assert_eq!(
-            text.contains("#[writable(entry, capacity)]"),
-            capacity,
-            "{text}"
-        );
-        assert_eq!(text.contains("#[readable(success,"), length, "{text}");
-        if length {
-            assert!(text.contains("#[readable(success, *written)]"), "{text}");
-        }
+        assert_eq!(text.contains("#[buffer(capacity)]"), capacity, "{text}");
     }
     for name in [
         "__RPC__in_ecount_full",
@@ -2287,7 +2191,7 @@ fn rpc_annotation_residuals() {
             "{text}"
         );
         assert_eq!(
-            text.contains("#[writable(success, capacity)]"),
+            text.contains("#[buffer(capacity)]"),
             rpc == "__RPC__out_ecount",
             "{text}"
         );
@@ -2432,29 +2336,7 @@ fn buffer_postconditions() {
                                 .into()
                             );
                         }
-                        let length =
-                            buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success);
-                        assert_eq!(length.is_some(), case >= 6);
                         let bytes = current.contains("_bytes_");
-                        if let Some(length) = length {
-                            assert_eq!(
-                                length,
-                                windows_metadata::BufferExtent::new(
-                                    BufferAccess::Read,
-                                    BufferPhase::Success,
-                                    if bytes {
-                                        BufferUnits::Bytes
-                                    } else {
-                                        BufferUnits::Elements
-                                    },
-                                    if indirect {
-                                        BufferCount::Dereference(2)
-                                    } else {
-                                        BufferCount::Parameter(2)
-                                    }
-                                )
-                            );
-                        }
                         assert_eq!(
                             parameter.buffer_relationship(),
                             if case < 2 {
@@ -2575,7 +2457,7 @@ fn buffer_postcondition_residuals() {
     let input = test_clang::fixture("buffer_postcondition_residuals");
     let output = project(&[input]);
     roundtrip("buffer_postcondition_residuals", &output, |index, _| {
-        for (name, raw, capacity, entry, success, length) in [
+        for (name, raw, capacity, entry, success, _) in [
             ("Expression", 0, true, false, false, true),
             ("ReturnLength", 1, true, false, false, false),
             ("IndirectCapacity", 0, false, false, false, true),
@@ -2610,11 +2492,6 @@ fn buffer_postcondition_residuals() {
                 } else {
                     capacity.then_some(reader::BufferRelationship::ElementsParam(1))
                 },
-                "{name}"
-            );
-            assert_eq!(
-                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).is_some(),
-                length,
                 "{name}"
             );
             let termination = parameter.find_attribute("NullTerminatedAttribute");
@@ -5724,7 +5601,7 @@ fn field_buffer_input(name: &str, arguments: &str) -> Input {
 #[test]
 fn field_buffers() {
     helpers::ensure_libclang();
-    for (case, (name, bytes, optional, full, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
+    for (case, (name, _, optional, _, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
         let arguments = if partial {
             "capacity, readable"
         } else {
@@ -5744,30 +5621,11 @@ fn field_buffers() {
                 .fields()
                 .find(|field| field.name() == "values")
                 .unwrap();
-            let extent = buffer_extent(field, BufferAccess::Write, BufferPhase::Value).unwrap();
-            assert_eq!(extent.count, BufferCount::Field("capacity".into()));
-            assert_eq!(
-                extent.units,
-                if bytes {
-                    BufferUnits::Bytes
-                } else {
-                    BufferUnits::Elements
-                }
-            );
+            assert!(!field.has_attribute("BufferAttribute"));
             assert_eq!(
                 field.find_attribute("NullableAttribute").is_some(),
                 optional
             );
-            let readable = buffer_extent(field, BufferAccess::Read, BufferPhase::Value);
-            assert_eq!(readable.is_some(), full || partial);
-            if full || partial {
-                let readable = readable.unwrap();
-                assert_eq!(
-                    readable.count,
-                    BufferCount::Field(if full { "capacity" } else { "readable" }.into())
-                );
-                assert_eq!(readable.units, extent.units);
-            }
         };
         if case == 0 {
             roundtrip("field_buffers", &output, check);
@@ -5842,7 +5700,7 @@ fn field_buffer_residuals() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert!(!text.contains("#[writable("), "{text}");
+        assert!(!text.contains("#[buffer("), "{text}");
     }
     for (change, reason) in [
         ("#define COUNT_TYPE float\n", "requires an integer field"),
@@ -5877,7 +5735,7 @@ fn field_buffer_residuals() {
         !output
             .partitions
             .values()
-            .any(|p| p.rdl.contains("#[writable("))
+            .any(|p| p.rdl.contains("#[buffer("))
     );
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input
@@ -5888,7 +5746,7 @@ fn field_buffer_residuals() {
         !output
             .partitions
             .values()
-            .any(|p| p.rdl.contains("#[writable("))
+            .any(|p| p.rdl.contains("#[buffer("))
     );
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input.source.replace(
@@ -5915,7 +5773,7 @@ fn field_buffer_residuals() {
     }
     let output = project(&[input]);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
-    assert!(!text.contains("#[writable("), "{text}");
+    assert!(!text.contains("#[buffer("), "{text}");
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input.source.replace("        COUNT_TYPE capacity;", "");
     let output = project(&[input]);
@@ -5929,6 +5787,6 @@ fn field_buffer_residuals() {
             .fields()
             .find(|field| field.name() == "values")
             .unwrap();
-        assert!(buffer_extent(values, BufferAccess::Write, BufferPhase::Value).is_none());
+        assert!(!values.has_attribute("BufferAttribute"));
     });
 }

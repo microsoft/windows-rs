@@ -27,20 +27,16 @@ mod Windows {
         }
         struct D3D10_INFO_QUEUE_FILTER_DESC {
             NumCategories: UINT,
-            #[writable(NumCategories)]
             pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
             NumSeverities: UINT,
-            #[writable(NumSeverities)]
             pSeverityList: *mut D3D10_MESSAGE_SEVERITY,
             NumIDs: UINT,
-            #[writable(NumIDs)]
             pIDList: *mut D3D10_MESSAGE_ID,
         }
         struct D3D10_MESSAGE {
             Category: D3D10_MESSAGE_CATEGORY,
             Severity: D3D10_MESSAGE_SEVERITY,
             ID: D3D10_MESSAGE_ID,
-            #[writable(DescriptionByteLength)]
             pDescription: *const i8,
             DescriptionByteLength: SIZE_T,
         }
@@ -606,7 +602,7 @@ mod Windows {
         interface ID3D10InfoQueue: IUnknown {
             fn SetMessageCountLimit(&self, #[in] MessageCountLimit: UINT64) -> HRESULT;
             fn ClearStoredMessages(&self);
-            fn GetMessage(&self, #[in] MessageIndex: UINT64, #[opt] #[out] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut D3D10_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetMessage(&self, #[in] MessageIndex: UINT64, #[buffer(bytes(*pMessageByteLength))] #[opt] #[out] pMessage: *mut D3D10_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
             fn GetNumMessagesAllowedByStorageFilter(&self) -> UINT64;
             fn GetNumMessagesDeniedByStorageFilter(&self) -> UINT64;
             fn GetNumStoredMessages(&self) -> UINT64;
@@ -614,7 +610,7 @@ mod Windows {
             fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> UINT64;
             fn GetMessageCountLimit(&self) -> UINT64;
             fn AddStorageFilterEntries(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetStorageFilter(&self, #[buffer(bytes(*pFilterByteLength))] #[opt] #[out] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearStorageFilter(&self);
             fn PushEmptyStorageFilter(&self) -> HRESULT;
             fn PushCopyOfStorageFilter(&self) -> HRESULT;
@@ -622,7 +618,7 @@ mod Windows {
             fn PopStorageFilter(&self);
             fn GetStorageFilterStackSize(&self) -> UINT;
             fn AddRetrievalFilterEntries(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[buffer(bytes(*pFilterByteLength))] #[opt] #[out] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearRetrievalFilter(&self);
             fn PushEmptyRetrievalFilter(&self) -> HRESULT;
             fn PushCopyOfRetrievalFilter(&self) -> HRESULT;

@@ -178,36 +178,36 @@ mod Windows {
         }
         #[guid(0x00000103_0000_0000_c000_000000000046)]
         interface IEnumFORMATETC: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut FORMATETC, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut FORMATETC, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumFORMATETC) -> HRESULT;
         }
         #[guid(0x00000102_0000_0000_c000_000000000046)]
         interface IEnumMoniker: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IMoniker, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IMoniker, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumMoniker) -> HRESULT;
         }
         #[guid(0x00000105_0000_0000_c000_000000000046)]
         interface IEnumSTATDATA: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATDATA, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut STATDATA, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATDATA) -> HRESULT;
         }
         #[guid(0x0000000d_0000_0000_c000_000000000046)]
         interface IEnumSTATSTG: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATSTG, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut STATSTG, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumSTATSTG) -> HRESULT;
         }
         #[guid(0x99caf010_415e_11cf_8814_00aa00b569f5)]
         interface IFillLockBytes: IUnknown {
-            fn FillAppend(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
-            fn FillAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn FillAppend(&self, #[buffer(bytes(cb))] #[in] pv: *const void, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn FillAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[buffer(bytes(cb))] #[in] pv: *const void, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
             fn SetFillSize(&self, #[in] ulSize: ULARGE_INTEGER) -> HRESULT;
             fn Terminate(&self, #[in] bCanceled: BOOL) -> HRESULT;
         }
@@ -224,7 +224,7 @@ mod Windows {
         }
         #[guid(0x0e6d4d90_6738_11cf_9608_00aa00680db4)]
         interface ILayoutStorage: IUnknown {
-            fn LayoutScript(&self, #[in] #[readable(entry, nEntries)] pStorageLayout: *mut StorageLayout, #[in] nEntries: DWORD, #[in] #[reserved] glfInterleavedFlag: DWORD) -> HRESULT;
+            fn LayoutScript(&self, #[buffer(nEntries)] #[in] pStorageLayout: *mut StorageLayout, #[in] nEntries: DWORD, #[in] #[reserved] glfInterleavedFlag: DWORD) -> HRESULT;
             fn BeginMonitor(&self) -> HRESULT;
             fn EndMonitor(&self) -> HRESULT;
             fn ReLayoutDocfile(&self, #[in] pwcsNewDfName: *mut OLECHAR) -> HRESULT;
@@ -232,8 +232,8 @@ mod Windows {
         }
         #[guid(0x0000000a_0000_0000_c000_000000000046)]
         interface ILockBytes: IUnknown {
-            fn ReadAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[out] #[readable(success, bytes(if_present(*pcbRead)))] #[writable(entry, bytes(cb))] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
-            fn WriteAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn ReadAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[buffer(bytes(cb))] #[out] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn WriteAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[buffer(bytes(cb))] #[in] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
             fn Flush(&self) -> HRESULT;
             fn SetSize(&self, #[in] cb: ULARGE_INTEGER) -> HRESULT;
             fn LockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
@@ -329,7 +329,7 @@ mod Windows {
         }
         #[guid(0xf29f6bc0_5021_11ce_aa15_00006901293f)]
         interface IROTData: IUnknown {
-            fn GetComparisonData(&self, #[out] #[readable(success, cbMax)] #[writable(entry, cbMax)] #[writable(success, cbMax)] pbData: *mut byte, #[in] cbMax: ULONG, #[out] pcbData: *mut ULONG) -> HRESULT;
+            fn GetComparisonData(&self, #[buffer(cbMax)] #[out] pbData: *mut byte, #[in] cbMax: ULONG, #[out] pcbData: *mut ULONG) -> HRESULT;
         }
         #[guid(0x00000012_0000_0000_c000_000000000046)]
         interface IRootStorage: IUnknown {
@@ -359,7 +359,7 @@ mod Windows {
             fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
             fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
             fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[incomplete] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] #[retval] ppstg: *mut IStorage) -> HRESULT;
-            fn CopyTo(&self, #[in] ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
+            fn CopyTo(&self, #[in] ciidExclude: DWORD, #[buffer(ciidExclude)] #[in] #[opt] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
             fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
             fn Revert(&self) -> HRESULT;
@@ -492,10 +492,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn SNB_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut SNB) -> u32;
         #[library("ole32.dll")]
-        extern fn SNB_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
+        extern fn SNB_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn SNB_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
+        extern fn SNB_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
         #[packed(8)]
         struct STATDATA {
             formatetc: FORMATETC,

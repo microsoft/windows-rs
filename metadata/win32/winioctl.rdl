@@ -605,7 +605,6 @@ mod Windows {
             Alignment: DWORDLONG,
             TotalNumberOfRegions: DWORD,
             NumberOfRegionsReturned: DWORD,
-            #[writable(NumberOfRegionsReturned)]
             Regions: [STORAGE_TIER_REGION; 1],
         }
         type DEVICE_DSM_TIERING_QUERY_PARAMETERS = _DEVICE_DSM_TIERING_QUERY_INPUT;
@@ -1326,7 +1325,6 @@ mod Windows {
             ParentFileReferenceNumber: DWORDLONG,
             FileNameLength: DWORD,
             Reserved: DWORD,
-            #[writable(bytes(FileNameLength))]
             FileName: [WCHAR; 1],
         }
         const FILE_LAYOUT_NAME_ENTRY_DOS: i32 = 2;
@@ -3676,7 +3674,6 @@ mod Windows {
             ManufacturingYear: BYTE,
             SerialNumber4Byte: DWORD,
             SerialNumberLengthInChars: DWORD,
-            #[writable(SerialNumberLengthInChars)]
             SerialNumber: [CHAR; 1],
         }
         struct SCM_PD_DEVICE_SPECIFIC_INFO {
@@ -3717,7 +3714,6 @@ mod Windows {
             ActiveSlot: BYTE,
             NextActiveSlot: BYTE,
             SlotCount: BYTE,
-            #[writable(SlotCount)]
             Slots: [SCM_PD_FIRMWARE_SLOT_INFO; 1],
         }
         const SCM_PD_FIRMWARE_LAST_DOWNLOAD: i32 = 1;
@@ -3773,7 +3769,6 @@ mod Windows {
             NumberOfOperationalStatus: DWORD,
             NumberOfAdditionalReasons: DWORD,
             OperationalStatus: [SCM_PD_OPERATIONAL_STATUS; 16],
-            #[writable(NumberOfAdditionalReasons)]
             AdditionalReasons: [SCM_PD_OPERATIONAL_STATUS_REASON; 1],
         }
         const SCM_PD_MAX_OPERATIONAL_STATUS: i32 = 16;
@@ -4276,7 +4271,6 @@ mod Windows {
             Version: DWORD,
             Size: DWORD,
             NumberOfCounters: DWORD,
-            #[writable(NumberOfCounters)]
             Counters: [STORAGE_COUNTER; 1],
         }
         #[arch(X64 | Arm64)]
@@ -4350,7 +4344,6 @@ mod Windows {
             Size: DWORD,
             NumKeysSupported: DWORD,
             NumCryptoCapabilities: DWORD,
-            #[writable(NumCryptoCapabilities)]
             CryptoCapabilities: [STORAGE_CRYPTO_CAPABILITY; 1],
         }
         struct STORAGE_CRYPTO_DESCRIPTOR_V2 {
@@ -4361,7 +4354,6 @@ mod Windows {
             IceType: STORAGE_ICE_TYPE,
             SecurityComplianceBitmask: STORAGE_SECURITY_COMPLIANCE_BITMASK,
             KeyTypeBitmask: STORAGE_CRYPTO_KEY_TYPE,
-            #[writable(NumCryptoCapabilities)]
             CryptoCapabilities: [STORAGE_CRYPTO_CAPABILITY_V2; 1],
         }
         const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: i32 = 1;
@@ -4419,7 +4411,6 @@ mod Windows {
             Version: DWORD,
             Size: DWORD,
             NumberOfFaultDomains: DWORD,
-            #[writable(NumberOfFaultDomains)]
             FaultDomainIds: [GUID; 1],
         }
         const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: i32 = 4;
@@ -4539,7 +4530,6 @@ mod Windows {
             Flags: DWORD,
             TotalNumberOfTiers: DWORD,
             NumberOfTiersReturned: DWORD,
-            #[writable(NumberOfTiersReturned)]
             Tiers: [STORAGE_TIER; 1],
         }
         struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
@@ -4553,7 +4543,6 @@ mod Windows {
             ProviderId: GUID,
             BufferSize: DWORD,
             Reserved: DWORD,
-            #[writable(BufferSize)]
             DiagnosticDataBuffer: [BYTE; 1],
         }
         const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: i32 = 1;
@@ -4673,7 +4662,6 @@ mod Windows {
             Reserved: [BYTE; 3],
             Offset: DWORDLONG,
             BufferSize: DWORDLONG,
-            #[writable(bytes(BufferSize))]
             ImageBuffer: [BYTE; 1],
         }
         const STORAGE_HW_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
@@ -5197,8 +5185,6 @@ mod Windows {
             FixedProtocolReturnData: DWORD,
             FixedProtocolReturnData2: DWORD,
             Reserved1: [DWORD; 2],
-            #[readable(bytes(CommandLength))]
-            #[writable(bytes(CommandLength))]
             Command: [BYTE; 1],
         }
         const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648;
@@ -5654,7 +5640,6 @@ mod Windows {
             AttributeTypeCode: DWORD,
             AttributeFlags: DWORD,
             StreamIdentifierLength: DWORD,
-            #[writable(bytes(StreamIdentifierLength))]
             StreamIdentifier: [WCHAR; 1],
         }
         const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: i32 = 16;
@@ -6206,7 +6191,6 @@ mod Windows {
             ZoneCount: DWORD,
             Attributes: STORAGE_ZONES_ATTRIBUTES,
             Reserved0: DWORD,
-            #[writable(ZoneCount)]
             ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
         }
         struct _DEVICE_DSM_TIERING_QUERY_INPUT {

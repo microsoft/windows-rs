@@ -27,7 +27,7 @@ mod Windows {
         #[guid(0x027947e1_d731_11ce_a357_000000000001)]
         interface IEnumWbemClassObject: IUnknown {
             fn Reset(&self) -> HRESULT;
-            fn Next(&self, #[in] lTimeout: i32, #[in] uCount: ULONG, #[out] #[readable(success, *puReturned)] #[writable(entry, uCount)] #[writable(success, uCount)] apObjects: *mut IWbemClassObject, #[out] puReturned: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] lTimeout: i32, #[in] uCount: ULONG, #[buffer(uCount)] #[out] apObjects: *mut IWbemClassObject, #[out] puReturned: *mut ULONG) -> HRESULT;
             fn NextAsync(&self, #[in] uCount: ULONG, #[in] #[opt] pSink: IWbemObjectSink) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
             fn Skip(&self, #[in] lTimeout: i32, #[in] nCount: ULONG) -> HRESULT;
@@ -35,7 +35,7 @@ mod Windows {
         #[guid(0x6daf974e_2e37_11d2_aec9_00c04fb68820)]
         interface IMofCompiler: IUnknown {
             fn CompileFile(&self, #[in] FileName: LPWSTR, #[in] ServerAndNamespace: LPWSTR, #[in] User: LPWSTR, #[in] Authority: LPWSTR, #[in] Password: LPWSTR, #[in] lOptionFlags: LONG, #[in] lClassFlags: LONG, #[in] lInstanceFlags: LONG, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
-            fn CompileBuffer(&self, #[in] BuffSize: i32, #[in] #[readable(entry, bytes(BuffSize))] pBuffer: *mut BYTE, #[in] ServerAndNamespace: LPWSTR, #[in] User: LPWSTR, #[in] Authority: LPWSTR, #[in] Password: LPWSTR, #[in] lOptionFlags: LONG, #[in] lClassFlags: LONG, #[in] lInstanceFlags: LONG, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
+            fn CompileBuffer(&self, #[in] BuffSize: i32, #[buffer(bytes(BuffSize))] #[in] pBuffer: *mut BYTE, #[in] ServerAndNamespace: LPWSTR, #[in] User: LPWSTR, #[in] Authority: LPWSTR, #[in] Password: LPWSTR, #[in] lOptionFlags: LONG, #[in] lClassFlags: LONG, #[in] lInstanceFlags: LONG, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
             fn CreateBMOF(&self, #[in] TextFileName: LPWSTR, #[in] BMOFFileName: LPWSTR, #[in] ServerAndNamespace: LPWSTR, #[in] lOptionFlags: LONG, #[in] lClassFlags: LONG, #[in] lInstanceFlags: LONG, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
         }
         #[guid(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff)]
@@ -132,7 +132,7 @@ mod Windows {
         }
         #[guid(0x7c857801_7381_11cf_884d_00aa004b2e24)]
         interface IWbemObjectSink: IUnknown {
-            fn Indicate(&self, #[in] lObjectCount: i32, #[in] #[readable(entry, lObjectCount)] apObjArray: *mut IWbemClassObject) -> HRESULT;
+            fn Indicate(&self, #[in] lObjectCount: i32, #[buffer(lObjectCount)] #[in] apObjArray: *mut IWbemClassObject) -> HRESULT;
             fn SetStatus(&self, #[in] lFlags: i32, #[in] hResult: HRESULT, #[in] #[opt] strParam: BSTR, #[in] #[opt] pObjParam: IWbemClassObject) -> HRESULT;
         }
         #[guid(0xe7d35cfa_348b_485e_b524_252725d697ca)]

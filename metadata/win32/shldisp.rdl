@@ -167,7 +167,7 @@ mod Windows {
         }
         #[guid(0x8e74c210_cf9d_4eaf_a403_7356428f0a5a)]
         interface IEnumACString: IEnumString {
-            fn NextItem(&self, #[opt] #[out] #[writable(entry, cchMax)] pszUrl: LPWSTR, #[in] cchMax: ULONG, #[out] pulSortIndex: *mut ULONG) -> HRESULT;
+            fn NextItem(&self, #[buffer(cchMax)] #[opt] #[out] pszUrl: LPWSTR, #[in] cchMax: ULONG, #[out] pulSortIndex: *mut ULONG) -> HRESULT;
             fn SetEnumOptions(&self, #[in] dwOptions: DWORD) -> HRESULT;
             fn GetEnumOptions(&self, #[out] pdwOptions: *mut DWORD) -> HRESULT;
         }

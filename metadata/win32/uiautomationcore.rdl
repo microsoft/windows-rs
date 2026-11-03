@@ -507,7 +507,7 @@ mod Windows {
         interface IUIAutomationRegistrar: IUnknown {
             fn RegisterProperty(&self, #[in] property: *const UIAutomationPropertyInfo, #[out] propertyId: *mut PROPERTYID) -> HRESULT;
             fn RegisterEvent(&self, #[in] event: *const UIAutomationEventInfo, #[out] eventId: *mut EVENTID) -> HRESULT;
-            fn RegisterPattern(&self, #[in] pattern: *const UIAutomationPatternInfo, #[out] pPatternId: *mut PATTERNID, #[out] pPatternAvailablePropertyId: *mut PROPERTYID, #[in] propertyIdCount: UINT, #[out] #[readable(success, propertyIdCount)] #[writable(entry, propertyIdCount)] #[writable(success, propertyIdCount)] pPropertyIds: *mut PROPERTYID, #[in] eventIdCount: UINT, #[out] #[readable(success, eventIdCount)] #[writable(entry, eventIdCount)] #[writable(success, eventIdCount)] pEventIds: *mut EVENTID) -> HRESULT;
+            fn RegisterPattern(&self, #[in] pattern: *const UIAutomationPatternInfo, #[out] pPatternId: *mut PATTERNID, #[out] pPatternAvailablePropertyId: *mut PROPERTYID, #[in] propertyIdCount: UINT, #[buffer(propertyIdCount)] #[out] pPropertyIds: *mut PROPERTYID, #[in] eventIdCount: UINT, #[buffer(eventIdCount)] #[out] pEventIds: *mut EVENTID) -> HRESULT;
         }
         #[guid(0xc7935180_6fb3_4201_b174_7df73adbf64a)]
         interface IValueProvider: IUnknown {

@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x917fe891_3d13_4138_9809_934c8abeb12c)]
         interface IWSDDeviceHost: IUnknown {
-            fn Init(&self, #[in] pszLocalId: LPCWSTR, #[in] #[opt] pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwHostAddressCount)] ppHostAddresses: *mut IWSDAddress, #[in] #[opt] dwHostAddressCount: DWORD) -> HRESULT;
+            fn Init(&self, #[in] pszLocalId: LPCWSTR, #[in] #[opt] pContext: IWSDXMLContext, #[buffer(dwHostAddressCount)] #[in] #[opt] ppHostAddresses: *mut IWSDAddress, #[in] #[opt] dwHostAddressCount: DWORD) -> HRESULT;
             fn Start(&self, #[in] ullInstanceId: ULONGLONG, #[in] pScopeList: *const WSD_URI_LIST, #[in] #[opt] pNotificationSink: IWSDDeviceHostNotify) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Terminate(&self) -> HRESULT;
@@ -28,8 +28,8 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDCreateDeviceHost(#[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[out] #[out_ptr] #[retval] ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceHost2(#[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwConfigParamCount)] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] #[retval] ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
+        extern fn WSDCreateDeviceHost2(#[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[buffer(dwConfigParamCount)] #[in] #[opt] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: DWORD, #[out] #[out_ptr] #[retval] ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceHostAdvanced(#[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[in] #[opt] #[readable(entry, dwHostAddressCount)] ppHostAddresses: *mut IWSDAddress, dwHostAddressCount: DWORD, #[out] #[out_ptr] #[retval] ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
+        extern fn WSDCreateDeviceHostAdvanced(#[in] pszLocalId: LPCWSTR, pContext: IWSDXMLContext, #[buffer(dwHostAddressCount)] #[in] #[opt] ppHostAddresses: *mut IWSDAddress, dwHostAddressCount: DWORD, #[out] #[out_ptr] #[retval] ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
     }
 }

@@ -105,7 +105,7 @@ mod Windows {
         }
         #[guid(0x37668d37_507e_4160_9316_26306d150b12)]
         interface IBackgroundCopyJob: IUnknown {
-            fn AddFileSet(&self, #[in] cFileCount: ULONG, #[in] #[readable(entry, cFileCount)] pFileSet: *mut BG_FILE_INFO) -> HRESULT;
+            fn AddFileSet(&self, #[in] cFileCount: ULONG, #[buffer(cFileCount)] #[in] pFileSet: *mut BG_FILE_INFO) -> HRESULT;
             fn AddFile(&self, #[in] RemoteUrl: LPCWSTR, #[in] LocalName: LPCWSTR) -> HRESULT;
             fn EnumFiles(&self, #[out] #[out_ptr] #[retval] pEnum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
             fn Suspend(&self) -> HRESULT;
@@ -147,7 +147,7 @@ mod Windows {
         }
         #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
         interface IEnumBackgroundCopyFiles: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyFile, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IBackgroundCopyFile, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
@@ -155,7 +155,7 @@ mod Windows {
         }
         #[guid(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad)]
         interface IEnumBackgroundCopyJobs: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyJob, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IBackgroundCopyJob, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppenum: *mut IEnumBackgroundCopyJobs) -> HRESULT;

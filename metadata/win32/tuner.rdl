@@ -571,7 +571,7 @@ mod Windows {
         }
         #[guid(0x506a09b8_7f86_4e04_ac05_3303bfe8fc49)]
         interface IESEventFactory: IUnknown {
-            fn CreateESEvent(&self, #[in] #[opt] pServiceProvider: IUnknown, #[in] dwEventId: DWORD, #[in] guidEventType: GUID, #[in] dwEventDataLength: DWORD, #[in] #[readable(entry, dwEventDataLength)] pEventData: *mut BYTE, #[in] bstrBaseUrl: BSTR, #[in] #[opt] pInitContext: IUnknown, #[out] #[out_ptr] #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
+            fn CreateESEvent(&self, #[in] #[opt] pServiceProvider: IUnknown, #[in] dwEventId: DWORD, #[in] guidEventType: GUID, #[in] dwEventDataLength: DWORD, #[buffer(dwEventDataLength)] #[in] pEventData: *mut BYTE, #[in] bstrBaseUrl: BSTR, #[in] #[opt] pInitContext: IUnknown, #[out] #[out_ptr] #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
         }
         #[guid(0xed89a619_4c06_4b2f_99eb_c7669b13047c)]
         interface IESEventService: IUnknown {
@@ -636,21 +636,21 @@ mod Windows {
         }
         #[guid(0x8a674b4a_1f63_11d3_b64c_00c04f79498e)]
         interface IEnumComponentTypes: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponentType, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IComponentType, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumComponentTypes) -> HRESULT;
         }
         #[guid(0x2a6e2939_2595_11d3_b64c_00c04f79498e)]
         interface IEnumComponents: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponent, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut IComponent, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumComponents) -> HRESULT;
         }
         #[guid(0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980)]
         interface IEnumTuningSpaces: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut ITuningSpace, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] rgelt: *mut ITuningSpace, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;

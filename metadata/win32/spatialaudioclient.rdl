@@ -54,7 +54,7 @@ mod Windows {
         }
         #[guid(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0)]
         interface ISpatialAudioObjectBase: IUnknown {
-            fn GetBuffer(&self, #[out] #[writable(success, bytes(*bufferLength), indirect)] buffer: *mut *mut BYTE, #[out] bufferLength: *mut UINT32) -> HRESULT;
+            fn GetBuffer(&self, #[incomplete] #[out] buffer: *mut *mut BYTE, #[out] bufferLength: *mut UINT32) -> HRESULT;
             fn SetEndOfStream(&self, #[in] frameCount: UINT32) -> HRESULT;
             fn IsActive(&self, #[out] isActive: *mut BOOL) -> HRESULT;
             fn GetAudioObjectType(&self, #[out] audioObjectType: *mut AudioObjectType) -> HRESULT;

@@ -5,7 +5,6 @@ mod Fixture {
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
         count: u32,
-        #[writable(count)]
         data: *mut u8,
     }
     struct CallbackHolder {
@@ -38,11 +37,11 @@ mod Fixture {
     extern "C" fn OptionalResult(#[opt] #[out] #[out_ptr] result: *mut *mut void);
     #[library("fixture.dll")]
     #[must_use]
-    extern "C" fn ReadBuffer(#[opt] #[out] #[readable(success, bytes(if_present(*written)))] #[writable(entry, bytes(capacity))] buffer: *mut void, #[in] capacity: u32, #[opt] #[out] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[buffer(bytes(capacity))] #[opt] #[out] buffer: *mut void, #[in] capacity: u32, #[opt] #[out] written: *mut u32) -> Status;
     #[library("fixture.dll")]
-    extern "C" fn ReadFixed(#[in] #[readable(entry, 16)] values: *const i32);
+    extern "C" fn ReadFixed(#[buffer(16)] #[in] values: *const i32);
     #[library("fixture.dll")]
-    extern "C" fn ReadHook(#[in] #[readable(entry, 16)] values: *const i32);
+    extern "C" fn ReadHook(#[buffer(16)] #[in] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
         callback: extern "C" fn(*mut void) -> Status,

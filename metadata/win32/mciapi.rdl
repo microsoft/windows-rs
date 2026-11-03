@@ -794,9 +794,9 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mciGetDriverData(wDeviceID: MCIDEVICEID) -> DWORD_PTR;
         #[library("WINMM.dll")]
-        extern fn mciGetErrorStringA(#[in] mcierr: MCIERROR, #[out] #[writable(entry, cchText)] pszText: LPSTR, #[in] cchText: UINT) -> BOOL;
+        extern fn mciGetErrorStringA(#[in] mcierr: MCIERROR, #[buffer(cchText)] #[out] pszText: LPSTR, #[in] cchText: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciGetErrorStringW(#[in] mcierr: MCIERROR, #[out] #[writable(entry, cchText)] pszText: LPWSTR, #[in] cchText: UINT) -> BOOL;
+        extern fn mciGetErrorStringW(#[in] mcierr: MCIERROR, #[buffer(cchText)] #[out] pszText: LPWSTR, #[in] cchText: UINT) -> BOOL;
         #[library("WINMM.dll")]
         extern fn mciGetYieldProc(#[in] mciId: MCIDEVICEID, #[in] pdwYieldData: LPDWORD) -> YIELDPROC;
         #[library("WINMM.dll")]
@@ -806,9 +806,9 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mciSendCommandW(#[in] mciId: MCIDEVICEID, #[in] uMsg: UINT, #[in] #[opt] dwParam1: DWORD_PTR, #[in] #[opt] dwParam2: DWORD_PTR) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendStringA(#[in] lpstrCommand: LPCSTR, #[opt] #[out] #[writable(entry, uReturnLength)] lpstrReturnString: LPSTR, #[in] uReturnLength: UINT, #[in] #[opt] hwndCallback: HWND) -> MCIERROR;
+        extern fn mciSendStringA(#[in] lpstrCommand: LPCSTR, #[buffer(uReturnLength)] #[opt] #[out] lpstrReturnString: LPSTR, #[in] uReturnLength: UINT, #[in] #[opt] hwndCallback: HWND) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendStringW(#[in] lpstrCommand: LPCWSTR, #[opt] #[out] #[writable(entry, uReturnLength)] lpstrReturnString: LPWSTR, #[in] uReturnLength: UINT, #[in] #[opt] hwndCallback: HWND) -> MCIERROR;
+        extern fn mciSendStringW(#[in] lpstrCommand: LPCWSTR, #[buffer(uReturnLength)] #[opt] #[out] lpstrReturnString: LPWSTR, #[in] uReturnLength: UINT, #[in] #[opt] hwndCallback: HWND) -> MCIERROR;
         #[library("WINMM.dll")]
         extern fn mciSetDriverData(wDeviceID: MCIDEVICEID, dwData: DWORD_PTR) -> BOOL;
         #[library("WINMM.dll")]

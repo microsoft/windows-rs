@@ -8,7 +8,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
         const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
-        extern fn PINSPECT_MEMORY_CALLBACK(#[in] #[opt] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[out] #[writable(entry, length)] buffer: *mut BYTE) -> HRESULT;
+        extern fn PINSPECT_MEMORY_CALLBACK(#[in] #[opt] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[buffer(length)] #[out] buffer: *mut BYTE) -> HRESULT;
         #[flags]
         #[repr(i32)]
         enum RO_ERROR_REPORTING_FLAGS {

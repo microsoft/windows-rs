@@ -9,12 +9,12 @@ mod Windows {
             fn GetScanline0AndPitch(&self, #[out] pbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
             fn IsContiguousFormat(&self, #[out] pfIsContiguous: *mut BOOL) -> HRESULT;
             fn GetContiguousLength(&self, #[out] pcbLength: *mut DWORD) -> HRESULT;
-            fn ContiguousCopyTo(&self, #[out] #[writable(entry, bytes(cbDestBuffer))] pbDestBuffer: *mut BYTE, #[in] cbDestBuffer: DWORD) -> HRESULT;
-            fn ContiguousCopyFrom(&self, #[in] #[readable(entry, bytes(cbSrcBuffer))] pbSrcBuffer: *const BYTE, #[in] cbSrcBuffer: DWORD) -> HRESULT;
+            fn ContiguousCopyTo(&self, #[buffer(bytes(cbDestBuffer))] #[out] pbDestBuffer: *mut BYTE, #[in] cbDestBuffer: DWORD) -> HRESULT;
+            fn ContiguousCopyFrom(&self, #[buffer(bytes(cbSrcBuffer))] #[in] pbSrcBuffer: *const BYTE, #[in] cbSrcBuffer: DWORD) -> HRESULT;
         }
         #[guid(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec)]
         interface IMF2DBuffer2: IMF2DBuffer {
-            fn Lock2DSize(&self, #[in] lockFlags: MF2DBuffer_LockFlags, #[incomplete] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG, #[out] #[writable(success, bytes(*pcbBufferLength), indirect)] ppbBufferStart: *mut *mut BYTE, #[out] pcbBufferLength: *mut DWORD) -> HRESULT;
+            fn Lock2DSize(&self, #[in] lockFlags: MF2DBuffer_LockFlags, #[incomplete] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG, #[incomplete] #[out] ppbBufferStart: *mut *mut BYTE, #[out] pcbBufferLength: *mut DWORD) -> HRESULT;
             fn Copy2DTo(&self, #[in] pDestBuffer: IMF2DBuffer2) -> HRESULT;
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
@@ -52,11 +52,11 @@ mod Windows {
             fn GetDouble(&self, #[in] guidKey: &GUID, #[out] pfValue: *mut f64) -> HRESULT;
             fn GetGUID(&self, #[in] guidKey: &GUID, #[out] pguidValue: *mut GUID) -> HRESULT;
             fn GetStringLength(&self, #[in] guidKey: &GUID, #[out] pcchLength: *mut UINT32) -> HRESULT;
-            fn GetString(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cchBufSize)] #[writable(entry, cchBufSize)] #[writable(success, cchBufSize)] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[opt] #[out] pcchLength: *mut UINT32) -> HRESULT;
-            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[nullable] #[out] #[readable(success, *pcchLength + 1, indirect)] #[writable(success, *pcchLength + 1, indirect)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetString(&self, #[in] guidKey: &GUID, #[buffer(cchBufSize)] #[out] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[opt] #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[incomplete] #[nullable] #[out] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
             fn GetBlobSize(&self, #[in] guidKey: &GUID, #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
-            fn GetBlob(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cbBufSize)] #[writable(entry, cbBufSize)] #[writable(success, cbBufSize)] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
-            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[nullable] #[out] #[readable(success, *pcbSize, indirect)] #[writable(success, *pcbSize, indirect)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
+            fn GetBlob(&self, #[in] guidKey: &GUID, #[buffer(cbBufSize)] #[out] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
+            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[incomplete] #[nullable] #[out] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
             fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
             fn SetItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT) -> HRESULT;
             fn DeleteItem(&self, #[in] guidKey: &GUID) -> HRESULT;
@@ -66,7 +66,7 @@ mod Windows {
             fn SetDouble(&self, #[in] guidKey: &GUID, fValue: f64) -> HRESULT;
             fn SetGUID(&self, #[in] guidKey: &GUID, #[in] guidValue: &GUID) -> HRESULT;
             fn SetString(&self, #[in] guidKey: &GUID, #[in] #[null_terminated(entry)] wszValue: LPCWSTR) -> HRESULT;
-            fn SetBlob(&self, #[in] guidKey: &GUID, #[in] #[readable(entry, cbBufSize)] pBuf: *const UINT8, cbBufSize: UINT32) -> HRESULT;
+            fn SetBlob(&self, #[in] guidKey: &GUID, #[buffer(cbBufSize)] #[in] pBuf: *const UINT8, cbBufSize: UINT32) -> HRESULT;
             fn SetUnknown(&self, #[in] guidKey: &GUID, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn LockStore(&self) -> HRESULT;
             fn UnlockStore(&self) -> HRESULT;
@@ -86,11 +86,11 @@ mod Windows {
             fn GetCurrentPosition(&self, #[out] pqwPosition: *mut QWORD) -> HRESULT;
             fn SetCurrentPosition(&self, #[in] qwPosition: QWORD) -> HRESULT;
             fn IsEndOfStream(&self, #[out] pfEndOfStream: *mut BOOL) -> HRESULT;
-            fn Read(&self, #[out] #[readable(success, cb)] #[writable(entry, cb)] #[writable(success, cb)] pb: *mut BYTE, #[in] cb: ULONG, #[out] pcbRead: *mut ULONG) -> HRESULT;
-            fn BeginRead(&self, #[out] #[writable(entry, bytes(cb))] pb: *mut BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn Read(&self, #[buffer(cb)] #[out] pb: *mut BYTE, #[in] cb: ULONG, #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn BeginRead(&self, #[buffer(bytes(cb))] #[out] pb: *mut BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndRead(&self, #[in] pResult: IMFAsyncResult, #[out] pcbRead: *mut ULONG) -> HRESULT;
-            fn Write(&self, #[in] #[readable(entry, cb)] pb: *const BYTE, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
-            fn BeginWrite(&self, #[in] #[readable(entry, bytes(cb))] pb: *const BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn Write(&self, #[buffer(cb)] #[in] pb: *const BYTE, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn BeginWrite(&self, #[buffer(bytes(cb))] #[in] pb: *const BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndWrite(&self, #[in] pResult: IMFAsyncResult, #[out] pcbWritten: *mut ULONG) -> HRESULT;
             fn Seek(&self, #[in] SeekOrigin: MFBYTESTREAM_SEEK_ORIGIN, #[in] llSeekOffset: LONGLONG, #[in] dwSeekFlags: DWORD, #[out] pqwCurrentPosition: *mut QWORD) -> HRESULT;
             fn Flush(&self) -> HRESULT;
@@ -135,7 +135,7 @@ mod Windows {
         }
         #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
         interface IMFMediaBuffer: IUnknown {
-            fn Lock(&self, #[out] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[opt] #[out] pcbMaxLength: *mut DWORD, #[opt] #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
+            fn Lock(&self, #[incomplete] #[out] ppbBuffer: *mut *mut BYTE, #[opt] #[out] pcbMaxLength: *mut DWORD, #[opt] #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
             fn GetCurrentLength(&self, #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
             fn SetCurrentLength(&self, #[in] cbCurrentLength: DWORD) -> HRESULT;

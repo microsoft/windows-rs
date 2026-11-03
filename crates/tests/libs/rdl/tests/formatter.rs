@@ -41,8 +41,8 @@ fn repeated_attributes_keep_their_order_and_arguments() {
     let source = r#"
         #[library("z.dll")] #[arch(X64)] #[library("a.dll")] #[arch(X86)]
         extern fn Call(
-            #[writable(success, second)] #[readable(entry, first)]
-            #[writable(entry, second)] value: *mut u8
+            #[tag(second, 2)] #[buffer(first)]
+            #[tag(second, 1)] value: *mut u8
         );
     "#;
     let expected = "\
@@ -50,7 +50,7 @@ fn repeated_attributes_keep_their_order_and_arguments() {
 #[arch(X86)]
 #[library(\"z.dll\")]
 #[library(\"a.dll\")]
-extern fn Call(#[readable(entry, first)] #[writable(success, second)] #[writable(entry, second)] value: *mut u8);
+extern fn Call(#[buffer(first)] #[tag(second, 2)] #[tag(second, 1)] value: *mut u8);
 ";
     assert_eq!(format(source), expected);
     assert_eq!(format(expected), expected);

@@ -482,7 +482,7 @@ mod Windows {
         extern fn RpcAsyncGetCallStatus(#[in] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn RpcAsyncInitializeHandle(#[out] #[writable(entry, bytes(Size))] pAsync: PRPC_ASYNC_STATE, #[in] Size: u32) -> RPC_STATUS;
+        extern fn RpcAsyncInitializeHandle(#[buffer(bytes(Size))] #[out] pAsync: PRPC_ASYNC_STATE, #[in] Size: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
         extern fn RpcAsyncRegisterInfo(#[in] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
@@ -515,11 +515,11 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn RpcErrorGetNumberOfRecords(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[out] Records: *mut i32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorLoadErrorInfo(#[in] #[readable(entry, bytes(BlobSize))] ErrorBlob: PVOID, #[in] BlobSize: size_t, #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        extern fn RpcErrorLoadErrorInfo(#[buffer(bytes(BlobSize))] #[in] ErrorBlob: PVOID, #[in] BlobSize: size_t, #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorResetEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorSaveErrorInfo(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[out] #[writable(success, bytes(*BlobSize), indirect)] ErrorBlob: *mut PVOID, #[out] BlobSize: *mut size_t) -> RPC_STATUS;
+        extern fn RpcErrorSaveErrorInfo(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[incomplete] #[out] ErrorBlob: *mut PVOID, #[out] BlobSize: *mut size_t) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorStartEnumeration(#[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]

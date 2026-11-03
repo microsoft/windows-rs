@@ -6,32 +6,32 @@ mod Test {
 
     #[guid(auto)]
     interface Interface {
-        fn OutFixed(&self, #[out] #[writable(entry, 4)] buffer: *mut u32) -> i32;
-        fn OutLen(&self, #[in] count: u32, #[out] #[writable(entry, count)] buffer: *mut u32) -> i32;
-        fn OutOpt(&self, #[in] count: u32, #[opt] #[out] #[writable(entry, count)] buffer: *mut u32) -> i32;
-        fn OutBytes(&self, #[in] size: u32, #[out] #[writable(entry, bytes(size))] buffer: *mut u8) -> i32;
+        fn OutFixed(&self, #[out] #[buffer(4)] buffer: *mut u32) -> i32;
+        fn OutLen(&self, #[in] count: u32, #[out] #[buffer(count)] buffer: *mut u32) -> i32;
+        fn OutOpt(&self, #[in] count: u32, #[opt] #[out] #[buffer(count)] buffer: *mut u32) -> i32;
+        fn OutBytes(&self, #[in] size: u32, #[out] #[buffer(bytes(size))] buffer: *mut u8) -> i32;
         fn OutInterfaces(
             &self,
             #[in] count: u32,
-            #[out] #[writable(entry, count)] values: *mut Object,
+            #[out] #[buffer(count)] values: *mut Object,
         ) -> i32;
         fn InOutLen(
             &self,
             #[in] count: u32,
-            #[in] #[out] #[writable(entry, count)] buffer: *mut u32,
+            #[in] #[out] #[buffer(count)] buffer: *mut u32,
         ) -> i32;
         fn SharedCount(
             &self,
             #[in] count: u32,
-            #[in] #[readable(entry, count)] input: *const u32,
-            #[out] #[writable(entry, count)] output: *mut u32,
+            #[in] #[buffer(count)] input: *const u32,
+            #[out] #[buffer(count)] output: *mut u32,
         ) -> i32;
-        fn InLen(&self, #[in] count: u32, #[in] #[readable(entry, count)] buffer: *const u32) -> i32;
-        fn InSignedLen(&self, #[in] count: i32, #[in] #[readable(entry, count)] buffer: *const u32) -> i32;
+        fn InLen(&self, #[in] count: u32, #[in] #[buffer(count)] buffer: *const u32) -> i32;
+        fn InSignedLen(&self, #[in] count: i32, #[in] #[buffer(count)] buffer: *const u32) -> i32;
         fn InOptionalSignedLen(
             &self,
             #[in] count: i32,
-            #[opt] #[in] #[readable(entry, count)] buffer: *const u32,
+            #[opt] #[in] #[buffer(count)] buffer: *const u32,
         ) -> i32;
     }
 }
@@ -39,16 +39,12 @@ mod Test {
 mod Windows {
     mod Win32 {
         mod Metadata {
-            #[repr(i32)]
-            enum BufferAccess { Read = 0, Write = 1 }
-            #[repr(i32)]
-            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
-            #[repr(i32)]
-            enum BufferUnits { Elements = 0, Bytes = 1 }
-            attribute BufferExtentAttribute {
-                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+            attribute BufferAttribute {
+                fn();
                 CountConst: u64,
                 CountParamIndex: u16,
+                Dereference: bool,
+                Bytes: bool,
             }
         }
     }

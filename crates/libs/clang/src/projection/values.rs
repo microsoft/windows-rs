@@ -523,6 +523,15 @@ impl Projector<'_, '_> {
                 let ty = if named { ty } else { self.comparison_type(ty)? };
                 let snapshot = self.resolution.snapshots[snapshot_id];
                 let buffer_ty = self.parameter_ty(snapshot_id, canonical, canonical)?;
+                let size = annotations::buffer(
+                    snapshot,
+                    function,
+                    parameters,
+                    index,
+                    (&ty, &buffer_ty),
+                    &extent_names,
+                )
+                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let attributes = annotations::parameter(
                     snapshot,
                     function,
@@ -530,17 +539,9 @@ impl Projector<'_, '_> {
                     parameters,
                     &buffer_ty,
                     nonnegative_success,
+                    size.incomplete,
                 )?;
-                let size = annotations::buffer(
-                    snapshot,
-                    function,
-                    parameters,
-                    index,
-                    &ty,
-                    &buffer_ty,
-                    &extent_names,
-                )
-                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
+                let size = size.attributes;
                 let ty = write_type(self.namespace, &ty);
                 Ok(quote! { #attributes #size #name: #ty })
             })

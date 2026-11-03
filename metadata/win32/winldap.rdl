@@ -479,9 +479,9 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn LdapMapErrorToWin32(LdapError: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn LdapUTF8ToUnicode(#[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, cchSrc: i32, #[out] #[writable(entry, cchDest)] lpDestStr: LPWSTR, cchDest: i32) -> i32;
+        extern "C" fn LdapUTF8ToUnicode(#[buffer(cchSrc)] #[in] lpSrcStr: LPCSTR, cchSrc: i32, #[buffer(cchDest)] #[out] lpDestStr: LPWSTR, cchDest: i32) -> i32;
         #[library("WLDAP32.dll")]
-        extern "C" fn LdapUnicodeToUTF8(#[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, cchSrc: i32, #[out] #[writable(entry, cchDest)] lpDestStr: LPSTR, cchDest: i32) -> i32;
+        extern "C" fn LdapUnicodeToUTF8(#[buffer(cchSrc)] #[in] lpSrcStr: LPCWSTR, cchSrc: i32, #[buffer(cchDest)] #[out] lpDestStr: LPSTR, cchDest: i32) -> i32;
         extern "C" fn NOTIFYOFNEWCONNECTION(PrimaryConnection: PLDAP, ReferralFromConnection: PLDAP, NewDN: PWCHAR, HostName: PCHAR, NewConnection: PLDAP, PortNumber: ULONG, SecAuthIdentity: PVOID, CurrentUser: PVOID, ErrorCodeFromBind: ULONG) -> BOOLEAN;
         const NULLBER: *mut BerElement = 0;
         type PBERVAL = *mut berval;
@@ -676,11 +676,11 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_err2stringW(err: ULONG) -> PWCHAR;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_escape_filter_element(#[in] #[readable(entry, bytes(sourceLength))] sourceFilterElement: PCHAR, sourceLength: ULONG, #[opt] #[out] #[writable(entry, bytes(destLength))] destFilterElement: PCHAR, destLength: ULONG) -> ULONG;
+        extern "C" fn ldap_escape_filter_element(#[buffer(bytes(sourceLength))] #[in] sourceFilterElement: PCHAR, sourceLength: ULONG, #[buffer(bytes(destLength))] #[opt] #[out] destFilterElement: PCHAR, destLength: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_escape_filter_elementA(#[in] #[readable(entry, bytes(sourceLength))] sourceFilterElement: PCHAR, sourceLength: ULONG, #[opt] #[out] #[writable(entry, bytes(destLength))] destFilterElement: PCHAR, destLength: ULONG) -> ULONG;
+        extern "C" fn ldap_escape_filter_elementA(#[buffer(bytes(sourceLength))] #[in] sourceFilterElement: PCHAR, sourceLength: ULONG, #[buffer(bytes(destLength))] #[opt] #[out] destFilterElement: PCHAR, destLength: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_escape_filter_elementW(#[in] #[readable(entry, bytes(sourceLength))] sourceFilterElement: PCHAR, sourceLength: ULONG, #[opt] #[out] #[writable(entry, bytes(destLength))] destFilterElement: PWCHAR, destLength: ULONG) -> ULONG;
+        extern "C" fn ldap_escape_filter_elementW(#[buffer(bytes(sourceLength))] #[in] sourceFilterElement: PCHAR, sourceLength: ULONG, #[buffer(bytes(destLength))] #[opt] #[out] destFilterElement: PWCHAR, destLength: ULONG) -> ULONG;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_explode_dn(#[in] dn: PSTR, notypes: ULONG) -> *mut PCHAR;
         #[library("WLDAP32.dll")]

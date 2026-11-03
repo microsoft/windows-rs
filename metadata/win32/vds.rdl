@@ -43,7 +43,7 @@ mod Windows {
         const GPT_PARTITION_NAME_LENGTH: i32 = 36;
         #[guid(0x118610b7_8d94_4030_b5b8_500889788e4e)]
         interface IEnumVdsObject: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, celt)] #[writable(success, celt)] ppObjectArray: *mut IUnknown, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[buffer(celt)] #[out] ppObjectArray: *mut IUnknown, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
@@ -51,7 +51,7 @@ mod Windows {
         #[guid(0x6e6f6b40_977c_4069_bddd_ac710059f8c0)]
         interface IVdsAdvancedDisk: IUnknown {
             fn GetPartitionProperties(&self, #[in] ullOffset: ULONGLONG, #[out] pPartitionProp: *mut VDS_PARTITION_PROP) -> HRESULT;
-            fn QueryPartitions(&self, #[nullable] #[out] #[readable(success, *plNumberOfPartitions, indirect)] #[writable(success, *plNumberOfPartitions, indirect)] ppPartitionPropArray: *mut *mut VDS_PARTITION_PROP, #[out] plNumberOfPartitions: *mut LONG) -> HRESULT;
+            fn QueryPartitions(&self, #[incomplete] #[nullable] #[out] ppPartitionPropArray: *mut *mut VDS_PARTITION_PROP, #[out] plNumberOfPartitions: *mut LONG) -> HRESULT;
             fn CreatePartition(&self, #[in] ullOffset: ULONGLONG, #[in] ullSize: ULONGLONG, #[in] para: *mut CREATE_PARTITION_PARAMETERS, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn DeletePartition(&self, #[in] ullOffset: ULONGLONG, #[in] bForce: BOOL, #[in] bForceProtected: BOOL) -> HRESULT;
             fn ChangeAttributes(&self, #[in] ullOffset: ULONGLONG, #[in] para: *mut CHANGE_ATTRIBUTES_PARAMETERS) -> HRESULT;
@@ -68,11 +68,11 @@ mod Windows {
         #[guid(0x3858c0d5_0f35_4bf5_9714_69874963bc36)]
         interface IVdsAdvancedDisk3: IUnknown {
             fn GetProperties(&self, #[out] pAdvDiskProp: *mut VDS_ADVANCEDDISK_PROP) -> HRESULT;
-            fn GetUniqueId(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszId: *mut LPWSTR) -> HRESULT;
+            fn GetUniqueId(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x8326cd1d_cf59_4936_b786_5efc08798e25)]
         interface IVdsAdviseSink: IUnknown {
-            fn OnNotify(&self, #[in] lNumberOfNotifications: LONG, #[in] #[readable(entry, lNumberOfNotifications)] pNotificationArray: *mut VDS_NOTIFICATION) -> HRESULT;
+            fn OnNotify(&self, #[in] lNumberOfNotifications: LONG, #[buffer(lNumberOfNotifications)] #[in] pNotificationArray: *mut VDS_NOTIFICATION) -> HRESULT;
         }
         #[guid(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc)]
         interface IVdsAsync: IUnknown {
@@ -112,7 +112,7 @@ mod Windows {
             fn GetProperties(&self, #[out] pDiskProperties: *mut VDS_DISK_PROP) -> HRESULT;
             fn GetPack(&self, #[out] #[out_ptr] #[retval] ppPack: *mut IVdsPack) -> HRESULT;
             fn GetIdentificationData(&self, #[out] pLunInfo: *mut VDS_LUN_INFORMATION) -> HRESULT;
-            fn QueryExtents(&self, #[nullable] #[out] #[readable(success, *plNumberOfExtents, indirect)] #[writable(success, *plNumberOfExtents, indirect)] ppExtentArray: *mut *mut VDS_DISK_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
+            fn QueryExtents(&self, #[incomplete] #[nullable] #[out] ppExtentArray: *mut *mut VDS_DISK_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
             fn ConvertStyle(&self, #[in] NewStyle: VDS_PARTITION_STYLE) -> HRESULT;
             fn SetFlags(&self, #[in] ulFlags: ULONG) -> HRESULT;
             fn ClearFlags(&self, #[in] ulFlags: ULONG) -> HRESULT;
@@ -124,7 +124,7 @@ mod Windows {
         #[guid(0x8f4b2f5d_ec15_4357_992f_473ef10975b9)]
         interface IVdsDisk3: IUnknown {
             fn GetProperties2(&self, #[out] pDiskProperties: *mut VDS_DISK_PROP2) -> HRESULT;
-            fn QueryFreeExtents(&self, #[in] ulAlign: ULONG, #[nullable] #[out] #[readable(success, *plNumberOfFreeExtents, indirect)] #[writable(success, *plNumberOfFreeExtents, indirect)] ppFreeExtentArray: *mut *mut VDS_DISK_FREE_EXTENT, #[out] plNumberOfFreeExtents: *mut LONG) -> HRESULT;
+            fn QueryFreeExtents(&self, #[in] ulAlign: ULONG, #[incomplete] #[nullable] #[out] ppFreeExtentArray: *mut *mut VDS_DISK_FREE_EXTENT, #[out] plNumberOfFreeExtents: *mut LONG) -> HRESULT;
         }
         #[guid(0x90681b1d_6a7f_48e8_9061_31b7aa125322)]
         interface IVdsDiskOnline: IUnknown {
@@ -134,8 +134,8 @@ mod Windows {
         #[guid(0x538684e0_ba3d_4bc0_aca9_164aff85c2a9)]
         interface IVdsDiskPartitionMF: IUnknown {
             fn GetPartitionFileSystemProperties(&self, #[in] ullOffset: ULONGLONG, #[out] pFileSystemProp: *mut VDS_FILE_SYSTEM_PROP) -> HRESULT;
-            fn GetPartitionFileSystemTypeName(&self, #[in] ullOffset: ULONGLONG, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszFileSystemTypeName: *mut LPWSTR) -> HRESULT;
-            fn QueryPartitionFileSystemFormatSupport(&self, #[in] ullOffset: ULONGLONG, #[nullable] #[out] #[readable(success, *plNumberOfFileSystems, indirect)] #[writable(success, *plNumberOfFileSystems, indirect)] ppFileSystemSupportProps: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
+            fn GetPartitionFileSystemTypeName(&self, #[in] ullOffset: ULONGLONG, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszFileSystemTypeName: *mut LPWSTR) -> HRESULT;
+            fn QueryPartitionFileSystemFormatSupport(&self, #[in] ullOffset: ULONGLONG, #[incomplete] #[nullable] #[out] ppFileSystemSupportProps: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
             fn FormatPartitionEx(&self, #[in] ullOffset: ULONGLONG, #[in] #[null_terminated(entry)] #[opt] pwszFileSystemTypeName: LPWSTR, #[in] usFileSystemRevision: USHORT, #[in] ulDesiredUnitAllocationSize: ULONG, #[in] #[null_terminated(entry)] #[opt] pwszLabel: LPWSTR, #[in] bForce: BOOL, #[in] bQuickFormat: BOOL, #[in] bEnableCompression: BOOL, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
         }
         #[guid(0x9cbe50ca_f2d2_4bf4_ace1_96896b729625)]
@@ -146,7 +146,7 @@ mod Windows {
         interface IVdsDrive: IUnknown {
             fn GetProperties(&self, #[out] pDriveProp: *mut VDS_DRIVE_PROP) -> HRESULT;
             fn GetSubSystem(&self, #[out] #[out_ptr] #[retval] ppSubSystem: *mut IVdsSubSystem) -> HRESULT;
-            fn QueryExtents(&self, #[nullable] #[out] #[readable(success, *plNumberOfExtents, indirect)] #[writable(success, *plNumberOfExtents, indirect)] ppExtentArray: *mut *mut VDS_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
+            fn QueryExtents(&self, #[incomplete] #[nullable] #[out] ppExtentArray: *mut *mut VDS_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
             fn SetFlags(&self, #[in] ulFlags: ULONG) -> HRESULT;
             fn ClearFlags(&self, #[in] ulFlags: ULONG) -> HRESULT;
             fn SetStatus(&self, #[in] status: VDS_DRIVE_STATUS) -> HRESULT;
@@ -229,7 +229,7 @@ mod Windows {
             fn SetFriendlyName(&self, #[in] #[null_terminated(entry)] pwszFriendlyName: LPWSTR) -> HRESULT;
             fn SetSharedSecret(&self, #[in] #[opt] pTargetSharedSecret: *mut VDS_ISCSI_SHARED_SECRET, #[in] #[null_terminated(entry)] #[opt] pwszInitiatorName: LPWSTR) -> HRESULT;
             fn RememberInitiatorSharedSecret(&self, #[in] #[null_terminated(entry)] pwszInitiatorName: LPWSTR, #[in] #[opt] pInitiatorSharedSecret: *mut VDS_ISCSI_SHARED_SECRET) -> HRESULT;
-            fn GetConnectedInitiators(&self, #[null_terminated(success, indirect)] #[nullable] #[out] #[readable(success, *plNumberOfInitiators, indirect)] #[writable(success, *plNumberOfInitiators, indirect)] pppwszInitiatorList: *mut *mut LPWSTR, #[out] plNumberOfInitiators: *mut LONG) -> HRESULT;
+            fn GetConnectedInitiators(&self, #[incomplete] #[null_terminated(success, indirect)] #[nullable] #[out] pppwszInitiatorList: *mut *mut LPWSTR, #[out] plNumberOfInitiators: *mut LONG) -> HRESULT;
         }
         #[guid(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8)]
         interface IVdsLun: IUnknown {
@@ -237,7 +237,7 @@ mod Windows {
             fn GetSubSystem(&self, #[out] #[out_ptr] #[retval] ppSubSystem: *mut IVdsSubSystem) -> HRESULT;
             fn GetIdentificationData(&self, #[out] pLunInfo: *mut VDS_LUN_INFORMATION) -> HRESULT;
             fn QueryActiveControllers(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
-            fn Extend(&self, #[in] ullNumberOfBytesToAdd: ULONGLONG, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn Extend(&self, #[in] ullNumberOfBytesToAdd: ULONGLONG, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn Shrink(&self, #[in] ullNumberOfBytesToRemove: ULONGLONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn QueryPlexes(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn AddPlex(&self, #[in] lunId: VDS_OBJECT_ID, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
@@ -245,11 +245,11 @@ mod Windows {
             fn Recover(&self, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn SetMask(&self, #[in] #[null_terminated(entry)] pwszUnmaskingList: LPWSTR) -> HRESULT;
             fn Delete(&self) -> HRESULT;
-            fn AssociateControllers(&self, #[in] #[opt] #[readable(entry, lNumberOfActiveControllers)] pActiveControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfActiveControllers: LONG, #[in] #[opt] #[readable(entry, lNumberOfInactiveControllers)] pInactiveControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfInactiveControllers: LONG) -> HRESULT;
+            fn AssociateControllers(&self, #[buffer(lNumberOfActiveControllers)] #[in] #[opt] pActiveControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfActiveControllers: LONG, #[buffer(lNumberOfInactiveControllers)] #[in] #[opt] pInactiveControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfInactiveControllers: LONG) -> HRESULT;
             fn QueryHints(&self, #[out] pHints: *mut VDS_HINTS) -> HRESULT;
             fn ApplyHints(&self, #[in] pHints: *mut VDS_HINTS) -> HRESULT;
             fn SetStatus(&self, #[in] status: VDS_LUN_STATUS) -> HRESULT;
-            fn QueryMaxLunExtendSize(&self, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[out] pullMaxBytesToBeAdded: *mut ULONGLONG) -> HRESULT;
+            fn QueryMaxLunExtendSize(&self, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[out] pullMaxBytesToBeAdded: *mut ULONGLONG) -> HRESULT;
         }
         #[guid(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb)]
         interface IVdsLun2: IUnknown {
@@ -258,19 +258,19 @@ mod Windows {
         }
         #[guid(0x451fe266_da6d_406a_bb60_82e534f85aeb)]
         interface IVdsLunControllerPorts: IUnknown {
-            fn AssociateControllerPorts(&self, #[in] #[opt] #[readable(entry, lNumberOfActiveControllerPorts)] pActiveControllerPortIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfActiveControllerPorts: LONG, #[in] #[opt] #[readable(entry, lNumberOfInactiveControllerPorts)] pInactiveControllerPortIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfInactiveControllerPorts: LONG) -> HRESULT;
+            fn AssociateControllerPorts(&self, #[buffer(lNumberOfActiveControllerPorts)] #[in] #[opt] pActiveControllerPortIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfActiveControllerPorts: LONG, #[buffer(lNumberOfInactiveControllerPorts)] #[in] #[opt] pInactiveControllerPortIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfInactiveControllerPorts: LONG) -> HRESULT;
             fn QueryActiveControllerPorts(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
         }
         #[guid(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067)]
         interface IVdsLunIscsi: IUnknown {
-            fn AssociateTargets(&self, #[in] #[opt] #[readable(entry, lNumberOfTargets)] pTargetIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfTargets: LONG) -> HRESULT;
+            fn AssociateTargets(&self, #[buffer(lNumberOfTargets)] #[in] #[opt] pTargetIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfTargets: LONG) -> HRESULT;
             fn QueryAssociatedTargets(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
         }
         #[guid(0x7c5fbae3_333a_48a1_a982_33c15788cde3)]
         interface IVdsLunMpio: IUnknown {
-            fn GetPathInfo(&self, #[nullable] #[out] #[readable(success, *plNumberOfPaths, indirect)] #[writable(success, *plNumberOfPaths, indirect)] ppPaths: *mut *mut VDS_PATH_INFO, #[out] plNumberOfPaths: *mut LONG) -> HRESULT;
-            fn GetLoadBalancePolicy(&self, #[out] pPolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, #[nullable] #[out] #[readable(success, *plNumberOfPaths, indirect)] #[writable(success, *plNumberOfPaths, indirect)] ppPaths: *mut *mut VDS_PATH_POLICY, #[out] plNumberOfPaths: *mut LONG) -> HRESULT;
-            fn SetLoadBalancePolicy(&self, #[in] policy: VDS_LOADBALANCE_POLICY_ENUM, #[in] #[opt] #[readable(entry, lNumberOfPaths)] pPaths: *mut VDS_PATH_POLICY, #[in] lNumberOfPaths: LONG) -> HRESULT;
+            fn GetPathInfo(&self, #[incomplete] #[nullable] #[out] ppPaths: *mut *mut VDS_PATH_INFO, #[out] plNumberOfPaths: *mut LONG) -> HRESULT;
+            fn GetLoadBalancePolicy(&self, #[out] pPolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, #[incomplete] #[nullable] #[out] ppPaths: *mut *mut VDS_PATH_POLICY, #[out] plNumberOfPaths: *mut LONG) -> HRESULT;
+            fn SetLoadBalancePolicy(&self, #[in] policy: VDS_LOADBALANCE_POLICY_ENUM, #[buffer(lNumberOfPaths)] #[in] #[opt] pPaths: *mut VDS_PATH_POLICY, #[in] lNumberOfPaths: LONG) -> HRESULT;
             fn GetSupportedLbPolicies(&self, #[out] pulLbFlags: *mut ULONG) -> HRESULT;
         }
         #[guid(0x907504cb_6b4e_4d88_a34d_17ba661fbb06)]
@@ -285,7 +285,7 @@ mod Windows {
         interface IVdsLunPlex: IUnknown {
             fn GetProperties(&self, #[out] pPlexProp: *mut VDS_LUN_PLEX_PROP) -> HRESULT;
             fn GetLun(&self, #[out] #[out_ptr] #[retval] ppLun: *mut IVdsLun) -> HRESULT;
-            fn QueryExtents(&self, #[nullable] #[out] #[readable(success, *plNumberOfExtents, indirect)] #[writable(success, *plNumberOfExtents, indirect)] ppExtentArray: *mut *mut VDS_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
+            fn QueryExtents(&self, #[incomplete] #[nullable] #[out] ppExtentArray: *mut *mut VDS_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
             fn QueryHints(&self, #[out] pHints: *mut VDS_HINTS) -> HRESULT;
             fn ApplyHints(&self, #[in] pHints: *mut VDS_HINTS) -> HRESULT;
         }
@@ -310,16 +310,16 @@ mod Windows {
             fn GetProvider(&self, #[out] #[out_ptr] #[retval] ppProvider: *mut IVdsProvider) -> HRESULT;
             fn QueryVolumes(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn QueryDisks(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
-            fn CreateVolume(&self, #[in] r#type: VDS_VOLUME_TYPE, #[in] #[readable(entry, lNumberOfDisks)] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[in] ulStripeSize: ULONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn CreateVolume(&self, #[in] r#type: VDS_VOLUME_TYPE, #[buffer(lNumberOfDisks)] #[in] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[in] ulStripeSize: ULONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn AddDisk(&self, #[in] DiskId: VDS_OBJECT_ID, #[in] PartitionStyle: VDS_PARTITION_STYLE, #[in] bAsHotSpare: BOOL) -> HRESULT;
-            fn MigrateDisks(&self, #[in] #[readable(entry, lNumberOfDisks)] pDiskArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDisks: LONG, #[in] TargetPack: VDS_OBJECT_ID, #[in] bForce: BOOL, #[in] bQueryOnly: BOOL, #[out] #[readable(success, lNumberOfDisks)] #[writable(entry, lNumberOfDisks)] #[writable(success, lNumberOfDisks)] pResults: *mut HRESULT, #[out] pbRebootNeeded: *mut BOOL) -> HRESULT;
+            fn MigrateDisks(&self, #[buffer(lNumberOfDisks)] #[in] pDiskArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDisks: LONG, #[in] TargetPack: VDS_OBJECT_ID, #[in] bForce: BOOL, #[in] bQueryOnly: BOOL, #[buffer(lNumberOfDisks)] #[out] pResults: *mut HRESULT, #[out] pbRebootNeeded: *mut BOOL) -> HRESULT;
             fn ReplaceDisk(&self, #[in] OldDiskId: VDS_OBJECT_ID, #[in] NewDiskId: VDS_OBJECT_ID, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn RemoveMissingDisk(&self, #[in] DiskId: VDS_OBJECT_ID) -> HRESULT;
             fn Recover(&self, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
         }
         #[guid(0x13b50bff_290a_47dd_8558_b7c58db1a71a)]
         interface IVdsPack2: IUnknown {
-            fn CreateVolume2(&self, #[in] r#type: VDS_VOLUME_TYPE, #[in] #[readable(entry, lNumberOfDisks)] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[in] ulStripeSize: ULONG, #[in] ulAlign: ULONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn CreateVolume2(&self, #[in] r#type: VDS_VOLUME_TYPE, #[buffer(lNumberOfDisks)] #[in] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[in] ulStripeSize: ULONG, #[in] ulAlign: ULONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
         }
         #[guid(0x10c5e575_7984_4e81_a56b_431f5f92ae42)]
         interface IVdsProvider: IUnknown {
@@ -343,8 +343,8 @@ mod Windows {
             fn QueryMaskedDisks(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn QueryUnallocatedDisks(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn GetObject(&self, #[in] ObjectId: VDS_OBJECT_ID, #[in] r#type: VDS_OBJECT_TYPE, #[out] #[out_ptr] #[retval] ppObjectUnk: *mut IUnknown) -> HRESULT;
-            fn QueryDriveLetters(&self, #[in] wcFirstLetter: WCHAR, #[in] count: DWORD, #[out] #[readable(success, count)] #[writable(entry, count)] #[writable(success, count)] pDriveLetterPropArray: *mut VDS_DRIVE_LETTER_PROP) -> HRESULT;
-            fn QueryFileSystemTypes(&self, #[nullable] #[out] #[readable(success, *plNumberOfFileSystems, indirect)] #[writable(success, *plNumberOfFileSystems, indirect)] ppFileSystemTypeProps: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
+            fn QueryDriveLetters(&self, #[in] wcFirstLetter: WCHAR, #[in] count: DWORD, #[buffer(count)] #[out] pDriveLetterPropArray: *mut VDS_DRIVE_LETTER_PROP) -> HRESULT;
+            fn QueryFileSystemTypes(&self, #[incomplete] #[nullable] #[out] ppFileSystemTypeProps: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
             fn Reenumerate(&self) -> HRESULT;
             fn Refresh(&self) -> HRESULT;
             fn CleanupObsoleteMountPoints(&self) -> HRESULT;
@@ -364,7 +364,7 @@ mod Windows {
         }
         #[guid(0x14fbe036_3ed7_4e10_90e9_a5ff991aff01)]
         interface IVdsServiceIscsi: IUnknown {
-            fn GetInitiatorName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszIscsiName: *mut LPWSTR) -> HRESULT;
+            fn GetInitiatorName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszIscsiName: *mut LPWSTR) -> HRESULT;
             fn QueryInitiatorAdapters(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn SetIpsecGroupPresharedKey(&self, #[in] #[opt] pIpsecKey: *mut VDS_ISCSI_IPSEC_KEY) -> HRESULT;
             fn SetAllIpsecTunnelAddresses(&self, #[in] pTunnelAddress: *mut VDS_IPADDRESS, #[in] pDestinationAddress: *mut VDS_IPADDRESS) -> HRESULT;
@@ -388,14 +388,14 @@ mod Windows {
         #[guid(0xb6b22da8_f903_4be7_b492_c09d875ac9da)]
         interface IVdsServiceUninstallDisk: IUnknown {
             fn GetDiskIdFromLunInfo(&self, #[in] pLunInfo: *mut VDS_LUN_INFORMATION, #[out] pDiskId: *mut VDS_OBJECT_ID) -> HRESULT;
-            fn UninstallDisks(&self, #[in] #[readable(entry, ulCount)] pDiskIdArray: *mut VDS_OBJECT_ID, #[in] ulCount: ULONG, #[in] bForce: BOOLEAN, #[out] pbReboot: *mut BOOLEAN, #[out] #[readable(success, ulCount)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pResults: *mut HRESULT) -> HRESULT;
+            fn UninstallDisks(&self, #[buffer(ulCount)] #[in] pDiskIdArray: *mut VDS_OBJECT_ID, #[in] ulCount: ULONG, #[in] bForce: BOOLEAN, #[out] pbReboot: *mut BOOLEAN, #[buffer(ulCount)] #[out] pResults: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450)]
         interface IVdsStoragePool: IUnknown {
             fn GetProvider(&self, #[out] #[out_ptr] #[retval] ppProvider: *mut IVdsProvider) -> HRESULT;
             fn GetProperties(&self, #[out] pStoragePoolProp: *mut VDS_STORAGE_POOL_PROP) -> HRESULT;
             fn GetAttributes(&self, #[out] pStoragePoolAttributes: *mut VDS_POOL_ATTRIBUTES) -> HRESULT;
-            fn QueryDriveExtents(&self, #[nullable] #[out] #[readable(success, *plNumberOfExtents, indirect)] #[writable(success, *plNumberOfExtents, indirect)] ppExtentArray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
+            fn QueryDriveExtents(&self, #[incomplete] #[nullable] #[out] ppExtentArray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
             fn QueryAllocatedLuns(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn QueryAllocatedStoragePools(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
         }
@@ -408,22 +408,22 @@ mod Windows {
             fn QueryDrives(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
             fn GetDrive(&self, #[in] sBusNumber: SHORT, #[in] sSlotNumber: SHORT, #[out] #[out_ptr] #[retval] ppDrive: *mut IVdsDrive) -> HRESULT;
             fn Reenumerate(&self) -> HRESULT;
-            fn SetControllerStatus(&self, #[in] #[readable(entry, lNumberOfOnlineControllers)] pOnlineControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfOnlineControllers: LONG, #[in] #[readable(entry, lNumberOfOfflineControllers)] pOfflineControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfOfflineControllers: LONG) -> HRESULT;
-            fn CreateLun(&self, #[in] r#type: VDS_LUN_TYPE, #[in] ullSizeInBytes: ULONGLONG, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[null_terminated(entry)] pwszUnmaskingList: LPWSTR, #[in] #[opt] pHints: *mut VDS_HINTS, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn SetControllerStatus(&self, #[buffer(lNumberOfOnlineControllers)] #[in] pOnlineControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfOnlineControllers: LONG, #[buffer(lNumberOfOfflineControllers)] #[in] pOfflineControllerIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfOfflineControllers: LONG) -> HRESULT;
+            fn CreateLun(&self, #[in] r#type: VDS_LUN_TYPE, #[in] ullSizeInBytes: ULONGLONG, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[null_terminated(entry)] pwszUnmaskingList: LPWSTR, #[in] #[opt] pHints: *mut VDS_HINTS, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn ReplaceDrive(&self, #[in] DriveToBeReplaced: VDS_OBJECT_ID, #[in] ReplacementDrive: VDS_OBJECT_ID) -> HRESULT;
             fn SetStatus(&self, #[in] status: VDS_SUB_SYSTEM_STATUS) -> HRESULT;
-            fn QueryMaxLunCreateSize(&self, #[in] r#type: VDS_LUN_TYPE, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[opt] pHints: *mut VDS_HINTS, #[out] pullMaxLunSize: *mut ULONGLONG) -> HRESULT;
+            fn QueryMaxLunCreateSize(&self, #[in] r#type: VDS_LUN_TYPE, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[opt] pHints: *mut VDS_HINTS, #[out] pullMaxLunSize: *mut ULONGLONG) -> HRESULT;
         }
         #[guid(0xbe666735_7800_4a77_9d9c_40f85b87e292)]
         interface IVdsSubSystem2: IUnknown {
             fn GetProperties2(&self, #[out] pSubSystemProp2: *mut VDS_SUB_SYSTEM_PROP2) -> HRESULT;
             fn GetDrive2(&self, #[in] sBusNumber: SHORT, #[in] sSlotNumber: SHORT, #[in] ulEnclosureNumber: ULONG, #[out] #[out_ptr] #[retval] ppDrive: *mut IVdsDrive) -> HRESULT;
-            fn CreateLun2(&self, #[in] r#type: VDS_LUN_TYPE, #[in] ullSizeInBytes: ULONGLONG, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[null_terminated(entry)] pwszUnmaskingList: LPWSTR, #[in] #[opt] pHints2: *mut VDS_HINTS2, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
-            fn QueryMaxLunCreateSize2(&self, #[in] r#type: VDS_LUN_TYPE, #[in] #[opt] #[readable(entry, lNumberOfDrives)] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[opt] pHints2: *mut VDS_HINTS2, #[out] pullMaxLunSize: *mut ULONGLONG) -> HRESULT;
+            fn CreateLun2(&self, #[in] r#type: VDS_LUN_TYPE, #[in] ullSizeInBytes: ULONGLONG, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[null_terminated(entry)] pwszUnmaskingList: LPWSTR, #[in] #[opt] pHints2: *mut VDS_HINTS2, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn QueryMaxLunCreateSize2(&self, #[in] r#type: VDS_LUN_TYPE, #[buffer(lNumberOfDrives)] #[in] #[opt] pDriveIdArray: *mut VDS_OBJECT_ID, #[in] lNumberOfDrives: LONG, #[in] #[opt] pHints2: *mut VDS_HINTS2, #[out] pullMaxLunSize: *mut ULONGLONG) -> HRESULT;
         }
         #[guid(0x83bfb87f_43fb_4903_baa6_127f01029eec)]
         interface IVdsSubSystemImportTarget: IUnknown {
-            fn GetImportTarget(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszIscsiName: *mut LPWSTR) -> HRESULT;
+            fn GetImportTarget(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszIscsiName: *mut LPWSTR) -> HRESULT;
             fn SetImportTarget(&self, #[in] #[null_terminated(entry)] #[opt] pwszIscsiName: LPWSTR) -> HRESULT;
         }
         #[guid(0x9e6fa560_c141_477b_83ba_0b6c38f7febf)]
@@ -451,7 +451,7 @@ mod Windows {
             fn Open(&self, #[in] AccessMask: VIRTUAL_DISK_ACCESS_MASK, #[in] Flags: OPEN_VIRTUAL_DISK_FLAG, #[in] ReadWriteDepth: ULONG, #[out] #[out_ptr] #[retval] ppOpenVDisk: *mut IVdsOpenVDisk) -> HRESULT;
             fn GetProperties(&self, #[out] pDiskProperties: PVDS_VDISK_PROPERTIES) -> HRESULT;
             fn GetHostVolume(&self, #[out] #[out_ptr] #[retval] ppVolume: *mut IVdsVolume) -> HRESULT;
-            fn GetDeviceName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppDeviceName: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppDeviceName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xb481498c_8354_45f9_84a0_0bdd2832a91f)]
         interface IVdsVdProvider: IUnknown {
@@ -466,7 +466,7 @@ mod Windows {
             fn GetProperties(&self, #[out] pVolumeProperties: *mut VDS_VOLUME_PROP) -> HRESULT;
             fn GetPack(&self, #[out] #[out_ptr] #[retval] ppPack: *mut IVdsPack) -> HRESULT;
             fn QueryPlexes(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVdsObject) -> HRESULT;
-            fn Extend(&self, #[in] #[opt] #[readable(entry, lNumberOfDisks)] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn Extend(&self, #[buffer(lNumberOfDisks)] #[in] #[opt] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn Shrink(&self, #[in] ullNumberOfBytesToRemove: ULONGLONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn AddPlex(&self, #[in] VolumeId: VDS_OBJECT_ID, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn BreakPlex(&self, #[in] plexId: VDS_OBJECT_ID, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
@@ -483,10 +483,10 @@ mod Windows {
         interface IVdsVolumeMF: IUnknown {
             fn GetFileSystemProperties(&self, #[out] pFileSystemProp: *mut VDS_FILE_SYSTEM_PROP) -> HRESULT;
             fn Format(&self, #[in] r#type: VDS_FILE_SYSTEM_TYPE, #[in] #[null_terminated(entry)] pwszLabel: LPWSTR, #[in] dwUnitAllocationSize: DWORD, #[in] bForce: BOOL, #[in] bQuickFormat: BOOL, #[in] bEnableCompression: BOOL, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
-            fn AddAccessPath(&self, #[in] #[null_terminated(entry)] #[readable(entry, 260)] pwszPath: LPWSTR) -> HRESULT;
-            fn QueryAccessPaths(&self, #[null_terminated(success, indirect)] #[nullable] #[out] #[readable(success, *plNumberOfAccessPaths, indirect)] #[writable(success, *plNumberOfAccessPaths, indirect)] pwszPathArray: *mut *mut LPWSTR, #[out] plNumberOfAccessPaths: *mut LONG) -> HRESULT;
-            fn QueryReparsePoints(&self, #[nullable] #[out] #[readable(success, *plNumberOfReparsePointProps, indirect)] #[writable(success, *plNumberOfReparsePointProps, indirect)] ppReparsePointProps: *mut *mut VDS_REPARSE_POINT_PROP, #[out] plNumberOfReparsePointProps: *mut LONG) -> HRESULT;
-            fn DeleteAccessPath(&self, #[in] #[null_terminated(entry)] #[readable(entry, 260)] pwszPath: LPWSTR, #[in] bForce: BOOL) -> HRESULT;
+            fn AddAccessPath(&self, #[buffer(260)] #[in] #[null_terminated(entry)] pwszPath: LPWSTR) -> HRESULT;
+            fn QueryAccessPaths(&self, #[incomplete] #[null_terminated(success, indirect)] #[nullable] #[out] pwszPathArray: *mut *mut LPWSTR, #[out] plNumberOfAccessPaths: *mut LONG) -> HRESULT;
+            fn QueryReparsePoints(&self, #[incomplete] #[nullable] #[out] ppReparsePointProps: *mut *mut VDS_REPARSE_POINT_PROP, #[out] plNumberOfReparsePointProps: *mut LONG) -> HRESULT;
+            fn DeleteAccessPath(&self, #[buffer(260)] #[in] #[null_terminated(entry)] pwszPath: LPWSTR, #[in] bForce: BOOL) -> HRESULT;
             fn Mount(&self) -> HRESULT;
             fn Dismount(&self, #[in] bForce: BOOL, #[in] bPermanent: BOOL) -> HRESULT;
             fn SetFileSystemFlags(&self, #[in] ulFlags: ULONG) -> HRESULT;
@@ -494,13 +494,13 @@ mod Windows {
         }
         #[guid(0x4dbcee9a_6343_4651_b85f_5e75d74d983c)]
         interface IVdsVolumeMF2: IUnknown {
-            fn GetFileSystemTypeName(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszFileSystemTypeName: *mut LPWSTR) -> HRESULT;
-            fn QueryFileSystemFormatSupport(&self, #[nullable] #[out] #[readable(success, *plNumberOfFileSystems, indirect)] #[writable(success, *plNumberOfFileSystems, indirect)] ppFileSystemSupportProps: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
+            fn GetFileSystemTypeName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszFileSystemTypeName: *mut LPWSTR) -> HRESULT;
+            fn QueryFileSystemFormatSupport(&self, #[incomplete] #[nullable] #[out] ppFileSystemSupportProps: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, #[out] plNumberOfFileSystems: *mut LONG) -> HRESULT;
             fn FormatEx(&self, #[in] #[null_terminated(entry)] #[opt] pwszFileSystemTypeName: LPWSTR, #[in] usFileSystemRevision: USHORT, #[in] ulDesiredUnitAllocationSize: ULONG, #[in] #[null_terminated(entry)] #[opt] pwszLabel: LPWSTR, #[in] bForce: BOOL, #[in] bQuickFormat: BOOL, #[in] bEnableCompression: BOOL, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
         }
         #[guid(0x6788faf9_214e_4b85_ba59_266953616e09)]
         interface IVdsVolumeMF3: IUnknown {
-            fn QueryVolumeGuidPathnames(&self, #[null_terminated(success, indirect)] #[nullable] #[out] #[readable(success, *pulNumberOfPaths, indirect)] #[writable(success, *pulNumberOfPaths, indirect)] pwszPathArray: *mut *mut LPWSTR, #[out] pulNumberOfPaths: *mut ULONG) -> HRESULT;
+            fn QueryVolumeGuidPathnames(&self, #[incomplete] #[null_terminated(success, indirect)] #[nullable] #[out] pwszPathArray: *mut *mut LPWSTR, #[out] pulNumberOfPaths: *mut ULONG) -> HRESULT;
             fn FormatEx2(&self, #[in] #[null_terminated(entry)] #[opt] pwszFileSystemTypeName: LPWSTR, #[in] usFileSystemRevision: USHORT, #[in] ulDesiredUnitAllocationSize: ULONG, #[in] #[null_terminated(entry)] #[opt] pwszLabel: LPWSTR, #[in] Options: DWORD, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
             fn OfflineVolume(&self) -> HRESULT;
         }
@@ -512,8 +512,8 @@ mod Windows {
         interface IVdsVolumePlex: IUnknown {
             fn GetProperties(&self, #[out] pPlexProperties: *mut VDS_VOLUME_PLEX_PROP) -> HRESULT;
             fn GetVolume(&self, #[out] #[out_ptr] #[retval] ppVolume: *mut IVdsVolume) -> HRESULT;
-            fn QueryExtents(&self, #[nullable] #[out] #[readable(success, *plNumberOfExtents, indirect)] #[writable(success, *plNumberOfExtents, indirect)] ppExtentArray: *mut *mut VDS_DISK_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
-            fn Repair(&self, #[in] #[readable(entry, lNumberOfDisks)] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
+            fn QueryExtents(&self, #[incomplete] #[nullable] #[out] ppExtentArray: *mut *mut VDS_DISK_EXTENT, #[out] plNumberOfExtents: *mut LONG) -> HRESULT;
+            fn Repair(&self, #[buffer(lNumberOfDisks)] #[in] pInputDiskArray: *mut VDS_INPUT_DISK, #[in] lNumberOfDisks: LONG, #[out] #[out_ptr] #[retval] ppAsync: *mut IVdsAsync) -> HRESULT;
         }
         #[guid(0xd68168c9_82a2_4f85_b6e9_74707c49a58f)]
         interface IVdsVolumeShrink: IUnknown {

@@ -8,51 +8,51 @@ mod Windows {
             DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT = 2,
         }
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackSpn2A(#[in] #[readable(entry, cSpn)] pszSpn: LPCSTR, #[in] cSpn: DWORD, #[in] #[opt] #[out] pcServiceClass: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceClass))] #[writable(entry, if_present(*pcServiceClass))] ServiceClass: LPSTR, #[in] #[opt] #[out] pcServiceName: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceName))] #[writable(entry, if_present(*pcServiceName))] ServiceName: LPSTR, #[in] #[opt] #[out] pcInstanceName: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcInstanceName))] #[writable(entry, if_present(*pcInstanceName))] InstanceName: LPSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
+        extern fn DsCrackSpn2A(#[buffer(cSpn)] #[in] pszSpn: LPCSTR, #[in] cSpn: DWORD, #[in] #[opt] #[out] pcServiceClass: LPDWORD, #[incomplete] #[opt] #[out] ServiceClass: LPSTR, #[in] #[opt] #[out] pcServiceName: LPDWORD, #[incomplete] #[opt] #[out] ServiceName: LPSTR, #[in] #[opt] #[out] pcInstanceName: LPDWORD, #[incomplete] #[opt] #[out] InstanceName: LPSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackSpn2W(#[in] #[readable(entry, cSpn)] pszSpn: LPCWSTR, #[in] cSpn: DWORD, #[in] #[opt] #[out] pcServiceClass: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceClass))] #[writable(entry, if_present(*pcServiceClass))] ServiceClass: LPWSTR, #[in] #[opt] #[out] pcServiceName: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceName))] #[writable(entry, if_present(*pcServiceName))] ServiceName: LPWSTR, #[in] #[opt] #[out] pcInstanceName: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcInstanceName))] #[writable(entry, if_present(*pcInstanceName))] InstanceName: LPWSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
+        extern fn DsCrackSpn2W(#[buffer(cSpn)] #[in] pszSpn: LPCWSTR, #[in] cSpn: DWORD, #[in] #[opt] #[out] pcServiceClass: *mut DWORD, #[incomplete] #[opt] #[out] ServiceClass: LPWSTR, #[in] #[opt] #[out] pcServiceName: *mut DWORD, #[incomplete] #[opt] #[out] ServiceName: LPWSTR, #[in] #[opt] #[out] pcInstanceName: *mut DWORD, #[incomplete] #[opt] #[out] InstanceName: LPWSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackSpn3W(#[in] pszSpn: LPCWSTR, cSpn: DWORD, pcHostName: *mut DWORD, #[out] #[readable(success, *pcHostName)] #[writable(entry, *pcHostName)] HostName: LPWSTR, pcInstanceName: *mut DWORD, #[out] #[readable(success, *pcInstanceName)] #[writable(entry, *pcInstanceName)] InstanceName: LPWSTR, pPortNumber: *mut USHORT, pcDomainName: *mut DWORD, #[out] #[readable(success, *pcDomainName)] #[writable(entry, *pcDomainName)] DomainName: LPWSTR, pcRealmName: *mut DWORD, #[out] #[readable(success, *pcRealmName)] #[writable(entry, *pcRealmName)] RealmName: LPWSTR) -> DWORD;
+        extern fn DsCrackSpn3W(#[in] pszSpn: LPCWSTR, cSpn: DWORD, pcHostName: *mut DWORD, #[buffer(*pcHostName)] #[out] HostName: LPWSTR, pcInstanceName: *mut DWORD, #[buffer(*pcInstanceName)] #[out] InstanceName: LPWSTR, pPortNumber: *mut USHORT, pcDomainName: *mut DWORD, #[buffer(*pcDomainName)] #[out] DomainName: LPWSTR, pcRealmName: *mut DWORD, #[buffer(*pcRealmName)] #[out] RealmName: LPWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackSpn4W(#[in] pszSpn: LPCWSTR, cSpn: DWORD, pcHostName: *mut DWORD, #[out] #[readable(success, *pcHostName)] #[writable(entry, *pcHostName)] HostName: LPWSTR, pcInstanceName: *mut DWORD, #[out] #[readable(success, *pcInstanceName)] #[writable(entry, *pcInstanceName)] InstanceName: LPWSTR, pcPortName: *mut DWORD, #[out] #[readable(success, *pcPortName)] #[writable(entry, *pcPortName)] PortName: LPWSTR, pcDomainName: *mut DWORD, #[out] #[readable(success, *pcDomainName)] #[writable(entry, *pcDomainName)] DomainName: LPWSTR, pcRealmName: *mut DWORD, #[out] #[readable(success, *pcRealmName)] #[writable(entry, *pcRealmName)] RealmName: LPWSTR) -> DWORD;
-        #[library("NTDSAPI.dll")]
-        #[must_use]
-        extern fn DsCrackSpnA(#[in] pszSpn: LPCSTR, #[in] #[opt] #[out] pcServiceClass: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceClass))] #[writable(entry, if_present(*pcServiceClass))] ServiceClass: LPSTR, #[in] #[opt] #[out] pcServiceName: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceName))] #[writable(entry, if_present(*pcServiceName))] ServiceName: LPSTR, #[in] #[opt] #[out] pcInstanceName: LPDWORD, #[opt] #[out] #[readable(success, if_present(*pcInstanceName))] #[writable(entry, if_present(*pcInstanceName))] InstanceName: LPSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
+        extern fn DsCrackSpn4W(#[in] pszSpn: LPCWSTR, cSpn: DWORD, pcHostName: *mut DWORD, #[buffer(*pcHostName)] #[out] HostName: LPWSTR, pcInstanceName: *mut DWORD, #[buffer(*pcInstanceName)] #[out] InstanceName: LPWSTR, pcPortName: *mut DWORD, #[buffer(*pcPortName)] #[out] PortName: LPWSTR, pcDomainName: *mut DWORD, #[buffer(*pcDomainName)] #[out] DomainName: LPWSTR, pcRealmName: *mut DWORD, #[buffer(*pcRealmName)] #[out] RealmName: LPWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsCrackSpnW(#[in] pszSpn: LPCWSTR, #[in] #[opt] #[out] pcServiceClass: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceClass))] #[writable(entry, if_present(*pcServiceClass))] ServiceClass: LPWSTR, #[in] #[opt] #[out] pcServiceName: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcServiceName))] #[writable(entry, if_present(*pcServiceName))] ServiceName: LPWSTR, #[in] #[opt] #[out] pcInstanceName: *mut DWORD, #[opt] #[out] #[readable(success, if_present(*pcInstanceName))] #[writable(entry, if_present(*pcInstanceName))] InstanceName: LPWSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
-        #[library("NTDSAPI.dll")]
-        extern fn DsCrackUnquotedMangledRdnA(#[in] #[readable(entry, cchRDN)] pszRDN: LPCSTR, cchRDN: DWORD, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
-        #[library("NTDSAPI.dll")]
-        extern fn DsCrackUnquotedMangledRdnW(#[in] #[readable(entry, cchRDN)] pszRDN: LPCWSTR, cchRDN: DWORD, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
+        extern fn DsCrackSpnA(#[in] pszSpn: LPCSTR, #[in] #[opt] #[out] pcServiceClass: LPDWORD, #[incomplete] #[opt] #[out] ServiceClass: LPSTR, #[in] #[opt] #[out] pcServiceName: LPDWORD, #[incomplete] #[opt] #[out] ServiceName: LPSTR, #[in] #[opt] #[out] pcInstanceName: LPDWORD, #[incomplete] #[opt] #[out] InstanceName: LPSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsGetRdnW(#[in] #[incomplete] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut DWORD, #[out] #[writable(success, *pcKey, indirect)] ppKey: *mut LPCWCH, #[out] pcKey: *mut DWORD, #[out] #[writable(success, *pcVal, indirect)] ppVal: *mut LPCWCH, #[out] pcVal: *mut DWORD) -> DWORD;
+        extern fn DsCrackSpnW(#[in] pszSpn: LPCWSTR, #[in] #[opt] #[out] pcServiceClass: *mut DWORD, #[incomplete] #[opt] #[out] ServiceClass: LPWSTR, #[in] #[opt] #[out] pcServiceName: *mut DWORD, #[incomplete] #[opt] #[out] ServiceName: LPWSTR, #[in] #[opt] #[out] pcInstanceName: *mut DWORD, #[incomplete] #[opt] #[out] InstanceName: LPWSTR, #[opt] #[out] pInstancePort: *mut USHORT) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackUnquotedMangledRdnA(#[buffer(cchRDN)] #[in] pszRDN: LPCSTR, cchRDN: DWORD, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackUnquotedMangledRdnW(#[buffer(cchRDN)] #[in] pszRDN: LPCWSTR, cchRDN: DWORD, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        #[must_use]
+        extern fn DsGetRdnW(#[in] #[incomplete] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut DWORD, #[incomplete] #[out] ppKey: *mut LPCWCH, #[out] pcKey: *mut DWORD, #[incomplete] #[out] ppVal: *mut LPCWCH, #[out] pcVal: *mut DWORD) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsIsMangledDnA(#[in] pszDn: LPCSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
         extern fn DsIsMangledDnW(#[in] pszDn: LPCWSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
-        extern fn DsIsMangledRdnValueA(#[in] #[readable(entry, cRdn)] pszRdn: LPCSTR, cRdn: DWORD, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
+        extern fn DsIsMangledRdnValueA(#[buffer(cRdn)] #[in] pszRdn: LPCSTR, cRdn: DWORD, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
-        extern fn DsIsMangledRdnValueW(#[in] #[readable(entry, cRdn)] pszRdn: LPCWSTR, cRdn: DWORD, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
-        #[library("NTDSAPI.dll")]
-        #[must_use]
-        extern fn DsMakeSpnA(#[in] ServiceClass: LPCSTR, #[in] ServiceName: LPCSTR, #[in] #[opt] InstanceName: LPCSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[opt] #[out] #[readable(success, *pcSpnLength)] #[writable(entry, *pcSpnLength)] pszSpn: LPSTR) -> DWORD;
+        extern fn DsIsMangledRdnValueW(#[buffer(cRdn)] #[in] pszRdn: LPCWSTR, cRdn: DWORD, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsMakeSpnW(#[in] ServiceClass: LPCWSTR, #[in] ServiceName: LPCWSTR, #[in] #[opt] InstanceName: LPCWSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[opt] #[out] #[readable(success, *pcSpnLength)] #[writable(entry, *pcSpnLength)] pszSpn: LPWSTR) -> DWORD;
+        extern fn DsMakeSpnA(#[in] ServiceClass: LPCSTR, #[in] ServiceName: LPCSTR, #[in] #[opt] InstanceName: LPCSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[buffer(*pcSpnLength)] #[opt] #[out] pszSpn: LPSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsQuoteRdnValueA(cUnquotedRdnValueLength: DWORD, #[in] #[readable(entry, cUnquotedRdnValueLength)] psUnquotedRdnValue: LPCCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcQuotedRdnValueLength)] #[writable(entry, *pcQuotedRdnValueLength)] psQuotedRdnValue: LPCH) -> DWORD;
+        extern fn DsMakeSpnW(#[in] ServiceClass: LPCWSTR, #[in] ServiceName: LPCWSTR, #[in] #[opt] InstanceName: LPCWSTR, #[in] InstancePort: USHORT, #[in] #[opt] Referrer: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[buffer(*pcSpnLength)] #[opt] #[out] pszSpn: LPWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsQuoteRdnValueW(cUnquotedRdnValueLength: DWORD, #[in] #[readable(entry, cUnquotedRdnValueLength)] psUnquotedRdnValue: LPCWCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcQuotedRdnValueLength)] #[writable(entry, *pcQuotedRdnValueLength)] psQuotedRdnValue: LPWCH) -> DWORD;
+        extern fn DsQuoteRdnValueA(cUnquotedRdnValueLength: DWORD, #[buffer(cUnquotedRdnValueLength)] #[in] psUnquotedRdnValue: LPCCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[buffer(*pcQuotedRdnValueLength)] #[out] psQuotedRdnValue: LPCH) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsUnquoteRdnValueA(cQuotedRdnValueLength: DWORD, #[in] #[readable(entry, cQuotedRdnValueLength)] psQuotedRdnValue: LPCCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcUnquotedRdnValueLength)] #[writable(entry, *pcUnquotedRdnValueLength)] psUnquotedRdnValue: LPCH) -> DWORD;
+        extern fn DsQuoteRdnValueW(cUnquotedRdnValueLength: DWORD, #[buffer(cUnquotedRdnValueLength)] #[in] psUnquotedRdnValue: LPCWCH, #[in] #[out] pcQuotedRdnValueLength: *mut DWORD, #[buffer(*pcQuotedRdnValueLength)] #[out] psQuotedRdnValue: LPWCH) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsUnquoteRdnValueW(cQuotedRdnValueLength: DWORD, #[in] #[readable(entry, cQuotedRdnValueLength)] psQuotedRdnValue: LPCWCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[out] #[readable(success, *pcUnquotedRdnValueLength)] #[writable(entry, *pcUnquotedRdnValueLength)] psUnquotedRdnValue: LPWCH) -> DWORD;
+        extern fn DsUnquoteRdnValueA(cQuotedRdnValueLength: DWORD, #[buffer(cQuotedRdnValueLength)] #[in] psQuotedRdnValue: LPCCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[buffer(*pcUnquotedRdnValueLength)] #[out] psUnquotedRdnValue: LPCH) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        #[must_use]
+        extern fn DsUnquoteRdnValueW(cQuotedRdnValueLength: DWORD, #[buffer(cQuotedRdnValueLength)] #[in] psQuotedRdnValue: LPCWCH, #[in] #[out] pcUnquotedRdnValueLength: *mut DWORD, #[buffer(*pcUnquotedRdnValueLength)] #[out] psUnquotedRdnValue: LPWCH) -> DWORD;
     }
 }

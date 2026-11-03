@@ -443,7 +443,6 @@ mod Windows {
             PacketSizeFileAlignment: ULONG,
             Reserved: ULONG,
             NumProcessingModeConstraints: ULONG,
-            #[writable(NumProcessingModeConstraints)]
             ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
         }
         struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
@@ -451,7 +450,6 @@ mod Windows {
             PacketSizeFileAlignment: ULONG,
             MaxPacketSizeInBytes: ULONG,
             NumProcessingModeConstraints: ULONG,
-            #[writable(NumProcessingModeConstraints)]
             ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
         }
         struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {

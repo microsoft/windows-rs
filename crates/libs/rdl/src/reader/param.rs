@@ -119,13 +119,17 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub fn encode_params(
-        &mut self,
-        params: &[Param],
-        result: &metadata::Type,
-    ) -> Result<(), Error> {
+    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
         let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
         let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
+        let optional: Vec<_> = params
+            .iter()
+            .map(|param| {
+                param
+                    .attributes
+                    .contains(metadata::ParamAttributes::Optional)
+            })
+            .collect();
         for (sequence, param) in params.iter().enumerate() {
             let param_id = self.output.Param(
                 &param.name,
@@ -155,12 +159,11 @@ impl Encoder<'_> {
                 false,
                 attribute_ref::ExtentTypes {
                     counts: &types,
+                    optional: &optional,
                     subject: &param.ty,
-                    result: Some(result),
                 },
             )?;
-            let mut skip: Vec<&str> =
-                vec!["r#in", "out", "opt", "readable", "writable", "nullable"];
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "buffer", "nullable"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),

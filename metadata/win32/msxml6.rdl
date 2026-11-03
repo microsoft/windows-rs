@@ -31,9 +31,9 @@ mod Windows {
             fn pushNodeContext(&self, #[in] contextNode: IXMLDOMNode, #[in] fDeep: VARIANT_BOOL) -> HRESULT;
             fn popContext(&self) -> HRESULT;
             fn declarePrefix(&self, #[in] prefix: LPCWSTR, #[in] namespaceURI: LPCWSTR) -> HRESULT;
-            fn getDeclaredPrefix(&self, #[in] nIndex: i32, #[in] #[out] #[readable(success, *pcchPrefix)] #[writable(entry, *pcchPrefix)] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
-            fn getPrefix(&self, #[in] pwszNamespaceURI: LPCWSTR, #[in] nIndex: i32, #[in] #[out] #[readable(success, *pcchPrefix)] #[writable(entry, *pcchPrefix)] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
-            fn getURI(&self, #[in] pwchPrefix: LPCWSTR, #[in] pContextNode: IXMLDOMNode, #[in] #[out] #[readable(success, *pcchUri)] #[writable(entry, *pcchUri)] pwchUri: *mut u16, #[in] #[out] pcchUri: *mut i32) -> HRESULT;
+            fn getDeclaredPrefix(&self, #[in] nIndex: i32, #[buffer(*pcchPrefix)] #[in] #[out] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
+            fn getPrefix(&self, #[in] pwszNamespaceURI: LPCWSTR, #[in] nIndex: i32, #[buffer(*pcchPrefix)] #[in] #[out] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
+            fn getURI(&self, #[in] pwchPrefix: LPCWSTR, #[in] pContextNode: IXMLDOMNode, #[buffer(*pcchUri)] #[in] #[out] pwchUri: *mut u16, #[in] #[out] pcchUri: *mut i32) -> HRESULT;
         }
         #[guid(0xc90352f4_643c_4fbc_bb23_e996eb2d51fd)]
         interface IMXNamespacePrefixes: IDispatch {
@@ -642,9 +642,9 @@ mod Windows {
             fn SetCustomResponseStream(&self, #[in] #[opt] pSequentialStream: ISequentialStream) -> HRESULT;
             fn SetProperty(&self, #[in] eProperty: XHR_PROPERTY, #[in] ullValue: ULONGLONG) -> HRESULT;
             fn SetRequestHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszValue: *const WCHAR) -> HRESULT;
-            fn GetAllResponseHeaders(&self, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
-            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[nullable] #[out] #[readable(success, *pcCookies, indirect)] #[writable(success, *pcCookies, indirect)] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
-            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] #[readable(entry, 1, indirect)] ppwszValue: *mut *mut WCHAR) -> HRESULT;
+            fn GetAllResponseHeaders(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
+            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[incomplete] #[nullable] #[out] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
+            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszValue: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xa44a9299_e321_40de_8866_341b41669162)]
         interface IXMLHTTPRequest2Callback: IUnknown {
@@ -656,12 +656,12 @@ mod Windows {
         }
         #[guid(0xa1c9feee_0617_4f23_9d58_8961ea43567c)]
         interface IXMLHTTPRequest3: IXMLHTTPRequest2 {
-            fn SetClientCertificate(&self, #[in] cbClientCertificateHash: DWORD, #[in] #[opt] #[readable(entry, cbClientCertificateHash)] pbClientCertificateHash: *const BYTE, #[in] #[null_terminated(entry)] #[opt] pwszPin: *const WCHAR) -> HRESULT;
+            fn SetClientCertificate(&self, #[in] cbClientCertificateHash: DWORD, #[buffer(cbClientCertificateHash)] #[in] #[opt] pbClientCertificateHash: *const BYTE, #[in] #[null_terminated(entry)] #[opt] pwszPin: *const WCHAR) -> HRESULT;
         }
         #[guid(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb)]
         interface IXMLHTTPRequest3Callback: IXMLHTTPRequest2Callback {
-            fn OnServerCertificateReceived(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] dwCertificateErrors: DWORD, #[in] cServerCertificateChain: DWORD, #[in] #[opt] #[readable(entry, cServerCertificateChain)] rgServerCertificateChain: *const XHR_CERT) -> HRESULT;
-            fn OnClientCertificateRequested(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] cIssuerList: DWORD, #[in] #[opt] #[readable(entry, cIssuerList)] rgpwszIssuerList: *mut *const WCHAR) -> HRESULT;
+            fn OnServerCertificateReceived(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] dwCertificateErrors: DWORD, #[in] cServerCertificateChain: DWORD, #[buffer(cServerCertificateChain)] #[in] #[opt] rgServerCertificateChain: *const XHR_CERT) -> HRESULT;
+            fn OnClientCertificateRequested(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] cIssuerList: DWORD, #[buffer(cIssuerList)] #[in] #[opt] rgpwszIssuerList: *mut *const WCHAR) -> HRESULT;
         }
         #[guid(0x2933bf92_7b36_11d2_b20e_00c04f983e60)]
         interface IXSLProcessor: IDispatch {
