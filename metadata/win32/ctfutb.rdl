@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x583f34d0_de25_11d2_afdd_00105a2799b5)]
         interface IEnumTfLangBarItems: IUnknown {
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
             fn Next(&self, #[in] ulCount: ULONG, #[buffer(ulCount)] #[out] ppItem: *mut ITfLangBarItem, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
@@ -22,7 +22,7 @@ mod Windows {
             fn GetInfo(&self, #[out] pInfo: *mut TF_LANGBARITEMINFO) -> HRESULT;
             fn GetStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
             fn Show(&self, #[in] fShow: BOOL) -> HRESULT;
-            fn GetTooltipString(&self, #[out] #[out_ptr] pbstrToolTip: *mut BSTR) -> HRESULT;
+            fn GetTooltipString(&self, #[out] pbstrToolTip: *mut BSTR) -> HRESULT;
         }
         #[guid(0x01c2d285_d3c7_4b7b_b5b5_d97411d0c283)]
         interface ITfLangBarItemBalloon: ITfLangBarItem {
@@ -34,7 +34,7 @@ mod Windows {
         interface ITfLangBarItemBitmap: ITfLangBarItem {
             fn OnClick(&self, #[in] click: TfLBIClick, #[in] pt: POINT, #[in] prcArea: *const RECT) -> HRESULT;
             fn GetPreferredSize(&self, #[in] pszDefault: *const SIZE, #[out] psz: *mut SIZE) -> HRESULT;
-            fn DrawBitmap(&self, #[in] bmWidth: LONG, #[in] bmHeight: LONG, #[in] dwFlags: DWORD, #[out] #[out_ptr] phbmp: *mut HBITMAP, #[out] #[out_ptr] phbmpMask: *mut HBITMAP) -> HRESULT;
+            fn DrawBitmap(&self, #[in] bmWidth: LONG, #[in] bmHeight: LONG, #[in] dwFlags: DWORD, #[out] phbmp: *mut HBITMAP, #[out] phbmpMask: *mut HBITMAP) -> HRESULT;
         }
         #[guid(0xa26a0525_3fae_4fa0_89ee_88a964f9f1b5)]
         interface ITfLangBarItemBitmapButton: ITfLangBarItem {
@@ -42,21 +42,21 @@ mod Windows {
             fn InitMenu(&self, #[in] #[opt] pMenu: ITfMenu) -> HRESULT;
             fn OnMenuSelect(&self, #[in] wID: UINT) -> HRESULT;
             fn GetPreferredSize(&self, #[in] pszDefault: *const SIZE, #[out] psz: *mut SIZE) -> HRESULT;
-            fn DrawBitmap(&self, #[in] bmWidth: LONG, #[in] bmHeight: LONG, #[in] dwFlags: DWORD, #[out] #[out_ptr] phbmp: *mut HBITMAP, #[out] #[out_ptr] phbmpMask: *mut HBITMAP) -> HRESULT;
-            fn GetText(&self, #[out] #[out_ptr] pbstrText: *mut BSTR) -> HRESULT;
+            fn DrawBitmap(&self, #[in] bmWidth: LONG, #[in] bmHeight: LONG, #[in] dwFlags: DWORD, #[out] phbmp: *mut HBITMAP, #[out] phbmpMask: *mut HBITMAP) -> HRESULT;
+            fn GetText(&self, #[out] pbstrText: *mut BSTR) -> HRESULT;
         }
         #[guid(0x28c7f1d0_de25_11d2_afdd_00105a2799b5)]
         interface ITfLangBarItemButton: ITfLangBarItem {
             fn OnClick(&self, #[in] click: TfLBIClick, #[in] pt: POINT, #[in] prcArea: *const RECT) -> HRESULT;
             fn InitMenu(&self, #[in] #[opt] pMenu: ITfMenu) -> HRESULT;
             fn OnMenuSelect(&self, #[in] wID: UINT) -> HRESULT;
-            fn GetIcon(&self, #[out] #[out_ptr] phIcon: *mut HICON) -> HRESULT;
-            fn GetText(&self, #[out] #[out_ptr] pbstrText: *mut BSTR) -> HRESULT;
+            fn GetIcon(&self, #[out] phIcon: *mut HICON) -> HRESULT;
+            fn GetText(&self, #[out] pbstrText: *mut BSTR) -> HRESULT;
         }
         #[guid(0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa)]
         interface ITfLangBarItemMgr: IUnknown {
-            fn EnumItems(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
-            fn GetItem(&self, #[in] rguid: &GUID, #[out] #[out_ptr] #[retval] ppItem: *mut ITfLangBarItem) -> HRESULT;
+            fn EnumItems(&self, #[out] #[retval] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn GetItem(&self, #[in] rguid: &GUID, #[out] #[retval] ppItem: *mut ITfLangBarItem) -> HRESULT;
             fn AddItem(&self, #[in] #[opt] punk: ITfLangBarItem) -> HRESULT;
             fn RemoveItem(&self, #[in] #[opt] punk: ITfLangBarItem) -> HRESULT;
             fn AdviseItemSink(&self, #[in] #[opt] punk: ITfLangBarItemSink, #[out] pdwCookie: *mut DWORD, #[in] rguidItem: &GUID) -> HRESULT;
@@ -76,9 +76,9 @@ mod Windows {
         interface ITfLangBarMgr: IUnknown {
             fn AdviseEventSink(&self, #[in] #[opt] pSink: ITfLangBarEventSink, #[in] hwnd: HWND, #[in] dwFlags: DWORD, #[in] pdwCookie: *mut DWORD) -> HRESULT;
             fn UnadviseEventSink(&self, #[in] dwCookie: DWORD) -> HRESULT;
-            fn GetThreadMarshalInterface(&self, #[in] dwThreadId: DWORD, #[in] dwType: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
-            fn GetThreadLangBarItemMgr(&self, #[in] dwThreadId: DWORD, #[out] #[out_ptr] pplbi: *mut ITfLangBarItemMgr, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
-            fn GetInputProcessorProfiles(&self, #[in] dwThreadId: DWORD, #[out] #[out_ptr] ppaip: *mut ITfInputProcessorProfiles, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
+            fn GetThreadMarshalInterface(&self, #[in] dwThreadId: DWORD, #[in] dwType: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetThreadLangBarItemMgr(&self, #[in] dwThreadId: DWORD, #[out] pplbi: *mut ITfLangBarItemMgr, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
+            fn GetInputProcessorProfiles(&self, #[in] dwThreadId: DWORD, #[out] ppaip: *mut ITfInputProcessorProfiles, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
             fn RestoreLastFocus(&self, #[out] pdwThreadId: *mut DWORD, #[in] fPrev: BOOL) -> HRESULT;
             fn SetModalInput(&self, #[in] #[opt] pSink: ITfLangBarEventSink, #[in] dwThreadId: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
             fn ShowFloating(&self, #[in] dwFlags: DWORD) -> HRESULT;
@@ -106,7 +106,7 @@ mod Windows {
         #[guid(0x5c4ce0e5_ba49_4b52_ac6b_3b397b4f701f)]
         interface ITfSystemLangBarItemText: IUnknown {
             fn SetItemText(&self, #[buffer(cch)] #[in] pch: *const WCHAR, #[in] cch: ULONG) -> HRESULT;
-            fn GetItemText(&self, #[out] #[out_ptr] pbstrText: *mut BSTR) -> HRESULT;
+            fn GetItemText(&self, #[out] pbstrText: *mut BSTR) -> HRESULT;
         }
         const TF_DTLBI_USEPROFILEICON: i32 = 1;
         #[encoding("ansi")]

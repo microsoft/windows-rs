@@ -102,7 +102,10 @@ impl IDispError_Vtbl {
                         ppde.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppde.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -114,7 +117,10 @@ impl IDispError_Vtbl {
                         ppde.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppde.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -308,7 +314,10 @@ impl IDispatchEx_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

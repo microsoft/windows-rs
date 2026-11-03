@@ -22,9 +22,9 @@ mod Windows {
         struct CD3D11_VIDEO_DEFAULT {}
         struct CD3D11_VIEWPORT {}
         #[library("d3d11.dll")]
-        extern fn D3D11CreateDevice(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[buffer(FeatureLevels)] #[in] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[opt] #[out] #[out_ptr(null_on_failure)] ppDevice: *mut ID3D11Device, #[opt] #[out] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] #[out_ptr(null_on_failure)] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn D3D11CreateDevice(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[buffer(FeatureLevels)] #[in] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[opt] #[out] ppDevice: *mut ID3D11Device, #[opt] #[out] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
         #[library("d3d11.dll")]
-        extern fn D3D11CreateDeviceAndSwapChain(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[buffer(FeatureLevels)] #[in] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[in] #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain, #[opt] #[out] #[out_ptr(null_on_failure)] ppDevice: *mut ID3D11Device, #[opt] #[out] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] #[out_ptr(null_on_failure)] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn D3D11CreateDeviceAndSwapChain(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[buffer(FeatureLevels)] #[in] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[in] #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] #[out] ppSwapChain: *mut IDXGISwapChain, #[opt] #[out] ppDevice: *mut ID3D11Device, #[opt] #[out] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] #[out] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
         const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: i32 = 65535;
         const D3D11_1_UAV_SLOT_COUNT: i32 = 64;
         const D3D11_2_TILED_RESOURCE_TILE_SIZE_IN_BYTES: i32 = 65536;
@@ -2014,15 +2014,15 @@ mod Windows {
         }
         #[guid(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb)]
         interface ID3D11ClassInstance: ID3D11DeviceChild {
-            fn GetClassLinkage(&self, #[out] #[out_ptr] ppLinkage: *mut ID3D11ClassLinkage);
+            fn GetClassLinkage(&self, #[out] ppLinkage: *mut ID3D11ClassLinkage);
             fn GetDesc(&self, #[out] pDesc: *mut D3D11_CLASS_INSTANCE_DESC);
             fn GetInstanceName(&self, #[buffer(*pBufferLength)] #[opt] #[out] pInstanceName: LPSTR, #[in] #[out] pBufferLength: *mut SIZE_T);
             fn GetTypeName(&self, #[buffer(*pBufferLength)] #[opt] #[out] pTypeName: LPSTR, #[in] #[out] pBufferLength: *mut SIZE_T);
         }
         #[guid(0xddf57cba_9543_46e4_a12b_f207a0fe7fed)]
         interface ID3D11ClassLinkage: ID3D11DeviceChild {
-            fn GetClassInstance(&self, #[in] pClassInstanceName: LPCSTR, #[in] InstanceIndex: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
-            fn CreateClassInstance(&self, #[in] pClassTypeName: LPCSTR, #[in] ConstantBufferOffset: UINT, #[in] ConstantVectorOffset: UINT, #[in] TextureOffset: UINT, #[in] SamplerOffset: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn GetClassInstance(&self, #[in] pClassInstanceName: LPCSTR, #[in] InstanceIndex: UINT, #[out] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn CreateClassInstance(&self, #[in] pClassTypeName: LPCSTR, #[in] ConstantBufferOffset: UINT, #[in] ConstantVectorOffset: UINT, #[in] TextureOffset: UINT, #[in] SamplerOffset: UINT, #[out] #[retval] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
         }
         #[guid(0xa24bc4d1_769e_43f7_8013_98ff566c18e2)]
         interface ID3D11CommandList: ID3D11DeviceChild {
@@ -2052,32 +2052,32 @@ mod Windows {
         }
         #[guid(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140)]
         interface ID3D11Device: IUnknown {
-            fn CreateBuffer(&self, #[in] pDesc: *const D3D11_BUFFER_DESC, #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppBuffer: *mut ID3D11Buffer) -> HRESULT;
-            fn CreateTexture1D(&self, #[in] pDesc: *const D3D11_TEXTURE1D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture1D: *mut ID3D11Texture1D) -> HRESULT;
-            fn CreateTexture2D(&self, #[in] pDesc: *const D3D11_TEXTURE2D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture2D: *mut ID3D11Texture2D) -> HRESULT;
-            fn CreateTexture3D(&self, #[in] pDesc: *const D3D11_TEXTURE3D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] #[out_ptr(null_on_failure)] ppTexture3D: *mut ID3D11Texture3D) -> HRESULT;
-            fn CreateShaderResourceView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppSRView: *mut ID3D11ShaderResourceView) -> HRESULT;
-            fn CreateUnorderedAccessView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppUAView: *mut ID3D11UnorderedAccessView) -> HRESULT;
-            fn CreateRenderTargetView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_RENDER_TARGET_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppRTView: *mut ID3D11RenderTargetView) -> HRESULT;
-            fn CreateDepthStencilView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppDepthStencilView: *mut ID3D11DepthStencilView) -> HRESULT;
-            fn CreateInputLayout(&self, #[buffer(NumElements)] #[in] pInputElementDescs: *const D3D11_INPUT_ELEMENT_DESC, NumElements: UINT, #[buffer(BytecodeLength)] #[in] pShaderBytecodeWithInputSignature: *const void, #[in] BytecodeLength: SIZE_T, #[opt] #[out] #[out_ptr(null_on_failure)] ppInputLayout: *mut ID3D11InputLayout) -> HRESULT;
-            fn CreateVertexShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppVertexShader: *mut ID3D11VertexShader) -> HRESULT;
-            fn CreateGeometryShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
-            fn CreateGeometryShaderWithStreamOutput(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[buffer(NumEntries)] #[in] #[opt] pSODeclaration: *const D3D11_SO_DECLARATION_ENTRY, NumEntries: UINT, #[buffer(NumStrides)] #[in] #[opt] pBufferStrides: *const UINT, NumStrides: UINT, #[in] RasterizedStream: UINT, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
-            fn CreatePixelShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppPixelShader: *mut ID3D11PixelShader) -> HRESULT;
-            fn CreateHullShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppHullShader: *mut ID3D11HullShader) -> HRESULT;
-            fn CreateDomainShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppDomainShader: *mut ID3D11DomainShader) -> HRESULT;
-            fn CreateComputeShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] #[out_ptr(null_on_failure)] ppComputeShader: *mut ID3D11ComputeShader) -> HRESULT;
-            fn CreateClassLinkage(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
-            fn CreateBlendState(&self, #[in] pBlendStateDesc: *const D3D11_BLEND_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppBlendState: *mut ID3D11BlendState) -> HRESULT;
-            fn CreateDepthStencilState(&self, #[in] pDepthStencilDesc: *const D3D11_DEPTH_STENCIL_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppDepthStencilState: *mut ID3D11DepthStencilState) -> HRESULT;
-            fn CreateRasterizerState(&self, #[in] pRasterizerDesc: *const D3D11_RASTERIZER_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppRasterizerState: *mut ID3D11RasterizerState) -> HRESULT;
-            fn CreateSamplerState(&self, #[in] pSamplerDesc: *const D3D11_SAMPLER_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppSamplerState: *mut ID3D11SamplerState) -> HRESULT;
-            fn CreateQuery(&self, #[in] pQueryDesc: *const D3D11_QUERY_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppQuery: *mut ID3D11Query) -> HRESULT;
-            fn CreatePredicate(&self, #[in] pPredicateDesc: *const D3D11_QUERY_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppPredicate: *mut ID3D11Predicate) -> HRESULT;
-            fn CreateCounter(&self, #[in] pCounterDesc: *const D3D11_COUNTER_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppCounter: *mut ID3D11Counter) -> HRESULT;
-            fn CreateDeferredContext(&self, ContextFlags: UINT, #[opt] #[out] #[out_ptr(null_on_failure)] ppDeferredContext: *mut ID3D11DeviceContext) -> HRESULT;
-            fn OpenSharedResource(&self, #[in] hResource: HANDLE, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppResource: *mut *mut void) -> HRESULT;
+            fn CreateBuffer(&self, #[in] pDesc: *const D3D11_BUFFER_DESC, #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] ppBuffer: *mut ID3D11Buffer) -> HRESULT;
+            fn CreateTexture1D(&self, #[in] pDesc: *const D3D11_TEXTURE1D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] ppTexture1D: *mut ID3D11Texture1D) -> HRESULT;
+            fn CreateTexture2D(&self, #[in] pDesc: *const D3D11_TEXTURE2D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] ppTexture2D: *mut ID3D11Texture2D) -> HRESULT;
+            fn CreateTexture3D(&self, #[in] pDesc: *const D3D11_TEXTURE3D_DESC, #[in] #[incomplete] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] #[out] ppTexture3D: *mut ID3D11Texture3D) -> HRESULT;
+            fn CreateShaderResourceView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, #[opt] #[out] ppSRView: *mut ID3D11ShaderResourceView) -> HRESULT;
+            fn CreateUnorderedAccessView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, #[opt] #[out] ppUAView: *mut ID3D11UnorderedAccessView) -> HRESULT;
+            fn CreateRenderTargetView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_RENDER_TARGET_VIEW_DESC, #[opt] #[out] ppRTView: *mut ID3D11RenderTargetView) -> HRESULT;
+            fn CreateDepthStencilView(&self, #[in] pResource: ID3D11Resource, #[in] #[opt] pDesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView) -> HRESULT;
+            fn CreateInputLayout(&self, #[buffer(NumElements)] #[in] pInputElementDescs: *const D3D11_INPUT_ELEMENT_DESC, NumElements: UINT, #[buffer(BytecodeLength)] #[in] pShaderBytecodeWithInputSignature: *const void, #[in] BytecodeLength: SIZE_T, #[opt] #[out] ppInputLayout: *mut ID3D11InputLayout) -> HRESULT;
+            fn CreateVertexShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppVertexShader: *mut ID3D11VertexShader) -> HRESULT;
+            fn CreateGeometryShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
+            fn CreateGeometryShaderWithStreamOutput(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[buffer(NumEntries)] #[in] #[opt] pSODeclaration: *const D3D11_SO_DECLARATION_ENTRY, NumEntries: UINT, #[buffer(NumStrides)] #[in] #[opt] pBufferStrides: *const UINT, NumStrides: UINT, #[in] RasterizedStream: UINT, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
+            fn CreatePixelShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppPixelShader: *mut ID3D11PixelShader) -> HRESULT;
+            fn CreateHullShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppHullShader: *mut ID3D11HullShader) -> HRESULT;
+            fn CreateDomainShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppDomainShader: *mut ID3D11DomainShader) -> HRESULT;
+            fn CreateComputeShader(&self, #[buffer(BytecodeLength)] #[in] pShaderBytecode: *const void, #[in] BytecodeLength: SIZE_T, #[in] #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] #[out] ppComputeShader: *mut ID3D11ComputeShader) -> HRESULT;
+            fn CreateClassLinkage(&self, #[out] #[retval] ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
+            fn CreateBlendState(&self, #[in] pBlendStateDesc: *const D3D11_BLEND_DESC, #[opt] #[out] ppBlendState: *mut ID3D11BlendState) -> HRESULT;
+            fn CreateDepthStencilState(&self, #[in] pDepthStencilDesc: *const D3D11_DEPTH_STENCIL_DESC, #[opt] #[out] ppDepthStencilState: *mut ID3D11DepthStencilState) -> HRESULT;
+            fn CreateRasterizerState(&self, #[in] pRasterizerDesc: *const D3D11_RASTERIZER_DESC, #[opt] #[out] ppRasterizerState: *mut ID3D11RasterizerState) -> HRESULT;
+            fn CreateSamplerState(&self, #[in] pSamplerDesc: *const D3D11_SAMPLER_DESC, #[opt] #[out] ppSamplerState: *mut ID3D11SamplerState) -> HRESULT;
+            fn CreateQuery(&self, #[in] pQueryDesc: *const D3D11_QUERY_DESC, #[opt] #[out] ppQuery: *mut ID3D11Query) -> HRESULT;
+            fn CreatePredicate(&self, #[in] pPredicateDesc: *const D3D11_QUERY_DESC, #[opt] #[out] ppPredicate: *mut ID3D11Predicate) -> HRESULT;
+            fn CreateCounter(&self, #[in] pCounterDesc: *const D3D11_COUNTER_DESC, #[opt] #[out] ppCounter: *mut ID3D11Counter) -> HRESULT;
+            fn CreateDeferredContext(&self, ContextFlags: UINT, #[opt] #[out] ppDeferredContext: *mut ID3D11DeviceContext) -> HRESULT;
+            fn OpenSharedResource(&self, #[in] hResource: HANDLE, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] ppResource: *mut *mut void) -> HRESULT;
             fn CheckFormatSupport(&self, #[in] Format: DXGI_FORMAT, #[out] pFormatSupport: *mut UINT) -> HRESULT;
             fn CheckMultisampleQualityLevels(&self, #[in] Format: DXGI_FORMAT, #[in] SampleCount: UINT, #[out] pNumQualityLevels: *mut UINT) -> HRESULT;
             fn CheckCounterInfo(&self, #[out] pCounterInfo: *mut D3D11_COUNTER_INFO);
@@ -2089,13 +2089,13 @@ mod Windows {
             fn GetFeatureLevel(&self) -> D3D_FEATURE_LEVEL;
             fn GetCreationFlags(&self) -> UINT;
             fn GetDeviceRemovedReason(&self) -> HRESULT;
-            fn GetImmediateContext(&self, #[out] #[out_ptr] ppImmediateContext: *mut ID3D11DeviceContext);
+            fn GetImmediateContext(&self, #[out] ppImmediateContext: *mut ID3D11DeviceContext);
             fn SetExceptionMode(&self, RaiseFlags: UINT) -> HRESULT;
             fn GetExceptionMode(&self) -> UINT;
         }
         #[guid(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae)]
         interface ID3D11DeviceChild: IUnknown {
-            fn GetDevice(&self, #[out] #[out_ptr] ppDevice: *mut ID3D11Device);
+            fn GetDevice(&self, #[out] ppDevice: *mut ID3D11Device);
             fn GetPrivateData(&self, #[in] guid: &GUID, #[in] #[out] pDataSize: *mut UINT, #[buffer(bytes(*pDataSize))] #[opt] #[out] pData: *mut void) -> HRESULT;
             fn SetPrivateData(&self, #[in] guid: &GUID, #[in] DataSize: UINT, #[buffer(bytes(DataSize))] #[in] #[opt] pData: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, #[in] guid: &GUID, #[in] #[opt] pData: IUnknown) -> HRESULT;
@@ -2169,47 +2169,47 @@ mod Windows {
             fn CSSetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[in] #[opt] ppConstantBuffers: *const ID3D11Buffer);
             fn VSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn PSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn PSGetShader(&self, #[nullable] #[out] #[out_ptr] ppPixelShader: *mut ID3D11PixelShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn PSGetShader(&self, #[nullable] #[out] ppPixelShader: *mut ID3D11PixelShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn VSGetShader(&self, #[nullable] #[out] #[out_ptr] ppVertexShader: *mut ID3D11VertexShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn VSGetShader(&self, #[nullable] #[out] ppVertexShader: *mut ID3D11VertexShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn PSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
-            fn IAGetInputLayout(&self, #[nullable] #[out] #[out_ptr] ppInputLayout: *mut ID3D11InputLayout);
+            fn IAGetInputLayout(&self, #[nullable] #[out] ppInputLayout: *mut ID3D11InputLayout);
             fn IAGetVertexBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppVertexBuffers: *mut ID3D11Buffer, #[buffer(NumBuffers)] #[opt] #[out] pStrides: *mut UINT, #[buffer(NumBuffers)] #[opt] #[out] pOffsets: *mut UINT);
-            fn IAGetIndexBuffer(&self, #[nullable] #[opt] #[out] #[out_ptr] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
+            fn IAGetIndexBuffer(&self, #[nullable] #[opt] #[out] pIndexBuffer: *mut ID3D11Buffer, #[opt] #[out] Format: *mut DXGI_FORMAT, #[opt] #[out] Offset: *mut UINT);
             fn GSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
-            fn GSGetShader(&self, #[nullable] #[out] #[out_ptr] ppGeometryShader: *mut ID3D11GeometryShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn GSGetShader(&self, #[nullable] #[out] ppGeometryShader: *mut ID3D11GeometryShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn IAGetPrimitiveTopology(&self, #[out] pTopology: *mut D3D11_PRIMITIVE_TOPOLOGY);
             fn VSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn VSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn GetPredication(&self, #[nullable] #[opt] #[out] #[out_ptr] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
+            fn GetPredication(&self, #[nullable] #[opt] #[out] ppPredicate: *mut ID3D11Predicate, #[opt] #[out] pPredicateValue: *mut BOOL);
             fn GSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn GSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
-            fn OMGetRenderTargets(&self, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilView: *mut ID3D11DepthStencilView);
-            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: UINT, #[buffer(NumRTVs)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, #[nullable] #[opt] #[out] #[out_ptr] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
-            fn OMGetDepthStencilState(&self, #[nullable] #[opt] #[out] #[out_ptr] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
+            fn OMGetRenderTargets(&self, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView);
+            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: UINT, #[buffer(NumRTVs)] #[opt] #[out] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[nullable] #[opt] #[out] ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
+            fn OMGetBlendState(&self, #[nullable] #[opt] #[out] ppBlendState: *mut ID3D11BlendState, #[opt] #[out] BlendFactor: *mut FLOAT, #[opt] #[out] pSampleMask: *mut UINT);
+            fn OMGetDepthStencilState(&self, #[nullable] #[opt] #[out] ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] #[out] pStencilRef: *mut UINT);
             fn SOGetTargets(&self, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppSOTargets: *mut ID3D11Buffer);
-            fn RSGetState(&self, #[nullable] #[out] #[out_ptr] ppRasterizerState: *mut ID3D11RasterizerState);
+            fn RSGetState(&self, #[nullable] #[out] ppRasterizerState: *mut ID3D11RasterizerState);
             fn RSGetViewports(&self, #[in] #[out] pNumViewports: *mut UINT, #[buffer(*pNumViewports)] #[opt] #[out] pViewports: *mut D3D11_VIEWPORT);
             fn RSGetScissorRects(&self, #[in] #[out] pNumRects: *mut UINT, #[buffer(*pNumRects)] #[opt] #[out] pRects: *mut D3D11_RECT);
             fn HSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn HSGetShader(&self, #[nullable] #[out] #[out_ptr] ppHullShader: *mut ID3D11HullShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn HSGetShader(&self, #[nullable] #[out] ppHullShader: *mut ID3D11HullShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn HSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn HSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn DSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn DSGetShader(&self, #[nullable] #[out] #[out_ptr] ppDomainShader: *mut ID3D11DomainShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn DSGetShader(&self, #[nullable] #[out] ppDomainShader: *mut ID3D11DomainShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn DSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn DSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn CSGetShaderResources(&self, StartSlot: UINT, NumViews: UINT, #[buffer(NumViews)] #[opt] #[out] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
             fn CSGetUnorderedAccessViews(&self, StartSlot: UINT, NumUAVs: UINT, #[buffer(NumUAVs)] #[opt] #[out] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn CSGetShader(&self, #[nullable] #[out] #[out_ptr] ppComputeShader: *mut ID3D11ComputeShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
+            fn CSGetShader(&self, #[nullable] #[out] ppComputeShader: *mut ID3D11ComputeShader, #[incomplete] #[opt] #[out] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[opt] #[out] pNumClassInstances: *mut UINT);
             fn CSGetSamplers(&self, StartSlot: UINT, NumSamplers: UINT, #[buffer(NumSamplers)] #[opt] #[out] ppSamplers: *mut ID3D11SamplerState);
             fn CSGetConstantBuffers(&self, StartSlot: UINT, NumBuffers: UINT, #[buffer(NumBuffers)] #[opt] #[out] ppConstantBuffers: *mut ID3D11Buffer);
             fn ClearState(&self);
             fn Flush(&self);
             fn GetType(&self) -> D3D11_DEVICE_CONTEXT_TYPE;
             fn GetContextFlags(&self) -> UINT;
-            fn FinishCommandList(&self, RestoreDeferredContextState: BOOL, #[opt] #[out] #[out_ptr(null_on_failure)] ppCommandList: *mut ID3D11CommandList) -> HRESULT;
+            fn FinishCommandList(&self, RestoreDeferredContextState: BOOL, #[opt] #[out] ppCommandList: *mut ID3D11CommandList) -> HRESULT;
         }
         #[guid(0xf582c508_0f36_490c_9977_31eece268cfa)]
         interface ID3D11DomainShader: ID3D11DeviceChild {}
@@ -2339,14 +2339,14 @@ mod Windows {
         }
         #[guid(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333)]
         interface ID3D11VideoDevice: IUnknown {
-            fn CreateVideoDecoder(&self, #[in] pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] pConfig: *const D3D11_VIDEO_DECODER_CONFIG, #[out] #[out_ptr(null_on_failure)] #[retval] ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
-            fn CreateVideoProcessor(&self, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] RateConversionIndex: UINT, #[out] #[out_ptr(null_on_failure)] #[retval] ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
-            fn CreateAuthenticatedChannel(&self, #[in] ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, #[out] #[out_ptr(null_on_failure)] #[retval] ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
-            fn CreateCryptoSession(&self, #[in] pCryptoType: *const GUID, #[in] #[opt] pDecoderProfile: *const GUID, #[in] pKeyExchangeType: *const GUID, #[out] #[out_ptr(null_on_failure)] #[retval] ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
-            fn CreateVideoDecoderOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pDesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVDOVView: *mut ID3D11VideoDecoderOutputView) -> HRESULT;
-            fn CreateVideoProcessorInputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVPIView: *mut ID3D11VideoProcessorInputView) -> HRESULT;
-            fn CreateVideoProcessorOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] ppVPOView: *mut ID3D11VideoProcessorOutputView) -> HRESULT;
-            fn CreateVideoProcessorEnumerator(&self, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, #[out] #[out_ptr(null_on_failure)] #[retval] ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
+            fn CreateVideoDecoder(&self, #[in] pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] pConfig: *const D3D11_VIDEO_DECODER_CONFIG, #[out] #[retval] ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
+            fn CreateVideoProcessor(&self, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] RateConversionIndex: UINT, #[out] #[retval] ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
+            fn CreateAuthenticatedChannel(&self, #[in] ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, #[out] #[retval] ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
+            fn CreateCryptoSession(&self, #[in] pCryptoType: *const GUID, #[in] #[opt] pDecoderProfile: *const GUID, #[in] pKeyExchangeType: *const GUID, #[out] #[retval] ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
+            fn CreateVideoDecoderOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pDesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, #[opt] #[out] ppVDOVView: *mut ID3D11VideoDecoderOutputView) -> HRESULT;
+            fn CreateVideoProcessorInputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, #[opt] #[out] ppVPIView: *mut ID3D11VideoProcessorInputView) -> HRESULT;
+            fn CreateVideoProcessorOutputView(&self, #[in] pResource: ID3D11Resource, #[in] pEnum: ID3D11VideoProcessorEnumerator, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, #[opt] #[out] ppVPOView: *mut ID3D11VideoProcessorOutputView) -> HRESULT;
+            fn CreateVideoProcessorEnumerator(&self, #[in] pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, #[out] #[retval] ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
             fn GetVideoDecoderProfileCount(&self) -> UINT;
             fn GetVideoDecoderProfile(&self, #[in] Index: UINT, #[out] pDecoderProfile: *mut GUID) -> HRESULT;
             fn CheckVideoDecoderFormat(&self, #[in] pDecoderProfile: *const GUID, #[in] Format: DXGI_FORMAT, #[out] pSupported: *mut BOOL) -> HRESULT;
@@ -2381,7 +2381,7 @@ mod Windows {
         }
         #[guid(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1)]
         interface ID3D11View: ID3D11DeviceChild {
-            fn GetResource(&self, #[out] #[out_ptr] ppResource: *mut ID3D11Resource);
+            fn GetResource(&self, #[out] ppResource: *mut ID3D11Resource);
         }
         const IID_ID3D11Asynchronous: GUID = 0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b;
         const IID_ID3D11AuthenticatedChannel: GUID = 0x3015a308_dcbd_47aa_a747_192486d14d4a;
@@ -2424,8 +2424,8 @@ mod Windows {
         const IID_ID3D11VideoProcessorInputView: GUID = 0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5;
         const IID_ID3D11VideoProcessorOutputView: GUID = 0xa048285e_25a9_4527_bd93_d68b68c44254;
         const IID_ID3D11View: GUID = 0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1;
-        extern fn PFN_D3D11_CREATE_DEVICE(#[in] #[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[buffer(FeatureLevels)] #[in] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[opt] #[out] #[out_ptr(null_on_failure)] param7: *mut ID3D11Device, #[opt] #[out] param8: *mut D3D_FEATURE_LEVEL, #[opt] #[out] #[out_ptr(null_on_failure)] param9: *mut ID3D11DeviceContext) -> HRESULT;
-        extern fn PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(#[in] #[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[buffer(FeatureLevels)] #[in] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[in] #[opt] param7: *const DXGI_SWAP_CHAIN_DESC, #[opt] #[out] #[out_ptr(null_on_failure)] param8: *mut IDXGISwapChain, #[opt] #[out] #[out_ptr(null_on_failure)] param9: *mut ID3D11Device, #[opt] #[out] param10: *mut D3D_FEATURE_LEVEL, #[opt] #[out] #[out_ptr(null_on_failure)] param11: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn PFN_D3D11_CREATE_DEVICE(#[in] #[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[buffer(FeatureLevels)] #[in] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[opt] #[out] param7: *mut ID3D11Device, #[opt] #[out] param8: *mut D3D_FEATURE_LEVEL, #[opt] #[out] param9: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(#[in] #[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[buffer(FeatureLevels)] #[in] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[in] #[opt] param7: *const DXGI_SWAP_CHAIN_DESC, #[opt] #[out] param8: *mut IDXGISwapChain, #[opt] #[out] param9: *mut ID3D11Device, #[opt] #[out] param10: *mut D3D_FEATURE_LEVEL, #[opt] #[out] param11: *mut ID3D11DeviceContext) -> HRESULT;
         const _FACD3D11: i32 = 2172;
         const _FACD3D11DEBUG: i32 = 2173;
     }

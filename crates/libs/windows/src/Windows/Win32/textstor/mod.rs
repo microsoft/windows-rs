@@ -176,7 +176,10 @@ impl IAnchor_Vtbl {
                         ppaclone.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaclone.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -519,7 +522,10 @@ impl ITextStoreACP_Vtbl {
                         ppdataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -964,7 +970,10 @@ impl ITextStoreACP2_Vtbl {
                         ppdataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1572,7 +1581,10 @@ impl ITextStoreAnchor_Vtbl {
                         pparesultend.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pparesultend.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1608,7 +1620,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppdataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1662,7 +1677,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppastart.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppastart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1674,7 +1692,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppaend.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaend.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1692,7 +1713,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppasite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1728,7 +1752,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppaend.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaend.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1740,7 +1767,10 @@ impl ITextStoreAnchor_Vtbl {
                         ppaend.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaend.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

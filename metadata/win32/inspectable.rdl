@@ -4,7 +4,7 @@ mod Windows {
         #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
         interface IInspectable: IUnknown {
             fn GetIids(&self, #[out] iidCount: *mut ULONG, #[incomplete] #[nullable] #[out] iids: *mut *mut IID) -> HRESULT;
-            fn GetRuntimeClassName(&self, #[out] #[out_ptr] className: *mut HSTRING) -> HRESULT;
+            fn GetRuntimeClassName(&self, #[out] className: *mut HSTRING) -> HRESULT;
             fn GetTrustLevel(&self, #[out] trustLevel: *mut TrustLevel) -> HRESULT;
         }
         type LPINSPECTABLE = IInspectable;

@@ -98,14 +98,14 @@ impl Results {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn UnspecifiedFailure(&self) -> windows_core::Result<Tracked> {
+    pub unsafe fn Number(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnspecifiedFailure)(
+            (windows_core::Interface::vtable(self).Number)(
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .map(|| result__)
         }
     }
     pub unsafe fn NullableVoid(&self) -> Option<Tracked> {
@@ -219,10 +219,8 @@ pub struct Results_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub UnspecifiedFailure: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    pub Number:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub NullableVoid:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub Query: unsafe extern "system" fn(
@@ -254,7 +252,7 @@ pub trait Results_Impl: windows_core::IUnknownImpl {
     fn Nullable(&self) -> windows_core::Result<Option<ObjectAlias>>;
     fn Reserved(&self, reserved: usize) -> windows_core::Result<Option<Tracked>>;
     fn Required(&self) -> windows_core::Result<Tracked>;
-    fn UnspecifiedFailure(&self) -> windows_core::Result<Tracked>;
+    fn Number(&self) -> windows_core::Result<u32>;
     fn NullableVoid(&self, value: windows_core::OutRef<Tracked>);
     fn Query(&self, iid: *const windows_core::GUID, value: OutputSlot) -> windows_core::Result<()>;
     fn OptionalStorage(
@@ -286,7 +284,7 @@ impl Results_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        value.write(core::mem::zeroed());
+                        value.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -305,7 +303,10 @@ impl Results_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -322,28 +323,28 @@ impl Results_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        value.write(core::mem::zeroed());
+                        value.write_bytes(0, 1);
                         err.into()
                     }
                 }
             }
         }
-        unsafe extern "system" fn UnspecifiedFailure<
-            Identity: Results_Impl,
-            const OFFSET: isize,
-        >(
+        unsafe extern "system" fn Number<Identity: Results_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            value: *mut *mut core::ffi::c_void,
+            value: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Results_Impl::UnspecifiedFailure(this) {
+                match Results_Impl::Number(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -418,7 +419,7 @@ impl Results_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        value.write(core::mem::zeroed());
+                        value.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -438,7 +439,7 @@ impl Results_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        value.write(core::mem::zeroed());
+                        value.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -456,7 +457,10 @@ impl Results_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -465,7 +469,7 @@ impl Results_Vtbl {
             Nullable: Nullable::<Identity, OFFSET>,
             Reserved: Reserved::<Identity, OFFSET>,
             Required: Required::<Identity, OFFSET>,
-            UnspecifiedFailure: UnspecifiedFailure::<Identity, OFFSET>,
+            Number: Number::<Identity, OFFSET>,
             NullableVoid: NullableVoid::<Identity, OFFSET>,
             Query: Query::<Identity, OFFSET>,
             OptionalStorage: OptionalStorage::<Identity, OFFSET>,

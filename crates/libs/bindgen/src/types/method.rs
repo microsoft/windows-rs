@@ -88,7 +88,11 @@ impl Method {
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }
-                            Err(err) => err.into()
+                            Err(err) => {
+                                result__.write_bytes(0, 1);
+                                result_size__.write(0);
+                                err.into()
+                            }
                         }
                     }
                 }
@@ -117,7 +121,10 @@ impl Method {
                                 #write_result
                                 windows_core::HRESULT(0)
                             }
-                            Err(err) => err.into()
+                            Err(err) => {
+                                result__.write_bytes(0, 1);
+                                err.into()
+                            }
                         }
                     }
                 }

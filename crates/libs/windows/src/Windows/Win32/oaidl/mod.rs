@@ -1311,7 +1311,10 @@ impl IDispatch_Vtbl {
                         pptinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1413,7 +1416,10 @@ impl IEnumVARIANT_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2295,7 +2301,10 @@ impl ITypeInfo_Vtbl {
                         pptcomp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptcomp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2361,7 +2370,10 @@ impl ITypeInfo_Vtbl {
                         pptinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2825,7 +2837,10 @@ impl ITypeLib_Vtbl {
                         pptinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2843,7 +2858,10 @@ impl ITypeLib_Vtbl {
                         pptinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2861,7 +2879,10 @@ impl ITypeLib_Vtbl {
                         pptcomp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptcomp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

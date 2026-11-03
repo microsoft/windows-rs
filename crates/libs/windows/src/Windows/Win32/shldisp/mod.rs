@@ -67,7 +67,10 @@ impl DFConstraint_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -79,7 +82,10 @@ impl DFConstraint_Vtbl {
                         pv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -243,7 +249,10 @@ impl Folder_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -255,7 +264,10 @@ impl Folder_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -267,7 +279,10 @@ impl Folder_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -279,7 +294,10 @@ impl Folder_Vtbl {
                         ppsf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -291,7 +309,10 @@ impl Folder_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -303,7 +324,10 @@ impl Folder_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -333,7 +357,10 @@ impl Folder_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -433,7 +460,10 @@ impl Folder2_Vtbl {
                         ppfi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -445,7 +475,10 @@ impl Folder2_Vtbl {
                         pul.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pul.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -463,7 +496,10 @@ impl Folder2_Vtbl {
                         pbhavetoshowwebviewbarricade.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbhavetoshowwebviewbarricade.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -543,7 +579,10 @@ impl Folder3_Vtbl {
                         pbshowwebviewbarricade.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbshowwebviewbarricade.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -758,7 +797,10 @@ impl FolderItem_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -770,7 +812,10 @@ impl FolderItem_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -782,7 +827,10 @@ impl FolderItem_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -800,7 +848,10 @@ impl FolderItem_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -812,7 +863,10 @@ impl FolderItem_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -824,7 +878,10 @@ impl FolderItem_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -836,7 +893,10 @@ impl FolderItem_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -848,7 +908,10 @@ impl FolderItem_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -860,7 +923,10 @@ impl FolderItem_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -872,7 +938,10 @@ impl FolderItem_Vtbl {
                         pb.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -884,7 +953,10 @@ impl FolderItem_Vtbl {
                         pdt.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdt.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -902,7 +974,10 @@ impl FolderItem_Vtbl {
                         pul.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pul.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -914,7 +989,10 @@ impl FolderItem_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -926,7 +1004,10 @@ impl FolderItem_Vtbl {
                         ppfic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1024,7 +1105,10 @@ impl FolderItem2_Vtbl {
                         pvret.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvret.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1103,7 +1187,10 @@ impl FolderItemVerb_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1115,7 +1202,10 @@ impl FolderItemVerb_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1127,7 +1217,10 @@ impl FolderItemVerb_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1229,7 +1322,10 @@ impl FolderItemVerbs_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1241,7 +1337,10 @@ impl FolderItemVerbs_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1253,7 +1352,10 @@ impl FolderItemVerbs_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1265,7 +1367,10 @@ impl FolderItemVerbs_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1277,7 +1382,10 @@ impl FolderItemVerbs_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1374,7 +1482,10 @@ impl FolderItems_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1386,7 +1497,10 @@ impl FolderItems_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1398,7 +1512,10 @@ impl FolderItems_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1410,7 +1527,10 @@ impl FolderItems_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1422,7 +1542,10 @@ impl FolderItems_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1543,7 +1666,10 @@ impl FolderItems3_Vtbl {
                         ppfic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1943,7 +2069,10 @@ impl IFileSearchBand_Vtbl {
                         pbstrsearchid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsearchid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1955,7 +2084,10 @@ impl IFileSearchBand_Vtbl {
                         pvarscope.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarscope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1967,7 +2099,10 @@ impl IFileSearchBand_Vtbl {
                         pvarfile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2080,7 +2215,10 @@ impl INewWDEvents_Vtbl {
                         pvfauthenitcated.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvfauthenitcated.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2272,7 +2410,10 @@ impl IShellDispatch_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2284,7 +2425,10 @@ impl IShellDispatch_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2296,7 +2440,10 @@ impl IShellDispatch_Vtbl {
                         ppsdf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsdf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2308,7 +2455,10 @@ impl IShellDispatch_Vtbl {
                         ppsdf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsdf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2320,7 +2470,10 @@ impl IShellDispatch_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2593,7 +2746,10 @@ impl IShellDispatch2_Vtbl {
                         plrestrictvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plrestrictvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2617,7 +2773,10 @@ impl IShellDispatch2_Vtbl {
                         pv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2629,7 +2788,10 @@ impl IShellDispatch2_Vtbl {
                         psuccess.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psuccess.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2641,7 +2803,10 @@ impl IShellDispatch2_Vtbl {
                         psuccess.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psuccess.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2653,7 +2818,10 @@ impl IShellDispatch2_Vtbl {
                         prunning.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prunning.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2665,7 +2833,10 @@ impl IShellDispatch2_Vtbl {
                         pcanstartstop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcanstartstop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2677,7 +2848,10 @@ impl IShellDispatch2_Vtbl {
                         psuccess.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psuccess.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2829,7 +3003,10 @@ impl IShellDispatch4_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2841,7 +3018,10 @@ impl IShellDispatch4_Vtbl {
                         presult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        presult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3063,7 +3243,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3075,7 +3258,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3087,7 +3273,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3099,7 +3288,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3111,7 +3303,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3129,7 +3324,10 @@ impl IShellFolderViewDual_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3141,7 +3339,10 @@ impl IShellFolderViewDual_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3153,7 +3354,10 @@ impl IShellFolderViewDual_Vtbl {
                         plviewoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plviewoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3236,7 +3440,10 @@ impl IShellFolderViewDual2_Vtbl {
                         pviewmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pviewmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3364,7 +3571,10 @@ impl IShellFolderViewDual3_Vtbl {
                         pbstrgroupby.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrgroupby.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3382,7 +3592,10 @@ impl IShellFolderViewDual3_Vtbl {
                         pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3400,7 +3613,10 @@ impl IShellFolderViewDual3_Vtbl {
                         pbstrsortcolumns.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsortcolumns.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3424,7 +3640,10 @@ impl IShellFolderViewDual3_Vtbl {
                         piiconsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        piiconsize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3592,7 +3811,10 @@ impl IShellLinkDual_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3610,7 +3832,10 @@ impl IShellLinkDual_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3628,7 +3853,10 @@ impl IShellLinkDual_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3646,7 +3874,10 @@ impl IShellLinkDual_Vtbl {
                         pbs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3664,7 +3895,10 @@ impl IShellLinkDual_Vtbl {
                         pihk.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pihk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3682,7 +3916,10 @@ impl IShellLinkDual_Vtbl {
                         pishowcommand.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pishowcommand.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3706,7 +3943,10 @@ impl IShellLinkDual_Vtbl {
                         piicon.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        piicon.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3790,7 +4030,10 @@ impl IShellLinkDual2_Vtbl {
                         ppfi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3923,7 +4166,10 @@ impl IWebWizardHost_Vtbl {
                         pbstrcaption.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcaption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3941,7 +4187,10 @@ impl IWebWizardHost_Vtbl {
                         pvproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4018,7 +4267,10 @@ impl IWebWizardHost2_Vtbl {
                         signedvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signedvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

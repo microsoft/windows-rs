@@ -249,7 +249,10 @@ impl IVisualTreeService_Vtbl {
                         pinstancehandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pinstancehandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -396,7 +399,10 @@ impl IVisualTreeService2_Vtbl {
                         ppbitmapdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbitmapdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -664,7 +670,10 @@ impl IXamlDiagnostics_Vtbl {
                         ppdispatcher.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispatcher.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -676,7 +685,10 @@ impl IXamlDiagnostics_Vtbl {
                         pplayer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplayer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -688,7 +700,10 @@ impl IXamlDiagnostics_Vtbl {
                         ppapplication.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppapplication.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -700,7 +715,10 @@ impl IXamlDiagnostics_Vtbl {
                         ppinstance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppinstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -712,7 +730,10 @@ impl IXamlDiagnostics_Vtbl {
                         phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -730,7 +751,10 @@ impl IXamlDiagnostics_Vtbl {
                         pinstancehandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pinstancehandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -742,7 +766,10 @@ impl IXamlDiagnostics_Vtbl {
                         pinitializationdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pinitializationdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

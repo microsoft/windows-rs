@@ -6,13 +6,13 @@ mod Windows {
         #[guid(0x8cc497c0_a1df_11ce_8098_00aa0047be5d)]
         interface ITextDocument: IDispatch {
             #[special]
-            fn GetName(&self, #[out] #[out_ptr] #[retval] pName: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[out] #[retval] pName: *mut BSTR) -> HRESULT;
             #[special]
-            fn GetSelection(&self, #[out] #[out_ptr] #[retval] ppSel: *mut ITextSelection) -> HRESULT;
+            fn GetSelection(&self, #[out] #[retval] ppSel: *mut ITextSelection) -> HRESULT;
             #[special]
             fn GetStoryCount(&self, #[out] #[retval] pCount: *mut i32) -> HRESULT;
             #[special]
-            fn GetStoryRanges(&self, #[out] #[out_ptr] #[retval] ppStories: *mut ITextStoryRanges) -> HRESULT;
+            fn GetStoryRanges(&self, #[out] #[retval] ppStories: *mut ITextStoryRanges) -> HRESULT;
             #[special]
             fn GetSaved(&self, #[out] #[retval] pValue: *mut i32) -> HRESULT;
             #[special]
@@ -30,8 +30,8 @@ mod Windows {
             fn EndEditCollection(&self) -> HRESULT;
             fn Undo(&self, #[in] Count: i32, #[out] #[retval] pCount: *mut i32) -> HRESULT;
             fn Redo(&self, #[in] Count: i32, #[out] #[retval] pCount: *mut i32) -> HRESULT;
-            fn Range(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange) -> HRESULT;
-            fn RangeFromPoint(&self, #[in] x: i32, #[in] y: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn Range(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn RangeFromPoint(&self, #[in] x: i32, #[in] y: i32, #[out] #[retval] ppRange: *mut ITextRange) -> HRESULT;
         }
         #[guid(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3)]
         interface ITextDocument2: ITextDocument {
@@ -40,19 +40,19 @@ mod Windows {
             #[special]
             fn SetCaretType(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetDisplays(&self, #[out] #[out_ptr] #[retval] ppDisplays: *mut ITextDisplays) -> HRESULT;
+            fn GetDisplays(&self, #[out] #[retval] ppDisplays: *mut ITextDisplays) -> HRESULT;
             #[special]
-            fn GetDocumentFont(&self, #[out] #[out_ptr] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            fn GetDocumentFont(&self, #[out] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
             #[special]
             fn SetDocumentFont(&self, #[in] #[opt] pFont: ITextFont2) -> HRESULT;
             #[special]
-            fn GetDocumentPara(&self, #[out] #[out_ptr] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            fn GetDocumentPara(&self, #[out] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
             #[special]
             fn SetDocumentPara(&self, #[in] #[opt] pPara: ITextPara2) -> HRESULT;
             #[special]
             fn GetEastAsianFlags(&self, #[out] #[retval] pFlags: *mut i32) -> HRESULT;
             #[special]
-            fn GetGenerator(&self, #[out] #[out_ptr] #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn GetGenerator(&self, #[out] #[retval] pbstr: *mut BSTR) -> HRESULT;
             #[special]
             fn SetIMEInProgress(&self, #[in] Value: i32) -> HRESULT;
             #[special]
@@ -60,9 +60,9 @@ mod Windows {
             #[special]
             fn SetNotificationMode(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetSelection2(&self, #[out] #[out_ptr] #[retval] ppSel: *mut ITextSelection2) -> HRESULT;
+            fn GetSelection2(&self, #[out] #[retval] ppSel: *mut ITextSelection2) -> HRESULT;
             #[special]
-            fn GetStoryRanges2(&self, #[out] #[out_ptr] #[retval] ppStories: *mut ITextStoryRanges2) -> HRESULT;
+            fn GetStoryRanges2(&self, #[out] #[retval] ppStories: *mut ITextStoryRanges2) -> HRESULT;
             #[special]
             fn GetTypographyOptions(&self, #[out] #[retval] pOptions: *mut i32) -> HRESULT;
             #[special]
@@ -71,16 +71,16 @@ mod Windows {
             fn GetWindow(&self, #[out] #[retval] pHwnd: *mut i64) -> HRESULT;
             fn AttachMsgFilter(&self, #[in] #[opt] pFilter: IUnknown) -> HRESULT;
             fn CheckTextLimit(&self, cch: i32, #[in] pcch: *mut i32) -> HRESULT;
-            fn GetCallManager(&self, #[out] #[out_ptr] #[retval] ppVoid: *mut IUnknown) -> HRESULT;
+            fn GetCallManager(&self, #[out] #[retval] ppVoid: *mut IUnknown) -> HRESULT;
             fn GetClientRect(&self, #[in] Type: i32, #[out] pLeft: *mut i32, #[out] pTop: *mut i32, #[out] pRight: *mut i32, #[out] pBottom: *mut i32) -> HRESULT;
             fn GetEffectColor(&self, #[in] Index: i32, #[out] pValue: *mut i32) -> HRESULT;
             fn GetImmContext(&self, #[out] #[retval] pContext: *mut i64) -> HRESULT;
-            fn GetPreferredFont(&self, #[in] cp: i32, #[in] CharRep: i32, #[in] Options: i32, #[in] curCharRep: i32, #[in] curFontSize: i32, #[out] #[out_ptr] pbstr: *mut BSTR, #[out] pPitchAndFamily: *mut i32, #[out] pNewFontSize: *mut i32) -> HRESULT;
+            fn GetPreferredFont(&self, #[in] cp: i32, #[in] CharRep: i32, #[in] Options: i32, #[in] curCharRep: i32, #[in] curFontSize: i32, #[out] pbstr: *mut BSTR, #[out] pPitchAndFamily: *mut i32, #[out] pNewFontSize: *mut i32) -> HRESULT;
             fn GetProperty(&self, #[in] Type: i32, #[out] pValue: *mut i32) -> HRESULT;
-            fn GetStrings(&self, #[out] #[out_ptr] #[retval] ppStrs: *mut ITextStrings) -> HRESULT;
+            fn GetStrings(&self, #[out] #[retval] ppStrs: *mut ITextStrings) -> HRESULT;
             fn Notify(&self, #[in] Notify: i32) -> HRESULT;
-            fn Range2(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
-            fn RangeFromPoint2(&self, #[in] x: i32, #[in] y: i32, #[in] Type: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn Range2(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn RangeFromPoint2(&self, #[in] x: i32, #[in] y: i32, #[in] Type: i32, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
             fn ReleaseCallManager(&self, #[in] #[opt] pVoid: IUnknown) -> HRESULT;
             fn ReleaseImmContext(&self, #[in] Context: i64) -> HRESULT;
             fn SetEffectColor(&self, #[in] Index: i32, #[in] Value: i32) -> HRESULT;
@@ -92,14 +92,14 @@ mod Windows {
             fn GetMathProperties(&self, #[out] pOptions: *mut i32) -> HRESULT;
             fn SetMathProperties(&self, #[in] Options: i32, #[in] Mask: i32) -> HRESULT;
             #[special]
-            fn GetActiveStory(&self, #[out] #[out_ptr] #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            fn GetActiveStory(&self, #[out] #[retval] ppStory: *mut ITextStory) -> HRESULT;
             #[special]
             fn SetActiveStory(&self, #[in] #[opt] pStory: ITextStory) -> HRESULT;
             #[special]
-            fn GetMainStory(&self, #[out] #[out_ptr] #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            fn GetMainStory(&self, #[out] #[retval] ppStory: *mut ITextStory) -> HRESULT;
             #[special]
-            fn GetNewStory(&self, #[out] #[out_ptr] #[retval] ppStory: *mut ITextStory) -> HRESULT;
-            fn GetStory(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            fn GetNewStory(&self, #[out] #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            fn GetStory(&self, #[in] Index: i32, #[out] #[retval] ppStory: *mut ITextStory) -> HRESULT;
         }
         #[guid(0x01c25500_4268_11d1_883a_3c8b00c10000)]
         interface ITextDocument2Old: ITextDocument {
@@ -112,14 +112,14 @@ mod Windows {
             fn SetCaretType(&self, #[in] CaretType: i32) -> HRESULT;
             fn GetImmContext(&self, #[out] #[retval] pContext: *mut i64) -> HRESULT;
             fn ReleaseImmContext(&self, #[in] Context: i64) -> HRESULT;
-            fn GetPreferredFont(&self, #[in] cp: i32, #[in] CharRep: i32, #[in] Option: i32, #[in] CharRepCur: i32, #[in] curFontSize: i32, #[out] #[out_ptr] pbstr: *mut BSTR, #[out] pPitchAndFamily: *mut i32, #[out] pNewFontSize: *mut i32) -> HRESULT;
+            fn GetPreferredFont(&self, #[in] cp: i32, #[in] CharRep: i32, #[in] Option: i32, #[in] CharRepCur: i32, #[in] curFontSize: i32, #[out] pbstr: *mut BSTR, #[out] pPitchAndFamily: *mut i32, #[out] pNewFontSize: *mut i32) -> HRESULT;
             #[special]
             fn GetNotificationMode(&self, #[out] #[retval] pMode: *mut i32) -> HRESULT;
             #[special]
             fn SetNotificationMode(&self, #[in] Mode: i32) -> HRESULT;
             fn GetClientRect(&self, #[in] Type: i32, #[out] pLeft: *mut i32, #[out] pTop: *mut i32, #[out] pRight: *mut i32, #[out] pBottom: *mut i32) -> HRESULT;
             #[special]
-            fn GetSelection2(&self, #[out] #[out_ptr] #[retval] ppSel: *mut ITextSelection) -> HRESULT;
+            fn GetSelection2(&self, #[out] #[retval] ppSel: *mut ITextSelection) -> HRESULT;
             fn GetWindow(&self, #[out] phWnd: *mut i32) -> HRESULT;
             fn GetFEFlags(&self, #[out] pFlags: *mut i32) -> HRESULT;
             fn UpdateWindow(&self) -> HRESULT;
@@ -128,15 +128,15 @@ mod Windows {
             fn SysBeep(&self) -> HRESULT;
             fn Update(&self, #[in] Mode: i32) -> HRESULT;
             fn Notify(&self, #[in] Notify: i32) -> HRESULT;
-            fn GetDocumentFont(&self, #[out] #[out_ptr] #[retval] ppITextFont: *mut ITextFont) -> HRESULT;
-            fn GetDocumentPara(&self, #[out] #[out_ptr] #[retval] ppITextPara: *mut ITextPara) -> HRESULT;
-            fn GetCallManager(&self, #[out] #[out_ptr] #[retval] ppVoid: *mut IUnknown) -> HRESULT;
+            fn GetDocumentFont(&self, #[out] #[retval] ppITextFont: *mut ITextFont) -> HRESULT;
+            fn GetDocumentPara(&self, #[out] #[retval] ppITextPara: *mut ITextPara) -> HRESULT;
+            fn GetCallManager(&self, #[out] #[retval] ppVoid: *mut IUnknown) -> HRESULT;
             fn ReleaseCallManager(&self, #[in] #[opt] pVoid: IUnknown) -> HRESULT;
         }
         #[guid(0x8cc497c3_a1df_11ce_8098_00aa0047be5d)]
         interface ITextFont: IDispatch {
             #[special]
-            fn GetDuplicate(&self, #[out] #[out_ptr] #[retval] ppFont: *mut ITextFont) -> HRESULT;
+            fn GetDuplicate(&self, #[out] #[retval] ppFont: *mut ITextFont) -> HRESULT;
             #[special]
             fn SetDuplicate(&self, #[in] #[opt] pFont: ITextFont) -> HRESULT;
             fn CanChange(&self, #[out] #[retval] pValue: *mut i32) -> HRESULT;
@@ -191,7 +191,7 @@ mod Windows {
             #[special]
             fn SetLanguageID(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetName(&self, #[out] #[out_ptr] #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[out] #[retval] pbstr: *mut BSTR) -> HRESULT;
             #[special]
             fn SetName(&self, #[in] bstr: BSTR) -> HRESULT;
             #[special]
@@ -280,7 +280,7 @@ mod Windows {
             #[special]
             fn SetDoubleStrike(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetDuplicate2(&self, #[out] #[out_ptr] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            fn GetDuplicate2(&self, #[out] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
             #[special]
             fn SetDuplicate2(&self, #[in] #[opt] pFont: ITextFont2) -> HRESULT;
             #[special]
@@ -333,7 +333,7 @@ mod Windows {
         #[guid(0x8cc497c4_a1df_11ce_8098_00aa0047be5d)]
         interface ITextPara: IDispatch {
             #[special]
-            fn GetDuplicate(&self, #[out] #[out_ptr] #[retval] ppPara: *mut ITextPara) -> HRESULT;
+            fn GetDuplicate(&self, #[out] #[retval] ppPara: *mut ITextPara) -> HRESULT;
             #[special]
             fn SetDuplicate(&self, #[in] #[opt] pPara: ITextPara) -> HRESULT;
             fn CanChange(&self, #[out] #[retval] pValue: *mut i32) -> HRESULT;
@@ -423,9 +423,9 @@ mod Windows {
         #[guid(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3)]
         interface ITextPara2: ITextPara {
             #[special]
-            fn GetBorders(&self, #[out] #[out_ptr] #[retval] ppBorders: *mut IUnknown) -> HRESULT;
+            fn GetBorders(&self, #[out] #[retval] ppBorders: *mut IUnknown) -> HRESULT;
             #[special]
-            fn GetDuplicate2(&self, #[out] #[out_ptr] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            fn GetDuplicate2(&self, #[out] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
             #[special]
             fn SetDuplicate2(&self, #[in] #[opt] pPara: ITextPara2) -> HRESULT;
             #[special]
@@ -453,7 +453,7 @@ mod Windows {
         #[guid(0x8cc497c2_a1df_11ce_8098_00aa0047be5d)]
         interface ITextRange: IDispatch {
             #[special]
-            fn GetText(&self, #[out] #[out_ptr] #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn GetText(&self, #[out] #[retval] pbstr: *mut BSTR) -> HRESULT;
             #[special]
             fn SetText(&self, #[in] bstr: BSTR) -> HRESULT;
             #[special]
@@ -461,9 +461,9 @@ mod Windows {
             #[special]
             fn SetChar(&self, #[in] Char: i32) -> HRESULT;
             #[special]
-            fn GetDuplicate(&self, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn GetDuplicate(&self, #[out] #[retval] ppRange: *mut ITextRange) -> HRESULT;
             #[special]
-            fn GetFormattedText(&self, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn GetFormattedText(&self, #[out] #[retval] ppRange: *mut ITextRange) -> HRESULT;
             #[special]
             fn SetFormattedText(&self, #[in] #[opt] pRange: ITextRange) -> HRESULT;
             #[special]
@@ -475,11 +475,11 @@ mod Windows {
             #[special]
             fn SetEnd(&self, #[in] cpLim: i32) -> HRESULT;
             #[special]
-            fn GetFont(&self, #[out] #[out_ptr] #[retval] ppFont: *mut ITextFont) -> HRESULT;
+            fn GetFont(&self, #[out] #[retval] ppFont: *mut ITextFont) -> HRESULT;
             #[special]
             fn SetFont(&self, #[in] #[opt] pFont: ITextFont) -> HRESULT;
             #[special]
-            fn GetPara(&self, #[out] #[out_ptr] #[retval] ppPara: *mut ITextPara) -> HRESULT;
+            fn GetPara(&self, #[out] #[retval] ppPara: *mut ITextPara) -> HRESULT;
             #[special]
             fn SetPara(&self, #[in] #[opt] pPara: ITextPara) -> HRESULT;
             #[special]
@@ -519,26 +519,26 @@ mod Windows {
             fn GetPoint(&self, #[in] Type: i32, #[out] px: *mut i32, #[out] py: *mut i32) -> HRESULT;
             fn SetPoint(&self, #[in] x: i32, #[in] y: i32, #[in] Type: i32, #[in] Extend: i32) -> HRESULT;
             fn ScrollIntoView(&self, #[in] Value: i32) -> HRESULT;
-            fn GetEmbeddedObject(&self, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
+            fn GetEmbeddedObject(&self, #[out] #[retval] ppObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3)]
         interface ITextRange2: ITextSelection {
             #[special]
             fn GetCch(&self, #[out] #[retval] pcch: *mut i32) -> HRESULT;
             #[special]
-            fn GetCells(&self, #[out] #[out_ptr] #[retval] ppCells: *mut IUnknown) -> HRESULT;
+            fn GetCells(&self, #[out] #[retval] ppCells: *mut IUnknown) -> HRESULT;
             #[special]
-            fn GetColumn(&self, #[out] #[out_ptr] #[retval] ppColumn: *mut IUnknown) -> HRESULT;
+            fn GetColumn(&self, #[out] #[retval] ppColumn: *mut IUnknown) -> HRESULT;
             #[special]
             fn GetCount(&self, #[out] #[retval] pCount: *mut i32) -> HRESULT;
             #[special]
-            fn GetDuplicate2(&self, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn GetDuplicate2(&self, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
             #[special]
-            fn GetFont2(&self, #[out] #[out_ptr] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            fn GetFont2(&self, #[out] #[retval] ppFont: *mut ITextFont2) -> HRESULT;
             #[special]
             fn SetFont2(&self, #[in] #[opt] pFont: ITextFont2) -> HRESULT;
             #[special]
-            fn GetFormattedText2(&self, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn GetFormattedText2(&self, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
             #[special]
             fn SetFormattedText2(&self, #[in] #[opt] pRange: ITextRange2) -> HRESULT;
             #[special]
@@ -546,17 +546,17 @@ mod Windows {
             #[special]
             fn SetGravity(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetPara2(&self, #[out] #[out_ptr] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            fn GetPara2(&self, #[out] #[retval] ppPara: *mut ITextPara2) -> HRESULT;
             #[special]
             fn SetPara2(&self, #[in] #[opt] pPara: ITextPara2) -> HRESULT;
             #[special]
-            fn GetRow(&self, #[out] #[out_ptr] #[retval] ppRow: *mut ITextRow) -> HRESULT;
+            fn GetRow(&self, #[out] #[retval] ppRow: *mut ITextRow) -> HRESULT;
             #[special]
             fn GetStartPara(&self, #[out] #[retval] pValue: *mut i32) -> HRESULT;
             #[special]
-            fn GetTable(&self, #[out] #[out_ptr] #[retval] ppTable: *mut IUnknown) -> HRESULT;
+            fn GetTable(&self, #[out] #[retval] ppTable: *mut IUnknown) -> HRESULT;
             #[special]
-            fn GetURL(&self, #[out] #[out_ptr] #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn GetURL(&self, #[out] #[retval] pbstr: *mut BSTR) -> HRESULT;
             #[special]
             fn SetURL(&self, #[in] bstr: BSTR) -> HRESULT;
             fn AddSubrange(&self, #[in] cp1: i32, #[in] cp2: i32, #[in] Activate: i32) -> HRESULT;
@@ -569,7 +569,7 @@ mod Windows {
             fn GetProperty(&self, #[in] Type: i32, #[out] pValue: *mut i32) -> HRESULT;
             fn GetRect(&self, #[in] Type: i32, #[out] pLeft: *mut i32, #[out] pTop: *mut i32, #[out] pRight: *mut i32, #[out] pBottom: *mut i32, #[out] pHit: *mut i32) -> HRESULT;
             fn GetSubrange(&self, #[in] iSubrange: i32, #[out] pcpFirst: *mut i32, #[out] pcpLim: *mut i32) -> HRESULT;
-            fn GetText2(&self, #[in] Flags: i32, #[out] #[out_ptr] pbstr: *mut BSTR) -> HRESULT;
+            fn GetText2(&self, #[in] Flags: i32, #[out] pbstr: *mut BSTR) -> HRESULT;
             fn HexToUnicode(&self) -> HRESULT;
             fn InsertTable(&self, #[in] cCol: i32, #[in] cRow: i32, #[in] AutoFit: i32) -> HRESULT;
             fn Linearize(&self, #[in] Flags: i32) -> HRESULT;
@@ -691,7 +691,7 @@ mod Windows {
             #[special]
             fn SetActive(&self, #[in] Value: i32) -> HRESULT;
             #[special]
-            fn GetDisplay(&self, #[out] #[out_ptr] #[retval] ppDisplay: *mut IUnknown) -> HRESULT;
+            fn GetDisplay(&self, #[out] #[retval] ppDisplay: *mut IUnknown) -> HRESULT;
             #[special]
             fn GetIndex(&self, #[out] #[retval] pValue: *mut i32) -> HRESULT;
             #[special]
@@ -699,26 +699,26 @@ mod Windows {
             #[special]
             fn SetType(&self, #[in] Value: i32) -> HRESULT;
             fn GetProperty(&self, #[in] Type: i32, #[out] pValue: *mut i32) -> HRESULT;
-            fn GetRange(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
-            fn GetText(&self, #[in] Flags: i32, #[out] #[out_ptr] #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn GetRange(&self, #[in] cpActive: i32, #[in] cpAnchor: i32, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn GetText(&self, #[in] Flags: i32, #[out] #[retval] pbstr: *mut BSTR) -> HRESULT;
             fn SetFormattedText(&self, #[in] #[opt] pUnk: IUnknown) -> HRESULT;
             fn SetProperty(&self, #[in] Type: i32, #[in] Value: i32) -> HRESULT;
             fn SetText(&self, #[in] Flags: i32, #[in] bstr: BSTR) -> HRESULT;
         }
         #[guid(0x8cc497c5_a1df_11ce_8098_00aa0047be5d)]
         interface ITextStoryRanges: IDispatch {
-            fn _NewEnum(&self, #[out] #[out_ptr] #[retval] ppunkEnum: *mut IUnknown) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn _NewEnum(&self, #[out] #[retval] ppunkEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[retval] ppRange: *mut ITextRange) -> HRESULT;
             #[special]
             fn GetCount(&self, #[out] #[retval] pCount: *mut i32) -> HRESULT;
         }
         #[guid(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3)]
         interface ITextStoryRanges2: ITextStoryRanges {
-            fn Item2(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn Item2(&self, #[in] Index: i32, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
         }
         #[guid(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3)]
         interface ITextStrings: IDispatch {
-            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[retval] ppRange: *mut ITextRange2) -> HRESULT;
             #[special]
             fn GetCount(&self, #[out] #[retval] pCount: *mut i32) -> HRESULT;
             fn Add(&self, #[in] bstr: BSTR) -> HRESULT;

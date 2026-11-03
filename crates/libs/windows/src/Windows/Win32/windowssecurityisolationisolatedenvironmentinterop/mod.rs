@@ -33,7 +33,10 @@ impl IIsolatedEnvironmentInterop_Vtbl {
                         hosthwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hosthwnd.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

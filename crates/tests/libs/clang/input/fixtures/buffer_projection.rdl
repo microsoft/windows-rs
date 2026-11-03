@@ -12,7 +12,7 @@ mod Fixture {
     extern "C" fn Fixed(#[buffer(4)] #[in] values: *const i32);
     #[guid(0x6b0f3f5b_d5b3_4ba7_8fd7_978325d413cb)]
     interface IBufferQuery {
-        fn Query(&self, #[in] iid: *const QueryId, #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void) -> i32;
+        fn Query(&self, #[in] iid: *const QueryId, #[iid_is] #[out] value: *mut *mut void) -> i32;
         fn QueryArray(&self, #[in] iid: *const QueryId, #[iid_is] #[incomplete] #[out] values: *mut *mut void) -> i32;
     }
     #[library("fixture.dll")]

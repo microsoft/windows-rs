@@ -174,7 +174,10 @@ impl IInputPanelWindowHandle_Vtbl {
                         attachededitwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachededitwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -192,7 +195,10 @@ impl IInputPanelWindowHandle_Vtbl {
                         attachededitwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachededitwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -446,7 +452,10 @@ impl IPenInputPanel_Vtbl {
                         busy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        busy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -458,7 +467,10 @@ impl IPenInputPanel_Vtbl {
                         factoid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factoid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -476,7 +488,10 @@ impl IPenInputPanel_Vtbl {
                         attachededitwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachededitwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -494,7 +509,10 @@ impl IPenInputPanel_Vtbl {
                         currentpanel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentpanel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -512,7 +530,10 @@ impl IPenInputPanel_Vtbl {
                         pdefaultpanel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdefaultpanel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -530,7 +551,10 @@ impl IPenInputPanel_Vtbl {
                         visible.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -548,7 +572,10 @@ impl IPenInputPanel_Vtbl {
                         top.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        top.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -560,7 +587,10 @@ impl IPenInputPanel_Vtbl {
                         left.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        left.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -572,7 +602,10 @@ impl IPenInputPanel_Vtbl {
                         width.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        width.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -584,7 +617,10 @@ impl IPenInputPanel_Vtbl {
                         height.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        height.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -596,7 +632,10 @@ impl IPenInputPanel_Vtbl {
                         verticaloffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        verticaloffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -614,7 +653,10 @@ impl IPenInputPanel_Vtbl {
                         horizontaloffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        horizontaloffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -632,7 +674,10 @@ impl IPenInputPanel_Vtbl {
                         pautoshow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pautoshow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -910,7 +955,10 @@ impl ITextInputPanel_Vtbl {
                         attachededitwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attachededitwindow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -928,7 +976,10 @@ impl ITextInputPanel_Vtbl {
                         currentinteractionmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentinteractionmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -940,7 +991,10 @@ impl ITextInputPanel_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -958,7 +1012,10 @@ impl ITextInputPanel_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -970,7 +1027,10 @@ impl ITextInputPanel_Vtbl {
                         area.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        area.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -988,7 +1048,10 @@ impl ITextInputPanel_Vtbl {
                         area.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        area.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1000,7 +1063,10 @@ impl ITextInputPanel_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1012,7 +1078,10 @@ impl ITextInputPanel_Vtbl {
                         direction.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        direction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1030,7 +1099,10 @@ impl ITextInputPanel_Vtbl {
                         expand.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        expand.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1048,7 +1120,10 @@ impl ITextInputPanel_Vtbl {
                         visible.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1066,7 +1141,10 @@ impl ITextInputPanel_Vtbl {
                         boundingrectangle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        boundingrectangle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1078,7 +1156,10 @@ impl ITextInputPanel_Vtbl {
                         height.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        height.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1090,7 +1171,10 @@ impl ITextInputPanel_Vtbl {
                         height.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        height.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -176,7 +176,7 @@ impl IDxcAssembler_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -480,7 +480,7 @@ impl IDxcCompiler_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -495,7 +495,7 @@ impl IDxcCompiler_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -510,7 +510,7 @@ impl IDxcCompiler_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdisassembly.write(core::mem::zeroed());
+                        ppdisassembly.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -942,7 +942,7 @@ impl IDxcContainerReflection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1226,7 +1226,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1241,7 +1241,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1256,7 +1256,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1271,7 +1271,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1286,7 +1286,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1301,7 +1301,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1316,7 +1316,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstream.write(core::mem::zeroed());
+                        ppstream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1331,7 +1331,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1346,7 +1346,7 @@ impl IDxcLibrary_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pblobencoding.write(core::mem::zeroed());
+                        pblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1493,7 +1493,7 @@ impl IDxcOptimizer_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1591,7 +1591,7 @@ impl IDxcOptimizerPass_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1606,7 +1606,7 @@ impl IDxcOptimizerPass_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1627,7 +1627,7 @@ impl IDxcOptimizerPass_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1642,7 +1642,7 @@ impl IDxcOptimizerPass_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1898,7 +1898,7 @@ impl IDxcPdbUtils2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1913,7 +1913,7 @@ impl IDxcPdbUtils2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1946,7 +1946,7 @@ impl IDxcPdbUtils2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1967,7 +1967,7 @@ impl IDxcPdbUtils2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2000,7 +2000,7 @@ impl IDxcPdbUtils2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2291,7 +2291,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2306,7 +2306,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2321,7 +2321,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2336,7 +2336,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2351,7 +2351,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2366,7 +2366,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstream.write(core::mem::zeroed());
+                        ppstream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2381,7 +2381,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2396,7 +2396,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2411,7 +2411,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppblobencoding.write(core::mem::zeroed());
+                        ppblobencoding.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2438,7 +2438,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppargs.write(core::mem::zeroed());
+                        ppargs.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2453,7 +2453,7 @@ impl IDxcUtils_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppcontainer.write(core::mem::zeroed());
+                        ppcontainer.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2521,7 +2521,7 @@ impl IDxcValidator_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2580,7 +2580,7 @@ impl IDxcValidator2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppresult.write(core::mem::zeroed());
+                        ppresult.write_bytes(0, 1);
                         err.into()
                     }
                 }

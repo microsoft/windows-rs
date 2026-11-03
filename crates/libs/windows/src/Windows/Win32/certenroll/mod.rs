@@ -292,7 +292,10 @@ impl IAlternativeName_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -304,7 +307,10 @@ impl IAlternativeName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -316,7 +322,10 @@ impl IAlternativeName_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -328,7 +337,10 @@ impl IAlternativeName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -437,7 +449,10 @@ impl IAlternativeNames_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -449,7 +464,10 @@ impl IAlternativeNames_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -461,7 +479,10 @@ impl IAlternativeNames_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -565,7 +586,10 @@ impl IBinaryConverter_Vtbl {
                         pstrencoded.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencoded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -577,7 +601,10 @@ impl IBinaryConverter_Vtbl {
                         pstrencoded.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencoded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -589,7 +616,10 @@ impl IBinaryConverter_Vtbl {
                         pvarbytearray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarbytearray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -664,7 +694,10 @@ impl IBinaryConverter2_Vtbl {
                         pvarvariantarray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvariantarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -676,7 +709,10 @@ impl IBinaryConverter2_Vtbl {
                         pvarstringarray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarstringarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -789,7 +825,10 @@ impl ICertProperties_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -801,7 +840,10 @@ impl ICertProperties_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -813,7 +855,10 @@ impl ICertProperties_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -957,7 +1002,10 @@ impl ICertProperty_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -975,7 +1023,10 @@ impl ICertProperty_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1069,7 +1120,10 @@ impl ICertPropertyArchived_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1134,7 +1188,10 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1203,7 +1260,10 @@ impl ICertPropertyAutoEnroll_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1307,7 +1367,10 @@ impl ICertPropertyBackedUp_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1319,7 +1382,10 @@ impl ICertPropertyBackedUp_Vtbl {
                         pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1390,7 +1456,10 @@ impl ICertPropertyDescription_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1487,7 +1556,10 @@ impl ICertPropertyEnrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1499,7 +1571,10 @@ impl ICertPropertyEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1511,7 +1586,10 @@ impl ICertPropertyEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1523,7 +1601,10 @@ impl ICertPropertyEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1663,7 +1744,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1675,7 +1759,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1687,7 +1774,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1699,7 +1789,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1711,7 +1804,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1723,7 +1819,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1735,7 +1834,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1747,7 +1849,10 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1823,7 +1928,10 @@ impl ICertPropertyFriendlyName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1895,7 +2003,10 @@ impl ICertPropertyKeyProvInfo_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1975,7 +2086,10 @@ impl ICertPropertyRenewal_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2056,7 +2170,10 @@ impl ICertPropertyRequestOriginator_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2126,7 +2243,10 @@ impl ICertPropertySHA1Hash_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2199,7 +2319,10 @@ impl ICertificateAttestationChallenge_Vtbl {
                         pstrenvelopedpkcs7reencryptedtoca.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrenvelopedpkcs7reencryptedtoca.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2211,7 +2334,10 @@ impl ICertificateAttestationChallenge_Vtbl {
                         pstrrequestid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrrequestid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2376,7 +2502,10 @@ impl ICertificatePolicies_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2388,7 +2517,10 @@ impl ICertificatePolicies_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2400,7 +2532,10 @@ impl ICertificatePolicies_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2502,7 +2637,10 @@ impl ICertificatePolicy_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2514,7 +2652,10 @@ impl ICertificatePolicy_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2632,7 +2773,10 @@ impl ICertificationAuthorities_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2644,7 +2788,10 @@ impl ICertificationAuthorities_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2656,7 +2803,10 @@ impl ICertificationAuthorities_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2692,7 +2842,10 @@ impl ICertificationAuthorities_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2760,7 +2913,10 @@ impl ICertificationAuthority_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2850,7 +3006,10 @@ impl ICryptAttribute_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2862,7 +3021,10 @@ impl ICryptAttribute_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2991,7 +3153,10 @@ impl ICryptAttributes_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3003,7 +3168,10 @@ impl ICryptAttributes_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3015,7 +3183,10 @@ impl ICryptAttributes_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3045,7 +3216,10 @@ impl ICryptAttributes_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3211,7 +3385,10 @@ impl ICspAlgorithm_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3223,7 +3400,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3235,7 +3415,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3247,7 +3430,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3259,7 +3445,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3271,7 +3460,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3283,7 +3475,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3295,7 +3490,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3307,7 +3505,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3319,7 +3520,10 @@ impl ICspAlgorithm_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3454,7 +3658,10 @@ impl ICspAlgorithms_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3466,7 +3673,10 @@ impl ICspAlgorithms_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3478,7 +3688,10 @@ impl ICspAlgorithms_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3508,7 +3721,10 @@ impl ICspAlgorithms_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3520,7 +3736,10 @@ impl ICspAlgorithms_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3768,7 +3987,10 @@ impl ICspInformation_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3780,7 +4002,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3792,7 +4017,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3804,7 +4032,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3816,7 +4047,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3828,7 +4062,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3840,7 +4077,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3852,7 +4092,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3864,7 +4107,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3876,7 +4122,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3888,7 +4137,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3900,7 +4152,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3912,7 +4167,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3924,7 +4182,10 @@ impl ICspInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3936,7 +4197,10 @@ impl ICspInformation_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4109,7 +4373,10 @@ impl ICspInformations_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4121,7 +4388,10 @@ impl ICspInformations_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4133,7 +4403,10 @@ impl ICspInformations_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4169,7 +4442,10 @@ impl ICspInformations_Vtbl {
                         ppcspinformation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcspinformation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4181,7 +4457,10 @@ impl ICspInformations_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4193,7 +4472,10 @@ impl ICspInformations_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4205,7 +4487,10 @@ impl ICspInformations_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4217,7 +4502,10 @@ impl ICspInformations_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4345,7 +4633,10 @@ impl ICspStatus_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4363,7 +4654,10 @@ impl ICspStatus_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4375,7 +4669,10 @@ impl ICspStatus_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4387,7 +4684,10 @@ impl ICspStatus_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4399,7 +4699,10 @@ impl ICspStatus_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4547,7 +4850,10 @@ impl ICspStatuses_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4559,7 +4865,10 @@ impl ICspStatuses_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4571,7 +4880,10 @@ impl ICspStatuses_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4601,7 +4913,10 @@ impl ICspStatuses_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4613,7 +4928,10 @@ impl ICspStatuses_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4625,7 +4943,10 @@ impl ICspStatuses_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4637,7 +4958,10 @@ impl ICspStatuses_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4765,7 +5089,10 @@ impl IObjectId_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4777,7 +5104,10 @@ impl IObjectId_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4795,7 +5125,10 @@ impl IObjectId_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4807,7 +5140,10 @@ impl IObjectId_Vtbl {
                         pstralgorithmname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstralgorithmname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4925,7 +5261,10 @@ impl IObjectIds_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4937,7 +5276,10 @@ impl IObjectIds_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4949,7 +5291,10 @@ impl IObjectIds_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5071,7 +5416,10 @@ impl IPolicyQualifier_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5083,7 +5431,10 @@ impl IPolicyQualifier_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5095,7 +5446,10 @@ impl IPolicyQualifier_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5107,7 +5461,10 @@ impl IPolicyQualifier_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5214,7 +5571,10 @@ impl IPolicyQualifiers_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5226,7 +5586,10 @@ impl IPolicyQualifiers_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5238,7 +5601,10 @@ impl IPolicyQualifiers_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5409,7 +5775,10 @@ impl ISignerCertificate_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5421,7 +5790,10 @@ impl ISignerCertificate_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5433,7 +5805,10 @@ impl ISignerCertificate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5451,7 +5826,10 @@ impl ISignerCertificate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5469,7 +5847,10 @@ impl ISignerCertificate_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5493,7 +5874,10 @@ impl ISignerCertificate_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5621,7 +6005,10 @@ impl ISignerCertificates_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5633,7 +6020,10 @@ impl ISignerCertificates_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5645,7 +6035,10 @@ impl ISignerCertificates_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5675,7 +6068,10 @@ impl ISignerCertificates_Vtbl {
                         pisignercert.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisignercert.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5801,7 +6197,10 @@ impl ISmimeCapabilities_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5813,7 +6212,10 @@ impl ISmimeCapabilities_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5825,7 +6227,10 @@ impl ISmimeCapabilities_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5949,7 +6354,10 @@ impl ISmimeCapability_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5961,7 +6369,10 @@ impl ISmimeCapability_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6050,7 +6461,10 @@ impl IX500DistinguishedName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6062,7 +6476,10 @@ impl IX500DistinguishedName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6144,7 +6561,10 @@ impl IX509Attribute_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6156,7 +6576,10 @@ impl IX509Attribute_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6265,7 +6688,10 @@ impl IX509AttributeArchiveKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6277,7 +6703,10 @@ impl IX509AttributeArchiveKey_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6289,7 +6718,10 @@ impl IX509AttributeArchiveKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6372,7 +6804,10 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6477,7 +6912,10 @@ impl IX509AttributeClientId_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6489,7 +6927,10 @@ impl IX509AttributeClientId_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6501,7 +6942,10 @@ impl IX509AttributeClientId_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6513,7 +6957,10 @@ impl IX509AttributeClientId_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6613,7 +7060,10 @@ impl IX509AttributeCspProvider_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6625,7 +7075,10 @@ impl IX509AttributeCspProvider_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6637,7 +7090,10 @@ impl IX509AttributeCspProvider_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6723,7 +7179,10 @@ impl IX509AttributeExtensions_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6804,7 +7263,10 @@ impl IX509AttributeOSVersion_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6885,7 +7347,10 @@ impl IX509AttributeRenewalCertificate_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6990,7 +7455,10 @@ impl IX509Attributes_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7002,7 +7470,10 @@ impl IX509Attributes_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7014,7 +7485,10 @@ impl IX509Attributes_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7306,7 +7780,10 @@ impl IX509CertificateRequest_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7318,7 +7795,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7330,7 +7810,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7342,7 +7825,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7360,7 +7846,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7378,7 +7867,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7396,7 +7888,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7414,7 +7909,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7432,7 +7930,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7450,7 +7951,10 @@ impl IX509CertificateRequest_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7468,7 +7972,10 @@ impl IX509CertificateRequest_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7486,7 +7993,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7504,7 +8014,10 @@ impl IX509CertificateRequest_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7678,7 +8191,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7696,7 +8212,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7714,7 +8233,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7732,7 +8254,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7750,7 +8275,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7862,7 +8390,10 @@ impl IX509CertificateRequestCertificate2_Vtbl {
                         pppolicyserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicyserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7874,7 +8405,10 @@ impl IX509CertificateRequestCertificate2_Vtbl {
                         pptemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptemplate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8129,7 +8663,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8141,7 +8678,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8153,7 +8693,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8165,7 +8708,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8177,7 +8723,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8189,7 +8738,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8201,7 +8753,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8213,7 +8768,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8231,7 +8789,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8249,7 +8810,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8261,7 +8825,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8279,7 +8846,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8297,7 +8867,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8315,7 +8888,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8333,7 +8909,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8345,7 +8924,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8480,7 +9062,10 @@ impl IX509CertificateRequestCmc2_Vtbl {
                         pppolicyserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicyserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8492,7 +9077,10 @@ impl IX509CertificateRequestCmc2_Vtbl {
                         pptemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptemplate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8820,7 +9408,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8832,7 +9423,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8844,7 +9438,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8856,7 +9453,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8868,7 +9468,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8880,7 +9483,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8892,7 +9498,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8904,7 +9513,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8922,7 +9534,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8934,7 +9549,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8952,7 +9570,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8964,7 +9585,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8982,7 +9606,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8994,7 +9621,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9006,7 +9636,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9018,7 +9651,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9030,7 +9666,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9042,7 +9681,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9054,7 +9696,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                         ppcspstatuses.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcspstatuses.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9193,7 +9838,10 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
                         pppolicyserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicyserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9205,7 +9853,10 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
                         pptemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptemplate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9350,7 +10001,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9368,7 +10022,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9386,7 +10043,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9404,7 +10064,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9422,7 +10085,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9440,7 +10106,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9533,7 +10202,10 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9551,7 +10223,10 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9689,7 +10364,10 @@ impl IX509CertificateRequestPkcs7_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9707,7 +10385,10 @@ impl IX509CertificateRequestPkcs7_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9809,7 +10490,10 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
                         pppolicyserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicyserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9821,7 +10505,10 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
                         pptemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptemplate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10173,7 +10860,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10191,7 +10881,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10209,7 +10902,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10227,7 +10923,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10239,7 +10938,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10251,7 +10953,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10263,7 +10968,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10281,7 +10989,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10299,7 +11010,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10317,7 +11031,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10329,7 +11046,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10341,7 +11061,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10359,7 +11082,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10377,7 +11103,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10389,7 +11118,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10401,7 +11133,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10413,7 +11148,10 @@ impl IX509CertificateRevocationList_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10566,7 +11304,10 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10578,7 +11319,10 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10590,7 +11334,10 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10620,7 +11367,10 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10746,7 +11496,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10758,7 +11511,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10770,7 +11526,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10788,7 +11547,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10800,7 +11562,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10867,7 +11632,10 @@ impl IX509CertificateTemplate_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10967,7 +11735,10 @@ impl IX509CertificateTemplateWritable_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10985,7 +11756,10 @@ impl IX509CertificateTemplateWritable_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11111,7 +11885,10 @@ impl IX509CertificateTemplates_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11123,7 +11900,10 @@ impl IX509CertificateTemplates_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11135,7 +11915,10 @@ impl IX509CertificateTemplates_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11165,7 +11948,10 @@ impl IX509CertificateTemplates_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11177,7 +11963,10 @@ impl IX509CertificateTemplates_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11322,7 +12111,10 @@ impl IX509EndorsementKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11340,7 +12132,10 @@ impl IX509EndorsementKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11352,7 +12147,10 @@ impl IX509EndorsementKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11376,7 +12174,10 @@ impl IX509EndorsementKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11388,7 +12189,10 @@ impl IX509EndorsementKey_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11400,7 +12204,10 @@ impl IX509EndorsementKey_Vtbl {
                         pppublickey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppublickey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11669,7 +12476,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11693,7 +12503,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11705,7 +12518,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11717,7 +12533,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11735,7 +12554,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11753,7 +12575,10 @@ impl IX509Enrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11765,7 +12590,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11777,7 +12605,10 @@ impl IX509Enrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11789,7 +12620,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11801,7 +12635,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11813,7 +12650,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11831,7 +12671,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11849,7 +12692,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11861,7 +12707,10 @@ impl IX509Enrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11986,7 +12835,10 @@ impl IX509Enrollment2_Vtbl {
                         pppolicyserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicyserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11998,7 +12850,10 @@ impl IX509Enrollment2_Vtbl {
                         pptemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptemplate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12010,7 +12865,10 @@ impl IX509Enrollment2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12106,7 +12964,10 @@ impl IX509EnrollmentHelper_Vtbl {
                         pstrcertificate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrcertificate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12405,7 +13266,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         ptemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptemplates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12417,7 +13281,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         ppcas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcas.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12429,7 +13296,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         ppcas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcas.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12447,7 +13317,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         ppobjectids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjectids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12459,7 +13332,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12471,7 +13347,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12483,7 +13362,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12495,7 +13377,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12507,7 +13392,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12519,7 +13407,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12531,7 +13422,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12543,7 +13437,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12555,7 +13452,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12567,7 +13467,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12579,7 +13482,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12597,7 +13503,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12615,7 +13524,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12627,7 +13539,10 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12789,7 +13704,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12807,7 +13725,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12825,7 +13746,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12843,7 +13767,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12861,7 +13788,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12879,7 +13809,10 @@ impl IX509EnrollmentStatus_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12947,7 +13880,10 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
                         ppiunknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiunknown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13044,7 +13980,10 @@ impl IX509Extension_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13056,7 +13995,10 @@ impl IX509Extension_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13068,7 +14010,10 @@ impl IX509Extension_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13160,7 +14105,10 @@ impl IX509ExtensionAlternativeNames_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13241,7 +14189,10 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13342,7 +14293,10 @@ impl IX509ExtensionBasicConstraints_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13354,7 +14308,10 @@ impl IX509ExtensionBasicConstraints_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13439,7 +14396,10 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13523,7 +14483,10 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13604,7 +14567,10 @@ impl IX509ExtensionKeyUsage_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13688,7 +14654,10 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13772,7 +14741,10 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13853,7 +14825,10 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13965,7 +14940,10 @@ impl IX509ExtensionTemplate_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13977,7 +14955,10 @@ impl IX509ExtensionTemplate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13989,7 +14970,10 @@ impl IX509ExtensionTemplate_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14072,7 +15056,10 @@ impl IX509ExtensionTemplateName_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14200,7 +15187,10 @@ impl IX509Extensions_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14212,7 +15202,10 @@ impl IX509Extensions_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14224,7 +15217,10 @@ impl IX509Extensions_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14254,7 +15250,10 @@ impl IX509Extensions_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14324,7 +15323,10 @@ impl IX509MachineEnrollmentFactory_Vtbl {
                         ppihelper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppihelper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14397,7 +15399,10 @@ impl IX509NameValuePair_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14409,7 +15414,10 @@ impl IX509NameValuePair_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14514,7 +15522,10 @@ impl IX509NameValuePairs_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14526,7 +15537,10 @@ impl IX509NameValuePairs_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14538,7 +15552,10 @@ impl IX509NameValuePairs_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14669,7 +15686,10 @@ impl IX509PolicyServerListManager_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14681,7 +15701,10 @@ impl IX509PolicyServerListManager_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14693,7 +15716,10 @@ impl IX509PolicyServerListManager_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14895,7 +15921,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14913,7 +15942,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14931,7 +15963,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14949,7 +15984,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14967,7 +16005,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14985,7 +16026,10 @@ impl IX509PolicyServerUrl_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15541,7 +16585,10 @@ impl IX509PrivateKey_Vtbl {
                         pstrencodedkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrencodedkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15553,7 +16600,10 @@ impl IX509PrivateKey_Vtbl {
                         pppublickey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppublickey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15565,7 +16615,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15583,7 +16636,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15601,7 +16657,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15619,7 +16678,10 @@ impl IX509PrivateKey_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15637,7 +16699,10 @@ impl IX509PrivateKey_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15655,7 +16720,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15673,7 +16741,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15691,7 +16762,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15709,7 +16783,10 @@ impl IX509PrivateKey_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15727,7 +16804,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15745,7 +16825,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15763,7 +16846,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15781,7 +16867,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15799,7 +16888,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15817,7 +16909,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15835,7 +16930,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15853,7 +16951,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15871,7 +16972,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15883,7 +16987,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15895,7 +17002,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15907,7 +17017,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15925,7 +17038,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15943,7 +17059,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15961,7 +17080,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15985,7 +17107,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16003,7 +17128,10 @@ impl IX509PrivateKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16180,7 +17308,10 @@ impl IX509PrivateKey2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16198,7 +17329,10 @@ impl IX509PrivateKey2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16216,7 +17350,10 @@ impl IX509PrivateKey2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16234,7 +17371,10 @@ impl IX509PrivateKey2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16252,7 +17392,10 @@ impl IX509PrivateKey2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16385,7 +17528,10 @@ impl IX509PublicKey_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16397,7 +17543,10 @@ impl IX509PublicKey_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16409,7 +17558,10 @@ impl IX509PublicKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16421,7 +17573,10 @@ impl IX509PublicKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16433,7 +17588,10 @@ impl IX509PublicKey_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16674,7 +17832,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16686,7 +17847,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16698,7 +17862,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16710,7 +17877,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16728,7 +17898,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16740,7 +17913,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16758,7 +17934,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16776,7 +17955,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16794,7 +17976,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16806,7 +17991,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16824,7 +18012,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16836,7 +18027,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16848,7 +18042,10 @@ impl IX509SCEPEnrollment_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16979,7 +18176,10 @@ impl IX509SCEPEnrollment2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16991,7 +18191,10 @@ impl IX509SCEPEnrollment2_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17003,7 +18206,10 @@ impl IX509SCEPEnrollment2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17015,7 +18221,10 @@ impl IX509SCEPEnrollment2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17027,7 +18236,10 @@ impl IX509SCEPEnrollment2_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17152,7 +18364,10 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17164,7 +18379,10 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17176,7 +18394,10 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17188,7 +18409,10 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17358,7 +18582,10 @@ impl IX509SignatureInformation_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17376,7 +18603,10 @@ impl IX509SignatureInformation_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17394,7 +18624,10 @@ impl IX509SignatureInformation_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17412,7 +18645,10 @@ impl IX509SignatureInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17430,7 +18666,10 @@ impl IX509SignatureInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17442,7 +18681,10 @@ impl IX509SignatureInformation_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -17460,7 +18702,10 @@ impl IX509SignatureInformation_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

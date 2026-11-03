@@ -69,15 +69,18 @@ here because `BOOL` is already `#[must_use]`. The DLL comes from import-library 
 | Optional | `_In_opt_ const RECT* bounds` | `#[in] #[opt] bounds: *const RECT` | `Option<*const RECT>` |
 | Reserved | `_Reserved_ void* reserved` | `#[reserved] reserved: *mut void` | Same as optional; the value is not enforced |
 | Result | MIDL `[out, retval] BSTR* name` | `#[out] #[retval] name: *mut BSTR` | Trailing result of an `HRESULT` method becomes `Result<BSTR>` |
-| Returned pointer | `_Outptr_ void** data` | `#[out] #[out_ptr] data: *mut *mut void` | Implementations clear the output on error when `null_on_failure` |
-| Nullable | `_Outptr_result_maybenull_ IThing** thing` | `#[nullable] #[out] #[out_ptr] thing: *mut IThing` | `Option<IThing>` if otherwise eligible as an interface result |
+| Pointer result | `_Outptr_ void** data` | `#[out] data: *mut *mut void` | Raw pointer unless eligible as a result |
+| Nullable | `_Outptr_result_maybenull_ IThing** thing` | `#[nullable] #[out] thing: *mut IThing` | `Option<IThing>` if otherwise eligible as an interface result |
 | Nullable return | `_Ret_maybenull_ void* Find()` | `extern fn Find() -> #[nullable] *mut void;` | Raw pointer |
 | Nullable field | `_Maybenull_ int* values;` | `#[nullable] values: *mut i32` | Raw pointer |
-| COM query | `_In_ REFIID riid, _COM_Outptr_ void** object` | `#[in] riid: *const GUID, #[iid_is] #[out] #[out_ptr(null_on_failure)] object: *mut *mut void` | An `HRESULT` method can become `Get<T: Interface>() -> Result<T>` |
+| COM query | `_In_ REFIID riid, _COM_Outptr_ void** object` | `#[in] riid: *const GUID, #[iid_is] #[out] object: *mut *mut void` | An `HRESULT` method can become `Get<T: Interface>() -> Result<T>` |
 
 `opt` lets the caller pass null. `nullable` says the API may produce null: through an `out`
-parameter, as a return value, or in a field. Without `nullable`, `out_ptr` promises a non-null
-pointer to one readable element on success; it does not imply an allocator or ownership transfer.
+parameter, as a return value, or in a field. Without `nullable`, nullability is unspecified.
+These attributes do not imply an allocator or ownership transfer.
+
+Clang keeps native returned-pointer and null-on-failure guarantees for checking and reconciliation,
+but does not publish them as separate attributes.
 
 `_Outptr_opt_` permits null argument storage, not a null returned pointer. A required non-null
 trailing typed `_COM_Outptr_`, or `_Outptr_` to an interface, also gets `retval` when success is
@@ -123,7 +126,7 @@ condition. These arguments belong to termination, not to `buffer`.
 | --- | --- |
 | `_In_z_ const char* name` | `#[in] #[null_terminated(entry)] name: *const i8` |
 | `_Pre_ _NullNull_terminated_ const unsigned short* names` | `#[null_terminated(double_entry)] names: *const u16` |
-| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr]` |
+| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[nullable] #[out]` |
 
 `double_entry` and `double_success` require two trailing zeros at that time. `indirect` selects the
 pointer stored through the parameter. Bindgen does not currently use this fact to change the Rust type.
@@ -182,6 +185,12 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
 expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection
 already return the raw status; COM implementation methods use `Result`.
+
+Generated implementations zero the ABI result storage when the Rust implementation returns `Err`.
+This applies to projected Win32 `retval` results and WinRT return values, including both the pointer
+and length of returned arrays. It happens after the call so inputs can alias the result storage.
+Explicit output parameters, in/out values and raw buffers remain implementation-managed. This is
+producer policy, not metadata or a guarantee about external implementations.
 
 ## Proposed annotations
 
@@ -261,7 +270,7 @@ ignored; only the recognized MIDL bracket comments carry contracts.
 
 DLL/entry-point and calling-convention facts can populate C# P/Invoke declarations.
 `SetLastError = true` asks the runtime to capture the native error, not decide whether a call failed.
-Custom families such as `Buffer`, `ReturnedPointer`, `Nullable` and `Incomplete` require
+Custom families such as `Buffer`, `Nullable` and `Incomplete` require
 explicit generator support. This repository does not establish C# support for this vocabulary;
 metadata round trips are not a substitute for consumer and generated-code coverage.
 
@@ -272,7 +281,7 @@ metadata round trips are not a substitute for consumer and generated-code covera
 | Parameter SAL without a family: `_When_`, `_At_`, unsupported counts | `#[incomplete]`: raw pointer, no slice, `retval` or query projection |
 | Produced lengths and post-call capacities | Validated natively, not published; keep a usable entry extent or mark the buffer `incomplete` |
 | `_Field_size_*` | Validated natively; extent omitted, nullability retained |
-| `_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` | Redundant with an explicit `out_ptr`; otherwise `incomplete` |
+| `_At_(*p, _Post_readable_size_(_Inexpressible_(...)))` | Redundant with an explicit native returned-pointer contract; otherwise `incomplete` |
 | Null-state and validity SAL that cannot be published | `#[incomplete]` |
 | `_Success_`, `_Return_type_success_` | Dropped; `return >= 0` only grounds `retval` inference |
 | `_In_range_`, `_Deref_in_range_`, `_Deref_out_range_`, `__RPC__in_range` | Dropped; ranges constrain values, not projections |
@@ -290,7 +299,6 @@ language-neutral API facts.
 | --- | --- |
 | `in`, `out`, `opt` | Param flags `In`, `Out`, `Optional` |
 | `reserved`, `retval`, `nullable`, `incomplete` | `Reserved`, `RetVal`, `Nullable`, `Incomplete` |
-| `out_ptr`, `out_ptr(null_on_failure)` | `ReturnedPointer`, with `NullOnFailure` |
 | `iid_is` | `ComOutPtr` |
 | `buffer(count)`, `buffer(bytes(count))` | `Buffer`, with `CountConst` or `CountParamIndex`, plus `Dereference` and `Bytes` when needed |
 | `null_terminated`, `encoding` | `NullTerminated`, `Encoding` |

@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         #[guid(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0)]
         interface IWSDXMLContext: IUnknown {
-            fn AddNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszSuggestedPrefix: LPCWSTR, #[opt] #[out] #[out_ptr] ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
-            fn AddNameToNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszName: LPCWSTR, #[opt] #[out] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+            fn AddNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszSuggestedPrefix: LPCWSTR, #[opt] #[out] ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
+            fn AddNameToNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszName: LPCWSTR, #[opt] #[out] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
             fn SetNamespaces(&self, #[buffer(wNamespacesCount)] #[in] pNamespaces: *const PCWSDXML_NAMESPACE, #[in] wNamespacesCount: WORD, #[in] bLayerNumber: BYTE) -> HRESULT;
             fn SetTypes(&self, #[buffer(dwTypesCount)] #[in] pTypes: *const PCWSDXML_TYPE, #[in] dwTypesCount: DWORD, #[in] bLayerNumber: BYTE) -> HRESULT;
         }
@@ -58,9 +58,9 @@ mod Windows {
         type PCWSDXML_NAMESPACE = *const _WSDXML_NAMESPACE;
         type PCWSDXML_TYPE = *const _WSDXML_TYPE;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLCreateContext(#[out] #[out_ptr] #[retval] ppContext: *mut IWSDXMLContext) -> HRESULT;
+        extern fn WSDXMLCreateContext(#[out] #[retval] ppContext: *mut IWSDXMLContext) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLGetNameFromBuiltinNamespace(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, #[out] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+        extern fn WSDXMLGetNameFromBuiltinNamespace(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, #[out] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
         struct WSD_DATETIME {
             isPositive: BOOL,
             year: ULONG,

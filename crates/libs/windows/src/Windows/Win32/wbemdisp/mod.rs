@@ -380,7 +380,10 @@ impl ISWbemDateTime_Vtbl {
                         strvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -398,7 +401,10 @@ impl ISWbemDateTime_Vtbl {
                         iyear.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iyear.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -416,7 +422,10 @@ impl ISWbemDateTime_Vtbl {
                         byearspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        byearspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -434,7 +443,10 @@ impl ISWbemDateTime_Vtbl {
                         imonth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imonth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -452,7 +464,10 @@ impl ISWbemDateTime_Vtbl {
                         bmonthspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bmonthspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -470,7 +485,10 @@ impl ISWbemDateTime_Vtbl {
                         iday.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iday.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -488,7 +506,10 @@ impl ISWbemDateTime_Vtbl {
                         bdayspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bdayspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -506,7 +527,10 @@ impl ISWbemDateTime_Vtbl {
                         ihours.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ihours.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -524,7 +548,10 @@ impl ISWbemDateTime_Vtbl {
                         bhoursspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bhoursspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -542,7 +569,10 @@ impl ISWbemDateTime_Vtbl {
                         iminutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iminutes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -560,7 +590,10 @@ impl ISWbemDateTime_Vtbl {
                         bminutesspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bminutesspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -578,7 +611,10 @@ impl ISWbemDateTime_Vtbl {
                         iseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iseconds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -596,7 +632,10 @@ impl ISWbemDateTime_Vtbl {
                         bsecondsspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bsecondsspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -614,7 +653,10 @@ impl ISWbemDateTime_Vtbl {
                         imicroseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imicroseconds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -632,7 +674,10 @@ impl ISWbemDateTime_Vtbl {
                         bmicrosecondsspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bmicrosecondsspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -650,7 +695,10 @@ impl ISWbemDateTime_Vtbl {
                         iutc.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iutc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -668,7 +716,10 @@ impl ISWbemDateTime_Vtbl {
                         butcspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        butcspecified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -686,7 +737,10 @@ impl ISWbemDateTime_Vtbl {
                         bisinterval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisinterval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -704,7 +758,10 @@ impl ISWbemDateTime_Vtbl {
                         dvardate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dvardate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -722,7 +779,10 @@ impl ISWbemDateTime_Vtbl {
                         strfiletime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strfiletime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -832,7 +892,10 @@ impl ISWbemEventSource_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -844,7 +907,10 @@ impl ISWbemEventSource_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -939,7 +1005,10 @@ impl ISWbemLocator_Vtbl {
                         objwbemservices.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemservices.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -951,7 +1020,10 @@ impl ISWbemLocator_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1041,7 +1113,10 @@ impl ISWbemMethod_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1053,7 +1128,10 @@ impl ISWbemMethod_Vtbl {
                         strorigin.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strorigin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1065,7 +1143,10 @@ impl ISWbemMethod_Vtbl {
                         objwbeminparameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbeminparameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1077,7 +1158,10 @@ impl ISWbemMethod_Vtbl {
                         objwbemoutparameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemoutparameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1089,7 +1173,10 @@ impl ISWbemMethod_Vtbl {
                         objwbemqualifierset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemqualifierset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1166,7 +1253,10 @@ impl ISWbemMethodSet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1178,7 +1268,10 @@ impl ISWbemMethodSet_Vtbl {
                         objwbemmethod.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1190,7 +1283,10 @@ impl ISWbemMethodSet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1270,7 +1366,10 @@ impl ISWbemNamedValue_Vtbl {
                         varvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        varvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1288,7 +1387,10 @@ impl ISWbemNamedValue_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1393,7 +1495,10 @@ impl ISWbemNamedValueSet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1405,7 +1510,10 @@ impl ISWbemNamedValueSet_Vtbl {
                         objwbemnamedvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemnamedvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1417,7 +1525,10 @@ impl ISWbemNamedValueSet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1429,7 +1540,10 @@ impl ISWbemNamedValueSet_Vtbl {
                         objwbemnamedvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemnamedvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1447,7 +1561,10 @@ impl ISWbemNamedValueSet_Vtbl {
                         objwbemnamedvalueset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemnamedvalueset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1769,7 +1886,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1799,7 +1919,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1817,7 +1940,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1835,7 +1961,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1868,7 +1997,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1886,7 +2018,10 @@ impl ISWbemObject_Vtbl {
                         objwbemoutparameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemoutparameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1904,7 +2039,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1916,7 +2054,10 @@ impl ISWbemObject_Vtbl {
                         strobjecttext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strobjecttext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1928,7 +2069,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1940,7 +2084,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1952,7 +2099,10 @@ impl ISWbemObject_Vtbl {
                         bresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1964,7 +2114,10 @@ impl ISWbemObject_Vtbl {
                         objwbemqualifierset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemqualifierset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1976,7 +2129,10 @@ impl ISWbemObject_Vtbl {
                         objwbempropertyset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbempropertyset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1988,7 +2144,10 @@ impl ISWbemObject_Vtbl {
                         objwbemmethodset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemmethodset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2000,7 +2159,10 @@ impl ISWbemObject_Vtbl {
                         strclassnamearray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strclassnamearray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2012,7 +2174,10 @@ impl ISWbemObject_Vtbl {
                         objwbemobjectpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2024,7 +2189,10 @@ impl ISWbemObject_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2138,7 +2306,10 @@ impl ISWbemObjectEx_Vtbl {
                         objwbempropertyset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbempropertyset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2150,7 +2321,10 @@ impl ISWbemObjectEx_Vtbl {
                         bstext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2370,7 +2544,10 @@ impl ISWbemObjectPath_Vtbl {
                         strpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2388,7 +2565,10 @@ impl ISWbemObjectPath_Vtbl {
                         strrelpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strrelpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2406,7 +2586,10 @@ impl ISWbemObjectPath_Vtbl {
                         strserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strserver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2424,7 +2607,10 @@ impl ISWbemObjectPath_Vtbl {
                         strnamespace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strnamespace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2442,7 +2628,10 @@ impl ISWbemObjectPath_Vtbl {
                         strparentnamespace.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strparentnamespace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2454,7 +2643,10 @@ impl ISWbemObjectPath_Vtbl {
                         strdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2472,7 +2664,10 @@ impl ISWbemObjectPath_Vtbl {
                         strclass.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strclass.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2490,7 +2685,10 @@ impl ISWbemObjectPath_Vtbl {
                         bisclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisclass.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2508,7 +2706,10 @@ impl ISWbemObjectPath_Vtbl {
                         bissingleton.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bissingleton.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2526,7 +2727,10 @@ impl ISWbemObjectPath_Vtbl {
                         objwbemnamedvalueset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemnamedvalueset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2538,7 +2742,10 @@ impl ISWbemObjectPath_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2550,7 +2757,10 @@ impl ISWbemObjectPath_Vtbl {
                         strlocale.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strlocale.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2568,7 +2778,10 @@ impl ISWbemObjectPath_Vtbl {
                         strauthority.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strauthority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2685,7 +2898,10 @@ impl ISWbemObjectSet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2697,7 +2913,10 @@ impl ISWbemObjectSet_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2709,7 +2928,10 @@ impl ISWbemObjectSet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2721,7 +2943,10 @@ impl ISWbemObjectSet_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2733,7 +2958,10 @@ impl ISWbemObjectSet_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2831,7 +3059,10 @@ impl ISWbemPrivilege_Vtbl {
                         bisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2849,7 +3080,10 @@ impl ISWbemPrivilege_Vtbl {
                         strdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2861,7 +3095,10 @@ impl ISWbemPrivilege_Vtbl {
                         strdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2873,7 +3110,10 @@ impl ISWbemPrivilege_Vtbl {
                         iprivilege.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iprivilege.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2984,7 +3224,10 @@ impl ISWbemPrivilegeSet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2996,7 +3239,10 @@ impl ISWbemPrivilegeSet_Vtbl {
                         objwbemprivilege.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemprivilege.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3008,7 +3254,10 @@ impl ISWbemPrivilegeSet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3020,7 +3269,10 @@ impl ISWbemPrivilegeSet_Vtbl {
                         objwbemprivilege.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemprivilege.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3044,7 +3296,10 @@ impl ISWbemPrivilegeSet_Vtbl {
                         objwbemprivilege.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemprivilege.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3176,7 +3431,10 @@ impl ISWbemProperty_Vtbl {
                         varvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        varvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3194,7 +3452,10 @@ impl ISWbemProperty_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3206,7 +3467,10 @@ impl ISWbemProperty_Vtbl {
                         bislocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bislocal.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3218,7 +3482,10 @@ impl ISWbemProperty_Vtbl {
                         strorigin.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strorigin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3230,7 +3497,10 @@ impl ISWbemProperty_Vtbl {
                         icimtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icimtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3242,7 +3512,10 @@ impl ISWbemProperty_Vtbl {
                         objwbemqualifierset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemqualifierset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3254,7 +3527,10 @@ impl ISWbemProperty_Vtbl {
                         bisarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3351,7 +3627,10 @@ impl ISWbemPropertySet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3363,7 +3642,10 @@ impl ISWbemPropertySet_Vtbl {
                         objwbemproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3375,7 +3657,10 @@ impl ISWbemPropertySet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3387,7 +3672,10 @@ impl ISWbemPropertySet_Vtbl {
                         objwbemproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3562,7 +3850,10 @@ impl ISWbemQualifier_Vtbl {
                         varvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        varvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3580,7 +3871,10 @@ impl ISWbemQualifier_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3592,7 +3886,10 @@ impl ISWbemQualifier_Vtbl {
                         bislocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bislocal.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3604,7 +3901,10 @@ impl ISWbemQualifier_Vtbl {
                         bpropagatestosubclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bpropagatestosubclass.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3622,7 +3922,10 @@ impl ISWbemQualifier_Vtbl {
                         bpropagatestoinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bpropagatestoinstance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3640,7 +3943,10 @@ impl ISWbemQualifier_Vtbl {
                         bisoverridable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisoverridable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3658,7 +3964,10 @@ impl ISWbemQualifier_Vtbl {
                         bisamended.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisamended.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3758,7 +4067,10 @@ impl ISWbemQualifierSet_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3770,7 +4082,10 @@ impl ISWbemQualifierSet_Vtbl {
                         objwbemqualifier.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemqualifier.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3782,7 +4097,10 @@ impl ISWbemQualifierSet_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3794,7 +4112,10 @@ impl ISWbemQualifierSet_Vtbl {
                         objwbemqualifier.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemqualifier.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3902,7 +4223,10 @@ impl ISWbemRefreshableItem_Vtbl {
                         iindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3914,7 +4238,10 @@ impl ISWbemRefreshableItem_Vtbl {
                         objwbemrefresher.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemrefresher.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3926,7 +4253,10 @@ impl ISWbemRefreshableItem_Vtbl {
                         bisset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bisset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3938,7 +4268,10 @@ impl ISWbemRefreshableItem_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3950,7 +4283,10 @@ impl ISWbemRefreshableItem_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4094,7 +4430,10 @@ impl ISWbemRefresher_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4106,7 +4445,10 @@ impl ISWbemRefresher_Vtbl {
                         objwbemrefreshableitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemrefreshableitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4118,7 +4460,10 @@ impl ISWbemRefresher_Vtbl {
                         icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4130,7 +4475,10 @@ impl ISWbemRefresher_Vtbl {
                         objwbemrefreshableitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemrefreshableitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4142,7 +4490,10 @@ impl ISWbemRefresher_Vtbl {
                         objwbemrefreshableitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemrefreshableitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4166,7 +4517,10 @@ impl ISWbemRefresher_Vtbl {
                         bcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4270,7 +4624,10 @@ impl ISWbemSecurity_Vtbl {
                         iimpersonationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iimpersonationlevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4288,7 +4645,10 @@ impl ISWbemSecurity_Vtbl {
                         iauthenticationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iauthenticationlevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4306,7 +4666,10 @@ impl ISWbemSecurity_Vtbl {
                         objwbemprivilegeset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemprivilegeset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4571,7 +4934,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4601,7 +4967,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4619,7 +4988,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4637,7 +5009,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4655,7 +5030,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4689,7 +5067,10 @@ impl ISWbemServices_Vtbl {
                         objwbemobjectset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4707,7 +5088,10 @@ impl ISWbemServices_Vtbl {
                         objwbemeventsource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemeventsource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4725,7 +5109,10 @@ impl ISWbemServices_Vtbl {
                         objwbemoutparameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemoutparameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4743,7 +5130,10 @@ impl ISWbemServices_Vtbl {
                         objwbemsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemsecurity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4833,7 +5223,10 @@ impl ISWbemServicesEx_Vtbl {
                         objwbemobjectpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objwbemobjectpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

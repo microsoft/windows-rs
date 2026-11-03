@@ -1076,7 +1076,10 @@ impl IClientSecurity_Vtbl {
                         ppcopy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcopy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1241,7 +1244,10 @@ impl IEnumString_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1331,7 +1337,10 @@ impl IEnumUnknown_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2095,7 +2104,10 @@ impl IPSFactoryBuffer_Vtbl {
                         ppstub.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3334,7 +3346,10 @@ impl IStream_Vtbl {
                         ppstm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3660,7 +3675,10 @@ impl ISynchronizeContainer_Vtbl {
                         ppsync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3841,7 +3859,10 @@ impl IWaitMultiple_Vtbl {
                         psync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -464,7 +464,10 @@ impl ICOMAdminCatalog_Vtbl {
                         ppcatalogcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -476,7 +479,10 @@ impl ICOMAdminCatalog_Vtbl {
                         ppcatalogcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -488,7 +494,10 @@ impl ICOMAdminCatalog_Vtbl {
                         plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plmajorversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -500,7 +509,10 @@ impl ICOMAdminCatalog_Vtbl {
                         plminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plminorversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -512,7 +524,10 @@ impl ICOMAdminCatalog_Vtbl {
                         ppcatalogcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -626,7 +641,10 @@ impl ICOMAdminCatalog_Vtbl {
                         plstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -975,7 +993,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         ppcatalogcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -987,7 +1008,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrapplicationinstanceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrapplicationinstanceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1023,7 +1047,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pvarboolpaused.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarboolpaused.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1035,7 +1062,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrdumpfile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdumpfile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1047,7 +1077,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pvarbooldumpsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarbooldumpsupported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1071,7 +1104,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrpartitionid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpartitionid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1083,7 +1119,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrpartitionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpartitionname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1101,7 +1140,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrpartitionid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpartitionid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1113,7 +1155,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrpartitionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpartitionname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1125,7 +1170,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbstrglobalpartitionid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrglobalpartitionid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1167,7 +1215,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pcomadmininuse.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcomadmininuse.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1197,7 +1248,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         pbis64bit.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbis64bit.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1221,7 +1275,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         ppfilesforimport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfilesforimport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1233,7 +1290,10 @@ impl ICOMAdminCatalog2_Vtbl {
                         plversioncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plversioncount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1448,7 +1508,10 @@ impl ICatalogCollection_Vtbl {
                         ppenumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1460,7 +1523,10 @@ impl ICatalogCollection_Vtbl {
                         ppcatalogobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1472,7 +1538,10 @@ impl ICatalogCollection_Vtbl {
                         plobjectcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plobjectcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1490,7 +1559,10 @@ impl ICatalogCollection_Vtbl {
                         ppcatalogobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1508,7 +1580,10 @@ impl ICatalogCollection_Vtbl {
                         pcchanges.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcchanges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1520,7 +1595,10 @@ impl ICatalogCollection_Vtbl {
                         ppcatalogcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcatalogcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1532,7 +1610,10 @@ impl ICatalogCollection_Vtbl {
                         pvarnamel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarnamel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1544,7 +1625,10 @@ impl ICatalogCollection_Vtbl {
                         pvarbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1556,7 +1640,10 @@ impl ICatalogCollection_Vtbl {
                         pvarbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1568,7 +1655,10 @@ impl ICatalogCollection_Vtbl {
                         ppidispatch.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidispatch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1580,7 +1670,10 @@ impl ICatalogCollection_Vtbl {
                         plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plmajorversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1592,7 +1685,10 @@ impl ICatalogCollection_Vtbl {
                         plminorversionl.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plminorversionl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1749,7 +1845,10 @@ impl ICatalogObject_Vtbl {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1767,7 +1866,10 @@ impl ICatalogObject_Vtbl {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1779,7 +1881,10 @@ impl ICatalogObject_Vtbl {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1791,7 +1896,10 @@ impl ICatalogObject_Vtbl {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1803,7 +1911,10 @@ impl ICatalogObject_Vtbl {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1815,7 +1926,10 @@ impl ICatalogObject_Vtbl {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

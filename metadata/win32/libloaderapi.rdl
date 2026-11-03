@@ -102,8 +102,8 @@ mod Windows {
         type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIPTOR;
         type PDLL_DIRECTORY_COOKIE = *mut *mut void;
         type PENUMUILANG = *mut ENUMUILANG;
-        extern fn PGET_MODULE_HANDLE_EXA(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCSTR, #[out] #[out_ptr] phModule: *mut HMODULE) -> BOOL;
-        extern fn PGET_MODULE_HANDLE_EXW(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCWSTR, #[out] #[out_ptr] phModule: *mut HMODULE) -> BOOL;
+        extern fn PGET_MODULE_HANDLE_EXA(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCSTR, #[out] phModule: *mut HMODULE) -> BOOL;
+        extern fn PGET_MODULE_HANDLE_EXW(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCWSTR, #[out] phModule: *mut HMODULE) -> BOOL;
         type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
         type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
         struct REDIRECTION_DESCRIPTOR {

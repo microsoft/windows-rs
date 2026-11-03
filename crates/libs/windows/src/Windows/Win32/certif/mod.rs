@@ -148,7 +148,10 @@ impl ICertServerExit_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -160,7 +163,10 @@ impl ICertServerExit_Vtbl {
                         pstrattributevalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrattributevalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -172,7 +178,10 @@ impl ICertServerExit_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -184,7 +193,10 @@ impl ICertServerExit_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -196,7 +208,10 @@ impl ICertServerExit_Vtbl {
                         pextflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pextflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -214,7 +229,10 @@ impl ICertServerExit_Vtbl {
                         pstrextensionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrextensionname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -238,7 +256,10 @@ impl ICertServerExit_Vtbl {
                         pstrattributename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrattributename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -437,7 +458,10 @@ impl ICertServerPolicy_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -449,7 +473,10 @@ impl ICertServerPolicy_Vtbl {
                         pstrattributevalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrattributevalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -461,7 +488,10 @@ impl ICertServerPolicy_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -479,7 +509,10 @@ impl ICertServerPolicy_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -491,7 +524,10 @@ impl ICertServerPolicy_Vtbl {
                         pextflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pextflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -515,7 +551,10 @@ impl ICertServerPolicy_Vtbl {
                         pstrextensionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrextensionname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -539,7 +578,10 @@ impl ICertServerPolicy_Vtbl {
                         pstrattributename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrattributename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

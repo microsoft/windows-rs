@@ -128,7 +128,10 @@ impl IEnumOleDocumentViews_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -261,7 +264,10 @@ impl IOleDocument_Vtbl {
                         ppview.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppview.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -279,7 +285,10 @@ impl IOleDocument_Vtbl {
                         ppview.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppview.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -481,7 +490,10 @@ impl IOleDocumentView_Vtbl {
                         ppipsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -493,7 +505,10 @@ impl IOleDocumentView_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -559,7 +574,10 @@ impl IOleDocumentView_Vtbl {
                         ppviewnew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppviewnew.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

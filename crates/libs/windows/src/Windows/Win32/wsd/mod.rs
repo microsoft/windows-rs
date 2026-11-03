@@ -523,7 +523,10 @@ impl IWSDAsyncResult_Vtbl {
                         ppasyncstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasyncstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -547,7 +550,10 @@ impl IWSDAsyncResult_Vtbl {
                         ppendpoint.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppendpoint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -838,7 +844,10 @@ impl IWSDDeviceHostNotify_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -973,7 +982,10 @@ impl IWSDDeviceProxy_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1015,7 +1027,10 @@ impl IWSDDeviceProxy_Vtbl {
                         ppserviceproxy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppserviceproxy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1027,7 +1042,10 @@ impl IWSDDeviceProxy_Vtbl {
                         ppserviceproxy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppserviceproxy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1039,7 +1057,10 @@ impl IWSDDeviceProxy_Vtbl {
                         ppproxy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproxy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1163,7 +1184,10 @@ impl IWSDEndpointProxy_Vtbl {
                         presult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        presult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1545,7 +1569,10 @@ impl IWSDHttpMessageParameters_Vtbl {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1689,7 +1716,10 @@ impl IWSDMessageParameters_Vtbl {
                         ppaddress.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaddress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1707,7 +1737,10 @@ impl IWSDMessageParameters_Vtbl {
                         ppaddress.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaddress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1725,7 +1758,10 @@ impl IWSDMessageParameters_Vtbl {
                         pptxparams.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptxparams.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2117,7 +2153,10 @@ impl IWSDServiceProxy_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2159,7 +2198,10 @@ impl IWSDServiceProxy_Vtbl {
                         ppproxy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproxy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2367,7 +2409,10 @@ impl IWSDServiceProxyEventing_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2391,7 +2436,10 @@ impl IWSDServiceProxyEventing_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2415,7 +2463,10 @@ impl IWSDServiceProxyEventing_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2439,7 +2490,10 @@ impl IWSDServiceProxyEventing_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3302,7 +3356,10 @@ impl IWSDiscoveryProvider_Vtbl {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3751,7 +3808,10 @@ impl IWSDiscoveryPublisher_Vtbl {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

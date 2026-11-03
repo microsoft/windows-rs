@@ -612,18 +612,18 @@ mod Windows {
         interface IXMLHTTPRequest: IDispatch {
             fn open(&self, #[in] bstrMethod: BSTR, #[in] bstrUrl: BSTR, #[in] #[opt] varAsync: VARIANT, #[in] #[opt] bstrUser: VARIANT, #[in] #[opt] bstrPassword: VARIANT) -> HRESULT;
             fn setRequestHeader(&self, #[in] bstrHeader: BSTR, #[in] bstrValue: BSTR) -> HRESULT;
-            fn getResponseHeader(&self, #[in] bstrHeader: BSTR, #[out] #[out_ptr] #[retval] pbstrValue: *mut BSTR) -> HRESULT;
-            fn getAllResponseHeaders(&self, #[out] #[out_ptr] #[retval] pbstrHeaders: *mut BSTR) -> HRESULT;
+            fn getResponseHeader(&self, #[in] bstrHeader: BSTR, #[out] #[retval] pbstrValue: *mut BSTR) -> HRESULT;
+            fn getAllResponseHeaders(&self, #[out] #[retval] pbstrHeaders: *mut BSTR) -> HRESULT;
             fn send(&self, #[in] #[opt] varBody: VARIANT) -> HRESULT;
             fn abort(&self) -> HRESULT;
             #[special]
             fn get_status(&self, #[out] #[retval] plStatus: *mut i32) -> HRESULT;
             #[special]
-            fn get_statusText(&self, #[out] #[out_ptr] #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
+            fn get_statusText(&self, #[out] #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_responseXML(&self, #[out] #[out_ptr] #[retval] ppBody: *mut IDispatch) -> HRESULT;
+            fn get_responseXML(&self, #[out] #[retval] ppBody: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_responseText(&self, #[out] #[out_ptr] #[retval] pbstrBody: *mut BSTR) -> HRESULT;
+            fn get_responseText(&self, #[out] #[retval] pbstrBody: *mut BSTR) -> HRESULT;
             #[special]
             fn get_responseBody(&self, #[out] #[retval] pvarBody: *mut VARIANT) -> HRESULT;
             #[special]
@@ -642,9 +642,9 @@ mod Windows {
             fn SetCustomResponseStream(&self, #[in] #[opt] pSequentialStream: ISequentialStream) -> HRESULT;
             fn SetProperty(&self, #[in] eProperty: XHR_PROPERTY, #[in] ullValue: ULONGLONG) -> HRESULT;
             fn SetRequestHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszValue: *const WCHAR) -> HRESULT;
-            fn GetAllResponseHeaders(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
+            fn GetAllResponseHeaders(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
             fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[incomplete] #[nullable] #[out] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
-            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] #[out_ptr] ppwszValue: *mut *mut WCHAR) -> HRESULT;
+            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[incomplete] #[null_terminated(entry, success, indirect)] #[nullable] #[out] ppwszValue: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xa44a9299_e321_40de_8866_341b41669162)]
         interface IXMLHTTPRequest2Callback: IUnknown {

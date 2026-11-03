@@ -155,7 +155,10 @@ impl ICertView_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -167,7 +170,10 @@ impl ICertView_Vtbl {
                         pccolumn.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pccolumn.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -179,7 +185,10 @@ impl ICertView_Vtbl {
                         pcolumnindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcolumnindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -209,7 +218,10 @@ impl ICertView_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -364,7 +376,10 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -376,7 +391,10 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -388,7 +406,10 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -412,7 +433,10 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -564,7 +588,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -576,7 +603,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -588,7 +618,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -600,7 +633,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -612,7 +648,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pindexed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindexed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -624,7 +663,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pmaxlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmaxlength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -636,7 +678,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -660,7 +705,10 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -784,7 +832,10 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -796,7 +847,10 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -808,7 +862,10 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
                         pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -820,7 +877,10 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -844,7 +904,10 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -977,7 +1040,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -989,7 +1055,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1001,7 +1070,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1013,7 +1085,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1037,7 +1112,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1049,7 +1127,10 @@ impl IEnumCERTVIEWROW_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

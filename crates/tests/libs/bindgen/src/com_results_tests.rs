@@ -52,8 +52,8 @@ impl Results_Impl for Provider_Impl {
         self.value()?.ok_or_else(|| E_FAIL.into())
     }
 
-    fn UnspecifiedFailure(&self) -> windows_core::Result<Tracked> {
-        self.Required()
+    fn Number(&self) -> windows_core::Result<u32> {
+        Err(E_FAIL.into())
     }
 
     fn NullableVoid(&self, value: OutRef<Tracked>) {
@@ -168,27 +168,22 @@ fn nullable_results_transfer_owned_references() {
 }
 
 #[test]
-fn producer_failure_initializes_only_promised_outputs() {
+fn producer_failure_clears_result_slots_without_metadata() {
     let result = provider(&Rc::new(Cell::new(Mode::Failure)), &Rc::new(Cell::new(0)));
     let vtable = result.vtable();
-    for (method, clears) in [
-        (vtable.Nullable, true),
-        (vtable.Required, true),
-        (vtable.UnspecifiedFailure, false),
-    ] {
+    for method in [vtable.Nullable, vtable.Required] {
         let sentinel = core::ptr::without_provenance_mut(1);
         let mut value = sentinel;
         let hr = unsafe { method(result.as_raw(), &mut value) };
         assert_eq!(hr, E_FAIL);
-        assert_eq!(
-            value,
-            if clears {
-                core::ptr::null_mut()
-            } else {
-                sentinel
-            }
-        );
+        assert!(value.is_null());
     }
+    let mut number = 99;
+    assert_eq!(
+        unsafe { (vtable.Number)(result.as_raw(), &mut number) },
+        E_FAIL
+    );
+    assert_eq!(number, 0);
     let mut data = core::ptr::without_provenance_mut(1);
     assert_eq!(unsafe { (vtable.Data)(result.as_raw(), &mut data) }, E_FAIL);
     assert!(data.is_null());
@@ -200,6 +195,64 @@ fn producer_failure_initializes_only_promised_outputs() {
         E_FAIL
     );
     assert!(value.is_null());
+}
+
+#[test]
+fn winrt_failure_clears_results_but_preserves_partial_outputs() {
+    use super::interface_void::{Interface, Interface_Impl};
+
+    #[implement(Interface)]
+    struct Failure;
+
+    impl Interface_Impl for Failure_Impl {
+        fn Execute(&self) -> windows_core::Result<()> {
+            Err(E_FAIL.into())
+        }
+
+        fn Method(&self) -> windows_core::Result<i32> {
+            Err(E_FAIL.into())
+        }
+
+        fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+            Err(E_FAIL.into())
+        }
+
+        fn Values(&self) -> windows_core::Result<windows_core::Array<u8>> {
+            Err(E_FAIL.into())
+        }
+
+        fn Partial(&self, value: &mut u32) -> windows_core::Result<u32> {
+            *value = 17;
+            Err(E_FAIL.into())
+        }
+    }
+
+    let object: Interface = Failure.into();
+    let vtable = object.vtable();
+    let mut scalar = -1;
+    let mut text = core::ptr::without_provenance_mut(1);
+    let mut values = core::ptr::without_provenance_mut(1);
+    let mut count = 99;
+    let mut partial = 0;
+    let mut result = 99;
+    unsafe {
+        assert_eq!((vtable.Method)(object.as_raw(), &mut scalar), E_FAIL);
+        assert_eq!((vtable.Text)(object.as_raw(), &mut text), E_FAIL);
+        assert_eq!(
+            (vtable.Values)(object.as_raw(), &mut count, &mut values),
+            E_FAIL
+        );
+        assert_eq!(
+            (vtable.Partial)(object.as_raw(), &mut partial, &mut result),
+            E_FAIL
+        );
+    }
+    assert_eq!(scalar, 0);
+    assert!(text.is_null());
+    assert!(values.is_null());
+    assert_eq!(count, 0);
+    assert_eq!(partial, 17);
+    assert_eq!(result, 0);
 }
 
 #[test]

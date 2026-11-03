@@ -4,7 +4,7 @@ mod Windows {
         const EXCEPTION_RO_ORIGINATEERROR: DWORD = 1074266625;
         const EXCEPTION_RO_TRANSFORMERROR: DWORD = 1074266626;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn GetRestrictedErrorInfo(#[nullable] #[out] #[out_ptr] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn GetRestrictedErrorInfo(#[nullable] #[out] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
         const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
@@ -27,7 +27,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoGetErrorReportingFlags(#[out] pflags: *mut UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoGetMatchingRestrictedErrorInfo(#[in] hrIn: HRESULT, #[out] #[out_ptr(null_on_failure)] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoGetMatchingRestrictedErrorInfo(#[in] hrIn: HRESULT, #[out] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoInspectCapturedStackBackTrace(#[in] targetErrorInfoAddress: UINT_PTR, machine: USHORT, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: PVOID, #[out] frameCount: *mut UINT32, #[out] targetBackTraceAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
@@ -43,7 +43,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoReportUnhandledError(#[in] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoResolveRestrictedErrorInfoReference(#[in] reference: PCWSTR, #[out] #[out_ptr] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoResolveRestrictedErrorInfoReference(#[in] reference: PCWSTR, #[out] #[retval] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoSetErrorReportingFlags(#[in] flags: UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]

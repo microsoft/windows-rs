@@ -13,9 +13,9 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDFreeLinkedMemory(pVoid: *mut void);
         #[library("wsdapi.dll")]
-        extern fn WSDGenerateFault(#[in] pszCode: LPCWSTR, #[in] #[opt] pszSubCode: LPCWSTR, #[in] pszReason: LPCWSTR, #[in] #[opt] pszDetail: LPCWSTR, #[in] pContext: IWSDXMLContext, #[out] #[out_ptr] ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
+        extern fn WSDGenerateFault(#[in] pszCode: LPCWSTR, #[in] #[opt] pszSubCode: LPCWSTR, #[in] pszReason: LPCWSTR, #[in] #[opt] pszDetail: LPCWSTR, #[in] pContext: IWSDXMLContext, #[out] ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDGenerateFaultEx(#[in] pCode: *mut WSDXML_NAME, #[in] #[opt] pSubCode: *mut WSDXML_NAME, #[in] pReasons: *mut WSD_LOCALIZED_STRING_LIST, #[in] #[opt] pszDetail: LPCWSTR, #[out] #[out_ptr] ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
+        extern fn WSDGenerateFaultEx(#[in] pCode: *mut WSDXML_NAME, #[in] #[opt] pSubCode: *mut WSDXML_NAME, #[in] pReasons: *mut WSD_LOCALIZED_STRING_LIST, #[in] #[opt] pszDetail: LPCWSTR, #[out] ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDGetConfigurationOption(dwOption: DWORD, #[buffer(bytes(cbOutBuffer))] #[out] pVoid: LPVOID, cbOutBuffer: DWORD) -> HRESULT;
         #[library("wsdapi.dll")]
@@ -29,11 +29,11 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDXMLAddSibling(pFirst: *mut WSDXML_ELEMENT, pSecond: *mut WSDXML_ELEMENT) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLBuildAnyForSingleElement(pElementName: *mut WSDXML_NAME, #[in] #[opt] pszText: LPCWSTR, #[out] #[out_ptr] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
+        extern fn WSDXMLBuildAnyForSingleElement(pElementName: *mut WSDXML_NAME, #[in] #[opt] pszText: LPCWSTR, #[out] ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDXMLCleanupElement(pAny: *mut WSDXML_ELEMENT) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLGetValueFromAny(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, pAny: *mut WSDXML_ELEMENT, #[out] #[out_ptr] ppszValue: *mut LPCWSTR) -> HRESULT;
+        extern fn WSDXMLGetValueFromAny(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, pAny: *mut WSDXML_ELEMENT, #[out] ppszValue: *mut LPCWSTR) -> HRESULT;
         #[encoding("utf-16")]
         const WSD_DEFAULT_EVENTING_ADDRESS: String = "http://*:5357/";
         #[encoding("utf-16")]

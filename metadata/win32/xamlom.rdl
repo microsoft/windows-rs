@@ -64,7 +64,7 @@ mod Windows {
             fn GetPropertyIndex(&self, #[in] object: InstanceHandle, #[in] propertyName: LPCWSTR, #[out] pPropertyIndex: *mut u32) -> HRESULT;
             fn GetProperty(&self, #[in] object: InstanceHandle, #[in] propertyIndex: u32, #[out] pValue: *mut InstanceHandle) -> HRESULT;
             fn ReplaceResource(&self, #[in] resourceDictionary: InstanceHandle, #[in] key: InstanceHandle, #[in] newValue: InstanceHandle) -> HRESULT;
-            fn RenderTargetBitmap(&self, #[in] handle: InstanceHandle, #[in] options: RenderTargetBitmapOptions, #[in] maxPixelWidth: u32, #[in] maxPixelHeight: u32, #[out] #[out_ptr] #[retval] ppBitmapData: *mut IBitmapData) -> HRESULT;
+            fn RenderTargetBitmap(&self, #[in] handle: InstanceHandle, #[in] options: RenderTargetBitmapOptions, #[in] maxPixelWidth: u32, #[in] maxPixelHeight: u32, #[out] #[retval] ppBitmapData: *mut IBitmapData) -> HRESULT;
         }
         #[guid(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd)]
         interface IVisualTreeService3: IVisualTreeService2 {
@@ -83,14 +83,14 @@ mod Windows {
         }
         #[guid(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2)]
         interface IXamlDiagnostics: IUnknown {
-            fn GetDispatcher(&self, #[out] #[out_ptr] #[retval] ppDispatcher: *mut IInspectable) -> HRESULT;
-            fn GetUiLayer(&self, #[out] #[out_ptr] #[retval] ppLayer: *mut IInspectable) -> HRESULT;
-            fn GetApplication(&self, #[out] #[out_ptr] #[retval] ppApplication: *mut IInspectable) -> HRESULT;
-            fn GetIInspectableFromHandle(&self, #[in] instanceHandle: InstanceHandle, #[out] #[out_ptr] #[retval] ppInstance: *mut IInspectable) -> HRESULT;
+            fn GetDispatcher(&self, #[out] #[retval] ppDispatcher: *mut IInspectable) -> HRESULT;
+            fn GetUiLayer(&self, #[out] #[retval] ppLayer: *mut IInspectable) -> HRESULT;
+            fn GetApplication(&self, #[out] #[retval] ppApplication: *mut IInspectable) -> HRESULT;
+            fn GetIInspectableFromHandle(&self, #[in] instanceHandle: InstanceHandle, #[out] #[retval] ppInstance: *mut IInspectable) -> HRESULT;
             fn GetHandleFromIInspectable(&self, #[in] #[opt] pInstance: IInspectable, #[out] #[retval] pHandle: *mut InstanceHandle) -> HRESULT;
             fn HitTest(&self, #[in] rect: RECT, #[out] pCount: *mut u32, #[incomplete] #[nullable] #[out] ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
             fn RegisterInstance(&self, #[in] #[opt] pInstance: IInspectable, #[out] #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
-            fn GetInitializationData(&self, #[out] #[out_ptr] #[retval] pInitializationData: *mut BSTR) -> HRESULT;
+            fn GetInitializationData(&self, #[out] #[retval] pInitializationData: *mut BSTR) -> HRESULT;
         }
         #[library("Windows.UI.Xaml.dll")]
         #[must_use]

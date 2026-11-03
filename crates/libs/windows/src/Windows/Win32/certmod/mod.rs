@@ -64,7 +64,10 @@ impl ICertManageModule_Vtbl {
                         pvarproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

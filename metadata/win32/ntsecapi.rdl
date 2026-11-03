@@ -53,16 +53,16 @@ mod Windows {
         extern fn AuditLookupCategoryIdFromCategoryGuid(#[in] pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupCategoryNameA(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszCategoryName: *mut PSTR) -> BOOLEAN;
+        extern fn AuditLookupCategoryNameA(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] ppszCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupCategoryNameW(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
+        extern fn AuditLookupCategoryNameW(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupSubCategoryNameA(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
+        extern fn AuditLookupSubCategoryNameA(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupSubCategoryNameW(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
+        extern fn AuditLookupSubCategoryNameW(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn AuditQueryGlobalSaclA(#[in] ObjectTypeName: PCSTR, #[incomplete] #[out] Acl: *mut PACL) -> BOOLEAN;
@@ -74,7 +74,7 @@ mod Windows {
         extern fn AuditQueryPerUserPolicy(#[in] pSid: PSID, #[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditQuerySecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[incomplete] #[out] #[out_ptr] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
+        extern fn AuditQuerySecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[incomplete] #[out] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn AuditQuerySystemPolicy(#[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;

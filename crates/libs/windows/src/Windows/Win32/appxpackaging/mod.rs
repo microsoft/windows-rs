@@ -164,7 +164,10 @@ impl IAppxAppInstallerReader_Vtbl {
                         dom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dom.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -226,7 +229,10 @@ impl IAppxBlockMapBlock_Vtbl {
                         size.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        size.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -287,7 +293,10 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                         block.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        block.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -299,7 +308,10 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -311,7 +323,10 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -402,7 +417,10 @@ impl IAppxBlockMapFile_Vtbl {
                         blocks.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blocks.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -414,7 +432,10 @@ impl IAppxBlockMapFile_Vtbl {
                         lfhsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lfhsize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -432,7 +453,10 @@ impl IAppxBlockMapFile_Vtbl {
                         size.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        size.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -444,7 +468,10 @@ impl IAppxBlockMapFile_Vtbl {
                         isvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isvalid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -504,7 +531,10 @@ impl IAppxBlockMapFile2_Vtbl {
                         blocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blocksize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -561,7 +591,10 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                         file.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -573,7 +606,10 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -585,7 +621,10 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -667,7 +706,10 @@ impl IAppxBlockMapReader_Vtbl {
                         file.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -679,7 +721,10 @@ impl IAppxBlockMapReader_Vtbl {
                         enumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -691,7 +736,10 @@ impl IAppxBlockMapReader_Vtbl {
                         hashmethod.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hashmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -703,7 +751,10 @@ impl IAppxBlockMapReader_Vtbl {
                         blockmapstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockmapstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -789,7 +840,10 @@ impl IAppxBundleFactory_Vtbl {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -801,7 +855,10 @@ impl IAppxBundleFactory_Vtbl {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -813,7 +870,10 @@ impl IAppxBundleFactory_Vtbl {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifestreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -869,7 +929,10 @@ impl IAppxBundleFactory2_Vtbl {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -914,7 +977,10 @@ impl IAppxBundleFactory3_Vtbl {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -970,7 +1036,10 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
                         packageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -988,7 +1057,10 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
                         packageinfoitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageinfoitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1049,7 +1121,10 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                         optionalbundle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        optionalbundle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1061,7 +1136,10 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1073,7 +1151,10 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1165,7 +1246,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                         packagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1177,7 +1261,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                         packageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1195,7 +1282,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                         offset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        offset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1207,7 +1297,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                         size.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        size.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1219,7 +1312,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                         resources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1284,7 +1380,10 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                         ispackagereference.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ispackagereference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1296,7 +1395,10 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                         isnonqualifiedresourcepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isnonqualifiedresourcepackage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1308,7 +1410,10 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                         isdefaultapplicablepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isdefaultapplicablepackage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1353,7 +1458,10 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
                         targetdevicefamilies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        targetdevicefamilies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1393,7 +1501,10 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
                         isstub.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1449,7 +1560,10 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                         packageinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1461,7 +1575,10 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1473,7 +1590,10 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1540,7 +1660,10 @@ impl IAppxBundleManifestReader_Vtbl {
                         packageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1552,7 +1675,10 @@ impl IAppxBundleManifestReader_Vtbl {
                         packageinfoitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageinfoitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1564,7 +1690,10 @@ impl IAppxBundleManifestReader_Vtbl {
                         manifeststream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifeststream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1610,7 +1739,10 @@ impl IAppxBundleManifestReader2_Vtbl {
                         optionalbundles.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        optionalbundles.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1685,7 +1817,10 @@ impl IAppxBundleReader_Vtbl {
                         footprintfile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        footprintfile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1697,7 +1832,10 @@ impl IAppxBundleReader_Vtbl {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockmapreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1709,7 +1847,10 @@ impl IAppxBundleReader_Vtbl {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifestreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1721,7 +1862,10 @@ impl IAppxBundleReader_Vtbl {
                         payloadpackages.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        payloadpackages.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1733,7 +1877,10 @@ impl IAppxBundleReader_Vtbl {
                         payloadpackage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        payloadpackage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1783,7 +1930,10 @@ impl IAppxBundleReader2_Vtbl {
                         payloadpackagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        payloadpackagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2078,7 +2228,10 @@ impl IAppxContentGroup_Vtbl {
                         enumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2134,7 +2287,10 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                         file.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2146,7 +2302,10 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2158,7 +2317,10 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2211,7 +2373,10 @@ impl IAppxContentGroupMapReader_Vtbl {
                         requiredgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        requiredgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2223,7 +2388,10 @@ impl IAppxContentGroupMapReader_Vtbl {
                         automaticgroupsenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        automaticgroupsenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2347,7 +2515,10 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2359,7 +2530,10 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2371,7 +2545,10 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2416,7 +2593,10 @@ impl IAppxDigestProvider_Vtbl {
                         digest.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        digest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2834,7 +3014,10 @@ impl IAppxEncryptionFactory_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2846,7 +3029,10 @@ impl IAppxEncryptionFactory_Vtbl {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2870,7 +3056,10 @@ impl IAppxEncryptionFactory_Vtbl {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2882,7 +3071,10 @@ impl IAppxEncryptionFactory_Vtbl {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2944,7 +3136,10 @@ impl IAppxEncryptionFactory2_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3043,7 +3238,10 @@ impl IAppxEncryptionFactory3_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3061,7 +3259,10 @@ impl IAppxEncryptionFactory3_Vtbl {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3176,7 +3377,10 @@ impl IAppxEncryptionFactory5_Vtbl {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3188,7 +3392,10 @@ impl IAppxEncryptionFactory5_Vtbl {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bundlereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3303,7 +3510,10 @@ impl IAppxFactory_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3315,7 +3525,10 @@ impl IAppxFactory_Vtbl {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3327,7 +3540,10 @@ impl IAppxFactory_Vtbl {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifestreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3339,7 +3555,10 @@ impl IAppxFactory_Vtbl {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockmapreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3351,7 +3570,10 @@ impl IAppxFactory_Vtbl {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockmapreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3438,7 +3660,10 @@ impl IAppxFactory2_Vtbl {
                         contentgroupmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        contentgroupmapreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3450,7 +3675,10 @@ impl IAppxFactory2_Vtbl {
                         reader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3462,7 +3690,10 @@ impl IAppxFactory2_Vtbl {
                         contentgroupmapwriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        contentgroupmapwriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3550,7 +3781,10 @@ impl IAppxFactory3_Vtbl {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3562,7 +3796,10 @@ impl IAppxFactory3_Vtbl {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifestreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3574,7 +3811,10 @@ impl IAppxFactory3_Vtbl {
                         appinstallerreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        appinstallerreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3624,7 +3864,10 @@ impl IAppxFactory4_Vtbl {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagereader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3703,7 +3946,10 @@ impl IAppxFile_Vtbl {
                         compressionoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        compressionoption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3727,7 +3973,10 @@ impl IAppxFile_Vtbl {
                         size.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        size.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3739,7 +3988,10 @@ impl IAppxFile_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3799,7 +4051,10 @@ impl IAppxFile2_Vtbl {
                         blocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blocksize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3856,7 +4111,10 @@ impl IAppxFilesEnumerator_Vtbl {
                         file.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3868,7 +4126,10 @@ impl IAppxFilesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3880,7 +4141,10 @@ impl IAppxFilesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3990,7 +4254,10 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                         application.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        application.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4002,7 +4269,10 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4014,7 +4284,10 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4078,7 +4351,10 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4090,7 +4366,10 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4154,7 +4433,10 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4166,7 +4448,10 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4233,7 +4518,10 @@ impl IAppxManifestDriverConstraint_Vtbl {
                         minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4301,7 +4589,10 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                         driverconstraint.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        driverconstraint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4313,7 +4604,10 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4325,7 +4619,10 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4386,7 +4683,10 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                         driverdependency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        driverdependency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4398,7 +4698,10 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4410,7 +4713,10 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4455,7 +4761,10 @@ impl IAppxManifestDriverDependency_Vtbl {
                         driverconstraints.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        driverconstraints.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4511,7 +4820,10 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                         hostruntimedependency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hostruntimedependency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4523,7 +4835,10 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4535,7 +4850,10 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4608,7 +4926,10 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                         minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4701,7 +5022,10 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                         mainpackagedependency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mainpackagedependency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4713,7 +5037,10 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4725,7 +5052,10 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4844,7 +5174,10 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                         ospackagedependency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ospackagedependency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4856,7 +5189,10 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4868,7 +5204,10 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4930,7 +5269,10 @@ impl IAppxManifestOSPackageDependency_Vtbl {
                         version.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        version.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4976,7 +5318,10 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
                         isoptionalpackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isoptionalpackage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5042,7 +5387,10 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                         dependency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dependency.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5054,7 +5402,10 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5066,7 +5417,10 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5139,7 +5493,10 @@ impl IAppxManifestPackageDependency_Vtbl {
                         minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5197,7 +5554,10 @@ impl IAppxManifestPackageDependency2_Vtbl {
                         maxmajorversiontested.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxmajorversiontested.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5238,7 +5598,10 @@ impl IAppxManifestPackageDependency3_Vtbl {
                         isoptional.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isoptional.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5334,7 +5697,10 @@ impl IAppxManifestPackageId_Vtbl {
                         architecture.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        architecture.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5352,7 +5718,10 @@ impl IAppxManifestPackageId_Vtbl {
                         packageversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5370,7 +5739,10 @@ impl IAppxManifestPackageId_Vtbl {
                         issame.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        issame.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5441,7 +5813,10 @@ impl IAppxManifestPackageId2_Vtbl {
                         architecture.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        architecture.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5493,7 +5868,10 @@ impl IAppxManifestProperties_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5568,7 +5946,10 @@ impl IAppxManifestQualifiedResource_Vtbl {
                         scale.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scale.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5580,7 +5961,10 @@ impl IAppxManifestQualifiedResource_Vtbl {
                         dxfeaturelevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dxfeaturelevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5642,7 +6026,10 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                         resource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5654,7 +6041,10 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5666,7 +6056,10 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5788,7 +6181,10 @@ impl IAppxManifestReader_Vtbl {
                         packageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5800,7 +6196,10 @@ impl IAppxManifestReader_Vtbl {
                         packageproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packageproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5812,7 +6211,10 @@ impl IAppxManifestReader_Vtbl {
                         dependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dependencies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5824,7 +6226,10 @@ impl IAppxManifestReader_Vtbl {
                         capabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        capabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5836,7 +6241,10 @@ impl IAppxManifestReader_Vtbl {
                         resources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5848,7 +6256,10 @@ impl IAppxManifestReader_Vtbl {
                         devicecapabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        devicecapabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5860,7 +6271,10 @@ impl IAppxManifestReader_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5872,7 +6286,10 @@ impl IAppxManifestReader_Vtbl {
                         applications.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        applications.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5884,7 +6301,10 @@ impl IAppxManifestReader_Vtbl {
                         manifeststream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifeststream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5944,7 +6364,10 @@ impl IAppxManifestReader2_Vtbl {
                         resources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6001,7 +6424,10 @@ impl IAppxManifestReader3_Vtbl {
                         capabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        capabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6013,7 +6439,10 @@ impl IAppxManifestReader3_Vtbl {
                         targetdevicefamilies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        targetdevicefamilies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6066,7 +6495,10 @@ impl IAppxManifestReader4_Vtbl {
                         optionalpackageinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        optionalpackageinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6107,7 +6539,10 @@ impl IAppxManifestReader5_Vtbl {
                         mainpackagedependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mainpackagedependencies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6147,7 +6582,10 @@ impl IAppxManifestReader6_Vtbl {
                         isnonqualifiedresourcepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isnonqualifiedresourcepackage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6206,7 +6644,10 @@ impl IAppxManifestReader7_Vtbl {
                         driverdependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        driverdependencies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6218,7 +6659,10 @@ impl IAppxManifestReader7_Vtbl {
                         ospackagedependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ospackagedependencies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6230,7 +6674,10 @@ impl IAppxManifestReader7_Vtbl {
                         hostruntimedependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hostruntimedependencies.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6294,7 +6741,10 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6306,7 +6756,10 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6367,7 +6820,10 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                         targetdevicefamily.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        targetdevicefamily.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6379,7 +6835,10 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                         hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hascurrent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6391,7 +6850,10 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                         hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hasnext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6465,7 +6927,10 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                         minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6477,7 +6942,10 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                         maxversiontested.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxversiontested.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6701,7 +7169,10 @@ impl IAppxPackageReader_Vtbl {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockmapreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6713,7 +7184,10 @@ impl IAppxPackageReader_Vtbl {
                         file.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6725,7 +7199,10 @@ impl IAppxPackageReader_Vtbl {
                         file.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        file.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6737,7 +7214,10 @@ impl IAppxPackageReader_Vtbl {
                         filesenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filesenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6749,7 +7229,10 @@ impl IAppxPackageReader_Vtbl {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        manifestreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7044,7 +7527,10 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
                         requiredgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        requiredgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7056,7 +7542,10 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
                         automaticgroupsenumerator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        automaticgroupsenumerator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

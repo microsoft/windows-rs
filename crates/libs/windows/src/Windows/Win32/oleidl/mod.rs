@@ -296,7 +296,10 @@ impl IEnterpriseDropTarget_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -383,7 +386,10 @@ impl IEnumOLEVERB_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -491,7 +497,10 @@ impl IOleAdviseHolder_Vtbl {
                         ppenumadvise.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumadvise.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -615,7 +624,10 @@ impl IOleCache_Vtbl {
                         ppenumstatdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumstatdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -829,7 +841,10 @@ impl IOleClientSite_Vtbl {
                         ppmk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -841,7 +856,10 @@ impl IOleClientSite_Vtbl {
                         ppcontainer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontainer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -925,7 +943,10 @@ impl IOleContainer_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1748,7 +1769,10 @@ impl IOleLink_Vtbl {
                         ppmk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1784,7 +1808,10 @@ impl IOleLink_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2049,7 +2076,10 @@ impl IOleObject_Vtbl {
                         ppclientsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppclientsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2079,7 +2109,10 @@ impl IOleObject_Vtbl {
                         ppmk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2097,7 +2130,10 @@ impl IOleObject_Vtbl {
                         ppdataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2115,7 +2151,10 @@ impl IOleObject_Vtbl {
                         ppenumoleverb.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumoleverb.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2175,7 +2214,10 @@ impl IOleObject_Vtbl {
                         ppenumadvise.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumadvise.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2313,7 +2355,10 @@ impl IParseDisplayName_Vtbl {
                         ppmkout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2438,7 +2483,10 @@ impl IViewObject_Vtbl {
                         ppadvsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppadvsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -45,7 +45,7 @@ mod Windows {
         #[guid(0x36d39eb0_dd75_11ce_bf0e_00aa0055595a)]
         interface IDirectDrawVideo: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -57,7 +57,7 @@ mod Windows {
             fn GetSurfaceDesc(&self, #[in] #[out] pSurfaceDesc: *mut DDSURFACEDESC) -> HRESULT;
             fn GetFourCCCodes(&self, #[out] pCount: *mut DWORD, #[out] pCodes: *mut DWORD) -> HRESULT;
             fn SetDirectDraw(&self, pDirectDraw: LPDIRECTDRAW) -> HRESULT;
-            fn GetDirectDraw(&self, #[out] #[out_ptr] #[retval] ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
+            fn GetDirectDraw(&self, #[out] #[retval] ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
             fn GetSurfaceType(&self, #[out] pSurfaceType: *mut DWORD) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
             fn UseScanLine(&self, UseScanLine: i32) -> HRESULT;
@@ -70,7 +70,7 @@ mod Windows {
         #[guid(0xdd1d7110_7836_11cf_bf47_00aa0055595a)]
         interface IFullScreenVideo: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -90,13 +90,13 @@ mod Windows {
             fn HideOnDeactivate(&self, Hide: i32) -> HRESULT;
             fn IsHideOnDeactivate(&self) -> HRESULT;
             fn SetCaption(&self, #[in] strCaption: BSTR) -> HRESULT;
-            fn GetCaption(&self, #[out] #[out_ptr] pstrCaption: *mut BSTR) -> HRESULT;
+            fn GetCaption(&self, #[out] pstrCaption: *mut BSTR) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
         }
         #[guid(0x53479470_f1dd_11cf_bc42_00aa00ac74f6)]
         interface IFullScreenVideoEx: IFullScreenVideo {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -132,7 +132,7 @@ mod Windows {
             #[override_slot(17)]
             fn SetCaption(&self, #[in] strCaption: BSTR) -> HRESULT;
             #[override_slot(18)]
-            fn GetCaption(&self, #[out] #[out_ptr] pstrCaption: *mut BSTR) -> HRESULT;
+            fn GetCaption(&self, #[out] pstrCaption: *mut BSTR) -> HRESULT;
             #[override_slot(19)]
             fn SetDefault(&self) -> HRESULT;
             fn SetAcceleratorTable(&self, hwnd: HWND, hAccel: HACCEL) -> HRESULT;
@@ -143,7 +143,7 @@ mod Windows {
         #[guid(0x1bd0ecb0_f8e2_11ce_aac6_0020af0b99a3)]
         interface IQualProp: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]

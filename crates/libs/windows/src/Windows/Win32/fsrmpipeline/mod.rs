@@ -320,7 +320,10 @@ impl IFsrmClassificationManager_Vtbl {
                         formats.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        formats.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -338,7 +341,10 @@ impl IFsrmClassificationManager_Vtbl {
                         logging.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        logging.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -356,7 +362,10 @@ impl IFsrmClassificationManager_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mailto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -374,7 +383,10 @@ impl IFsrmClassificationManager_Vtbl {
                         reportenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reportenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -392,7 +404,10 @@ impl IFsrmClassificationManager_Vtbl {
                         lastreportpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastreportpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -404,7 +419,10 @@ impl IFsrmClassificationManager_Vtbl {
                         lasterror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lasterror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -416,7 +434,10 @@ impl IFsrmClassificationManager_Vtbl {
                         runningstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        runningstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -428,7 +449,10 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertydefinitions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -440,7 +464,10 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertydefinition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -452,7 +479,10 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertydefinition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -464,7 +494,10 @@ impl IFsrmClassificationManager_Vtbl {
                         rules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -476,7 +509,10 @@ impl IFsrmClassificationManager_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -488,7 +524,10 @@ impl IFsrmClassificationManager_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -500,7 +539,10 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduledefinitions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -512,7 +554,10 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduledefinition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -524,7 +569,10 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduledefinition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -542,7 +590,10 @@ impl IFsrmClassificationManager_Vtbl {
                         completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        completed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -560,7 +611,10 @@ impl IFsrmClassificationManager_Vtbl {
                         fileproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fileproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -572,7 +626,10 @@ impl IFsrmClassificationManager_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        property.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -755,7 +812,10 @@ impl IFsrmClassificationRule_Vtbl {
                         executionoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        executionoption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -773,7 +833,10 @@ impl IFsrmClassificationRule_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        property.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -791,7 +854,10 @@ impl IFsrmClassificationRule_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -914,7 +980,10 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         propertiesaffected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertiesaffected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -932,7 +1001,10 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         propertiesused.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertiesused.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -950,7 +1022,10 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         needsexplicitvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        needsexplicitvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1070,7 +1145,10 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
                         lastmodified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastmodified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1199,7 +1277,10 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         pipelinemoduleimplementation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pipelinemoduleimplementation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1211,7 +1292,10 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         username.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        username.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1223,7 +1307,10 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         useraccount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        useraccount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1235,7 +1322,10 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1463,7 +1553,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         moduleclsid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduleclsid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1481,7 +1574,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1499,7 +1595,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         company.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        company.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1517,7 +1616,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         version.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        version.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1535,7 +1637,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         moduletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduletype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1547,7 +1652,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1565,7 +1673,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         needsfilecontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        needsfilecontent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1583,7 +1694,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         retrievalaccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retrievalaccount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1601,7 +1715,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         supportedextensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedextensions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1619,7 +1736,10 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1712,7 +1832,10 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
                         moduleconnector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduleconnector.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1800,7 +1923,10 @@ impl IFsrmProperty_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1812,7 +1938,10 @@ impl IFsrmProperty_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1824,7 +1953,10 @@ impl IFsrmProperty_Vtbl {
                         sources.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1836,7 +1968,10 @@ impl IFsrmProperty_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2090,7 +2225,10 @@ impl IFsrmPropertyBag_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2102,7 +2240,10 @@ impl IFsrmPropertyBag_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        path.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2114,7 +2255,10 @@ impl IFsrmPropertyBag_Vtbl {
                         volumename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        volumename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2126,7 +2270,10 @@ impl IFsrmPropertyBag_Vtbl {
                         relativenamespaceroot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        relativenamespaceroot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2138,7 +2285,10 @@ impl IFsrmPropertyBag_Vtbl {
                         volumeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        volumeid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2150,7 +2300,10 @@ impl IFsrmPropertyBag_Vtbl {
                         fileid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fileid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2162,7 +2315,10 @@ impl IFsrmPropertyBag_Vtbl {
                         parentdirectoryid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parentdirectoryid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2174,7 +2330,10 @@ impl IFsrmPropertyBag_Vtbl {
                         size.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        size.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2186,7 +2345,10 @@ impl IFsrmPropertyBag_Vtbl {
                         sizeallocated.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sizeallocated.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2198,7 +2360,10 @@ impl IFsrmPropertyBag_Vtbl {
                         creationtime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        creationtime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2210,7 +2375,10 @@ impl IFsrmPropertyBag_Vtbl {
                         lastaccesstime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastaccesstime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2222,7 +2390,10 @@ impl IFsrmPropertyBag_Vtbl {
                         lastmodificationtime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastmodificationtime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2234,7 +2405,10 @@ impl IFsrmPropertyBag_Vtbl {
                         attributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2246,7 +2420,10 @@ impl IFsrmPropertyBag_Vtbl {
                         ownersid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ownersid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2258,7 +2435,10 @@ impl IFsrmPropertyBag_Vtbl {
                         filepropertynames.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filepropertynames.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2270,7 +2450,10 @@ impl IFsrmPropertyBag_Vtbl {
                         messages.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        messages.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2282,7 +2465,10 @@ impl IFsrmPropertyBag_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2294,7 +2480,10 @@ impl IFsrmPropertyBag_Vtbl {
                         fileproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fileproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2318,7 +2507,10 @@ impl IFsrmPropertyBag_Vtbl {
                         pstreaminterface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstreaminterface.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2411,7 +2603,10 @@ impl IFsrmPropertyBag2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2423,7 +2618,10 @@ impl IFsrmPropertyBag2_Vtbl {
                         props.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        props.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2570,7 +2768,10 @@ impl IFsrmPropertyDefinition_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2588,7 +2789,10 @@ impl IFsrmPropertyDefinition_Vtbl {
                         r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2606,7 +2810,10 @@ impl IFsrmPropertyDefinition_Vtbl {
                         possiblevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        possiblevalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2624,7 +2831,10 @@ impl IFsrmPropertyDefinition_Vtbl {
                         valuedescriptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        valuedescriptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2642,7 +2852,10 @@ impl IFsrmPropertyDefinition_Vtbl {
                         parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2743,7 +2956,10 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         propertydefinitionflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertydefinitionflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2755,7 +2971,10 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2773,7 +2992,10 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         appliesto.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        appliesto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2785,7 +3007,10 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         valuedefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        valuedefinitions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2870,7 +3095,10 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2882,7 +3110,10 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         displayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2894,7 +3125,10 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        description.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2906,7 +3140,10 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         uniqueid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        uniqueid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3063,7 +3300,10 @@ impl IFsrmRule_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3081,7 +3321,10 @@ impl IFsrmRule_Vtbl {
                         ruletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ruletype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3093,7 +3336,10 @@ impl IFsrmRule_Vtbl {
                         moduledefinitionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moduledefinitionname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3111,7 +3357,10 @@ impl IFsrmRule_Vtbl {
                         namespaceroots.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        namespaceroots.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3129,7 +3378,10 @@ impl IFsrmRule_Vtbl {
                         ruleflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ruleflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3147,7 +3399,10 @@ impl IFsrmRule_Vtbl {
                         parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parameters.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3165,7 +3420,10 @@ impl IFsrmRule_Vtbl {
                         lastmodified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastmodified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3288,7 +3546,10 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         capabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        capabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3306,7 +3567,10 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         storagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        storagetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3324,7 +3588,10 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         updatesfilecontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        updatesfilecontent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

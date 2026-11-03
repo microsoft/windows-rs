@@ -48,7 +48,10 @@ impl IDesktopWindowXamlSourceNative_Vtbl {
                         hwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hwnd.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -105,7 +108,10 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
                         result.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

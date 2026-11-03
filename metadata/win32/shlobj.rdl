@@ -58,7 +58,7 @@ mod Windows {
         #[guid(0xb22754e2_4574_11d1_9888_006097deacf9)]
         interface IADesktopP2: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -71,7 +71,7 @@ mod Windows {
         #[guid(0x52502ee0_ec80_11d0_89ab_00c04fc2972d)]
         interface IActiveDesktopP: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -91,7 +91,7 @@ mod Windows {
         #[guid(0xe8025004_1c42_11d2_be2c_00a0c9a83da1)]
         interface IColumnProvider: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -131,7 +131,7 @@ mod Windows {
         interface IDockingWindowFrame: IOleWindow {
             fn AddToolbar(&self, #[in] punkSrc: IUnknown, #[in] pwszItem: PCWSTR, dwAddFlags: DWORD) -> HRESULT;
             fn RemoveToolbar(&self, #[in] punkSrc: IUnknown, dwRemoveFlags: DWORD) -> HRESULT;
-            fn FindToolbar(&self, #[in] pwszItem: PCWSTR, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn FindToolbar(&self, #[in] pwszItem: PCWSTR, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         }
         struct IEnumPrivacyRecords {}
         #[guid(0x4622ad16_ff23_11d0_8d34_00a0c90f2719)]
@@ -141,7 +141,7 @@ mod Windows {
         #[guid(0x000214e1_0000_0000_c000_000000000046)]
         interface INewShortcutHookA: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -156,7 +156,7 @@ mod Windows {
         #[guid(0x000214f7_0000_0000_c000_000000000046)]
         interface INewShortcutHookW: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -290,7 +290,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreatePropSheetExtArray(#[in] hKey: HKEY, #[in] #[opt] pszSubKey: PCWSTR, max_iface: UINT) -> HPSXA;
         #[library("SHELL32.dll")]
-        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[out_ptr] #[retval] ppmoniker: *mut IMoniker) -> HRESULT;
+        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[retval] ppmoniker: *mut IMoniker) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHMultiFileProperties(#[in] pdtobj: IDataObject, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]

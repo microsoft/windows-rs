@@ -4,7 +4,7 @@ mod Windows {
         type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
         type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
         #[library("NETAPI32.dll")]
-        extern fn NetStatisticsGet(#[in] ServerName: LPTSTR, #[in] Service: LPTSTR, #[in] Level: DWORD, #[in] Options: DWORD, #[out] #[out_ptr] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn NetStatisticsGet(#[in] ServerName: LPTSTR, #[in] Service: LPTSTR, #[in] Level: DWORD, #[in] Options: DWORD, #[out] Buffer: *mut LPBYTE) -> DWORD;
         type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
         type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
         const STATSOPT_CLR: i32 = 1;

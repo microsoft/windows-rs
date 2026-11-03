@@ -62,7 +62,10 @@ impl IAMCollection_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -74,7 +77,10 @@ impl IAMCollection_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -86,7 +92,10 @@ impl IAMCollection_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -180,7 +189,10 @@ impl IAMStats_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -290,7 +302,10 @@ impl IBasicAudio_Vtbl {
                         plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plvolume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -308,7 +323,10 @@ impl IBasicAudio_Vtbl {
                         plbalance.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbalance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -563,7 +581,10 @@ impl IBasicVideo_Vtbl {
                         pavgtimeperframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pavgtimeperframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -575,7 +596,10 @@ impl IBasicVideo_Vtbl {
                         pbitrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbitrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -587,7 +611,10 @@ impl IBasicVideo_Vtbl {
                         pbiterrorrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbiterrorrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -599,7 +626,10 @@ impl IBasicVideo_Vtbl {
                         pvideowidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvideowidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -611,7 +641,10 @@ impl IBasicVideo_Vtbl {
                         pvideoheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvideoheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -629,7 +662,10 @@ impl IBasicVideo_Vtbl {
                         psourceleft.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourceleft.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -647,7 +683,10 @@ impl IBasicVideo_Vtbl {
                         psourcewidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourcewidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -665,7 +704,10 @@ impl IBasicVideo_Vtbl {
                         psourcetop.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourcetop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -683,7 +725,10 @@ impl IBasicVideo_Vtbl {
                         psourceheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psourceheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -701,7 +746,10 @@ impl IBasicVideo_Vtbl {
                         pdestinationleft.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdestinationleft.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -719,7 +767,10 @@ impl IBasicVideo_Vtbl {
                         pdestinationwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdestinationwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -737,7 +788,10 @@ impl IBasicVideo_Vtbl {
                         pdestinationtop.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdestinationtop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -755,7 +809,10 @@ impl IBasicVideo_Vtbl {
                         pdestinationheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdestinationheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1092,7 +1149,10 @@ impl IFilterInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1104,7 +1164,10 @@ impl IFilterInfo_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1116,7 +1179,10 @@ impl IFilterInfo_Vtbl {
                         strvendorinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strvendorinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1128,7 +1194,10 @@ impl IFilterInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1140,7 +1209,10 @@ impl IFilterInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1152,7 +1224,10 @@ impl IFilterInfo_Vtbl {
                         pbissource.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbissource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1164,7 +1239,10 @@ impl IFilterInfo_Vtbl {
                         pstrfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrfilename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1330,7 +1408,10 @@ impl IMediaControl_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1342,7 +1423,10 @@ impl IMediaControl_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1354,7 +1438,10 @@ impl IMediaControl_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1721,7 +1808,10 @@ impl IMediaPosition_Vtbl {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1739,7 +1829,10 @@ impl IMediaPosition_Vtbl {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plltime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1751,7 +1844,10 @@ impl IMediaPosition_Vtbl {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plltime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1769,7 +1865,10 @@ impl IMediaPosition_Vtbl {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plltime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1793,7 +1892,10 @@ impl IMediaPosition_Vtbl {
                         pdrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1805,7 +1907,10 @@ impl IMediaPosition_Vtbl {
                         pcanseekforward.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcanseekforward.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1817,7 +1922,10 @@ impl IMediaPosition_Vtbl {
                         pcanseekbackward.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcanseekbackward.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1892,7 +2000,10 @@ impl IMediaTypeInfo_Vtbl {
                         strtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1904,7 +2015,10 @@ impl IMediaTypeInfo_Vtbl {
                         strtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2053,7 +2167,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2065,7 +2182,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2077,7 +2197,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2089,7 +2212,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2101,7 +2227,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2113,7 +2242,10 @@ impl IPinInfo_Vtbl {
                         ppdirection.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdirection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2125,7 +2257,10 @@ impl IPinInfo_Vtbl {
                         strpinid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strpinid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2137,7 +2272,10 @@ impl IPinInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2301,7 +2439,10 @@ impl IRegFilterInfo_Vtbl {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2313,7 +2454,10 @@ impl IRegFilterInfo_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2609,7 +2753,10 @@ impl IVideoWindow_Vtbl {
                         strcaption.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strcaption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2627,7 +2774,10 @@ impl IVideoWindow_Vtbl {
                         windowstyle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        windowstyle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2645,7 +2795,10 @@ impl IVideoWindow_Vtbl {
                         windowstyleex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        windowstyleex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2663,7 +2816,10 @@ impl IVideoWindow_Vtbl {
                         autoshow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        autoshow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2681,7 +2837,10 @@ impl IVideoWindow_Vtbl {
                         windowstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        windowstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2699,7 +2858,10 @@ impl IVideoWindow_Vtbl {
                         pbackgroundpalette.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbackgroundpalette.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2717,7 +2879,10 @@ impl IVideoWindow_Vtbl {
                         pvisible.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvisible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2735,7 +2900,10 @@ impl IVideoWindow_Vtbl {
                         pleft.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pleft.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2753,7 +2921,10 @@ impl IVideoWindow_Vtbl {
                         pwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2771,7 +2942,10 @@ impl IVideoWindow_Vtbl {
                         ptop.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2789,7 +2963,10 @@ impl IVideoWindow_Vtbl {
                         pheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2807,7 +2984,10 @@ impl IVideoWindow_Vtbl {
                         owner.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2825,7 +3005,10 @@ impl IVideoWindow_Vtbl {
                         drain.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        drain.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2837,7 +3020,10 @@ impl IVideoWindow_Vtbl {
                         color.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        color.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2855,7 +3041,10 @@ impl IVideoWindow_Vtbl {
                         fullscreenmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fullscreenmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

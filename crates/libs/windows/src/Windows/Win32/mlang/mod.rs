@@ -1525,7 +1525,10 @@ impl IMultiLanguage_Vtbl {
                         ppenumcodepage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcodepage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1585,7 +1588,10 @@ impl IMultiLanguage_Vtbl {
                         ppenumrfc1766.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumrfc1766.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1603,7 +1609,10 @@ impl IMultiLanguage_Vtbl {
                         ppmlangconvertcharset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmlangconvertcharset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1927,7 +1936,10 @@ impl IMultiLanguage2_Vtbl {
                         ppenumcodepage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcodepage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1987,7 +1999,10 @@ impl IMultiLanguage2_Vtbl {
                         ppenumrfc1766.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumrfc1766.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2005,7 +2020,10 @@ impl IMultiLanguage2_Vtbl {
                         ppmlangconvertcharset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmlangconvertcharset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2077,7 +2095,10 @@ impl IMultiLanguage2_Vtbl {
                         ppenumscript.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumscript.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

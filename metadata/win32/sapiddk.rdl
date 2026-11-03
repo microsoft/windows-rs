@@ -10,7 +10,7 @@ mod Windows {
         interface ISpCFGInterpreterSite: IUnknown {
             fn AddTextReplacement(&self, #[in] pReplace: *mut SPPHRASEREPLACEMENT) -> HRESULT;
             fn AddProperty(&self, #[in] pProperty: *const SPPHRASEPROPERTY) -> HRESULT;
-            fn GetResourceValue(&self, #[in] pszResourceName: LPCWSTR, #[out] #[out_ptr] ppCoMemResource: *mut LPWSTR) -> HRESULT;
+            fn GetResourceValue(&self, #[in] pszResourceName: LPCWSTR, #[out] ppCoMemResource: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xf4711347_e608_11d2_a086_00c04f8ef9b5)]
         interface ISpErrorLog: IUnknown {
@@ -64,10 +64,10 @@ mod Windows {
         #[guid(0x2f472991_854b_4465_b613_fbafb3ad8ed8)]
         interface ISpSREngine: IUnknown {
             fn SetSite(&self, #[in] pSite: ISpSREngineSite) -> HRESULT;
-            fn GetInputAudioFormat(&self, #[in] pguidSourceFormatId: *const GUID, #[in] pSourceWaveFormatEx: *const WAVEFORMATEX, #[out] pguidDesiredFormatId: *mut GUID, #[out] #[out_ptr] ppCoMemDesiredWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetInputAudioFormat(&self, #[in] pguidSourceFormatId: *const GUID, #[in] pSourceWaveFormatEx: *const WAVEFORMATEX, #[out] pguidDesiredFormatId: *mut GUID, #[out] ppCoMemDesiredWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
             fn RecognizeStream(&self, #[in] rguidFmtId: &GUID, #[in] pWaveFormatEx: *const WAVEFORMATEX, #[in] hRequestSync: HANDLE, #[in] hDataAvailable: HANDLE, #[in] hExit: HANDLE, #[in] fNewAudioStream: BOOL, #[in] fRealTimeAudio: BOOL, #[in] pAudioObjectToken: ISpObjectToken) -> HRESULT;
             fn SetRecoProfile(&self, #[in] pProfile: ISpObjectToken) -> HRESULT;
-            fn OnCreateGrammar(&self, #[in] pvEngineRecoContext: *mut void, #[in] hSAPIGrammar: SPGRAMMARHANDLE, #[out] #[out_ptr] ppvEngineGrammarContext: *mut *mut void) -> HRESULT;
+            fn OnCreateGrammar(&self, #[in] pvEngineRecoContext: *mut void, #[in] hSAPIGrammar: SPGRAMMARHANDLE, #[out] ppvEngineGrammarContext: *mut *mut void) -> HRESULT;
             fn OnDeleteGrammar(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
             fn LoadProprietaryGrammar(&self, #[in] pvEngineGrammar: *mut void, #[in] rguidParam: &GUID, #[in] pszStringParam: LPCWSTR, #[in] pvDataParam: *const void, #[in] ulDataSize: ULONG, #[in] Options: SPLOADOPTIONS) -> HRESULT;
             fn UnloadProprietaryGrammar(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
@@ -86,7 +86,7 @@ mod Windows {
             fn SetPropertyNum(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: *const WCHAR, #[in] lValue: LONG) -> HRESULT;
             fn GetPropertyNum(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: *const WCHAR, #[out] lValue: *mut LONG) -> HRESULT;
             fn SetPropertyString(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: LPCWSTR, #[in] pValue: LPCWSTR) -> HRESULT;
-            fn GetPropertyString(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: LPCWSTR, #[out] #[out_ptr] ppCoMemValue: *mut LPWSTR) -> HRESULT;
+            fn GetPropertyString(&self, #[in] eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, #[in] pName: LPCWSTR, #[out] ppCoMemValue: *mut LPWSTR) -> HRESULT;
             fn SetGrammarState(&self, #[in] pvEngineGrammar: *mut void, #[in] eGrammarState: SPGRAMMARSTATE) -> HRESULT;
             fn WordNotify(&self, #[in] Action: SPCFGNOTIFY, #[in] cWords: ULONG, #[in] pWords: *const SPWORDENTRY) -> HRESULT;
             fn RuleNotify(&self, #[in] Action: SPCFGNOTIFY, #[in] cRules: ULONG, #[in] pRules: *const SPRULEENTRY) -> HRESULT;
@@ -95,7 +95,7 @@ mod Windows {
         }
         #[guid(0x7ba627d8_33f9_4375_90c5_9985aee5ede5)]
         interface ISpSREngine2: ISpSREngine {
-            fn PrivateCallImmediate(&self, #[in] pvEngineContext: *mut void, #[in] pInCallFrame: *const void, #[in] ulInCallFrameSize: ULONG, #[out] #[out_ptr] ppvCoMemResponse: *mut *mut void, #[out] pulResponseSize: *mut ULONG) -> HRESULT;
+            fn PrivateCallImmediate(&self, #[in] pvEngineContext: *mut void, #[in] pInCallFrame: *const void, #[in] ulInCallFrameSize: ULONG, #[out] ppvCoMemResponse: *mut *mut void, #[out] pulResponseSize: *mut ULONG) -> HRESULT;
             fn SetAdaptationData2(&self, #[in] pvEngineContext: *mut void, #[buffer(cch)] #[in] pAdaptationData: *const WCHAR, #[in] cch: ULONG, #[in] pTopicName: LPCWSTR, #[in] eSettings: SPADAPTATIONSETTINGS, #[in] eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
             fn SetGrammarPrefix(&self, #[in] pvEngineGrammar: *mut void, #[in] #[opt] pszPrefix: LPCWSTR, #[in] fIsPrefixRequired: BOOL) -> HRESULT;
             fn SetRulePriority(&self, #[in] hRule: SPRULEHANDLE, #[in] pvClientRuleContext: *mut void, #[in] nRulePriority: i32) -> HRESULT;
@@ -121,8 +121,8 @@ mod Windows {
             fn GetRuleInfo(&self, #[in] #[out] pRuleEntry: *mut SPRULEENTRY, #[in] Options: SPRULEINFOOPT) -> HRESULT;
             fn SetRuleClientContext(&self, #[in] hRule: SPRULEHANDLE, #[in] pvClientContext: *mut void) -> HRESULT;
             fn GetStateInfo(&self, #[in] hState: SPSTATEHANDLE, #[out] pStateInfo: *mut SPSTATEINFO) -> HRESULT;
-            fn GetResource(&self, #[in] hRule: SPRULEHANDLE, #[in] pszResourceName: LPCWSTR, #[out] #[out_ptr] ppCoMemResource: *mut LPWSTR) -> HRESULT;
-            fn GetTransitionProperty(&self, #[in] ID: SPTRANSITIONID, #[out] #[out_ptr] ppCoMemProperty: *mut *mut SPTRANSITIONPROPERTY) -> HRESULT;
+            fn GetResource(&self, #[in] hRule: SPRULEHANDLE, #[in] pszResourceName: LPCWSTR, #[out] ppCoMemResource: *mut LPWSTR) -> HRESULT;
+            fn GetTransitionProperty(&self, #[in] ID: SPTRANSITIONID, #[out] ppCoMemProperty: *mut *mut SPTRANSITIONPROPERTY) -> HRESULT;
             fn IsAlternate(&self, #[in] hRule: SPRULEHANDLE, #[in] hAltRule: SPRULEHANDLE) -> HRESULT;
             fn GetMaxAlternates(&self, #[in] hRule: SPRULEHANDLE, #[out] pulNumAlts: *mut ULONG) -> HRESULT;
             fn GetContextMaxAlternates(&self, #[in] hContext: SPRECOCONTEXTHANDLE, #[out] pulNumAlts: *mut ULONG) -> HRESULT;
@@ -138,7 +138,7 @@ mod Windows {
         #[guid(0xa74d7c8e_4cc5_4f2f_a6eb_804dee18500e)]
         interface ISpTTSEngine: IUnknown {
             fn Speak(&self, #[in] dwSpeakFlags: DWORD, #[in] rguidFormatId: &GUID, #[in] pWaveFormatEx: *const WAVEFORMATEX, #[in] pTextFragList: *const SPVTEXTFRAG, #[in] pOutputSite: ISpTTSEngineSite) -> HRESULT;
-            fn GetOutputFormat(&self, #[in] pTargetFmtId: *const GUID, #[in] pTargetWaveFormatEx: *const WAVEFORMATEX, #[out] pOutputFormatId: *mut GUID, #[out] #[out_ptr] ppCoMemOutputWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetOutputFormat(&self, #[in] pTargetFmtId: *const GUID, #[in] pTargetWaveFormatEx: *const WAVEFORMATEX, #[out] pOutputFormatId: *mut GUID, #[out] ppCoMemOutputWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
         }
         #[guid(0x9880499b_cce9_11d2_b503_00c04f797396)]
         interface ISpTTSEngineSite: ISpEventSink {
@@ -158,7 +158,7 @@ mod Windows {
             fn GetThreadPoolInfo(&self, #[out] pPoolInfo: *mut SPTMTHREADINFO) -> HRESULT;
             fn QueueTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[in] #[out] pdwGroupId: *mut DWORD, #[out] pTaskID: *mut DWORD) -> HRESULT;
             fn CreateReoccurringTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[out] ppTaskCtrl: *mut ISpNotifySink) -> HRESULT;
-            fn CreateThreadControl(&self, #[in] pTask: ISpThreadTask, #[in] pvTaskData: *mut void, #[in] nPriority: i32, #[out] #[out_ptr] #[retval] ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
+            fn CreateThreadControl(&self, #[in] pTask: ISpThreadTask, #[in] pvTaskData: *mut void, #[in] nPriority: i32, #[out] #[retval] ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
             fn TerminateTask(&self, #[in] dwTaskId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
             fn TerminateTaskGroup(&self, #[in] dwGroupId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
         }

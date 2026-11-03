@@ -2045,7 +2045,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3154,7 +3154,7 @@ impl ID2D1Device_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext.write(core::mem::zeroed());
+                        devicecontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3169,7 +3169,7 @@ impl ID2D1Device_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        printcontrol.write(core::mem::zeroed());
+                        printcontrol.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3270,7 +3270,7 @@ impl ID2D1Device1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext1.write(core::mem::zeroed());
+                        devicecontext1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3349,7 +3349,7 @@ impl ID2D1Device2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext2.write(core::mem::zeroed());
+                        devicecontext2.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3370,7 +3370,7 @@ impl ID2D1Device2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        dxgidevice.write(core::mem::zeroed());
+                        dxgidevice.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3427,7 +3427,7 @@ impl ID2D1Device3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext3.write(core::mem::zeroed());
+                        devicecontext3.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3499,7 +3499,7 @@ impl ID2D1Device4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext4.write(core::mem::zeroed());
+                        devicecontext4.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3568,7 +3568,7 @@ impl ID2D1Device5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext5.write(core::mem::zeroed());
+                        devicecontext5.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3620,7 +3620,7 @@ impl ID2D1Device6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext6.write(core::mem::zeroed());
+                        devicecontext6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3672,7 +3672,7 @@ impl ID2D1Device7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext.write(core::mem::zeroed());
+                        devicecontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4104,7 +4104,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4119,7 +4119,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4134,7 +4134,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4149,7 +4149,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4164,7 +4164,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4179,7 +4179,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4194,7 +4194,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        effect.write(core::mem::zeroed());
+                        effect.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4209,7 +4209,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientstopcollection1.write(core::mem::zeroed());
+                        gradientstopcollection1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4224,7 +4224,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagebrush.write(core::mem::zeroed());
+                        imagebrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4239,7 +4239,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmapbrush.write(core::mem::zeroed());
+                        bitmapbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4254,7 +4254,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        commandlist.write(core::mem::zeroed());
+                        commandlist.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4521,7 +4521,7 @@ impl ID2D1DeviceContext1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometryrealization.write(core::mem::zeroed());
+                        geometryrealization.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4536,7 +4536,7 @@ impl ID2D1DeviceContext1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometryrealization.write(core::mem::zeroed());
+                        geometryrealization.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4725,7 +4725,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ink.write(core::mem::zeroed());
+                        ink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4740,7 +4740,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        inkstyle.write(core::mem::zeroed());
+                        inkstyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4755,7 +4755,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientmesh.write(core::mem::zeroed());
+                        gradientmesh.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4770,7 +4770,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagesource.write(core::mem::zeroed());
+                        imagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4785,7 +4785,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        lookuptable.write(core::mem::zeroed());
+                        lookuptable.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4800,7 +4800,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagesource.write(core::mem::zeroed());
+                        imagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4839,7 +4839,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        transformedimagesource.write(core::mem::zeroed());
+                        transformedimagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4919,7 +4919,7 @@ impl ID2D1DeviceContext3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        spritebatch.write(core::mem::zeroed());
+                        spritebatch.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5071,7 +5071,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        svgglyphstyle.write(core::mem::zeroed());
+                        svgglyphstyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5110,7 +5110,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphimage.write(core::mem::zeroed());
+                        glyphimage.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5125,7 +5125,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphimage.write(core::mem::zeroed());
+                        glyphimage.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5223,7 +5223,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        svgdocument.write(core::mem::zeroed());
+                        svgdocument.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5244,7 +5244,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5259,7 +5259,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5937,7 +5937,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rectanglegeometry.write(core::mem::zeroed());
+                        rectanglegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5952,7 +5952,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        roundedrectanglegeometry.write(core::mem::zeroed());
+                        roundedrectanglegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5967,7 +5967,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ellipsegeometry.write(core::mem::zeroed());
+                        ellipsegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5982,7 +5982,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometrygroup.write(core::mem::zeroed());
+                        geometrygroup.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5997,7 +5997,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        transformedgeometry.write(core::mem::zeroed());
+                        transformedgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6012,7 +6012,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6027,7 +6027,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokestyle.write(core::mem::zeroed());
+                        strokestyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6042,7 +6042,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        drawingstateblock.write(core::mem::zeroed());
+                        drawingstateblock.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6057,7 +6057,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rendertarget.write(core::mem::zeroed());
+                        rendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6072,7 +6072,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        hwndrendertarget.write(core::mem::zeroed());
+                        hwndrendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6087,7 +6087,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rendertarget.write(core::mem::zeroed());
+                        rendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6102,7 +6102,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        dcrendertarget.write(core::mem::zeroed());
+                        dcrendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6281,7 +6281,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice.write(core::mem::zeroed());
+                        d2ddevice.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6296,7 +6296,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokestyle.write(core::mem::zeroed());
+                        strokestyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6311,7 +6311,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6326,7 +6326,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        drawingstateblock.write(core::mem::zeroed());
+                        drawingstateblock.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6341,7 +6341,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metafile.write(core::mem::zeroed());
+                        metafile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6380,7 +6380,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        properties.write(core::mem::zeroed());
+                        properties.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6451,7 +6451,7 @@ impl ID2D1Factory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice1.write(core::mem::zeroed());
+                        d2ddevice1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6510,7 +6510,7 @@ impl ID2D1Factory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice2.write(core::mem::zeroed());
+                        d2ddevice2.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6569,7 +6569,7 @@ impl ID2D1Factory4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice3.write(core::mem::zeroed());
+                        d2ddevice3.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6628,7 +6628,7 @@ impl ID2D1Factory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice4.write(core::mem::zeroed());
+                        d2ddevice4.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6687,7 +6687,7 @@ impl ID2D1Factory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice5.write(core::mem::zeroed());
+                        d2ddevice5.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6746,7 +6746,7 @@ impl ID2D1Factory7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice6.write(core::mem::zeroed());
+                        d2ddevice6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6805,7 +6805,7 @@ impl ID2D1Factory8_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice6.write(core::mem::zeroed());
+                        d2ddevice6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8695,7 +8695,7 @@ impl ID2D1Mesh_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        tessellationsink.write(core::mem::zeroed());
+                        tessellationsink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8834,7 +8834,7 @@ impl ID2D1PathGeometry_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometrysink.write(core::mem::zeroed());
+                        geometrysink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10017,7 +10017,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10032,7 +10032,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10047,7 +10047,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10062,7 +10062,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmapbrush.write(core::mem::zeroed());
+                        bitmapbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10077,7 +10077,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        solidcolorbrush.write(core::mem::zeroed());
+                        solidcolorbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10092,7 +10092,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientstopcollection.write(core::mem::zeroed());
+                        gradientstopcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10107,7 +10107,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        lineargradientbrush.write(core::mem::zeroed());
+                        lineargradientbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10122,7 +10122,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        radialgradientbrush.write(core::mem::zeroed());
+                        radialgradientbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10137,7 +10137,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmaprendertarget.write(core::mem::zeroed());
+                        bitmaprendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10152,7 +10152,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        layer.write(core::mem::zeroed());
+                        layer.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10167,7 +10167,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        mesh.write(core::mem::zeroed());
+                        mesh.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11116,7 +11116,7 @@ impl ID2D1SvgAttribute_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        attribute.write(core::mem::zeroed());
+                        attribute.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11319,7 +11319,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        subtree.write(core::mem::zeroed());
+                        subtree.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11334,7 +11334,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        paint.write(core::mem::zeroed());
+                        paint.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11349,7 +11349,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokedasharray.write(core::mem::zeroed());
+                        strokedasharray.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11364,7 +11364,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pointcollection.write(core::mem::zeroed());
+                        pointcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11379,7 +11379,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathdata.write(core::mem::zeroed());
+                        pathdata.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11787,7 +11787,7 @@ impl ID2D1SvgElement_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        newchild.write(core::mem::zeroed());
+                        newchild.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -12330,7 +12330,7 @@ impl ID2D1SvgPathData_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }

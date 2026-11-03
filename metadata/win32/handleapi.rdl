@@ -6,7 +6,7 @@ mod Windows {
         #[library("api-ms-win-core-handle-l1-1-0.dll")]
         extern fn CompareObjectHandles(#[in] hFirstObjectHandle: HANDLE, #[in] hSecondObjectHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DuplicateHandle(#[in] hSourceProcessHandle: HANDLE, #[in] hSourceHandle: HANDLE, #[in] hTargetProcessHandle: HANDLE, #[out] #[out_ptr] lpTargetHandle: LPHANDLE, #[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwOptions: DWORD) -> BOOL;
+        extern fn DuplicateHandle(#[in] hSourceProcessHandle: HANDLE, #[in] hSourceHandle: HANDLE, #[in] hTargetProcessHandle: HANDLE, #[out] lpTargetHandle: LPHANDLE, #[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwOptions: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetHandleInformation(#[in] hObject: HANDLE, #[out] lpdwFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]

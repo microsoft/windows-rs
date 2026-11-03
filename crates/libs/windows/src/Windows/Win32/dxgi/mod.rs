@@ -962,7 +962,7 @@ impl IDXGIAdapter_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutput.write(core::mem::zeroed());
+                        ppoutput.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1593,7 +1593,7 @@ impl IDXGIDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        padapter.write(core::mem::zeroed());
+                        padapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1625,7 +1625,10 @@ impl IDXGIDevice_Vtbl {
                         ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppriority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2074,7 +2077,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2101,7 +2104,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2116,7 +2119,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2184,7 +2187,7 @@ impl IDXGIFactory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2361,7 +2364,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2376,7 +2379,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2433,7 +2436,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2787,7 +2790,7 @@ impl IDXGIFactoryMedia_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2802,7 +2805,7 @@ impl IDXGIFactoryMedia_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3823,7 +3826,7 @@ impl IDXGIOutput1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutputduplication.write(core::mem::zeroed());
+                        ppoutputduplication.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4022,7 +4025,7 @@ impl IDXGIOutput5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutputduplication.write(core::mem::zeroed());
+                        ppoutputduplication.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4204,7 +4207,7 @@ impl IDXGIOutputDuplication_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdesktopresource.write(core::mem::zeroed());
+                        ppdesktopresource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4346,7 +4349,10 @@ impl IDXGIResource_Vtbl {
                         pevictionpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pevictionpriority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4418,7 +4424,7 @@ impl IDXGIResource1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsurface.write(core::mem::zeroed());
+                        ppsurface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4784,7 +4790,7 @@ impl IDXGISwapChain_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutput.write(core::mem::zeroed());
+                        ppoutput.write_bytes(0, 1);
                         err.into()
                     }
                 }

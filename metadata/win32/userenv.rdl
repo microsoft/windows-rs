@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         type ASYNCCOMPLETIONHANDLE = usize;
         #[library("USERENV.dll")]
-        extern fn CreateAppContainerProfile(#[in] pszAppContainerName: PCWSTR, #[in] pszDisplayName: PCWSTR, #[in] pszDescription: PCWSTR, #[buffer(dwCapabilityCount)] #[in] #[opt] pCapabilities: PSID_AND_ATTRIBUTES, #[in] dwCapabilityCount: DWORD, #[out] #[out_ptr] ppSidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn CreateAppContainerProfile(#[in] pszAppContainerName: PCWSTR, #[in] pszDisplayName: PCWSTR, #[in] pszDescription: PCWSTR, #[buffer(dwCapabilityCount)] #[in] #[opt] pCapabilities: PSID_AND_ATTRIBUTES, #[in] dwCapabilityCount: DWORD, #[out] ppSidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
         extern fn CreateEnvironmentBlock(#[incomplete] lpEnvironment: *mut LPVOID, #[in] #[opt] hToken: HANDLE, #[in] bInherit: BOOL) -> BOOL;
         #[library("USERENV.dll")]
@@ -15,9 +15,9 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn DeleteProfileW(#[in] lpSidString: LPCWSTR, #[in] #[opt] lpProfilePath: LPCWSTR, #[in] #[opt] lpComputerName: LPCWSTR) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn DeriveAppContainerSidFromAppContainerName(#[in] pszAppContainerName: PCWSTR, #[out] #[out_ptr] ppsidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveAppContainerSidFromAppContainerName(#[in] pszAppContainerName: PCWSTR, #[out] ppsidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(#[in] psidAppContainerSid: PSID, #[in] pszRestrictedAppContainerName: PCWSTR, #[out] #[out_ptr] ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(#[in] psidAppContainerSid: PSID, #[in] pszRestrictedAppContainerName: PCWSTR, #[out] ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
         extern fn DestroyEnvironmentBlock(#[in] lpEnvironment: LPVOID) -> BOOL;
         #[library("USERENV.dll")]
@@ -128,21 +128,21 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn GetAllUsersProfileDirectoryW(#[buffer(*lpcchSize)] #[opt] #[out] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerFolderPath(#[in] pszAppContainerSid: PCWSTR, #[out] #[out_ptr] ppszPath: *mut PWSTR) -> HRESULT;
+        extern fn GetAppContainerFolderPath(#[in] pszAppContainerSid: PCWSTR, #[out] ppszPath: *mut PWSTR) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerRegistryLocation(#[in] desiredAccess: REGSAM, #[out] #[out_ptr] phAppContainerKey: PHKEY) -> HRESULT;
+        extern fn GetAppContainerRegistryLocation(#[in] desiredAccess: REGSAM, #[out] phAppContainerKey: PHKEY) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListA(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] #[out_ptr] ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> DWORD;
+        extern fn GetAppliedGPOListA(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListW(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCWSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] #[out_ptr] ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> DWORD;
+        extern fn GetAppliedGPOListW(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCWSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> DWORD;
         #[library("USERENV.dll")]
         extern fn GetDefaultUserProfileDirectoryA(#[buffer(*lpcchSize)] #[opt] #[out] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
         extern fn GetDefaultUserProfileDirectoryW(#[buffer(*lpcchSize)] #[opt] #[out] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCSTR, #[in] #[opt] lpHostName: LPCSTR, #[in] #[opt] lpComputerName: LPCSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn GetGPOListA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCSTR, #[in] #[opt] lpHostName: LPCSTR, #[in] #[opt] lpComputerName: LPCSTR, #[in] dwFlags: DWORD, #[out] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListW(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCWSTR, #[in] #[opt] lpHostName: LPCWSTR, #[in] #[opt] lpComputerName: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
+        extern fn GetGPOListW(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCWSTR, #[in] #[opt] lpHostName: LPCWSTR, #[in] #[opt] lpComputerName: LPCWSTR, #[in] dwFlags: DWORD, #[out] pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
         #[library("USERENV.dll")]
         extern fn GetProfileType(#[out] dwFlags: *mut DWORD) -> BOOL;
         #[library("USERENV.dll")]

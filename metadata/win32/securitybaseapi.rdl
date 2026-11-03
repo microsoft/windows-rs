@@ -46,7 +46,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn AdjustTokenPrivileges(#[in] TokenHandle: HANDLE, #[in] DisableAllPrivileges: BOOL, #[in] #[opt] NewState: PTOKEN_PRIVILEGES, #[in] BufferLength: DWORD, #[buffer(bytes(BufferLength))] #[opt] #[out] PreviousState: PTOKEN_PRIVILEGES, #[opt] #[out] ReturnLength: PDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn AllocateAndInitializeSid(#[in] pIdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] nSubAuthorityCount: BYTE, #[in] nSubAuthority0: DWORD, #[in] nSubAuthority1: DWORD, #[in] nSubAuthority2: DWORD, #[in] nSubAuthority3: DWORD, #[in] nSubAuthority4: DWORD, #[in] nSubAuthority5: DWORD, #[in] nSubAuthority6: DWORD, #[in] nSubAuthority7: DWORD, #[out] #[out_ptr] pSid: *mut PSID) -> BOOL;
+        extern fn AllocateAndInitializeSid(#[in] pIdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] nSubAuthorityCount: BYTE, #[in] nSubAuthority0: DWORD, #[in] nSubAuthority1: DWORD, #[in] nSubAuthority2: DWORD, #[in] nSubAuthority3: DWORD, #[in] nSubAuthority4: DWORD, #[in] nSubAuthority5: DWORD, #[in] nSubAuthority6: DWORD, #[in] nSubAuthority7: DWORD, #[out] pSid: *mut PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn AllocateLocallyUniqueId(#[out] Luid: PLUID) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -60,17 +60,17 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CheckTokenMembershipEx(#[in] #[opt] TokenHandle: HANDLE, #[in] SidToCheck: PSID, #[in] Flags: DWORD, #[out] IsMember: PBOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertToAutoInheritPrivateObjectSecurity(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] CurrentSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] #[opt] ObjectType: *mut GUID, #[in] IsDirectoryObject: BOOLEAN, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
+        extern fn ConvertToAutoInheritPrivateObjectSecurity(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] CurrentSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] #[opt] ObjectType: *mut GUID, #[in] IsDirectoryObject: BOOLEAN, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CopySid(#[in] nDestinationSidLength: DWORD, #[buffer(bytes(nDestinationSidLength))] #[out] pDestinationSid: PSID, #[in] pSourceSid: PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreatePrivateObjectSecurity(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] IsDirectoryObject: BOOL, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
+        extern fn CreatePrivateObjectSecurity(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] IsDirectoryObject: BOOL, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreatePrivateObjectSecurityEx(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] #[opt] ObjectType: *mut GUID, #[in] IsContainerObject: BOOL, #[in] AutoInheritFlags: ULONG, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
+        extern fn CreatePrivateObjectSecurityEx(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] #[opt] ObjectType: *mut GUID, #[in] IsContainerObject: BOOL, #[in] AutoInheritFlags: ULONG, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreatePrivateObjectSecurityWithMultipleInheritance(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[buffer(GuidCount)] #[in] #[opt] ObjectTypes: *mut *mut GUID, #[in] GuidCount: ULONG, #[in] IsContainerObject: BOOL, #[in] AutoInheritFlags: ULONG, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
+        extern fn CreatePrivateObjectSecurityWithMultipleInheritance(#[in] #[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] CreatorDescriptor: PSECURITY_DESCRIPTOR, #[out] NewDescriptor: *mut PSECURITY_DESCRIPTOR, #[buffer(GuidCount)] #[in] #[opt] ObjectTypes: *mut *mut GUID, #[in] GuidCount: ULONG, #[in] IsContainerObject: BOOL, #[in] AutoInheritFlags: ULONG, #[in] #[opt] Token: HANDLE, #[in] GenericMapping: PGENERIC_MAPPING) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreateRestrictedToken(#[in] ExistingTokenHandle: HANDLE, #[in] Flags: DWORD, #[in] DisableSidCount: DWORD, #[buffer(DisableSidCount)] #[in] #[opt] SidsToDisable: PSID_AND_ATTRIBUTES, #[in] DeletePrivilegeCount: DWORD, #[buffer(DeletePrivilegeCount)] #[in] #[opt] PrivilegesToDelete: PLUID_AND_ATTRIBUTES, #[in] RestrictedSidCount: DWORD, #[buffer(RestrictedSidCount)] #[in] #[opt] SidsToRestrict: PSID_AND_ATTRIBUTES, #[out] #[out_ptr] NewTokenHandle: PHANDLE) -> BOOL;
+        extern fn CreateRestrictedToken(#[in] ExistingTokenHandle: HANDLE, #[in] Flags: DWORD, #[in] DisableSidCount: DWORD, #[buffer(DisableSidCount)] #[in] #[opt] SidsToDisable: PSID_AND_ATTRIBUTES, #[in] DeletePrivilegeCount: DWORD, #[buffer(DeletePrivilegeCount)] #[in] #[opt] PrivilegesToDelete: PLUID_AND_ATTRIBUTES, #[in] RestrictedSidCount: DWORD, #[buffer(RestrictedSidCount)] #[in] #[opt] SidsToRestrict: PSID_AND_ATTRIBUTES, #[out] NewTokenHandle: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CreateWellKnownSid(#[in] WellKnownSidType: WELL_KNOWN_SID_TYPE, #[in] #[opt] DomainSid: PSID, #[buffer(bytes(*cbSid))] #[opt] #[out] pSid: PSID, #[in] #[out] cbSid: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -82,9 +82,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn DestroyPrivateObjectSecurity(#[incomplete] ObjectDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn DuplicateToken(#[in] ExistingTokenHandle: HANDLE, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[out] #[out_ptr] DuplicateTokenHandle: PHANDLE) -> BOOL;
+        extern fn DuplicateToken(#[in] ExistingTokenHandle: HANDLE, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[out] DuplicateTokenHandle: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn DuplicateTokenEx(#[in] hExistingToken: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] #[opt] lpTokenAttributes: LPSECURITY_ATTRIBUTES, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[in] TokenType: TOKEN_TYPE, #[out] #[out_ptr] phNewToken: PHANDLE) -> BOOL;
+        extern fn DuplicateTokenEx(#[in] hExistingToken: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] #[opt] lpTokenAttributes: LPSECURITY_ATTRIBUTES, #[in] ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL, #[in] TokenType: TOKEN_TYPE, #[out] phNewToken: PHANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn EqualDomainSid(#[in] pSid1: PSID, #[in] pSid2: PSID, #[out] pfEqual: *mut BOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -92,15 +92,15 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EqualSid(#[in] pSid1: PSID, #[in] pSid2: PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn FindFirstFreeAce(#[in] pAcl: PACL, #[out] #[out_ptr] pAce: *mut LPVOID) -> BOOL;
+        extern fn FindFirstFreeAce(#[in] pAcl: PACL, #[out] pAce: *mut LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn FreeSid(#[in] pSid: PSID) -> PVOID;
         #[library("ADVAPI32.dll")]
-        extern fn GetAce(#[in] pAcl: PACL, #[in] dwAceIndex: DWORD, #[out] #[out_ptr] pAce: *mut LPVOID) -> BOOL;
+        extern fn GetAce(#[in] pAcl: PACL, #[in] dwAceIndex: DWORD, #[out] pAce: *mut LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetAclInformation(#[in] pAcl: PACL, #[buffer(bytes(nAclInformationLength))] #[out] pAclInformation: LPVOID, #[in] nAclInformationLength: DWORD, #[in] dwAclInformationClass: ACL_INFORMATION_CLASS) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetAppContainerAce(#[in] Acl: PACL, #[in] StartingAceIndex: DWORD, #[out] #[out_ptr] AppContainerAce: *mut PVOID, #[opt] #[out] AppContainerAceIndex: *mut DWORD) -> BOOL;
+        extern fn GetAppContainerAce(#[in] Acl: PACL, #[in] StartingAceIndex: DWORD, #[out] AppContainerAce: *mut PVOID, #[opt] #[out] AppContainerAceIndex: *mut DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetCachedSigningLevel(#[in] File: HANDLE, #[out] Flags: PULONG, #[out] SigningLevel: PULONG, #[incomplete] #[opt] #[out] Thumbprint: PUCHAR, #[in] #[opt] #[out] ThumbprintSize: PULONG, #[opt] #[out] ThumbprintAlgorithm: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -114,17 +114,17 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetSecurityDescriptorControl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] pControl: PSECURITY_DESCRIPTOR_CONTROL, #[out] lpdwRevision: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn GetSecurityDescriptorDacl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] lpbDaclPresent: LPBOOL, #[out] #[out_ptr] pDacl: *mut PACL, #[out] lpbDaclDefaulted: LPBOOL) -> BOOL;
+        extern fn GetSecurityDescriptorDacl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] lpbDaclPresent: LPBOOL, #[out] pDacl: *mut PACL, #[out] lpbDaclDefaulted: LPBOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn GetSecurityDescriptorGroup(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] pGroup: *mut PSID, #[out] lpbGroupDefaulted: LPBOOL) -> BOOL;
+        extern fn GetSecurityDescriptorGroup(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] pGroup: *mut PSID, #[out] lpbGroupDefaulted: LPBOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetSecurityDescriptorLength(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetSecurityDescriptorOwner(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] #[out_ptr] pOwner: *mut PSID, #[out] lpbOwnerDefaulted: LPBOOL) -> BOOL;
+        extern fn GetSecurityDescriptorOwner(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] pOwner: *mut PSID, #[out] lpbOwnerDefaulted: LPBOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetSecurityDescriptorRMControl(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] RMControl: PUCHAR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetSecurityDescriptorSacl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] lpbSaclPresent: LPBOOL, #[out] #[out_ptr] pSacl: *mut PACL, #[out] lpbSaclDefaulted: LPBOOL) -> BOOL;
+        extern fn GetSecurityDescriptorSacl(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] lpbSaclPresent: LPBOOL, #[out] pSacl: *mut PACL, #[out] lpbSaclDefaulted: LPBOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn GetSidIdentifierAuthority(#[in] pSid: PSID) -> PSID_IDENTIFIER_AUTHORITY;
         #[library("ADVAPI32.dll")]

@@ -34,11 +34,11 @@ mod Windows {
         #[guid(0x54b50739_686f_45eb_9dff_d6a9a0faa9af)]
         interface IBackgroundCopyJob2: IBackgroundCopyJob {
             fn SetNotifyCmdLine(&self, #[in] #[opt] Program: LPCWSTR, #[in] #[opt] Parameters: LPCWSTR) -> HRESULT;
-            fn GetNotifyCmdLine(&self, #[out] #[out_ptr] pProgram: *mut LPWSTR, #[out] #[out_ptr] pParameters: *mut LPWSTR) -> HRESULT;
+            fn GetNotifyCmdLine(&self, #[out] pProgram: *mut LPWSTR, #[out] pParameters: *mut LPWSTR) -> HRESULT;
             fn GetReplyProgress(&self, #[in] #[out] pProgress: *mut BG_JOB_REPLY_PROGRESS) -> HRESULT;
             fn GetReplyData(&self, #[incomplete] #[out] ppBuffer: *mut *mut byte, #[in] #[opt] #[out] pLength: *mut UINT64) -> HRESULT;
             fn SetReplyFileName(&self, #[in] #[opt] ReplyFileName: LPCWSTR) -> HRESULT;
-            fn GetReplyFileName(&self, #[out] #[out_ptr] pReplyFileName: *mut LPWSTR) -> HRESULT;
+            fn GetReplyFileName(&self, #[out] pReplyFileName: *mut LPWSTR) -> HRESULT;
             fn SetCredentials(&self, #[in] credentials: *mut BG_AUTH_CREDENTIALS) -> HRESULT;
             fn RemoveCredentials(&self, Target: BG_AUTH_TARGET, Scheme: BG_AUTH_SCHEME) -> HRESULT;
         }

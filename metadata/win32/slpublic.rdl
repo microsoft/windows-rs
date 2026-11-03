@@ -30,9 +30,9 @@ mod Windows {
         #[library("SLC.dll")]
         extern fn SLFireEvent(#[in] hSLC: HSLC, #[in] pwszEventId: PCWSTR, #[in] pApplicationId: *const SLID) -> HRESULT;
         #[library("SLC.dll")]
-        extern fn SLGenerateOfflineInstallationId(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[out] #[out_ptr] ppwszInstallationId: *mut PWSTR) -> HRESULT;
+        extern fn SLGenerateOfflineInstallationId(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[out] ppwszInstallationId: *mut PWSTR) -> HRESULT;
         #[library("SLC.dll")]
-        extern fn SLGenerateOfflineInstallationIdEx(#[in] hSLC: HSLC, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[out] #[out_ptr] ppwszInstallationId: *mut PWSTR) -> HRESULT;
+        extern fn SLGenerateOfflineInstallationIdEx(#[in] hSLC: HSLC, #[in] #[opt] pProductSkuId: *const SLID, #[in] #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[out] ppwszInstallationId: *mut PWSTR) -> HRESULT;
         #[library("SLC.dll")]
         extern fn SLGetApplicationInformation(#[in] hSLC: HSLC, #[in] pApplicationId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[incomplete] #[out] ppbValue: *mut PBYTE) -> HRESULT;
         #[library("SLC.dll")]
@@ -58,7 +58,7 @@ mod Windows {
         #[library("SLC.dll")]
         extern fn SLGetProductSkuInformation(#[in] hSLC: HSLC, #[in] pProductSkuId: *const SLID, #[in] pwszValueName: PCWSTR, #[opt] #[out] peDataType: *mut SLDATATYPE, #[out] pcbValue: *mut UINT, #[incomplete] #[out] ppbValue: *mut PBYTE) -> HRESULT;
         #[library("slcext.dll")]
-        extern fn SLGetReferralInformation(#[in] hSLC: HSLC, #[in] eReferralType: SLREFERRALTYPE, #[in] pSkuOrAppId: *const SLID, #[in] pwszValueName: PCWSTR, #[out] #[out_ptr] ppwszValue: *mut PWSTR) -> HRESULT;
+        extern fn SLGetReferralInformation(#[in] hSLC: HSLC, #[in] eReferralType: SLREFERRALTYPE, #[in] pSkuOrAppId: *const SLID, #[in] pwszValueName: PCWSTR, #[out] ppwszValue: *mut PWSTR) -> HRESULT;
         #[library("SLC.dll")]
         extern fn SLGetSLIDList(#[in] hSLC: HSLC, #[in] eQueryIdType: SLIDTYPE, #[in] #[opt] pQueryId: *const SLID, #[in] eReturnIdType: SLIDTYPE, #[out] pnReturnIds: *mut UINT, #[incomplete] #[out] ppReturnIds: *mut *mut SLID) -> HRESULT;
         #[library("slcext.dll")]

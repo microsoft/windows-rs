@@ -225,7 +225,7 @@ mod Windows {
         #[must_use]
         extern fn QueryServiceConfigW(#[in] hService: SC_HANDLE, #[buffer(bytes(cbBufSize))] #[opt] #[out] lpServiceConfig: LPQUERY_SERVICE_CONFIGW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceDynamicInformation(#[in] hServiceStatus: SERVICE_STATUS_HANDLE, #[in] dwInfoLevel: DWORD, #[out] #[out_ptr] ppDynamicInfo: *mut PVOID) -> BOOL;
+        extern fn QueryServiceDynamicInformation(#[in] hServiceStatus: SERVICE_STATUS_HANDLE, #[in] dwInfoLevel: DWORD, #[out] ppDynamicInfo: *mut PVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn QueryServiceLockStatusA(#[in] hSCManager: SC_HANDLE, #[buffer(bytes(cbBufSize))] #[opt] #[out] lpLockStatus: LPQUERY_SERVICE_LOCK_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;

@@ -448,7 +448,10 @@ impl IMFAsyncResult_Vtbl {
                         ppunkstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -472,7 +475,10 @@ impl IMFAsyncResult_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1407,7 +1413,10 @@ impl IMFCollection_Vtbl {
                         ppunkelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1425,7 +1434,10 @@ impl IMFCollection_Vtbl {
                         ppunkelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2040,7 +2052,10 @@ impl IMFMediaEventGenerator_Vtbl {
                         ppevent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppevent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2363,7 +2378,7 @@ impl IMFMuxStreamAttributesManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstreamattributes.write(core::mem::zeroed());
+                        ppstreamattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2468,7 +2483,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmediatype.write(core::mem::zeroed());
+                        ppmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2574,7 +2589,7 @@ impl IMFMuxStreamSampleManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsample.write(core::mem::zeroed());
+                        ppsample.write_bytes(0, 1);
                         err.into()
                     }
                 }

@@ -105,7 +105,10 @@ impl IConditionFactory_Vtbl {
                         ppcresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -117,7 +120,10 @@ impl IConditionFactory_Vtbl {
                         ppcresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -129,7 +135,10 @@ impl IConditionFactory_Vtbl {
                         ppcresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -141,7 +150,10 @@ impl IConditionFactory_Vtbl {
                         ppcresolved.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcresolved.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -471,7 +483,10 @@ impl IConditionGenerator_Vtbl {
                         ppqueryexpression.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppqueryexpression.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -603,7 +618,10 @@ impl IEntity_Vtbl {
                         pbaseentity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbaseentity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -621,7 +639,10 @@ impl IEntity_Vtbl {
                         prelationship.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prelationship.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -645,7 +666,10 @@ impl IEntity_Vtbl {
                         ppnamedentity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnamedentity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -781,7 +805,10 @@ impl INamedEntity_Vtbl {
                         ppszvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -960,7 +987,10 @@ impl IQueryParser_Vtbl {
                         ppsolution.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsolution.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -978,7 +1008,10 @@ impl IQueryParser_Vtbl {
                         poptionvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        poptionvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -996,7 +1029,10 @@ impl IQueryParser_Vtbl {
                         ppschemaprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppschemaprovider.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1014,7 +1050,10 @@ impl IQueryParser_Vtbl {
                         ppsolution.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsolution.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1270,7 +1309,10 @@ impl IRelationship_Vtbl {
                         pisreal.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisreal.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1282,7 +1324,10 @@ impl IRelationship_Vtbl {
                         pdestinationentity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdestinationentity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1345,7 +1390,10 @@ impl ISchemaLocalizerSupport_Vtbl {
                         ppszlocalstring.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppszlocalstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1464,7 +1512,10 @@ impl ISchemaProvider_Vtbl {
                         prootentity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prootentity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1476,7 +1527,10 @@ impl ISchemaProvider_Vtbl {
                         pentity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pentity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

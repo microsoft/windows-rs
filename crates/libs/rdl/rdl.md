@@ -646,20 +646,8 @@ different semantics. The short form does not apply to fields, return rows or con
 | `#[nullable]` on a field | The field when the containing value is valid |
 
 A parameter needs `out` and pointer-to-pointer storage. `opt` separately permits the caller to pass
-a null argument. `nullable` does not imply ownership or initialized storage. Without it, a pointer
-is unspecified unless `out_ptr` promises non-null. All forms encode the parameterless
-`NullableAttribute`.
-
-`#[out_ptr]` describes storage for a returned pointer. When storage is supplied, success initializes
-it to a non-null pointer to one readable element. It does not specify an allocator, transfer
-ownership, or turn the parameter into a COM return value.
-
-`#[out_ptr(null_on_failure)]` adds that failure sets the returned pointer to null. These forms
-encode the `NullOnFailure` property of `ReturnedPointerAttribute`. Unknown and duplicate flags
-are errors. Full attributes with missing or additional properties retain their explicit spelling
-rather than silently acquiring defaults. `#[nullable]` separately permits a null returned pointer,
-and outer `#[opt]` permits omitting the output storage itself; `#[out]` is still needed to
-establish output direction.
+a null argument. `nullable` does not imply ownership or initialized storage. Without it, nullability
+is unspecified. All forms encode the parameterless `NullableAttribute`.
 
 `#[must_use]` marks a callable result that callers should use rather than accidentally discard.
 It applies to imports, interface methods and named callbacks and encodes the parameterless

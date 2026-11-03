@@ -139,7 +139,10 @@ impl IDtcLuRecoveryFactory_Vtbl {
                         pprecovery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprecovery.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -454,7 +457,10 @@ impl IDtcLuRecoveryInitiatedByLu_Vtbl {
                         ppwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1491,7 +1497,10 @@ impl IResourceManager2_Vtbl {
                         ppenlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1547,7 +1556,10 @@ impl IResourceManagerFactory_Vtbl {
                         ppresmgr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresmgr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1767,7 +1779,10 @@ impl ITransactionPhase0EnlistmentAsync_Vtbl {
                         ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1818,7 +1833,10 @@ impl ITransactionPhase0Factory_Vtbl {
                         ppphase0enlistment.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppphase0enlistment.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1933,7 +1951,10 @@ impl ITransactionReceiver_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1998,7 +2019,10 @@ impl ITransactionReceiverFactory_Vtbl {
                         ppreceiver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppreceiver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2142,7 +2166,10 @@ impl ITransactionTransmitterFactory_Vtbl {
                         pptransmitter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransmitter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2230,7 +2257,10 @@ impl ITransactionVoterFactory2_Vtbl {
                         ppvoterballot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvoterballot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2402,7 +2432,10 @@ impl IXATransLookup_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2449,7 +2482,10 @@ impl IXATransLookup2_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -26,18 +26,18 @@ mod Windows {
         extern fn FreeAddrInfoW(#[in] #[opt] pAddrInfo: PADDRINFOW);
         const GAI_STRERROR_BUFFER_SIZE: i32 = 1024;
         #[library("WS2_32.dll", import = "getaddrinfo")]
-        extern fn GetAddrInfoA(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] #[out_ptr] ppResult: *mut PADDRINFOA) -> INT;
+        extern fn GetAddrInfoA(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] ppResult: *mut PADDRINFOA) -> INT;
         #[deprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings")]
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExA(#[in] #[opt] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXA, #[out] #[out_ptr] ppResult: *mut PADDRINFOEXA, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpNameHandle: LPHANDLE) -> INT;
+        extern fn GetAddrInfoExA(#[in] #[opt] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXA, #[out] ppResult: *mut PADDRINFOEXA, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpNameHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
         extern fn GetAddrInfoExCancel(#[in] lpHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
         extern fn GetAddrInfoExOverlappedResult(#[in] lpOverlapped: LPOVERLAPPED) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExW(#[in] #[opt] pName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXW, #[out] #[out_ptr] ppResult: *mut PADDRINFOEXW, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpHandle: LPHANDLE) -> INT;
+        extern fn GetAddrInfoExW(#[in] #[opt] pName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXW, #[out] ppResult: *mut PADDRINFOEXW, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] #[out] lpHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoW(#[in] #[opt] pNodeName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] #[opt] pHints: *const ADDRINFOW, #[out] #[out_ptr] ppResult: *mut PADDRINFOW) -> INT;
+        extern fn GetAddrInfoW(#[in] #[opt] pNodeName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] #[opt] pHints: *const ADDRINFOW, #[out] ppResult: *mut PADDRINFOW) -> INT;
         #[library("WS2_32.dll", import = "getnameinfo")]
         extern fn GetNameInfoA(#[buffer(bytes(SockaddrLength))] #[in] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[buffer(NodeBufferSize)] #[opt] #[out] pNodeBuffer: PCHAR, #[in] NodeBufferSize: DWORD, #[buffer(ServiceBufferSize)] #[opt] #[out] pServiceBuffer: PCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
         #[library("WS2_32.dll")]
@@ -64,7 +64,7 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn freeaddrinfo(#[in] #[opt] pAddrInfo: PADDRINFOA);
         #[library("WS2_32.dll")]
-        extern fn getaddrinfo(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] #[out_ptr] ppResult: *mut PADDRINFOA) -> INT;
+        extern fn getaddrinfo(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] ppResult: *mut PADDRINFOA) -> INT;
         #[library("WS2_32.dll")]
         extern fn getnameinfo(#[buffer(bytes(SockaddrLength))] #[in] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[buffer(NodeBufferSize)] #[opt] #[out] pNodeBuffer: PCHAR, #[in] NodeBufferSize: DWORD, #[buffer(ServiceBufferSize)] #[opt] #[out] pServiceBuffer: PCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
         #[library("WS2_32.dll")]

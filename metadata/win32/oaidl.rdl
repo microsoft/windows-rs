@@ -236,7 +236,7 @@ mod Windows {
         #[guid(0x00020400_0000_0000_c000_000000000046)]
         interface IDispatch: IUnknown {
             fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
-            fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
+            fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
             fn GetIDsOfNames(&self, #[in] riid: &IID, #[buffer(cNames)] #[in] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[in] lcid: LCID, #[buffer(cNames)] #[out] rgDispId: *mut DISPID) -> HRESULT;
             fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[opt] #[out] pVarResult: *mut VARIANT, #[opt] #[out] pExcepInfo: *mut EXCEPINFO, #[opt] #[out] puArgErr: *mut UINT) -> HRESULT;
         }
@@ -245,14 +245,14 @@ mod Windows {
             fn Next(&self, #[in] celt: ULONG, #[out] rgVar: *mut VARIANT, #[out] pCeltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppEnum: *mut IEnumVARIANT) -> HRESULT;
         }
         #[guid(0x1cf2b120_547d_101b_8e65_08002b2bd119)]
         interface IErrorInfo: IUnknown {
             fn GetGUID(&self, #[out] pGUID: *mut GUID) -> HRESULT;
-            fn GetSource(&self, #[out] #[out_ptr] pBstrSource: *mut BSTR) -> HRESULT;
-            fn GetDescription(&self, #[out] #[out_ptr] pBstrDescription: *mut BSTR) -> HRESULT;
-            fn GetHelpFile(&self, #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
+            fn GetSource(&self, #[out] pBstrSource: *mut BSTR) -> HRESULT;
+            fn GetDescription(&self, #[out] pBstrDescription: *mut BSTR) -> HRESULT;
+            fn GetHelpFile(&self, #[out] pBstrHelpFile: *mut BSTR) -> HRESULT;
             fn GetHelpContext(&self, #[out] pdwHelpContext: *mut DWORD) -> HRESULT;
         }
         #[guid(0x3127ca40_446e_11ce_8135_00aa004bb851)]
@@ -281,7 +281,7 @@ mod Windows {
             fn RecordClear(&self, #[in] pvExisting: PVOID) -> HRESULT;
             fn RecordCopy(&self, #[in] pvExisting: PVOID, #[out] pvNew: PVOID) -> HRESULT;
             fn GetGuid(&self, #[out] pguid: *mut GUID) -> HRESULT;
-            fn GetName(&self, #[out] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[out] pbstrName: *mut BSTR) -> HRESULT;
             fn GetSize(&self, #[out] pcbSize: *mut ULONG) -> HRESULT;
             fn GetTypeInfo(&self, #[out] ppTypeInfo: *mut ITypeInfo) -> HRESULT;
             fn GetField(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
@@ -310,12 +310,12 @@ mod Windows {
         }
         #[guid(0x0000002e_0000_0000_c000_000000000046)]
         interface ITypeFactory: IUnknown {
-            fn CreateFromTypeInfo(&self, #[in] #[opt] pTypeInfo: ITypeInfo, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut IUnknown) -> HRESULT;
+            fn CreateFromTypeInfo(&self, #[in] #[opt] pTypeInfo: ITypeInfo, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x00020401_0000_0000_c000_000000000046)]
         interface ITypeInfo: IUnknown {
             fn GetTypeAttr(&self, #[out] ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
-            fn GetTypeComp(&self, #[out] #[out_ptr] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
+            fn GetTypeComp(&self, #[out] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
             fn GetFuncDesc(&self, #[in] index: UINT, #[out] ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
             fn GetVarDesc(&self, #[in] index: UINT, #[out] ppVarDesc: *mut *mut VARDESC) -> HRESULT;
             fn GetNames(&self, #[in] memid: MEMBERID, #[buffer(cMaxNames)] #[out] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
@@ -323,12 +323,12 @@ mod Windows {
             fn GetImplTypeFlags(&self, #[in] index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
             fn GetIDsOfNames(&self, #[buffer(cNames)] #[in] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[out] pMemId: *mut MEMBERID) -> HRESULT;
             fn Invoke(&self, #[in] pvInstance: PVOID, #[in] memid: MEMBERID, #[in] wFlags: WORD, #[in] #[out] pDispParams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pExcepInfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
-            fn GetDocumentation(&self, #[in] memid: MEMBERID, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
-            fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[opt] #[out] #[out_ptr] pBstrDllName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;
-            fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
+            fn GetDocumentation(&self, #[in] memid: MEMBERID, #[opt] #[out] pBstrName: *mut BSTR, #[opt] #[out] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] pBstrHelpFile: *mut BSTR) -> HRESULT;
+            fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[opt] #[out] pBstrDllName: *mut BSTR, #[opt] #[out] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;
+            fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
             fn AddressOfMember(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] ppv: *mut PVOID) -> HRESULT;
             fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] riid: &IID, #[iid_is] #[out] ppvObj: *mut PVOID) -> HRESULT;
-            fn GetMops(&self, #[in] memid: MEMBERID, #[out] #[out_ptr] pBstrMops: *mut BSTR) -> HRESULT;
+            fn GetMops(&self, #[in] memid: MEMBERID, #[out] pBstrMops: *mut BSTR) -> HRESULT;
             fn GetContainingTypeLib(&self, #[out] ppTLib: *mut ITypeLib, #[out] pIndex: *mut UINT) -> HRESULT;
             fn ReleaseTypeAttr(&self, #[in] pTypeAttr: *mut TYPEATTR);
             fn ReleaseFuncDesc(&self, #[in] pFuncDesc: *mut FUNCDESC);
@@ -345,7 +345,7 @@ mod Windows {
             fn GetParamCustData(&self, #[in] indexFunc: UINT, #[in] indexParam: UINT, #[in] guid: &GUID, #[out] pVarVal: *mut VARIANT) -> HRESULT;
             fn GetVarCustData(&self, #[in] index: UINT, #[in] guid: &GUID, #[out] pVarVal: *mut VARIANT) -> HRESULT;
             fn GetImplTypeCustData(&self, #[in] index: UINT, #[in] guid: &GUID, #[out] pVarVal: *mut VARIANT) -> HRESULT;
-            fn GetDocumentation2(&self, #[in] memid: MEMBERID, #[in] lcid: LCID, #[opt] #[out] #[out_ptr] pbstrHelpString: *mut BSTR, #[out] pdwHelpStringContext: *mut DWORD, #[opt] #[out] #[out_ptr] pbstrHelpStringDll: *mut BSTR) -> HRESULT;
+            fn GetDocumentation2(&self, #[in] memid: MEMBERID, #[in] lcid: LCID, #[opt] #[out] pbstrHelpString: *mut BSTR, #[out] pdwHelpStringContext: *mut DWORD, #[opt] #[out] pbstrHelpStringDll: *mut BSTR) -> HRESULT;
             fn GetAllCustData(&self, #[out] pCustData: *mut CUSTDATA) -> HRESULT;
             fn GetAllFuncCustData(&self, #[in] index: UINT, #[out] pCustData: *mut CUSTDATA) -> HRESULT;
             fn GetAllParamCustData(&self, #[in] indexFunc: UINT, #[in] indexParam: UINT, #[out] pCustData: *mut CUSTDATA) -> HRESULT;
@@ -355,12 +355,12 @@ mod Windows {
         #[guid(0x00020402_0000_0000_c000_000000000046)]
         interface ITypeLib: IUnknown {
             fn GetTypeInfoCount(&self) -> UINT;
-            fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[out_ptr] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
+            fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[retval] ppTInfo: *mut ITypeInfo) -> HRESULT;
             fn GetTypeInfoType(&self, #[in] index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
-            fn GetTypeInfoOfGuid(&self, #[in] guid: &GUID, #[out] #[out_ptr] #[retval] ppTinfo: *mut ITypeInfo) -> HRESULT;
+            fn GetTypeInfoOfGuid(&self, #[in] guid: &GUID, #[out] #[retval] ppTinfo: *mut ITypeInfo) -> HRESULT;
             fn GetLibAttr(&self, #[out] ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
-            fn GetTypeComp(&self, #[out] #[out_ptr] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
-            fn GetDocumentation(&self, #[in] index: INT, #[opt] #[out] #[out_ptr] pBstrName: *mut BSTR, #[opt] #[out] #[out_ptr] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] #[out_ptr] pBstrHelpFile: *mut BSTR) -> HRESULT;
+            fn GetTypeComp(&self, #[out] #[retval] ppTComp: *mut ITypeComp) -> HRESULT;
+            fn GetDocumentation(&self, #[in] index: INT, #[opt] #[out] pBstrName: *mut BSTR, #[opt] #[out] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[opt] #[out] pBstrHelpFile: *mut BSTR) -> HRESULT;
             fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] pfName: *mut BOOL) -> HRESULT;
             fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] rgMemId: *mut MEMBERID, #[in] #[out] pcFound: *mut USHORT) -> HRESULT;
             fn ReleaseTLibAttr(&self, #[in] pTLibAttr: *mut TLIBATTR);
@@ -369,7 +369,7 @@ mod Windows {
         interface ITypeLib2: ITypeLib {
             fn GetCustData(&self, #[in] guid: &GUID, #[out] pVarVal: *mut VARIANT) -> HRESULT;
             fn GetLibStatistics(&self, #[out] pcUniqueNames: *mut ULONG, #[out] pcchUniqueNames: *mut ULONG) -> HRESULT;
-            fn GetDocumentation2(&self, #[in] index: INT, #[in] lcid: LCID, #[opt] #[out] #[out_ptr] pbstrHelpString: *mut BSTR, #[out] pdwHelpStringContext: *mut DWORD, #[opt] #[out] #[out_ptr] pbstrHelpStringDll: *mut BSTR) -> HRESULT;
+            fn GetDocumentation2(&self, #[in] index: INT, #[in] lcid: LCID, #[opt] #[out] pbstrHelpString: *mut BSTR, #[out] pdwHelpStringContext: *mut DWORD, #[opt] #[out] pbstrHelpStringDll: *mut BSTR) -> HRESULT;
             fn GetAllCustData(&self, #[out] pCustData: *mut CUSTDATA) -> HRESULT;
         }
         #[guid(0x76a3e735_02df_4a12_98eb_043ad3600af3)]

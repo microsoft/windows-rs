@@ -19,7 +19,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
@@ -29,7 +29,7 @@ mod Fixture {
     #[guid(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6)]
     interface IXAudio2Extension: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvInterface: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[iid_is] #[out] ppvInterface: *mut *mut void) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]

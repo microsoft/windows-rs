@@ -83,20 +83,10 @@ mod Windows {
             // A pointer the API gives the caller may be null: on an output parameter, the pointer
             // stored through it; on a return, the returned value; on a field, the field. Argument
             // storage the caller may omit is the separate Optional param flag. Absence leaves
-            // nullability unspecified unless ReturnedPointer promises a non-null pointer.
-            // This does not promise initialized/readable storage.
+            // nullability unspecified. This does not promise initialized/readable storage.
             // RDL: `#[nullable]`.
             attribute NullableAttribute {
                 fn();
-            }
-            // A parameter supplies storage for a returned pointer. If storage is supplied,
-            // successful completion initializes it to a non-null pointer to one readable element,
-            // unless NullableAttribute is present. NullOnFailure requires a null result on failure.
-            // Success/failure follows the callable's contract. This specifies no allocator or
-            // ownership transfer. RDL: `#[out_ptr]`, `#[out_ptr(null_on_failure)]`.
-            attribute ReturnedPointerAttribute {
-                fn();
-                NullOnFailure: bool,
             }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.

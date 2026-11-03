@@ -15,7 +15,7 @@ mod Windows {
         #[guid(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c)]
         interface IStiDevice: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -42,7 +42,7 @@ mod Windows {
         #[guid(0x641bd880_2dc8_11d0_90ea_00aa0060f86c)]
         interface IStillImageW: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]

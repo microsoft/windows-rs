@@ -143,7 +143,10 @@ impl IGameExplorer2_Vtbl {
                         phasaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phasaccess.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -311,7 +314,10 @@ impl IGameStatistics_Vtbl {
                         cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -323,7 +329,10 @@ impl IGameStatistics_Vtbl {
                         cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -335,7 +344,10 @@ impl IGameStatistics_Vtbl {
                         cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -347,7 +359,10 @@ impl IGameStatistics_Vtbl {
                         pmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmax.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -359,7 +374,10 @@ impl IGameStatistics_Vtbl {
                         pmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmax.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -407,7 +425,10 @@ impl IGameStatistics_Vtbl {
                         pcategoryindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcategoryindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -473,7 +494,10 @@ impl IGameStatisticsMgr_Vtbl {
                         ppistats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppistats.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -133,7 +133,10 @@ impl IAudioChannelConfig_Vtbl {
                         pdwconfig.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwconfig.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -899,7 +902,10 @@ impl IDeviceTopology_Vtbl {
                         ppsubunit.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubunit.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -911,7 +917,10 @@ impl IDeviceTopology_Vtbl {
                         pppart.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -929,7 +938,10 @@ impl IDeviceTopology_Vtbl {
                         ppparts.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparts.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

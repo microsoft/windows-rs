@@ -1269,7 +1269,10 @@ impl IMFByteStreamHandler_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1426,7 +1429,7 @@ impl IMFCameraConfigurationManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        configurations.write(core::mem::zeroed());
+                        configurations.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1638,7 +1641,7 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        configuration.write(core::mem::zeroed());
+                        configuration.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1653,7 +1656,7 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        defaults.write(core::mem::zeroed());
+                        defaults.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1668,7 +1671,7 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        defaults.write(core::mem::zeroed());
+                        defaults.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2203,7 +2206,10 @@ impl IMFClockConsumer_Vtbl {
                         pppresentationclock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppresentationclock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2620,7 +2626,10 @@ impl IMFDXGIDeviceManagerSource_Vtbl {
                         ppmanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmanager.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2781,7 +2790,7 @@ impl IMFExtendedCameraController_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppcontrol.write(core::mem::zeroed());
+                        ppcontrol.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2968,7 +2977,7 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppintrinsicmodel.write(core::mem::zeroed());
+                        ppintrinsicmodel.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3693,7 +3702,7 @@ impl IMFHttpDownloadSession_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pprequest.write(core::mem::zeroed());
+                        pprequest.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3751,7 +3760,7 @@ impl IMFHttpDownloadSessionProvider_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdownloadsession.write(core::mem::zeroed());
+                        ppdownloadsession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3853,7 +3862,10 @@ impl IMFInputTrustAuthority_Vtbl {
                         ppcontentenableractivate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontentenableractivate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3865,7 +3877,10 @@ impl IMFInputTrustAuthority_Vtbl {
                         pppolicy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppolicy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4092,7 +4107,10 @@ impl IMFMediaSession_Vtbl {
                         ppclock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppclock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4110,7 +4128,10 @@ impl IMFMediaSession_Vtbl {
                         ppfulltopology.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfulltopology.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4250,7 +4271,10 @@ impl IMFMediaSink_Vtbl {
                         ppstreamsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstreamsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4274,7 +4298,10 @@ impl IMFMediaSink_Vtbl {
                         ppstreamsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstreamsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4286,7 +4313,10 @@ impl IMFMediaSink_Vtbl {
                         ppstreamsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstreamsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4304,7 +4334,10 @@ impl IMFMediaSink_Vtbl {
                         pppresentationclock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppresentationclock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4448,7 +4481,10 @@ impl IMFMediaSource_Vtbl {
                         pppresentationdescriptor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppresentationdescriptor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4606,7 +4642,10 @@ impl IMFMediaSourceEx_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4618,7 +4657,10 @@ impl IMFMediaSourceEx_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4720,7 +4762,10 @@ impl IMFMediaSourceTopologyProvider_Vtbl {
                         pptopology.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptopology.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4790,7 +4835,10 @@ impl IMFMediaStream_Vtbl {
                         ppmediasource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediasource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4802,7 +4850,10 @@ impl IMFMediaStream_Vtbl {
                         ppstreamdescriptor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstreamdescriptor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5023,7 +5074,10 @@ impl IMFMediaTypeHandler_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5041,7 +5095,10 @@ impl IMFMediaTypeHandler_Vtbl {
                         ppmediatype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediatype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5242,7 +5299,10 @@ impl IMFMetadataProvider_Vtbl {
                         ppmfmetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmfmetadata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5499,7 +5559,10 @@ impl IMFNetCredentialManager_Vtbl {
                         ppcred.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcred.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5708,7 +5771,10 @@ impl IMFNetProxyLocatorFactory_Vtbl {
                         ppproxylocator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproxylocator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5967,7 +6033,10 @@ impl IMFOutputPolicy_Vtbl {
                         pprequiredprotectionschemas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprequiredprotectionschemas.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6494,7 +6563,10 @@ impl IMFPresentationClock_Vtbl {
                         pptimesource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptimesource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6639,7 +6711,10 @@ impl IMFPresentationDescriptor_Vtbl {
                         ppdescriptor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdescriptor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6663,7 +6738,10 @@ impl IMFPresentationDescriptor_Vtbl {
                         pppresentationdescriptor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppresentationdescriptor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6719,7 +6797,10 @@ impl IMFPresentationTimeSource_Vtbl {
                         ppclock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppclock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7451,7 +7532,7 @@ impl IMFRelativePanelWatcher_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pprelativepanelreport.write(core::mem::zeroed());
+                        pprelativepanelreport.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7466,7 +7547,7 @@ impl IMFRelativePanelWatcher_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pprelativepanelreport.write(core::mem::zeroed());
+                        pprelativepanelreport.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8239,7 +8320,10 @@ impl IMFSchemeHandler_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8419,7 +8503,7 @@ impl IMFSensorActivitiesReport_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        sensoractivityreport.write(core::mem::zeroed());
+                        sensoractivityreport.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8434,7 +8518,7 @@ impl IMFSensorActivitiesReport_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        sensoractivityreport.write(core::mem::zeroed());
+                        sensoractivityreport.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8610,7 +8694,7 @@ impl IMFSensorActivityReport_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppprocessactivity.write(core::mem::zeroed());
+                        ppprocessactivity.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8762,7 +8846,7 @@ impl IMFSensorDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
+                        ppattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8925,7 +9009,7 @@ impl IMFSensorGroup_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdevice.write(core::mem::zeroed());
+                        ppdevice.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8952,7 +9036,7 @@ impl IMFSensorGroup_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsource.write(core::mem::zeroed());
+                        ppsource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9244,7 +9328,7 @@ impl IMFSensorProfileCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppprofile.write(core::mem::zeroed());
+                        ppprofile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9265,7 +9349,7 @@ impl IMFSensorProfileCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppprofile.write(core::mem::zeroed());
+                        ppprofile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9369,7 +9453,7 @@ impl IMFSensorStream_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmediatype.write(core::mem::zeroed());
+                        ppmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9384,7 +9468,7 @@ impl IMFSensorStream_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstream.write(core::mem::zeroed());
+                        ppstream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9488,7 +9572,7 @@ impl IMFSensorTransformFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
+                        ppattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9515,7 +9599,7 @@ impl IMFSensorTransformFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstreaminformation.write(core::mem::zeroed());
+                        ppstreaminformation.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9530,7 +9614,7 @@ impl IMFSensorTransformFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdevicemft.write(core::mem::zeroed());
+                        ppdevicemft.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9984,7 +10068,10 @@ impl IMFSourceResolver_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9996,7 +10083,10 @@ impl IMFSourceResolver_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10014,7 +10104,10 @@ impl IMFSourceResolver_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10032,7 +10125,10 @@ impl IMFSourceResolver_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10116,7 +10212,10 @@ impl IMFStreamDescriptor_Vtbl {
                         ppmediatypehandler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediatypehandler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10213,7 +10312,10 @@ impl IMFStreamSink_Vtbl {
                         ppmediasink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediasink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10231,7 +10333,10 @@ impl IMFStreamSink_Vtbl {
                         pphandler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pphandler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10702,7 +10807,10 @@ impl IMFTopology_Vtbl {
                         ppnode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10726,7 +10834,10 @@ impl IMFTopology_Vtbl {
                         ppnode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10738,7 +10849,10 @@ impl IMFTopology_Vtbl {
                         ppcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10750,7 +10864,10 @@ impl IMFTopology_Vtbl {
                         ppcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10958,7 +11075,10 @@ impl IMFTopologyNode_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11030,7 +11150,10 @@ impl IMFTopologyNode_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11048,7 +11171,10 @@ impl IMFTopologyNode_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11477,7 +11603,10 @@ impl IMFTrustedOutput_Vtbl {
                         ppauthority.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppauthority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11731,7 +11860,10 @@ impl IMFVideoProcessorControl2_Vtbl {
                         puisupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        puisupport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11807,7 +11939,10 @@ impl IMFVideoProcessorControl3_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

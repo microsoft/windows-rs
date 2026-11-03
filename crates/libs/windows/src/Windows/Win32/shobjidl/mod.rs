@@ -863,7 +863,10 @@ impl IEnumerableView_Vtbl {
                         ppenumidlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumidlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1371,7 +1374,10 @@ impl IImageRecompress_Vtbl {
                         ppstrmout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstrmout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

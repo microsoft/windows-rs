@@ -400,7 +400,7 @@ mod Windows {
         #[library("credui.dll")]
         extern fn CredUIPromptForWindowsCredentialsW(#[in] #[opt] pUiInfo: PCREDUI_INFOW, #[in] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[buffer(bytes(ulInAuthBufferSize))] #[in] #[opt] pvInAuthBuffer: LPCVOID, #[in] ulInAuthBufferSize: ULONG, #[incomplete] #[out] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[opt] #[out] pfSave: *mut BOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIReadSSOCredW(#[in] #[opt] pszRealm: PCWSTR, #[out] #[out_ptr] ppszUsername: *mut PWSTR) -> DWORD;
+        extern fn CredUIReadSSOCredW(#[in] #[opt] pszRealm: PCWSTR, #[out] ppszUsername: *mut PWSTR) -> DWORD;
         #[library("credui.dll")]
         extern fn CredUIStoreSSOCredW(#[in] #[opt] pszRealm: PCWSTR, #[in] pszUsername: PCWSTR, #[in] pszPassword: PCWSTR, #[in] bPersist: BOOL) -> DWORD;
         #[library("credui.dll")]

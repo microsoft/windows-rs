@@ -113,27 +113,12 @@ impl Param {
         })
     }
 
-    fn returned_pointer_flag(&self, name: &str) -> bool {
-        self.attributes().any(|attribute| {
-            attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "ReturnedPointerAttribute"
-                && attribute
-                    .value()
-                    .iter()
-                    .any(|(key, value)| key == name && *value == Value::Bool(true))
-        })
-    }
-
     /// Whether `NullableAttribute` permits a null returned pointer.
     pub fn result_may_be_null(&self) -> bool {
         self.attributes().any(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
                 && attribute.name() == "NullableAttribute"
         })
-    }
-
-    pub fn result_null_on_failure(&self) -> bool {
-        self.returned_pointer_flag("NullOnFailure")
     }
 
     pub fn write_result_type(&self, config: &Config) -> TokenStream {

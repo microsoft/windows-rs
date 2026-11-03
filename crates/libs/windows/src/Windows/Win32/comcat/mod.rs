@@ -100,7 +100,10 @@ impl ICatInformation_Vtbl {
                         ppenumcategoryinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcategoryinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -130,7 +133,10 @@ impl ICatInformation_Vtbl {
                         ppenumcatid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcatid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -142,7 +148,10 @@ impl ICatInformation_Vtbl {
                         ppenumcatid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcatid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -355,7 +364,10 @@ impl IEnumCATEGORYINFO_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -445,7 +457,10 @@ impl IEnumGUID_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

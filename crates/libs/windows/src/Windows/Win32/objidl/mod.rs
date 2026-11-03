@@ -739,7 +739,10 @@ impl IBindCtx_Vtbl {
                         pprot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -757,7 +760,10 @@ impl IBindCtx_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -769,7 +775,10 @@ impl IBindCtx_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -967,7 +976,10 @@ impl IDataAdviseHolder_Vtbl {
                         ppenumadvise.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumadvise.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1130,7 +1142,10 @@ impl IDataObject_Vtbl {
                         ppenumformatetc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumformatetc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1154,7 +1169,10 @@ impl IDataObject_Vtbl {
                         ppenumadvise.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumadvise.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1352,7 +1370,10 @@ impl IEnumFORMATETC_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1442,7 +1463,10 @@ impl IEnumMoniker_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1532,7 +1556,10 @@ impl IEnumSTATDATA_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1622,7 +1649,10 @@ impl IEnumSTATSTG_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2547,7 +2577,10 @@ impl IMoniker_Vtbl {
                         ppmkreduced.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkreduced.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2559,7 +2592,10 @@ impl IMoniker_Vtbl {
                         ppmkcomposite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkcomposite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2571,7 +2607,10 @@ impl IMoniker_Vtbl {
                         ppenummoniker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenummoniker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2607,7 +2646,10 @@ impl IMoniker_Vtbl {
                         ppmk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2619,7 +2661,10 @@ impl IMoniker_Vtbl {
                         ppmkprefix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkprefix.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2631,7 +2676,10 @@ impl IMoniker_Vtbl {
                         ppmkrelpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkrelpath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2649,7 +2697,10 @@ impl IMoniker_Vtbl {
                         ppmkout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmkout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3490,7 +3541,10 @@ impl IRunningObjectTable_Vtbl {
                         ppunkobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3514,7 +3568,10 @@ impl IRunningObjectTable_Vtbl {
                         ppenummoniker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenummoniker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3713,7 +3770,10 @@ impl IStorage_Vtbl {
                         ppstm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3725,7 +3785,10 @@ impl IStorage_Vtbl {
                         ppstm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3737,7 +3800,10 @@ impl IStorage_Vtbl {
                         ppstg.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstg.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3749,7 +3815,10 @@ impl IStorage_Vtbl {
                         ppstg.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstg.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3785,7 +3854,10 @@ impl IStorage_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

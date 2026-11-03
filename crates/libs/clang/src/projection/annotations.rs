@@ -582,19 +582,11 @@ pub(super) fn parameter(
     let reserved = normalized
         .contains(&sal::ParameterAnnotation::Reserved)
         .then(|| quote! { #[reserved] });
-    let returned = normalized.iter().filter_map(|value| {
-        let sal::ParameterAnnotation::Contract(contract) = value else {
-            return None;
-        };
-        Some(windows_rdl::emit::write_returned_pointer(
-            contract.returned_pointer?.null_on_failure,
-        ))
-    });
     // A required non-null returned pointer (`_COM_Outptr_`, or `_Outptr_` to an interface) on the
     // trailing output of a `return >= 0` callable meets the MIDL `[retval]` contract: the callee
     // writes a non-null object on every success, and callers read it only on success.
     let retval = (midl.retval || com_result).then(|| quote! { #[retval] });
-    Ok(quote! { #native #incomplete #direction #optional #reserved #retval #(#returned)* })
+    Ok(quote! { #native #incomplete #direction #optional #reserved #retval })
 }
 
 pub(super) struct BufferAttributes {

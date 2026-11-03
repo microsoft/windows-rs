@@ -23,7 +23,7 @@ mod Windows {
             WSC_SECURITY_PROVIDER_HEALTH_SNOOZE = 3,
         }
         #[library("WSCAPI.dll")]
-        extern fn WscGetAntiMalwareUri(#[out] #[out_ptr] ppszUri: *mut LPWSTR) -> HRESULT;
+        extern fn WscGetAntiMalwareUri(#[out] ppszUri: *mut LPWSTR) -> HRESULT;
         #[library("WSCAPI.dll")]
         extern fn WscGetSecurityProviderHealth(Providers: DWORD, pHealth: PWSC_SECURITY_PROVIDER_HEALTH) -> HRESULT;
         #[library("WSCAPI.dll")]

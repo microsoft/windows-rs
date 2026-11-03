@@ -13,7 +13,7 @@ mod Windows {
         extern fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn CreateErrorInfo(#[out] #[out_ptr] #[retval] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
+        extern fn CreateErrorInfo(#[out] #[retval] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
         extern fn CreateStdDispatch(punkOuter: IUnknown, pvThis: *mut void, ptinfo: ITypeInfo, ppunkStdDisp: *mut IUnknown) -> HRESULT;
@@ -47,7 +47,7 @@ mod Windows {
         extern fn GetAltMonthNames(lcid: LCID, #[incomplete] #[nullable] #[out] prgp: *mut *mut LPOLESTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] #[retval] pperrinfo: *mut IErrorInfo) -> HRESULT;
+        extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[retval] pperrinfo: *mut IErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn GetRecordInfoFromGuids(rGuidTypeLib: &GUID, uVerMajor: ULONG, uVerMinor: ULONG, lcid: LCID, rGuidTypeInfo: &GUID, ppRecInfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -156,12 +156,12 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayAllocData(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAllocDescriptor(#[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayAllocDescriptor(#[in] cDims: UINT, #[out] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAllocDescriptorEx(#[in] vt: VARTYPE, #[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayAllocDescriptorEx(#[in] vt: VARTYPE, #[in] cDims: UINT, #[out] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn SafeArrayCopy(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayCopy(#[in] psa: *mut SAFEARRAY, #[out] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
         extern fn SafeArrayCopyData(#[in] psaSource: *mut SAFEARRAY, #[in] psaTarget: *mut SAFEARRAY) -> HRESULT;
@@ -190,7 +190,7 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetLBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plLbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] #[retval] prinfo: *mut IRecordInfo) -> HRESULT;
+        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, #[out] #[retval] prinfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayGetUBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plUbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -998,6 +998,6 @@ mod Windows {
         extern fn VariantTimeToSystemTime(#[in] vtime: DOUBLE, #[out] lpSystemTime: LPSYSTEMTIME) -> INT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn VectorFromBstr(#[in] bstr: BSTR, #[out] #[out_ptr] ppsa: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn VectorFromBstr(#[in] bstr: BSTR, #[out] ppsa: *mut *mut SAFEARRAY) -> HRESULT;
     }
 }

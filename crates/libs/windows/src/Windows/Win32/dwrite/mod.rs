@@ -2220,7 +2220,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2247,7 +2247,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2262,7 +2262,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2277,7 +2277,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2292,7 +2292,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2307,7 +2307,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2322,7 +2322,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2349,7 +2349,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        textformat.write(core::mem::zeroed());
+                        textformat.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2364,7 +2364,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        typography.write(core::mem::zeroed());
+                        typography.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2379,7 +2379,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gdiinterop.write(core::mem::zeroed());
+                        gdiinterop.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2394,7 +2394,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        textlayout.write(core::mem::zeroed());
+                        textlayout.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2409,7 +2409,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        textlayout.write(core::mem::zeroed());
+                        textlayout.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2424,7 +2424,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        trimmingsign.write(core::mem::zeroed());
+                        trimmingsign.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2439,7 +2439,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        textanalyzer.write(core::mem::zeroed());
+                        textanalyzer.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2454,7 +2454,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        numbersubstitution.write(core::mem::zeroed());
+                        numbersubstitution.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2469,7 +2469,7 @@ impl IDWriteFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphrunanalysis.write(core::mem::zeroed());
+                        glyphrunanalysis.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2559,7 +2559,7 @@ impl IDWriteFactory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2659,7 +2659,7 @@ impl IDWriteFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfallback.write(core::mem::zeroed());
+                        fontfallback.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2674,7 +2674,7 @@ impl IDWriteFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfallbackbuilder.write(core::mem::zeroed());
+                        fontfallbackbuilder.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2689,7 +2689,7 @@ impl IDWriteFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorlayers.write(core::mem::zeroed());
+                        colorlayers.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2704,7 +2704,7 @@ impl IDWriteFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2719,7 +2719,7 @@ impl IDWriteFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphrunanalysis.write(core::mem::zeroed());
+                        glyphrunanalysis.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2861,7 +2861,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphrunanalysis.write(core::mem::zeroed());
+                        glyphrunanalysis.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2876,7 +2876,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        renderingparams.write(core::mem::zeroed());
+                        renderingparams.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2891,7 +2891,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2906,7 +2906,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2921,7 +2921,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2936,7 +2936,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontsetbuilder.write(core::mem::zeroed());
+                        fontsetbuilder.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2951,7 +2951,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2972,7 +2972,7 @@ impl IDWriteFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontdownloadqueue.write(core::mem::zeroed());
+                        fontdownloadqueue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3057,7 +3057,7 @@ impl IDWriteFactory4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorlayers.write(core::mem::zeroed());
+                        colorlayers.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3163,7 +3163,7 @@ impl IDWriteFactory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontsetbuilder.write(core::mem::zeroed());
+                        fontsetbuilder.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3178,7 +3178,7 @@ impl IDWriteFactory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        newloader.write(core::mem::zeroed());
+                        newloader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3193,7 +3193,7 @@ impl IDWriteFactory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        newloader.write(core::mem::zeroed());
+                        newloader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3214,7 +3214,7 @@ impl IDWriteFactory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        unpackedfontstream.write(core::mem::zeroed());
+                        unpackedfontstream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3345,7 +3345,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3360,7 +3360,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontresource.write(core::mem::zeroed());
+                        fontresource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3375,7 +3375,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3390,7 +3390,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3405,7 +3405,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3420,7 +3420,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontsetbuilder.write(core::mem::zeroed());
+                        fontsetbuilder.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3435,7 +3435,7 @@ impl IDWriteFactory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        textformat.write(core::mem::zeroed());
+                        textformat.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3504,7 +3504,7 @@ impl IDWriteFactory7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3519,7 +3519,7 @@ impl IDWriteFactory7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3579,7 +3579,7 @@ impl IDWriteFactory8_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorenumerator.write(core::mem::zeroed());
+                        colorenumerator.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3691,7 +3691,7 @@ impl IDWriteFont_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfamily.write(core::mem::zeroed());
+                        fontfamily.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3730,7 +3730,7 @@ impl IDWriteFont_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3769,7 +3769,7 @@ impl IDWriteFont_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3999,7 +3999,7 @@ impl IDWriteFont3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4020,7 +4020,7 @@ impl IDWriteFont3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4124,7 +4124,7 @@ impl IDWriteFontCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfamily.write(core::mem::zeroed());
+                        fontfamily.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4145,7 +4145,7 @@ impl IDWriteFontCollection_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4215,7 +4215,7 @@ impl IDWriteFontCollection1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4230,7 +4230,7 @@ impl IDWriteFontCollection1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfamily.write(core::mem::zeroed());
+                        fontfamily.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4315,7 +4315,7 @@ impl IDWriteFontCollection2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfamily.write(core::mem::zeroed());
+                        fontfamily.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4330,7 +4330,7 @@ impl IDWriteFontCollection2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontlist.write(core::mem::zeroed());
+                        fontlist.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4351,7 +4351,7 @@ impl IDWriteFontCollection2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4454,7 +4454,7 @@ impl IDWriteFontCollectionLoader_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfileenumerator.write(core::mem::zeroed());
+                        fontfileenumerator.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5346,7 +5346,7 @@ impl IDWriteFontFace3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5385,7 +5385,7 @@ impl IDWriteFontFace3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5400,7 +5400,7 @@ impl IDWriteFontFace3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5652,7 +5652,7 @@ impl IDWriteFontFace5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontresource.write(core::mem::zeroed());
+                        fontresource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5725,7 +5725,7 @@ impl IDWriteFontFace6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5740,7 +5740,7 @@ impl IDWriteFontFace6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5815,7 +5815,7 @@ impl IDWriteFontFace7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        paintreader.write(core::mem::zeroed());
+                        paintreader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5967,7 +5967,7 @@ impl IDWriteFontFaceReference_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5982,7 +5982,7 @@ impl IDWriteFontFaceReference_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6015,7 +6015,7 @@ impl IDWriteFontFaceReference_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6149,7 +6149,7 @@ impl IDWriteFontFaceReference1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6268,7 +6268,7 @@ impl IDWriteFontFallback1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        mappedfontface.write(core::mem::zeroed());
+                        mappedfontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6346,7 +6346,7 @@ impl IDWriteFontFallbackBuilder_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfallback.write(core::mem::zeroed());
+                        fontfallback.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6419,7 +6419,7 @@ impl IDWriteFontFamily_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6434,7 +6434,7 @@ impl IDWriteFontFamily_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        matchingfont.write(core::mem::zeroed());
+                        matchingfont.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6449,7 +6449,7 @@ impl IDWriteFontFamily_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        matchingfonts.write(core::mem::zeroed());
+                        matchingfonts.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6537,7 +6537,7 @@ impl IDWriteFontFamily1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6552,7 +6552,7 @@ impl IDWriteFontFamily1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6621,7 +6621,7 @@ impl IDWriteFontFamily2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        matchingfonts.write(core::mem::zeroed());
+                        matchingfonts.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6636,7 +6636,7 @@ impl IDWriteFontFamily2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6710,7 +6710,7 @@ impl IDWriteFontFile_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfileloader.write(core::mem::zeroed());
+                        fontfileloader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6776,7 +6776,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6829,7 +6829,7 @@ impl IDWriteFontFileLoader_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfilestream.write(core::mem::zeroed());
+                        fontfilestream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6983,7 +6983,7 @@ impl IDWriteFontList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7004,7 +7004,7 @@ impl IDWriteFontList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7092,7 +7092,7 @@ impl IDWriteFontList1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7107,7 +7107,7 @@ impl IDWriteFontList1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7164,7 +7164,7 @@ impl IDWriteFontList2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7317,7 +7317,7 @@ impl IDWriteFontResource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7362,7 +7362,7 @@ impl IDWriteFontResource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7383,7 +7383,7 @@ impl IDWriteFontResource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        names.write(core::mem::zeroed());
+                        names.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7404,7 +7404,7 @@ impl IDWriteFontResource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7419,7 +7419,7 @@ impl IDWriteFontResource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7584,7 +7584,7 @@ impl IDWriteFontSet_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7611,7 +7611,7 @@ impl IDWriteFontSet_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        values.write(core::mem::zeroed());
+                        values.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7626,7 +7626,7 @@ impl IDWriteFontSet_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        values.write(core::mem::zeroed());
+                        values.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7653,7 +7653,7 @@ impl IDWriteFontSet_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredset.write(core::mem::zeroed());
+                        filteredset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7668,7 +7668,7 @@ impl IDWriteFontSet_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredset.write(core::mem::zeroed());
+                        filteredset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7861,7 +7861,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        matchingfonts.write(core::mem::zeroed());
+                        matchingfonts.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7876,7 +7876,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredfontset.write(core::mem::zeroed());
+                        filteredfontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7891,7 +7891,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredfontset.write(core::mem::zeroed());
+                        filteredfontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7906,7 +7906,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredfontset.write(core::mem::zeroed());
+                        filteredfontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7921,7 +7921,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredfontset.write(core::mem::zeroed());
+                        filteredfontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7960,7 +7960,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfacereference.write(core::mem::zeroed());
+                        fontfacereference.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7975,7 +7975,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontresource.write(core::mem::zeroed());
+                        fontresource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7990,7 +7990,7 @@ impl IDWriteFontSet1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8205,7 +8205,7 @@ impl IDWriteFontSet4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        matchingfonts.write(core::mem::zeroed());
+                        matchingfonts.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8301,7 +8301,7 @@ impl IDWriteFontSetBuilder_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontset.write(core::mem::zeroed());
+                        fontset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8514,7 +8514,7 @@ impl IDWriteGdiInterop_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8541,7 +8541,7 @@ impl IDWriteGdiInterop_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontface.write(core::mem::zeroed());
+                        fontface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8556,7 +8556,7 @@ impl IDWriteGdiInterop_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rendertarget.write(core::mem::zeroed());
+                        rendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8661,7 +8661,7 @@ impl IDWriteGdiInterop1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        font.write(core::mem::zeroed());
+                        font.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8688,7 +8688,7 @@ impl IDWriteGdiInterop1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        filteredset.write(core::mem::zeroed());
+                        filteredset.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8841,7 +8841,7 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9471,7 +9471,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfilestream.write(core::mem::zeroed());
+                        fontfilestream.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -9492,7 +9492,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontfile.write(core::mem::zeroed());
+                        fontfile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10156,7 +10156,7 @@ impl IDWriteTextAnalysisSource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        numbersubstitution.write(core::mem::zeroed());
+                        numbersubstitution.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11178,7 +11178,7 @@ impl IDWriteTextFormat_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        trimmingsign.write(core::mem::zeroed());
+                        trimmingsign.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11199,7 +11199,7 @@ impl IDWriteTextFormat_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        fontcollection.write(core::mem::zeroed());
+                        fontcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }

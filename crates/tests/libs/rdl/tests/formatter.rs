@@ -6,7 +6,7 @@ fn attributes_are_sorted_at_each_owner() {
         #[z] #[a] mod Test {
             #[library("test.dll")] #[arch(X64)]
             extern fn Call(
-                #[out_ptr] #[out] result: *mut *mut i32,
+                #[nullable] #[out] result: *mut *mut i32,
                 #[opt] #[r#in] value: i32
             ) -> #[z] #[a] i32;
             #[z] #[a] struct Outer {
@@ -20,7 +20,7 @@ fn attributes_are_sorted_at_each_owner() {
 mod Test {
     #[arch(X64)]
     #[library(\"test.dll\")]
-    extern fn Call(#[out] #[out_ptr] result: *mut *mut i32, #[in] #[opt] value: i32) -> #[a] #[z] i32;
+    extern fn Call(#[nullable] #[out] result: *mut *mut i32, #[in] #[opt] value: i32) -> #[a] #[z] i32;
     #[a]
     #[z]
     struct Outer {
@@ -59,14 +59,14 @@ extern fn Call(#[buffer(first)] #[tag(second, 2)] #[tag(second, 1)] value: *mut 
 #[test]
 fn qualified_names_and_parameter_boundaries() {
     let source = "extern fn Call(#[Z::A(2, 1)] #[A::Z] #[A::A] first: i32, \
-                  #[out_ptr] #[out] second: *mut *mut i32);";
+                  #[out] #[nullable] second: *mut *mut i32);";
     assert_eq!(
         format(source),
         "extern fn Call(#[A::A] #[A::Z] #[Z::A(2, 1)] first: i32, \
-         #[out] #[out_ptr] second: *mut *mut i32);\n"
+         #[nullable] #[out] second: *mut *mut i32);\n"
     );
     assert_eq!(
-        format("extern fn Call(#[out_ptr] #[out] value: *mut *mut i32);"),
-        format("extern fn Call(#[out] #[out_ptr] value: *mut *mut i32);")
+        format("extern fn Call(#[nullable] #[out] value: *mut *mut i32);"),
+        format("extern fn Call(#[out] #[nullable] value: *mut *mut i32);")
     );
 }

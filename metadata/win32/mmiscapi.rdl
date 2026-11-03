@@ -211,6 +211,6 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mmioWrite(#[in] hmmio: HMMIO, #[buffer(bytes(cch))] #[in] pch: *const i8, #[in] cch: LONG) -> LONG;
         #[library("api-ms-win-mm-misc-l1-1-1.dll")]
-        extern fn sndOpenSound(#[in] EventName: LPCWSTR, #[in] AppName: LPCWSTR, #[in] Flags: INT32, #[out] #[out_ptr] FileHandle: PHANDLE) -> LONG;
+        extern fn sndOpenSound(#[in] EventName: LPCWSTR, #[in] AppName: LPCWSTR, #[in] Flags: INT32, #[out] FileHandle: PHANDLE) -> LONG;
     }
 }

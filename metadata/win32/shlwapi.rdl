@@ -71,9 +71,9 @@ mod Windows {
             ASSOCSTR_MAX = 24,
         }
         #[library("SHLWAPI.dll")]
-        extern fn AssocCreate(#[in] clsid: CLSID, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreate(#[in] clsid: CLSID, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocGetPerceivedType(#[in] pszExt: PCWSTR, #[out] ptype: *mut PERCEIVED, #[out] pflag: *mut PERCEIVEDFLAG, #[opt] #[out] #[out_ptr] ppszType: *mut PWSTR) -> HRESULT;
+        extern fn AssocGetPerceivedType(#[in] pszExt: PCWSTR, #[out] ptype: *mut PERCEIVED, #[out] pflag: *mut PERCEIVEDFLAG, #[opt] #[out] ppszType: *mut PWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn AssocIsDangerous(#[in] pszAssoc: PCWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
@@ -114,7 +114,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn ColorRGBToHLS(clrRGB: COLORREF, #[out] pwHue: *mut WORD, #[out] pwLuminance: *mut WORD, #[out] pwSaturation: *mut WORD);
         #[library("SHLWAPI.dll")]
-        extern fn ConnectToConnectionPoint(#[in] #[opt] punk: IUnknown, #[in] riidEvent: &IID, fConnect: BOOL, #[in] punkTarget: IUnknown, #[out] pdwCookie: *mut DWORD, #[opt] #[out] #[out_ptr] ppcpOut: *mut IConnectionPoint) -> HRESULT;
+        extern fn ConnectToConnectionPoint(#[in] #[opt] punk: IUnknown, #[in] riidEvent: &IID, fConnect: BOOL, #[in] punkTarget: IUnknown, #[out] pdwCookie: *mut DWORD, #[opt] #[out] ppcpOut: *mut IConnectionPoint) -> HRESULT;
         extern fn DLLGETVERSIONPROC(param0: *mut DLLVERSIONINFO) -> HRESULT;
         #[packed(8)]
         struct DLLVERSIONINFO {
@@ -191,16 +191,16 @@ mod Windows {
             fn GetString(&self, #[in] flags: ASSOCF, #[in] str: ASSOCSTR, #[in] #[opt] pszExtra: LPCWSTR, #[buffer(*pcchOut)] #[opt] #[out] pszOut: LPWSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
             fn GetKey(&self, #[in] flags: ASSOCF, #[in] key: ASSOCKEY, #[in] #[opt] pszExtra: LPCWSTR, #[out] phkeyOut: *mut HKEY) -> HRESULT;
             fn GetData(&self, #[in] flags: ASSOCF, #[in] data: ASSOCDATA, #[in] #[opt] pszExtra: LPCWSTR, #[incomplete] #[opt] #[out] pvOut: *mut void, #[in] #[opt] #[out] pcbOut: *mut DWORD) -> HRESULT;
-            fn GetEnum(&self, #[in] flags: ASSOCF, #[in] assocenum: ASSOCENUM, #[in] #[opt] pszExtra: LPCWSTR, #[in] riid: &IID, #[out] #[out_ptr] ppvOut: *mut *mut void) -> HRESULT;
+            fn GetEnum(&self, #[in] flags: ASSOCF, #[in] assocenum: ASSOCENUM, #[in] #[opt] pszExtra: LPCWSTR, #[in] riid: &IID, #[out] ppvOut: *mut *mut void) -> HRESULT;
         }
         #[library("SHLWAPI.dll")]
         extern fn IStream_Copy(#[in] pstmFrom: IStream, #[in] pstmTo: IStream, cb: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IStream_Read(#[in] pstm: IStream, #[buffer(bytes(cb))] #[out] pv: *mut void, #[in] cb: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_ReadPidl(#[in] pstm: IStream, #[out] #[out_ptr] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn IStream_ReadPidl(#[in] pstm: IStream, #[out] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_ReadStr(#[in] pstm: IStream, #[out] #[out_ptr] ppsz: *mut PWSTR) -> HRESULT;
+        extern fn IStream_ReadStr(#[in] pstm: IStream, #[out] ppsz: *mut PWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IStream_Reset(#[in] pstm: IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -214,11 +214,11 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_AtomicRelease(#[in] #[opt] #[out] ppunk: *mut *mut void);
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_GetSite(#[in] punk: IUnknown, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_GetSite(#[in] punk: IUnknown, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_GetWindow(#[in] punk: IUnknown, #[out] phwnd: *mut HWND) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_QueryService(#[in] #[opt] punk: IUnknown, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvOut: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_QueryService(#[in] #[opt] punk: IUnknown, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] ppvOut: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_Set(#[in] #[out] ppunk: *mut IUnknown, #[in] #[opt] punk: IUnknown);
         #[library("SHLWAPI.dll")]
@@ -346,7 +346,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn PathCreateFromUrlA(#[in] pszUrl: PCSTR, #[buffer(*pcchPath)] #[out] pszPath: PSTR, #[in] #[out] pcchPath: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathCreateFromUrlAlloc(#[in] pszIn: PCWSTR, #[out] #[out_ptr] ppszOut: *mut PWSTR, dwFlags: DWORD) -> HRESULT;
+        extern fn PathCreateFromUrlAlloc(#[in] pszIn: PCWSTR, #[out] ppszOut: *mut PWSTR, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn PathCreateFromUrlW(#[in] pszUrl: PCWSTR, #[buffer(*pcchPath)] #[out] pszPath: PWSTR, #[in] #[out] pcchPath: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -534,7 +534,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn PathUnquoteSpacesW(#[in] #[out] lpsz: LPWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn QISearch(#[in] #[out] that: *mut void, #[in] pqit: LPCQITAB, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+        extern fn QISearch(#[in] #[out] that: *mut void, #[in] pqit: LPCQITAB, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         #[packed(8)]
         struct QITAB {
             piid: *const IID,
@@ -572,15 +572,15 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHCreateShellPalette(#[in] #[opt] hdc: HDC) -> HPALETTE;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileA(#[in] pszFile: LPCSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileA(#[in] pszFile: LPCSTR, #[in] grfMode: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileEx(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[in] dwAttributes: DWORD, #[in] fCreate: BOOL, #[in] #[opt] pstmTemplate: IStream, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileEx(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[in] dwAttributes: DWORD, #[in] fCreate: BOOL, #[in] #[opt] pstmTemplate: IStream, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileW(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[out] #[out_ptr] #[retval] ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileW(#[in] pszFile: LPCWSTR, #[in] grfMode: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHCreateThread(#[in] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, #[in] flags: SHCT_FLAGS, #[in] #[opt] pfnCallback: LPTHREAD_START_ROUTINE) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut LONG, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut LONG, #[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHCreateThreadWithHandle(#[in] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, #[in] flags: SHCT_FLAGS, #[in] #[opt] pfnCallback: LPTHREAD_START_ROUTINE, #[opt] #[out] pHandle: *mut HANDLE) -> BOOL;
         #[library("SHLWAPI.dll")]
@@ -682,13 +682,13 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHGetInverseCMAP(#[buffer(bytes(cbMap))] #[out] pbMap: *mut BYTE, cbMap: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetThreadRef(#[out] #[out_ptr(null_on_failure)] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHGetThreadRef(#[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHGetValueA(#[in] hkey: HKEY, #[in] #[opt] pszSubKey: LPCSTR, #[in] #[opt] pszValue: LPCSTR, #[opt] #[out] pdwType: *mut DWORD, #[incomplete] #[opt] #[out] pvData: *mut void, #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHGetValueW(#[in] hkey: HKEY, #[in] #[opt] pszSubKey: LPCWSTR, #[in] #[opt] pszValue: LPCWSTR, #[opt] #[out] pdwType: *mut DWORD, #[incomplete] #[opt] #[out] pvData: *mut void, #[in] #[opt] #[out] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetViewStatePropertyBag(#[in] #[opt] pidl: LPCITEMIDLIST, #[in] #[opt] pszBagName: PCWSTR, dwFlags: DWORD, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetViewStatePropertyBag(#[in] #[opt] pidl: LPCITEMIDLIST, #[in] #[opt] pszBagName: PCWSTR, dwFlags: DWORD, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32;
         #[library("SHLWAPI.dll")]
@@ -823,9 +823,9 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHSkipJunction(#[in] #[opt] pbc: IBindCtx, #[in] pclsid: *const CLSID) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHStrDupA(#[in] psz: LPCSTR, #[out] #[out_ptr(null_on_failure)] ppwsz: *mut LPWSTR) -> HRESULT;
+        extern fn SHStrDupA(#[in] psz: LPCSTR, #[out] ppwsz: *mut LPWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHStrDupW(#[in] psz: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppwsz: *mut LPWSTR) -> HRESULT;
+        extern fn SHStrDupW(#[in] psz: LPCWSTR, #[out] ppwsz: *mut LPWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHStripMneumonicA(#[in] #[out] pszMenu: LPSTR) -> CHAR;
         #[library("SHLWAPI.dll")]
@@ -987,15 +987,15 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn StrRStrIW(#[in] pszSource: PCWSTR, #[in] #[opt] pszLast: PCWSTR, #[in] pszSrch: PCWSTR) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToBSTR(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] #[out_ptr] pbstr: *mut BSTR) -> HRESULT;
+        extern fn StrRetToBSTR(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] pbstr: *mut BSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn StrRetToBufA(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[buffer(cchBuf)] #[out] pszBuf: LPSTR, cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn StrRetToBufW(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[buffer(cchBuf)] #[out] pszBuf: LPWSTR, cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToStrA(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppsz: *mut LPSTR) -> HRESULT;
+        extern fn StrRetToStrA(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] ppsz: *mut LPSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToStrW(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppsz: *mut LPWSTR) -> HRESULT;
+        extern fn StrRetToStrW(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] pidl: LPCITEMIDLIST, #[out] ppsz: *mut LPWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn StrSpnA(#[in] psz: PCSTR, #[in] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]

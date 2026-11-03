@@ -239,7 +239,10 @@ impl IBootOptions_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -251,7 +254,10 @@ impl IBootOptions_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -269,7 +275,10 @@ impl IBootOptions_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -287,7 +296,10 @@ impl IBootOptions_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -305,7 +317,10 @@ impl IBootOptions_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -406,7 +421,10 @@ impl IEnumFsiItems_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -496,7 +514,10 @@ impl IEnumProgressItems_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1014,7 +1035,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1026,7 +1050,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1044,7 +1071,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1068,7 +1098,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1080,7 +1113,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1098,7 +1134,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1110,7 +1149,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1128,7 +1170,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1140,7 +1185,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1152,7 +1200,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1170,7 +1221,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1182,7 +1236,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1200,7 +1257,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1218,7 +1278,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1236,7 +1299,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1254,7 +1320,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1266,7 +1335,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1296,7 +1368,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1308,7 +1383,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1320,7 +1398,10 @@ impl IFileSystemImage_Vtbl {
                         resultstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1332,7 +1413,10 @@ impl IFileSystemImage_Vtbl {
                         itemtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        itemtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1344,7 +1428,10 @@ impl IFileSystemImage_Vtbl {
                         discidentifier.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        discidentifier.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1356,7 +1443,10 @@ impl IFileSystemImage_Vtbl {
                         filesystems.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filesystems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1368,7 +1458,10 @@ impl IFileSystemImage_Vtbl {
                         importdefault.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        importdefault.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1380,7 +1473,10 @@ impl IFileSystemImage_Vtbl {
                         importedfilesystem.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        importedfilesystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1410,7 +1506,10 @@ impl IFileSystemImage_Vtbl {
                         newitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1422,7 +1521,10 @@ impl IFileSystemImage_Vtbl {
                         newitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1434,7 +1536,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1446,7 +1551,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1458,7 +1566,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1470,7 +1581,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1488,7 +1602,10 @@ impl IFileSystemImage_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1613,7 +1730,10 @@ impl IFileSystemImage2_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1702,7 +1822,10 @@ impl IFileSystemImage3_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1720,7 +1843,10 @@ impl IFileSystemImage3_Vtbl {
                         isappendable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isappendable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1823,7 +1949,10 @@ impl IFileSystemImageResult_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1835,7 +1964,10 @@ impl IFileSystemImageResult_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1847,7 +1979,10 @@ impl IFileSystemImageResult_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1859,7 +1994,10 @@ impl IFileSystemImageResult_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1871,7 +2009,10 @@ impl IFileSystemImageResult_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1936,7 +2077,10 @@ impl IFileSystemImageResult2_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2062,7 +2206,10 @@ impl IFsiDirectoryItem_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2074,7 +2221,10 @@ impl IFsiDirectoryItem_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2086,7 +2236,10 @@ impl IFsiDirectoryItem_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2098,7 +2251,10 @@ impl IFsiDirectoryItem_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2301,7 +2457,10 @@ impl IFsiFileItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2313,7 +2472,10 @@ impl IFsiFileItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2325,7 +2487,10 @@ impl IFsiFileItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2337,7 +2502,10 @@ impl IFsiFileItem_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2454,7 +2622,10 @@ impl IFsiFileItem2_Vtbl {
                         streams.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streams.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2466,7 +2637,10 @@ impl IFsiFileItem2_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2490,7 +2664,10 @@ impl IFsiFileItem2_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2666,7 +2843,10 @@ impl IFsiItem_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2678,7 +2858,10 @@ impl IFsiItem_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2690,7 +2873,10 @@ impl IFsiItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2708,7 +2894,10 @@ impl IFsiItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2726,7 +2915,10 @@ impl IFsiItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2744,7 +2936,10 @@ impl IFsiItem_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2762,7 +2957,10 @@ impl IFsiItem_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2774,7 +2972,10 @@ impl IFsiItem_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2874,7 +3075,10 @@ impl IFsiNamedStreams_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2886,7 +3090,10 @@ impl IFsiNamedStreams_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2898,7 +3105,10 @@ impl IFsiNamedStreams_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2910,7 +3120,10 @@ impl IFsiNamedStreams_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3004,7 +3217,10 @@ impl IIsoImageManager_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3016,7 +3232,10 @@ impl IIsoImageManager_Vtbl {
                         data.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        data.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3136,7 +3355,10 @@ impl IProgressItem_Vtbl {
                         desc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        desc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3148,7 +3370,10 @@ impl IProgressItem_Vtbl {
                         block.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        block.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3160,7 +3385,10 @@ impl IProgressItem_Vtbl {
                         block.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        block.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3172,7 +3400,10 @@ impl IProgressItem_Vtbl {
                         blocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blocks.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3276,7 +3507,10 @@ impl IProgressItems_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3288,7 +3522,10 @@ impl IProgressItems_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3300,7 +3537,10 @@ impl IProgressItems_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3312,7 +3552,10 @@ impl IProgressItems_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3324,7 +3567,10 @@ impl IProgressItems_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        item.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3336,7 +3582,10 @@ impl IProgressItems_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

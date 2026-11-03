@@ -1769,7 +1769,7 @@ mod Windows {
         #[library("WININET.dll")]
         extern fn InternetGetCookieA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[buffer(*lpdwSize)] #[opt] #[out] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD) -> BOOL;
         #[library("WININET.dll")]
-        extern fn InternetGetCookieEx2(#[in] pcwszUrl: PCWSTR, #[in] #[opt] pcwszCookieName: PCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppCookies: *mut *mut INTERNET_COOKIE2, #[out] pdwCookieCount: PDWORD) -> DWORD;
+        extern fn InternetGetCookieEx2(#[in] pcwszUrl: PCWSTR, #[in] #[opt] pcwszCookieName: PCWSTR, #[in] dwFlags: DWORD, #[out] ppCookies: *mut *mut INTERNET_COOKIE2, #[out] pdwCookieCount: PDWORD) -> DWORD;
         #[library("WININET.dll")]
         extern fn InternetGetCookieExA(#[in] lpszUrl: LPCSTR, #[in] #[opt] lpszCookieName: LPCSTR, #[buffer(*lpdwSize)] #[in] #[opt] lpszCookieData: LPSTR, #[in] #[out] lpdwSize: LPDWORD, #[in] dwFlags: DWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("WININET.dll")]

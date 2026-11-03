@@ -10,7 +10,7 @@ mod Windows {
         #[library("ACTIVEDS.dll")]
         extern fn ADsDecodeBinaryData(szSrcData: LPCWSTR, ppbDestData: *mut PBYTE, pdwDestLen: *mut ULONG) -> HRESULT;
         #[library("ACTIVEDS.dll")]
-        extern fn ADsEncodeBinaryData(pbSrcData: PBYTE, dwSrcLen: DWORD, #[out] #[out_ptr] ppszDestData: *mut LPWSTR) -> HRESULT;
+        extern fn ADsEncodeBinaryData(pbSrcData: PBYTE, dwSrcLen: DWORD, #[out] ppszDestData: *mut LPWSTR) -> HRESULT;
         #[library("ACTIVEDS.dll")]
         extern fn ADsEnumerateNext(pEnumVariant: IEnumVARIANT, cElements: ULONG, pvar: *mut VARIANT, pcElementsFetched: *mut ULONG) -> HRESULT;
         #[library("ACTIVEDS.dll")]

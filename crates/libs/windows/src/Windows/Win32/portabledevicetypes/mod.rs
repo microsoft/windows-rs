@@ -788,7 +788,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -830,7 +833,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -848,7 +854,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -866,7 +875,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -884,7 +896,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1034,7 +1049,10 @@ impl IPortableDeviceValuesCollection_Vtbl {
                         ppvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1142,7 +1160,10 @@ impl IWpdSerializer_Vtbl {
                         ppparams.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparams.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

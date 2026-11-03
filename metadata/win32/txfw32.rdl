@@ -69,9 +69,9 @@ mod Windows {
         #[library("txfw32.dll")]
         extern fn TxfGetThreadMiniVersionForCreate(#[out] MiniVersion: PUSHORT);
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateFileReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] TxfFileId: PTXF_ID, #[out] #[out_ptr] TxfLogContext: *mut PVOID) -> BOOL;
+        extern fn TxfLogCreateFileReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] TxfFileId: PTXF_ID, #[out] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateRangeReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] BeginningVirtualClock: PLARGE_INTEGER, #[in] EndingVirtualClock: PLARGE_INTEGER, #[in] RecordTypeMask: ULONG, #[out] #[out_ptr] TxfLogContext: *mut PVOID) -> BOOL;
+        extern fn TxfLogCreateRangeReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] BeginningVirtualClock: PLARGE_INTEGER, #[in] EndingVirtualClock: PLARGE_INTEGER, #[in] RecordTypeMask: ULONG, #[out] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
         extern fn TxfLogDestroyReadContext(#[in] TxfLogContext: PVOID) -> BOOL;
         #[library("txfw32.dll")]

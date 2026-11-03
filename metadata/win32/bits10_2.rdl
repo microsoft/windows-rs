@@ -5,7 +5,7 @@ mod Windows {
         #[guid(0xb591a192_a405_4fc3_8323_4c5c542578fc)]
         interface IBackgroundCopyJobHttpOptions2: IBackgroundCopyJobHttpOptions {
             fn SetHttpMethod(&self, #[in] method: LPCWSTR) -> HRESULT;
-            fn GetHttpMethod(&self, #[out] #[out_ptr] method: *mut LPWSTR) -> HRESULT;
+            fn GetHttpMethod(&self, #[out] method: *mut LPWSTR) -> HRESULT;
         }
     }
 }

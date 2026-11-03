@@ -4219,7 +4219,10 @@ impl ICCSubStreamFiltering_Vtbl {
                         ptypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4312,7 +4315,10 @@ impl IESEvent_Vtbl {
                         pdweventid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdweventid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4324,7 +4330,10 @@ impl IESEvent_Vtbl {
                         pguideventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pguideventtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4342,7 +4351,10 @@ impl IESEvent_Vtbl {
                         pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4354,7 +4366,10 @@ impl IESEvent_Vtbl {
                         pbstrdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4479,7 +4494,10 @@ impl IEnumPIDMap_Vtbl {
                         ppienumpidmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumpidmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4679,7 +4697,10 @@ impl IMPEG2PIDMap_Vtbl {
                         pienumpidmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pienumpidmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -280,7 +280,10 @@ impl IWICComponentFactory_Vtbl {
                         ppireader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppireader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -292,7 +295,10 @@ impl IWICComponentFactory_Vtbl {
                         ppireader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppireader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -304,7 +310,10 @@ impl IWICComponentFactory_Vtbl {
                         ppiwriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -316,7 +325,10 @@ impl IWICComponentFactory_Vtbl {
                         ppiwriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -328,7 +340,10 @@ impl IWICComponentFactory_Vtbl {
                         ppiqueryreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiqueryreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -340,7 +355,10 @@ impl IWICComponentFactory_Vtbl {
                         ppiquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -352,7 +370,10 @@ impl IWICComponentFactory_Vtbl {
                         ppipropertybag.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipropertybag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -446,7 +467,10 @@ impl IWICMetadataBlockReader_Vtbl {
                         ppimetadatareader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadatareader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -458,7 +482,10 @@ impl IWICMetadataBlockReader_Vtbl {
                         ppienummetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienummetadata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -560,7 +587,10 @@ impl IWICMetadataBlockWriter_Vtbl {
                         ppimetadatawriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadatawriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -814,7 +844,10 @@ impl IWICMetadataReader_Vtbl {
                         ppihandler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppihandler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -844,7 +877,10 @@ impl IWICMetadataReader_Vtbl {
                         ppienummetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienummetadata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -939,7 +975,10 @@ impl IWICMetadataReaderInfo_Vtbl {
                         ppireader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppireader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1108,7 +1147,10 @@ impl IWICMetadataWriterInfo_Vtbl {
                         ppiwriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1248,7 +1290,10 @@ impl IWICStreamProvider_Vtbl {
                         ppistream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppistream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

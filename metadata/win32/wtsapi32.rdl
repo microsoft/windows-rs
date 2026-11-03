@@ -141,7 +141,7 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthDuplicateSerializedUserCredential(#[in] userCredential: *const WTS_SERIALIZED_USER_CREDENTIAL, #[out] duplicatedUserCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSCloudAuthGetServerNonce(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[null_terminated(success, indirect)] #[out] #[out_ptr] serverNonce: *mut PWSTR) -> BOOL;
+        extern fn WTSCloudAuthGetServerNonce(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[null_terminated(success, indirect)] #[out] serverNonce: *mut PWSTR) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthNetworkLogonWithSerializedCredential(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[in] userCredential: *mut WTS_SERIALIZED_USER_CREDENTIAL, #[out] token: *mut HANDLE) -> BOOL;
         #[library("WTSAPI32.dll")]

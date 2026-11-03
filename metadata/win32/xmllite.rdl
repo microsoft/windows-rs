@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("XmlLite.dll")]
-        extern fn CreateXmlReader(#[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut *mut void, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
+        extern fn CreateXmlReader(#[in] riid: &IID, #[out] ppvObject: *mut *mut void, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
         #[library("XmlLite.dll")]
         extern fn CreateXmlReaderInputWithEncodingCodePage(#[in] pInputStream: IUnknown, #[in] #[opt] pMalloc: IMalloc, #[in] nEncodingCodePage: UINT, #[in] fEncodingHint: BOOL, #[in] #[opt] pwszBaseUri: LPCWSTR, #[out] ppInput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]

@@ -713,10 +713,10 @@ mod Windows {
         extern fn DsClientMakeSpnForTargetServerW(#[in] ServiceClass: LPCWSTR, #[in] ServiceName: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[buffer(*pcSpnLength)] #[out] pszSpn: LPWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsCrackNamesA(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[buffer(cNames)] #[in] rpNames: *const LPCSTR, #[out] #[out_ptr] ppResult: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsCrackNamesA(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[buffer(cNames)] #[in] rpNames: *const LPCSTR, #[out] ppResult: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsCrackNamesW(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[buffer(cNames)] #[in] rpNames: *const LPCWSTR, #[out] #[out_ptr] ppResult: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsCrackNamesW(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[buffer(cNames)] #[in] rpNames: *const LPCWSTR, #[out] ppResult: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsFreeDomainControllerInfoA(InfoLevel: DWORD, cInfo: DWORD, #[buffer(cInfo)] #[in] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
@@ -741,10 +741,10 @@ mod Windows {
         extern fn DsFreeSpnArrayW(#[in] cSpn: DWORD, #[buffer(cSpn)] #[in] #[out] rpszSpn: *mut LPWSTR);
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsGetDomainControllerInfoA(#[in] hDs: HANDLE, #[in] DomainName: LPCSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        extern fn DsGetDomainControllerInfoA(#[in] hDs: HANDLE, #[in] DomainName: LPCSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] ppInfo: *mut *mut void) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsGetDomainControllerInfoW(#[in] hDs: HANDLE, #[in] DomainName: LPCWSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        extern fn DsGetDomainControllerInfoW(#[in] hDs: HANDLE, #[in] DomainName: LPCWSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] ppInfo: *mut *mut void) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsGetSpnA(#[in] ServiceType: DS_SPN_NAME_TYPE, #[in] ServiceClass: LPCSTR, #[in] #[opt] ServiceName: LPCSTR, #[in] InstancePort: USHORT, #[in] cInstanceNames: USHORT, #[buffer(cInstanceNames)] #[in] #[opt] pInstanceNames: *mut LPCSTR, #[buffer(cInstanceNames)] #[in] #[opt] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[incomplete] #[out] prpszSpn: *mut *mut LPSTR) -> DWORD;
@@ -759,40 +759,40 @@ mod Windows {
         extern fn DsInheritSecurityIdentityW(#[in] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] SrcPrincipal: LPCWSTR, #[in] DstPrincipal: LPCWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListDomainsInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] #[out_ptr] ppDomains: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListDomainsInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] ppDomains: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListDomainsInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] #[out_ptr] ppDomains: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListDomainsInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] ppDomains: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListInfoForServerA(#[in] hDs: HANDLE, #[in] server: LPCSTR, #[out] #[out_ptr] ppInfo: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListInfoForServerA(#[in] hDs: HANDLE, #[in] server: LPCSTR, #[out] ppInfo: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListInfoForServerW(#[in] hDs: HANDLE, #[in] server: LPCWSTR, #[out] #[out_ptr] ppInfo: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListInfoForServerW(#[in] hDs: HANDLE, #[in] server: LPCWSTR, #[out] ppInfo: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListRolesA(#[in] hDs: HANDLE, #[out] #[out_ptr] ppRoles: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListRolesA(#[in] hDs: HANDLE, #[out] ppRoles: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListRolesW(#[in] hDs: HANDLE, #[out] #[out_ptr] ppRoles: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListRolesW(#[in] hDs: HANDLE, #[out] ppRoles: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListServersForDomainInSiteA(#[in] hDs: HANDLE, #[in] domain: LPCSTR, #[in] site: LPCSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListServersForDomainInSiteA(#[in] hDs: HANDLE, #[in] domain: LPCSTR, #[in] site: LPCSTR, #[out] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListServersForDomainInSiteW(#[in] hDs: HANDLE, #[in] domain: LPCWSTR, #[in] site: LPCWSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListServersForDomainInSiteW(#[in] hDs: HANDLE, #[in] domain: LPCWSTR, #[in] site: LPCWSTR, #[out] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListServersInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListServersInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListServersInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListServersInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListSitesA(#[in] hDs: HANDLE, #[out] #[out_ptr] ppSites: *mut PDS_NAME_RESULTA) -> DWORD;
+        extern fn DsListSitesA(#[in] hDs: HANDLE, #[out] ppSites: *mut PDS_NAME_RESULTA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsListSitesW(#[in] hDs: HANDLE, #[out] #[out_ptr] ppSites: *mut PDS_NAME_RESULTW) -> DWORD;
+        extern fn DsListSitesW(#[in] hDs: HANDLE, #[out] ppSites: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsMakePasswordCredentialsA(#[in] #[opt] User: LPCSTR, #[in] #[opt] Domain: LPCSTR, #[in] #[opt] Password: LPCSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
@@ -801,16 +801,16 @@ mod Windows {
         extern fn DsMakePasswordCredentialsW(#[in] #[opt] User: LPCWSTR, #[in] #[opt] Domain: LPCWSTR, #[in] #[opt] Password: LPCWSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsMapSchemaGuidsA(#[in] hDs: HANDLE, cGuids: DWORD, #[buffer(cGuids)] #[in] rGuids: *mut GUID, #[out] #[out_ptr] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> DWORD;
+        extern fn DsMapSchemaGuidsA(#[in] hDs: HANDLE, cGuids: DWORD, #[buffer(cGuids)] #[in] rGuids: *mut GUID, #[out] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsMapSchemaGuidsW(#[in] hDs: HANDLE, cGuids: DWORD, #[buffer(cGuids)] #[in] rGuids: *mut GUID, #[out] #[out_ptr] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> DWORD;
+        extern fn DsMapSchemaGuidsW(#[in] hDs: HANDLE, cGuids: DWORD, #[buffer(cGuids)] #[in] rGuids: *mut GUID, #[out] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsQuerySitesByCostA(#[in] hDS: HANDLE, #[in] pszFromSite: LPSTR, #[buffer(cToSites)] #[in] rgszToSites: *mut LPSTR, cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[out_ptr] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        extern fn DsQuerySitesByCostA(#[in] hDS: HANDLE, #[in] pszFromSite: LPSTR, #[buffer(cToSites)] #[in] rgszToSites: *mut LPSTR, cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsQuerySitesByCostW(#[in] hDS: HANDLE, #[in] pwszFromSite: LPWSTR, #[buffer(cToSites)] #[in] rgwszToSites: *mut LPWSTR, #[in] cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[out_ptr] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        extern fn DsQuerySitesByCostW(#[in] hDS: HANDLE, #[in] pwszFromSite: LPWSTR, #[buffer(cToSites)] #[in] rgwszToSites: *mut LPWSTR, #[in] cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsQuerySitesFree(#[in] rgSiteInfo: PDS_SITE_COST_INFO);
         #[library("NTDSAPI.dll")]
@@ -844,10 +844,10 @@ mod Windows {
         extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, #[in] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaGetInfo2W(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[in] #[opt] pszAttributeName: LPCWSTR, #[in] #[opt] pszValue: LPCWSTR, dwFlags: DWORD, dwEnumerationContext: DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        extern fn DsReplicaGetInfo2W(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[in] #[opt] pszAttributeName: LPCWSTR, #[in] #[opt] pszValue: LPCWSTR, dwFlags: DWORD, dwEnumerationContext: DWORD, #[out] ppInfo: *mut *mut void) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaGetInfoW(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        extern fn DsReplicaGetInfoW(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[out] ppInfo: *mut *mut void) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsReplicaModifyA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] #[opt] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCSTR, #[in] SourceDsaAddress: LPCSTR, #[in] #[opt] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
@@ -859,10 +859,10 @@ mod Windows {
         extern fn DsReplicaSyncA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaSyncAllA(#[in] hDS: HANDLE, #[in] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
+        extern fn DsReplicaSyncAllA(#[in] hDS: HANDLE, #[in] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
-        extern fn DsReplicaSyncAllW(#[in] hDS: HANDLE, #[in] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] #[out_ptr] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
+        extern fn DsReplicaSyncAllW(#[in] hDS: HANDLE, #[in] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[null_terminated(success, indirect)] #[nullable] #[out] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
         #[library("NTDSAPI.dll")]
         #[must_use]
         extern fn DsReplicaSyncW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;

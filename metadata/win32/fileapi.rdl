@@ -169,9 +169,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetFinalPathNameByHandleW(#[in] hFile: HANDLE, #[buffer(cchFilePath)] #[out] lpszFilePath: LPWSTR, #[in] cchFilePath: DWORD, #[in] dwFlags: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPSTR) -> DWORD;
+        extern fn GetFullPathNameA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[opt] #[out] lpFilePart: *mut LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPWSTR) -> DWORD;
+        extern fn GetFullPathNameW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR, #[opt] #[out] lpFilePart: *mut LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetLogicalDriveStringsW(#[in] nBufferLength: DWORD, #[buffer(nBufferLength)] #[incomplete] #[opt] #[out] lpBuffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]

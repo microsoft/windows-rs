@@ -7,16 +7,16 @@ mod Windows {
         interface IAMCollection: IDispatch {
             #[special]
             fn get_Count(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
-            fn Item(&self, #[in] lItem: i32, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] lItem: i32, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xbc9bcf80_dcd2_11d2_abf6_00a0c905f375)]
         interface IAMStats: IDispatch {
             fn Reset(&self) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
-            fn GetValueByIndex(&self, #[in] lIndex: i32, #[out] #[out_ptr] szName: *mut BSTR, #[out] lCount: *mut i32, #[out] dLast: *mut f64, #[out] dAverage: *mut f64, #[out] dStdDev: *mut f64, #[out] dMin: *mut f64, #[out] dMax: *mut f64) -> HRESULT;
+            fn GetValueByIndex(&self, #[in] lIndex: i32, #[out] szName: *mut BSTR, #[out] lCount: *mut i32, #[out] dLast: *mut f64, #[out] dAverage: *mut f64, #[out] dStdDev: *mut f64, #[out] dMin: *mut f64, #[out] dMax: *mut f64) -> HRESULT;
             fn GetValueByName(&self, #[in] szName: BSTR, #[out] lIndex: *mut i32, #[out] lCount: *mut i32, #[out] dLast: *mut f64, #[out] dAverage: *mut f64, #[out] dStdDev: *mut f64, #[out] dMin: *mut f64, #[out] dMax: *mut f64) -> HRESULT;
             fn GetIndex(&self, #[in] szName: BSTR, #[in] lCreate: i32, #[out] plIndex: *mut i32) -> HRESULT;
             fn AddValue(&self, #[in] lIndex: i32, #[in] dValue: f64) -> HRESULT;
@@ -101,19 +101,19 @@ mod Windows {
         }
         #[guid(0x56a868ba_0ad4_11ce_b03a_0020af0ba770)]
         interface IFilterInfo: IDispatch {
-            fn FindPin(&self, #[in] strPinID: BSTR, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn FindPin(&self, #[in] strPinID: BSTR, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_VendorInfo(&self, #[out] #[out_ptr] #[retval] strVendorInfo: *mut BSTR) -> HRESULT;
+            fn get_VendorInfo(&self, #[out] #[retval] strVendorInfo: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Filter(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get_Filter(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
             #[special]
-            fn get_Pins(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_Pins(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
             fn get_IsFileSource(&self, #[out] #[retval] pbIsSource: *mut LONG) -> HRESULT;
             #[special]
-            fn get_Filename(&self, #[out] #[out_ptr] #[retval] pstrFilename: *mut BSTR) -> HRESULT;
+            fn get_Filename(&self, #[out] #[retval] pstrFilename: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Filename(&self, #[in] strFilename: BSTR) -> HRESULT;
         }
@@ -140,11 +140,11 @@ mod Windows {
             fn Stop(&self) -> HRESULT;
             fn GetState(&self, #[in] msTimeout: LONG, #[out] pfs: *mut OAFilterState) -> HRESULT;
             fn RenderFile(&self, #[in] strFilename: BSTR) -> HRESULT;
-            fn AddSourceFilter(&self, #[in] strFilename: BSTR, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn AddSourceFilter(&self, #[in] strFilename: BSTR, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_FilterCollection(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_FilterCollection(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_RegFilterCollection(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_RegFilterCollection(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             fn StopWhenReady(&self) -> HRESULT;
         }
         #[guid(0x56a868b6_0ad4_11ce_b03a_0020af0ba770)]
@@ -188,28 +188,28 @@ mod Windows {
         #[guid(0x56a868bc_0ad4_11ce_b03a_0020af0ba770)]
         interface IMediaTypeInfo: IDispatch {
             #[special]
-            fn get_Type(&self, #[out] #[out_ptr] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn get_Type(&self, #[out] #[retval] strType: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Subtype(&self, #[out] #[out_ptr] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn get_Subtype(&self, #[out] #[retval] strType: *mut BSTR) -> HRESULT;
         }
         #[guid(0x56a868bd_0ad4_11ce_b03a_0020af0ba770)]
         interface IPinInfo: IDispatch {
             #[special]
-            fn get_Pin(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get_Pin(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
             #[special]
-            fn get_ConnectedTo(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_ConnectedTo(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_ConnectionMediaType(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_ConnectionMediaType(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_FilterInfo(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_FilterInfo(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] ppUnk: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Direction(&self, #[out] #[retval] ppDirection: *mut LONG) -> HRESULT;
             #[special]
-            fn get_PinID(&self, #[out] #[out_ptr] #[retval] strPinID: *mut BSTR) -> HRESULT;
+            fn get_PinID(&self, #[out] #[retval] strPinID: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_MediaTypes(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_MediaTypes(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             fn Connect(&self, #[in] #[opt] pPin: IUnknown) -> HRESULT;
             fn ConnectDirect(&self, #[in] #[opt] pPin: IUnknown) -> HRESULT;
             fn ConnectWithType(&self, #[in] #[opt] pPin: IUnknown, #[in] #[opt] pMediaType: IDispatch) -> HRESULT;
@@ -218,21 +218,21 @@ mod Windows {
         }
         #[guid(0x56a868b7_0ad4_11ce_b03a_0020af0ba770)]
         interface IQueueCommand: IUnknown {
-            fn InvokeAtStreamTime(&self, #[out] #[out_ptr] pCmd: *mut IDeferredCommand, #[in] time: REFTIME, #[in] iid: *mut GUID, #[in] dispidMethod: i32, #[in] wFlags: i16, #[in] cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, #[out] puArgErr: *mut i16) -> HRESULT;
-            fn InvokeAtPresentationTime(&self, #[out] #[out_ptr] pCmd: *mut IDeferredCommand, #[in] time: REFTIME, #[in] iid: *mut GUID, #[in] dispidMethod: i32, #[in] wFlags: i16, #[in] cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, #[out] puArgErr: *mut i16) -> HRESULT;
+            fn InvokeAtStreamTime(&self, #[out] pCmd: *mut IDeferredCommand, #[in] time: REFTIME, #[in] iid: *mut GUID, #[in] dispidMethod: i32, #[in] wFlags: i16, #[in] cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, #[out] puArgErr: *mut i16) -> HRESULT;
+            fn InvokeAtPresentationTime(&self, #[out] pCmd: *mut IDeferredCommand, #[in] time: REFTIME, #[in] iid: *mut GUID, #[in] dispidMethod: i32, #[in] wFlags: i16, #[in] cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, #[out] puArgErr: *mut i16) -> HRESULT;
         }
         #[guid(0x56a868bb_0ad4_11ce_b03a_0020af0ba770)]
         interface IRegFilterInfo: IDispatch {
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
-            fn Filter(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn Filter(&self, #[out] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
         }
         #[guid(0x56a868b4_0ad4_11ce_b03a_0020af0ba770)]
         interface IVideoWindow: IDispatch {
             #[special]
             fn put_Caption(&self, #[in] strCaption: BSTR) -> HRESULT;
             #[special]
-            fn get_Caption(&self, #[out] #[out_ptr] #[retval] strCaption: *mut BSTR) -> HRESULT;
+            fn get_Caption(&self, #[out] #[retval] strCaption: *mut BSTR) -> HRESULT;
             #[special]
             fn put_WindowStyle(&self, #[in] WindowStyle: i32) -> HRESULT;
             #[special]

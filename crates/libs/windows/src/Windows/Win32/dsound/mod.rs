@@ -813,7 +813,10 @@ impl IDirectSound_Vtbl {
                         ppdsbufferduplicate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdsbufferduplicate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2888,7 +2891,10 @@ impl IDirectSoundFullDuplex_Vtbl {
                         lplpdirectsoundbuffer8.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lplpdirectsoundbuffer8.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

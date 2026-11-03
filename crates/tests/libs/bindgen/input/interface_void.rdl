@@ -5,5 +5,8 @@ mod Test {
     interface Interface {
         fn Execute(&self);
         fn Method(&self) -> i32;
+        fn Text(&self) -> String;
+        fn Values(&self) -> [u8];
+        fn Partial(&self, #[out] value: u32) -> u32;
     }
 }

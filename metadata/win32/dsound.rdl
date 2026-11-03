@@ -536,26 +536,26 @@ mod Windows {
         const DS_OK: HRESULT = 0;
         const DS_UNCERTIFIED: i32 = 1;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC: *mut LPDIRECTSOUNDCAPTURE, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCaptureCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] ppDSC: *mut LPDIRECTSOUNDCAPTURE, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDSC8: *mut LPDIRECTSOUNDCAPTURE8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCaptureCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] ppDSC8: *mut LPDIRECTSOUNDCAPTURE8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureEnumerateA(#[in] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureEnumerateW(#[in] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         #[must_use]
-        extern fn DirectSoundCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS: *mut LPDIRECTSOUND, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] ppDS: *mut LPDIRECTSOUND, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS8: *mut LPDIRECTSOUND8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] ppDS8: *mut LPDIRECTSOUND8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundEnumerateA(#[in] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundEnumerateW(#[in] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundFullDuplexCreate(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll", import = "DirectSoundFullDuplexCreate")]
-        extern fn DirectSoundFullDuplexCreate8(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[out_ptr] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate8(#[in] #[opt] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] pcGuidRenderDevice: LPCGUID, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
         const GUID_All_Objects: GUID = 0xaa114de5_c262_4169_a1c8_23d698cc73b5;
         const GUID_DSCFX_CLASS_AEC: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const GUID_DSCFX_CLASS_NS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
@@ -577,14 +577,14 @@ mod Windows {
         #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
         interface IDirectSound: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] #[out_ptr] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            fn CreateSoundBuffer(&self, #[in] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
             fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
-            fn DuplicateSoundBuffer(&self, #[in] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[out_ptr] #[retval] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
+            fn DuplicateSoundBuffer(&self, #[in] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[retval] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
             fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: DWORD) -> HRESULT;
             fn Compact(&self) -> HRESULT;
             fn GetSpeakerConfig(&self, #[out] pdwSpeakerConfig: LPDWORD) -> HRESULT;
@@ -594,7 +594,7 @@ mod Windows {
         #[guid(0x279afa86_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DBuffer: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -621,7 +621,7 @@ mod Windows {
         #[guid(0x279afa84_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DListener: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -645,7 +645,7 @@ mod Windows {
         #[guid(0xc50a7e93_f395_4834_9ef6_7fa99de50966)]
         interface IDirectSound8: IDirectSound {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -671,7 +671,7 @@ mod Windows {
         #[guid(0x279afa85_4981_11ce_a521_0020af0be560)]
         interface IDirectSoundBuffer: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -698,7 +698,7 @@ mod Windows {
         #[guid(0x6825a449_7524_4d82_920f_50e36ab3ab1e)]
         interface IDirectSoundBuffer8: IDirectSoundBuffer {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -741,24 +741,24 @@ mod Windows {
             fn Restore(&self) -> HRESULT;
             fn SetFX(&self, dwEffectsCount: DWORD, #[buffer(dwEffectsCount)] #[in] #[opt] pDSFXDesc: LPDSEFFECTDESC, #[buffer(dwEffectsCount)] #[opt] #[out] pdwResultCodes: LPDWORD) -> HRESULT;
             fn AcquireResources(&self, dwFlags: DWORD, dwEffectsCount: DWORD, #[buffer(dwEffectsCount)] #[out] pdwResultCodes: LPDWORD) -> HRESULT;
-            fn GetObjectInPath(&self, #[in] rguidObject: &GUID, dwIndex: DWORD, #[in] rguidInterface: &GUID, #[out] #[out_ptr] ppObject: *mut LPVOID) -> HRESULT;
+            fn GetObjectInPath(&self, #[in] rguidObject: &GUID, dwIndex: DWORD, #[in] rguidInterface: &GUID, #[out] ppObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xb0210781_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCapture: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn CreateCaptureBuffer(&self, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[out] #[out_ptr] ppDSCBuffer: *mut LPDIRECTSOUNDCAPTUREBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            fn CreateCaptureBuffer(&self, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[out] ppDSCBuffer: *mut LPDIRECTSOUNDCAPTUREBUFFER, #[incomplete] pUnkOuter: LPUNKNOWN) -> HRESULT;
             fn GetCaps(&self, #[out] pDSCCaps: LPDSCCAPS) -> HRESULT;
             fn Initialize(&self, #[in] #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
         }
         #[guid(0xb0210782_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCaptureBuffer: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -776,7 +776,7 @@ mod Windows {
         #[guid(0x00990df4_0dbb_4872_833e_6d303e80aeb6)]
         interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -799,13 +799,13 @@ mod Windows {
             fn Stop(&self) -> HRESULT;
             #[override_slot(11)]
             fn Unlock(&self, #[buffer(bytes(dwAudioBytes1))] #[in] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[buffer(bytes(dwAudioBytes2))] #[in] #[opt] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
-            fn GetObjectInPath(&self, #[in] rguidObject: &GUID, dwIndex: DWORD, #[in] rguidInterface: &GUID, #[out] #[out_ptr] ppObject: *mut LPVOID) -> HRESULT;
+            fn GetObjectInPath(&self, #[in] rguidObject: &GUID, dwIndex: DWORD, #[in] rguidInterface: &GUID, #[out] ppObject: *mut LPVOID) -> HRESULT;
             fn GetFXStatus(&self, dwEffectsCount: DWORD, #[buffer(dwEffectsCount)] #[out] pdwFXStatus: LPDWORD) -> HRESULT;
         }
         #[guid(0xad74143d_903d_4ab7_8066_28d363036d65)]
         interface IDirectSoundCaptureFXAec: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -818,7 +818,7 @@ mod Windows {
         #[guid(0xed311e41_fbae_4175_9625_cd0854f693ca)]
         interface IDirectSoundCaptureFXNoiseSuppress: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -830,7 +830,7 @@ mod Windows {
         #[guid(0x880842e3_145f_43e6_a934_a71806e50547)]
         interface IDirectSoundFXChorus: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -841,7 +841,7 @@ mod Windows {
         #[guid(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0)]
         interface IDirectSoundFXCompressor: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -852,7 +852,7 @@ mod Windows {
         #[guid(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b)]
         interface IDirectSoundFXDistortion: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -863,7 +863,7 @@ mod Windows {
         #[guid(0x8bd28edf_50db_4e92_a2bd_445488d1ed42)]
         interface IDirectSoundFXEcho: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -874,7 +874,7 @@ mod Windows {
         #[guid(0x903e9878_2c92_4072_9b2c_ea68f5396783)]
         interface IDirectSoundFXFlanger: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -885,7 +885,7 @@ mod Windows {
         #[guid(0xd616f352_d622_11ce_aac5_0020af0b99a3)]
         interface IDirectSoundFXGargle: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -896,7 +896,7 @@ mod Windows {
         #[guid(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4)]
         interface IDirectSoundFXI3DL2Reverb: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -911,7 +911,7 @@ mod Windows {
         #[guid(0xc03ca9fe_fe90_4204_8078_82334cd177da)]
         interface IDirectSoundFXParamEq: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -922,7 +922,7 @@ mod Windows {
         #[guid(0x46858c3a_0dc6_45e3_b760_d4eef16cb325)]
         interface IDirectSoundFXWavesReverb: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -933,17 +933,17 @@ mod Windows {
         #[guid(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d)]
         interface IDirectSoundFullDuplex: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Initialize(&self, #[in] pCaptureGuid: LPCGUID, #[in] pRenderGuid: LPCGUID, #[in] lpDscBufferDesc: LPCDSCBUFFERDESC, #[in] lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[out_ptr] lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[out_ptr] #[retval] lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
+            fn Initialize(&self, #[in] pCaptureGuid: LPCGUID, #[in] pRenderGuid: LPCGUID, #[in] lpDscBufferDesc: LPCDSCBUFFERDESC, #[in] lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[retval] lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
         }
         #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundNotify: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -977,7 +977,7 @@ mod Windows {
         #[guid(0x31efac30_515c_11d0_a9aa_00aa0061be93)]
         interface IKsPropertySet: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -989,7 +989,7 @@ mod Windows {
         #[guid(0x56a86897_0ad4_11ce_b03a_0020af0ba770)]
         interface IReferenceClock: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] param0: &IID, #[out] #[out_ptr] param1: *mut LPVOID) -> HRESULT;
+            fn QueryInterface(&self, #[in] param0: &IID, #[out] param1: *mut LPVOID) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]

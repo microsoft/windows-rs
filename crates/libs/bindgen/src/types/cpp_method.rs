@@ -505,15 +505,6 @@ impl CppMethod {
                 } else {
                     quote! { #result.write(core::mem::transmute(ok__)); }
                 };
-                let error = if last_param.result_null_on_failure() {
-                    quote! {{
-                        #result.write(core::mem::zeroed());
-                        err.into()
-                    }}
-                } else {
-                    quote! { err.into() }
-                };
-
                 quote! {
                     match #parent_impl::#name(this, #(#invoke_args,)*) {
                         Ok(ok__) => {
@@ -521,7 +512,10 @@ impl CppMethod {
                             #write_result
                             windows_core::HRESULT(0)
                         }
-                        Err(err) => #error
+                        Err(err) => {
+                            #result.write_bytes(0, 1);
+                            err.into()
+                        }
                     }
                 }
             }

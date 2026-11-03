@@ -847,10 +847,6 @@ impl Encoder<'_> {
             if path.is_ident("buffer") {
                 return self.err(attr, "buffer requires a parameter owner");
             }
-            if path.is_ident("out_ptr") {
-                self.emit_returned_pointer_attribute(has_attribute, attr)?;
-                continue;
-            }
             if path.is_ident("null_terminated") {
                 self.emit_null_terminated(has_attribute, attr)?;
                 continue;
@@ -871,37 +867,6 @@ impl Encoder<'_> {
             self.encode_named_attribute(has_attribute, &attr_ref);
         }
 
-        Ok(())
-    }
-
-    fn emit_returned_pointer_attribute(
-        &mut self,
-        target: metadata::writer::HasAttribute,
-        attr: &syn::Attribute,
-    ) -> Result<(), Error> {
-        let flags = match &attr.meta {
-            syn::Meta::Path(_) => syn::punctuated::Punctuated::new(),
-            syn::Meta::List(_) => attr
-                .parse_args_with(
-                    syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
-                )
-                .map_err(|error| self.error(attr, &error.to_string()))?,
-            syn::Meta::NameValue(_) => {
-                return self.err(attr, "out_ptr requires optional flag names");
-            }
-        };
-        let mut null_on_failure = false;
-        for flag in flags {
-            match flag.to_string().as_str() {
-                "null_on_failure" if !null_on_failure => null_on_failure = true,
-                _ => return self.err(flag, "unknown or duplicate out_ptr flag"),
-            }
-        }
-        let expanded = syn::parse_quote! {
-            #[Windows::Win32::Metadata::ReturnedPointer(NullOnFailure = #null_on_failure)]
-        };
-        let attr_ref = self.resolve_attribute_ref(&expanded)?;
-        self.encode_named_attribute(target, &attr_ref);
         Ok(())
     }
 

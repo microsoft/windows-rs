@@ -117,7 +117,7 @@ mod Windows {
         extern fn PropVariantGetInt64Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
-        extern fn PropVariantGetStringElem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] #[out_ptr] ppszVal: *mut PWSTR) -> HRESULT;
+        extern fn PropVariantGetStringElem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetUInt16Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -126,7 +126,7 @@ mod Windows {
         extern fn PropVariantGetUInt64Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
-        extern fn PropVariantToBSTR(#[in] propvar: &PROPVARIANT, #[out] #[out_ptr(null_on_failure)] pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn PropVariantToBSTR(#[in] propvar: &PROPVARIANT, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToBoolean(#[in] propvarIn: &PROPVARIANT, #[out] pfRet: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -190,7 +190,7 @@ mod Windows {
         extern fn PropVariantToString(#[in] propvar: &PROPVARIANT, #[buffer(cch)] #[out] psz: PWSTR, #[in] cch: UINT) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
-        extern fn PropVariantToStringAlloc(#[in] propvar: &PROPVARIANT, #[out] #[out_ptr(null_on_failure)] ppszOut: *mut PWSTR) -> HRESULT;
+        extern fn PropVariantToStringAlloc(#[in] propvar: &PROPVARIANT, #[out] ppszOut: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
         extern fn PropVariantToStringVector(#[in] propvar: &PROPVARIANT, #[buffer(crgsz)] #[out] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
@@ -249,7 +249,7 @@ mod Windows {
         extern fn VariantGetInt64Elem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
-        extern fn VariantGetStringElem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] #[out_ptr] ppszVal: *mut PWSTR) -> HRESULT;
+        extern fn VariantGetStringElem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantGetUInt16Elem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -318,7 +318,7 @@ mod Windows {
         extern fn VariantToString(#[in] varIn: &VARIANT, #[buffer(cchBuf)] #[out] pszBuf: PWSTR, #[in] cchBuf: UINT) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
-        extern fn VariantToStringAlloc(#[in] varIn: &VARIANT, #[out] #[out_ptr(null_on_failure)] ppszBuf: *mut PWSTR) -> HRESULT;
+        extern fn VariantToStringAlloc(#[in] varIn: &VARIANT, #[out] ppszBuf: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         #[must_use]
         extern fn VariantToStringArray(#[in] var: &VARIANT, #[buffer(crgsz)] #[out] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;

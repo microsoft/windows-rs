@@ -3133,7 +3133,10 @@ impl IInternetSecurityManager_Vtbl {
                         ppsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4182,7 +4185,10 @@ impl IPersistMoniker_Vtbl {
                         ppimkname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimkname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4881,7 +4887,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4893,7 +4902,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4905,7 +4917,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -92,7 +92,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetThreadContext(#[in] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppszThreadDescription: *mut PWSTR) -> HRESULT;
+        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[null_terminated(success, indirect)] #[out] ppszThreadDescription: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetThreadIOPendingFlag(#[in] hThread: HANDLE, #[out] lpIOIsPending: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -138,11 +138,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn OpenProcess(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwProcessId: DWORD) -> HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenProcessToken(#[in] ProcessHandle: HANDLE, #[in] DesiredAccess: DWORD, #[out] #[out_ptr] TokenHandle: PHANDLE) -> BOOL;
+        extern fn OpenProcessToken(#[in] ProcessHandle: HANDLE, #[in] DesiredAccess: DWORD, #[out] TokenHandle: PHANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn OpenThread(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwThreadId: DWORD) -> #[nullable] HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenThreadToken(#[in] ThreadHandle: HANDLE, #[in] DesiredAccess: DWORD, #[in] OpenAsSelf: BOOL, #[out] #[out_ptr] TokenHandle: PHANDLE) -> BOOL;
+        extern fn OpenThreadToken(#[in] ThreadHandle: HANDLE, #[in] DesiredAccess: DWORD, #[in] OpenAsSelf: BOOL, #[out] TokenHandle: PHANDLE) -> BOOL;
         type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;
         type PAPP_MEMORY_INFORMATION = *mut APP_MEMORY_INFORMATION;
         type PMEMORY_PRIORITY_INFORMATION = *mut MEMORY_PRIORITY_INFORMATION;

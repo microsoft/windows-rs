@@ -92,7 +92,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstraddress1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstraddress1.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -104,7 +107,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstraddress2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstraddress2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -116,7 +122,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstrcity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -128,7 +137,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstrstateprovince.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrstateprovince.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -140,7 +152,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstrpostalcode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpostalcode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -152,7 +167,10 @@ impl ICivicAddressReport_Vtbl {
                         pbstrcountryregion.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcountryregion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -164,7 +182,10 @@ impl ICivicAddressReport_Vtbl {
                         pdetaillevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdetaillevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -227,7 +248,10 @@ impl ICivicAddressReportFactory_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -292,7 +316,10 @@ impl IDefaultLocation_Vtbl {
                         pplocationreport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplocationreport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -414,7 +441,10 @@ impl IDispCivicAddressReport_Vtbl {
                         paddress1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        paddress1.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -426,7 +456,10 @@ impl IDispCivicAddressReport_Vtbl {
                         paddress2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        paddress2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -438,7 +471,10 @@ impl IDispCivicAddressReport_Vtbl {
                         pcity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -450,7 +486,10 @@ impl IDispCivicAddressReport_Vtbl {
                         pstateprovince.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstateprovince.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -462,7 +501,10 @@ impl IDispCivicAddressReport_Vtbl {
                         ppostalcode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppostalcode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -474,7 +516,10 @@ impl IDispCivicAddressReport_Vtbl {
                         pcountryregion.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcountryregion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -486,7 +531,10 @@ impl IDispCivicAddressReport_Vtbl {
                         pdetaillevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdetaillevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -498,7 +546,10 @@ impl IDispCivicAddressReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -626,7 +677,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -638,7 +692,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -650,7 +707,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -662,7 +722,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -674,7 +737,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -686,7 +752,10 @@ impl IDispLatLongReport_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -795,7 +864,10 @@ impl ILatLongReport_Vtbl {
                         platitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        platitude.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -807,7 +879,10 @@ impl ILatLongReport_Vtbl {
                         plongitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plongitude.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -819,7 +894,10 @@ impl ILatLongReport_Vtbl {
                         perrorradius.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        perrorradius.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -831,7 +909,10 @@ impl ILatLongReport_Vtbl {
                         paltitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        paltitude.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -843,7 +924,10 @@ impl ILatLongReport_Vtbl {
                         paltitudeerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        paltitudeerror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -904,7 +988,10 @@ impl ILatLongReportFactory_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1047,7 +1134,10 @@ impl ILocation_Vtbl {
                         pplocationreport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplocationreport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1059,7 +1149,10 @@ impl ILocation_Vtbl {
                         pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1071,7 +1164,10 @@ impl ILocation_Vtbl {
                         pmilliseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmilliseconds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1089,7 +1185,10 @@ impl ILocation_Vtbl {
                         pdesiredaccuracy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdesiredaccuracy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1285,7 +1384,10 @@ impl ILocationReport_Vtbl {
                         psensorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psensorid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1297,7 +1399,10 @@ impl ILocationReport_Vtbl {
                         pcreationtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcreationtime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1309,7 +1414,10 @@ impl ILocationReport_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1449,7 +1557,10 @@ impl ILocationReportFactory_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1461,7 +1572,10 @@ impl ILocationReportFactory_Vtbl {
                         pmilliseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmilliseconds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1479,7 +1593,10 @@ impl ILocationReportFactory_Vtbl {
                         pdesiredaccuracy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdesiredaccuracy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
